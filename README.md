@@ -34,6 +34,7 @@ npm.cmd run typecheck
 npm.cmd run lint
 npm.cmd test
 npm.cmd run validate:content
+npm.cmd run audit:content
 npm.cmd run check:links
 npm.cmd run build
 ```
@@ -43,7 +44,10 @@ npm.cmd run build
 - `content/data`: colecciones YAML validadas.
 - `content/narratives`: narrativas MDX de los expedientes.
 - `src/lib/schemas.ts`: contrato público de datos.
+- `docs/data-methodology.md`: criterios de evidencia, precisión, mapa y revisión jurídica.
 - `docs/design`: referencia visual y QA.
+
+La [metodología de datos](docs/data-methodology.md) explica qué significa verificar una fuente o una afirmación, cómo se expresan las fechas imprecisas y cuáles son los límites del mapa.
 
 ## Contribuciones
 

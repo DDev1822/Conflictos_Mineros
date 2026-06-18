@@ -12,11 +12,13 @@
   timeline:
     - id: tambogrande-proyecto
       date: 1999-01-01
+      datePrecision: year
       title: Proyecto y controversia territorial
       summary: Se intensifica el debate sobre compatibilidad entre actividad minera y economía agrícola local.
-      sourceIds: [defensoria-conflictos]
+      sourceIds: [defensoria-conflictos, tambogrande-muradian-2003]
     - id: tambogrande-consulta
       date: 2002-06-02
+      datePrecision: day
       title: Consulta vecinal
       summary: La consulta se convierte en un hito nacional del debate sobre participación y decisiones extractivas.
       sourceIds: [defensoria-conflictos]
@@ -24,12 +26,15 @@
     - id: tambogrande-hecho-1
       kind: fact
       text: El caso articuló controversias sobre uso del territorio, agricultura, participación y viabilidad de un proyecto minero.
-      sourceIds: [defensoria-conflictos]
+      sourceIds: [defensoria-conflictos, tambogrande-muradian-2003]
+      verificationStatus: partial
     - id: tambogrande-interpretacion-1
       kind: interpretation
       text: Su relevancia histórica reside en haber situado la legitimidad territorial junto a los procedimientos sectoriales formales.
-      sourceIds: [defensoria-conflictos, metodologia-observatorio]
-  updatedAt: 2026-06-17
+      sourceIds: [defensoria-conflictos, tambogrande-muradian-2003, metodologia-observatorio]
+      verificationStatus: partial
+  cutoffDate: 2026-06-18
+  updatedAt: 2026-06-18
   reviewStatus: legal-pending
 - id: conga
   slug: conga
@@ -45,11 +50,13 @@
   timeline:
     - id: conga-eia
       date: 2010-10-27
+      datePrecision: day
       title: Evaluación ambiental del proyecto
       summary: La evaluación del proyecto pasa al centro del debate público y técnico.
-      sourceIds: [senace-evaluacion, defensoria-conflictos]
+      sourceIds: [senace-evaluacion, defensoria-conflictos, conga-millones-2016]
     - id: conga-conflicto
       date: 2011-11-01
+      datePrecision: month
       title: Escalamiento del conflicto
       summary: Las movilizaciones y medidas estatales convierten el agua y la confianza en ejes nacionales de discusión.
       sourceIds: [defensoria-conflictos]
@@ -57,12 +64,15 @@
     - id: conga-hecho-1
       kind: fact
       text: El caso relacionó la evaluación ambiental con preocupaciones territoriales sobre lagunas, cabeceras de cuenca y disponibilidad de agua.
-      sourceIds: [defensoria-conflictos, ana-agua]
+      sourceIds: [defensoria-conflictos, defensoria-conflictos-hidricos, conga-millones-2016]
+      verificationStatus: partial
     - id: conga-interpretacion-1
       kind: interpretation
       text: La disputa muestra que la aprobación administrativa de un instrumento no resuelve por sí sola la controversia sobre legitimidad y riesgo.
-      sourceIds: [senace-evaluacion, metodologia-observatorio]
-  updatedAt: 2026-06-17
+      sourceIds: [senace-evaluacion, conga-millones-2016, metodologia-observatorio]
+      verificationStatus: partial
+  cutoffDate: 2026-06-18
+  updatedAt: 2026-06-18
   reviewStatus: legal-pending
 - id: tia-maria
   slug: tia-maria
@@ -78,11 +88,13 @@
   timeline:
     - id: tia-maria-evaluacion
       date: 2009-01-01
+      datePrecision: year
       title: Inicio de evaluación y controversia
       summary: El proyecto entra en discusión pública con el agua y la actividad agrícola como preocupaciones centrales.
-      sourceIds: [defensoria-conflictos, senace-evaluacion]
+      sourceIds: [defensoria-conflictos, senace-evaluacion, valle-tambo-agua-2018]
     - id: tia-maria-licencia
       date: 2019-07-08
+      datePrecision: day
       title: Nueva etapa de conflictividad
       summary: Decisiones administrativas y rechazo territorial reactivan movilizaciones y debate nacional.
       sourceIds: [defensoria-conflictos]
@@ -90,12 +102,15 @@
     - id: tia-maria-hecho-1
       kind: fact
       text: La controversia ha vinculado el proyecto cuprífero con la protección de la actividad agrícola y los recursos hídricos del valle.
-      sourceIds: [defensoria-conflictos, ana-agua]
+      sourceIds: [defensoria-conflictos, valle-tambo-agua-2018]
+      verificationStatus: partial
     - id: tia-maria-propuesta-1
       kind: proposal
       text: Diversos enfoques plantean fortalecer información temprana, monitoreo del agua y deliberación territorial antes de decisiones irreversibles.
-      sourceIds: [ana-agua, metodologia-observatorio]
-  updatedAt: 2026-06-17
+      sourceIds: [defensoria-conflictos-hidricos, ana-agua, metodologia-observatorio]
+      verificationStatus: partial
+  cutoffDate: 2026-06-18
+  updatedAt: 2026-06-18
   reviewStatus: legal-pending
 - id: las-bambas
   slug: las-bambas
@@ -111,11 +126,13 @@
   timeline:
     - id: las-bambas-concesion
       date: 2004-08-31
+      datePrecision: day
       title: Adjudicación del proyecto
       summary: Comienza una etapa de compromisos públicos y expectativas de desarrollo territorial.
-      sourceIds: [defensoria-conflictos]
+      sourceIds: [defensoria-conflictos, las-bambas-land-2026]
     - id: las-bambas-escalamiento
       date: 2015-09-25
+      datePrecision: day
       title: Escalamiento de protestas
       summary: Cambios, transporte y demandas territoriales confluyen en una nueva etapa de conflictividad.
       sourceIds: [defensoria-conflictos]
@@ -123,12 +140,15 @@
     - id: las-bambas-hecho-1
       kind: fact
       text: El caso combina demandas sobre transporte minero, territorio comunal, impactos ambientales y seguimiento de compromisos.
-      sourceIds: [defensoria-conflictos]
+      sourceIds: [defensoria-conflictos, las-bambas-land-2026]
+      verificationStatus: partial
     - id: las-bambas-interpretacion-1
       kind: interpretation
       text: La recurrencia del conflicto sugiere límites de los acuerdos sin trazabilidad pública, responsables claros y continuidad institucional.
-      sourceIds: [defensoria-conflictos, metodologia-observatorio]
-  updatedAt: 2026-06-17
+      sourceIds: [defensoria-conflictos, defensoria-acuerdos-187, las-bambas-land-2026, metodologia-observatorio]
+      verificationStatus: partial
+  cutoffDate: 2026-06-18
+  updatedAt: 2026-06-18
   reviewStatus: legal-pending
 - id: espinar
   slug: espinar
@@ -144,11 +164,13 @@
   timeline:
     - id: espinar-dialogo
       date: 2012-05-21
+      datePrecision: day
       title: Conflicto y mesa de diálogo
       summary: Salud, ambiente y convenio marco concentran protestas y respuestas institucionales.
-      sourceIds: [defensoria-conflictos]
+      sourceIds: [defensoria-conflictos, espinar-sociospatial-2025]
     - id: espinar-nueva-etapa
       date: 2020-07-01
+      datePrecision: month
       title: Nuevas demandas territoriales
       summary: El debate sobre beneficios y relación con la empresa vuelve a intensificarse.
       sourceIds: [defensoria-conflictos]
@@ -156,12 +178,15 @@
     - id: espinar-hecho-1
       kind: fact
       text: El caso articula preocupaciones por calidad ambiental y salud con demandas de beneficios y cumplimiento de compromisos.
-      sourceIds: [defensoria-conflictos, oefa-fiscalizacion]
+      sourceIds: [defensoria-conflictos, oefa-fiscalizacion, espinar-sociospatial-2025]
+      verificationStatus: partial
     - id: espinar-propuesta-1
       kind: proposal
       text: El monitoreo participativo requiere protocolos de custodia, interpretación compartida y seguimiento de medidas correctivas.
-      sourceIds: [oefa-fiscalizacion, ana-agua]
-  updatedAt: 2026-06-17
+      sourceIds: [oefa-fiscalizacion, defensoria-conflictos-hidricos, ana-agua]
+      verificationStatus: partial
+  cutoffDate: 2026-06-18
+  updatedAt: 2026-06-18
   reviewStatus: legal-pending
 - id: madre-de-dios
   slug: madre-de-dios
@@ -177,11 +202,13 @@
   timeline:
     - id: madre-dios-formalizacion
       date: 2012-02-18
+      datePrecision: day
       title: Nueva etapa de formalización
       summary: El Estado intensifica instrumentos para ordenar y formalizar la actividad de pequeña escala.
-      sourceIds: [minem-normas]
+      sourceIds: [minem-normas, madre-dios-indigenous-2025]
     - id: madre-dios-reinfo
       date: 2017-06-01
+      datePrecision: day
       title: REINFO en el proceso integral
       summary: El registro pasa a ser una pieza central del proceso y de sus controversias.
       sourceIds: [minem-reinfo, minem-normas]
@@ -190,9 +217,12 @@
       kind: fact
       text: El REINFO identifica personas naturales y jurídicas incorporadas al proceso de formalización minera integral.
       sourceIds: [minem-reinfo]
+      verificationStatus: partial
     - id: madre-dios-interpretacion-1
       kind: interpretation
       text: La inscripción registral no equivale por sí sola a formalización concluida ni resuelve los desafíos de trazabilidad y fiscalización.
-      sourceIds: [minem-reinfo, metodologia-observatorio]
-  updatedAt: 2026-06-17
+      sourceIds: [minem-reinfo, madre-dios-indigenous-2025, metodologia-observatorio]
+      verificationStatus: partial
+  cutoffDate: 2026-06-18
+  updatedAt: 2026-06-18
   reviewStatus: legal-pending

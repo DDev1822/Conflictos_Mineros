@@ -31,9 +31,11 @@ function assertReferences(data: ObservatoryData) {
   };
 
   data.issues.forEach((item) => check(item.sourceIds, "sources", `Nudo ${item.id}`));
+  data.territories.forEach((item) => check([item.coordinateSourceId], "sources", `Territorio ${item.id}`));
   data.instruments.forEach((item) => {
     check(item.issueIds, "issues", `Norma ${item.id}`);
     check(item.sourceIds, "sources", `Norma ${item.id}`);
+    check(item.relatedInstrumentIds, "instruments", `Norma ${item.id}`);
   });
   data.cases.forEach((item) => {
     check(item.territoryIds, "territories", `Caso ${item.id}`);

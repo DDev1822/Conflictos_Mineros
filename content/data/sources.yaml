@@ -2,119 +2,259 @@
   title: Reportes mensuales de conflictos sociales
   institution: Defensoría del Pueblo
   date: 2026-06-01
+  datePrecision: month
   url: https://www.defensoria.gob.pe/areas_tematicas/paz-social-y-prevencion-de-conflictos/
   type: official
   perspective: state
+  evidenceLevel: contextual
   accessedAt: 2026-06-17
   license: Condiciones del portal institucional
   verificationStatus: partial
+  notes: Página índice de reportes; cada uso sustantivo debe reemplazarse por el reporte mensual o informe específico.
 - id: minem-reinfo
   title: Consulta del Registro Integral de Formalización Minera
   institution: Ministerio de Energía y Minas
   date: 2026-06-17
+  datePrecision: day
   url: https://www.gob.pe/867-buscar-en-el-registro-integral-de-formalizacion-minera-reinfo
   type: official
   perspective: state
+  evidenceLevel: primary
   accessedAt: 2026-06-17
   license: Datos públicos; verificar condiciones de reutilización
   verificationStatus: verified
+  notes: Servicio oficial de consulta; el registro es dinámico y la fecha corresponde al corte de acceso.
 - id: minem-normas
   title: Normas legales del sector Energía y Minas
   institution: Ministerio de Energía y Minas
   date: 2026-06-17
+  datePrecision: day
   url: https://www.gob.pe/institucion/minem/normas-legales
   type: official
   perspective: state
+  evidenceLevel: contextual
   accessedAt: 2026-06-17
   license: Condiciones del portal institucional
   verificationStatus: verified
+  notes: Índice normativo institucional; no sustituye el enlace ni la revisión del texto de cada norma.
 - id: congreso-ley-mineria
   title: Texto Único Ordenado de la Ley General de Minería
   institution: Congreso de la República del Perú
   date: 1992-06-04
+  datePrecision: day
   url: https://www2.congreso.gob.pe/sicr/cendocbib/con4_uibd.nsf/89E200B65DCF6DE905257E2E005A89E0/$FILE/DS_014-92-EM.pdf
   type: official
   perspective: state
+  evidenceLevel: primary
   accessedAt: 2026-06-17
   license: Documento oficial
   verificationStatus: verified
+  notes: Texto oficial enlazado; su vigencia y modificaciones requieren revisión jurídica consolidada.
 - id: congreso-consulta-previa
   title: Ley del derecho a la consulta previa a los pueblos indígenas u originarios
   institution: Congreso de la República del Perú
   date: 2011-09-07
+  datePrecision: day
   url: https://www.leyes.congreso.gob.pe/Documentos/Leyes/29785.pdf
   type: official
   perspective: state
+  evidenceLevel: primary
   accessedAt: 2026-06-17
   license: Documento oficial
   verificationStatus: verified
+  notes: Texto de la ley; debe leerse junto con su reglamento y jurisprudencia aplicable.
 - id: senace-evaluacion
   title: Información institucional sobre certificación ambiental
   institution: Servicio Nacional de Certificación Ambiental para las Inversiones Sostenibles
   date: 2026-06-17
+  datePrecision: day
   url: https://www.gob.pe/senace
   type: official
   perspective: state
+  evidenceLevel: contextual
   accessedAt: 2026-06-17
   license: Condiciones del portal institucional
   verificationStatus: partial
+  notes: Página institucional general; falta enlazar el expediente o instrumento ambiental específico de cada caso.
 - id: oefa-fiscalizacion
   title: Información institucional sobre fiscalización ambiental
   institution: Organismo de Evaluación y Fiscalización Ambiental
   date: 2026-06-17
+  datePrecision: day
   url: https://www.gob.pe/oefa
   type: official
   perspective: state
+  evidenceLevel: contextual
   accessedAt: 2026-06-17
   license: Condiciones del portal institucional
   verificationStatus: partial
+  notes: Página institucional general; los hallazgos requieren resoluciones, informes o datos de fiscalización específicos.
 - id: ana-agua
   title: Información institucional sobre gestión de recursos hídricos
   institution: Autoridad Nacional del Agua
   date: 2026-06-17
+  datePrecision: day
   url: https://www.gob.pe/ana
   type: official
   perspective: state
+  evidenceLevel: contextual
   accessedAt: 2026-06-17
   license: Condiciones del portal institucional
   verificationStatus: partial
+  notes: Página institucional general; no acredita por sí sola condiciones hídricas de un territorio o periodo concreto.
 - id: ingemmet-geocatmin
   title: Sistema de Información Geológico y Catastral Minero
   institution: Instituto Geológico, Minero y Metalúrgico
   date: 2026-06-17
+  datePrecision: day
   url: https://geocatmin.ingemmet.gob.pe/geocatmin/
   type: official
   perspective: state
+  evidenceLevel: primary
   accessedAt: 2026-06-17
   license: Verificar condiciones de datos geoespaciales
   verificationStatus: partial
+  notes: Visor geoespacial dinámico usado como referencia de ubicación, no como delimitación de impacto o conflicto.
 - id: oit-convenio-169
   title: Convenio 169 sobre pueblos indígenas y tribales
   institution: Organización Internacional del Trabajo
   date: 1989-06-27
+  datePrecision: day
   url: https://www.ilo.org/es/resource/c169-convenio-sobre-pueblos-indigenas-y-tribales-1989-num-169
   type: official
   perspective: state
+  evidenceLevel: primary
   accessedAt: 2026-06-17
   license: Condiciones de la OIT
   verificationStatus: verified
+  notes: Instrumento internacional de referencia; su aplicación nacional requiere análisis jurídico del caso concreto.
 - id: minam-pasivos
   title: Información institucional sobre pasivos ambientales
   institution: Ministerio del Ambiente
   date: 2026-06-17
+  datePrecision: day
   url: https://www.gob.pe/minam
   type: official
   perspective: state
+  evidenceLevel: contextual
   accessedAt: 2026-06-17
   license: Condiciones del portal institucional
   verificationStatus: pending
+  notes: Marcador institucional pendiente de reemplazo por inventarios y normas específicas sobre pasivos ambientales mineros.
 - id: metodologia-observatorio
   title: Protocolo editorial y de trazabilidad del observatorio
   institution: Observatorio de Conflictos Mineros del Perú
   date: 2026-06-17
+  datePrecision: day
   url: https://github.com/DDev1822/Conflictos_Mineros
   type: academic
   perspective: academic
+  evidenceLevel: contextual
   accessedAt: 2026-06-17
   license: CC BY 4.0
   verificationStatus: verified
+  notes: Fuente metodológica interna; no debe utilizarse como evidencia independiente de hechos externos.
+- id: defensoria-acuerdos-187
+  title: Conflictos sociales y cumplimiento de acuerdos
+  institution: Defensoría del Pueblo
+  date: 2022-01-01
+  datePrecision: month
+  url: https://www.defensoria.gob.pe/wp-content/uploads/2022/01/INFORME-Defensorial-187-Conflictos-sociales-y-cumplimiento-de-acuerdos.pdf
+  type: official
+  perspective: state
+  evidenceLevel: secondary
+  accessedAt: 2026-06-18
+  license: Documento institucional; verificar condiciones de reutilización
+  verificationStatus: verified
+  notes: Informe temático útil para analizar trazabilidad y cumplimiento de compromisos en conflictos sociales.
+- id: defensoria-conflictos-hidricos
+  title: Conflictos sociales por recursos hídricos en el Perú
+  institution: Defensoría del Pueblo
+  date: 2018-05-01
+  datePrecision: month
+  url: https://www.defensoria.gob.pe/wp-content/uploads/2018/05/IA-Conflictos-por-Recursos-Hidricos.pdf
+  type: official
+  perspective: state
+  evidenceLevel: secondary
+  accessedAt: 2026-06-18
+  license: Documento institucional; verificar condiciones de reutilización
+  verificationStatus: verified
+  notes: Informe de análisis general; aporta contexto comparado, no prueba impactos hídricos de un caso particular.
+- id: tambogrande-muradian-2003
+  title: "International Capital Versus Local Population: The Environmental Conflict of the Tambogrande Mining Project, Peru"
+  institution: Society & Natural Resources
+  date: 2003-10-01
+  datePrecision: month
+  url: https://doi.org/10.1080/08941920309166
+  type: academic
+  perspective: academic
+  evidenceLevel: secondary
+  accessedAt: 2026-06-18
+  license: Metadatos abiertos; texto sujeto a la licencia editorial
+  verificationStatus: verified
+  notes: Estudio académico específico del conflicto; usar con atribución y sin sustituir documentos primarios.
+- id: conga-millones-2016
+  title: "Conga Mines: Development as Conflict in Peru"
+  institution: Comparative Studies of South Asia, Africa and the Middle East
+  date: 2016-07-01
+  datePrecision: day
+  url: https://doi.org/10.1215/00382876-3608708
+  type: academic
+  perspective: academic
+  evidenceLevel: secondary
+  accessedAt: 2026-06-18
+  license: Metadatos abiertos; texto sujeto a la licencia editorial
+  verificationStatus: verified
+  notes: Análisis académico del proyecto Conga y de sus controversias sobre desarrollo y territorio.
+- id: valle-tambo-agua-2018
+  title: "Uso del agua en la Agricultura: Caso Valle de Tambo. Arequipa"
+  institution: Universidad Católica de Santa María
+  date: 2018-11-23
+  datePrecision: day
+  url: https://doi.org/10.35286/veritas.v18i1.152
+  type: academic
+  perspective: academic
+  evidenceLevel: secondary
+  accessedAt: 2026-06-18
+  license: Verificar licencia del artículo
+  verificationStatus: verified
+  notes: Contextualiza el uso agrícola del agua; no constituye una evaluación del impacto del proyecto Tía María.
+- id: las-bambas-land-2026
+  title: "Dynamic Conflict Footprints and Land-System Transformation in Large-Scale Mining: Evidence from Las Bambas, Peru"
+  institution: Land
+  date: 2026-04-22
+  datePrecision: day
+  url: https://doi.org/10.3390/land15050698
+  type: academic
+  perspective: academic
+  evidenceLevel: secondary
+  accessedAt: 2026-06-18
+  license: CC BY 4.0
+  verificationStatus: verified
+  notes: Estudio académico reciente sobre transformación territorial y huellas dinámicas del conflicto en Las Bambas.
+- id: espinar-sociospatial-2025
+  title: "Socio-spatial transformations by large-scale mining operations in the Central Andes: Espinar, Peru"
+  institution: Landscape Research
+  date: 2025-05-29
+  datePrecision: day
+  url: https://doi.org/10.1080/01426397.2025.2507344
+  type: academic
+  perspective: academic
+  evidenceLevel: secondary
+  accessedAt: 2026-06-18
+  license: Metadatos abiertos; texto sujeto a la licencia editorial
+  verificationStatus: verified
+  notes: Estudio académico de transformaciones socioespaciales; no resuelve por sí solo controversias causales de salud.
+- id: madre-dios-indigenous-2025
+  title: Gold Mining and Indigenous Conflicts in Madre de Dios, Peru
+  institution: Cambridge University Press
+  date: 2025-10-02
+  datePrecision: day
+  url: https://doi.org/10.1017/9781009389556.009
+  type: academic
+  perspective: academic
+  evidenceLevel: secondary
+  accessedAt: 2026-06-18
+  license: Términos de Cambridge University Press
+  verificationStatus: verified
+  notes: Capítulo académico sobre minería aurífera y conflictos indígenas; requiere lectura junto con fuentes territoriales directas.

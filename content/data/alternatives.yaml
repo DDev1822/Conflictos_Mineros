@@ -19,7 +19,7 @@
   dependencies: [Financiamiento sostenible, Protocolo de custodia, Formación local]
   status: documented
   issueIds: [agua-cuencas, fiscalizacion-ambiental]
-  sourceIds: [ana-agua, oefa-fiscalizacion]
+  sourceIds: [ana-agua, oefa-fiscalizacion, defensoria-conflictos-hidricos]
 - id: registro-acuerdos-publico
   title: Registro público de acuerdos y cumplimiento
   problem: Los compromisos de espacios de diálogo pierden continuidad y resultan difíciles de verificar con el paso del tiempo.
@@ -30,7 +30,7 @@
   dependencies: [Entidad responsable, Estándar de evidencia, Participación de las partes]
   status: documented
   issueIds: [dialogo-acuerdos, competencias-estado]
-  sourceIds: [defensoria-conflictos, metodologia-observatorio]
+  sourceIds: [defensoria-conflictos, defensoria-acuerdos-187, metodologia-observatorio]
 - id: evaluacion-territorial-temprana
   title: Evaluación territorial temprana
   problem: La discusión ambiental y social suele intensificarse cuando decisiones centrales del proyecto ya se perciben como cerradas.
@@ -41,7 +41,7 @@
   dependencies: [Articulación con SEIA, Información geoespacial, Reglas de participación]
   status: under-debate
   issueIds: [concesion-superficie, consulta-participacion, certificacion-ambiental]
-  sourceIds: [senace-evaluacion, ingemmet-geocatmin]
+  sourceIds: [senace-evaluacion, ingemmet-geocatmin, tambogrande-muradian-2003, las-bambas-land-2026]
 - id: fondo-cierre-garantias
   title: Garantías de cierre con seguimiento público
   problem: Los impactos y responsabilidades de cierre pueden superar los horizontes operativos y presupuestales inicialmente previstos.
