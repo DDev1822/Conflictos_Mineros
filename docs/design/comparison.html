@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Comparación de diseño</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #202020; color: white; font-family: Arial, sans-serif; }
+      main { height: 100vh; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+      figure { margin: 0; min-width: 0; display: grid; grid-template-rows: 30px 1fr; background: #111; }
+      figcaption { padding: 7px 12px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+      img { width: 100%; height: calc(100vh - 30px); object-fit: contain; object-position: center top; background: #ddd; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <figure><figcaption>Referencia seleccionada</figcaption><img src="reference-system-relations.png" alt="Referencia visual Sistema de Relaciones" /></figure>
+      <figure><figcaption>Implementación</figcaption><img src="implementation-explorer-final.png" alt="Implementación local del explorador" /></figure>
+    </main>
+  </body>
+</html>

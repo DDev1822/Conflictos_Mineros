@@ -1,0 +1,30 @@
+- id: tambogrande-piura
+  name: Tambogrande
+  region: Piura
+  provinces: [Piura]
+  coordinates: [-4.926, -80.344]
+- id: conga-cajamarca
+  name: Área de influencia de Conga
+  region: Cajamarca
+  provinces: [Cajamarca, Celendín, Hualgayoc]
+  coordinates: [-6.973, -78.365]
+- id: valle-tambo-arequipa
+  name: Valle de Tambo
+  region: Arequipa
+  provinces: [Islay]
+  coordinates: [-17.02, -71.77]
+- id: cotabambas-apurimac
+  name: Cotabambas y corredor minero
+  region: Apurímac
+  provinces: [Cotabambas]
+  coordinates: [-14.107, -72.322]
+- id: espinar-cusco
+  name: Espinar
+  region: Cusco
+  provinces: [Espinar]
+  coordinates: [-14.789, -71.411]
+- id: madre-dios-corredor-minero
+  name: Corredor minero de Madre de Dios
+  region: Madre de Dios
+  provinces: [Tambopata, Manu]
+  coordinates: [-12.868, -70.75]

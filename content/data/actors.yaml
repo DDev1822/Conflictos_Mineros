@@ -1,0 +1,60 @@
+- id: comunidades-tambogrande
+  name: Organizaciones y comunidades de Tambogrande
+  type: community
+  description: Actores territoriales vinculados al debate sobre agricultura, territorio y proyecto minero.
+- id: empresa-manhattan
+  name: Manhattan Minerals
+  type: company
+  description: Empresa vinculada a la etapa histórica del proyecto Tambogrande.
+- id: comunidades-cajamarca
+  name: Comunidades y organizaciones de Cajamarca
+  type: community
+  description: Actores territoriales relacionados con agua, lagunas y oposición al proyecto Conga.
+- id: empresa-yanacocha
+  name: Minera Yanacocha
+  type: company
+  description: Empresa titular asociada al proyecto Conga.
+- id: valle-tambo
+  name: Organizaciones del Valle de Tambo
+  type: community
+  description: Agricultores, juntas de usuarios y organizaciones locales relacionadas con Tía María.
+- id: southern-peru
+  name: Southern Perú Copper Corporation
+  type: company
+  description: Empresa titular del proyecto Tía María.
+- id: comunidades-cotabambas
+  name: Comunidades de Cotabambas
+  type: community
+  description: Comunidades del ámbito de influencia y corredor asociado a Las Bambas.
+- id: minera-las-bambas
+  name: Minera Las Bambas
+  type: company
+  description: Empresa operadora de la unidad minera Las Bambas.
+- id: comunidades-espinar
+  name: Comunidades y organizaciones de Espinar
+  type: community
+  description: Actores territoriales vinculados a salud ambiental, agua y distribución de beneficios.
+- id: compania-antapaccay
+  name: Compañía Minera Antapaccay
+  type: company
+  description: Empresa operadora vinculada a la actividad minera en Espinar.
+- id: mineros-mape
+  name: Mineros artesanales y de pequeña escala
+  type: collective
+  description: Personas y organizaciones comprendidas en procesos de formalización minera.
+- id: federaciones-madre-dios
+  name: Organizaciones indígenas y ambientales de Madre de Dios
+  type: community
+  description: Actores afectados por impactos territoriales, ambientales y sociales de la minería aurífera.
+- id: minem
+  name: Ministerio de Energía y Minas
+  type: state
+  description: Autoridad rectora nacional del sector minero y del proceso de formalización.
+- id: autoridades-ambientales
+  name: Autoridades ambientales y de agua
+  type: state
+  description: Entidades competentes en certificación, fiscalización y gestión de recursos hídricos.
+- id: gobiernos-subnacionales
+  name: Gobiernos regionales y locales
+  type: state
+  description: Autoridades con competencias territoriales, de formalización y gestión del conflicto.

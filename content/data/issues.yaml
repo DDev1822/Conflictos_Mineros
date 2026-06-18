@@ -1,0 +1,50 @@
+- id: formalizacion-mape
+  name: Formalización de la MAPE y REINFO
+  summary: Superposición entre régimen transitorio, incentivos de formalización, trazabilidad y capacidad estatal de fiscalización.
+  status: active-debate
+  sourceIds: [minem-reinfo, minem-normas]
+- id: concesion-superficie
+  name: Concesión minera, superficie y ordenamiento territorial
+  summary: Tensiones entre derechos sobre recursos del subsuelo, acceso a superficie, usos previos y decisiones territoriales.
+  status: structural
+  sourceIds: [congreso-ley-mineria, ingemmet-geocatmin]
+- id: consulta-participacion
+  name: Consulta previa y participación ciudadana
+  summary: Alcance, oportunidad y calidad de los mecanismos que permiten intervenir en decisiones con impacto territorial.
+  status: implementation-gap
+  sourceIds: [congreso-consulta-previa, oit-convenio-169]
+- id: certificacion-ambiental
+  name: Certificación y evaluación ambiental
+  summary: Calidad de líneas base, evaluación de impactos acumulativos, modificaciones y acceso comprensible a información ambiental.
+  status: implementation-gap
+  sourceIds: [senace-evaluacion]
+- id: fiscalizacion-ambiental
+  name: Fiscalización ambiental y cumplimiento
+  summary: Capacidad institucional para supervisar obligaciones, producir evidencia confiable y aplicar medidas correctivas oportunas.
+  status: implementation-gap
+  sourceIds: [oefa-fiscalizacion]
+- id: agua-cuencas
+  name: Agua, cabeceras de cuenca y prioridades de uso
+  summary: Disponibilidad, calidad, autorizaciones y prioridades de uso del agua en territorios con actividad minera y agrícola.
+  status: structural
+  sourceIds: [ana-agua]
+- id: beneficios-territoriales
+  name: Distribución de beneficios y desarrollo territorial
+  summary: Relación entre canon, regalías, convenios, capacidades de gasto público y expectativas de bienestar local.
+  status: structural
+  sourceIds: [defensoria-conflictos]
+- id: competencias-estado
+  name: Fragmentación de competencias estatales
+  summary: Coordinación incompleta entre autoridades nacionales, regionales y locales con mandatos sectoriales concurrentes.
+  status: structural
+  sourceIds: [minem-normas, defensoria-conflictos]
+- id: dialogo-acuerdos
+  name: Prevención, diálogo y seguimiento de acuerdos
+  summary: Falta de continuidad, indicadores y mecanismos de rendición de cuentas para compromisos asumidos durante conflictos.
+  status: implementation-gap
+  sourceIds: [defensoria-conflictos]
+- id: cierre-pasivos
+  name: Cierre de minas y pasivos ambientales
+  summary: Garantías, remediación, responsabilidades y seguimiento de impactos que persisten después de la operación minera.
+  status: structural
+  sourceIds: [minam-pasivos, oefa-fiscalizacion]

@@ -1,0 +1,88 @@
+- id: ds-014-1992-em
+  title: Texto Único Ordenado de la Ley General de Minería
+  number: D.S. N.º 014-92-EM
+  authority: Poder Ejecutivo
+  publishedAt: 1992-06-04
+  effectiveFrom: 1992-06-05
+  status: pending-review
+  legalReviewStatus: pending
+  relevantArticles: [Título Preliminar, Concesiones mineras]
+  issueIds: [concesion-superficie, competencias-estado]
+  sourceIds: [congreso-ley-mineria]
+- id: ley-29785
+  title: Ley del derecho a la consulta previa a los pueblos indígenas u originarios
+  number: Ley N.º 29785
+  authority: Congreso de la República
+  publishedAt: 2011-09-07
+  effectiveFrom: 2011-09-08
+  status: pending-review
+  legalReviewStatus: pending
+  relevantArticles: [Objeto de la ley, Etapas del proceso]
+  issueIds: [consulta-participacion]
+  sourceIds: [congreso-consulta-previa, oit-convenio-169]
+- id: ds-018-2017-em
+  title: Disposiciones complementarias para la simplificación del proceso de formalización minera integral
+  number: D.S. N.º 018-2017-EM
+  authority: Ministerio de Energía y Minas
+  publishedAt: 2017-06-01
+  effectiveFrom: 2017-06-02
+  status: pending-review
+  legalReviewStatus: pending
+  relevantArticles: [Registro Integral de Formalización Minera]
+  issueIds: [formalizacion-mape, competencias-estado]
+  sourceIds: [minem-reinfo, minem-normas]
+- id: ley-27446
+  title: Ley del Sistema Nacional de Evaluación del Impacto Ambiental
+  number: Ley N.º 27446
+  authority: Congreso de la República
+  publishedAt: 2001-04-23
+  effectiveFrom: 2001-04-24
+  status: pending-review
+  legalReviewStatus: pending
+  relevantArticles: [Ámbito, Certificación ambiental]
+  issueIds: [certificacion-ambiental, consulta-participacion]
+  sourceIds: [senace-evaluacion]
+- id: ley-29338
+  title: Ley de Recursos Hídricos
+  number: Ley N.º 29338
+  authority: Congreso de la República
+  publishedAt: 2009-03-31
+  effectiveFrom: 2009-04-01
+  status: pending-review
+  legalReviewStatus: pending
+  relevantArticles: [Principios, Prioridad de acceso al agua]
+  issueIds: [agua-cuencas]
+  sourceIds: [ana-agua]
+- id: ley-29325
+  title: Ley del Sistema Nacional de Evaluación y Fiscalización Ambiental
+  number: Ley N.º 29325
+  authority: Congreso de la República
+  publishedAt: 2009-03-05
+  effectiveFrom: 2009-03-06
+  status: pending-review
+  legalReviewStatus: pending
+  relevantArticles: [Finalidad, Funciones del OEFA]
+  issueIds: [fiscalizacion-ambiental, competencias-estado]
+  sourceIds: [oefa-fiscalizacion]
+- id: ley-29968
+  title: Ley de creación del SENACE
+  number: Ley N.º 29968
+  authority: Congreso de la República
+  publishedAt: 2012-12-20
+  effectiveFrom: 2012-12-21
+  status: pending-review
+  legalReviewStatus: pending
+  relevantArticles: [Objeto, Funciones]
+  issueIds: [certificacion-ambiental, competencias-estado]
+  sourceIds: [senace-evaluacion]
+- id: ley-28090
+  title: Ley que regula el cierre de minas
+  number: Ley N.º 28090
+  authority: Congreso de la República
+  publishedAt: 2003-10-14
+  effectiveFrom: 2003-10-15
+  status: pending-review
+  legalReviewStatus: pending
+  relevantArticles: [Plan de cierre, Garantías]
+  issueIds: [cierre-pasivos]
+  sourceIds: [minam-pasivos, minem-normas]

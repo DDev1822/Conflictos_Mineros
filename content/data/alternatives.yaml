@@ -1,0 +1,55 @@
+- id: expediente-unico-trazable
+  title: Expediente único y trazable de formalización
+  problem: La información del proceso de formalización se encuentra distribuida entre entidades y etapas con baja interoperabilidad.
+  mechanism: Integrar requisitos, hitos, fiscalización y alertas en un expediente auditable con responsabilidades y plazos explícitos.
+  proponents: [Especialistas en gobernanza pública, Entidades de control]
+  benefits: [Reduce duplicidad documental, Permite distinguir avance real de mera inscripción]
+  risks: [Exclusión por brecha digital, Concentración de datos sensibles]
+  dependencies: [Interoperabilidad estatal, Protección de datos, Asistencia territorial]
+  status: under-debate
+  issueIds: [formalizacion-mape, competencias-estado]
+  sourceIds: [minem-reinfo, metodologia-observatorio]
+- id: monitoreo-participativo-cuenca
+  title: Monitoreo participativo de cuencas
+  problem: La desconfianza sobre calidad y disponibilidad del agua debilita el reconocimiento compartido de la evidencia.
+  mechanism: Diseñar redes de monitoreo con protocolos públicos, participación territorial, laboratorios acreditados y datos abiertos.
+  proponents: [Comunidades, Autoridades ambientales, Academia]
+  benefits: [Construye evidencia compartida, Detecta cambios de forma temprana]
+  risks: [Captura institucional, Disputa sobre interpretación de resultados]
+  dependencies: [Financiamiento sostenible, Protocolo de custodia, Formación local]
+  status: documented
+  issueIds: [agua-cuencas, fiscalizacion-ambiental]
+  sourceIds: [ana-agua, oefa-fiscalizacion]
+- id: registro-acuerdos-publico
+  title: Registro público de acuerdos y cumplimiento
+  problem: Los compromisos de espacios de diálogo pierden continuidad y resultan difíciles de verificar con el paso del tiempo.
+  mechanism: Publicar responsables, plazos, indicadores, evidencia de cumplimiento y razones documentadas de cualquier modificación.
+  proponents: [Defensoría del Pueblo, Gobiernos subnacionales, Sociedad civil]
+  benefits: [Mejora rendición de cuentas, Conserva memoria institucional]
+  risks: [Formalismo sin capacidad de ejecución, Incentivos para reportar avances superficiales]
+  dependencies: [Entidad responsable, Estándar de evidencia, Participación de las partes]
+  status: documented
+  issueIds: [dialogo-acuerdos, competencias-estado]
+  sourceIds: [defensoria-conflictos, metodologia-observatorio]
+- id: evaluacion-territorial-temprana
+  title: Evaluación territorial temprana
+  problem: La discusión ambiental y social suele intensificarse cuando decisiones centrales del proyecto ya se perciben como cerradas.
+  mechanism: Incorporar análisis territorial, alternativas y participación informada antes de la definición irreversible del proyecto.
+  proponents: [Academia, Autoridades territoriales, Organizaciones sociales]
+  benefits: [Detecta incompatibilidades antes, Amplía alternativas de diseño]
+  risks: [Duplicación de procedimientos, Incertidumbre sobre efectos vinculantes]
+  dependencies: [Articulación con SEIA, Información geoespacial, Reglas de participación]
+  status: under-debate
+  issueIds: [concesion-superficie, consulta-participacion, certificacion-ambiental]
+  sourceIds: [senace-evaluacion, ingemmet-geocatmin]
+- id: fondo-cierre-garantias
+  title: Garantías de cierre con seguimiento público
+  problem: Los impactos y responsabilidades de cierre pueden superar los horizontes operativos y presupuestales inicialmente previstos.
+  mechanism: Fortalecer garantías, actualización de costos y seguimiento público de obligaciones y remediación.
+  proponents: [Autoridades ambientales, Especialistas en cierre de minas]
+  benefits: [Reduce riesgo fiscal, Mejora previsibilidad de remediación]
+  risks: [Costos financieros elevados, Diseño inadecuado para operaciones pequeñas]
+  dependencies: [Valoración técnica periódica, Fiscalización efectiva]
+  status: documented
+  issueIds: [cierre-pasivos, fiscalizacion-ambiental]
+  sourceIds: [minam-pasivos, oefa-fiscalizacion]

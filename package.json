@@ -1,0 +1,42 @@
+{
+  "name": "observatorio-conflictos-mineros-peru",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "validate:content": "tsx scripts/validate-content.ts",
+    "check:links": "tsx scripts/check-internal-links.ts"
+  },
+  "dependencies": {
+    "@fontsource-variable/source-sans-3": "^5.2.8",
+    "@fontsource-variable/source-serif-4": "^5.2.8",
+    "@phosphor-icons/react": "^2.1.10",
+    "@xyflow/react": "^12.9.3",
+    "gray-matter": "^4.0.3",
+    "leaflet": "^1.9.4",
+    "next": "^15.5.7",
+    "next-mdx-remote": "^5.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-leaflet": "^5.0.0",
+    "yaml": "^2.8.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@types/leaflet": "^1.9.21",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^15.5.7",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

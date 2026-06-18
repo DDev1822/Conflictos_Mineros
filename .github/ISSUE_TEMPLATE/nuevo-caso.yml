@@ -1,0 +1,20 @@
+name: Proponer un caso
+description: Sugiere un expediente para ampliar el observatorio.
+title: "[Caso]: "
+labels: [contenido, caso]
+body:
+  - type: input
+    id: nombre
+    attributes: { label: Nombre del caso }
+    validations: { required: true }
+  - type: textarea
+    id: relevancia
+    attributes: { label: Relevancia académica y territorial }
+    validations: { required: true }
+  - type: textarea
+    id: fuentes
+    attributes: { label: Fuentes iniciales, description: Incluye enlaces, fechas e instituciones. }
+    validations: { required: true }
+  - type: textarea
+    id: conflicto-interes
+    attributes: { label: Posición o conflicto de interés }

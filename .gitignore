@@ -1,0 +1,8 @@
+node_modules/
+.next/
+out/
+.npm-cache/
+coverage/
+*.tsbuildinfo
+*.log
+.DS_Store

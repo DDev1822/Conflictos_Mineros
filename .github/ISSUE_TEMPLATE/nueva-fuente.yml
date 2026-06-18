@@ -1,0 +1,27 @@
+name: Proponer una fuente
+description: Incorpora evidencia relevante para un expediente o nudo normativo.
+title: "[Fuente]: "
+labels: [contenido, fuente]
+body:
+  - type: input
+    id: titulo
+    attributes: { label: Título }
+    validations: { required: true }
+  - type: input
+    id: url
+    attributes: { label: URL }
+    validations: { required: true }
+  - type: input
+    id: autor-fecha
+    attributes: { label: Autor, institución y fecha }
+    validations: { required: true }
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de fuente
+      options: [Oficial, Académica, Comunitaria, Empresarial, ONG, Periodística]
+    validations: { required: true }
+  - type: textarea
+    id: uso
+    attributes: { label: Afirmación o relación que sustenta }
+    validations: { required: true }

@@ -1,0 +1,198 @@
+- id: tambogrande
+  slug: tambogrande
+  name: Tambogrande
+  summary: Caso histórico de controversia entre un proyecto minero, el uso agrícola del territorio y mecanismos locales de participación.
+  period: { start: 1999, end: 2003 }
+  status: historical
+  territoryIds: [tambogrande-piura]
+  actorIds: [comunidades-tambogrande, empresa-manhattan, gobiernos-subnacionales]
+  issueIds: [concesion-superficie, consulta-participacion, agua-cuencas]
+  legalInstrumentIds: [ds-014-1992-em, ley-27446]
+  minerals: [oro, cobre]
+  timeline:
+    - id: tambogrande-proyecto
+      date: 1999-01-01
+      title: Proyecto y controversia territorial
+      summary: Se intensifica el debate sobre compatibilidad entre actividad minera y economía agrícola local.
+      sourceIds: [defensoria-conflictos]
+    - id: tambogrande-consulta
+      date: 2002-06-02
+      title: Consulta vecinal
+      summary: La consulta se convierte en un hito nacional del debate sobre participación y decisiones extractivas.
+      sourceIds: [defensoria-conflictos]
+  claims:
+    - id: tambogrande-hecho-1
+      kind: fact
+      text: El caso articuló controversias sobre uso del territorio, agricultura, participación y viabilidad de un proyecto minero.
+      sourceIds: [defensoria-conflictos]
+    - id: tambogrande-interpretacion-1
+      kind: interpretation
+      text: Su relevancia histórica reside en haber situado la legitimidad territorial junto a los procedimientos sectoriales formales.
+      sourceIds: [defensoria-conflictos, metodologia-observatorio]
+  updatedAt: 2026-06-17
+  reviewStatus: legal-pending
+- id: conga
+  slug: conga
+  name: Conga
+  summary: Conflicto emblemático de Cajamarca centrado en agua, ecosistemas altoandinos, evaluación ambiental y confianza institucional.
+  period: { start: 2010, end: 2016 }
+  status: latent
+  territoryIds: [conga-cajamarca]
+  actorIds: [comunidades-cajamarca, empresa-yanacocha, autoridades-ambientales, gobiernos-subnacionales]
+  issueIds: [agua-cuencas, certificacion-ambiental, consulta-participacion, dialogo-acuerdos]
+  legalInstrumentIds: [ley-27446, ley-29338, ley-29325]
+  minerals: [oro, cobre]
+  timeline:
+    - id: conga-eia
+      date: 2010-10-27
+      title: Evaluación ambiental del proyecto
+      summary: La evaluación del proyecto pasa al centro del debate público y técnico.
+      sourceIds: [senace-evaluacion, defensoria-conflictos]
+    - id: conga-conflicto
+      date: 2011-11-01
+      title: Escalamiento del conflicto
+      summary: Las movilizaciones y medidas estatales convierten el agua y la confianza en ejes nacionales de discusión.
+      sourceIds: [defensoria-conflictos]
+  claims:
+    - id: conga-hecho-1
+      kind: fact
+      text: El caso relacionó la evaluación ambiental con preocupaciones territoriales sobre lagunas, cabeceras de cuenca y disponibilidad de agua.
+      sourceIds: [defensoria-conflictos, ana-agua]
+    - id: conga-interpretacion-1
+      kind: interpretation
+      text: La disputa muestra que la aprobación administrativa de un instrumento no resuelve por sí sola la controversia sobre legitimidad y riesgo.
+      sourceIds: [senace-evaluacion, metodologia-observatorio]
+  updatedAt: 2026-06-17
+  reviewStatus: legal-pending
+- id: tia-maria
+  slug: tia-maria
+  name: Tía María
+  summary: Controversia prolongada en el Valle de Tambo que conecta agricultura, agua, evaluación ambiental y confianza en la información pública.
+  period: { start: 2009, end: null }
+  status: active
+  territoryIds: [valle-tambo-arequipa]
+  actorIds: [valle-tambo, southern-peru, autoridades-ambientales, gobiernos-subnacionales]
+  issueIds: [agua-cuencas, certificacion-ambiental, consulta-participacion, dialogo-acuerdos]
+  legalInstrumentIds: [ley-27446, ley-29338, ley-29325]
+  minerals: [cobre]
+  timeline:
+    - id: tia-maria-evaluacion
+      date: 2009-01-01
+      title: Inicio de evaluación y controversia
+      summary: El proyecto entra en discusión pública con el agua y la actividad agrícola como preocupaciones centrales.
+      sourceIds: [defensoria-conflictos, senace-evaluacion]
+    - id: tia-maria-licencia
+      date: 2019-07-08
+      title: Nueva etapa de conflictividad
+      summary: Decisiones administrativas y rechazo territorial reactivan movilizaciones y debate nacional.
+      sourceIds: [defensoria-conflictos]
+  claims:
+    - id: tia-maria-hecho-1
+      kind: fact
+      text: La controversia ha vinculado el proyecto cuprífero con la protección de la actividad agrícola y los recursos hídricos del valle.
+      sourceIds: [defensoria-conflictos, ana-agua]
+    - id: tia-maria-propuesta-1
+      kind: proposal
+      text: Diversos enfoques plantean fortalecer información temprana, monitoreo del agua y deliberación territorial antes de decisiones irreversibles.
+      sourceIds: [ana-agua, metodologia-observatorio]
+  updatedAt: 2026-06-17
+  reviewStatus: legal-pending
+- id: las-bambas
+  slug: las-bambas
+  name: Las Bambas
+  summary: Conflicto complejo del corredor minero sur asociado a transporte, territorio comunal, modificaciones del proyecto y cumplimiento de acuerdos.
+  period: { start: 2004, end: null }
+  status: active
+  territoryIds: [cotabambas-apurimac]
+  actorIds: [comunidades-cotabambas, minera-las-bambas, gobiernos-subnacionales, minem]
+  issueIds: [consulta-participacion, concesion-superficie, certificacion-ambiental, beneficios-territoriales, dialogo-acuerdos]
+  legalInstrumentIds: [ley-29785, ley-27446, ds-014-1992-em]
+  minerals: [cobre]
+  timeline:
+    - id: las-bambas-concesion
+      date: 2004-08-31
+      title: Adjudicación del proyecto
+      summary: Comienza una etapa de compromisos públicos y expectativas de desarrollo territorial.
+      sourceIds: [defensoria-conflictos]
+    - id: las-bambas-escalamiento
+      date: 2015-09-25
+      title: Escalamiento de protestas
+      summary: Cambios, transporte y demandas territoriales confluyen en una nueva etapa de conflictividad.
+      sourceIds: [defensoria-conflictos]
+  claims:
+    - id: las-bambas-hecho-1
+      kind: fact
+      text: El caso combina demandas sobre transporte minero, territorio comunal, impactos ambientales y seguimiento de compromisos.
+      sourceIds: [defensoria-conflictos]
+    - id: las-bambas-interpretacion-1
+      kind: interpretation
+      text: La recurrencia del conflicto sugiere límites de los acuerdos sin trazabilidad pública, responsables claros y continuidad institucional.
+      sourceIds: [defensoria-conflictos, metodologia-observatorio]
+  updatedAt: 2026-06-17
+  reviewStatus: legal-pending
+- id: espinar
+  slug: espinar
+  name: Espinar
+  summary: Conflicto territorial de larga duración relacionado con salud ambiental, agua, monitoreo, actividad minera y distribución de beneficios.
+  period: { start: 2005, end: null }
+  status: active
+  territoryIds: [espinar-cusco]
+  actorIds: [comunidades-espinar, compania-antapaccay, autoridades-ambientales, gobiernos-subnacionales]
+  issueIds: [fiscalizacion-ambiental, agua-cuencas, beneficios-territoriales, dialogo-acuerdos]
+  legalInstrumentIds: [ley-29325, ley-29338, ley-27446]
+  minerals: [cobre]
+  timeline:
+    - id: espinar-dialogo
+      date: 2012-05-21
+      title: Conflicto y mesa de diálogo
+      summary: Salud, ambiente y convenio marco concentran protestas y respuestas institucionales.
+      sourceIds: [defensoria-conflictos]
+    - id: espinar-nueva-etapa
+      date: 2020-07-01
+      title: Nuevas demandas territoriales
+      summary: El debate sobre beneficios y relación con la empresa vuelve a intensificarse.
+      sourceIds: [defensoria-conflictos]
+  claims:
+    - id: espinar-hecho-1
+      kind: fact
+      text: El caso articula preocupaciones por calidad ambiental y salud con demandas de beneficios y cumplimiento de compromisos.
+      sourceIds: [defensoria-conflictos, oefa-fiscalizacion]
+    - id: espinar-propuesta-1
+      kind: proposal
+      text: El monitoreo participativo requiere protocolos de custodia, interpretación compartida y seguimiento de medidas correctivas.
+      sourceIds: [oefa-fiscalizacion, ana-agua]
+  updatedAt: 2026-06-17
+  reviewStatus: legal-pending
+- id: madre-de-dios
+  slug: madre-de-dios
+  name: Madre de Dios
+  summary: Caso territorial sobre minería aurífera artesanal, informal e ilegal, formalización, trazabilidad del oro y protección ambiental.
+  period: { start: 1990, end: null }
+  status: active
+  territoryIds: [madre-dios-corredor-minero]
+  actorIds: [mineros-mape, federaciones-madre-dios, minem, autoridades-ambientales, gobiernos-subnacionales]
+  issueIds: [formalizacion-mape, fiscalizacion-ambiental, competencias-estado, cierre-pasivos]
+  legalInstrumentIds: [ds-018-2017-em, ds-014-1992-em, ley-29325]
+  minerals: [oro]
+  timeline:
+    - id: madre-dios-formalizacion
+      date: 2012-02-18
+      title: Nueva etapa de formalización
+      summary: El Estado intensifica instrumentos para ordenar y formalizar la actividad de pequeña escala.
+      sourceIds: [minem-normas]
+    - id: madre-dios-reinfo
+      date: 2017-06-01
+      title: REINFO en el proceso integral
+      summary: El registro pasa a ser una pieza central del proceso y de sus controversias.
+      sourceIds: [minem-reinfo, minem-normas]
+  claims:
+    - id: madre-dios-hecho-1
+      kind: fact
+      text: El REINFO identifica personas naturales y jurídicas incorporadas al proceso de formalización minera integral.
+      sourceIds: [minem-reinfo]
+    - id: madre-dios-interpretacion-1
+      kind: interpretation
+      text: La inscripción registral no equivale por sí sola a formalización concluida ni resuelve los desafíos de trazabilidad y fiscalización.
+      sourceIds: [minem-reinfo, metodologia-observatorio]
+  updatedAt: 2026-06-17
+  reviewStatus: legal-pending

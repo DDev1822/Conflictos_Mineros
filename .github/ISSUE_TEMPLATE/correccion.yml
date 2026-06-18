@@ -1,0 +1,17 @@
+name: Reportar una corrección
+description: Señala un dato, fecha, relación o interpretación que requiere revisión.
+title: "[Corrección]: "
+labels: [corrección]
+body:
+  - type: input
+    id: ubicacion
+    attributes: { label: Página o expediente }
+    validations: { required: true }
+  - type: textarea
+    id: dato
+    attributes: { label: Contenido que debe corregirse }
+    validations: { required: true }
+  - type: textarea
+    id: evidencia
+    attributes: { label: Fuente que sustenta la corrección }
+    validations: { required: true }
