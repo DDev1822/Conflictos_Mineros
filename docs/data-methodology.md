@@ -63,6 +63,16 @@ El mapa no muestra, salvo indicación expresa y fuente específica:
 
 La intensidad de la capa de calor expresa cantidad de casos registrados, activos o latentes según el filtro elegido. No expresa gravedad, violencia, impacto ambiental, extensión territorial ni riesgo. Los casos nacionales y multirregionales se informan, pero no se asignan artificialmente a una región.
 
+### Registro navegable del reporte 266
+
+El corte de abril de 2026 incorpora un registro de 190 casos vinculado a los puntos regionales: 159 activos y 31 latentes. Cada entrada conserva estado, tipo, ámbito, página fuente y, cuando el reporte lo informa, periodo de inicio y ubicación. Los puntos regionales abren estas listas; los dos casos nacionales y los nueve multirregionales se consultan desde accesos separados para no duplicarlos sobre el mapa.
+
+El reporte presenta dos formatos. Las tablas de las páginas 72 a 75 incluyen una denominación breve; esas 129 entradas usan `titleMethod: report-denomination`. Las fichas activas de las páginas 37 a 71 no tienen un campo uniforme de denominación: sus 61 títulos son una síntesis editorial tomada de la primera oración del campo `Caso`, conservan la descripción extraída y se identifican como `titleMethod: editorial-summary`.
+
+La reconstrucción detectó una inconsistencia interna: “Cinco cuencas - Lote 8 y 192” aparece en la tabla de activos sin hechos y también en las fichas con hechos del mes. Contarla dos veces produce 191 casos y 24 en Loreto, en contradicción con los totales oficiales de 190 y 23. El registro conserva la ficha detallada una sola vez y excluye la fila repetida. Con esa regla, los conteos por estado y por cada ámbito territorial reconcilian con el cuadro agregado.
+
+El valor de inicio `10/20205` visible en una tabla se normaliza como `2020-10`, tratándolo como error tipográfico evidente. El mapa oficial enlazado por la Defensoría correspondía a enero de 2026 al momento de esta revisión; se usó solo como contraste auxiliar y no para atribuir estado actual. Los tipos agregados del reporte contienen otras discrepancias aritméticas internas, por lo que la interfaz permite filtrar la clasificación caso por caso, pero no presenta esos subtotales como una reconciliación oficial cerrada.
+
 La ausencia de un elemento en el mapa no implica su inexistencia. Tampoco debe inferirse extensión, proximidad jurídica ni responsabilidad a partir de un punto de referencia.
 
 ## Instrumentos jurídicos

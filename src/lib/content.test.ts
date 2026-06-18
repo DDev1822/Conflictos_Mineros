@@ -38,10 +38,42 @@ describe("contenido académico", () => {
   });
 
   it("reconcilia el corte nacional de conflictos sociales", () => {
-    const snapshot = loadObservatoryData().socialConflictSnapshots[0];
+    const data = loadObservatoryData();
+    const snapshot = data.socialConflictSnapshots[0];
+    const registry = data.socialConflictCases.filter((item) => item.snapshotId === snapshot.id);
     const plotted = snapshot.regions.reduce((sum, region) => sum + region.total, 0);
     expect(snapshot.active + snapshot.latent).toBe(snapshot.totalRegistered);
     expect(plotted + snapshot.national.total + snapshot.multiregional.total).toBe(snapshot.totalRegistered);
     expect(snapshot.totalRegistered).toBe(190);
+    expect(registry).toHaveLength(190);
+    expect(registry.filter((item) => item.status === "active")).toHaveLength(159);
+    expect(registry.filter((item) => item.status === "latent")).toHaveLength(31);
+  });
+
+  it("reconcilia cada punto regional con su lista de casos", () => {
+    const data = loadObservatoryData();
+    const snapshot = data.socialConflictSnapshots[0];
+    const registry = data.socialConflictCases.filter((item) => item.snapshotId === snapshot.id);
+
+    for (const region of snapshot.regions) {
+      const regionalCases = registry.filter((item) => item.regionIds.includes(region.id));
+      expect(regionalCases, region.name).toHaveLength(region.total);
+      expect(regionalCases.filter((item) => item.status === "active"), `${region.name}: activos`).toHaveLength(region.active);
+      expect(regionalCases.filter((item) => item.status === "latent"), `${region.name}: latentes`).toHaveLength(region.latent);
+    }
+
+    for (const [scope, counts] of [["nacional", snapshot.national], ["multiregional", snapshot.multiregional]] as const) {
+      const scopedCases = registry.filter((item) => item.regionIds.includes(scope));
+      expect(scopedCases, scope).toHaveLength(counts.total);
+      expect(scopedCases.filter((item) => item.status === "active"), `${scope}: activos`).toHaveLength(counts.active);
+      expect(scopedCases.filter((item) => item.status === "latent"), `${scope}: latentes`).toHaveLength(counts.latent);
+    }
+  });
+
+  it("mantiene trazabilidad de cada caso del registro social", () => {
+    const registry = loadObservatoryData().socialConflictCases;
+    expect(registry.every((item) => item.sourcePage >= 37 && item.sourcePage <= 75)).toBe(true);
+    expect(registry.every((item) => item.titleMethod !== "editorial-summary" || Boolean(item.summary))).toBe(true);
+    expect(new Set(registry.map((item) => item.id)).size).toBe(registry.length);
   });
 });

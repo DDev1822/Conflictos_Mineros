@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { datasetSchema, type ObservatoryData } from "./schemas";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "data");
-const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "alternatives", "socialConflictSnapshots"] as const;
+const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "alternatives", "socialConflictSnapshots", "socialConflictCases"] as const;
 
 function readYaml<T>(name: string): T {
   const file = path.join(CONTENT_ROOT, `${name}.yaml`);
@@ -51,6 +51,14 @@ function assertReferences(data: ObservatoryData) {
   });
   data.socialConflictSnapshots.forEach((snapshot) => {
     check([snapshot.sourceId], "sources", `Corte territorial ${snapshot.id}`);
+  });
+  const snapshotById = new Map(data.socialConflictSnapshots.map((snapshot) => [snapshot.id, snapshot]));
+  data.socialConflictCases.forEach((conflict) => {
+    const snapshot = snapshotById.get(conflict.snapshotId);
+    if (!snapshot) throw new Error(`Caso social ${conflict.id} referencia un corte inexistente: ${conflict.snapshotId}`);
+    const allowedRegions = new Set([...snapshot.regions.map((region) => region.id), "nacional", "multiregional"]);
+    const missing = conflict.regionIds.filter((regionId) => !allowedRegions.has(regionId));
+    if (missing.length) throw new Error(`Caso social ${conflict.id} referencia ámbitos inexistentes: ${missing.join(", ")}`);
   });
 }
 

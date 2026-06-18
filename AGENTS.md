@@ -13,4 +13,5 @@ When implementing from a selected generated mock, treat that image as the source
 - Primary audience: students and researchers; public-policy practitioners are a secondary audience.
 - Repository remains private until methodology, licensing and the legal core are reviewed.
 - No legal instrument may be labeled both in force and verified without a dated specialist legal review.
+- Every regional heat point must open its underlying case registry; national and multiregional cases require equivalent access.
 - The territorial map includes a nationwide social-conflict heat layer based on the latest reviewed Defensoría del Pueblo monthly report. Always show its reporting cutoff, distinguish all social conflicts from mining conflicts, keep pilot-case markers separate, and disclose that regional reference points are not incident locations or impact areas.

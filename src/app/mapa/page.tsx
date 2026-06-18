@@ -7,5 +7,6 @@ export const metadata: Metadata = { title: "Mapa territorial" };
 export default function MapPage() {
   const data = loadObservatoryData();
   const snapshot = [...data.socialConflictSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
-  return <MapLoader cases={data.cases} territories={data.territories} socialConflictSnapshot={snapshot} />;
+  const socialConflictCases = data.socialConflictCases.filter((item) => item.snapshotId === snapshot.id);
+  return <MapLoader cases={data.cases} territories={data.territories} socialConflictSnapshot={snapshot} socialConflictCases={socialConflictCases} />;
 }

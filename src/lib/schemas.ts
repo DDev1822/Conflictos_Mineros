@@ -139,6 +139,34 @@ export const socialConflictRegionSchema = z.object({
   }
 });
 
+export const socialConflictCaseSchema = z.object({
+  id,
+  snapshotId: id,
+  title: z.string().min(4),
+  titleMethod: z.enum(["report-denomination", "editorial-summary"]),
+  status: z.enum(["active", "latent"]),
+  conflictType: z.enum([
+    "Socioambiental",
+    "Asuntos de gobierno nacional",
+    "Asuntos de gobierno regional",
+    "Asuntos de gobierno local",
+    "Comunal",
+    "Demarcación territorial",
+    "Otros asuntos",
+    "Laboral",
+  ]),
+  regionIds: z.array(id).min(1),
+  startPeriod: z.string().regex(/^\d{4}-\d{2}$/).optional(),
+  sourcePage: z.number().int().min(37).max(75),
+  hasMonthlyEvents: z.boolean(),
+  summary: z.string().min(20).optional(),
+  location: z.string().min(5).optional(),
+}).superRefine((conflict, ctx) => {
+  if (conflict.titleMethod === "editorial-summary" && !conflict.summary) {
+    ctx.addIssue({ code: "custom", path: ["summary"], message: "Una síntesis editorial requiere conservar la descripción fuente" });
+  }
+});
+
 export const socialConflictSnapshotSchema = z.object({
   id,
   title: z.string().min(10),
@@ -175,6 +203,7 @@ export const datasetSchema = z.object({
   cases: z.array(conflictCaseSchema),
   alternatives: z.array(policyAlternativeSchema),
   socialConflictSnapshots: z.array(socialConflictSnapshotSchema).min(1),
+  socialConflictCases: z.array(socialConflictCaseSchema).min(1),
 });
 
 export type ObservatoryData = z.infer<typeof datasetSchema>;
@@ -189,3 +218,4 @@ export type NormativeIssue = z.infer<typeof normativeIssueSchema>;
 export type PolicyAlternative = z.infer<typeof policyAlternativeSchema>;
 export type SocialConflictRegion = z.infer<typeof socialConflictRegionSchema>;
 export type SocialConflictSnapshot = z.infer<typeof socialConflictSnapshotSchema>;
+export type SocialConflictCase = z.infer<typeof socialConflictCaseSchema>;

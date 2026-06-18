@@ -63,6 +63,24 @@ data.socialConflictSnapshots.forEach((snapshot) => {
   if (snapshot.regions.some((region) => region.total !== region.active + region.latent)) {
     errors.push(`Corte territorial ${snapshot.id}: hay totales regionales que no reconcilian`);
   }
+  const registry = data.socialConflictCases.filter((item) => item.snapshotId === snapshot.id);
+  if (registry.length !== snapshot.totalRegistered) {
+    errors.push(`Corte territorial ${snapshot.id}: el registro contiene ${registry.length} casos y el total declara ${snapshot.totalRegistered}`);
+  }
+  for (const region of snapshot.regions) {
+    const cases = registry.filter((item) => item.regionIds.includes(region.id));
+    const active = cases.filter((item) => item.status === "active").length;
+    const latent = cases.filter((item) => item.status === "latent").length;
+    if (cases.length !== region.total || active !== region.active || latent !== region.latent) {
+      errors.push(`Corte territorial ${snapshot.id}: ${region.name} no reconcilia con su registro de casos`);
+    }
+  }
+});
+
+data.socialConflictCases.forEach((item) => {
+  if (item.titleMethod === "editorial-summary" && !item.summary) {
+    errors.push(`Caso social ${item.id}: una síntesis editorial no conserva la descripción fuente`);
+  }
 });
 
 const sourceTypes = Object.entries(
@@ -75,7 +93,7 @@ const sourceTypes = Object.entries(
   .map(([type, count]) => `${type}: ${count}`)
   .join(", ");
 
-console.log(`Auditoría editorial: ${data.cases.length} casos, ${data.sources.length} fuentes, ${data.instruments.length} normas.`);
+console.log(`Auditoría editorial: ${data.cases.length} expedientes piloto, ${data.socialConflictCases.length} casos del corte social, ${data.sources.length} fuentes, ${data.instruments.length} normas.`);
 console.log(`Cobertura por tipo de fuente: ${sourceTypes}.`);
 warnings.forEach((warning) => console.warn(`ADVERTENCIA: ${warning}`));
 
