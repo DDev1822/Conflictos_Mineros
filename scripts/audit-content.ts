@@ -55,6 +55,16 @@ data.instruments.forEach((instrument) => {
   }
 });
 
+data.socialConflictSnapshots.forEach((snapshot) => {
+  checkDatePrecision(snapshot.publishedAt, snapshot.datePrecision, `Corte territorial ${snapshot.id}`);
+  if (new Set(snapshot.regions.map((region) => region.coordinates.join(","))).size !== snapshot.regions.length) {
+    errors.push(`Corte territorial ${snapshot.id}: dos regiones comparten el mismo punto de referencia`);
+  }
+  if (snapshot.regions.some((region) => region.total !== region.active + region.latent)) {
+    errors.push(`Corte territorial ${snapshot.id}: hay totales regionales que no reconcilian`);
+  }
+});
+
 const sourceTypes = Object.entries(
   data.sources.reduce<Record<string, number>>((counts, source) => {
     counts[source.type] = (counts[source.type] ?? 0) + 1;

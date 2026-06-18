@@ -51,6 +51,8 @@ La compilación rechaza afirmaciones sin fuentes. La auditoría editorial exige,
 
 Las coordenadas se almacenan con `coordinatePrecision` y una fuente cartográfica. En la V1 son puntos regionales o de localidad para ubicar casos y facilitar la navegación.
 
+La capa nacional de conflictividad social usa el último reporte mensual de la Defensoría del Pueblo incorporado y revisado en Git. Los conteos se agregan por región y se representan mediante un punto de referencia regional; no son coordenadas de cada conflicto. El mapa debe mostrar siempre el periodo del reporte y separar esta capa general de los expedientes mineros piloto.
+
 El mapa no muestra, salvo indicación expresa y fuente específica:
 
 - polígonos de concesiones;
@@ -58,6 +60,8 @@ El mapa no muestra, salvo indicación expresa y fuente específica:
 - límites comunales;
 - derechos superficiales;
 - zonas afectadas o causalidad territorial.
+
+La intensidad de la capa de calor expresa cantidad de casos registrados, activos o latentes según el filtro elegido. No expresa gravedad, violencia, impacto ambiental, extensión territorial ni riesgo. Los casos nacionales y multirregionales se informan, pero no se asignan artificialmente a una región.
 
 La ausencia de un elemento en el mapa no implica su inexistencia. Tampoco debe inferirse extensión, proximidad jurídica ni responsabilidad a partir de un punto de referencia.
 

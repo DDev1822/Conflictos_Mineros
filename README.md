@@ -15,7 +15,7 @@ Cada actualización enviada a `main` o `codex/observatorio-v1` ejecuta validacio
 ## V1
 
 - Seis casos piloto: Tambogrande, Conga, Tía María, Las Bambas, Espinar y Madre de Dios.
-- Sistema de relaciones, catálogo de casos, mapa, cronología y módulo REINFO/MAPE.
+- Sistema de relaciones, catálogo de casos, mapa con capa nacional de conflictividad social, cronología y módulo REINFO/MAPE.
 - Contenido estructurado en YAML, narrativas en MDX y validación con Zod.
 - Afirmaciones clasificadas como hechos, interpretaciones o propuestas.
 - Compilación bloqueada ante relaciones rotas, IDs duplicados o afirmaciones sin fuente.
@@ -42,6 +42,7 @@ npm.cmd run build
 ## Estructura
 
 - `content/data`: colecciones YAML validadas.
+- `content/data/socialConflictSnapshots.yaml`: cortes territoriales trazables para la capa de calor.
 - `content/narratives`: narrativas MDX de los expedientes.
 - `src/lib/schemas.ts`: contrato público de datos.
 - `docs/data-methodology.md`: criterios de evidencia, precisión, mapa y revisión jurídica.

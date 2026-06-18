@@ -258,3 +258,16 @@
   license: Términos de Cambridge University Press
   verificationStatus: verified
   notes: Capítulo académico sobre minería aurífera y conflictos indígenas; requiere lectura junto con fuentes territoriales directas.
+- id: defensoria-conflictos-266
+  title: Reporte de Conflictos Sociales n.° 266 — abril 2026
+  institution: Defensoría del Pueblo
+  date: 2026-05-01
+  datePrecision: month
+  url: https://www.defensoria.gob.pe/wp-content/uploads/2026/05/Reporte-de-Conflictos-Sociales-n-266-VF.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-18
+  license: Documento institucional; verificar condiciones de reutilización
+  verificationStatus: verified
+  notes: Fuente del corte territorial de abril de 2026; registra 190 conflictos sociales, 159 activos y 31 latentes.

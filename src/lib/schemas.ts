@@ -126,6 +126,46 @@ export const policyAlternativeSchema = z.object({
   sourceIds: z.array(id).min(1),
 });
 
+export const socialConflictRegionSchema = z.object({
+  id,
+  name: z.string().min(2),
+  coordinates: z.tuple([z.number().min(-90).max(90), z.number().min(-180).max(180)]),
+  total: z.number().int().nonnegative(),
+  active: z.number().int().nonnegative(),
+  latent: z.number().int().nonnegative(),
+}).superRefine((region, ctx) => {
+  if (region.active + region.latent !== region.total) {
+    ctx.addIssue({ code: "custom", path: ["total"], message: "El total regional debe ser igual a activos más latentes" });
+  }
+});
+
+export const socialConflictSnapshotSchema = z.object({
+  id,
+  title: z.string().min(10),
+  reportNumber: z.number().int().positive(),
+  reportingPeriod: z.string().regex(/^\d{4}-\d{2}$/),
+  cutoffDate: isoDate,
+  publishedAt: isoDate,
+  datePrecision,
+  sourceId: id,
+  totalRegistered: z.number().int().positive(),
+  active: z.number().int().nonnegative(),
+  latent: z.number().int().nonnegative(),
+  national: z.object({ total: z.number().int().nonnegative(), active: z.number().int().nonnegative(), latent: z.number().int().nonnegative() }),
+  multiregional: z.object({ total: z.number().int().nonnegative(), active: z.number().int().nonnegative(), latent: z.number().int().nonnegative() }),
+  regions: z.array(socialConflictRegionSchema).min(1),
+  coordinateMethod: z.string().min(20),
+  notes: z.string().min(30),
+}).superRefine((snapshot, ctx) => {
+  if (snapshot.active + snapshot.latent !== snapshot.totalRegistered) {
+    ctx.addIssue({ code: "custom", path: ["totalRegistered"], message: "El total nacional debe ser igual a activos más latentes" });
+  }
+  const regionalTotal = snapshot.regions.reduce((sum, region) => sum + region.total, 0);
+  if (regionalTotal + snapshot.national.total + snapshot.multiregional.total !== snapshot.totalRegistered) {
+    ctx.addIssue({ code: "custom", path: ["regions"], message: "La distribución territorial no reconcilia con el total registrado" });
+  }
+});
+
 export const datasetSchema = z.object({
   sources: z.array(sourceSchema),
   actors: z.array(actorSchema),
@@ -134,6 +174,7 @@ export const datasetSchema = z.object({
   instruments: z.array(legalInstrumentSchema),
   cases: z.array(conflictCaseSchema),
   alternatives: z.array(policyAlternativeSchema),
+  socialConflictSnapshots: z.array(socialConflictSnapshotSchema).min(1),
 });
 
 export type ObservatoryData = z.infer<typeof datasetSchema>;
@@ -146,3 +187,5 @@ export type Territory = z.infer<typeof territorySchema>;
 export type TimelineEvent = z.infer<typeof timelineEventSchema>;
 export type NormativeIssue = z.infer<typeof normativeIssueSchema>;
 export type PolicyAlternative = z.infer<typeof policyAlternativeSchema>;
+export type SocialConflictRegion = z.infer<typeof socialConflictRegionSchema>;
+export type SocialConflictSnapshot = z.infer<typeof socialConflictSnapshotSchema>;

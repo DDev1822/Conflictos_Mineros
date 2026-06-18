@@ -1,0 +1,41 @@
+- id: defensoria-2026-04
+  title: Distribución regional de conflictos sociales — abril 2026
+  reportNumber: 266
+  reportingPeriod: 2026-04
+  cutoffDate: 2026-04-30
+  publishedAt: 2026-05-01
+  datePrecision: month
+  sourceId: defensoria-conflictos-266
+  totalRegistered: 190
+  active: 159
+  latent: 31
+  national: { total: 2, active: 2, latent: 0 }
+  multiregional: { total: 9, active: 8, latent: 1 }
+  coordinateMethod: Punto de referencia en la capital o centro urbano principal de cada ámbito regional.
+  notes: La capa representa conteos agregados por región. No ubica hechos individuales ni mide intensidad, impacto, violencia o causalidad.
+  regions:
+    - { id: loreto, name: Loreto, coordinates: [-3.7437, -73.2516], total: 23, active: 19, latent: 4 }
+    - { id: puno, name: Puno, coordinates: [-15.8402, -70.0219], total: 21, active: 19, latent: 2 }
+    - { id: ancash, name: Áncash, coordinates: [-9.5278, -77.5278], total: 17, active: 9, latent: 8 }
+    - { id: piura, name: Piura, coordinates: [-5.1945, -80.6328], total: 14, active: 14, latent: 0 }
+    - { id: cusco, name: Cusco, coordinates: [-13.5319, -71.9675], total: 13, active: 11, latent: 2 }
+    - { id: apurimac, name: Apurímac, coordinates: [-13.6339, -72.8814], total: 11, active: 10, latent: 1 }
+    - { id: junin, name: Junín, coordinates: [-12.0651, -75.2049], total: 10, active: 10, latent: 0 }
+    - { id: lima-metropolitana, name: Lima Metropolitana, coordinates: [-12.0464, -77.0428], total: 9, active: 4, latent: 5 }
+    - { id: huanuco, name: Huánuco, coordinates: [-9.9298, -76.2422], total: 8, active: 8, latent: 0 }
+    - { id: moquegua, name: Moquegua, coordinates: [-17.193, -70.935], total: 7, active: 6, latent: 1 }
+    - { id: amazonas, name: Amazonas, coordinates: [-6.2317, -77.869], total: 6, active: 5, latent: 1 }
+    - { id: lima-provincias, name: Lima Provincias, coordinates: [-11.1067, -77.605], total: 6, active: 5, latent: 1 }
+    - { id: pasco, name: Pasco, coordinates: [-10.6867, -76.256], total: 5, active: 5, latent: 0 }
+    - { id: huancavelica, name: Huancavelica, coordinates: [-12.7864, -74.9764], total: 5, active: 5, latent: 0 }
+    - { id: ayacucho, name: Ayacucho, coordinates: [-13.1631, -74.2236], total: 4, active: 4, latent: 0 }
+    - { id: arequipa, name: Arequipa, coordinates: [-16.409, -71.5375], total: 4, active: 2, latent: 2 }
+    - { id: la-libertad, name: La Libertad, coordinates: [-8.1116, -79.0287], total: 4, active: 3, latent: 1 }
+    - { id: ucayali, name: Ucayali, coordinates: [-8.3791, -74.5539], total: 3, active: 3, latent: 0 }
+    - { id: tumbes, name: Tumbes, coordinates: [-3.5669, -80.4515], total: 3, active: 1, latent: 2 }
+    - { id: cajamarca, name: Cajamarca, coordinates: [-7.1617, -78.5128], total: 2, active: 2, latent: 0 }
+    - { id: san-martin, name: San Martín, coordinates: [-6.0342, -76.9717], total: 1, active: 1, latent: 0 }
+    - { id: lambayeque, name: Lambayeque, coordinates: [-6.7714, -79.84], total: 1, active: 1, latent: 0 }
+    - { id: madre-de-dios, name: Madre de Dios, coordinates: [-12.5933, -69.1891], total: 1, active: 1, latent: 0 }
+    - { id: ica, name: Ica, coordinates: [-14.0678, -75.7286], total: 1, active: 1, latent: 0 }
+    - { id: tacna, name: Tacna, coordinates: [-18.0147, -70.253], total: 0, active: 0, latent: 0 }

@@ -36,4 +36,12 @@ describe("contenido académico", () => {
     );
     expect(invalid).toEqual([]);
   });
+
+  it("reconcilia el corte nacional de conflictos sociales", () => {
+    const snapshot = loadObservatoryData().socialConflictSnapshots[0];
+    const plotted = snapshot.regions.reduce((sum, region) => sum + region.total, 0);
+    expect(snapshot.active + snapshot.latent).toBe(snapshot.totalRegistered);
+    expect(plotted + snapshot.national.total + snapshot.multiregional.total).toBe(snapshot.totalRegistered);
+    expect(snapshot.totalRegistered).toBe(190);
+  });
 });

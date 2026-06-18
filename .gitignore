@@ -3,6 +3,7 @@ node_modules/
 out/
 .npm-cache/
 coverage/
+tmp/
 *.tsbuildinfo
 *.log
 .DS_Store
