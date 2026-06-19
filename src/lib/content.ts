@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { datasetSchema, type ObservatoryData } from "./schemas";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "data");
-const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "alternatives", "socialConflictSnapshots", "socialConflictCases", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots"] as const;
+const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "alternatives", "socialConflictSnapshots", "socialConflictCases", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots", "explorationTerritorialSnapshots", "miningConcessionTerritorialSnapshots"] as const;
 
 function readYaml<T>(name: string): T {
   const file = path.join(CONTENT_ROOT, `${name}.yaml`);
@@ -58,6 +58,12 @@ function assertReferences(data: ObservatoryData) {
   data.formalMiningTerritorialSnapshots.forEach((snapshot) => {
     check([snapshot.sourceId], "sources", `Corte territorial de minería formal ${snapshot.id}`);
   });
+  data.explorationTerritorialSnapshots.forEach((snapshot) => {
+    check([snapshot.sourceId], "sources", `Corte territorial de exploración ${snapshot.id}`);
+  });
+  data.miningConcessionTerritorialSnapshots.forEach((snapshot) => {
+    check([snapshot.sourceId], "sources", `Corte territorial de concesiones ${snapshot.id}`);
+  });
   const snapshotById = new Map(data.socialConflictSnapshots.map((snapshot) => [snapshot.id, snapshot]));
   data.socialConflictCases.forEach((conflict) => {
     const snapshot = snapshotById.get(conflict.snapshotId);
@@ -78,6 +84,8 @@ export function loadObservatoryData(): ObservatoryData {
   parsed.socialConflictSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
   parsed.reinfoTerritorialSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
   parsed.formalMiningTerritorialSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
+  parsed.explorationTerritorialSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
+  parsed.miningConcessionTerritorialSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
   assertUnique(parsed.cases.map((item) => item.slug), "slugs de casos");
   assertReferences(parsed);
   cached = parsed;

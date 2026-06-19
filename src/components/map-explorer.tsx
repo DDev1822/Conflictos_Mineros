@@ -7,11 +7,13 @@ import { CircleMarker, MapContainer, Marker, Popup, TileLayer, Tooltip, useMap }
 import L from "leaflet";
 import "leaflet.heat";
 import "leaflet/dist/leaflet.css";
-import type { ConflictCase, FormalMiningTerritorialSnapshot, ReinfoTerritorialSnapshot, SocialConflictCase, SocialConflictSnapshot, Territory } from "@/lib/schemas";
+import type { ConflictCase, ExplorationTerritorialSnapshot, FormalMiningTerritorialSnapshot, MiningConcessionTerritorialSnapshot, ReinfoTerritorialSnapshot, SocialConflictCase, SocialConflictSnapshot, Territory } from "@/lib/schemas";
 
 const REPORT_URL = "https://www.defensoria.gob.pe/wp-content/uploads/2026/05/Reporte-de-Conflictos-Sociales-n-266-VF.pdf";
 const REINFO_URL = "https://pad.minem.gob.pe/REINFO_WEB/Index.aspx";
 const FORMAL_MINING_URL = "https://mineria.minem.gob.pe/directorio_minero/plantas-de-beneficio-autorizadas/";
+const EXPLORATION_URL = "https://mineria.minem.gob.pe/directorio_minero/inicio-de-actividades-de-exploracion/";
+const CONCESSION_URL = "https://geocatmin.ingemmet.gob.pe/geocatmin/";
 const HEAT_COLORS = { low: "#62bfd3", medium: "#d99932", high: "#a52f36" } as const;
 
 const markerIcon = new L.Icon({
@@ -76,6 +78,18 @@ function formalMiningRadius(count: number) {
   return 8;
 }
 
+function explorationRadius(count: number) {
+  if (count >= 25) return 28;
+  if (count >= 10) return 24;
+  return 20;
+}
+
+function concessionRadius(count: number) {
+  if (count >= 3000) return 44;
+  if (count >= 1000) return 38;
+  return 32;
+}
+
 function SocialConflictHeat({ snapshot, metric, visible }: { snapshot: SocialConflictSnapshot; metric: HeatMetric; visible: boolean }) {
   const map = useMap();
   const points = useMemo<L.HeatLatLngTuple[]>(() => {
@@ -120,13 +134,15 @@ function fullDateLabel(value: string) {
   return new Intl.DateTimeFormat("es-PE", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
 }
 
-export function MapExplorer({ cases, territories, socialConflictSnapshot, socialConflictCases, reinfoSnapshot, formalMiningSnapshot }: {
+export function MapExplorer({ cases, territories, socialConflictSnapshot, socialConflictCases, reinfoSnapshot, formalMiningSnapshot, explorationSnapshot, miningConcessionSnapshot }: {
   cases: ConflictCase[];
   territories: Territory[];
   socialConflictSnapshot: SocialConflictSnapshot;
   socialConflictCases: SocialConflictCase[];
   reinfoSnapshot: ReinfoTerritorialSnapshot;
   formalMiningSnapshot: FormalMiningTerritorialSnapshot;
+  explorationSnapshot: ExplorationTerritorialSnapshot;
+  miningConcessionSnapshot: MiningConcessionTerritorialSnapshot;
 }) {
   const [status, setStatus] = useState("all");
   const [showHeat, setShowHeat] = useState(true);
@@ -134,6 +150,8 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
   const [showInformalIllegal, setShowInformalIllegal] = useState(false);
   const [showReinfo, setShowReinfo] = useState(false);
   const [showFormalMining, setShowFormalMining] = useState(false);
+  const [showExploration, setShowExploration] = useState(false);
+  const [showConcessions, setShowConcessions] = useState(false);
   const [heatMetric, setHeatMetric] = useState<HeatMetric>("total");
   const [selectedScope, setSelectedScope] = useState<string | null>(null);
   const [registryTheme, setRegistryTheme] = useState<RegistryTheme>("all");
@@ -230,6 +248,14 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <input type="checkbox" checked={showFormalMining} onChange={(event) => setShowFormalMining(event.target.checked)} />
             <span><strong>Minería formal</strong><small>Plantas de beneficio vigentes registradas por MINEM</small></span>
           </label>
+          <label className="map-layer-toggle">
+            <input type="checkbox" checked={showExploration} onChange={(event) => setShowExploration(event.target.checked)} />
+            <span><strong>Exploración minera</strong><small>Expedientes de exploración en actividad</small></span>
+          </label>
+          <label className="map-layer-toggle">
+            <input type="checkbox" checked={showConcessions} onChange={(event) => setShowConcessions(event.target.checked)} />
+            <span><strong>Concesiones mineras</strong><small>Derechos titulados en el Catastro Minero</small></span>
+          </label>
         </fieldset>
 
         {showHeat && <>
@@ -311,6 +337,36 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
           </div>
         )}
 
+        {showExploration && (
+          <div className="map-layer-summary" data-layer="exploration">
+            <p>Exploración documentada</p>
+            <strong>{explorationSnapshot.totalProjects.toLocaleString("es-PE")} expedientes únicos</strong>
+            <span>{explorationSnapshot.totalAreaHectares.toLocaleString("es-PE", { maximumFractionDigits: 0 })} ha informadas · consulta: {fullDateLabel(explorationSnapshot.cutoffDate)}</span>
+            <div className="point-size-legend exploration-point-size-legend" aria-label="Tamaño del anillo según expedientes de exploración">
+              <span><i data-size="small" aria-hidden="true" />1–9</span>
+              <span><i data-size="medium" aria-hidden="true" />10–24</span>
+              <span><i data-size="large" aria-hidden="true" />25 o más</span>
+            </div>
+            <small>Explorar no equivale a explotar ni producir. Los anillos son referencias departamentales, no áreas de intervención.</small>
+            <a href={EXPLORATION_URL} target="_blank" rel="noreferrer">Consultar directorio oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
+          </div>
+        )}
+
+        {showConcessions && (
+          <div className="map-layer-summary" data-layer="concessions">
+            <p>Catastro minero titulado</p>
+            <strong>{miningConcessionSnapshot.totalRights.toLocaleString("es-PE")} derechos únicos</strong>
+            <span>{miningConcessionSnapshot.regionalPresences.toLocaleString("es-PE")} presencias departamentales · servicio de actualización diaria consultado el {fullDateLabel(miningConcessionSnapshot.cutoffDate)}</span>
+            <div className="point-size-legend concession-point-size-legend" aria-label="Tamaño del anillo según derechos mineros titulados">
+              <span><i data-size="small" aria-hidden="true" />1–999</span>
+              <span><i data-size="medium" aria-hidden="true" />1.000–2.999</span>
+              <span><i data-size="large" aria-hidden="true" />3.000 o más</span>
+            </div>
+            <small>Una concesión no acredita actividad, propiedad superficial ni permisos operativos. {miningConcessionSnapshot.unmappedRights} derechos de ámbito marítimo quedan fuera del mapa; los derechos multidepartamentales se cuentan en cada departamento.</small>
+            <a href={CONCESSION_URL} target="_blank" rel="noreferrer">Consultar GEOCATMIN oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
+          </div>
+        )}
+
         {showCases && <>
           <label className="map-select-label">Estado del expediente
             <select value={status} onChange={(event) => setStatus(event.target.value)}>
@@ -331,10 +387,10 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
         <a className="map-source" href={REPORT_URL} target="_blank" rel="noreferrer">Consultar reporte oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
       </aside>
 
-      <section className="map-stage" aria-label="Mapa interactivo de conflictividad social, minería ilegal e informal, REINFO, minería formal documentada y casos piloto">
+      <section className="map-stage" aria-label="Mapa interactivo de conflictividad social, minería ilegal e informal, REINFO, minería formal, exploración, concesiones y casos piloto">
         <MapContainer center={[-9.19, -75.02]} zoom={5} scrollWheelZoom>
           <TileLayer attribution="&copy; OpenStreetMap contributors" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <FitMap showNationalLayers={showHeat || showInformalIllegal || showReinfo || showFormalMining} territories={visibleTerritories} />
+          <FitMap showNationalLayers={showHeat || showInformalIllegal || showReinfo || showFormalMining || showExploration || showConcessions} territories={visibleTerritories} />
           <SocialConflictHeat snapshot={socialConflictSnapshot} metric={heatMetric} visible={showHeat} />
           {showHeat && socialConflictSnapshot.regions.filter((region) => region[heatMetric] > 0).map((region) => (
             <CircleMarker
@@ -349,6 +405,38 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
                 <strong>{region.name}</strong><br />
                 {region.total} registrados<br />{region.active} activos · {region.latent} latentes
                 <button className="map-popup-action" type="button" onClick={() => openRegistry(region.id)}>Ver los {region.total} casos</button>
+              </Popup>
+            </CircleMarker>
+          ))}
+          {showConcessions && miningConcessionSnapshot.regions.map((region) => (
+            <CircleMarker
+              key={`concession-${region.id}`}
+              center={region.coordinates}
+              radius={concessionRadius(region.count)}
+              pathOptions={{ color: "#76593a", weight: 2.5, dashArray: "2 6", fillColor: "#b69562", fillOpacity: 0.04 }}
+            >
+              <Tooltip direction="top"><strong>{region.name}</strong><br />{region.count.toLocaleString("es-PE")} presencias de derechos titulados</Tooltip>
+              <Popup>
+                <strong>{region.name}</strong><br />
+                {region.count.toLocaleString("es-PE")} presencias de derechos mineros titulados.<br />
+                <small>Referencia departamental. Una concesión no prueba actividad, propiedad superficial ni permisos operativos.</small><br />
+                <a href={CONCESSION_URL} target="_blank" rel="noreferrer">Consultar GEOCATMIN oficial</a>
+              </Popup>
+            </CircleMarker>
+          ))}
+          {showExploration && explorationSnapshot.regions.map((region) => (
+            <CircleMarker
+              key={`exploration-${region.id}`}
+              center={region.coordinates}
+              radius={explorationRadius(region.count)}
+              pathOptions={{ color: "#216b76", weight: 2.5, dashArray: "8 5", fillColor: "#70aeb7", fillOpacity: 0.08 }}
+            >
+              <Tooltip direction="top"><strong>{region.name}</strong><br />{region.count} {region.count === 1 ? "expediente de exploración" : "expedientes de exploración"}</Tooltip>
+              <Popup>
+                <strong>{region.name}</strong><br />
+                {region.count} {region.count === 1 ? "expediente" : "expedientes"} · {region.areaHectares.toLocaleString("es-PE", { maximumFractionDigits: 0 })} ha informadas.<br />
+                <small>Referencia departamental; explorar no equivale a explotar ni producir.</small><br />
+                <a href={EXPLORATION_URL} target="_blank" rel="noreferrer">Consultar directorio oficial</a>
               </Popup>
             </CircleMarker>
           ))}

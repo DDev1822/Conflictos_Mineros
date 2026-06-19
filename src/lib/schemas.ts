@@ -243,6 +243,61 @@ export const formalMiningTerritorialSnapshotSchema = z.object({
   }
 });
 
+export const explorationTerritorialRegionSchema = reinfoTerritorialRegionSchema.extend({
+  areaHectares: z.number().nonnegative(),
+});
+
+export const explorationTerritorialSnapshotSchema = z.object({
+  id,
+  title: z.string().min(10),
+  cutoffDate: isoDate,
+  accessedAt: isoDate,
+  sourceId: id,
+  cutoffBasis: z.literal("access-date"),
+  unitDefinition: z.string().min(30),
+  totalProjects: z.number().int().positive(),
+  totalAreaHectares: z.number().positive(),
+  regions: z.array(explorationTerritorialRegionSchema).min(1),
+  coordinateMethod: z.string().min(20),
+  notes: z.string().min(30),
+}).superRefine((snapshot, ctx) => {
+  const regionalTotal = snapshot.regions.reduce((sum, region) => sum + region.count, 0);
+  if (regionalTotal !== snapshot.totalProjects) {
+    ctx.addIssue({ code: "custom", path: ["regions"], message: "La distribución territorial de exploración no reconcilia con el total de expedientes" });
+  }
+  const regionalArea = snapshot.regions.reduce((sum, region) => sum + region.areaHectares, 0);
+  if (Math.abs(regionalArea - snapshot.totalAreaHectares) > 0.1) {
+    ctx.addIssue({ code: "custom", path: ["regions"], message: "El área territorial de exploración no reconcilia con el total" });
+  }
+});
+
+export const miningConcessionTerritorialSnapshotSchema = z.object({
+  id,
+  title: z.string().min(10),
+  cutoffDate: isoDate,
+  accessedAt: isoDate,
+  sourceId: id,
+  cutoffBasis: z.literal("daily-service-access-date"),
+  status: z.literal("titulado"),
+  unitDefinition: z.string().min(30),
+  totalRights: z.number().int().positive(),
+  mappedRights: z.number().int().positive(),
+  unmappedRights: z.number().int().nonnegative(),
+  regionalPresences: z.number().int().positive(),
+  totalAreaHectares: z.number().positive(),
+  regions: z.array(reinfoTerritorialRegionSchema).min(1),
+  coordinateMethod: z.string().min(20),
+  notes: z.string().min(30),
+}).superRefine((snapshot, ctx) => {
+  const regionalTotal = snapshot.regions.reduce((sum, region) => sum + region.count, 0);
+  if (regionalTotal !== snapshot.regionalPresences) {
+    ctx.addIssue({ code: "custom", path: ["regions"], message: "Las presencias departamentales de concesiones no reconcilian con la distribución territorial" });
+  }
+  if (snapshot.mappedRights + snapshot.unmappedRights !== snapshot.totalRights) {
+    ctx.addIssue({ code: "custom", path: ["totalRights"], message: "Los derechos mapeados y no mapeados no reconcilian con el total titulado" });
+  }
+});
+
 export const datasetSchema = z.object({
   sources: z.array(sourceSchema),
   actors: z.array(actorSchema),
@@ -255,6 +310,8 @@ export const datasetSchema = z.object({
   socialConflictCases: z.array(socialConflictCaseSchema).min(1),
   reinfoTerritorialSnapshots: z.array(reinfoTerritorialSnapshotSchema).min(1),
   formalMiningTerritorialSnapshots: z.array(formalMiningTerritorialSnapshotSchema).min(1),
+  explorationTerritorialSnapshots: z.array(explorationTerritorialSnapshotSchema).min(1),
+  miningConcessionTerritorialSnapshots: z.array(miningConcessionTerritorialSnapshotSchema).min(1),
 });
 
 export type ObservatoryData = z.infer<typeof datasetSchema>;
@@ -272,3 +329,5 @@ export type SocialConflictSnapshot = z.infer<typeof socialConflictSnapshotSchema
 export type SocialConflictCase = z.infer<typeof socialConflictCaseSchema>;
 export type ReinfoTerritorialSnapshot = z.infer<typeof reinfoTerritorialSnapshotSchema>;
 export type FormalMiningTerritorialSnapshot = z.infer<typeof formalMiningTerritorialSnapshotSchema>;
+export type ExplorationTerritorialSnapshot = z.infer<typeof explorationTerritorialSnapshotSchema>;
+export type MiningConcessionTerritorialSnapshot = z.infer<typeof miningConcessionTerritorialSnapshotSchema>;

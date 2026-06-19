@@ -93,4 +93,21 @@ describe("contenido académico", () => {
     expect(snapshot.unmappedUnits).toBe(2);
     expect(snapshot.sourceId).toBe("minem-plantas-beneficio");
   });
+
+  it("reconcilia los expedientes territoriales de exploración", () => {
+    const snapshot = loadObservatoryData().explorationTerritorialSnapshots[0];
+    expect(snapshot.regions.reduce((sum, region) => sum + region.count, 0)).toBe(snapshot.totalProjects);
+    expect(snapshot.totalProjects).toBe(293);
+    expect(snapshot.totalAreaHectares).toBeCloseTo(101775.4, 1);
+    expect(snapshot.sourceId).toBe("minem-exploracion-actividad");
+  });
+
+  it("reconcilia derechos mineros titulados y presencias departamentales", () => {
+    const snapshot = loadObservatoryData().miningConcessionTerritorialSnapshots[0];
+    expect(snapshot.regions.reduce((sum, region) => sum + region.count, 0)).toBe(snapshot.regionalPresences);
+    expect(snapshot.mappedRights + snapshot.unmappedRights).toBe(snapshot.totalRights);
+    expect(snapshot.totalRights).toBe(41954);
+    expect(snapshot.regionalPresences).toBe(43484);
+    expect(snapshot.sourceId).toBe("ingemmet-catastro-minero");
+  });
 });

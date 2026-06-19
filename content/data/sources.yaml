@@ -37,6 +37,32 @@
   license: Datos públicos; verificar condiciones de reutilización
   verificationStatus: partial
   notes: El portal oficial identifica el directorio como plantas autorizadas y su exportación como plantas vigentes, pero no publica una fecha propia de actualización. La fecha consignada corresponde al acceso y la capa conserva esa limitación.
+- id: minem-exploracion-actividad
+  title: Directorio de inicios de actividades de exploración en actividad
+  institution: Ministerio de Energía y Minas
+  date: 2026-06-18
+  datePrecision: day
+  url: https://mineria.minem.gob.pe/directorio_minero/inicio-de-actividades-de-exploracion/
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-18
+  license: Datos públicos; verificar condiciones de reutilización
+  verificationStatus: partial
+  notes: La exportación oficial identifica expedientes de exploración en actividad, pero el portal no publica una fecha propia de actualización. La fecha consignada corresponde al acceso y explorar no equivale a explotar o producir.
+- id: ingemmet-catastro-minero
+  title: Catastro Minero — derechos mineros titulados
+  institution: Instituto Geológico, Minero y Metalúrgico
+  date: 2026-06-18
+  datePrecision: day
+  url: https://geocatmin.ingemmet.gob.pe/geocatmin/
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-18
+  license: Datos públicos de consulta referencial; verificar condiciones de reutilización
+  verificationStatus: verified
+  notes: Consulta del servicio oficial SERV_CATASTRO_MINERO_WGS84 filtrada por LEYENDA=TITULADO. INGEMMET declara actualización diaria y carácter referencial. La concesión no acredita actividad, propiedad superficial ni autorizaciones operativas.
 - id: minem-normas
   title: Normas legales del sector Energía y Minas
   institution: Ministerio de Energía y Minas

@@ -73,6 +73,12 @@ La capa “Minería formal” usa como indicador parcial el listado oficial de p
 
 Los conteos de esta capa se agregan por departamento y se colocan en los mismos puntos regionales de referencia. Los anillos verdes permiten compararla con REINFO, menciones de minería ilegal o informal y conflictos sociales sin sugerir que las capas comparten una ubicación exacta o una relación causal.
 
+La capa “Exploración minera” usa el listado oficial de inicios de actividades de exploración en actividad del MINEM. El corte de consulta del 18 de junio de 2026 deduplica 294 filas por código de expediente y conserva 293 expedientes únicos, con 101.775,4 hectáreas informadas por la fuente. El portal no publica una fecha propia de actualización. La capa muestra conteos y extensiones registrales agregados por departamento; explorar no equivale a explotar, producir ni contar con todas las autorizaciones necesarias para una operación minera.
+
+La capa “Concesiones mineras” consulta el servicio oficial `SERV_CATASTRO_MINERO_WGS84` de INGEMMET y selecciona únicamente los derechos clasificados como `TITULADO`. El servicio declara actualización diaria y carácter referencial. En la consulta del 18 de junio de 2026 se identificaron 41.954 códigos únicos: 41.936 con al menos un departamento y 18 de ámbito marítimo sin punto regional. Como un derecho puede abarcar más de un departamento, el mapa presenta 43.484 presencias departamentales; ese subtotal no debe interpretarse como derechos únicos.
+
+Una concesión minera no acredita actividad sobre el terreno, propiedad del suelo superficial, aprobación ambiental, autorización de exploración, inicio de explotación ni responsabilidad por un conflicto. Los anillos departamentales no sustituyen los polígonos catastrales de GEOCATMIN y solo permiten una comparación nacional de concentración registral.
+
 ### Registro navegable del reporte 266
 
 El corte de abril de 2026 incorpora un registro de 190 casos vinculado a los puntos regionales: 159 activos y 31 latentes. Cada entrada conserva estado, tipo, ámbito, página fuente y, cuando el reporte lo informa, periodo de inicio y ubicación. Los puntos regionales abren estas listas; los dos casos nacionales y los nueve multirregionales se consultan desde accesos separados para no duplicarlos sobre el mapa.

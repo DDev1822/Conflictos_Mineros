@@ -1,0 +1,41 @@
+- id: ingemmet-derechos-titulados-2026-06-18
+  title: Derechos mineros titulados en el Catastro Minero de INGEMMET — consulta del 18 de junio de 2026
+  cutoffDate: 2026-06-18
+  accessedAt: 2026-06-18
+  sourceId: ingemmet-catastro-minero
+  cutoffBasis: daily-service-access-date
+  status: titulado
+  unitDefinition: Código único de derecho minero clasificado como TITULADO en el servicio oficial del Catastro Minero; no acredita actividad, propiedad superficial ni autorizaciones operativas.
+  totalRights: 41954
+  mappedRights: 41936
+  unmappedRights: 18
+  regionalPresences: 43484
+  totalAreaHectares: 16542900.97
+  coordinateMethod: Cada derecho se cuenta una vez en cada departamento nombrado por la fuente y se ubica en un punto departamental de referencia; no se reproducen sus polígonos.
+  notes: El servicio de INGEMMET declara actualización diaria y carácter referencial. Los 41.954 códigos titulados incluyen 18 registros con ámbito MAR que quedan fuera del mapa. Un derecho que abarca más de un departamento genera una presencia en cada uno, por eso las 43.484 presencias regionales no deben sumarse como derechos únicos. Una concesión no implica actividad minera, propiedad del terreno superficial, aprobación ambiental ni licencia de explotación.
+  regions:
+    - { id: amazonas, name: Amazonas, coordinates: [-6.2317, -77.869], count: 366 }
+    - { id: ancash, name: Áncash, coordinates: [-9.5278, -77.5278], count: 4272 }
+    - { id: apurimac, name: Apurímac, coordinates: [-13.6339, -72.8814], count: 1937 }
+    - { id: arequipa, name: Arequipa, coordinates: [-16.409, -71.5375], count: 5135 }
+    - { id: ayacucho, name: Ayacucho, coordinates: [-13.1631, -74.2236], count: 2149 }
+    - { id: cajamarca, name: Cajamarca, coordinates: [-7.1617, -78.5128], count: 1547 }
+    - { id: callao, name: Callao, coordinates: [-12.0566, -77.1181], count: 13 }
+    - { id: cusco, name: Cusco, coordinates: [-13.5319, -71.9675], count: 2662 }
+    - { id: huancavelica, name: Huancavelica, coordinates: [-12.7864, -74.9764], count: 2336 }
+    - { id: huanuco, name: Huánuco, coordinates: [-9.9298, -76.2422], count: 1067 }
+    - { id: ica, name: Ica, coordinates: [-14.0678, -75.7286], count: 1248 }
+    - { id: junin, name: Junín, coordinates: [-12.0651, -75.2049], count: 2812 }
+    - { id: la-libertad, name: La Libertad, coordinates: [-8.1116, -79.0287], count: 3217 }
+    - { id: lambayeque, name: Lambayeque, coordinates: [-6.7714, -79.84], count: 377 }
+    - { id: lima, name: Lima, coordinates: [-11.1067, -77.605], count: 4029 }
+    - { id: loreto, name: Loreto, coordinates: [-3.7437, -73.2516], count: 210 }
+    - { id: madre-de-dios, name: Madre de Dios, coordinates: [-12.5933, -69.1891], count: 1038 }
+    - { id: moquegua, name: Moquegua, coordinates: [-17.193, -70.935], count: 1051 }
+    - { id: pasco, name: Pasco, coordinates: [-10.6867, -76.256], count: 1104 }
+    - { id: piura, name: Piura, coordinates: [-5.1945, -80.6328], count: 1168 }
+    - { id: puno, name: Puno, coordinates: [-15.8402, -70.0219], count: 4311 }
+    - { id: san-martin, name: San Martín, coordinates: [-6.0342, -76.9717], count: 345 }
+    - { id: tacna, name: Tacna, coordinates: [-18.0147, -70.253], count: 869 }
+    - { id: tumbes, name: Tumbes, coordinates: [-3.5669, -80.4515], count: 89 }
+    - { id: ucayali, name: Ucayali, coordinates: [-8.3791, -74.5539], count: 132 }

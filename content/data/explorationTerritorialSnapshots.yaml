@@ -1,0 +1,31 @@
+- id: minem-exploracion-en-actividad-2026-06-18
+  title: Inicios de actividades de exploración en actividad registrados por MINEM — consulta del 18 de junio de 2026
+  cutoffDate: 2026-06-18
+  accessedAt: 2026-06-18
+  sourceId: minem-exploracion-actividad
+  cutoffBasis: access-date
+  unitDefinition: Expediente único incluido por MINEM en el listado de inicios de actividades de exploración en actividad; no equivale a explotación ni producción minera.
+  totalProjects: 293
+  totalAreaHectares: 101775.4
+  coordinateMethod: Conteo agregado por departamento y ubicado en su capital o centro urbano principal; los anillos no corresponden a coordenadas de los proyectos.
+  notes: Se deduplicaron 294 filas del listado oficial por código de expediente, conservando 293 expedientes únicos. El portal no publica fecha propia de actualización; la fecha mostrada es la de consulta. La extensión informada corresponde al registro y no se representa como polígono.
+  regions:
+    - { id: amazonas, name: Amazonas, coordinates: [-6.2317, -77.869], count: 1, areaHectares: 60.05 }
+    - { id: ancash, name: Áncash, coordinates: [-9.5278, -77.5278], count: 20, areaHectares: 5849.81 }
+    - { id: apurimac, name: Apurímac, coordinates: [-13.6339, -72.8814], count: 10, areaHectares: 3461.89 }
+    - { id: arequipa, name: Arequipa, coordinates: [-16.409, -71.5375], count: 49, areaHectares: 22700.77 }
+    - { id: ayacucho, name: Ayacucho, coordinates: [-13.1631, -74.2236], count: 16, areaHectares: 3003.4 }
+    - { id: cajamarca, name: Cajamarca, coordinates: [-7.1617, -78.5128], count: 34, areaHectares: 2752.95 }
+    - { id: cusco, name: Cusco, coordinates: [-13.5319, -71.9675], count: 3, areaHectares: 617.52 }
+    - { id: huancavelica, name: Huancavelica, coordinates: [-12.7864, -74.9764], count: 9, areaHectares: 2589.15 }
+    - { id: huanuco, name: Huánuco, coordinates: [-9.9298, -76.2422], count: 5, areaHectares: 124.26 }
+    - { id: ica, name: Ica, coordinates: [-14.0678, -75.7286], count: 9, areaHectares: 15966.77 }
+    - { id: junin, name: Junín, coordinates: [-12.0651, -75.2049], count: 22, areaHectares: 2828.08 }
+    - { id: la-libertad, name: La Libertad, coordinates: [-8.1116, -79.0287], count: 33, areaHectares: 4545.04 }
+    - { id: lambayeque, name: Lambayeque, coordinates: [-6.7714, -79.84], count: 1, areaHectares: 223.32 }
+    - { id: lima, name: Lima, coordinates: [-11.1067, -77.605], count: 20, areaHectares: 3189.44 }
+    - { id: moquegua, name: Moquegua, coordinates: [-17.193, -70.935], count: 20, areaHectares: 20139.73 }
+    - { id: pasco, name: Pasco, coordinates: [-10.6867, -76.256], count: 11, areaHectares: 3297.44 }
+    - { id: piura, name: Piura, coordinates: [-5.1945, -80.6328], count: 3, areaHectares: 2396.58 }
+    - { id: puno, name: Puno, coordinates: [-15.8402, -70.0219], count: 13, areaHectares: 3971.69 }
+    - { id: tacna, name: Tacna, coordinates: [-18.0147, -70.253], count: 14, areaHectares: 4057.51 }
