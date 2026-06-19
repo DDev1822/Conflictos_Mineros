@@ -312,6 +312,8 @@ export const datasetSchema = z.object({
   formalMiningTerritorialSnapshots: z.array(formalMiningTerritorialSnapshotSchema).min(1),
   explorationTerritorialSnapshots: z.array(explorationTerritorialSnapshotSchema).min(1),
   miningConcessionTerritorialSnapshots: z.array(miningConcessionTerritorialSnapshotSchema).min(1),
+  miningConflictSnapshots: z.array(socialConflictSnapshotSchema).min(1),
+  miningSocialConflictCases: z.array(socialConflictCaseSchema).min(1),
 });
 
 export type ObservatoryData = z.infer<typeof datasetSchema>;
@@ -331,3 +333,5 @@ export type ReinfoTerritorialSnapshot = z.infer<typeof reinfoTerritorialSnapshot
 export type FormalMiningTerritorialSnapshot = z.infer<typeof formalMiningTerritorialSnapshotSchema>;
 export type ExplorationTerritorialSnapshot = z.infer<typeof explorationTerritorialSnapshotSchema>;
 export type MiningConcessionTerritorialSnapshot = z.infer<typeof miningConcessionTerritorialSnapshotSchema>;
+export type MiningConflictSnapshot = z.infer<typeof socialConflictSnapshotSchema>;
+export type MiningSocialConflictCase = z.infer<typeof socialConflictCaseSchema>;
