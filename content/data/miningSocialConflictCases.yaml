@@ -1,0 +1,203 @@
+# Lista filtrada de casos de conflictos sociales relacionados con minería.
+# Estos registros se extraen del informe de la Defensoría del Pueblo (reporte 266, corte abril 2026) y se limitan a conflictos donde el título o la descripción mencionan minería, actividades mineras o compañías mineras.
+
+- id: rcs-266-001
+  snapshotId: defensoria-2026-04-mining
+  title: "El 03 de enero de 2026, aproximadamente 70 agricultores provenientes de diversos caseríos del distrito de Cáceres del Perú– Jimbe bloquearon la carretera de…"
+  titleMethod: editorial-summary
+  status: active
+  conflictType: Socioambiental
+  regionIds: [ancash]
+  sourcePage: 37
+  hasMonthlyEvents: true
+  startPeriod: 2026-01
+  summary: "El 03 de enero de 2026, aproximadamente 70 agricultores del distrito de Cáceres del Perú– Jimbe bloquearon la carretera de ingreso al caserío de Colcap. La protesta respondió a la presunta contaminación ambiental atribuida a las empresas mineras Bahema Trade S.A.C. y Pacífico Dorado, señalando afectaciones a las fuentes de agua utilizadas para la agricultura y el consumo humano, así como generación de polvareda que estaría impactando negativamente la salud de las personas, los cultivos y los animales."
+  location: "Distrito de Cáceres del Perú, provincia del Santa, departamento de Áncash."
+
+- id: rcs-266-002
+  snapshotId: defensoria-2026-04-mining
+  title: "La Asociación de Productores y Propietarios del sector Cunca y Cochapetí denuncia la presunta afectación a diversos predios por parte de las empresas…"
+  titleMethod: editorial-summary
+  status: active
+  conflictType: Socioambiental
+  regionIds: [ancash]
+  sourcePage: 37
+  hasMonthlyEvents: true
+  startPeriod: 2025-10
+  summary: "La Asociación de Productores y Propietarios del sector Cunca y Cochapetí denuncia la presunta afectación a diversos predios por parte de las empresas mineras Baema Trade y Pacífico Dorado debido a la circulación constante de vehículos de carga pesada que transportan mineral."
+  location: "Distrito de Cáceres del Perú, provincia de Santa, departamento de Áncash."
+
+- id: rcs-266-004
+  snapshotId: defensoria-2026-04-mining
+  title: "Desde el 29 de enero de 2026, la Comunidad Campesina Acsunche mantiene tomadas las instalaciones de la Minera Korimallko en Apurímac, exigiendo mejoras…"
+  titleMethod: editorial-summary
+  status: active
+  conflictType: Socioambiental
+  regionIds: [apurimac]
+  sourcePage: 38
+  hasMonthlyEvents: true
+  startPeriod: 2026-02
+  summary: "Desde el 29 de enero de 2026, la Comunidad Campesina Acsunche mantiene tomadas las instalaciones de la Minera Korimallko en Apurímac, exigiendo mejoras laborales e investigación por la muerte de ganado en la zona. La tensión se incrementó tras incidentes ambientales recientes y se investiga el presunto impacto en el entorno."
+  location: "Comunidad Campesina de Acsunche y Virundo, distritos de Turpay y Virundo, provincia de Grau, departamento Apurímac."
+
+- id: rcs-266-005
+  snapshotId: defensoria-2026-04-mining
+  title: "La comunidad campesina de Huancuire señala que la empresa Minera Las Bambas no estaría cumpliendo los compromisos asumidos en el convenio marco acordado entre…"
+  titleMethod: editorial-summary
+  status: active
+  conflictType: Socioambiental
+  regionIds: [apurimac]
+  sourcePage: 38
+  hasMonthlyEvents: true
+  startPeriod: 2021-06
+  summary: "La comunidad campesina de Huancuire señala que la empresa Minera Las Bambas no estaría cumpliendo los compromisos asumidos en el convenio marco acordado entre las partes. También solicitan atender la presunta contaminación ambiental de los recursos hídricos de la zona y el reinicio de la consulta previa."
+  location: "Distrito de Coyllurqui, provincia de Cotabambas, departamento Apurímac."
+
+- id: rcs-266-006
+  snapshotId: defensoria-2026-04-mining
+  title: "La comunidad campesina de Fuerabamba cuestiona la reclasificación como Ruta Nacional de la carretera que cruza Fundo Yavi Yavi…"
+  titleMethod: editorial-summary
+  status: active
+  conflictType: Socioambiental
+  regionIds: [apurimac]
+  sourcePage: 39
+  hasMonthlyEvents: true
+  startPeriod: 2018-12
+  summary: "La comunidad campesina de Fuerabamba cuestiona la reclasificación como Ruta Nacional de la carretera que cruza Fundo Yavi Yavi realizada en 2018 porque afectaría su propiedad. Sostiene que la empresa Minera Las Bambas construyó el tramo sin permiso de la comunidad y exige revisar acuerdos previos sobre el proyecto minero."
+  location: "Distrito de Challhuahuacho, provincia de Cotabambas, departamento Apurímac."
+
+- id: rcs-266-008
+  snapshotId: defensoria-2026-04-mining
+  title: "Agricultores, pobladores y autoridades locales de la provincia de Islay se oponen al proyecto Tía María de la empresa Minera Southern Perú Copper Corporation…"
+  titleMethod: editorial-summary
+  status: active
+  conflictType: Socioambiental
+  regionIds: [arequipa]
+  sourcePage: 41
+  hasMonthlyEvents: true
+  startPeriod: 2013-10
+  summary: "Agricultores, pobladores y autoridades locales de la provincia de Islay se oponen al proyecto Tía María de la empresa Southern Perú Copper Corporation por temor a posibles daños ambientales. El proyecto ha enfrentado oposición, evaluaciones ambientales y protestas recurrentes desde 2009 hasta la actualidad."
+  location: "Distritos de Deán Valdivia, Cocachacra y Punta Bombón, provincia de Islay, departamento Arequipa."
+
+- id: rcs-266-011
+  snapshotId: defensoria-2026-04-mining
+  title: "La comunidad campesina de Chetilla reclama por las actividades mineras de la empresa Colpayoc S.A.C."
+  titleMethod: editorial-summary
+  status: active
+  conflictType: Socioambiental
+  regionIds: [cajamarca]
+  sourcePage: 43
+  hasMonthlyEvents: true
+  startPeriod: 2024-03
+  summary: "La comunidad campesina de Chetilla reclama por las actividades mineras de la empresa Colpayoc S.A.C. debido a posibles impactos ambientales y daños en la cuenca del Ronquillo, que abastece de agua a la ciudad de Cajamarca."
+  location: "Distrito de Chetilla, provincia de Cajamarca, departamento Cajamarca."
+
+- id: rcs-266-065
+  snapshotId: defensoria-2026-04-mining
+  title: "CC Carmen Alto – Minera Las Bambas"
+  titleMethod: report-denomination
+  status: active
+  conflictType: Socioambiental
+  regionIds: [apurimac]
+  sourcePage: 72
+  hasMonthlyEvents: false
+  startPeriod: 2022-06
+
+- id: rcs-266-066
+  snapshotId: defensoria-2026-04-mining
+  title: "Tapayrihua y Aymaraes – Southern"
+  titleMethod: report-denomination
+  status: active
+  conflictType: Socioambiental
+  regionIds: [apurimac]
+  sourcePage: 72
+  hasMonthlyEvents: false
+  startPeriod: 2025-03
+
+- id: rcs-266-068
+  snapshotId: defensoria-2026-04-mining
+  title: "Rechazo a minería ilegal en anexo Nauquipa Cahuacho"
+  titleMethod: report-denomination
+  status: active
+  conflictType: Asuntos de gobierno nacional
+  regionIds: [arequipa]
+  sourcePage: 72
+  hasMonthlyEvents: false
+  startPeriod: 2024-12
+
+- id: rcs-266-069
+  snapshotId: defensoria-2026-04-mining
+  title: "Chumbivilcas – Minera Las Bambas (II)"
+  titleMethod: report-denomination
+  status: active
+  conflictType: Socioambiental
+  regionIds: [cusco]
+  sourcePage: 72
+  hasMonthlyEvents: false
+  startPeriod: 2019-03
+
+- id: rcs-266-070
+  snapshotId: defensoria-2026-04-mining
+  title: "10 CC Pallpata – Antapaccay"
+  titleMethod: report-denomination
+  status: active
+  conflictType: Socioambiental
+  regionIds: [cusco]
+  sourcePage: 72
+  hasMonthlyEvents: false
+  startPeriod: 2019-12
+
+- id: rcs-266-071
+  snapshotId: defensoria-2026-04-mining
+  title: "Velille – Las Bambas"
+  titleMethod: report-denomination
+  status: active
+  conflictType: Socioambiental
+  regionIds: [cusco]
+  sourcePage: 72
+  hasMonthlyEvents: false
+  startPeriod: 2024-03
+
+- id: rcs-266-072
+  snapshotId: defensoria-2026-04-mining
+  title: "Chumbivilcas – Minera Hudbay"
+  titleMethod: report-denomination
+  status: active
+  conflictType: Socioambiental
+  regionIds: [cusco]
+  sourcePage: 72
+  hasMonthlyEvents: false
+  startPeriod: 2025-10
+
+- id: rcs-266-078
+  snapshotId: defensoria-2026-04-mining
+  title: "CC Tumilaca – Southern Perú Copper Corporation"
+  titleMethod: report-denomination
+  status: active
+  conflictType: Socioambiental
+  regionIds: [moquegua]
+  sourcePage: 72
+  hasMonthlyEvents: false
+  startPeriod: 2022-02
+
+- id: rcs-266-082
+  snapshotId: defensoria-2026-04-mining
+  title: "Pataz – Minería Ilegal"
+  titleMethod: report-denomination
+  status: active
+  conflictType: Asuntos de gobierno nacional
+  regionIds: [la-libertad]
+  sourcePage: 72
+  hasMonthlyEvents: false
+  startPeriod: 2025-05
+
+- id: rcs-266-085
+  snapshotId: defensoria-2026-04-mining
+  title: "Tambogrande – Proyecto El Algarrobo"
+  titleMethod: report-denomination
+  status: active
+  conflictType: Socioambiental
+  regionIds: [piura]
+  sourcePage: 72
+  hasMonthlyEvents: false
+  startPeriod: 2024-09
