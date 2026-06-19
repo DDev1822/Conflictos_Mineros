@@ -194,6 +194,31 @@ export const socialConflictSnapshotSchema = z.object({
   }
 });
 
+export const reinfoTerritorialRegionSchema = z.object({
+  id,
+  name: z.string().min(2),
+  coordinates: z.tuple([z.number().min(-90).max(90), z.number().min(-180).max(180)]),
+  count: z.number().int().nonnegative(),
+});
+
+export const reinfoTerritorialSnapshotSchema = z.object({
+  id,
+  title: z.string().min(10),
+  cutoffDate: isoDate,
+  accessedAt: isoDate,
+  sourceId: id,
+  status: z.literal("vigente"),
+  totalRegistered: z.number().int().positive(),
+  regions: z.array(reinfoTerritorialRegionSchema).min(1),
+  coordinateMethod: z.string().min(20),
+  notes: z.string().min(30),
+}).superRefine((snapshot, ctx) => {
+  const regionalTotal = snapshot.regions.reduce((sum, region) => sum + region.count, 0);
+  if (regionalTotal !== snapshot.totalRegistered) {
+    ctx.addIssue({ code: "custom", path: ["regions"], message: "La distribución territorial del REINFO no reconcilia con el total consultado" });
+  }
+});
+
 export const datasetSchema = z.object({
   sources: z.array(sourceSchema),
   actors: z.array(actorSchema),
@@ -204,6 +229,7 @@ export const datasetSchema = z.object({
   alternatives: z.array(policyAlternativeSchema),
   socialConflictSnapshots: z.array(socialConflictSnapshotSchema).min(1),
   socialConflictCases: z.array(socialConflictCaseSchema).min(1),
+  reinfoTerritorialSnapshots: z.array(reinfoTerritorialSnapshotSchema).min(1),
 });
 
 export type ObservatoryData = z.infer<typeof datasetSchema>;
@@ -219,3 +245,4 @@ export type PolicyAlternative = z.infer<typeof policyAlternativeSchema>;
 export type SocialConflictRegion = z.infer<typeof socialConflictRegionSchema>;
 export type SocialConflictSnapshot = z.infer<typeof socialConflictSnapshotSchema>;
 export type SocialConflictCase = z.infer<typeof socialConflictCaseSchema>;
+export type ReinfoTerritorialSnapshot = z.infer<typeof reinfoTerritorialSnapshotSchema>;

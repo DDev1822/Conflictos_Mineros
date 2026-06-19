@@ -1,0 +1,36 @@
+- id: minem-reinfo-vigente-2026-06-18
+  title: Inscripciones vigentes en el REINFO por departamento — corte de consulta del 18 de junio de 2026
+  cutoffDate: 2026-06-18
+  accessedAt: 2026-06-18
+  sourceId: minem-reinfo
+  status: vigente
+  totalRegistered: 24669
+  coordinateMethod: Punto de referencia en la capital o centro urbano principal de cada departamento; no corresponde a la ubicación declarada de cada actividad.
+  notes: Conteos agregados mediante la consulta oficial dinámica del REINFO. No se reproducen datos personales. Una inscripción vigente identifica permanencia en el registro y no equivale a formalidad minera concluida.
+  regions:
+    - { id: amazonas, name: Amazonas, coordinates: [-6.2317, -77.869], count: 72 }
+    - { id: ancash, name: Áncash, coordinates: [-9.5278, -77.5278], count: 951 }
+    - { id: apurimac, name: Apurímac, coordinates: [-13.6339, -72.8814], count: 2289 }
+    - { id: arequipa, name: Arequipa, coordinates: [-16.409, -71.5375], count: 4924 }
+    - { id: ayacucho, name: Ayacucho, coordinates: [-13.1631, -74.2236], count: 1718 }
+    - { id: cajamarca, name: Cajamarca, coordinates: [-7.1617, -78.5128], count: 436 }
+    - { id: callao, name: Callao, coordinates: [-12.0566, -77.1181], count: 14 }
+    - { id: cusco, name: Cusco, coordinates: [-13.5319, -71.9675], count: 980 }
+    - { id: huancavelica, name: Huancavelica, coordinates: [-12.7864, -74.9764], count: 492 }
+    - { id: huanuco, name: Huánuco, coordinates: [-9.9298, -76.2422], count: 281 }
+    - { id: ica, name: Ica, coordinates: [-14.0678, -75.7286], count: 666 }
+    - { id: junin, name: Junín, coordinates: [-12.0651, -75.2049], count: 343 }
+    - { id: la-libertad, name: La Libertad, coordinates: [-8.1116, -79.0287], count: 2467 }
+    - { id: lambayeque, name: Lambayeque, coordinates: [-6.7714, -79.84], count: 93 }
+    - { id: lima, name: Lima, coordinates: [-11.1067, -77.605], count: 669 }
+    - { id: loreto, name: Loreto, coordinates: [-3.7437, -73.2516], count: 45 }
+    - { id: madre-de-dios, name: Madre de Dios, coordinates: [-12.5933, -69.1891], count: 2556 }
+    - { id: moquegua, name: Moquegua, coordinates: [-17.193, -70.935], count: 72 }
+    - { id: pasco, name: Pasco, coordinates: [-10.6867, -76.256], count: 230 }
+    - { id: piura, name: Piura, coordinates: [-5.1945, -80.6328], count: 439 }
+    - { id: puno, name: Puno, coordinates: [-15.8402, -70.0219], count: 4772 }
+    - { id: san-martin, name: San Martín, coordinates: [-6.0342, -76.9717], count: 24 }
+    - { id: tacna, name: Tacna, coordinates: [-18.0147, -70.253], count: 102 }
+    - { id: tumbes, name: Tumbes, coordinates: [-3.5669, -80.4515], count: 28 }
+    - { id: ucayali, name: Ucayali, coordinates: [-8.3791, -74.5539], count: 6 }
+    - { id: lima-metropolitana, name: Lima Metropolitana, coordinates: [-12.0464, -77.0428], count: 0 }

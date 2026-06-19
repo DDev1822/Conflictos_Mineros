@@ -76,4 +76,12 @@ describe("contenido académico", () => {
     expect(registry.every((item) => item.titleMethod !== "editorial-summary" || Boolean(item.summary))).toBe(true);
     expect(new Set(registry.map((item) => item.id)).size).toBe(registry.length);
   });
+
+  it("reconcilia el corte territorial de inscripciones REINFO vigentes", () => {
+    const snapshot = loadObservatoryData().reinfoTerritorialSnapshots[0];
+    expect(snapshot.regions.reduce((sum, region) => sum + region.count, 0)).toBe(snapshot.totalRegistered);
+    expect(snapshot.totalRegistered).toBe(24669);
+    expect(snapshot.sourceId).toBe("minem-reinfo");
+    expect(snapshot.status).toBe("vigente");
+  });
 });

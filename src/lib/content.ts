@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { datasetSchema, type ObservatoryData } from "./schemas";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "data");
-const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "alternatives", "socialConflictSnapshots", "socialConflictCases"] as const;
+const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "alternatives", "socialConflictSnapshots", "socialConflictCases", "reinfoTerritorialSnapshots"] as const;
 
 function readYaml<T>(name: string): T {
   const file = path.join(CONTENT_ROOT, `${name}.yaml`);
@@ -52,6 +52,9 @@ function assertReferences(data: ObservatoryData) {
   data.socialConflictSnapshots.forEach((snapshot) => {
     check([snapshot.sourceId], "sources", `Corte territorial ${snapshot.id}`);
   });
+  data.reinfoTerritorialSnapshots.forEach((snapshot) => {
+    check([snapshot.sourceId], "sources", `Corte territorial REINFO ${snapshot.id}`);
+  });
   const snapshotById = new Map(data.socialConflictSnapshots.map((snapshot) => [snapshot.id, snapshot]));
   data.socialConflictCases.forEach((conflict) => {
     const snapshot = snapshotById.get(conflict.snapshotId);
@@ -70,6 +73,7 @@ export function loadObservatoryData(): ObservatoryData {
   const parsed = datasetSchema.parse(raw);
   files.forEach((key) => assertUnique(parsed[key].map((item) => item.id), key));
   parsed.socialConflictSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
+  parsed.reinfoTerritorialSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
   assertUnique(parsed.cases.map((item) => item.slug), "slugs de casos");
   assertReferences(parsed);
   cached = parsed;

@@ -63,6 +63,12 @@ El mapa no muestra, salvo indicación expresa y fuente específica:
 
 La intensidad de la capa de calor expresa cantidad de casos registrados, activos o latentes según el filtro elegido. No expresa gravedad, violencia, impacto ambiental, extensión territorial ni riesgo. Los casos nacionales y multirregionales se informan, pero no se asignan artificialmente a una región.
 
+La escala cromática divide el máximo del filtro seleccionado en tres rangos numéricos visibles: celeste para menor cantidad, ámbar para cantidad intermedia y rojo para mayor cantidad. El sombreado y los puntos regionales comparten la misma clasificación para que el color pueda leerse contra la leyenda.
+
+La capa “Minería ilegal e informal” no delimita operaciones ni atribuye una condición jurídica a un territorio. Selecciona únicamente casos del mismo corte de la Defensoría que contienen una mención textual explícita a minería ilegal o informal; cada punto abre las fichas que sustentan el conteo.
+
+La capa REINFO usa un corte agregado de inscripciones marcadas como vigentes en la consulta oficial del MINEM. Los conteos se agrupan por departamento y se colocan en puntos regionales de referencia, sin reproducir datos personales ni coordenadas declaradas. La inscripción vigente no equivale a formalidad concluida y el registro es dinámico, por lo que la interfaz muestra fecha de consulta y enlace a la fuente.
+
 ### Registro navegable del reporte 266
 
 El corte de abril de 2026 incorpora un registro de 190 casos vinculado a los puntos regionales: 159 activos y 31 latentes. Cada entrada conserva estado, tipo, ámbito, página fuente y, cuando el reporte lo informa, periodo de inicio y ubicación. Los puntos regionales abren estas listas; los dos casos nacionales y los nueve multirregionales se consultan desde accesos separados para no duplicarlos sobre el mapa.
