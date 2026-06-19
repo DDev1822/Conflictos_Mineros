@@ -55,7 +55,7 @@ data.instruments.forEach((instrument) => {
   }
 });
 
-data.socialConflictSnapshots.forEach((snapshot) => {
+data.miningConflictSnapshots.forEach((snapshot) => {
   checkDatePrecision(snapshot.publishedAt, snapshot.datePrecision, `Corte territorial ${snapshot.id}`);
   if (new Set(snapshot.regions.map((region) => region.coordinates.join(","))).size !== snapshot.regions.length) {
     errors.push(`Corte territorial ${snapshot.id}: dos regiones comparten el mismo punto de referencia`);
@@ -63,7 +63,7 @@ data.socialConflictSnapshots.forEach((snapshot) => {
   if (snapshot.regions.some((region) => region.total !== region.active + region.latent)) {
     errors.push(`Corte territorial ${snapshot.id}: hay totales regionales que no reconcilian`);
   }
-  const registry = data.socialConflictCases.filter((item) => item.snapshotId === snapshot.id);
+  const registry = data.miningSocialConflictCases.filter((item) => item.snapshotId === snapshot.id);
   if (registry.length !== snapshot.totalRegistered) {
     errors.push(`Corte territorial ${snapshot.id}: el registro contiene ${registry.length} casos y el total declara ${snapshot.totalRegistered}`);
   }
@@ -77,9 +77,9 @@ data.socialConflictSnapshots.forEach((snapshot) => {
   }
 });
 
-data.socialConflictCases.forEach((item) => {
+data.miningSocialConflictCases.forEach((item) => {
   if (item.titleMethod === "editorial-summary" && !item.summary) {
-    errors.push(`Caso social ${item.id}: una síntesis editorial no conserva la descripción fuente`);
+    errors.push(`Caso minero ${item.id}: una síntesis editorial no conserva la descripción fuente`);
   }
 });
 
@@ -93,7 +93,7 @@ const sourceTypes = Object.entries(
   .map(([type, count]) => `${type}: ${count}`)
   .join(", ");
 
-console.log(`Auditoría editorial: ${data.cases.length} expedientes piloto, ${data.socialConflictCases.length} casos del corte social, ${data.sources.length} fuentes, ${data.instruments.length} normas.`);
+console.log(`Auditoría editorial: ${data.cases.length} expedientes piloto, ${data.miningSocialConflictCases.length} casos del corte minero, ${data.sources.length} fuentes, ${data.instruments.length} normas.`);
 console.log(`Cobertura por tipo de fuente: ${sourceTypes}.`);
 warnings.forEach((warning) => console.warn(`ADVERTENCIA: ${warning}`));
 
