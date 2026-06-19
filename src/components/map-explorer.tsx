@@ -7,10 +7,11 @@ import { CircleMarker, MapContainer, Marker, Popup, TileLayer, Tooltip, useMap }
 import L from "leaflet";
 import "leaflet.heat";
 import "leaflet/dist/leaflet.css";
-import type { ConflictCase, ReinfoTerritorialSnapshot, SocialConflictCase, SocialConflictSnapshot, Territory } from "@/lib/schemas";
+import type { ConflictCase, FormalMiningTerritorialSnapshot, ReinfoTerritorialSnapshot, SocialConflictCase, SocialConflictSnapshot, Territory } from "@/lib/schemas";
 
 const REPORT_URL = "https://www.defensoria.gob.pe/wp-content/uploads/2026/05/Reporte-de-Conflictos-Sociales-n-266-VF.pdf";
 const REINFO_URL = "https://pad.minem.gob.pe/REINFO_WEB/Index.aspx";
+const FORMAL_MINING_URL = "https://mineria.minem.gob.pe/directorio_minero/plantas-de-beneficio-autorizadas/";
 const HEAT_COLORS = { low: "#62bfd3", medium: "#d99932", high: "#a52f36" } as const;
 
 const markerIcon = new L.Icon({
@@ -69,6 +70,12 @@ function reinfoRadius(count: number) {
   return 7;
 }
 
+function formalMiningRadius(count: number) {
+  if (count >= 30) return 16;
+  if (count >= 10) return 12;
+  return 8;
+}
+
 function SocialConflictHeat({ snapshot, metric, visible }: { snapshot: SocialConflictSnapshot; metric: HeatMetric; visible: boolean }) {
   const map = useMap();
   const points = useMemo<L.HeatLatLngTuple[]>(() => {
@@ -113,18 +120,20 @@ function fullDateLabel(value: string) {
   return new Intl.DateTimeFormat("es-PE", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
 }
 
-export function MapExplorer({ cases, territories, socialConflictSnapshot, socialConflictCases, reinfoSnapshot }: {
+export function MapExplorer({ cases, territories, socialConflictSnapshot, socialConflictCases, reinfoSnapshot, formalMiningSnapshot }: {
   cases: ConflictCase[];
   territories: Territory[];
   socialConflictSnapshot: SocialConflictSnapshot;
   socialConflictCases: SocialConflictCase[];
   reinfoSnapshot: ReinfoTerritorialSnapshot;
+  formalMiningSnapshot: FormalMiningTerritorialSnapshot;
 }) {
   const [status, setStatus] = useState("all");
   const [showHeat, setShowHeat] = useState(true);
   const [showCases, setShowCases] = useState(true);
   const [showInformalIllegal, setShowInformalIllegal] = useState(false);
   const [showReinfo, setShowReinfo] = useState(false);
+  const [showFormalMining, setShowFormalMining] = useState(false);
   const [heatMetric, setHeatMetric] = useState<HeatMetric>("total");
   const [selectedScope, setSelectedScope] = useState<string | null>(null);
   const [registryTheme, setRegistryTheme] = useState<RegistryTheme>("all");
@@ -217,6 +226,10 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <input type="checkbox" checked={showReinfo} onChange={(event) => setShowReinfo(event.target.checked)} />
             <span><strong>Inscripciones REINFO</strong><small>Registros vigentes agregados por departamento</small></span>
           </label>
+          <label className="map-layer-toggle">
+            <input type="checkbox" checked={showFormalMining} onChange={(event) => setShowFormalMining(event.target.checked)} />
+            <span><strong>Minería formal</strong><small>Plantas de beneficio vigentes registradas por MINEM</small></span>
+          </label>
         </fieldset>
 
         {showHeat && <>
@@ -283,6 +296,21 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
           </div>
         )}
 
+        {showFormalMining && (
+          <div className="map-layer-summary" data-layer="formal-mining">
+            <p>Operación formal documentada</p>
+            <strong>{formalMiningSnapshot.mappedUnits.toLocaleString("es-PE")} plantas territorializables</strong>
+            <span>{formalMiningSnapshot.totalUnits.toLocaleString("es-PE")} códigos únicos en la fuente · consulta: {fullDateLabel(formalMiningSnapshot.cutoffDate)}</span>
+            <div className="point-size-legend formal-point-size-legend" aria-label="Tamaño del anillo según plantas de beneficio vigentes">
+              <span><i data-size="small" aria-hidden="true" />1–9</span>
+              <span><i data-size="medium" aria-hidden="true" />10–29</span>
+              <span><i data-size="large" aria-hidden="true" />30 o más</span>
+            </div>
+            <small>Es una capa parcial de minería formal: incluye plantas de beneficio vigentes, no concesiones, proyectos ni todas las operaciones. {formalMiningSnapshot.unmappedUnits} códigos sin departamento quedan fuera del mapa.</small>
+            <a href={FORMAL_MINING_URL} target="_blank" rel="noreferrer">Consultar directorio oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
+          </div>
+        )}
+
         {showCases && <>
           <label className="map-select-label">Estado del expediente
             <select value={status} onChange={(event) => setStatus(event.target.value)}>
@@ -303,10 +331,10 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
         <a className="map-source" href={REPORT_URL} target="_blank" rel="noreferrer">Consultar reporte oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
       </aside>
 
-      <section className="map-stage" aria-label="Mapa interactivo de conflictividad social, minería ilegal e informal, REINFO y casos piloto">
+      <section className="map-stage" aria-label="Mapa interactivo de conflictividad social, minería ilegal e informal, REINFO, minería formal documentada y casos piloto">
         <MapContainer center={[-9.19, -75.02]} zoom={5} scrollWheelZoom>
           <TileLayer attribution="&copy; OpenStreetMap contributors" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <FitMap showNationalLayers={showHeat || showInformalIllegal || showReinfo} territories={visibleTerritories} />
+          <FitMap showNationalLayers={showHeat || showInformalIllegal || showReinfo || showFormalMining} territories={visibleTerritories} />
           <SocialConflictHeat snapshot={socialConflictSnapshot} metric={heatMetric} visible={showHeat} />
           {showHeat && socialConflictSnapshot.regions.filter((region) => region[heatMetric] > 0).map((region) => (
             <CircleMarker
@@ -353,6 +381,22 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
                 {region.count.toLocaleString("es-PE")} inscripciones vigentes en el corte.<br />
                 <small>Referencia departamental; no es una ubicación de actividad.</small><br />
                 <a href={REINFO_URL} target="_blank" rel="noreferrer">Consultar REINFO oficial</a>
+              </Popup>
+            </CircleMarker>
+          ))}
+          {showFormalMining && formalMiningSnapshot.regions.map((region) => (
+            <CircleMarker
+              key={`formal-mining-${region.id}`}
+              center={region.coordinates}
+              radius={formalMiningRadius(region.count)}
+              pathOptions={{ color: "#314a32", weight: 3, fillColor: "#78905a", fillOpacity: 0.2 }}
+            >
+              <Tooltip direction="top"><strong>{region.name}</strong><br />{region.count} {region.count === 1 ? "planta de beneficio vigente" : "plantas de beneficio vigentes"}</Tooltip>
+              <Popup>
+                <strong>{region.name}</strong><br />
+                {region.count} {region.count === 1 ? "planta de beneficio vigente" : "plantas de beneficio vigentes"} en el directorio.<br />
+                <small>Referencia departamental; no es la ubicación de la planta ni el universo completo de minería formal.</small><br />
+                <a href={FORMAL_MINING_URL} target="_blank" rel="noreferrer">Consultar directorio oficial</a>
               </Popup>
             </CircleMarker>
           ))}

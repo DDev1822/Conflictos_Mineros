@@ -84,4 +84,13 @@ describe("contenido académico", () => {
     expect(snapshot.sourceId).toBe("minem-reinfo");
     expect(snapshot.status).toBe("vigente");
   });
+
+  it("reconcilia las plantas de beneficio vigentes territorializadas", () => {
+    const snapshot = loadObservatoryData().formalMiningTerritorialSnapshots[0];
+    expect(snapshot.regions.reduce((sum, region) => sum + region.count, 0)).toBe(snapshot.mappedUnits);
+    expect(snapshot.mappedUnits + snapshot.unmappedUnits).toBe(snapshot.totalUnits);
+    expect(snapshot.totalUnits).toBe(342);
+    expect(snapshot.unmappedUnits).toBe(2);
+    expect(snapshot.sourceId).toBe("minem-plantas-beneficio");
+  });
 });

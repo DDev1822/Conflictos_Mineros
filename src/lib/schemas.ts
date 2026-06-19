@@ -219,6 +219,30 @@ export const reinfoTerritorialSnapshotSchema = z.object({
   }
 });
 
+export const formalMiningTerritorialSnapshotSchema = z.object({
+  id,
+  title: z.string().min(10),
+  cutoffDate: isoDate,
+  accessedAt: isoDate,
+  sourceId: id,
+  cutoffBasis: z.literal("access-date"),
+  unitDefinition: z.string().min(30),
+  totalUnits: z.number().int().positive(),
+  mappedUnits: z.number().int().positive(),
+  unmappedUnits: z.number().int().nonnegative(),
+  regions: z.array(reinfoTerritorialRegionSchema).min(1),
+  coordinateMethod: z.string().min(20),
+  notes: z.string().min(30),
+}).superRefine((snapshot, ctx) => {
+  const regionalTotal = snapshot.regions.reduce((sum, region) => sum + region.count, 0);
+  if (regionalTotal !== snapshot.mappedUnits) {
+    ctx.addIssue({ code: "custom", path: ["regions"], message: "La distribución territorial de minería formal no reconcilia con las unidades mapeadas" });
+  }
+  if (snapshot.mappedUnits + snapshot.unmappedUnits !== snapshot.totalUnits) {
+    ctx.addIssue({ code: "custom", path: ["totalUnits"], message: "Las unidades mapeadas y no mapeadas no reconcilian con el total de la fuente" });
+  }
+});
+
 export const datasetSchema = z.object({
   sources: z.array(sourceSchema),
   actors: z.array(actorSchema),
@@ -230,6 +254,7 @@ export const datasetSchema = z.object({
   socialConflictSnapshots: z.array(socialConflictSnapshotSchema).min(1),
   socialConflictCases: z.array(socialConflictCaseSchema).min(1),
   reinfoTerritorialSnapshots: z.array(reinfoTerritorialSnapshotSchema).min(1),
+  formalMiningTerritorialSnapshots: z.array(formalMiningTerritorialSnapshotSchema).min(1),
 });
 
 export type ObservatoryData = z.infer<typeof datasetSchema>;
@@ -246,3 +271,4 @@ export type SocialConflictRegion = z.infer<typeof socialConflictRegionSchema>;
 export type SocialConflictSnapshot = z.infer<typeof socialConflictSnapshotSchema>;
 export type SocialConflictCase = z.infer<typeof socialConflictCaseSchema>;
 export type ReinfoTerritorialSnapshot = z.infer<typeof reinfoTerritorialSnapshotSchema>;
+export type FormalMiningTerritorialSnapshot = z.infer<typeof formalMiningTerritorialSnapshotSchema>;

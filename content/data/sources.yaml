@@ -24,6 +24,19 @@
   license: Datos públicos; verificar condiciones de reutilización
   verificationStatus: verified
   notes: Servicio oficial de consulta; el registro es dinámico y la fecha corresponde al corte de acceso.
+- id: minem-plantas-beneficio
+  title: Directorio de plantas de beneficio autorizadas y listado de plantas vigentes
+  institution: Ministerio de Energía y Minas
+  date: 2026-06-18
+  datePrecision: day
+  url: https://mineria.minem.gob.pe/directorio_minero/plantas-de-beneficio-autorizadas/
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-18
+  license: Datos públicos; verificar condiciones de reutilización
+  verificationStatus: partial
+  notes: El portal oficial identifica el directorio como plantas autorizadas y su exportación como plantas vigentes, pero no publica una fecha propia de actualización. La fecha consignada corresponde al acceso y la capa conserva esa limitación.
 - id: minem-normas
   title: Normas legales del sector Energía y Minas
   institution: Ministerio de Energía y Minas

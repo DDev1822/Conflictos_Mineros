@@ -69,6 +69,10 @@ La capa “Minería ilegal e informal” no delimita operaciones ni atribuye una
 
 La capa REINFO usa un corte agregado de inscripciones marcadas como vigentes en la consulta oficial del MINEM. Los conteos se agrupan por departamento y se colocan en puntos regionales de referencia, sin reproducir datos personales ni coordenadas declaradas. La inscripción vigente no equivale a formalidad concluida y el registro es dinámico, por lo que la interfaz muestra fecha de consulta y enlace a la fuente.
 
+La capa “Minería formal” usa como indicador parcial el listado oficial de plantas de beneficio vigentes del MINEM. No representa concesiones, proyectos en cartera ni el universo completo de operaciones mineras formales. El corte del 18 de junio de 2026 deduplica las filas de la exportación por código de planta: conserva 342 códigos únicos, territorializa 340 con departamento informado y excluye del mapa dos sin departamento. El portal no publica fecha propia de actualización, por lo que la interfaz identifica expresamente la fecha como fecha de consulta.
+
+Los conteos de esta capa se agregan por departamento y se colocan en los mismos puntos regionales de referencia. Los anillos verdes permiten compararla con REINFO, menciones de minería ilegal o informal y conflictos sociales sin sugerir que las capas comparten una ubicación exacta o una relación causal.
+
 ### Registro navegable del reporte 266
 
 El corte de abril de 2026 incorpora un registro de 190 casos vinculado a los puntos regionales: 159 activos y 31 latentes. Cada entrada conserva estado, tipo, ámbito, página fuente y, cuando el reporte lo informa, periodo de inicio y ubicación. Los puntos regionales abren estas listas; los dos casos nacionales y los nueve multirregionales se consultan desde accesos separados para no duplicarlos sobre el mapa.

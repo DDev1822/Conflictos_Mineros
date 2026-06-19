@@ -1,0 +1,33 @@
+- id: minem-plantas-beneficio-vigentes-2026-06-18
+  title: Plantas de beneficio vigentes registradas por MINEM — consulta del 18 de junio de 2026
+  cutoffDate: 2026-06-18
+  accessedAt: 2026-06-18
+  sourceId: minem-plantas-beneficio
+  cutoffBasis: access-date
+  unitDefinition: Código único de planta de beneficio incluido en el listado oficial de plantas vigentes del MINEM; no representa el universo completo de la minería formal.
+  totalUnits: 342
+  mappedUnits: 340
+  unmappedUnits: 2
+  coordinateMethod: Conteo agregado por departamento y ubicado en su capital o centro urbano principal; los puntos no corresponden a coordenadas de las plantas.
+  notes: Se deduplicaron las filas del listado oficial por código de planta. Dos códigos sin departamento se conservan en el total, pero no se asignan al mapa. El portal no publica fecha propia de actualización; la fecha mostrada es la de consulta. La capa representa plantas de beneficio vigentes, no concesiones, proyectos ni toda la minería formal.
+  regions:
+    - { id: amazonas, name: Amazonas, coordinates: [-6.2317, -77.869], count: 8 }
+    - { id: ancash, name: Áncash, coordinates: [-9.5278, -77.5278], count: 27 }
+    - { id: apurimac, name: Apurímac, coordinates: [-13.6339, -72.8814], count: 8 }
+    - { id: arequipa, name: Arequipa, coordinates: [-16.409, -71.5375], count: 45 }
+    - { id: ayacucho, name: Ayacucho, coordinates: [-13.1631, -74.2236], count: 12 }
+    - { id: cajamarca, name: Cajamarca, coordinates: [-7.1617, -78.5128], count: 8 }
+    - { id: cusco, name: Cusco, coordinates: [-13.5319, -71.9675], count: 7 }
+    - { id: huancavelica, name: Huancavelica, coordinates: [-12.7864, -74.9764], count: 23 }
+    - { id: huanuco, name: Huánuco, coordinates: [-9.9298, -76.2422], count: 7 }
+    - { id: ica, name: Ica, coordinates: [-14.0678, -75.7286], count: 24 }
+    - { id: junin, name: Junín, coordinates: [-12.0651, -75.2049], count: 27 }
+    - { id: la-libertad, name: La Libertad, coordinates: [-8.1116, -79.0287], count: 30 }
+    - { id: lambayeque, name: Lambayeque, coordinates: [-6.7714, -79.84], count: 1 }
+    - { id: lima, name: Lima, coordinates: [-11.1067, -77.605], count: 32 }
+    - { id: moquegua, name: Moquegua, coordinates: [-17.193, -70.935], count: 11 }
+    - { id: pasco, name: Pasco, coordinates: [-10.6867, -76.256], count: 11 }
+    - { id: piura, name: Piura, coordinates: [-5.1945, -80.6328], count: 10 }
+    - { id: puno, name: Puno, coordinates: [-15.8402, -70.0219], count: 35 }
+    - { id: san-martin, name: San Martín, coordinates: [-6.0342, -76.9717], count: 10 }
+    - { id: tacna, name: Tacna, coordinates: [-18.0147, -70.253], count: 4 }
