@@ -1,0 +1,38 @@
+# Secretos y configuración privada
+
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials/
+secrets/
+
+# Dependencias y compilación
+
+node_modules/
+.next/
+out/
+dist/
+coverage/
+
+# Resultados temporales
+
+test-results/
+playwright-report/
+tmp/
+*.log
+*.tmp
+*.cache
+
+# Configuración local del IDE
+
+.idea/
+*.iml
+
+# Archivos del sistema
+
+.DS_Store
+Thumbs.db
