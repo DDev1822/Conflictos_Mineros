@@ -83,6 +83,19 @@ data.socialConflictCases.forEach((item) => {
   }
 });
 
+data.miningConflictSelections.forEach((selection) => {
+  const selectedIds = new Set(selection.caseIds);
+  const registry = data.socialConflictCases.filter((item) => selectedIds.has(item.id));
+  const active = registry.filter((item) => item.status === "active").length;
+  const latent = registry.filter((item) => item.status === "latent").length;
+  if (registry.length !== selection.totalRegistered || active !== selection.active || latent !== selection.latent) {
+    errors.push(`Selección minera ${selection.id}: el registro no reconcilia con el total, activos y latentes declarados`);
+  }
+  if (registry.some((item) => item.conflictType !== "Socioambiental")) {
+    errors.push(`Selección minera ${selection.id}: contiene casos fuera del tipo socioambiental`);
+  }
+});
+
 const sourceTypes = Object.entries(
   data.sources.reduce<Record<string, number>>((counts, source) => {
     counts[source.type] = (counts[source.type] ?? 0) + 1;
@@ -93,7 +106,7 @@ const sourceTypes = Object.entries(
   .map(([type, count]) => `${type}: ${count}`)
   .join(", ");
 
-console.log(`Auditoría editorial: ${data.cases.length} expedientes piloto, ${data.socialConflictCases.length} casos del corte social, ${data.sources.length} fuentes, ${data.instruments.length} normas.`);
+console.log(`Auditoría editorial: ${data.cases.length} expedientes piloto, ${data.socialConflictCases.length} casos del corte social, ${data.miningConflictSelections[0].totalRegistered} conflictos socioambientales mineros, ${data.sources.length} fuentes, ${data.instruments.length} normas.`);
 console.log(`Cobertura por tipo de fuente: ${sourceTypes}.`);
 warnings.forEach((warning) => console.warn(`ADVERTENCIA: ${warning}`));
 

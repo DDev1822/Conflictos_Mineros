@@ -1,52 +1,57 @@
-# Design QA — Sistema de Relaciones
+# Design QA — cierre V1
 
-- Source visual truth: `docs/design/reference-system-relations.png`
-- Implementation screenshot: `docs/design/implementation-explorer-final.png`
-- Viewport: 1440 × 1024
-- State: `/explorar`, filtros por defecto, relación central REINFO / MAPE
-- Full-view comparison: `docs/design/comparison-full.png`
-- Focused comparison: `docs/design/comparison-focus.png` (grafo, actores, inspector y cronología)
+- Fuente visual: `docs/design/reference-system-relations.png`
+- Capturas actuales: `docs/audits/2026-06-20-v1-freeze/`
+- Viewports revisados: 1440 × 1024, 1280 × 720 y 390 × 844
+- Fecha: 20 de junio de 2026
+- Resultado visual y funcional: aprobado para freeze privado
+- Resultado de publicación: bloqueado
 
-## Findings
+## Hallazgos vigentes
 
-No quedan hallazgos accionables P0, P1 o P2.
+- [P0] GitHub Pages continúa respondiendo HTTP 200. La publicación automática quedó eliminada del workflow, pero la despublicación requiere un ajuste externo de Pages que no está disponible desde este entorno.
+- [P1] Permanecen pendientes las revisiones jurídicas atribuidas de 6 expedientes y 8 instrumentos.
+- [P1] Permanecen pendientes los cinco signoffs del manifiesto V1.
 
-- [P3] El pie institucional queda después del primer viewport
-  - Location: cierre de `/explorar`.
-  - Evidence: la referencia incluye un pie delgado dentro del encuadre; la implementación dedica ese espacio a una cronología más legible.
-  - Impact: no afecta exploración, trazabilidad ni navegación.
-  - Follow-up: reducir 30–40 px del área central si en una iteración futura se prioriza fidelidad estricta sobre legibilidad.
+No quedan hallazgos P0/P1 abiertos en accesibilidad del diálogo, nombres de marcadores, navegación responsive, overflow horizontal o estructura de capas.
 
-- [P3] Agrupación visual de actores simplificada
-  - Location: zona inferior del grafo.
-  - Evidence: la referencia encierra Estado, comunidad, empresa y academia en un contenedor; la implementación los presenta como cuatro nodos conectados directamente.
-  - Impact: conserva el significado y mejora la interacción individual, aunque difiere levemente del marco visual original.
-  - Follow-up: añadir agrupación visual solo si se incorpora interacción por conjuntos de actores.
+## Comparación con “Sistema de Relaciones”
 
-## Required fidelity surfaces
+La implementación conserva la anatomía de la referencia: encabezado tinta, búsqueda y filtros, índice lateral, grafo central, inspector de evidencia y cronología inferior. La densidad se redujo de forma coherente con el universo real de la V1, sin alterar la jerarquía académica ni el lenguaje visual cobre, papel y tinta.
 
-- Fonts and typography: Source Serif 4 y Source Sans 3 reproducen la jerarquía editorial; tamaños, pesos y wrapping son legibles en desktop y móvil.
-- Spacing and layout rhythm: se preservan encabezado oscuro, franja de búsqueda, filtros, índice lateral, grafo central, inspector y cronología; sin solapamientos ni desbordamiento horizontal a 390 px.
-- Colors and tokens: fondo tinta, papel cálido, cobre, verde y dorado corresponden al lenguaje de la referencia; no se usan gradientes ni sombras decorativas.
-- Image and asset fidelity: la referencia no exige fotografía; todos los iconos provienen de Phosphor Icons y las relaciones se renderizan con React Flow. No existen placeholders, SVG artesanales ni CSS art sustitutivo.
-- Copy and content: el texto es específico del observatorio, distingue hechos, interpretaciones y propuestas, y muestra fecha de corte y revisión pendiente.
-- Interaction and accessibility: búsqueda, filtros, reinicio, diálogo de cita, navegación a expediente, mapa, menú móvil y controles del grafo fueron comprobados; idioma, nombres accesibles y estructura de encabezados son válidos.
+## QA aplicado
 
-## Patches made during QA
+- Navegación completa visible a 1280 px.
+- Menú móvil funcional y sin overflow horizontal a 390 px.
+- Mapa por defecto en 64 conflictos mineros y cambio explícito a 190 sociales.
+- Diálogo regional modal con foco inicial, Escape y retorno al control de apertura.
+- Seis marcadores con nombre accesible único.
+- Panel territorial móvil sin scroll interno.
+- Capas principales abiertas y comparaciones secundarias colapsadas con contador de activas.
+- Expedientes estándar con al menos cinco hitos sustantivos y expedientes profundizados con al menos ocho; las publicaciones se muestran, pero no cuentan para el mínimo.
+- Normativa con estado, fecha de contraste y atribución real o ausencia de atribución explícita.
+- Densidad editorial revisada después de ampliar las cronologías y fuentes: la portada de expediente conserva jerarquía, lectura en dos columnas y ausencia de overflow; las fuentes adicionales quedan en el panel de trazabilidad.
 
-- Priorizado REINFO / MAPE y sus entidades relacionadas en el índice lateral.
-- Añadidos Estado, comunidades, empresa y academia al grafo.
-- Ajustada la altura del área central para mantener visible la cronología.
-- Corregida la carga client-only del mapa Leaflet.
-- Eliminado el desbordamiento horizontal móvil y validado el menú responsive.
+## Diferencias no bloqueantes
 
-## Implementation checklist
+- [P3] El pie institucional del sistema de relaciones queda después del primer viewport.
+- [P3] Los actores aparecen como nodos conectados, sin el contenedor agrupador de la referencia.
+- [P3] Los mosaicos cartográficos externos pueden cargar parcialmente en capturas headless; la capa de datos, puntos y controles se mantienen legibles.
 
-- [x] Comparación completa y focal con la referencia.
-- [x] Búsqueda y filtros funcionales.
-- [x] Expedientes y navegación cruzada funcionales.
-- [x] Responsive desktop y móvil.
-- [x] Controles accesibles y foco visible.
-- [x] Sin hallazgos P0/P1/P2 pendientes.
+## Evidencia
 
-final result: passed
+- `01-inicio-1440x1024.png`
+- `02-relaciones-1440x1024.png`
+- `03-mapa-1440x1024.png`
+- `04-expediente-1440x1024.png`
+- `05-normativa-1440x1024.png`
+- `06-mapa-1280x720.png`
+- `07-dialogo-puno-1280x720.png`
+- `08-mapa-390x844.png`
+- `09-menu-390x844.png`
+
+Final result: private freeze passed; public release blocked.
+
+## Actualización documental del 20 de junio de 2026
+
+Las capturas fueron regeneradas después de incorporar 69 fuentes, seis paquetes de caso, ocho fichas normativas y cronologías ampliadas. Product Design se aplicó como control de legibilidad contra la referencia vigente, sin rediseño ni nuevas rutas. La ampliación no introdujo overflow horizontal ni cambió la identidad visual; la publicación continúa bloqueada por evidencia directa incompleta, revisión jurídica y signoffs.

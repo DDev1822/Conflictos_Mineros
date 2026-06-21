@@ -1,0 +1,207 @@
+- id: research-tambogrande
+  caseId: tambogrande
+  depth: standard
+  substantiveMilestoneTarget: 5
+  cutoffDate: 2026-06-21
+  currentStatusSummary: El proyecto original es histórico; su consulta y desistimiento están documentados, pero no debe confundirse con iniciativas mineras contemporáneas del distrito.
+  sourceIds: [manhattan-annual-report-2002, manhattan-centromin-2003, tambogrande-consulta-municipal, tambogrande-retiro-eia-2005, tambogrande-muradian-2003, cooperaccion-tambogrande-2024]
+  directActorSourceIds: [manhattan-annual-report-2002, tambogrande-consulta-municipal, tambogrande-retiro-eia-2005]
+  actorPositions:
+    - actor: Municipalidad y memoria territorial
+      position: La consulta vecinal de 2002 se mantiene como un hito de la decisión territorial frente al proyecto.
+      sourceIds: [tambogrande-consulta-municipal]
+    - actor: Autoridad sectorial
+      position: El procedimiento de evaluación ambiental concluyó con la aceptación de un desistimiento en 2005.
+      sourceIds: [tambogrande-retiro-eia-2005]
+    - actor: Sociedad civil
+      position: Organizaciones ambientales conectan el proceso contemporáneo con la memoria de oposición al proyecto original.
+      sourceIds: [cooperaccion-tambogrande-2024]
+    - actor: Manhattan Minerals
+      position: La empresa defendió la viabilidad ambiental, económica y social del proyecto y discrepó con la terminación del acuerdo de opción comunicada por Centromin.
+      sourceIds: [manhattan-annual-report-2002, manhattan-centromin-2003]
+  contradictions:
+    - id: tambogrande-legitimidad
+      description: La legitimidad territorial expresada en la consulta y el alcance administrativo del desistimiento son planos distintos que no deben fusionarse.
+      sourceIds: [tambogrande-consulta-municipal, tambogrande-retiro-eia-2005]
+      status: open
+  legalQuestions:
+    - ¿Cuál fue el efecto jurídico exacto del desistimiento de 2005 sobre el proyecto y sus derechos asociados?
+    - ¿Qué alcance jurídico tuvo la consulta vecinal de 2002 dentro del marco vigente en ese momento?
+  gaps:
+    - id: tambogrande-expediente-completo
+      description: Ya existen locadores empresariales primarios para 1999 a 2003; falta el expediente administrativo completo del EIA y del acuerdo de opción.
+      blocksRelease: true
+  status: ready
+- id: research-conga
+  caseId: conga
+  depth: standard
+  substantiveMilestoneTarget: 5
+  cutoffDate: 2026-06-21
+  currentStatusSummary: El expediente conserva decisiones ambientales y una controversia territorial no cerrada; la ausencia en el reporte mensual actual no prueba resolución.
+  sourceIds: [conga-exploracion-2004, conga-eia-semidetallado-2008, conga-eia-explotacion-2010, defensoria-conflictos-93, conga-dictamen-hidrico-2012, conga-peritaje-2012, conga-its-2013, conga-millones-2016, cooperaccion-conga-2024]
+  directActorSourceIds: [conga-exploracion-2004, cooperaccion-conga-2024]
+  actorPositions:
+    - actor: Autoridad sectorial
+      position: El proyecto acumuló decisiones ambientales diferenciadas para exploración y cambios posteriores.
+      sourceIds: [conga-exploracion-2004, conga-eia-semidetallado-2008, conga-eia-explotacion-2010, conga-its-2013]
+    - actor: Rondas y oposición territorial
+      position: Actores territoriales mantienen rechazo al proyecto y centran su posición en agua y territorio.
+      sourceIds: [cooperaccion-conga-2024]
+    - actor: Investigación académica
+      position: La literatura interpreta Conga como disputa sobre desarrollo, autoridad y legitimidad, no solo como trámite ambiental.
+      sourceIds: [conga-millones-2016]
+  contradictions:
+    - id: conga-aprobacion-legitimidad
+      description: Las decisiones administrativas documentadas coexisten con rechazo territorial persistente y no prueban legitimidad social.
+      sourceIds: [conga-its-2013, cooperaccion-conga-2024]
+      status: open
+  legalQuestions:
+    - ¿Cuál es el estado administrativo consolidado de los instrumentos ambientales del proyecto Conga al corte?
+    - ¿Qué efectos jurídicos tuvieron el peritaje y los ITS sobre las obligaciones del EIA aprobado?
+  gaps:
+    - id: conga-estado-actual
+      description: Falta una fuente primaria reciente que establezca el estado administrativo y material del proyecto al corte.
+      blocksRelease: true
+  status: ready
+- id: research-tia-maria
+  caseId: tia-maria
+  depth: standard
+  substantiveMilestoneTarget: 5
+  cutoffDate: 2026-06-21
+  currentStatusSummary: El proyecto registra nuevas decisiones y apoyo estatal, mientras persiste oposición territorial; el estado jurídico debe consolidarse por especialista.
+  sourceIds: [tia-maria-eia-2014, tia-maria-salud-2015, tia-maria-dialogo-agua-2019, tia-maria-licencia-2019, tia-maria-suspension-2019, tia-maria-reinicio-2024, tia-maria-its-2024, tia-maria-southern-proyecto-2025, cooperaccion-tia-maria-2025, valle-tambo-agua-2018]
+  directActorSourceIds: [tia-maria-reinicio-2024, tia-maria-southern-proyecto-2025, cooperaccion-tia-maria-2025]
+  actorPositions:
+    - actor: Poder Ejecutivo
+      position: El Ejecutivo presenta el reinicio del proyecto como una apuesta de crecimiento y respaldo a la inversión.
+      sourceIds: [tia-maria-reinicio-2024]
+    - actor: Vocerías del Valle de Tambo
+      position: Voceros territoriales mantienen oposición y anuncian acciones legales frente al avance del proyecto.
+      sourceIds: [cooperaccion-tia-maria-2025]
+    - actor: Autoridad ambiental
+      position: SENACE comunica conformidad a un segundo ITS dentro del procedimiento ambiental del proyecto.
+      sourceIds: [tia-maria-its-2024]
+    - actor: Southern Copper Corporation
+      position: La empresa declara que el proyecto usará agua de mar desalinizada y presenta su propia delimitación de áreas de influencia y beneficios.
+      sourceIds: [tia-maria-southern-proyecto-2025]
+  contradictions:
+    - id: tia-maria-reinicio-oposicion
+      description: El respaldo estatal al reinicio coexiste con rechazo territorial y no debe presentarse como consenso social.
+      sourceIds: [tia-maria-reinicio-2024, cooperaccion-tia-maria-2025]
+      status: open
+  legalQuestions:
+    - ¿Cuál es el estado vigente de la licencia de construcción luego de su suspensión y decisiones posteriores?
+    - ¿Qué alcance tiene el segundo ITS respecto del EIA y de las autorizaciones necesarias para construir u operar?
+  gaps:
+    - id: tia-maria-eia
+      description: La resolución de aprobación de 2014 ya está integrada; faltan el primer EIA, la versión completa aprobada y una matriz de modificaciones con locadores.
+      blocksRelease: true
+    - id: tia-maria-empresa
+      description: La ficha corporativa fechada ya está integrada; falta un cronograma de ejecución vigente y un registro empresarial verificable de compromisos.
+      blocksRelease: true
+  status: ready
+- id: research-las-bambas
+  caseId: las-bambas
+  depth: deep
+  substantiveMilestoneTarget: 8
+  cutoffDate: 2026-06-21
+  currentStatusSummary: El conflicto permanece activo y fragmentado en varios ámbitos del corredor; acuerdos coyunturales y modificaciones ambientales no equivalen a cierre.
+  sourceIds: [las-bambas-exploracion-2005, las-bambas-meia-2014, defensoria-las-bambas-140, las-bambas-meia-2018, huancuire-convenio-oefa-2019, las-bambas-acuerdo-velille-2021, las-bambas-acuerdos-2022, las-bambas-transito-2024, las-bambas-mmg-operacion-2024, cooperaccion-las-bambas-2024, las-bambas-land-2026, defensoria-conflictos-266]
+  directActorSourceIds: [huancuire-convenio-oefa-2019, las-bambas-acuerdo-velille-2021, las-bambas-mmg-operacion-2024, cooperaccion-las-bambas-2024]
+  actorPositions:
+    - actor: Autoridades ambientales
+      position: Las modificaciones ambientales fueron tramitadas mediante decisiones administrativas diferenciadas.
+      sourceIds: [las-bambas-meia-2014, las-bambas-meia-2018]
+    - actor: Comunidades y representantes del corredor
+      position: Las demandas incluyen transporte, beneficios, territorio y cumplimiento de compromisos con variaciones entre comunidades.
+      sourceIds: [huancuire-convenio-oefa-2019, las-bambas-acuerdo-velille-2021, las-bambas-acuerdos-2022, cooperaccion-las-bambas-2024]
+    - actor: Estado mediador
+      position: El Ejecutivo registra acuerdos para restablecer tránsito y sostener mesas de diálogo en episodios concretos.
+      sourceIds: [las-bambas-transito-2024, defensoria-conflictos-266]
+    - actor: MMG
+      position: La empresa reporta su modelo de relacionamiento comunitario, resultados 2024 y acciones ambientales vinculadas con Chalcobamba.
+      sourceIds: [las-bambas-mmg-operacion-2024]
+  contradictions:
+    - id: las-bambas-acuerdos-cumplimiento
+      description: Los anuncios estatales de acuerdos coexisten con nuevos episodios de protesta y posiciones comunitarias que cuestionan conformidad.
+      sourceIds: [las-bambas-acuerdos-2022, cooperaccion-las-bambas-2024, defensoria-conflictos-266]
+      status: open
+  legalQuestions:
+    - ¿Qué obligaciones y mecanismos de participación corresponden a cada modificación ambiental documentada?
+    - ¿Qué acuerdos tienen fuerza jurídica exigible, responsables definidos y evidencia de cumplimiento al corte?
+  gaps:
+    - id: las-bambas-actas
+      description: Faltan actas completas y matrices de cumplimiento de acuerdos para los ámbitos territoriales priorizados.
+      blocksRelease: true
+    - id: las-bambas-empresa
+      description: La posición corporativa 2024 ya está integrada; falta una matriz empresarial vigente y verificable sobre corredor, Chalcobamba y cumplimiento de compromisos.
+      blocksRelease: true
+  status: ready
+- id: research-espinar
+  caseId: espinar
+  depth: deep
+  substantiveMilestoneTarget: 8
+  cutoffDate: 2026-06-21
+  currentStatusSummary: Espinar mantiene mesas, evaluaciones y acciones judiciales activas; la evidencia ambiental no se convierte en atribución causal sin dictamen competente.
+  sourceIds: [espinar-mesa-oefa-2012, espinar-monitoreo-2012, espinar-estudio-agua-2015, espinar-acuerdos-2019, espinar-acuerdos-2020, espinar-plan-2022, espinar-acuerdos-2025, cooperaccion-espinar-2025, espinar-sociospatial-2025, defensoria-conflictos-266]
+  directActorSourceIds: [cooperaccion-espinar-2025, espinar-acuerdos-2025]
+  actorPositions:
+    - actor: Comunidades demandantes
+      position: Comunidades reclaman protección de derechos y respuesta estatal mediante una acción de amparo atribuida.
+      sourceIds: [cooperaccion-espinar-2025]
+    - actor: Autoridades ambientales y sanitarias
+      position: El Estado ha desplegado monitoreos, estudios y planes que deben leerse sin anticipar conclusiones causales.
+      sourceIds: [espinar-monitoreo-2012, espinar-estudio-agua-2015, espinar-plan-2022]
+    - actor: Ejecutivo y comunidades en diálogo
+      position: Las mesas han producido acuerdos sucesivos cuyo cumplimiento integral requiere trazabilidad separada.
+      sourceIds: [espinar-acuerdos-2019, espinar-acuerdos-2025]
+  contradictions:
+    - id: espinar-evidencia-causalidad
+      description: La existencia de monitoreos y planes estatales no resuelve por sí sola el desacuerdo sobre origen, causalidad y responsabilidad.
+      sourceIds: [espinar-estudio-agua-2015, cooperaccion-espinar-2025]
+      status: open
+  legalQuestions:
+    - ¿Qué hallazgos ambientales cuentan con resolución firme y cuáles permanecen como evaluación o controversia técnica?
+    - ¿Qué obligaciones derivan del convenio marco y de los acuerdos registrados, y cuál es su evidencia de cumplimiento?
+  gaps:
+    - id: espinar-resultados
+      description: Faltan informes finales completos de monitoreo, salud y causalidad con locadores exactos y metodología comparable.
+      blocksRelease: true
+    - id: espinar-amparo
+      description: Falta el expediente judicial primario de la demanda de amparo para verificar pretensiones y estado procesal.
+      blocksRelease: true
+  status: ready
+- id: research-madre-de-dios
+  caseId: madre-de-dios
+  depth: deep
+  substantiveMilestoneTarget: 8
+  cutoffDate: 2026-06-21
+  currentStatusSummary: La formalización sigue abierta y convive con minería informal e ilegal diferenciadas; REINFO no acredita formalización concluida.
+  sourceIds: [dl-1105-formalizacion, minem-reinfo, madre-dios-formalizacion-2018, madre-dios-formalizados-2020, fenamad-mercurio-2022, maap-196-madre-dios, cooperaccion-madre-dios-2024, madre-dios-mesa-2025, madre-dios-cierre-formalizacion-2025, madre-dios-indigenous-2025]
+  directActorSourceIds: [fenamad-mercurio-2022, madre-dios-mesa-2025]
+  actorPositions:
+    - actor: FENAMAD y pueblos indígenas
+      position: La federación exige visibilizar riesgos del mercurio y afectaciones a pueblos indígenas de la región.
+      sourceIds: [fenamad-mercurio-2022]
+    - actor: Pequeños mineros y Estado
+      position: Representantes mineros y MINEM acuerdan coordinar acciones para culminar procesos de formalización.
+      sourceIds: [madre-dios-mesa-2025, madre-dios-cierre-formalizacion-2025]
+    - actor: Sociedad civil
+      position: Organizaciones civiles documentan costos socioambientales y reclaman respuestas frente a minería ilegal.
+      sourceIds: [maap-196-madre-dios, cooperaccion-madre-dios-2024]
+  contradictions:
+    - id: madre-dios-registro-formalizacion
+      description: El avance registral y casos puntuales de formalización coexisten con reclamos por actividades ilegales y afectaciones territoriales.
+      sourceIds: [madre-dios-formalizados-2020, fenamad-mercurio-2022, cooperaccion-madre-dios-2024]
+      status: open
+  legalQuestions:
+    - ¿Cuál es el efecto jurídico vigente de REINFO y qué supuestos determinan exclusión, suspensión o culminación?
+    - ¿Cómo deben diferenciarse jurídicamente minería informal, ilegal y actividad en proceso de formalización en la interfaz?
+  gaps:
+    - id: madre-dios-reinfo-corte
+      description: Falta un corte archivado y reproducible de registros de Madre de Dios con historial de cambios y exclusiones.
+      blocksRelease: true
+    - id: madre-dios-trazabilidad
+      description: Faltan fuentes primarias sobre trazabilidad comercial del oro y fiscalización con resultados al corte.
+      blocksRelease: true
+  status: ready

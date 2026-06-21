@@ -6,8 +6,8 @@ import { BookOpenText, ClockCounterClockwise, Info, List, MapTrifold, Mountains,
 import { useState } from "react";
 
 const navigation = [
-  { href: "/explorar", label: "Sistema de relaciones", icon: Scales },
   { href: "/mapa", label: "Mapa", icon: MapTrifold },
+  { href: "/explorar", label: "Sistema de relaciones", icon: Scales },
   { href: "/cronologia", label: "Cronología", icon: ClockCounterClockwise },
   { href: "/conflictos", label: "Casos", icon: List },
   { href: "/normativa", label: "Normas", icon: BookOpenText },

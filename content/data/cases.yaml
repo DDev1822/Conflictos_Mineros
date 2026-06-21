@@ -11,31 +11,62 @@
   minerals: [oro, cobre]
   timeline:
     - id: tambogrande-proyecto
+      kind: event
       date: 1999-01-01
       datePrecision: year
-      title: Proyecto y controversia territorial
-      summary: Se intensifica el debate sobre compatibilidad entre actividad minera y economía agrícola local.
-      sourceIds: [defensoria-conflictos, tambogrande-muradian-2003]
+      title: Inicio de línea base ambiental y social
+      summary: Manhattan declara haber iniciado a fines de 1999 la recopilación continua de información ambiental y social para el proyecto.
+      sourceIds: [manhattan-annual-report-2002]
     - id: tambogrande-consulta
+      kind: decision
       date: 2002-06-02
       datePrecision: day
       title: Consulta vecinal
       summary: La consulta se convierte en un hito nacional del debate sobre participación y decisiones extractivas.
-      sourceIds: [defensoria-conflictos]
+      sourceIds: [tambogrande-consulta-municipal, tambogrande-muradian-2003]
+    - id: tambogrande-debate-eia
+      kind: decision
+      date: 2002-12-01
+      datePrecision: month
+      title: Presentación empresarial del EIA
+      summary: Manhattan informa que presentó el EIA al MINEM y describe un proceso de revisión con talleres, comentarios públicos y respuesta empresarial.
+      sourceIds: [manhattan-annual-report-2002]
+    - id: tambogrande-cierre-ciclo
+      kind: decision
+      date: 2003-12-10
+      datePrecision: day
+      title: Centromin comunica terminación del acuerdo de opción
+      summary: Manhattan informa que Centromin dio por terminado el acuerdo de opción; la empresa expresó desacuerdo y anunció que evaluaría acciones.
+      sourceIds: [manhattan-centromin-2003]
+    - id: tambogrande-desistimiento-2005
+      kind: decision
+      date: 2005-06-17
+      datePrecision: day
+      title: Desistimiento del procedimiento de evaluación
+      summary: El MINEM acepta el desistimiento del procedimiento de evaluación del EIA del proyecto Tambogrande.
+      sourceIds: [tambogrande-retiro-eia-2005]
+    - id: tambogrande-estudio-2003
+      kind: publication
+      date: 2003-10-01
+      datePrecision: month
+      title: Publicación de estudio académico
+      summary: Se publica un estudio específico sobre el conflicto ambiental del proyecto minero de Tambogrande y su relación con la población local.
+      sourceIds: [tambogrande-muradian-2003]
   claims:
     - id: tambogrande-hecho-1
       kind: fact
       text: El caso articuló controversias sobre uso del territorio, agricultura, participación y viabilidad de un proyecto minero.
-      sourceIds: [defensoria-conflictos, tambogrande-muradian-2003]
+      sourceIds: [manhattan-annual-report-2002, manhattan-centromin-2003, tambogrande-muradian-2003]
       verificationStatus: partial
     - id: tambogrande-interpretacion-1
       kind: interpretation
       text: Su relevancia histórica reside en haber situado la legitimidad territorial junto a los procedimientos sectoriales formales.
       sourceIds: [defensoria-conflictos, tambogrande-muradian-2003, metodologia-observatorio]
       verificationStatus: partial
-  cutoffDate: 2026-06-18
-  updatedAt: 2026-06-18
+  cutoffDate: 2026-06-21
+  updatedAt: 2026-06-21
   reviewStatus: legal-pending
+  legalReviewNotes: Revisión jurídica especialista pendiente; no se atribuye vigencia normativa ni conclusión legal al expediente.
 - id: conga
   slug: conga
   name: Conga
@@ -49,31 +80,69 @@
   minerals: [oro, cobre]
   timeline:
     - id: conga-eia
+      kind: decision
+      date: 2004-03-17
+      datePrecision: day
+      title: Evaluación ambiental de exploración
+      summary: El MINEM emite una decisión sobre la evaluación ambiental de la etapa de exploración del proyecto.
+      sourceIds: [conga-exploracion-2004]
+    - id: conga-eia-semidetallado
+      kind: decision
+      date: 2008-09-19
+      datePrecision: day
+      title: Decisión sobre EIA semidetallado
+      summary: El expediente de exploración incorpora una nueva decisión administrativa sobre su instrumento ambiental semidetallado.
+      sourceIds: [conga-eia-semidetallado-2008]
+    - id: conga-eia-explotacion
+      kind: decision
       date: 2010-10-27
       datePrecision: day
-      title: Evaluación ambiental del proyecto
-      summary: La evaluación del proyecto pasa al centro del debate público y técnico.
-      sourceIds: [senace-evaluacion, defensoria-conflictos, conga-millones-2016]
+      title: Aprobación del EIA de explotación
+      summary: El MINEM aprueba el estudio de impacto ambiental del proyecto de explotación Conga mediante la Resolución Directoral 351-2010-MEM/AAM.
+      sourceIds: [conga-eia-explotacion-2010]
     - id: conga-conflicto
-      date: 2011-11-01
-      datePrecision: month
+      kind: event
+      date: 2011-11-24
+      datePrecision: day
       title: Escalamiento del conflicto
-      summary: Las movilizaciones y medidas estatales convierten el agua y la confianza en ejes nacionales de discusión.
-      sourceIds: [defensoria-conflictos]
+      summary: Se inicia un paro indefinido contra el proyecto; la Defensoría registra demandas, actores, suspensión del diálogo y actuaciones preventivas.
+      sourceIds: [defensoria-conflictos-93]
+    - id: conga-peritaje
+      kind: evidence
+      date: 2012-04-17
+      datePrecision: day
+      title: Dictamen pericial del componente hídrico
+      summary: El equipo pericial entrega a la PCM su dictamen hídrico, que considera técnicamente aprobable el EIA y propone revisar varias infraestructuras.
+      sourceIds: [conga-dictamen-hidrico-2012, conga-peritaje-2012]
+    - id: conga-its
+      kind: decision
+      date: 2013-11-27
+      datePrecision: day
+      title: Decisión sobre cambios menores
+      summary: El MINEM registra una decisión administrativa sobre un informe técnico sustentatorio de cambios menores.
+      sourceIds: [conga-its-2013]
+    - id: conga-estudio-2016
+      kind: publication
+      date: 2016-07-01
+      datePrecision: day
+      title: Publicación de estudio académico
+      summary: Se publica un análisis académico del proyecto Conga centrado en desarrollo, conflicto y controversias territoriales.
+      sourceIds: [conga-millones-2016]
   claims:
     - id: conga-hecho-1
       kind: fact
       text: El caso relacionó la evaluación ambiental con preocupaciones territoriales sobre lagunas, cabeceras de cuenca y disponibilidad de agua.
-      sourceIds: [defensoria-conflictos, defensoria-conflictos-hidricos, conga-millones-2016]
+      sourceIds: [conga-eia-explotacion-2010, conga-dictamen-hidrico-2012, defensoria-conflictos-hidricos, conga-millones-2016]
       verificationStatus: partial
     - id: conga-interpretacion-1
       kind: interpretation
       text: La disputa muestra que la aprobación administrativa de un instrumento no resuelve por sí sola la controversia sobre legitimidad y riesgo.
       sourceIds: [senace-evaluacion, conga-millones-2016, metodologia-observatorio]
       verificationStatus: partial
-  cutoffDate: 2026-06-18
-  updatedAt: 2026-06-18
+  cutoffDate: 2026-06-21
+  updatedAt: 2026-06-21
   reviewStatus: legal-pending
+  legalReviewNotes: Revisión jurídica especialista pendiente; las relaciones normativas se mantienen como referencias documentales parciales.
 - id: tia-maria
   slug: tia-maria
   name: Tía María
@@ -87,31 +156,69 @@
   minerals: [cobre]
   timeline:
     - id: tia-maria-evaluacion
-      date: 2009-01-01
-      datePrecision: year
-      title: Inicio de evaluación y controversia
-      summary: El proyecto entra en discusión pública con el agua y la actividad agrícola como preocupaciones centrales.
-      sourceIds: [defensoria-conflictos, senace-evaluacion, valle-tambo-agua-2018]
-    - id: tia-maria-licencia
-      date: 2019-07-08
+      kind: decision
+      date: 2014-08-01
       datePrecision: day
-      title: Nueva etapa de conflictividad
-      summary: Decisiones administrativas y rechazo territorial reactivan movilizaciones y debate nacional.
-      sourceIds: [defensoria-conflictos]
+      title: Aprobación del EIA del proyecto
+      summary: El MINEM aprueba el EIA del proyecto de explotación y beneficio minero mediante la Resolución Directoral 392-2014-MEM/DGAAM.
+      sourceIds: [tia-maria-eia-2014]
+    - id: tia-maria-protesta-2015
+      kind: event
+      date: 2015-04-23
+      datePrecision: day
+      title: Protestas y atención de personas heridas
+      summary: El Ministerio de Salud documenta atenciones durante las protestas contra el proyecto en el Valle de Tambo.
+      sourceIds: [tia-maria-salud-2015]
+    - id: tia-maria-licencia
+      kind: decision
+      date: 2019-07-09
+      datePrecision: day
+      title: Licencia de construcción
+      summary: El MINEM comunica el otorgamiento de la licencia de construcción del proyecto.
+      sourceIds: [tia-maria-licencia-2019]
+    - id: tia-maria-suspension
+      kind: decision
+      date: 2019-08-09
+      datePrecision: day
+      title: Suspensión de la licencia
+      summary: El Consejo de Minería notifica la suspensión de la licencia de construcción previamente otorgada.
+      sourceIds: [tia-maria-suspension-2019]
+    - id: tia-maria-reinicio
+      kind: event
+      date: 2024-07-05
+      datePrecision: day
+      title: Posición estatal favorable al reinicio
+      summary: La Presidencia del Consejo de Ministros expresa apoyo al reinicio, mientras persiste oposición territorial documentada.
+      sourceIds: [tia-maria-reinicio-2024, cooperaccion-tia-maria-2025]
+    - id: tia-maria-segundo-its
+      kind: decision
+      date: 2024-11-30
+      datePrecision: day
+      title: Conformidad al segundo ITS
+      summary: SENACE comunica la conformidad al segundo informe técnico sustentatorio del proyecto.
+      sourceIds: [tia-maria-its-2024]
+    - id: tia-maria-estudio-agua-2018
+      kind: publication
+      date: 2018-11-23
+      datePrecision: day
+      title: Publicación de estudio sobre agua y agricultura
+      summary: Se publica un estudio académico sobre el uso agrícola del agua en el Valle de Tambo, sin atribuir impactos al proyecto minero.
+      sourceIds: [valle-tambo-agua-2018]
   claims:
     - id: tia-maria-hecho-1
       kind: fact
       text: La controversia ha vinculado el proyecto cuprífero con la protección de la actividad agrícola y los recursos hídricos del valle.
-      sourceIds: [defensoria-conflictos, valle-tambo-agua-2018]
+      sourceIds: [tia-maria-dialogo-agua-2019, tia-maria-southern-proyecto-2025, valle-tambo-agua-2018]
       verificationStatus: partial
     - id: tia-maria-propuesta-1
       kind: proposal
       text: Diversos enfoques plantean fortalecer información temprana, monitoreo del agua y deliberación territorial antes de decisiones irreversibles.
       sourceIds: [defensoria-conflictos-hidricos, ana-agua, metodologia-observatorio]
       verificationStatus: partial
-  cutoffDate: 2026-06-18
-  updatedAt: 2026-06-18
+  cutoffDate: 2026-06-21
+  updatedAt: 2026-06-21
   reviewStatus: legal-pending
+  legalReviewNotes: Revisión jurídica especialista pendiente; el expediente no presenta decisiones administrativas como conclusión legal consolidada.
 - id: las-bambas
   slug: las-bambas
   name: Las Bambas
@@ -124,32 +231,91 @@
   legalInstrumentIds: [ley-29785, ley-27446, ds-014-1992-em]
   minerals: [cobre]
   timeline:
-    - id: las-bambas-concesion
-      date: 2004-08-31
+    - id: las-bambas-exploracion
+      kind: decision
+      date: 2005-02-28
       datePrecision: day
-      title: Adjudicación del proyecto
-      summary: Comienza una etapa de compromisos públicos y expectativas de desarrollo territorial.
-      sourceIds: [defensoria-conflictos, las-bambas-land-2026]
+      title: Evaluación ambiental de exploración
+      summary: El MINEM emite la Resolución Directoral 086-2005-MEM/AAM sobre la evaluación ambiental de la exploración Las Bambas.
+      sourceIds: [las-bambas-exploracion-2005]
+    - id: las-bambas-segunda-meia
+      kind: decision
+      date: 2014-11-17
+      datePrecision: day
+      title: Segunda modificación del EIA
+      summary: El MINEM emite una resolución sobre la segunda modificación del estudio de impacto ambiental del proyecto.
+      sourceIds: [las-bambas-meia-2014]
     - id: las-bambas-escalamiento
-      date: 2015-09-25
+      kind: event
+      date: 2015-09-28
       datePrecision: day
       title: Escalamiento de protestas
-      summary: Cambios, transporte y demandas territoriales confluyen en una nueva etapa de conflictividad.
-      sourceIds: [defensoria-conflictos]
+      summary: Un enfrentamiento en Challhuahuacho deja tres personas fallecidas y 29 heridas; el reporte posterior registra diálogo y acuerdos iniciales.
+      sourceIds: [defensoria-las-bambas-140]
+    - id: las-bambas-tercera-meia
+      kind: decision
+      date: 2018-10-04
+      datePrecision: day
+      title: Tercera modificación del EIA
+      summary: SENACE aprueba la tercera modificación del estudio de impacto ambiental de la unidad minera.
+      sourceIds: [las-bambas-meia-2018]
+    - id: las-bambas-huancuire-monitoreo
+      kind: agreement
+      date: 2019-10-16
+      datePrecision: day
+      title: Convenio de monitoreo con Huancuire
+      summary: OEFA y la Comunidad Campesina Huancuire suscriben un convenio para instalar y operar una estación fija de monitoreo de calidad del aire.
+      sourceIds: [huancuire-convenio-oefa-2019]
+    - id: las-bambas-velille
+      kind: agreement
+      date: 2021-02-10
+      datePrecision: day
+      title: Acuerdo con representantes de Velille
+      summary: Representantes de Velille, la empresa y el Estado suscriben un acuerdo para restablecer el tránsito y el diálogo.
+      sourceIds: [las-bambas-acuerdo-velille-2021]
+    - id: las-bambas-chumbivilcas
+      kind: agreement
+      date: 2022-03-30
+      datePrecision: day
+      title: Acuerdos comerciales con comunidades
+      summary: Comunidades de Chumbivilcas y la empresa registran acuerdos comerciales con intermediación estatal.
+      sourceIds: [las-bambas-acuerdos-2022]
+    - id: las-bambas-huancuire
+      kind: event
+      date: 2024-02-27
+      datePrecision: day
+      title: Posición de Huancuire sobre Chalcobamba
+      summary: Se documenta una posición comunitaria que cuestiona la existencia de conformidad para el tajo Chalcobamba.
+      sourceIds: [cooperaccion-las-bambas-2024]
+    - id: las-bambas-transito
+      kind: agreement
+      date: 2024-04-16
+      datePrecision: day
+      title: Restablecimiento del tránsito
+      summary: Un nuevo acuerdo coyuntural permite restablecer el tránsito en el corredor vial sur.
+      sourceIds: [las-bambas-transito-2024]
+    - id: las-bambas-estudio-territorial-2026
+      kind: publication
+      date: 2026-04-22
+      datePrecision: day
+      title: Publicación de estudio territorial
+      summary: Se publica un estudio académico sobre transformación territorial y huellas dinámicas del conflicto alrededor de Las Bambas.
+      sourceIds: [las-bambas-land-2026]
   claims:
     - id: las-bambas-hecho-1
       kind: fact
       text: El caso combina demandas sobre transporte minero, territorio comunal, impactos ambientales y seguimiento de compromisos.
-      sourceIds: [defensoria-conflictos, las-bambas-land-2026]
+      sourceIds: [defensoria-conflictos-266, las-bambas-land-2026]
       verificationStatus: partial
     - id: las-bambas-interpretacion-1
       kind: interpretation
       text: La recurrencia del conflicto sugiere límites de los acuerdos sin trazabilidad pública, responsables claros y continuidad institucional.
       sourceIds: [defensoria-conflictos, defensoria-acuerdos-187, las-bambas-land-2026, metodologia-observatorio]
       verificationStatus: partial
-  cutoffDate: 2026-06-18
-  updatedAt: 2026-06-18
+  cutoffDate: 2026-06-21
+  updatedAt: 2026-06-21
   reviewStatus: legal-pending
+  legalReviewNotes: Revisión jurídica especialista pendiente; acuerdos, resoluciones y obligaciones requieren contraste legal fechado.
 - id: espinar
   slug: espinar
   name: Espinar
@@ -163,31 +329,83 @@
   minerals: [cobre]
   timeline:
     - id: espinar-dialogo
-      date: 2012-05-21
+      kind: event
+      date: 2012-08-23
       datePrecision: day
-      title: Conflicto y mesa de diálogo
-      summary: Salud, ambiente y convenio marco concentran protestas y respuestas institucionales.
-      sourceIds: [defensoria-conflictos, espinar-sociospatial-2025]
+      title: Mesa de diálogo e intervención sanitaria y ambiental
+      summary: El Estado registra avances de la mesa y anuncia un plan integrado de intervención con monitoreo participativo.
+      sourceIds: [espinar-mesa-oefa-2012]
+    - id: espinar-monitoreo
+      kind: evidence
+      date: 2012-08-21
+      datePrecision: day
+      title: Monitoreo ambiental participativo
+      summary: Equipos estatales y representantes acreditados participan en un monitoreo ambiental sin que el registro pruebe causalidad.
+      sourceIds: [espinar-monitoreo-2012]
+    - id: espinar-estudio-agua
+      kind: evidence
+      date: 2015-04-24
+      datePrecision: day
+      title: Inicio de estudio sobre minerales en agua
+      summary: OEFA e IPEN inician un estudio para esclarecer el origen de minerales detectados en cuerpos de agua.
+      sourceIds: [espinar-estudio-agua-2015]
+    - id: espinar-acuerdos-comunidades
+      kind: agreement
+      date: 2019-11-21
+      datePrecision: day
+      title: Acuerdos con trece comunidades
+      summary: El Ejecutivo comunica acuerdos con trece comunidades originarias de la provincia.
+      sourceIds: [espinar-acuerdos-2019]
     - id: espinar-nueva-etapa
-      date: 2020-07-01
-      datePrecision: month
-      title: Nuevas demandas territoriales
-      summary: El debate sobre beneficios y relación con la empresa vuelve a intensificarse.
-      sourceIds: [defensoria-conflictos]
+      kind: event
+      date: 2020-09-14
+      datePrecision: day
+      title: Implementación anunciada de acuerdos de agosto
+      summary: El MINEM comunica coordinaciones para implementar acuerdos sobre tarjetas de consumo y el convenio marco provincial.
+      sourceIds: [espinar-acuerdos-2020]
+    - id: espinar-plan-ambiental
+      kind: agreement
+      date: 2022-05-19
+      datePrecision: day
+      title: Aprobación de plan de trabajo ambiental
+      summary: Autoridades y sociedad civil aprueban un plan de trabajo para abordar la problemática ambiental de Espinar.
+      sourceIds: [espinar-plan-2022]
+    - id: espinar-demanda-amparo
+      kind: event
+      date: 2025-03-26
+      datePrecision: day
+      title: Demanda de amparo de comunidades
+      summary: Organizaciones comunales presentan una demanda de amparo contra la empresa y entidades estatales, según fuente atribuida.
+      sourceIds: [cooperaccion-espinar-2025]
+    - id: espinar-acuerdos-recientes
+      kind: agreement
+      date: 2025-04-05
+      datePrecision: day
+      title: Nuevos acuerdos mediante diálogo
+      summary: El Ejecutivo y comunidades originarias registran nuevos acuerdos cuya ejecución requiere seguimiento.
+      sourceIds: [espinar-acuerdos-2025]
+    - id: espinar-estudio-socioespacial-2025
+      kind: publication
+      date: 2025-05-29
+      datePrecision: day
+      title: Publicación de estudio socioespacial
+      summary: Se publica un estudio académico sobre transformaciones socioespaciales asociadas a operaciones mineras de gran escala en Espinar.
+      sourceIds: [espinar-sociospatial-2025]
   claims:
     - id: espinar-hecho-1
       kind: fact
       text: El caso articula preocupaciones por calidad ambiental y salud con demandas de beneficios y cumplimiento de compromisos.
-      sourceIds: [defensoria-conflictos, oefa-fiscalizacion, espinar-sociospatial-2025]
+      sourceIds: [espinar-plan-2022, oefa-fiscalizacion, espinar-sociospatial-2025]
       verificationStatus: partial
     - id: espinar-propuesta-1
       kind: proposal
       text: El monitoreo participativo requiere protocolos de custodia, interpretación compartida y seguimiento de medidas correctivas.
       sourceIds: [oefa-fiscalizacion, defensoria-conflictos-hidricos, ana-agua]
       verificationStatus: partial
-  cutoffDate: 2026-06-18
-  updatedAt: 2026-06-18
+  cutoffDate: 2026-06-21
+  updatedAt: 2026-06-21
   reviewStatus: legal-pending
+  legalReviewNotes: Revisión jurídica especialista pendiente; no se formulan conclusiones causales ni responsabilidades legales no verificadas.
 - id: madre-de-dios
   slug: madre-de-dios
   name: Madre de Dios
@@ -201,17 +419,68 @@
   minerals: [oro]
   timeline:
     - id: madre-dios-formalizacion
-      date: 2012-02-18
+      kind: decision
+      date: 2012-04-19
       datePrecision: day
-      title: Nueva etapa de formalización
-      summary: El Estado intensifica instrumentos para ordenar y formalizar la actividad de pequeña escala.
-      sourceIds: [minem-normas, madre-dios-indigenous-2025]
+      title: Decreto Legislativo 1105 sobre formalización
+      summary: Se publica el marco que define minería ilegal e informal y establece pasos para formalizar pequeña minería y minería artesanal.
+      sourceIds: [dl-1105-formalizacion]
     - id: madre-dios-reinfo
+      kind: decision
       date: 2017-06-01
       datePrecision: day
       title: REINFO en el proceso integral
       summary: El registro pasa a ser una pieza central del proceso y de sus controversias.
       sourceIds: [minem-reinfo, minem-normas]
+    - id: madre-dios-apoyo-2018
+      kind: event
+      date: 2018-02-22
+      datePrecision: day
+      title: Apoyo estatal a la formalización
+      summary: El Ministerio del Ambiente comunica acciones de apoyo al proceso de formalización de pequeña minería.
+      sourceIds: [madre-dios-formalizacion-2018]
+    - id: madre-dios-formalizados-2020
+      kind: event
+      date: 2020-02-18
+      datePrecision: day
+      title: Formalización puntual de pequeños mineros
+      summary: El MINEM comunica que 117 pequeños mineros culminaron formalización, sin extrapolar el dato al universo regional.
+      sourceIds: [madre-dios-formalizados-2020]
+    - id: madre-dios-fenamad-2022
+      kind: event
+      date: 2022-03-23
+      datePrecision: day
+      title: Posición indígena sobre mercurio
+      summary: FENAMAD lleva a un foro internacional su preocupación por los impactos del mercurio en pueblos indígenas.
+      sourceIds: [fenamad-mercurio-2022]
+    - id: madre-dios-perdidas-2024
+      kind: evidence
+      date: 2024-05-22
+      datePrecision: day
+      title: Publicación de estimación socioambiental
+      summary: MAAP publica una valoración modelada de impactos por deforestación, sedimentación y mercurio en tres comunidades indígenas.
+      sourceIds: [maap-196-madre-dios, cooperaccion-madre-dios-2024]
+    - id: madre-dios-mesa-2025
+      kind: agreement
+      date: 2025-08-22
+      datePrecision: day
+      title: Acuerdo para coordinar mesa de trabajo
+      summary: MINEM y representantes mineros acuerdan coordinar una mesa para impulsar la formalización.
+      sourceIds: [madre-dios-mesa-2025]
+    - id: madre-dios-cierre-2025
+      kind: event
+      date: 2025-09-05
+      datePrecision: day
+      title: Llamado a culminar la formalización
+      summary: El MINEM insta a pequeños mineros y mineros artesanales a culminar sus trámites de formalización.
+      sourceIds: [madre-dios-cierre-formalizacion-2025]
+    - id: madre-dios-estudio-indigena-2025
+      kind: publication
+      date: 2025-10-02
+      datePrecision: day
+      title: Publicación de estudio sobre minería y pueblos indígenas
+      summary: Se publica un capítulo académico sobre minería aurífera y conflictos indígenas en Madre de Dios.
+      sourceIds: [madre-dios-indigenous-2025]
   claims:
     - id: madre-dios-hecho-1
       kind: fact
@@ -223,6 +492,7 @@
       text: La inscripción registral no equivale por sí sola a formalización concluida ni resuelve los desafíos de trazabilidad y fiscalización.
       sourceIds: [minem-reinfo, madre-dios-indigenous-2025, metodologia-observatorio]
       verificationStatus: partial
-  cutoffDate: 2026-06-18
-  updatedAt: 2026-06-18
+  cutoffDate: 2026-06-21
+  updatedAt: 2026-06-21
   reviewStatus: legal-pending
+  legalReviewNotes: Revisión jurídica especialista pendiente; informalidad, ilegalidad y registro de formalización permanecen diferenciados.

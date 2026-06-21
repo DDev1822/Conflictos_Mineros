@@ -70,6 +70,30 @@ describe("contenido académico", () => {
     }
   });
 
+  it("clasifica hitos, derechos y relaciones de evidencia", () => {
+    const data = loadObservatoryData();
+    expect(data.cases.flatMap((item) => item.timeline).every((event) => event.kind)).toBe(true);
+    expect(data.sources.every((source) => source.rightsStatus !== "unknown")).toBe(true);
+    expect(data.evidenceRecords.every((record) => record.locator && record.relation)).toBe(true);
+  });
+
+  it("reconcilia la selección de conflictos socioambientales mineros", () => {
+    const data = loadObservatoryData();
+    const selection = data.miningConflictSelections[0];
+    const selectedIds = new Set(selection.caseIds);
+    const registry = data.socialConflictCases.filter((item) => selectedIds.has(item.id));
+
+    expect(selection.totalRegistered).toBe(64);
+    expect(selection.active).toBe(57);
+    expect(selection.latent).toBe(7);
+    expect(selection.sourcePage).toBe(34);
+    expect(registry).toHaveLength(selection.totalRegistered);
+    expect(registry.every((item) => item.snapshotId === selection.snapshotId)).toBe(true);
+    expect(registry.every((item) => item.conflictType === "Socioambiental")).toBe(true);
+    expect(registry.filter((item) => item.status === "active")).toHaveLength(selection.active);
+    expect(registry.filter((item) => item.status === "latent")).toHaveLength(selection.latent);
+  });
+
   it("mantiene trazabilidad de cada caso del registro social", () => {
     const registry = loadObservatoryData().socialConflictCases;
     expect(registry.every((item) => item.sourcePage >= 37 && item.sourcePage <= 75)).toBe(true);

@@ -1,5 +1,7 @@
 # Metodología de datos y trazabilidad
 
+> Última revisión documental: 20 de junio de 2026. Signoff metodológico para publicación: pendiente. Esta fecha registra la revisión del texto y sus reglas; no sustituye revisión jurídica especialista ni aprobación de licencias.
+
 ## Propósito
 
 El observatorio organiza evidencia para estudiar conflictos mineros del Perú. No sustituye una investigación de campo, una pericia técnica ni una opinión jurídica. Su función es hacer explícitas las relaciones entre casos, territorios, actores, normas, controversias, hechos y alternativas de política pública.
@@ -47,11 +49,23 @@ Cada afirmación tiene un estado independiente:
 
 La compilación rechaza afirmaciones sin fuentes. La auditoría editorial exige, además, fuentes directas por caso y al menos una perspectiva no estatal. Estas son condiciones mínimas, no una garantía de exhaustividad.
 
+## Registro de evidencia y paquetes de investigación
+
+Una cita general no basta para cerrar un hecho. Cada `EvidenceRecord` enlaza una fuente con un hito, afirmación, norma, estado o posición de actor; conserva un locador verificable, la relación `supports`, `qualifies` o `contradicts`, una síntesis analítica, fecha de comprobación y estado de revisión. Una contradicción registrada no se fuerza a desaparecer: se atribuye y permanece visible.
+
+Los hitos se clasifican como `event`, `decision`, `agreement`, `evidence` o `publication`. Las publicaciones académicas aportan contexto y contraste, pero no cuentan por sí solas para el mínimo sustantivo de una cronología.
+
+Cada paquete de caso registra tres o más perspectivas pertinentes, al menos una fuente directa de un actor involucrado, preguntas jurídicas y vacíos explícitos. `ready` significa que la estructura está lista para revisión y que los vacíos quedaron declarados; no significa que esos vacíos estén cerrados ni que exista verificación jurídica. Los paquetes normativos `prepared` identifican texto oficial, reglamentos, modificatorias y preguntas para especialista; tampoco determinan vigencia consolidada.
+
+`npm run research:scorecard` calcula cobertura directa, mínimos sustantivos, perspectivas, paquetes normativos, conflictos no registrados y fuentes con derechos desconocidos. El comando falla mientras exista un vacío bloqueante; las mismas reglas se evalúan al final de `release:check`.
+
 ## Cartografía
 
 Las coordenadas se almacenan con `coordinatePrecision` y una fuente cartográfica. En la V1 son puntos regionales o de localidad para ubicar casos y facilitar la navegación.
 
 La capa nacional de conflictividad social usa el último reporte mensual de la Defensoría del Pueblo incorporado y revisado en Git. Los conteos se agregan por región y se representan mediante un punto de referencia regional; no son coordenadas de cada conflicto. El mapa debe mostrar siempre el periodo del reporte y separar esta capa general de los expedientes mineros piloto.
+
+La vista inicial filtra el corte de abril de 2026 a los 64 conflictos socioambientales que el reporte relaciona con la actividad minera: 57 activos y 7 latentes, según los cuadros 15 y 17. La selección editorial conserva los identificadores del registro general y reconcilia con esos totales publicados. El usuario puede cambiar explícitamente a los 190 conflictos sociales para comparar el contexto nacional completo.
 
 El mapa no muestra, salvo indicación expresa y fuente específica:
 
@@ -65,13 +79,15 @@ La intensidad de la capa de calor expresa cantidad de casos registrados, activos
 
 La escala cromática divide el máximo del filtro seleccionado en tres rangos numéricos visibles: celeste para menor cantidad, ámbar para cantidad intermedia y rojo para mayor cantidad. El sombreado y los puntos regionales comparten la misma clasificación para que el color pueda leerse contra la leyenda.
 
-La capa “Minería ilegal e informal” no delimita operaciones ni atribuye una condición jurídica a un territorio. Selecciona únicamente casos del mismo corte de la Defensoría que contienen una mención textual explícita a minería ilegal o informal; cada punto abre las fichas que sustentan el conteo.
+Las capas “Minería ilegal” y “Minería informal” son independientes: no delimitan operaciones ni atribuyen una condición jurídica a un territorio. Cada una selecciona únicamente los casos del mismo corte de la Defensoría que contienen la mención textual explícita correspondiente, y cada punto abre las fichas que sustentan su conteo.
+
+Un caso que menciona ambas categorías aparece en ambas capas. Ese solapamiento conserva el lenguaje de la fuente y no implica que minería ilegal y minería informal sean equivalentes; la interfaz las distingue también mediante color, relleno y trazo.
 
 La capa REINFO usa un corte agregado de inscripciones marcadas como vigentes en la consulta oficial del MINEM. Los conteos se agrupan por departamento y se colocan en puntos regionales de referencia, sin reproducir datos personales ni coordenadas declaradas. La inscripción vigente no equivale a formalidad concluida y el registro es dinámico, por lo que la interfaz muestra fecha de consulta y enlace a la fuente.
 
 La capa “Minería formal” usa como indicador parcial el listado oficial de plantas de beneficio vigentes del MINEM. No representa concesiones, proyectos en cartera ni el universo completo de operaciones mineras formales. El corte del 18 de junio de 2026 deduplica las filas de la exportación por código de planta: conserva 342 códigos únicos, territorializa 340 con departamento informado y excluye del mapa dos sin departamento. El portal no publica fecha propia de actualización, por lo que la interfaz identifica expresamente la fecha como fecha de consulta.
 
-Los conteos de esta capa se agregan por departamento y se colocan en los mismos puntos regionales de referencia. Los anillos verdes permiten compararla con REINFO, menciones de minería ilegal o informal y conflictos sociales sin sugerir que las capas comparten una ubicación exacta o una relación causal.
+Los conteos de esta capa se agregan por departamento y se colocan en los mismos puntos regionales de referencia. Los anillos verdes permiten compararla con REINFO, las capas independientes de minería ilegal y minería informal, y los conflictos sociales sin sugerir que las capas comparten una ubicación exacta o una relación causal.
 
 La capa “Exploración minera” usa el listado oficial de inicios de actividades de exploración en actividad del MINEM. El corte de consulta del 18 de junio de 2026 deduplica 294 filas por código de expediente y conserva 293 expedientes únicos, con 101.775,4 hectáreas informadas por la fuente. El portal no publica una fecha propia de actualización. La capa muestra conteos y extensiones registrales agregados por departamento; explorar no equivale a explotar, producir ni contar con todas las autorizaciones necesarias para una operación minera.
 
@@ -97,6 +113,8 @@ Una ficha normativa puede registrar número, autoridad, relaciones, modificacion
 
 El control automático detecta relaciones rotas y datos incompletos, pero no determina vigencia, jerarquía, interpretación ni aplicabilidad jurídica.
 
+Una revisión marcada como `verified` requiere persona, fecha, alcance consignado en notas y referencia al memo de revisión. Los archivos preparatorios del repositorio no sustituyen ese memo ni autorizan cambiar el estado.
+
 ## Controles de calidad
 
 `npm run validate:content` comprueba el contrato de datos y las relaciones. `npm run audit:content` aplica reglas editoriales adicionales y reporta advertencias que requieren revisión humana.
@@ -111,11 +129,11 @@ La integración continua ejecuta:
 
 ## Flujo de actualización
 
-1. Incorporar o corregir fuentes con metadatos, perspectiva, licencia y nivel de evidencia.
+1. Incorporar o corregir fuentes con metadatos, perspectiva, licencia, derechos y nivel de evidencia.
 2. Formular afirmaciones atómicas y vincular la evidencia pertinente.
 3. Registrar precisión temporal, fecha de corte y limitaciones.
 4. Ejecutar validación y auditoría.
 5. Solicitar revisión académica, editorial o jurídica según corresponda.
 6. Integrar el cambio mediante pull request, conservando la historia de revisión en Git.
 
-Las correcciones deben preservar el registro del cambio. No se archivan documentos externos sin autorización de su licencia.
+Las correcciones deben preservar el registro del cambio. Git conserva metadatos, locadores y síntesis; las copias autorizadas se mantienen en un archivo privado con inventario y checksum. No se publica ni se archiva en Git un documento externo sin derechos claros.

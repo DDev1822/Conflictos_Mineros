@@ -1,0 +1,567 @@
+- id: ev-tambogrande-consulta
+  sourceId: tambogrande-consulta-municipal
+  entityType: timeline
+  entityId: tambogrande-consulta
+  locator: Título y primer párrafo; fecha de la consulta
+  relation: supports
+  summary: La fuente municipal identifica el 2 de junio de 2002 como fecha de la consulta vecinal.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-tambogrande-desistimiento
+  sourceId: tambogrande-retiro-eia-2005
+  entityType: timeline
+  entityId: tambogrande-desistimiento-2005
+  locator: Resolución Directoral 247-2005-MEM/AAM, artículo 1
+  relation: supports
+  summary: La resolución acepta el desistimiento del procedimiento de evaluación ambiental indicado.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-conga-exploracion
+  sourceId: conga-exploracion-2004
+  entityType: timeline
+  entityId: conga-eia
+  locator: Resolución Directoral 085-2004-EM/AAM, parte resolutiva
+  relation: supports
+  summary: La resolución documenta una decisión ambiental relativa a la exploración del proyecto Conga.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-conga-semidetallado
+  sourceId: conga-eia-semidetallado-2008
+  entityType: timeline
+  entityId: conga-eia-semidetallado
+  locator: Resolución Directoral 243-2008-MEM/AAM, parte resolutiva
+  relation: supports
+  summary: La resolución registra la decisión sobre el EIA semidetallado de exploración.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-conga-peritaje
+  sourceId: conga-peritaje-2012
+  entityType: timeline
+  entityId: conga-peritaje
+  locator: RAES Minería 1, sección Síntesis del dictamen pericial
+  relation: qualifies
+  summary: La publicación institucional contiene una síntesis, no el texto íntegro del dictamen pericial.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-conga-its
+  sourceId: conga-its-2013
+  entityType: timeline
+  entityId: conga-its
+  locator: Resolución Directoral 413-2013-MEM/AAM, parte resolutiva
+  relation: supports
+  summary: La resolución documenta una decisión sobre cambios menores del proyecto Conga.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-tia-protesta
+  sourceId: tia-maria-salud-2015
+  entityType: timeline
+  entityId: tia-maria-protesta-2015
+  locator: Título y párrafos 1 a 3
+  relation: supports
+  summary: El comunicado sanitario documenta atención de personas heridas durante las protestas.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-tia-licencia
+  sourceId: tia-maria-licencia-2019
+  entityType: timeline
+  entityId: tia-maria-licencia
+  locator: Título y párrafo 1
+  relation: supports
+  summary: El MINEM comunica el otorgamiento de licencia de construcción al proyecto Tía María.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-tia-suspension
+  sourceId: tia-maria-suspension-2019
+  entityType: timeline
+  entityId: tia-maria-suspension
+  locator: Título y párrafo 1
+  relation: supports
+  summary: El MINEM comunica la notificación de la suspensión de la licencia de construcción.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-tia-reinicio
+  sourceId: tia-maria-reinicio-2024
+  entityType: timeline
+  entityId: tia-maria-reinicio
+  locator: Título y declaraciones atribuidas al presidente del Consejo de Ministros
+  relation: supports
+  summary: La fuente registra la posición favorable del Ejecutivo respecto del reinicio del proyecto.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-tia-reinicio-contraste
+  sourceId: cooperaccion-tia-maria-2025
+  entityType: timeline
+  entityId: tia-maria-reinicio
+  locator: Título y declaraciones atribuidas a voceros del Valle de Tambo
+  relation: contradicts
+  summary: La fuente documenta una posición territorial contraria al avance del proyecto y al relato de consenso.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-tia-its
+  sourceId: tia-maria-its-2024
+  entityType: timeline
+  entityId: tia-maria-segundo-its
+  locator: Título y párrafo 1
+  relation: supports
+  summary: SENACE comunica la conformidad al segundo informe técnico sustentatorio del proyecto.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-bambas-meia-2014
+  sourceId: las-bambas-meia-2014
+  entityType: timeline
+  entityId: las-bambas-segunda-meia
+  locator: Resolución Directoral 559-2014-MEM/DGAAM, parte resolutiva
+  relation: supports
+  summary: La resolución documenta la segunda modificación del instrumento ambiental de Las Bambas.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-bambas-meia-2018
+  sourceId: las-bambas-meia-2018
+  entityType: timeline
+  entityId: las-bambas-tercera-meia
+  locator: Título y párrafo 1
+  relation: supports
+  summary: SENACE comunica la aprobación de la tercera modificación del EIA de la unidad minera.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-bambas-velille
+  sourceId: las-bambas-acuerdo-velille-2021
+  entityType: timeline
+  entityId: las-bambas-velille
+  locator: Título y sección de acuerdos
+  relation: supports
+  summary: La comunicación registra un acuerdo entre representantes de Velille, Estado y empresa.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-bambas-chumbivilcas
+  sourceId: las-bambas-acuerdos-2022
+  entityType: timeline
+  entityId: las-bambas-chumbivilcas
+  locator: Título y párrafos sobre acuerdos comerciales
+  relation: supports
+  summary: La fuente registra acuerdos comerciales con comunidades de Chumbivilcas e intermediación estatal.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-bambas-huancuire
+  sourceId: cooperaccion-las-bambas-2024
+  entityType: timeline
+  entityId: las-bambas-huancuire
+  locator: Título y declaraciones atribuidas a la comunidad de Huancuire
+  relation: qualifies
+  summary: La fuente atribuida cuestiona que exista conformidad comunitaria para el tajo Chalcobamba.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-bambas-transito
+  sourceId: las-bambas-transito-2024
+  entityType: timeline
+  entityId: las-bambas-transito
+  locator: Título y párrafos sobre restablecimiento del tránsito
+  relation: supports
+  summary: La PCM comunica el restablecimiento del tránsito tras acuerdos de un episodio concreto.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-espinar-monitoreo
+  sourceId: espinar-monitoreo-2012
+  entityType: timeline
+  entityId: espinar-monitoreo
+  locator: Título y párrafos 1 a 4
+  relation: supports
+  summary: La fuente documenta el despliegue de un monitoreo ambiental con participación de especialistas.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-espinar-estudio-agua
+  sourceId: espinar-estudio-agua-2015
+  entityType: timeline
+  entityId: espinar-estudio-agua
+  locator: Título y párrafos sobre objetivo del estudio
+  relation: supports
+  summary: OEFA documenta el inicio de un estudio para esclarecer el origen de minerales en cuerpos de agua.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-espinar-acuerdos-2019
+  sourceId: espinar-acuerdos-2019
+  entityType: timeline
+  entityId: espinar-acuerdos-comunidades
+  locator: Título y lista de acuerdos
+  relation: supports
+  summary: La PCM registra acuerdos alcanzados con trece comunidades originarias de Espinar.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-espinar-plan
+  sourceId: espinar-plan-2022
+  entityType: timeline
+  entityId: espinar-plan-ambiental
+  locator: Título y párrafos sobre aprobación del plan
+  relation: supports
+  summary: El MINAM documenta la aprobación de un plan de trabajo interinstitucional y social.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-espinar-amparo
+  sourceId: cooperaccion-espinar-2025
+  entityType: timeline
+  entityId: espinar-demanda-amparo
+  locator: Título y párrafos sobre presentación y pretensiones atribuidas
+  relation: qualifies
+  summary: La fuente de sociedad civil registra la presentación de una demanda, pendiente de contraste con el expediente judicial.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-espinar-acuerdos-2025
+  sourceId: espinar-acuerdos-2025
+  entityType: timeline
+  entityId: espinar-acuerdos-recientes
+  locator: Título y sección de acuerdos
+  relation: supports
+  summary: El MINEM comunica nuevos acuerdos entre el Ejecutivo y comunidades originarias de Espinar.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-madre-reinfo
+  sourceId: minem-reinfo
+  entityType: timeline
+  entityId: madre-dios-reinfo
+  locator: Descripción oficial del servicio de consulta REINFO
+  relation: supports
+  summary: El servicio oficial identifica REINFO como registro del proceso de formalización minera integral.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-madre-apoyo
+  sourceId: madre-dios-formalizacion-2018
+  entityType: timeline
+  entityId: madre-dios-apoyo-2018
+  locator: Título y párrafos sobre acciones de apoyo
+  relation: supports
+  summary: El MINAM documenta acciones de apoyo a la formalización de pequeña minería regional.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-madre-formalizados
+  sourceId: madre-dios-formalizados-2020
+  entityType: timeline
+  entityId: madre-dios-formalizados-2020
+  locator: Título y cifra principal del comunicado
+  relation: supports
+  summary: El MINEM comunica la formalización puntual de 117 pequeños mineros en Madre de Dios.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-madre-fenamad
+  sourceId: fenamad-mercurio-2022
+  entityType: timeline
+  entityId: madre-dios-fenamad-2022
+  locator: Título y párrafos sobre intervención en COP4 Minamata
+  relation: supports
+  summary: FENAMAD documenta su intervención para visibilizar preocupaciones indígenas sobre mercurio.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-madre-perdidas
+  sourceId: cooperaccion-madre-dios-2024
+  entityType: timeline
+  entityId: madre-dios-perdidas-2024
+  locator: Título y referencia al estudio difundido
+  relation: qualifies
+  summary: La nota difunde una estimación que debe rastrearse al estudio original antes de reutilizar cifras.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-madre-mesa
+  sourceId: madre-dios-mesa-2025
+  entityType: timeline
+  entityId: madre-dios-mesa-2025
+  locator: Título y párrafos sobre el acuerdo de coordinación
+  relation: supports
+  summary: La fuente estatal registra el acuerdo para coordinar una mesa de trabajo de formalización.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-madre-cierre
+  sourceId: madre-dios-cierre-formalizacion-2025
+  entityType: timeline
+  entityId: madre-dios-cierre-2025
+  locator: Título y exhortación principal
+  relation: supports
+  summary: El MINEM comunica un llamado a culminar los trámites de formalización minera.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-claim-tambogrande
+  sourceId: tambogrande-muradian-2003
+  entityType: claim
+  entityId: tambogrande-hecho-1
+  locator: Resumen y secciones sobre agricultura, territorio y oposición local
+  relation: supports
+  summary: El estudio sustenta la coexistencia de dimensiones territoriales, agrícolas y participativas del caso.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-claim-conga
+  sourceId: conga-peritaje-2012
+  entityType: claim
+  entityId: conga-hecho-1
+  locator: Sección Síntesis del dictamen pericial
+  relation: qualifies
+  summary: La síntesis respalda la centralidad hídrica y ambiental, sin reemplazar el dictamen ni probar causalidad.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-claim-tia
+  sourceId: cooperaccion-tia-maria-2025
+  entityType: claim
+  entityId: tia-maria-hecho-1
+  locator: Declaraciones atribuidas a voceros del Valle de Tambo
+  relation: supports
+  summary: La fuente registra que la defensa agrícola e hídrica integra la posición territorial opositora.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-claim-bambas
+  sourceId: defensoria-conflictos-266
+  entityType: claim
+  entityId: las-bambas-hecho-1
+  locator: Páginas 38, 39, 43, 72 y 75
+  relation: supports
+  summary: El reporte registra casos activos y latentes vinculados con corredor, comunidades y compromisos de Las Bambas.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-claim-espinar
+  sourceId: espinar-plan-2022
+  entityType: claim
+  entityId: espinar-hecho-1
+  locator: Párrafos sobre problemática ambiental, salud y participación social
+  relation: qualifies
+  summary: La fuente muestra que ambiente, salud y coordinación social forman parte de la agenda institucional.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-claim-madre
+  sourceId: minem-reinfo
+  entityType: claim
+  entityId: madre-dios-hecho-1
+  locator: Descripción del servicio y requisitos de consulta
+  relation: supports
+  summary: El servicio oficial define REINFO como registro de personas incorporadas al proceso de formalización.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-law-ds014
+  sourceId: congreso-ley-mineria
+  entityType: instrument
+  entityId: ds-014-1992-em
+  locator: Texto íntegro; Título Preliminar y títulos sobre concesiones
+  relation: supports
+  summary: El documento oficial contiene el texto del decreto y las disposiciones registradas en la ficha.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-law-29785
+  sourceId: congreso-consulta-previa
+  entityType: instrument
+  entityId: ley-29785
+  locator: Artículos 1 a 4 y 8
+  relation: supports
+  summary: El texto oficial contiene objeto, principios y etapas generales de la consulta previa.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-conga-eia-explotacion
+  sourceId: conga-eia-explotacion-2010
+  entityType: timeline
+  entityId: conga-eia-explotacion
+  locator: Resolución Directoral 351-2010-MEM/AAM, página 4, artículo 1; página 5, artículo 5
+  relation: supports
+  summary: La resolución aprueba el EIA de explotación y precisa que la aprobación no sustituye autorizaciones o permisos necesarios para iniciar actividad.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-conga-dictamen-completo
+  sourceId: conga-dictamen-hidrico-2012
+  entityType: timeline
+  entityId: conga-peritaje
+  locator: Página 2; páginas PDF 250 a 254, capítulo 11
+  relation: supports
+  summary: El dictamen identifica autores y fecha, considera técnicamente aprobable el componente hídrico y propone revisar infraestructuras específicas.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-claim-conga-dictamen
+  sourceId: conga-dictamen-hidrico-2012
+  entityType: claim
+  entityId: conga-hecho-1
+  locator: Páginas PDF 250 a 254, apartados 11.1 a 11.7
+  relation: qualifies
+  summary: El peritaje documenta que lagunas, bofedales, reservorios y manejo hídrico integraron la controversia técnica, sin resolver la disputa territorial.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-tia-eia-2014
+  sourceId: tia-maria-eia-2014
+  entityType: timeline
+  entityId: tia-maria-evaluacion
+  locator: Resolución Directoral 392-2014-MEM/DGAAM, páginas 1 y 4, artículo 1
+  relation: supports
+  summary: La resolución identifica titular, ubicación y expediente y aprueba el EIA del proyecto de explotación y beneficio Tía María.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-claim-tia-dialogo-agua
+  sourceId: tia-maria-dialogo-agua-2019
+  entityType: claim
+  entityId: tia-maria-hecho-1
+  locator: Subtítulo y párrafos 1, 6 y 7
+  relation: qualifies
+  summary: El pronunciamiento estatal aborda directamente la relación entre proyecto, agricultura, río Tambo y uso de agua de mar como materia de diálogo.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-claim-tia-company
+  sourceId: tia-maria-southern-proyecto-2025
+  entityType: claim
+  entityId: tia-maria-hecho-1
+  locator: Secciones Gestión del agua, ubicación y área de influencia social
+  relation: qualifies
+  summary: La propia empresa dedica información sustantiva a agua desalinizada, valle de Tambo y áreas de influencia, lo que confirma la centralidad pública de esos asuntos sin validar sus conclusiones.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-las-bambas-exploracion
+  sourceId: las-bambas-exploracion-2005
+  entityType: timeline
+  entityId: las-bambas-exploracion
+  locator: Página PDF 1, encabezado, asunto y antecedentes del Informe 068-2005/MEM-AAM/EA/EV, anexo a la RD 086-2005-MEM/AAM
+  relation: supports
+  summary: El informe anexo identifica la decisión de 28 de febrero de 2005 y la evaluación ambiental presentada por Xstrata para explorar Las Bambas.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-huancuire-convenio-monitoreo
+  sourceId: huancuire-convenio-oefa-2019
+  entityType: timeline
+  entityId: las-bambas-huancuire-monitoreo
+  locator: Páginas 1 a 3, cláusulas tercera a quinta; página 5, firmas
+  relation: supports
+  summary: El convenio suscrito por OEFA y Huancuire autoriza una estación fija de monitoreo de aire y establece obligaciones de información y coordinación.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-espinar-dialogo-oefa
+  sourceId: espinar-mesa-oefa-2012
+  entityType: timeline
+  entityId: espinar-dialogo
+  locator: Párrafos 1 a 5
+  relation: supports
+  summary: OEFA registra la mesa de agosto de 2012, el plan sanitario y ambiental y la ampliación del monitoreo con participación comunitaria anunciada.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-espinar-acuerdos-2020
+  sourceId: espinar-acuerdos-2020
+  entityType: timeline
+  entityId: espinar-nueva-etapa
+  locator: Párrafos 1 a 7 y numerales 1 a 5
+  relation: supports
+  summary: El comunicado registra acuerdos de agosto, coordinación intersectorial y pasos anunciados para tarjetas de consumo y el convenio marco.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-madre-dl1105
+  sourceId: dl-1105-formalizacion
+  entityType: timeline
+  entityId: madre-dios-formalizacion
+  locator: Diario Oficial El Peruano, páginas 464377 y 464378, artículos 1 a 4
+  relation: supports
+  summary: El decreto define minería ilegal e informal y establece objeto, proceso y pasos de formalización para pequeña minería y minería artesanal.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-tambogrande-linea-base-company
+  sourceId: manhattan-annual-report-2002
+  entityType: timeline
+  entityId: tambogrande-proyecto
+  locator: Sección Environmental Impact Assessment, párrafos 1 y 2
+  relation: supports
+  summary: El reporte corporativo declara recopilación continua de línea base ambiental y social desde fines de 1999 y describe los asuntos evaluados.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-tambogrande-eia-company
+  sourceId: manhattan-annual-report-2002
+  entityType: timeline
+  entityId: tambogrande-debate-eia
+  locator: Sección Environmental Impact Assessment, párrafo 1
+  relation: supports
+  summary: Manhattan declara que presentó el EIA en diciembre de 2002 y describe revisión ministerial, talleres, comentarios públicos y respuesta de la empresa.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-tambogrande-option-termination
+  sourceId: manhattan-centromin-2003
+  entityType: timeline
+  entityId: tambogrande-cierre-ciclo
+  locator: Párrafos 2 a 5 del comunicado de 10 de diciembre de 2003
+  relation: supports
+  summary: El comunicado registra que Centromin informó la terminación del acuerdo de opción y conserva la discrepancia y respuesta anunciada por Manhattan.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-claim-tambogrande-company
+  sourceId: manhattan-annual-report-2002
+  entityType: claim
+  entityId: tambogrande-hecho-1
+  locator: Secciones Environmental Impact Assessment, Community Needs y Feasibility Study
+  relation: qualifies
+  summary: La fuente empresarial documenta que agricultura, territorio, participación, reasentamiento y viabilidad formaron parte explícita del proyecto y su controversia.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-conga-conflicto-2011
+  sourceId: defensoria-conflictos-93
+  entityType: timeline
+  entityId: conga-conflicto
+  locator: Páginas 25 y 67
+  relation: supports
+  summary: La Defensoría registra el paro iniciado el 24 de noviembre, los actores y demandas, la suspensión del diálogo y sus actuaciones de supervisión y mediación.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-las-bambas-escalamiento-2015
+  sourceId: defensoria-las-bambas-140
+  entityType: timeline
+  entityId: las-bambas-escalamiento
+  locator: Página 34, caso Challhuahuacho y acuerdos de octubre
+  relation: supports
+  summary: El reporte identifica los sucesos del 28 de septiembre, tres víctimas fatales y los acuerdos y reuniones de diálogo posteriores.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-madre-maap-196
+  sourceId: maap-196-madre-dios
+  entityType: timeline
+  entityId: madre-dios-perdidas-2024
+  locator: Secciones Overview of the Mining Impacts Calculator, Total Results y Methodology
+  relation: supports
+  summary: El informe original expone periodo, comunidades, insumos, metodología y resultados de la estimación de impactos socioambientales monetizados.
+  checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-law-ds018
+  sourceId: minem-ds-018-2017
+  entityType: instrument
+  entityId: ds-018-2017-em
+  locator: Artículos sobre REINFO y requisitos del proceso integral
+  relation: supports
+  summary: El texto oficial contiene disposiciones del proceso de formalización y del registro REINFO.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-law-27446
+  sourceId: congreso-ley-27446
+  entityType: instrument
+  entityId: ley-27446
+  locator: Artículos 1 a 4
+  relation: supports
+  summary: El texto oficial establece el sistema y la exigencia general de certificación ambiental.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-law-29338
+  sourceId: congreso-ley-29338
+  entityType: instrument
+  entityId: ley-29338
+  locator: Título Preliminar y artículos sobre prioridad de uso
+  relation: supports
+  summary: El texto oficial contiene principios y reglas generales sobre gestión y prioridad del agua.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-law-29325
+  sourceId: congreso-ley-29325
+  entityType: instrument
+  entityId: ley-29325
+  locator: Artículos 1 a 6
+  relation: supports
+  summary: El texto oficial establece finalidad y funciones básicas del sistema de fiscalización ambiental.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-law-29968
+  sourceId: congreso-ley-29968
+  entityType: instrument
+  entityId: ley-29968
+  locator: Artículos 1 a 3
+  relation: supports
+  summary: El texto oficial crea SENACE y define sus funciones generales iniciales.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-law-28090
+  sourceId: congreso-ley-28090
+  entityType: instrument
+  entityId: ley-28090
+  locator: Artículos 1 a 7
+  relation: supports
+  summary: El texto oficial regula planes de cierre y garantías en sus disposiciones generales.
+  checkedAt: 2026-06-20
+  reviewStatus: reviewed

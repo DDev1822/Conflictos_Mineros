@@ -3,6 +3,8 @@ node_modules/
 out/
 .npm-cache/
 coverage/
+test-results/
+playwright-report/
 tmp/
 *.tsbuildinfo
 *.log

@@ -10,8 +10,8 @@
   issueIds: [concesion-superficie, competencias-estado]
   sourceIds: [congreso-ley-mineria]
   relatedInstrumentIds: [ds-018-2017-em, ley-28090]
-  lastCheckedAt: 2026-06-18
-  verificationNotes: Texto identificado; vigencia consolidada, modificaciones y artículos aplicables pendientes de revisión jurídica.
+  lastCheckedAt: 2026-06-20
+  verificationNotes: Texto oficial identificado; vigencia consolidada, modificaciones y artículos aplicables pendientes de revisión jurídica.
 - id: ley-29785
   title: Ley del derecho a la consulta previa a los pueblos indígenas u originarios
   number: Ley N.º 29785
@@ -22,9 +22,9 @@
   legalReviewStatus: pending
   relevantArticles: [Objeto de la ley, Etapas del proceso]
   issueIds: [consulta-participacion]
-  sourceIds: [congreso-consulta-previa, oit-convenio-169]
+  sourceIds: [congreso-consulta-previa, minem-ds-001-2012-mc, oit-convenio-169]
   relatedInstrumentIds: []
-  lastCheckedAt: 2026-06-18
+  lastCheckedAt: 2026-06-20
   verificationNotes: Texto legal y tratado relacionados; alcance sectorial y aplicación a cada caso pendientes de revisión jurídica.
 - id: ds-018-2017-em
   title: Disposiciones complementarias para la simplificación del proceso de formalización minera integral
@@ -36,9 +36,9 @@
   legalReviewStatus: pending
   relevantArticles: [Registro Integral de Formalización Minera]
   issueIds: [formalizacion-mape, competencias-estado]
-  sourceIds: [minem-reinfo, minem-normas]
+  sourceIds: [minem-ds-018-2017, minem-ds-010-2022-em, minem-reinfo]
   relatedInstrumentIds: [ds-014-1992-em]
-  lastCheckedAt: 2026-06-18
+  lastCheckedAt: 2026-06-20
   verificationNotes: Norma identificada dentro del proceso de formalización; modificaciones y prórrogas posteriores pendientes de consolidación jurídica.
 - id: ley-27446
   title: Ley del Sistema Nacional de Evaluación del Impacto Ambiental
@@ -50,10 +50,10 @@
   legalReviewStatus: pending
   relevantArticles: [Ámbito, Certificación ambiental]
   issueIds: [certificacion-ambiental, consulta-participacion]
-  sourceIds: [senace-evaluacion]
+  sourceIds: [congreso-ley-27446, minam-ds-019-2009]
   relatedInstrumentIds: [ley-29325, ley-29968]
-  lastCheckedAt: 2026-06-18
-  verificationNotes: Ficha de referencia del SEIA; falta enlazar texto oficial consolidado y revisar modificaciones vigentes.
+  lastCheckedAt: 2026-06-20
+  verificationNotes: Texto oficial y reglamento identificados; modificaciones y vigencia consolidada pendientes de revisión jurídica.
 - id: ley-29338
   title: Ley de Recursos Hídricos
   number: Ley N.º 29338
@@ -64,10 +64,10 @@
   legalReviewStatus: pending
   relevantArticles: [Principios, Prioridad de acceso al agua]
   issueIds: [agua-cuencas]
-  sourceIds: [ana-agua]
+  sourceIds: [congreso-ley-29338, minem-ds-001-2010-ag]
   relatedInstrumentIds: []
-  lastCheckedAt: 2026-06-18
-  verificationNotes: Ficha temática inicial; texto oficial, reglamento y modificaciones pendientes de revisión jurídica consolidada.
+  lastCheckedAt: 2026-06-20
+  verificationNotes: Texto oficial y reglamento identificados; modificaciones pendientes de revisión jurídica consolidada.
 - id: ley-29325
   title: Ley del Sistema Nacional de Evaluación y Fiscalización Ambiental
   number: Ley N.º 29325
@@ -78,10 +78,10 @@
   legalReviewStatus: pending
   relevantArticles: [Finalidad, Funciones del OEFA]
   issueIds: [fiscalizacion-ambiental, competencias-estado]
-  sourceIds: [oefa-fiscalizacion]
+  sourceIds: [congreso-ley-29325, minam-ley-30011]
   relatedInstrumentIds: [ley-27446, ley-29968]
-  lastCheckedAt: 2026-06-18
-  verificationNotes: Ficha institucional inicial; texto oficial y modificaciones pendientes de revisión jurídica consolidada.
+  lastCheckedAt: 2026-06-20
+  verificationNotes: Texto oficial y modificatoria principal identificados; vigencia consolidada pendiente de revisión jurídica.
 - id: ley-29968
   title: Ley de creación del SENACE
   number: Ley N.º 29968
@@ -92,10 +92,10 @@
   legalReviewStatus: pending
   relevantArticles: [Objeto, Funciones]
   issueIds: [certificacion-ambiental, competencias-estado]
-  sourceIds: [senace-evaluacion]
+  sourceIds: [congreso-ley-29968, senace-ds-006-2015-minam]
   relatedInstrumentIds: [ley-27446, ley-29325]
-  lastCheckedAt: 2026-06-18
-  verificationNotes: Relación institucional registrada; transferencia de funciones y modificaciones pendientes de revisión jurídica.
+  lastCheckedAt: 2026-06-20
+  verificationNotes: Texto oficial y norma de transferencia identificados; modificaciones posteriores pendientes de revisión jurídica.
 - id: ley-28090
   title: Ley que regula el cierre de minas
   number: Ley N.º 28090
@@ -106,7 +106,7 @@
   legalReviewStatus: pending
   relevantArticles: [Plan de cierre, Garantías]
   issueIds: [cierre-pasivos]
-  sourceIds: [minam-pasivos, minem-normas]
+  sourceIds: [congreso-ley-28090, minem-ds-033-2005-em]
   relatedInstrumentIds: [ds-014-1992-em]
-  lastCheckedAt: 2026-06-18
-  verificationNotes: Ficha preliminar; reglamento, modificaciones, garantías y articulación con pasivos pendientes de revisión jurídica.
+  lastCheckedAt: 2026-06-20
+  verificationNotes: Texto oficial y reglamento identificados; modificaciones, garantías y articulación con pasivos pendientes de revisión jurídica.

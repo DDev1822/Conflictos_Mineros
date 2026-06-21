@@ -2,20 +2,18 @@
 
 Base académica navegable para conectar conflictos, territorios, actores, hechos, normas, fuentes y alternativas de política pública.
 
-> Estado: V1 privada en construcción. Los expedientes y fichas normativas requieren revisión editorial y jurídica antes de publicación abierta.
+> Estado: V1 privada en revisión. GitHub Pages debe permanecer sin contenido público hasta que `npm run release:check` retorne 0 y exista aprobación manual del entorno.
 
-## Sitio web
+## Publicación
 
-La versión estática se despliega mediante GitHub Pages en:
+El despliegue automático desde `main` y `codex/observatorio-v1` está desactivado. GitHub Pages solo puede ejecutarse manualmente, después de superar los gates técnicos, editoriales, jurídicos y de accesibilidad y de recibir la aprobación del entorno `github-pages` por `DDev1822`.
 
-<https://ddev1822.github.io/Conflictos_Mineros/>
-
-Cada actualización enviada a `main` o `codex/observatorio-v1` ejecuta validaciones y publica una nueva versión si todas finalizan correctamente.
+La URL histórica de Pages no se considera una versión autorizada de la V1 mientras el manifiesto permanezca en `private-review`.
 
 ## V1
 
 - Seis casos piloto: Tambogrande, Conga, Tía María, Las Bambas, Espinar y Madre de Dios.
-- Sistema de relaciones, catálogo de casos, mapa con capa nacional de conflictividad social, cronología y módulo REINFO/MAPE.
+- Sistema de relaciones, catálogo de casos, mapa enfocado en conflictos socioambientales mineros con comparación del registro social completo, cronología y módulo REINFO/MAPE.
 - Contenido estructurado en YAML, narrativas en MDX y validación con Zod.
 - Afirmaciones clasificadas como hechos, interpretaciones o propuestas.
 - Compilación bloqueada ante relaciones rotas, IDs duplicados o afirmaciones sin fuente.
@@ -35,18 +33,35 @@ npm.cmd run lint
 npm.cmd test
 npm.cmd run validate:content
 npm.cmd run audit:content
+npm.cmd run research:scorecard
 npm.cmd run check:links
+npm.cmd run test:e2e
 npm.cmd run build
 ```
+
+Gate de publicación:
+
+```powershell
+npm.cmd run release:check
+```
+
+Este gate falla intencionalmente mientras exista un P0/P1 abierto, una advertencia editorial, una revisión jurídica o un signoff pendiente.
 
 ## Estructura
 
 - `content/data`: colecciones YAML validadas.
+- `content/data/evidenceRecords.yaml`: locadores exactos y relaciones `supports | qualifies | contradicts`.
+- `content/data/caseResearchPackets.yaml`: cobertura, posiciones, contradicciones, preguntas jurídicas y vacíos de los seis casos.
+- `content/data/legalResearchPackets.yaml`: ocho paquetes documentales para revisión especialista.
 - `content/data/socialConflictSnapshots.yaml`: cortes territoriales trazables para la capa de calor.
+- `content/data/miningConflictSelections.yaml`: selección minera reconciliada con los totales publicados por la Defensoría del Pueblo.
 - `content/narratives`: narrativas MDX de los expedientes.
 - `src/lib/schemas.ts`: contrato público de datos.
 - `docs/data-methodology.md`: criterios de evidencia, precisión, mapa y revisión jurídica.
 - `docs/design`: referencia visual y QA.
+- `docs/release/v1-manifest.yaml`: signoffs fechados y evidencia de la V1.
+- `docs/release/v1-risks.yaml`: riesgos P0/P1 que bloquean publicación.
+- `docs/research`: seis memos de caso y ocho fichas normativas de entrega.
 
 La [metodología de datos](docs/data-methodology.md) explica qué significa verificar una fuente o una afirmación, cómo se expresan las fechas imprecisas y cuáles son los límites del mapa.
 

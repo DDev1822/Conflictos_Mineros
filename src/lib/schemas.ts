@@ -30,6 +30,7 @@ export const sourceSchema = z.object({
   evidenceLevel: z.enum(["primary", "secondary", "contextual"]),
   accessedAt: isoDate,
   license: z.string().min(2),
+  rightsStatus: z.enum(["reusable", "link-only", "permission-required", "unknown"]).default("link-only"),
   verificationStatus: z.enum(["verified", "partial", "pending"]),
   notes: z.string().min(10),
 });
@@ -69,6 +70,8 @@ export const legalInstrumentSchema = z.object({
   status: z.enum(["in-force", "modified", "repealed", "pending-review"]),
   legalReviewStatus: z.enum(["verified", "pending"]),
   verifiedAt: isoDate.optional(),
+  legalReviewedBy: z.string().min(3).optional(),
+  legalReviewMemo: z.string().min(3).optional(),
   relevantArticles: z.array(z.string()).default([]),
   issueIds: z.array(id).min(1),
   sourceIds: z.array(id).min(1),
@@ -79,13 +82,22 @@ export const legalInstrumentSchema = z.object({
   if (instrument.status === "in-force" && instrument.legalReviewStatus !== "verified") {
     ctx.addIssue({ code: "custom", path: ["legalReviewStatus"], message: "Una norma vigente requiere revisión jurídica verificada" });
   }
-  if (instrument.legalReviewStatus === "verified" && !instrument.verifiedAt) {
-    ctx.addIssue({ code: "custom", path: ["verifiedAt"], message: "La revisión jurídica verificada requiere fecha" });
+  if (instrument.legalReviewStatus === "verified") {
+    if (!instrument.verifiedAt) {
+      ctx.addIssue({ code: "custom", path: ["verifiedAt"], message: "La revisión jurídica verificada requiere fecha" });
+    }
+    if (!instrument.legalReviewedBy) {
+      ctx.addIssue({ code: "custom", path: ["legalReviewedBy"], message: "La revisión jurídica verificada requiere atribución especialista" });
+    }
+    if (!instrument.legalReviewMemo) {
+      ctx.addIssue({ code: "custom", path: ["legalReviewMemo"], message: "La revisión jurídica verificada requiere referencia al memo" });
+    }
   }
 });
 
 export const timelineEventSchema = z.object({
   id,
+  kind: z.enum(["event", "decision", "agreement", "evidence", "publication"]),
   date: isoDate,
   datePrecision,
   title: z.string().min(4),
@@ -105,11 +117,86 @@ export const conflictCaseSchema = z.object({
   issueIds: z.array(id).min(1),
   legalInstrumentIds: z.array(id),
   minerals: z.array(z.string()).min(1),
-  timeline: z.array(timelineEventSchema).min(2),
+  timeline: z.array(timelineEventSchema).min(3),
   claims: z.array(claimSchema).min(1),
   cutoffDate: isoDate,
   updatedAt: isoDate,
   reviewStatus: z.enum(["documentary", "legal-pending", "legal-verified"]),
+  legalReviewedAt: isoDate.optional(),
+  legalReviewedBy: z.string().min(3).optional(),
+  legalReviewMemo: z.string().min(3).optional(),
+  legalReviewNotes: z.string().min(15),
+}).superRefine((item, ctx) => {
+  if (item.reviewStatus === "legal-verified") {
+    if (!item.legalReviewedAt) {
+      ctx.addIssue({ code: "custom", path: ["legalReviewedAt"], message: "Un expediente verificado requiere fecha de revisión jurídica" });
+    }
+    if (!item.legalReviewedBy) {
+      ctx.addIssue({ code: "custom", path: ["legalReviewedBy"], message: "Un expediente verificado requiere atribución especialista" });
+    }
+    if (!item.legalReviewMemo) {
+      ctx.addIssue({ code: "custom", path: ["legalReviewMemo"], message: "Un expediente verificado requiere referencia al memo" });
+    }
+  }
+});
+
+export const evidenceRecordSchema = z.object({
+  id,
+  sourceId: id,
+  entityType: z.enum(["timeline", "claim", "instrument", "case-status", "actor-position"]),
+  entityId: id,
+  locator: z.string().min(3),
+  relation: z.enum(["supports", "qualifies", "contradicts"]),
+  summary: z.string().min(20),
+  checkedAt: isoDate,
+  reviewStatus: z.enum(["reviewed", "pending"]),
+});
+
+const researchGapSchema = z.object({
+  id,
+  description: z.string().min(20),
+  blocksRelease: z.boolean(),
+});
+
+const researchContradictionSchema = z.object({
+  id,
+  description: z.string().min(20),
+  sourceIds: z.array(id).min(2),
+  status: z.enum(["open", "resolved"]),
+});
+
+const actorPositionSchema = z.object({
+  actor: z.string().min(2),
+  position: z.string().min(20),
+  sourceIds: z.array(id).min(1),
+});
+
+export const caseResearchPacketSchema = z.object({
+  id,
+  caseId: id,
+  depth: z.enum(["standard", "deep"]),
+  substantiveMilestoneTarget: z.number().int().min(5).max(8),
+  cutoffDate: isoDate,
+  currentStatusSummary: z.string().min(40),
+  sourceIds: z.array(id).min(3),
+  directActorSourceIds: z.array(id).min(1),
+  actorPositions: z.array(actorPositionSchema).min(3),
+  contradictions: z.array(researchContradictionSchema).min(1),
+  legalQuestions: z.array(z.string().min(20)).min(2),
+  gaps: z.array(researchGapSchema),
+  status: z.enum(["ready", "incomplete"]),
+});
+
+export const legalResearchPacketSchema = z.object({
+  id,
+  instrumentId: id,
+  primaryTextSourceId: id,
+  regulationSourceIds: z.array(id),
+  amendmentSourceIds: z.array(id),
+  legalQuestions: z.array(z.string().min(20)).min(2),
+  gaps: z.array(researchGapSchema),
+  checkedAt: isoDate,
+  status: z.enum(["prepared", "incomplete"]),
 });
 
 export const policyAlternativeSchema = z.object({
@@ -191,6 +278,27 @@ export const socialConflictSnapshotSchema = z.object({
   const regionalTotal = snapshot.regions.reduce((sum, region) => sum + region.total, 0);
   if (regionalTotal + snapshot.national.total + snapshot.multiregional.total !== snapshot.totalRegistered) {
     ctx.addIssue({ code: "custom", path: ["regions"], message: "La distribución territorial no reconcilia con el total registrado" });
+  }
+});
+
+export const miningConflictSelectionSchema = z.object({
+  id,
+  snapshotId: id,
+  title: z.string().min(10),
+  sourceId: id,
+  sourcePage: z.number().int().positive(),
+  totalRegistered: z.number().int().positive(),
+  active: z.number().int().nonnegative(),
+  latent: z.number().int().nonnegative(),
+  classificationMethod: z.string().min(30),
+  notes: z.string().min(30),
+  caseIds: z.array(id).min(1),
+}).superRefine((selection, ctx) => {
+  if (selection.active + selection.latent !== selection.totalRegistered) {
+    ctx.addIssue({ code: "custom", path: ["totalRegistered"], message: "El total minero debe ser igual a activos más latentes" });
+  }
+  if (selection.caseIds.length !== selection.totalRegistered) {
+    ctx.addIssue({ code: "custom", path: ["caseIds"], message: "La selección minera debe reconciliar con el total declarado" });
   }
 });
 
@@ -305,9 +413,13 @@ export const datasetSchema = z.object({
   issues: z.array(normativeIssueSchema),
   instruments: z.array(legalInstrumentSchema),
   cases: z.array(conflictCaseSchema),
+  evidenceRecords: z.array(evidenceRecordSchema),
+  caseResearchPackets: z.array(caseResearchPacketSchema),
+  legalResearchPackets: z.array(legalResearchPacketSchema),
   alternatives: z.array(policyAlternativeSchema),
   socialConflictSnapshots: z.array(socialConflictSnapshotSchema).min(1),
   socialConflictCases: z.array(socialConflictCaseSchema).min(1),
+  miningConflictSelections: z.array(miningConflictSelectionSchema).min(1),
   reinfoTerritorialSnapshots: z.array(reinfoTerritorialSnapshotSchema).min(1),
   formalMiningTerritorialSnapshots: z.array(formalMiningTerritorialSnapshotSchema).min(1),
   explorationTerritorialSnapshots: z.array(explorationTerritorialSnapshotSchema).min(1),
@@ -322,11 +434,15 @@ export type Source = z.infer<typeof sourceSchema>;
 export type Actor = z.infer<typeof actorSchema>;
 export type Territory = z.infer<typeof territorySchema>;
 export type TimelineEvent = z.infer<typeof timelineEventSchema>;
+export type EvidenceRecord = z.infer<typeof evidenceRecordSchema>;
+export type CaseResearchPacket = z.infer<typeof caseResearchPacketSchema>;
+export type LegalResearchPacket = z.infer<typeof legalResearchPacketSchema>;
 export type NormativeIssue = z.infer<typeof normativeIssueSchema>;
 export type PolicyAlternative = z.infer<typeof policyAlternativeSchema>;
 export type SocialConflictRegion = z.infer<typeof socialConflictRegionSchema>;
 export type SocialConflictSnapshot = z.infer<typeof socialConflictSnapshotSchema>;
 export type SocialConflictCase = z.infer<typeof socialConflictCaseSchema>;
+export type MiningConflictSelection = z.infer<typeof miningConflictSelectionSchema>;
 export type ReinfoTerritorialSnapshot = z.infer<typeof reinfoTerritorialSnapshotSchema>;
 export type FormalMiningTerritorialSnapshot = z.infer<typeof formalMiningTerritorialSnapshotSchema>;
 export type ExplorationTerritorialSnapshot = z.infer<typeof explorationTerritorialSnapshotSchema>;

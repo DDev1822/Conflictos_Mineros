@@ -310,3 +310,857 @@
   license: Documento institucional; verificar condiciones de reutilización
   verificationStatus: verified
   notes: Fuente del corte territorial de abril de 2026; registra 190 conflictos sociales, 159 activos y 31 latentes.
+- id: congreso-ley-27446
+  title: Ley del Sistema Nacional de Evaluación del Impacto Ambiental
+  institution: Congreso de la República del Perú
+  date: 2001-04-23
+  datePrecision: day
+  url: https://www.leyes.congreso.gob.pe/Documentos/Leyes/27446.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Texto oficial de la ley; la vigencia consolidada y sus modificaciones quedan para revisión jurídica.
+- id: congreso-ley-29338
+  title: Ley de Recursos Hídricos
+  institution: Congreso de la República del Perú
+  date: 2009-03-31
+  datePrecision: day
+  url: https://www.leyes.congreso.gob.pe/Documentos/Leyes/29338.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Texto oficial de la ley; su aplicación a hechos concretos requiere revisión especialista.
+- id: congreso-ley-29325
+  title: Ley del Sistema Nacional de Evaluación y Fiscalización Ambiental
+  institution: Congreso de la República del Perú
+  date: 2009-03-05
+  datePrecision: day
+  url: https://www.leyes.congreso.gob.pe/Documentos/Leyes/29325.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Texto oficial de la ley; se registra por separado su modificatoria principal identificada.
+- id: congreso-ley-29968
+  title: Ley de creación del Servicio Nacional de Certificación Ambiental
+  institution: Congreso de la República del Perú
+  date: 2012-12-20
+  datePrecision: day
+  url: https://www.leyes.congreso.gob.pe/Documentos/Leyes/29968.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Texto oficial de la ley de creación del SENACE; transferencias y modificaciones requieren consolidación jurídica.
+- id: congreso-ley-28090
+  title: Ley que regula el cierre de minas
+  institution: Congreso de la República del Perú
+  date: 2003-10-14
+  datePrecision: day
+  url: https://www.leyes.congreso.gob.pe/Documentos/Leyes/28090.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Texto oficial de la ley; reglamento, modificaciones y garantías deben ser revisados por especialista.
+- id: minem-ds-018-2017
+  title: Decreto Supremo 018-2017-EM sobre formalización minera integral
+  institution: Ministerio de Energía y Minas
+  date: 2017-06-01
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/normas-legales/273162-018-2017-em
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Ficha y texto oficial del decreto; su versión consolidada permanece sujeta a revisión legal.
+- id: minam-ds-019-2009
+  title: Reglamento de la Ley del Sistema Nacional de Evaluación del Impacto Ambiental
+  institution: Ministerio del Ambiente
+  date: 2009-09-25
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minam/normas-legales/317422-019-2009-minam
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reglamento oficial identificado para el paquete del SEIA; vigencia consolidada pendiente de revisión.
+- id: minem-ds-001-2010-ag
+  title: Reglamento de la Ley de Recursos Hídricos
+  institution: Ministerio de Energía y Minas
+  date: 2010-03-24
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/normas-legales/4773151-001-2010-ag
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Copia oficial del reglamento; se conserva como texto de referencia para revisión especialista.
+- id: minem-ds-001-2012-mc
+  title: Reglamento de la Ley del derecho a la consulta previa
+  institution: Ministerio de Energía y Minas
+  date: 2012-04-03
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/normas-legales/4744153-001-2012-mc
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Copia oficial del reglamento; alcance y aplicación concreta pendientes de revisión legal.
+- id: minem-ds-033-2005-em
+  title: Reglamento para el cierre de minas
+  institution: Ministerio de Energía y Minas
+  date: 2005-08-15
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/normas-legales/4703250-033-2005-em
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reglamento oficial identificado; modificaciones y texto consolidado requieren revisión jurídica.
+- id: minam-ley-30011
+  title: Ley que modifica la Ley 29325 del sistema de fiscalización ambiental
+  institution: Ministerio del Ambiente
+  date: 2013-04-26
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minam/normas-legales/3599-30011
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Modificatoria oficial identificada; no constituye por sí sola una consolidación de vigencia.
+- id: minem-ds-010-2022-em
+  title: Modificación del Decreto Supremo 018-2017-EM
+  institution: Ministerio de Energía y Minas
+  date: 2022-09-05
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/normas-legales/3465055-010-2022-em
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Modificatoria oficial registrada para el paquete de formalización; quedan normas posteriores por consolidar.
+- id: senace-ds-006-2015-minam
+  title: Cronograma de transferencia de funciones al SENACE
+  institution: Ministerio del Ambiente
+  date: 2015-02-18
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minam/normas-legales/317513-006-2015-minam
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Norma oficial sobre transferencia de funciones; el alcance vigente requiere revisión jurídica.
+- id: tambogrande-consulta-municipal
+  title: Homenaje al aniversario de la consulta vecinal de Tambogrande
+  institution: Municipalidad Distrital de Tambogrande
+  date: 2025-06-02
+  datePrecision: day
+  url: https://www.gob.pe/institucion/munitambogrande/noticias/1182058-alcalde-segundo-melendez-presente-en-homenaje-al-23-aniversario-de-la-consulta-vecinal
+  type: official
+  perspective: community
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Pronunciamiento municipal que documenta la fecha y memoria territorial de la consulta de 2002.
+- id: tambogrande-retiro-eia-2005
+  title: Desistimiento de la evaluación del EIA del proyecto Tambogrande
+  institution: Ministerio de Energía y Minas
+  date: 2005-06-17
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6736675-desestimiento-del-procedimiento-de-evaluacion-del-estudio-de-impacto-ambiental-del-proyecto-minero-tambogrande-presentado-por-empresa-minera-del-centro-del-peru-centromin-peru-s-a
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resolución directoral que acepta el desistimiento; no equivale a una evaluación del conflicto territorial completo.
+- id: cooperaccion-tambogrande-2024
+  title: Anuncio del proyecto El Algarrobo y memoria del conflicto en Tambogrande
+  institution: CooperAcción
+  date: 2024-10-29
+  datePrecision: day
+  url: https://cooperaccion.org.pe/provocador-anuncio-del-proyecto-el-algarrobo-reaviva-la-lucha-historica-en-tambogrande-contra-la-mineria/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: secondary
+  accessedAt: 2026-06-20
+  license: Condiciones del sitio
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Posición de sociedad civil; distingue memoria histórica y proceso contemporáneo, sin equipararlos automáticamente.
+- id: conga-exploracion-2004
+  title: Evaluación ambiental del proyecto de exploración Conga
+  institution: Ministerio de Energía y Minas
+  date: 2004-03-17
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6682159-evaluacion-ambiental-del-proyecto-de-exploracion-minera-conga-presentado-por-minera-yanacocha-s-r-l
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resolución administrativa de exploración; no prueba aceptación social ni ausencia de impactos.
+- id: conga-eia-semidetallado-2008
+  title: EIA semidetallado del proyecto de exploración Conga
+  institution: Ministerio de Energía y Minas
+  date: 2008-09-19
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6618181-estudio-de-impacto-ambiental-semidetallado-del-proyecto-de-exploracion-minera-conga-presentado-por-minera-yanacocha-s-r-l
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resolución del expediente de exploración; debe distinguirse del EIA del proyecto de explotación.
+- id: conga-peritaje-2012
+  title: Síntesis oficial del dictamen pericial del EIA del proyecto Conga
+  institution: Organismo Supervisor de la Inversión en Energía y Minería
+  date: 2012-07-01
+  datePrecision: day
+  url: https://www.gob.pe/institucion/osinergmin/informes-publicaciones/1298237-raes-mineria-n-1-mercado-mundial-del-oro-conflictos-sociales-referidos-a-la-actividad-minera-y-sintesis-del-dictamen-pericial-del-eia-del-proyecto-minero-conga
+  type: official
+  perspective: state
+  evidenceLevel: secondary
+  accessedAt: 2026-06-20
+  license: Documento institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Síntesis institucional del peritaje; para afirmaciones técnicas se debe localizar el dictamen completo.
+- id: conga-its-2013
+  title: Informe técnico sustentatorio de cambios menores al proyecto Conga
+  institution: Ministerio de Energía y Minas
+  date: 2013-11-27
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6974549-informe-tecnico-sustentatorio-de-cambios-menores-al-proyecto-conga-presentado-por-minera-yanacocha-s-r-l
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resolución administrativa de un ITS; no acredita por sí sola ejecución material ni consenso territorial.
+- id: cooperaccion-conga-2024
+  title: Ronderos de Cajamarca reafirman su rechazo al proyecto Conga
+  institution: CooperAcción
+  date: 2024-03-26
+  datePrecision: day
+  url: https://cooperaccion.org.pe/cajamarca-ronderos-reafirman-su-rechazo-al-proyecto-minero-conga/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: secondary
+  accessedAt: 2026-06-20
+  license: Condiciones del sitio
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra una posición territorial atribuida; no determina por sí sola el estado administrativo del proyecto.
+- id: tia-maria-licencia-2019
+  title: Otorgamiento de licencia de construcción al proyecto Tía María
+  institution: Ministerio de Energía y Minas
+  date: 2019-07-09
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/45534-minem-otorga-licencia-de-construccion-al-proyecto-tia-maria
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Pronunciamiento oficial sobre la licencia; debe leerse junto con las decisiones posteriores.
+- id: tia-maria-suspension-2019
+  title: Suspensión de la licencia de construcción del proyecto Tía María
+  institution: Ministerio de Energía y Minas
+  date: 2019-08-09
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/49639-consejo-de-mineria-notifica-al-minem-resolucion-que-suspende-licencia-de-construccion-otorgada-al-proyecto-tia-maria
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Comunicación oficial de la suspensión; el estado jurídico posterior requiere consolidación especialista.
+- id: tia-maria-reinicio-2024
+  title: Posición del Ejecutivo sobre el reinicio del proyecto Tía María
+  institution: Presidencia del Consejo de Ministros
+  date: 2024-07-05
+  datePrecision: day
+  url: https://www.gob.pe/institucion/pcm/noticias/984146-premier-adrianzen-reinicio-del-proyecto-tia-maria-representa-la-apuesta-por-el-crecimiento-del-peru
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Posición directa del Ejecutivo; no sustituye resoluciones ni las posiciones territoriales contrapuestas.
+- id: tia-maria-its-2024
+  title: Conformidad al segundo ITS del proyecto Tía María
+  institution: Servicio Nacional de Certificación Ambiental para las Inversiones Sostenibles
+  date: 2024-11-30
+  datePrecision: day
+  url: https://www.gob.pe/institucion/senace/noticias/1067356-senace-da-conformidad-al-segundo-its-del-proyecto-tia-maria-en-arequipa
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Comunicación oficial de conformidad ambiental; no equivale a conclusión sobre aceptación social.
+- id: cooperaccion-tia-maria-2025
+  title: Voceros del Valle de Tambo anuncian acciones legales frente a Tía María
+  institution: CooperAcción
+  date: 2025-10-28
+  datePrecision: day
+  url: https://cooperaccion.org.pe/voceros-del-valle-de-tambo-anuncian-acciones-legales-frente-a-la-imposicion-del-proyecto-minero-tia-maria/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: secondary
+  accessedAt: 2026-06-20
+  license: Condiciones del sitio
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra posiciones territoriales atribuidas; las acciones anunciadas deben contrastarse con expedientes judiciales si se citan como realizadas.
+- id: las-bambas-meia-2018
+  title: Aprobación de la tercera modificación del EIA de Las Bambas
+  institution: Servicio Nacional de Certificación Ambiental para las Inversiones Sostenibles
+  date: 2018-10-04
+  datePrecision: day
+  url: https://www.gob.pe/institucion/senace/noticias/79009-senace-aprueba-tercera-meia-de-unidad-minera-las-bambas
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Decisión ambiental oficial; no resuelve por sí sola las controversias territoriales.
+- id: las-bambas-acuerdo-velille-2021
+  title: Acuerdo entre representantes de Velille y Minera Las Bambas
+  institution: Ministerio de Energía y Minas
+  date: 2021-02-10
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/340937-representantes-de-velille-y-la-minera-las-bambas-firman-acuerdo-que-restablece-clima-de-paz-en-el-corredor-vial-sur
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra un acuerdo con actores identificados; el cumplimiento posterior debe probarse por separado.
+- id: las-bambas-acuerdos-2022
+  title: Acuerdos comerciales entre comunidades de Chumbivilcas y Minera Las Bambas
+  institution: Ministerio de Energía y Minas
+  date: 2022-03-30
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/577891-chumbivilcas-comunidades-y-minera-las-bambas-sellan-acuerdos-comerciales-con-intermediacion-del-gobierno
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra acuerdos comerciales atribuidos; no acredita su cumplimiento integral.
+- id: las-bambas-transito-2024
+  title: Restablecimiento del tránsito en el corredor vial sur
+  institution: Presidencia del Consejo de Ministros
+  date: 2024-04-16
+  datePrecision: day
+  url: https://www.gob.pe/institucion/pcm/noticias/936345-se-restablece-el-transito-en-corredor-vial-sur-tras-acuerdos-alcanzados-por-ejecutivo-representantes-de-velille-y-minera-las-bambas
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Comunicación oficial de un acuerdo coyuntural; no implica resolución del conflicto general.
+- id: cooperaccion-las-bambas-2024
+  title: Posición de Huancuire sobre el tajo Chalcobamba
+  institution: CooperAcción
+  date: 2024-02-27
+  datePrecision: day
+  url: https://cooperaccion.org.pe/las-bambas-comunidad-de-huancuire-no-ha-dado-conformidad-al-tajo-de-chalcobamba/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: secondary
+  accessedAt: 2026-06-20
+  license: Condiciones del sitio
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra una posición comunitaria atribuida; no sustituye actas ni resoluciones del expediente ambiental.
+- id: espinar-monitoreo-2012
+  title: Monitoreo ambiental participativo en Espinar
+  institution: Ministerio de Salud
+  date: 2012-08-21
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minsa/noticias/34873-mas-de-70-especialistas-participan-en-monitoreo-ambiental-en-espinar
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Documenta la realización del monitoreo; no autoriza inferencias causales sobre salud o contaminación.
+- id: espinar-estudio-agua-2015
+  title: Inicio de estudio OEFA-IPEN sobre minerales en cuerpos de agua de Espinar
+  institution: Organismo de Evaluación y Fiscalización Ambiental
+  date: 2015-04-24
+  datePrecision: day
+  url: https://www.gob.pe/institucion/oefa/noticias/20676-el-oefa-y-el-ipen-dan-inicio-a-estudio-que-esclarecera-el-origen-de-la-presencia-de-minerales-en-cuerpos-de-agua-en-la-provincia-de-espinar
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Documenta el inicio del estudio; no se presenta como resultado ni atribución causal.
+- id: espinar-acuerdos-2019
+  title: Acuerdos con trece comunidades originarias de Espinar
+  institution: Presidencia del Consejo de Ministros
+  date: 2019-11-21
+  datePrecision: day
+  url: https://www.gob.pe/institucion/pcm/noticias/68879-cusco-ejecutivo-alcanza-acuerdos-con-las-13-comunidades-originarias-en-espinar
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra acuerdos atribuidos; su cumplimiento se mantiene como objeto separado de investigación.
+- id: espinar-plan-2022
+  title: Plan de trabajo para abordar contaminación ambiental en Espinar
+  institution: Ministerio del Ambiente
+  date: 2022-05-19
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minam/noticias/606517-cusco-gobierno-autoridades-y-sociedad-civil-aprueban-plan-de-trabajo-para-solucionar-la-contaminacion-ambiental-en-espinar
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Documenta la aprobación de un plan; no se usa como prueba de ejecución o causalidad.
+- id: espinar-acuerdos-2025
+  title: Acuerdos entre el Ejecutivo y comunidades originarias de Espinar
+  institution: Ministerio de Energía y Minas
+  date: 2025-04-05
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/1141874-poder-ejecutivo-y-comunidades-originarias-de-espinar-arriban-a-importantes-acuerdos-a-traves-del-dialogo
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Comunicación oficial de acuerdos; el seguimiento de compromisos queda abierto.
+- id: cooperaccion-espinar-2025
+  title: Comunidades de Espinar interponen demanda de amparo contra Antapaccay y el Estado
+  institution: CooperAcción
+  date: 2025-03-26
+  datePrecision: day
+  url: https://cooperaccion.org.pe/comunidades-de-espinar-interponen-demanda-de-amparo-contra-minera-antapaccay-y-el-estado/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: secondary
+  accessedAt: 2026-06-20
+  license: Condiciones del sitio
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra la posición y acción atribuida a comunidades; el expediente judicial debe consultarse para estado y alcance.
+- id: madre-dios-formalizacion-2018
+  title: Apoyo al proceso de formalización de pequeña minería en Madre de Dios
+  institution: Ministerio del Ambiente
+  date: 2018-02-22
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minam/noticias/18503-minam-apoyara-proceso-de-formalizacion-de-pequena-mineria-en-madre-de-dios
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Documenta una acción estatal de apoyo; no equivale a formalización concluida.
+- id: madre-dios-formalizados-2020
+  title: Formalización de 117 pequeños mineros en Madre de Dios
+  institution: Ministerio de Energía y Minas
+  date: 2020-02-18
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/85148-minem-117-pequenos-mineros-logran-historica-formalizacion-en-madre-de-dios
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra un resultado puntual comunicado por MINEM; no representa el universo regional.
+- id: madre-dios-mesa-2025
+  title: Mesa de trabajo para impulsar la formalización minera en Madre de Dios
+  institution: Ministerio de Energía y Minas
+  date: 2025-08-22
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/1226781-minem-y-mineros-de-madre-de-dios-acuerdan-coordinar-mesa-de-trabajo-para-impulsar-la-formalizacion-minera
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Documenta un acuerdo para coordinar; no acredita resultados posteriores de formalización.
+- id: fenamad-mercurio-2022
+  title: Posición indígena sobre impactos del mercurio en Madre de Dios
+  institution: Federación Nativa del Río Madre de Dios y Afluentes
+  date: 2022-03-23
+  datePrecision: day
+  url: https://fenamad.com.pe/cop4-minamata-visibilizar-la-problematica-del-impacto-del-mercurio-en-la-salud-de-los-pueblos-indigenas-de-la-region-madre-de-dios/
+  type: community
+  perspective: community
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Condiciones del sitio
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Pronunciamiento directo de FENAMAD; sus afirmaciones sanitarias requieren contraste con estudios técnicos específicos.
+- id: cooperaccion-madre-dios-2024
+  title: Pérdidas socioambientales atribuidas a minería ilegal en comunidades nativas
+  institution: CooperAcción
+  date: 2024-06-27
+  datePrecision: day
+  url: https://cooperaccion.org.pe/mineria-ilegal-en-madre-de-dios-perdidas-socioambientales-suman-593-millones-en-tres-comunidades-nativas/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: secondary
+  accessedAt: 2026-06-20
+  license: Condiciones del sitio
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Fuente de sociedad civil para contraste; las cifras deben rastrearse al estudio original antes de uso cuantitativo.
+- id: tia-maria-salud-2015
+  title: Atención de personas heridas durante protestas contra el proyecto Tía María
+  institution: Ministerio de Salud
+  date: 2015-04-23
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minsa/noticias/30417-ministro-de-salud-superviso-atencion-de-salud-de-heridos-durante-protesta-contra-proyecto-tia-maria
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Documenta atenciones sanitarias durante la protesta; no se usa para atribuir responsabilidades penales.
+- id: las-bambas-meia-2014
+  title: Segunda modificación del EIA del proyecto Las Bambas
+  institution: Ministerio de Energía y Minas
+  date: 2014-11-17
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6277779-segunda-modificacion-del-estudio-de-impacto-ambiental-del-proyecto-las-bambas-presentado-por-las-bambas-mining-company-s-a
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resolución administrativa de la segunda MEIA; sus efectos y obligaciones requieren lectura del expediente.
+- id: madre-dios-cierre-formalizacion-2025
+  title: Llamado a culminar la formalización minera en Madre de Dios
+  institution: Ministerio de Energía y Minas
+  date: 2025-09-05
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/1232868-madre-de-dios-minem-insta-a-pequenos-mineros-y-mineros-artesanales-a-culminar-su-formalizacion
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-20
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Documenta la posición estatal sobre culminación del proceso; no implica que los registros hayan concluido.
+- id: conga-eia-explotacion-2010
+  title: Aprobación del Estudio de Impacto Ambiental del proyecto Conga
+  institution: Ministerio de Energía y Minas
+  date: 2010-10-27
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6092459-estudio-de-impacto-ambiental-del-proyecto-conga
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resolución Directoral 351-2010-MEM/AAM e informe de evaluación; la aprobación ambiental no acredita inicio de actividad ni aceptación social.
+- id: conga-dictamen-hidrico-2012
+  title: Dictamen Pericial Internacional sobre el componente hídrico del EIA de Conga
+  institution: Presidencia del Consejo de Ministros / Sistema Nacional de Información Ambiental
+  date: 2012-04-17
+  datePrecision: day
+  url: https://sinia.minam.gob.pe/documentos/dictamen-pericial-internacional-componente-hidrico-estudio-impacto
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Documento institucional de consulta pública
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Texto íntegro elaborado por el equipo pericial para la PCM; sus conclusiones y propuestas deben citarse con página y sin convertirlas en consenso científico o social.
+- id: tia-maria-eia-2014
+  title: Aprobación del EIA del proyecto de explotación y beneficio minero Tía María
+  institution: Ministerio de Energía y Minas
+  date: 2014-08-01
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6216021-estudio-de-impacto-ambiental-del-proyecto-de-explotacion-y-beneficio-minero-tia-maria
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resolución Directoral 392-2014-MEM/DGAAM e informe de evaluación; la decisión administrativa no prueba consenso territorial ni ejecución material.
+- id: tia-maria-dialogo-agua-2019
+  title: Posición estatal sobre diálogo, agricultura y uso de agua en Tía María
+  institution: Ministerio de Energía y Minas
+  date: 2019-07-19
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/45915-gobierno-promueve-el-dialogo-para-aclarar-cada-una-de-las-dudas-de-la-poblacion-del-valle-del-tambo
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Pronunciamiento directo del Ejecutivo; registra su posición sobre agua de mar, agricultura y diálogo, no una conclusión independiente sobre impactos.
+- id: tia-maria-southern-proyecto-2025
+  title: Ficha corporativa del proyecto Tía María
+  institution: Southern Copper Corporation
+  date: 2025-02-12
+  datePrecision: day
+  url: https://southerncoppercorp.com/tiamaria/
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Condiciones del sitio corporativo
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Página corporativa modificada el 12 de febrero de 2025; documenta la posición de la empresa sobre agua, ubicación y beneficios, sin validarla como evaluación independiente.
+- id: las-bambas-exploracion-2005
+  title: Evaluación ambiental del proyecto de exploración Las Bambas
+  institution: Ministerio de Energía y Minas
+  date: 2005-02-28
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6509564-evaluacion-ambiental-del-proyecto-de-exploracion-las-bambas-presentado-por-xstrata-peru-s-a
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resolución Directoral 086-2005-MEM/AAM e informe de evaluación de exploración; no equivale a autorización de explotación.
+- id: las-bambas-mmg-operacion-2024
+  title: Ficha corporativa de la operación Las Bambas y resultados 2024
+  institution: MMG Limited
+  date: 2024-01-01
+  datePrecision: year
+  url: https://www.mmg.com/operations/las-bambas/
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Condiciones del sitio corporativo
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: La fecha representa el periodo informado en la página; registra la posición y resultados declarados por MMG, incluidos relacionamiento comunitario y Chalcobamba.
+- id: huancuire-convenio-oefa-2019
+  title: Convenio de cooperación entre OEFA y la Comunidad Campesina Huancuire
+  institution: Organismo de Evaluación y Fiscalización Ambiental y Comunidad Campesina Huancuire
+  date: 2019-10-16
+  datePrecision: day
+  url: https://www.gob.pe/institucion/oefa/informes-publicaciones/1475902-convenio-especifico-de-cooperacion-interinstitucional-entre-oefa-y-la-comunidad-campesina-huancuire
+  type: community
+  perspective: community
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Documento oficial suscrito por las partes
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Convenio firmado por OEFA y la comunidad para una estación de monitoreo de calidad del aire; no acredita conformidad sobre el tajo Chalcobamba.
+- id: espinar-mesa-oefa-2012
+  title: Avances de la mesa de diálogo e intervención sanitaria y ambiental de Espinar
+  institution: Organismo de Evaluación y Fiscalización Ambiental
+  date: 2012-08-23
+  datePrecision: day
+  url: https://www.gob.pe/institucion/oefa/noticias/21093-espinar-avances-significativos-en-mesa-de-dialogo
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra acciones y anuncios estatales dentro de la mesa; no prueba cumplimiento posterior ni causalidad ambiental.
+- id: espinar-acuerdos-2020
+  title: Comunicado sobre implementación de acuerdos de agosto de 2020 en Espinar
+  institution: Ministerio de Energía y Minas
+  date: 2020-09-14
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/302461-a-la-opinion-publica-de-la-provincia-de-espinar
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Comunicado estatal sobre tarjetas de consumo y coordinación del convenio marco; no acredita entrega completa ni cierre de las demandas.
+- id: dl-1105-formalizacion
+  title: Decreto Legislativo 1105 sobre formalización de la pequeña minería y minería artesanal
+  institution: Congreso de la República / Diario Oficial El Peruano
+  date: 2012-04-19
+  datePrecision: day
+  url: https://www.leyes.congreso.gob.pe/Documentos/DecretosLegislativos/01105.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Norma legal de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Texto publicado del Decreto Legislativo 1105; su vigencia, modificaciones y relación con el régimen actual requieren revisión jurídica especialista.
+- id: defensoria-conflictos-93
+  title: Reporte de Conflictos Sociales n.° 93 — noviembre 2011
+  institution: Defensoría del Pueblo
+  date: 2011-11-01
+  datePrecision: month
+  url: https://www.defensoria.gob.pe/wp-content/uploads/2018/07/Reporte-conflictos-93.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Documento institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reporte mensual que registra el paro indefinido de Conga, actores, demandas y actuaciones defensoriales; no determina responsabilidades penales ni validez técnica del proyecto.
+- id: defensoria-las-bambas-140
+  title: Reporte de Conflictos Sociales n.° 140 — octubre 2015
+  institution: Defensoría del Pueblo
+  date: 2015-10-01
+  datePrecision: month
+  url: https://www.defensoria.gob.pe/modules/Downloads/conflictos/2015/Reporte-Mensual-de-Conflictos-Sociales-N--140-Octubre-2015.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Documento institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reporte mensual que documenta víctimas del 28 de septiembre, diálogo y acuerdos posteriores; no sustituye investigaciones sobre los hechos.
+- id: maap-196-madre-dios
+  title: MAAP 196 — Calculadora de impactos mineros en tres comunidades indígenas
+  institution: Conservación Amazónica / Amazon Conservation Association / Conservation Strategy Fund
+  date: 2024-05-22
+  datePrecision: day
+  url: https://www.maapprogram.org/maap-196-mining-impacts-calculator-analysis-in-3-indigenous-communities-of-the-southern-peruvian-amazon/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Condiciones del sitio y atribución del informe
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Informe original con metodología, insumos y resultados de valoración; las cifras son estimaciones modeladas y no pérdidas contables observadas.
+- id: manhattan-annual-report-2002
+  title: Manhattan Minerals Corp. — Annual Report 2002
+  institution: Manhattan Minerals Corp. / U.S. Securities and Exchange Commission
+  date: 2003-06-09
+  datePrecision: day
+  url: https://www.sec.gov/Archives/edgar/data/1004701/000120445903000146/manhattanannualreport.htm
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Archivo público regulatorio de la SEC
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reporte corporativo archivado en un 6-K; documenta la posición de Manhattan sobre línea base, agricultura, EIA, participación y viabilidad sin validarla como evaluación independiente.
+- id: manhattan-centromin-2003
+  title: Comunicado de Manhattan sobre la terminación del acuerdo de opción de Tambogrande
+  institution: Manhattan Minerals Corp. / U.S. Securities and Exchange Commission
+  date: 2003-12-10
+  datePrecision: day
+  url: https://www.sec.gov/Archives/edgar/containers/fix060/1004701/000120445904000021/manhattanprdec10.htm
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-06-21
+  license: Archivo público regulatorio de la SEC
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Comunicado corporativo archivado en un 6-K; registra la decisión comunicada por Centromin y la discrepancia de la empresa, no una determinación jurídica independiente.

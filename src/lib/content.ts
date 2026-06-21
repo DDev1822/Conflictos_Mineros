@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { datasetSchema, type ObservatoryData } from "./schemas";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "data");
-const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "alternatives", "socialConflictSnapshots", "socialConflictCases", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots", "explorationTerritorialSnapshots", "miningConcessionTerritorialSnapshots"] as const;
+const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "evidenceRecords", "caseResearchPackets", "legalResearchPackets", "alternatives", "socialConflictSnapshots", "socialConflictCases", "miningConflictSelections", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots", "explorationTerritorialSnapshots", "miningConcessionTerritorialSnapshots"] as const;
 
 function readYaml<T>(name: string): T {
   const file = path.join(CONTENT_ROOT, `${name}.yaml`);
@@ -52,6 +52,24 @@ function assertReferences(data: ObservatoryData) {
   data.socialConflictSnapshots.forEach((snapshot) => {
     check([snapshot.sourceId], "sources", `Corte territorial ${snapshot.id}`);
   });
+  const caseIds = new Set(data.cases.map((item) => item.id));
+  const caseEntityIds = new Set(data.cases.flatMap((item) => [item.id, ...item.timeline.map((event) => event.id), ...item.claims.map((claim) => claim.id)]));
+  data.evidenceRecords.forEach((record) => {
+    check([record.sourceId], "sources", `Evidencia ${record.id}`);
+    if (record.entityType === "instrument" && !ids.instruments.has(record.entityId)) throw new Error(`Evidencia ${record.id} referencia norma inexistente: ${record.entityId}`);
+    if (record.entityType !== "instrument" && !caseEntityIds.has(record.entityId)) throw new Error(`Evidencia ${record.id} referencia entidad de caso inexistente: ${record.entityId}`);
+  });
+  data.caseResearchPackets.forEach((packet) => {
+    if (!caseIds.has(packet.caseId)) throw new Error(`Paquete ${packet.id} referencia caso inexistente: ${packet.caseId}`);
+    check([...packet.sourceIds, ...packet.directActorSourceIds, ...packet.actorPositions.flatMap((position) => position.sourceIds), ...packet.contradictions.flatMap((item) => item.sourceIds)], "sources", `Paquete ${packet.id}`);
+  });
+  data.legalResearchPackets.forEach((packet) => {
+    if (!ids.instruments.has(packet.instrumentId)) throw new Error(`Paquete ${packet.id} referencia norma inexistente: ${packet.instrumentId}`);
+    check([packet.primaryTextSourceId, ...packet.regulationSourceIds, ...packet.amendmentSourceIds], "sources", `Paquete ${packet.id}`);
+  });
+  data.miningConflictSelections.forEach((selection) => {
+    check([selection.sourceId], "sources", `Selección minera ${selection.id}`);
+  });
   data.reinfoTerritorialSnapshots.forEach((snapshot) => {
     check([snapshot.sourceId], "sources", `Corte territorial REINFO ${snapshot.id}`);
   });
@@ -72,6 +90,26 @@ function assertReferences(data: ObservatoryData) {
     const missing = conflict.regionIds.filter((regionId) => !allowedRegions.has(regionId));
     if (missing.length) throw new Error(`Caso social ${conflict.id} referencia ámbitos inexistentes: ${missing.join(", ")}`);
   });
+
+  const socialCaseById = new Map(data.socialConflictCases.map((conflict) => [conflict.id, conflict]));
+  data.miningConflictSelections.forEach((selection) => {
+    const snapshot = snapshotById.get(selection.snapshotId);
+    if (!snapshot) throw new Error(`Selección minera ${selection.id} referencia un corte inexistente: ${selection.snapshotId}`);
+    const selectedCases = selection.caseIds.map((caseId) => socialCaseById.get(caseId));
+    const missing = selection.caseIds.filter((caseId) => !socialCaseById.has(caseId));
+    if (missing.length) throw new Error(`Selección minera ${selection.id} referencia casos inexistentes: ${missing.join(", ")}`);
+    if (selectedCases.some((conflict) => conflict?.snapshotId !== selection.snapshotId)) {
+      throw new Error(`Selección minera ${selection.id} mezcla casos de otro corte documental`);
+    }
+    if (selectedCases.some((conflict) => conflict?.conflictType !== "Socioambiental")) {
+      throw new Error(`Selección minera ${selection.id} incluye casos no clasificados como socioambientales`);
+    }
+    const active = selectedCases.filter((conflict) => conflict?.status === "active").length;
+    const latent = selectedCases.filter((conflict) => conflict?.status === "latent").length;
+    if (active !== selection.active || latent !== selection.latent) {
+      throw new Error(`Selección minera ${selection.id} no reconcilia activos y latentes con su registro`);
+    }
+  });
 }
 
 let cached: ObservatoryData | undefined;
@@ -82,6 +120,7 @@ export function loadObservatoryData(): ObservatoryData {
   const parsed = datasetSchema.parse(raw);
   files.forEach((key) => assertUnique(parsed[key].map((item) => item.id), key));
   parsed.socialConflictSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
+  parsed.miningConflictSelections.forEach((selection) => assertUnique(selection.caseIds, `casos de ${selection.id}`));
   parsed.reinfoTerritorialSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
   parsed.formalMiningTerritorialSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
   parsed.explorationTerritorialSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));

@@ -8,6 +8,6 @@ const MapExplorer = dynamic(() => import("./map-explorer").then((module) => modu
   loading: () => <div className="map-loading" role="status">Cargando vista territorial…</div>,
 });
 
-export function MapLoader(props: { cases: ConflictCase[]; territories: Territory[]; socialConflictSnapshot: SocialConflictSnapshot; socialConflictCases: SocialConflictCase[]; reinfoSnapshot: ReinfoTerritorialSnapshot; formalMiningSnapshot: FormalMiningTerritorialSnapshot; explorationSnapshot: ExplorationTerritorialSnapshot; miningConcessionSnapshot: MiningConcessionTerritorialSnapshot }) {
+export function MapLoader(props: { cases: ConflictCase[]; territories: Territory[]; socialConflictSnapshot: SocialConflictSnapshot; socialConflictCases: SocialConflictCase[]; miningSocialConflictSnapshot: SocialConflictSnapshot; miningSocialConflictCases: SocialConflictCase[]; reinfoSnapshot: ReinfoTerritorialSnapshot; formalMiningSnapshot: FormalMiningTerritorialSnapshot; explorationSnapshot: ExplorationTerritorialSnapshot; miningConcessionSnapshot: MiningConcessionTerritorialSnapshot }) {
   return <MapExplorer {...props} />;
 }
