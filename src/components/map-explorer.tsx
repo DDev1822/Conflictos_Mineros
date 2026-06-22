@@ -318,12 +318,12 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
         </details>
 
         <details className="map-layer-details">
-          <summary><span>Minería formal, exploración y concesiones</span><small>{Number(showFormalMining) + Number(showExploration) + Number(showConcessions)} activas</small></summary>
+          <summary><span>Plantas de beneficio, exploración y concesiones</span><small>{Number(showFormalMining) + Number(showExploration) + Number(showConcessions)} activas</small></summary>
           <fieldset className="map-layers map-layer-group">
-            <legend className="sr-only">Capas de minería formal, exploración y concesiones</legend>
+            <legend className="sr-only">Capas de plantas de beneficio vigentes, exploración y concesiones</legend>
             <label className="map-layer-toggle">
               <input type="checkbox" checked={showFormalMining} onChange={(event) => setShowFormalMining(event.target.checked)} />
-              <span><strong>Minería formal</strong><small>Plantas de beneficio vigentes registradas por MINEM</small></span>
+              <span><strong>Plantas de beneficio vigentes</strong><small>Infraestructura de beneficio registrada por MINEM</small></span>
             </label>
             <label className="map-layer-toggle">
               <input type="checkbox" checked={showExploration} onChange={(event) => setShowExploration(event.target.checked)} />
@@ -412,7 +412,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
 
         {showFormalMining && (
           <div className="map-layer-summary" data-layer="formal-mining">
-            <p>Operación formal documentada</p>
+            <p>Infraestructura de beneficio registrada por MINEM</p>
             <strong>{formalMiningSnapshot.mappedUnits.toLocaleString("es-PE")} plantas territorializables</strong>
             <span>{formalMiningSnapshot.totalUnits.toLocaleString("es-PE")} códigos únicos en la fuente · consulta: {fullDateLabel(formalMiningSnapshot.cutoffDate)}</span>
             <div className="point-size-legend formal-point-size-legend" aria-label="Tamaño del anillo según plantas de beneficio vigentes">
@@ -420,7 +420,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
               <span><i data-size="medium" aria-hidden="true" />10–29</span>
               <span><i data-size="large" aria-hidden="true" />30 o más</span>
             </div>
-            <small>Es una capa parcial de minería formal: incluye plantas de beneficio vigentes, no concesiones, proyectos ni todas las operaciones. {formalMiningSnapshot.unmappedUnits} códigos sin departamento quedan fuera del mapa.</small>
+            <small>Es un indicador parcial de infraestructura minera formal: incluye plantas de beneficio vigentes, no unidades mineras en producción, concesiones, proyectos, titulares ni todas las operaciones formales. Los conteos están agregados por departamento y {formalMiningSnapshot.unmappedUnits} códigos sin departamento quedan fuera del mapa.</small>
             <a href={FORMAL_MINING_URL} target="_blank" rel="noreferrer">Consultar directorio oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
           </div>
         )}
@@ -475,7 +475,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
         <a className="map-source" href={REPORT_URL} target="_blank" rel="noreferrer">Consultar reporte oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
       </aside>
 
-      <section className="map-stage" aria-label="Mapa interactivo de conflictos sociales mineros, conflictividad social general, minería ilegal, minería informal, REINFO, minería formal, exploración, concesiones y casos piloto" aria-describedby="map-accessibility-note">
+      <section className="map-stage" aria-label="Mapa interactivo de conflictos sociales mineros, conflictividad social general, minería ilegal, minería informal, REINFO, plantas de beneficio vigentes, exploración, concesiones y casos piloto" aria-describedby="map-accessibility-note">
         <p id="map-accessibility-note" className="sr-only">Los botones de concentración, los botones de ámbito y el selector regional ofrecen acceso equivalente a los puntos gráficos del mapa.</p>
         <MapContainer center={[-9.19, -75.02]} zoom={5} scrollWheelZoom>
           <TileLayer attribution="&copy; OpenStreetMap contributors" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -588,7 +588,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
               <Popup>
                 <strong>{region.name}</strong><br />
                 {region.count} {region.count === 1 ? "planta de beneficio vigente" : "plantas de beneficio vigentes"} en el directorio.<br />
-                <small>Referencia departamental; no es la ubicación de la planta ni el universo completo de minería formal.</small><br />
+                <small>Referencia regional; no es la ubicación exacta de cada planta ni el universo completo de operaciones mineras formales.</small><br />
                 <a href={FORMAL_MINING_URL} target="_blank" rel="noreferrer">Consultar directorio oficial</a>
               </Popup>
             </CircleMarker>

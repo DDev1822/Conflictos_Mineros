@@ -18,77 +18,72 @@ Valores permitidos:
 
 ## Objetivo
 
-Preparar el paquete documental de adquisición y evaluación de fuentes primarias para el caso Espinar, sin modificar todavía los datasets canónicos ni los estados de verificación.
+Corregir de forma segura los textos visibles y metodológicos que presentan o pueden presentar la capa de plantas de beneficio como si representara todo el universo de minería formal.
 
-## Valor para el usuario
+La denominación visible principal debe ser `Plantas de beneficio vigentes`. La descripción metodológica debe dejar claro que la capa representa infraestructura de procesamiento registrada por MINEM, es un indicador parcial relacionado con la actividad minera formal, no representa todas las operaciones mineras formales, no equivale a unidades mineras en producción, no representa concesiones, proyectos ni titulares, y sus valores actuales están agregados por departamento con puntos territoriales de referencia regional.
 
-Permite investigar los vacíos críticos de trazabilidad de Espinar con criterios explícitos para aceptar, rechazar o contextualizar evidencia primaria antes de cualquier cambio en `content/data`.
+## Nota sobre la tarea anterior
 
-## Alcance incluido
-
-* Crear una matriz operativa para cinco ejes: expediente de amparo `00082-2025-0`, monitoreo ambiental, evaluaciones sanitarias, Convenio Marco Provincial de Espinar y evidencias de implementación o cumplimiento de acuerdos.
-* Actualizar brevemente el memo de Espinar para referenciar la matriz y registrar que la fase de adquisición documental está iniciada.
-* Mantener la advertencia metodológica de no causalidad y el estado de investigación incompleta.
-
-## Fuera de alcance
-
-* Buscar, registrar o añadir fuentes nuevas.
-* Modificar `content/data`, estados de verificación, código, pruebas, dependencias, configuración, licencias o workflows.
-* Presentar vacíos como cerrados o inferir estado judicial, cumplimiento de acuerdos o causalidad ambiental o sanitaria sin evidencia primaria verificada.
-* Hacer commit, push, merge, rebase o pull request.
+La tarea documental de Espinar permanece cerrada operativamente. Ese cierre registró la entrega del paquete de adquisición y no constituye aprobación sustantiva de fuentes pendientes ni autorización para modificar datasets, estados de verificación o conclusiones del caso.
 
 ## Archivos autorizados
 
-Se puede modificar únicamente:
+Modificar únicamente, si contienen la ambigüedad identificada:
 
 * `docs/CURRENT_TASK.md`
-* `docs/research/cases/espinar.md`
-
-Se puede crear únicamente:
-
-* `docs/research/cases/espinar-source-matrix.md`
+* `src/components/map-explorer.tsx`
+* `src/app/reinfo/page.tsx`
+* `docs/data-methodology.md`
+* `src/lib/content.test.ts`
 
 ## Criterios de aceptación
 
-1. `docs/research/cases/espinar-source-matrix.md` contiene los cinco ejes obligatorios y los 17 campos mínimos solicitados para cada eje.
-2. La matriz distingue fuentes primarias, fuentes contextuales y perspectivas actorales sin reemplazar automáticamente `cooperaccion-espinar-2025`.
-3. El expediente judicial se desagrega en escrito de demanda, anexos, auto admisorio o resolución equivalente, resoluciones posteriores, consulta oficial de estado procesal y sentencia solo si existiera y fuera verificada.
-4. Monitoreo ambiental y sanitario separan anuncio, protocolo, ejecución, resultados, informe final, interpretación institucional y conclusión causal.
-5. Convenio Marco y acuerdos clasifican la evidencia como acuerdo anunciado, acta suscrita, compromiso registrado, implementación reportada, cumplimiento verificado, incumplimiento alegado o estado no comprobado.
-6. `docs/research/cases/espinar.md` mantiene investigación incompleta, no causalidad, adquisición documental iniciada y referencia relativa a `espinar-source-matrix.md`.
-7. No se modifican datasets canónicos ni estados de verificación.
-
-## Validaciones documentales requeridas
-
-Ejecutar únicamente:
-
-1. `git diff --check`
-2. `git status --short`
-3. `git diff -- docs/CURRENT_TASK.md docs/research/cases/espinar.md docs/research/cases/espinar-source-matrix.md`
+1. Los textos visibles de la capa usan `Plantas de beneficio vigentes`, `Distribución territorial de plantas de beneficio vigentes`, `Infraestructura de beneficio registrada por MINEM` o `Indicador parcial de infraestructura minera formal`, según el contexto.
+2. No se reemplazan usos correctos de “minería formal” cuando funcionan como concepto general y no como nombre de la capa.
+3. La metodología indica que la capa representa plantas de beneficio registradas por MINEM y no todas las operaciones mineras formales.
+4. La metodología indica que la capa no equivale a unidades mineras en producción y no representa concesiones, proyectos ni titulares.
+5. La metodología indica que los conteos actuales están agregados por departamento y que los puntos son referencias regionales, no coordenadas exactas de cada planta.
+6. La prueba de regresión verifica el nombre sustantivo del snapshot, los límites metodológicos, los conteos vigentes y la identidad del dataset canónico.
+7. No se modifican datasets canónicos, YAML, cifras, diseño, dependencias, estados de verificación, rutas ni componentes puramente visuales.
 
 ## Restricciones particulares
 
-* No buscar ni añadir todavía fuentes nuevas.
-* No inventar URLs, expedientes, títulos o documentos.
-* No modificar `content/data/`.
+* No renombrar `formalMiningTerritorialSnapshots.yaml`, schemas, tipos, props, variables internas ni claves del contrato de datos.
+* No modificar YAML ni cifras.
+* No modificar CSS, colores, layout ni componentes puramente visuales.
+* No crear páginas ni rutas.
+* No añadir fuentes.
 * No cambiar estados de verificación.
-* No modificar código, pruebas, dependencias o configuración.
+* No instalar dependencias.
 * No hacer commit ni push.
 
-## Decisiones aprobadas
+## Comandos de validación
 
-* DD autorizó ejecutar el plan de matriz de adquisición para Espinar con alcance documental restringido.
-* `cooperaccion-espinar-2025` no debe eliminarse ni reemplazarse automáticamente; puede conservarse como perspectiva atribuida o fuente contextual si no sustituye el expediente judicial.
-* Notas de prensa no equivalen a actas, expedientes, informes técnicos finales ni pruebas de cumplimiento.
-* No se permite inferir causalidad ambiental o sanitaria ni estado procesal judicial sin evidencia primaria verificable.
+Ejecutar:
+
+1. `git diff --check`
+2. `npm.cmd run typecheck`
+3. `npm.cmd test`
+4. `npm.cmd run validate:content`
+5. `npm.cmd run audit:content`
+6. `git status --short`
+7. `git diff -- docs/CURRENT_TASK.md src/components/map-explorer.tsx src/app/reinfo/page.tsx docs/data-methodology.md src/lib/content.test.ts`
+
+## Entrega esperada
+
+Al terminar, cambiar este estado a `EN_REVISIÓN` y reportar archivos modificados, textos corregidos, prueba añadida o ajustada, comandos ejecutados y resultado, ambigüedades pendientes y confirmación de que no se modificaron datasets, cifras, diseño ni dependencias.
 
 ## Resultado de ejecución
 
-* Archivos modificados: `docs/CURRENT_TASK.md` y `docs/research/cases/espinar.md`.
-* Archivo creado: `docs/research/cases/espinar-source-matrix.md`.
-* Se generó la matriz de adquisición de evidencia primaria de Espinar.
-* La matriz contiene los cinco ejes requeridos y los 17 campos mínimos por eje.
-* No se modificaron datasets canónicos ni estados de verificación.
-* No se añadieron fuentes nuevas ni URLs no verificadas.
-* `git diff --check` terminó correctamente.
-* La tarea queda pendiente de revisión y aprobación de DD y Kai.
+* DD y Kai aprobaron la corrección terminológica.
+* La capa visible se denomina `Plantas de beneficio vigentes`.
+* Se aclaró que representa infraestructura de procesamiento registrada por MINEM.
+* No representa todas las operaciones mineras formales ni equivale a unidades mineras en producción.
+* No representa concesiones, proyectos ni titulares.
+* Los datos permanecen agregados por departamento y sus puntos son referencias regionales.
+* Los conteos canónicos permanecen en `342` códigos únicos, `340` territorializables y `2` sin departamento.
+* Las 23 pruebas pasaron.
+* `typecheck`, `validate:content`, `audit:content` y `git diff --check` finalizaron correctamente.
+* Las ocho advertencias editoriales de `audit:content` eran preexistentes.
+* No se modificaron YAML, cifras, diseño, dependencias, fuentes ni estados de verificación.
+* La nomenclatura interna `formalMining...` queda pendiente para una tarea futura separada.

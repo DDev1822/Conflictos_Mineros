@@ -111,11 +111,20 @@ describe("contenido académico", () => {
 
   it("reconcilia las plantas de beneficio vigentes territorializadas", () => {
     const snapshot = loadObservatoryData().formalMiningTerritorialSnapshots[0];
+    const methodologicalStatements = `${snapshot.unitDefinition} ${snapshot.coordinateMethod} ${snapshot.notes}`.split(". ");
+
+    expect(snapshot.id).toBe("minem-plantas-beneficio-vigentes-2026-06-18");
+    expect(snapshot.title).toContain("Plantas de beneficio vigentes");
+    expect(`${snapshot.unitDefinition} ${snapshot.notes}`).toContain("no representa");
+    expect(methodologicalStatements).not.toContain("Representa todo el universo de minería formal");
+    expect(methodologicalStatements).not.toContain("Representa el universo completo de la minería formal");
     expect(snapshot.regions.reduce((sum, region) => sum + region.count, 0)).toBe(snapshot.mappedUnits);
     expect(snapshot.mappedUnits + snapshot.unmappedUnits).toBe(snapshot.totalUnits);
     expect(snapshot.totalUnits).toBe(342);
+    expect(snapshot.mappedUnits).toBe(340);
     expect(snapshot.unmappedUnits).toBe(2);
     expect(snapshot.sourceId).toBe("minem-plantas-beneficio");
+    expect(snapshot.cutoffBasis).toBe("access-date");
   });
 
   it("reconcilia los expedientes territoriales de exploración", () => {
