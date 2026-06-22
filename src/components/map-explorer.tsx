@@ -6,7 +6,7 @@ import {
   ArrowSquareOut,
   CaretDown,
   CaretRight,
-  Layers,
+  Stack,
   MagnifyingGlass,
   X,
 } from "@phosphor-icons/react";
@@ -253,7 +253,6 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
     [territories, visibleCases],
   );
 
-  const plottedTotal = socialConflictSnapshot.regions.reduce((sum, region) => sum + region.total, 0);
   const heatMaximum = Math.max(...socialConflictSnapshot.regions.map((region) => region[heatMetric]), 1);
   const heatRanges = heatScale(heatMaximum);
   const hotspots = [...socialConflictSnapshot.regions].sort((a, b) => b[heatMetric] - a[heatMetric]).slice(0, 5);
@@ -265,7 +264,6 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
       count: informalIllegalCases.filter((item) => item.regionIds.includes(region.id)).length,
     }))
     .filter((region) => region.count > 0), [informalIllegalCases, socialConflictSnapshot]);
-  const informalIllegalMultiregional = informalIllegalCases.filter((item) => item.regionIds.includes("multiregional")).length;
 
   const regionIndex = useMemo(() => {
     const index = new Map<string, RegionDescriptor>();
@@ -616,7 +614,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             </div>
           </aside>
         ) : (
-          <button className={styles.compactPanel} type="button" onClick={() => setPanelOpen(true)} aria-label="Abrir panel de capas"><Layers size={20} /><span>{activeLayers.length}</span></button>
+          <button className={styles.compactPanel} type="button" onClick={() => setPanelOpen(true)} aria-label="Abrir panel de capas"><Stack size={20} /><span>{activeLayers.length}</span></button>
         )}
 
         {selectedTerritory && (
