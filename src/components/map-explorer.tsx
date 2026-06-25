@@ -52,15 +52,26 @@ const LAYER_COLORS = {
   concessions: "#a98cff",
 } as const;
 
-const markerIcon = new L.Icon({
-  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-});
+const CASE_STATUS_COLORS: Record<ConflictCase["status"], string> = {
+  active: "#ff625d",
+  latent: "#ffc857",
+  resolved: "#42d5a2",
+  historical: "#9fb2b1",
+};
+
+function caseMarkerIcon(status: ConflictCase["status"]): L.DivIcon {
+  const fill = CASE_STATUS_COLORS[status] ?? "#9fb2b1";
+  const shadow = status === "active" ? "rgba(255,98,93,.35)" : "rgba(0,0,0,.22)";
+  return new L.DivIcon({
+    html: `<svg width="26" height="34" viewBox="0 0 26 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 0C5.82 0 0 5.82 0 13c0 8.84 13 21 13 21S26 21.84 26 13C26 5.82 20.18 0 13 0z" fill="${fill}" stroke="rgba(0,0,0,.28)" stroke-width="1.2"/><circle cx="13" cy="13" r="4.5" fill="white" opacity="0.88"/></svg>`,
+    className: "",
+    iconSize: [26, 34],
+    iconAnchor: [13, 34],
+    popupAnchor: [0, -36],
+    tooltipAnchor: [0, -36],
+  });
+  void shadow;
+}
 
 type HeatMetric = "total" | "active" | "latent";
 type CaseStatusFilter = "all" | "active" | "latent";
@@ -204,7 +215,7 @@ function metricLabel(metric: HeatMetric) {
 }
 
 function normalize(value: string) {
-  return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  return value.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 }
 
 function periodLabel(period?: string) {
@@ -238,7 +249,9 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
   const [layerLimitMessage, setLayerLimitMessage] = useState(false);
   const [status, setStatus] = useState("all");
   const [heatMetric, setHeatMetric] = useState<HeatMetric>("total");
-  const [selectedTerritoryId, setSelectedTerritoryId] = useState<string | null>(() => socialConflictSnapshot.regions[0]?.id ?? null);
+  const [selectedTerritoryId, setSelectedTerritoryId] = useState<string | null>(
+    () => [...socialConflictSnapshot.regions].sort((a, b) => b.total - a.total)[0]?.id ?? null,
+  );
   const [selectedScope, setSelectedScope] = useState<string | null>(null);
   const [registryTheme, setRegistryTheme] = useState<RegistryTheme>("all");
   const [caseQuery, setCaseQuery] = useState("");
@@ -409,7 +422,11 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
 
   return (
     <div className={styles.root}>
-      <section className={styles.stage} aria-label="Mapa interactivo de conflictividad social y capas territoriales mineras">
+      <section
+        className={styles.stage}
+        data-panel={panelOpen ? "open" : "closed"}
+        aria-label="Mapa interactivo de conflictividad social y capas territoriales mineras"
+      >
         <MapContainer className={styles.leaflet} center={[-9.19, -75.02]} zoom={5} scrollWheelZoom zoomControl={false}>
           <TileLayer attribution="&copy; OpenStreetMap contributors" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <ZoomControl position="bottomright" />
@@ -500,7 +517,12 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
 
           {showStandardLayers && layers.cases && visibleTerritories.map((territory) => {
             const item = cases.find((entry) => entry.territoryIds.includes(territory.id));
-            return <Marker key={territory.id} position={territory.coordinates} icon={markerIcon}><Popup><strong>{item?.name}</strong><br />{territory.name}<br /><Link href={`/conflictos/${item?.slug}`}>Abrir expediente</Link></Popup></Marker>;
+            return (
+              <Marker key={territory.id} position={territory.coordinates} icon={caseMarkerIcon(item?.status ?? "historical")}>
+                <Tooltip direction="top"><strong>{item?.name}</strong><br /><small>{territory.name}</small></Tooltip>
+                <Popup><strong>{item?.name}</strong><br />{territory.name}<br /><Link href={`/conflictos/${item?.slug}`}>Abrir expediente</Link></Popup>
+              </Marker>
+            );
           })}
 
           {mode === "convergence" && convergenceRegions.map((region) => {
@@ -584,6 +606,21 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
               })}
             </div>
 
+            {mode === "convergence" && convergenceRegions.length > 0 && (
+              <div className={styles.convergenceRanking}>
+                <p>Mayor convergencia territorial</p>
+                {[...convergenceRegions]
+                  .sort((a, b) => b.presence - a.presence)
+                  .slice(0, 5)
+                  .map((region) => (
+                    <button key={region.id} type="button" onClick={() => selectTerritory(region.id)}>
+                      <span>{region.name}</span>
+                      <em>{region.presence}/{convergenceLayerKeys.length} capas</em>
+                    </button>
+                  ))}
+              </div>
+            )}
+
             {layers.heat && mode !== "convergence" && (
               <label className={styles.metricSelect}>Intensidad
                 <select value={heatMetric} onChange={(event) => setHeatMetric(event.target.value as HeatMetric)}>
@@ -622,7 +659,11 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <span className={styles.dataBadge}>Datos del repositorio</span>
             <button className={styles.cardClose} type="button" onClick={() => setSelectedTerritoryId(null)} aria-label="Cerrar resumen territorial"><X size={16} /></button>
             <h2>{selectedTerritory.name}</h2>
-            <p className={styles.cardCaption}>{mode === "convergence" ? `${selectedTerritoryEntries.filter((entry) => entry.value > 0 && CONVERGENCE_LAYER_KEYS.includes(entry.key)).length} de ${convergenceLayerKeys.length} capas con registros` : "Lectura territorial de las capas activas"}</p>
+            <p className={styles.cardCaption} data-mode={mode}>
+              {mode === "convergence"
+                ? `${selectedTerritoryEntries.filter((entry) => entry.value > 0 && CONVERGENCE_LAYER_KEYS.includes(entry.key as LayerKey)).length} de ${convergenceLayerKeys.length} capas con registros`
+                : "Lectura territorial de las capas activas"}
+            </p>
             <div className={styles.territoryValues}>
               {selectedTerritoryEntries.map((entry) => (
                 <div key={entry.key}><span style={{ backgroundColor: entry.color }} aria-hidden="true" /><strong>{formatCount(entry.value)}</strong><p>{entry.suffix}</p></div>
@@ -670,13 +711,15 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
               <div><p>{registryTheme === "informal-illegal" ? "Sustento de la capa temática" : "Registro del corte"}</p><h2>{selectedScopeName}</h2></div>
               <button type="button" onClick={() => setSelectedScope(null)} aria-label="Cerrar registro"><X size={20} aria-hidden="true" /></button>
             </header>
-            <p className={styles.drawerSummary}>{scopeCases.length} {scopeCases.length === 1 ? "caso" : "casos"} · {scopeCases.filter((item) => item.status === "active").length} activos · {scopeCases.filter((item) => item.status === "latent").length} latentes</p>
-            <div className={styles.drawerFilters}>
-              <label className={styles.drawerSearch}><MagnifyingGlass size={17} aria-hidden="true" /><span className="sr-only">Buscar casos</span><input value={caseQuery} onChange={(event) => setCaseQuery(event.target.value)} placeholder="Buscar caso, lugar o tipo" /></label>
-              <label><span>Estado</span><select value={caseStatus} onChange={(event) => setCaseStatus(event.target.value as CaseStatusFilter)}><option value="all">Todos</option><option value="active">Activos</option><option value="latent">Latentes</option></select></label>
-              <label><span>Tipo</span><select value={caseType} onChange={(event) => setCaseType(event.target.value)}><option value="all">Todos</option>{availableTypes.map((type) => <option key={type} value={type}>{type}</option>)}</select></label>
+            <div className={styles.drawerSticky}>
+              <p className={styles.drawerSummary}>{scopeCases.length} {scopeCases.length === 1 ? "caso" : "casos"} · {scopeCases.filter((item) => item.status === "active").length} activos · {scopeCases.filter((item) => item.status === "latent").length} latentes</p>
+              <div className={styles.drawerFilters}>
+                <label className={styles.drawerSearch}><MagnifyingGlass size={17} aria-hidden="true" /><span className="sr-only">Buscar casos</span><input value={caseQuery} onChange={(event) => setCaseQuery(event.target.value)} placeholder="Buscar caso, lugar o tipo" /></label>
+                <label><span>Estado</span><select value={caseStatus} onChange={(event) => setCaseStatus(event.target.value as CaseStatusFilter)}><option value="all">Todos</option><option value="active">Activos</option><option value="latent">Latentes</option></select></label>
+                <label><span>Tipo</span><select value={caseType} onChange={(event) => setCaseType(event.target.value)}><option value="all">Todos</option>{availableTypes.map((type) => <option key={type} value={type}>{type}</option>)}</select></label>
+              </div>
+              <p className={styles.resultsCount} aria-live="polite">{filteredScopeCases.length} {filteredScopeCases.length === 1 ? "resultado" : "resultados"}</p>
             </div>
-            <p className={styles.resultsCount} aria-live="polite">{filteredScopeCases.length} {filteredScopeCases.length === 1 ? "resultado" : "resultados"}</p>
             <div className={styles.caseList}>
               {filteredScopeCases.map((item) => (
                 <article key={item.id}>
