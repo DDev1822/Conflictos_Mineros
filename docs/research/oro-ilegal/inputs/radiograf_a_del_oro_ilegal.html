@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiografía del Oro Ilegal: El Mercado de la Impunidad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+        
+        :root {
+            --gold: #D4AF37;
+            --gold-dark: #996515;
+            --bg-neutral: #FDFCF8;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-neutral);
+            color: #1a202c;
+            scroll-behavior: smooth;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-4px);
+        }
+
+        .law-badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .law-red { background-color: #fee2e2; color: #991b1b; }
+        .law-amber { background-color: #fef3c7; color: #92400e; }
+
+        .vertical-timeline {
+            border-left: 2px solid #e5e7eb;
+            margin-left: 1rem;
+            padding-left: 2rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- 
+Chosen Palette: "Imperial Gold & Slate" - Un esquema de colores basado en tonos crema, dorados profundos y carbón para transmitir seriedad y relevancia económica.
+
+Application Structure Plan: 
+1. Hero & Macro Context: Introducción al problema comparando oro vs cocaína.
+2. El Andamiaje de la Impunidad: Sección dedicada a las leyes (REINFO, Ley 31989) solicitada por el usuario, explicando cómo el Estado protege la ilegalidad.
+3. Evidencia Estadística (La Brecha): Visualización de la divergencia entre producción y exportación.
+4. El Ciclo del Blanqueo: Proceso paso a paso del lavado, incluyendo el beneficio fiscal (SFE).
+5. Destinos y Mutación Geopolítica: Análisis de India, China y Emiratos Árabes.
+6. Conclusión Ética.
+
+Visualization & Content Choices:
+- KPI Cards: Comparativa Oro vs Narcotráfico (Informar).
+- Doughnut Chart: Estado crítico del REINFO (Componer).
+- Stacked Area Chart: Brecha de producción 2003-2023 (Cambio/Tendencia).
+- Interactive List: "Leyes del Congreso" con explicaciones de impacto (Organizar).
+- Horizontal Bar Chart: Destinos globales con lógica de wrap de texto (Comparar).
+
+CONFIRMACIÓN: NO se utilizan gráficos SVG. NO se utiliza Mermaid JS.
+-->
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur shadow-sm border-b border-amber-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center text-white font-bold">Au</div>
+                <span class="text-xl font-extrabold text-slate-800 tracking-tight">Orografía <span class="text-amber-600 italic text-sm">Ilegal</span></span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
+                <a href="#contexto" class="hover:text-amber-600 transition">Impacto</a>
+                <a href="#leyes" class="hover:text-amber-600 transition">Impunidad</a>
+                <a href="#brecha" class="hover:text-amber-600 transition">Estadísticas</a>
+                <a href="#geopolitica" class="hover:text-amber-600 transition">Mercados</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative py-24 overflow-hidden bg-slate-900">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        <div class="max-w-5xl mx-auto px-6 relative text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                El Estado de la <span class="text-amber-500 underline decoration-amber-500/30 underline-offset-8">Impunidad</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
+                Análisis técnico y estructural sobre cómo la minería ilegal de oro se convirtió en el motor criminal número uno del Perú, superando al narcotráfico bajo el amparo de un andamiaje legal protector.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16 space-y-32">
+
+        <!-- SECCIÓN 1: CONTEXTO MACRO -->
+        <section id="contexto">
+            <div class="max-w-3xl mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-800 mb-4 italic">I. El Gigante Criminal</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    La minería aurífera ilegal ha desplazado al tráfico de cocaína como la principal amenaza económica y de seguridad. Este sector no solo devasta la Amazonía, sino que financia redes de corrupción transnacional que operan con flujos monetarios superiores a cualquier otra actividad ilícita en la región.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-8 rounded-3xl border-l-8 border-amber-500 shadow-sm">
+                    <h3 class="text-sm font-bold text-amber-600 uppercase tracking-widest mb-2">Valor Acumulado</h3>
+                    <div class="text-4xl font-black text-slate-800">$165.3B</div>
+                    <p class="text-xs text-slate-500 mt-2">Valor comercial estimado del oro ilegal entre 2003 y 2023.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl border-l-8 border-slate-400 shadow-sm">
+                    <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-2">Poder Criminal</h3>
+                    <div class="text-4xl font-black text-slate-800">3x Coca</div>
+                    <p class="text-xs text-slate-500 mt-2">La minería ilegal genera tres veces más ingresos que el narcotráfico en Perú.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl border-l-8 border-emerald-500 shadow-sm">
+                    <h3 class="text-sm font-bold text-emerald-600 uppercase tracking-widest mb-2">Exportación 2025</h3>
+                    <div class="text-4xl font-black text-slate-800">104 TM</div>
+                    <p class="text-xs text-slate-500 mt-2">Volumen de oro ilegal que igualó a toda la gran minería formal del país.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: HERRAMIENTAS DE IMPUNIDAD (SOLICITUD ESPECÍFICA) -->
+        <section id="leyes" class="bg-amber-50/50 p-8 md:p-16 rounded-[3rem] border border-amber-100">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-slate-800 mb-6 italic">II. Herramientas del Estado para la Ilegalidad</h2>
+                    <p class="text-slate-600 mb-8">
+                        El Congreso y el Ejecutivo han gestionado normativas que, bajo el pretexto de la "formalización", han creado un escudo de protección penal permanente para las mafias del oro.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center font-bold text-amber-800">1</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">REINFO: La Patente de Corso</h4>
+                                <p class="text-sm text-slate-500 leading-snug">Originalmente temporal, el registro suspende las acciones penales. Hoy, el 78% de los inscritos están suspendidos pero operan bajo su protección documental.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center font-bold text-amber-800">2</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Ley 31989: El Desarme Policial</h4>
+                                <p class="text-sm text-slate-500 leading-snug">Derogó facultades de la PNP para incautar explosivos a mineros con REINFO suspendido, facilitando el rearme de campamentos ilegales.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center font-bold text-amber-800">3</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Prórrogas Sistemáticas</h4>
+                                <p class="text-sm text-slate-500 leading-snug">Leyes 31388, 32213 y 32537 han extendido el REINFO hasta 2026, convirtiendo una excepción en una regla de impunidad perpetua.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="chart-container">
+                        <canvas id="reinfoDoughnut"></canvas>
+                    </div>
+                    <div class="mt-8 p-6 bg-white rounded-2xl shadow-sm border border-amber-100 text-center">
+                        <span class="law-badge law-red mb-2">Crítico</span>
+                        <p class="text-sm font-semibold text-slate-700">El 78% de los operadores REINFO están "Suspendidos".</p>
+                        <p class="text-xs text-slate-500 mt-1">Este estado permite eludir operativos policiales sin cumplir una sola norma ambiental o tributaria.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: LA BRECHA ESTADÍSTICA -->
+        <section id="brecha">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-800 mb-4 italic">III. La Paradoja de la Producción</h2>
+                <p class="text-slate-600">
+                    La evidencia matemática del lavado de activos se encuentra en la diferencia entre lo que el Estado registra como producido y lo que las aduanas registran como exportado. Esa "zona gris" es el oro ilegal blanqueado.
+                </p>
+            </div>
+
+            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-lg">
+                <div class="chart-container !h-[450px] !max-w-full">
+                    <canvas id="gapAreaChart"></canvas>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 text-sm text-slate-600 border-t border-slate-100 pt-8">
+                    <div class="flex gap-4">
+                        <div class="w-1 h-full bg-amber-500 rounded-full"></div>
+                        <p><strong>El Caso Madre de Dios:</strong> En 2023, la producción oficial fue **CERO**, pero las aduanas exportaron más de 1.4 toneladas desde esa región. El 100% es blanqueo.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-1 h-full bg-emerald-500 rounded-full"></div>
+                        <p><strong>Mutación Corporativa:</strong> Empresas como Laytaruma reportaron producir 15 TM pero exportaron 155 TM. El sistema permite "comprar" oro ilegal y formalizarlo en el papel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: EL CICLO DEL BLANQUEO -->
+        <section>
+            <div class="mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-800 mb-4 italic">IV. El Engranaje del Blanqueo Comercial</h2>
+                <p class="text-slate-600">Cómo el oro extraído con mercurio en la selva se convierte en capital lícito en bancos internacionales.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="p-6 rounded-2xl bg-slate-100 border-b-4 border-amber-500">
+                    <span class="text-xs font-bold text-amber-600">PASO 1</span>
+                    <h4 class="font-bold mt-2">Fusión en Barras</h4>
+                    <p class="text-xs text-slate-500 mt-2">Se funde el oro de múltiples minas ilegales para borrar el rastro físico de origen (trazabilidad física nula).</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-100 border-b-4 border-amber-500">
+                    <span class="text-xs font-bold text-amber-600">PASO 2</span>
+                    <h4 class="font-bold mt-2">Blanqueo Documental</h4>
+                    <p class="text-xs text-slate-500 mt-2">Se usan facturas de "pequeños productores" REINFO para simular una compra legal y legítima.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-100 border-b-4 border-amber-500">
+                    <span class="text-xs font-bold text-amber-600">PASO 3</span>
+                    <h4 class="font-bold mt-2">Despacho Aduanero</h4>
+                    <p class="text-xs text-slate-500 mt-2">El oro sale por el Callao con certificados de origen fraudulentos. El Estado no tiene capacidad de ensayo físico masivo.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-emerald-50 border-b-4 border-emerald-500">
+                    <span class="text-xs font-bold text-emerald-600">SUBVENCIÓN</span>
+                    <h4 class="font-bold mt-2">Retorno de Impuestos</h4>
+                    <p class="text-xs text-slate-500 mt-2 italic">El exportador solicita la devolución del IGV (SFE). El Estado peruano termina subsidiando al criminal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: GEOPOLÍTICA -->
+        <section id="geopolitica" class="bg-slate-900 text-white p-12 md:p-20 rounded-[3rem]">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="flex flex-col items-center">
+                    <div class="chart-container">
+                        <canvas id="destinationsBar"></canvas>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-8 uppercase tracking-widest">Participación TM Acumulada 2014-2023</p>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-extrabold mb-6 italic text-amber-400">V. La Mutación de Mercados</h2>
+                    <p class="text-slate-300 leading-relaxed mb-8">
+                        Ante los controles de "oro de sangre" en Suiza y EE.UU., las redes criminales han migrado hacia jurisdicciones con menores estándares de debida diligencia.
+                    </p>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-amber-500 rounded-full mt-1.5"></span>
+                            <p><strong>India y Emiratos Árabes:</strong> Nuevos destinos predilectos para el oro de Puno y Madre de Dios.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-amber-500 rounded-full mt-1.5"></span>
+                            <p><strong>El Fraude de los Concentrados:</strong> Exportaciones a China que declaran baja pureza para ocultar el valor real y evadir regalías.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-1.5 h-1.5 bg-amber-500 rounded-full mt-1.5"></span>
+                            <p><strong>Doble Facturación:</strong> Uso de empresas chinas para blanqueo comercial mediante el ajuste de ensayos químicos en destino.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6: CONCLUSIÓN -->
+        <section class="py-12 border-t border-slate-200 text-center">
+            <h2 class="text-3xl font-black text-slate-800 mb-6">El Fracaso Estructural</h2>
+            <p class="max-w-2xl mx-auto text-slate-500 italic mb-8">
+                "La crisis del oro no es una falla del sistema, es el sistema funcionando para quienes lo capturaron. Mientras el REINFO siga siendo perpetuo, el Perú seguirá exportando impunidad en lingotes."
+            </p>
+            <div class="flex justify-center gap-2">
+                <span class="px-4 py-1 bg-slate-200 text-[10px] font-bold rounded-full">TRAZABILIDAD CERO</span>
+                <span class="px-4 py-1 bg-slate-200 text-[10px] font-bold rounded-full">LAVADO CORPORATIVO</span>
+                <span class="px-4 py-1 bg-slate-200 text-[10px] font-bold rounded-full">IMPUNIDAD LEGAL</span>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-50 py-16 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-slate-400 text-xs font-semibold uppercase tracking-tighter">Basado en Informes de FCDS, GIATOC, OEA e IPE (2025-2026)</p>
+            <p class="text-slate-300 text-[10px] mt-4 max-w-md mx-auto">Esta aplicación tiene fines educativos y de análisis estratégico sobre economías ilícitas. Todos los datos reflejan investigaciones de la sociedad civil y auditorías fiscales.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Utility for label wrapping (16-char logic)
+        const wrapLabel = (label) => {
+            if (typeof label !== 'string') return label;
+            if (label.length <= 16) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > 16) {
+                    lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const tooltipConfig = {
+            backgroundColor: 'rgba(30, 41, 59, 0.9)',
+            titleFont: { size: 14, weight: 'bold' },
+            padding: 12,
+            cornerRadius: 8,
+            callbacks: {
+                title: (items) => {
+                    const label = items[0].chart.data.labels[items[0].dataIndex];
+                    return Array.isArray(label) ? label.join(' ') : label;
+                }
+            }
+        };
+
+        // 1. REINFO DOUGHNUT
+        const ctxReinfo = document.getElementById('reinfoDoughnut').getContext('2d');
+        new Chart(ctxReinfo, {
+            type: 'doughnut',
+            data: {
+                labels: ['Suspendidos (Sin control)', 'Vigentes (Formales)'],
+                datasets: [{
+                    data: [78, 22],
+                    backgroundColor: ['#d4af37', '#e2e8f0'],
+                    borderWidth: 0,
+                    hoverOffset: 15
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                cutout: '75%',
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: 'Outfit', size: 12 } } },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+        // 2. GAP AREA CHART (Evolution of Illegal Gold)
+        const ctxGap = document.getElementById('gapAreaChart').getContext('2d');
+        new Chart(ctxGap, {
+            type: 'line',
+            data: {
+                labels: ['2003', '2008', '2011', '2013', '2015', '2018', '2021', '2023'],
+                datasets: [
+                    {
+                        label: 'Exportación Total (TM)',
+                        data: [155, 178, 185, 175, 168, 190, 182, 195],
+                        borderColor: '#d4af37',
+                        backgroundColor: 'rgba(212, 175, 55, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Producción Declarada (TM)',
+                        data: [148, 156, 132, 31, 24, 25, 28, 26],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.3)',
+                        fill: true,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                interaction: { intersect: false, mode: 'index' },
+                plugins: {
+                    tooltip: tooltipConfig,
+                    legend: { position: 'top' }
+                },
+                scales: {
+                    y: { 
+                        beginAtZero: true,
+                        title: { display: true, text: 'Toneladas Métricas (TM)', font: { weight: 'bold' } }
+                    }
+                }
+            }
+        });
+
+        // 3. DESTINATIONS BAR
+        const ctxDest = document.getElementById('destinationsBar').getContext('2d');
+        new Chart(ctxDest, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Suiza', 
+                    'Estados Unidos', 
+                    'Canadá', 
+                    'India', 
+                    wrapLabel('Emiratos Árabes Unidos'), 
+                    'China (Concentrados)'
+                ],
+                datasets: [{
+                    label: 'TM Acumuladas',
+                    data: [1249, 1193, 1045, 357, 135, 98],
+                    backgroundColor: '#d4af37',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                },
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: '#94a3b8' } },
+                    y: { grid: { display: false }, ticks: { color: '#ffffff', font: { size: 10 } } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

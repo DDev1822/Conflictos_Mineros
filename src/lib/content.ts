@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { datasetSchema, type ObservatoryData } from "./schemas";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "data");
-const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "evidenceRecords", "caseResearchPackets", "legalResearchPackets", "alternatives", "socialConflictSnapshots", "socialConflictCases", "miningConflictSelections", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots", "explorationTerritorialSnapshots", "miningConcessionTerritorialSnapshots"] as const;
+const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "evidenceRecords", "caseResearchPackets", "legalResearchPackets", "cajamarcaSystemMatrix", "institutionalMechanisms", "alternatives", "socialConflictSnapshots", "socialConflictCases", "miningConflictSelections", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots", "explorationTerritorialSnapshots", "miningConcessionTerritorialSnapshots"] as const;
 
 function readYaml<T>(name: string): T {
   const file = path.join(CONTENT_ROOT, `${name}.yaml`);
@@ -28,6 +28,15 @@ function assertReferences(data: ObservatoryData) {
   const check = (values: string[], target: keyof typeof ids, owner: string) => {
     const missing = values.filter((value) => !ids[target].has(value));
     if (missing.length) throw new Error(`${owner} referencia ${target} inexistentes: ${missing.join(", ")}`);
+  };
+  const checkCanonicalMatrixDocuments = (
+    values: Array<{ sourceId: string; status: "canonical-source" | "research-target" }>,
+    owner: string,
+  ) => {
+    const missing = values
+      .filter((item) => item.status === "canonical-source" && !ids.sources.has(item.sourceId))
+      .map((item) => item.sourceId);
+    if (missing.length) throw new Error(`${owner} referencia fuentes canónicas inexistentes: ${missing.join(", ")}`);
   };
 
   data.issues.forEach((item) => check(item.sourceIds, "sources", `Nudo ${item.id}`));
@@ -66,6 +75,16 @@ function assertReferences(data: ObservatoryData) {
   data.legalResearchPackets.forEach((packet) => {
     if (!ids.instruments.has(packet.instrumentId)) throw new Error(`Paquete ${packet.id} referencia norma inexistente: ${packet.instrumentId}`);
     check([packet.primaryTextSourceId, ...packet.regulationSourceIds, ...packet.amendmentSourceIds], "sources", `Paquete ${packet.id}`);
+  });
+  const cajamarcaMatrixEntryIds = new Set(data.cajamarcaSystemMatrix.entries.map((entry) => entry.id));
+  data.cajamarcaSystemMatrix.entries.forEach((entry) => {
+    if (entry.canonicalCaseId && !caseIds.has(entry.canonicalCaseId)) throw new Error(`Matriz Cajamarca ${entry.id} referencia caso canónico inexistente: ${entry.canonicalCaseId}`);
+    checkCanonicalMatrixDocuments(entry.primaryDocuments, `Matriz Cajamarca ${entry.id}`);
+    const missingConnections = entry.relationshipHooks.connectsTo.filter((entryId) => !cajamarcaMatrixEntryIds.has(entryId));
+    if (missingConnections.length) throw new Error(`Matriz Cajamarca ${entry.id} conecta hitos inexistentes: ${missingConnections.join(", ")}`);
+  });
+  data.institutionalMechanisms.entries.forEach((entry) => {
+    checkCanonicalMatrixDocuments(entry.primaryDocumentExamples, `Matriz mecanismos ${entry.mechanismId}`);
   });
   data.miningConflictSelections.forEach((selection) => {
     check([selection.sourceId], "sources", `Selección minera ${selection.id}`);
@@ -118,7 +137,12 @@ export function loadObservatoryData(): ObservatoryData {
   if (cached) return cached;
   const raw = Object.fromEntries(files.map((file) => [file, readYaml(file)]));
   const parsed = datasetSchema.parse(raw);
-  files.forEach((key) => assertUnique(parsed[key].map((item) => item.id), key));
+  files.forEach((key) => {
+    const collection = parsed[key];
+    if (Array.isArray(collection)) assertUnique(collection.map((item) => item.id), key);
+  });
+  assertUnique(parsed.cajamarcaSystemMatrix.entries.map((entry) => entry.id), "hitos de matriz Cajamarca");
+  assertUnique(parsed.institutionalMechanisms.entries.map((entry) => entry.mechanismId), "mecanismos institucionales");
   parsed.socialConflictSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
   parsed.miningConflictSelections.forEach((selection) => assertUnique(selection.caseIds, `casos de ${selection.id}`));
   parsed.reinfoTerritorialSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));

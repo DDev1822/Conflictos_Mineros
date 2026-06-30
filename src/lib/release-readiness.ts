@@ -18,7 +18,7 @@ export const releaseManifestSchema = z.object({
     methodology: signoffSchema,
     licenses: signoffSchema,
     editorial: signoffSchema,
-    legal: signoffSchema,
+    documentary: signoffSchema,
     accessibility: signoffSchema,
   }),
 });
@@ -49,7 +49,9 @@ export function collectEditorialWarnings(data: ObservatoryData) {
     if (item.claims.some((claim) => claim.verificationStatus === "pending")) warnings.push(`Caso ${item.id}: afirmaciones pendientes`);
   }
   for (const instrument of data.instruments) {
-    if (instrument.legalReviewStatus === "pending") warnings.push(`Norma ${instrument.id}: revisión jurídica pendiente`);
+    const hasPrimarySource = instrument.sourceIds.some((sourceId) => data.sources.find((source) => source.id === sourceId)?.evidenceLevel === "primary");
+    const hasLocator = data.evidenceRecords.some((record) => record.entityType === "instrument" && record.entityId === instrument.id && record.locator.trim().length >= 3);
+    if (!hasPrimarySource || !hasLocator) warnings.push(`Norma ${instrument.id}: falta texto primario o locador documental`);
   }
   return warnings;
 }
@@ -62,17 +64,6 @@ export function evaluateReleaseReadiness(data: ObservatoryData, manifest: Releas
     ...collectSignoffIssues(manifest),
     ...research.issues.map((issue) => `Investigación: ${issue}`),
   ];
-
-  for (const item of data.cases) {
-    if (item.reviewStatus !== "legal-verified" || !item.legalReviewedAt || !item.legalReviewedBy) {
-      issues.push(`Caso ${item.id}: revisión jurídica completa no acreditada`);
-    }
-  }
-  for (const instrument of data.instruments) {
-    if (instrument.legalReviewStatus !== "verified" || !instrument.verifiedAt || !instrument.legalReviewedBy) {
-      issues.push(`Norma ${instrument.id}: revisión jurídica completa no acreditada`);
-    }
-  }
 
   const social = data.socialConflictSnapshots[0];
   const mining = data.miningConflictSelections[0];
@@ -92,8 +83,8 @@ export function evaluateReleaseReadiness(data: ObservatoryData, manifest: Releas
       openP0P1: risks.filter((risk) => risk.status === "open" && (risk.priority === "P0" || risk.priority === "P1")).length,
       editorialWarnings: collectEditorialWarnings(data).length,
       casesWithThreeMilestones: data.cases.filter((item) => item.timeline.length >= 3).length,
-      legallyReviewedCases: data.cases.filter((item) => item.reviewStatus === "legal-verified" && item.legalReviewedAt && item.legalReviewedBy).length,
-      legallyReviewedInstruments: data.instruments.filter((item) => item.legalReviewStatus === "verified" && item.verifiedAt && item.legalReviewedBy).length,
+      documentedCases: data.cases.filter((item) => item.timeline.length >= 3 && item.claims.every((claim) => claim.sourceIds.length > 0)).length,
+      documentedInstruments: data.instruments.filter((instrument) => instrument.sourceIds.some((sourceId) => data.sources.find((source) => source.id === sourceId)?.evidenceLevel === "primary")).length,
       approvedSignoffs: Object.values(manifest.signoffs).filter((signoff) => signoff.status === "approved" && signoff.reviewedAt && signoff.reviewedBy).length,
       ...research.metrics,
     },

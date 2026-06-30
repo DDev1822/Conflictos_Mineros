@@ -1,0 +1,248 @@
+matrixId: institutional-mechanisms
+status: working-structured-matrix
+cutoffDate: 2026-06-29
+canonicalStatus: non-canonical-research
+purpose: >
+  Convertir la lectura comparativa de mecanismos institucionales en una matriz
+  reutilizable para el Sistema de Relaciones, preservando la separación entre
+  existencia documental, cumplimiento, impacto y legitimidad social.
+sourceReadings:
+  - lectura-mecanismos-institucionales.md
+  - la-oroya.md
+  - cerro-quilish.md
+  - yanacocha-maxima-acuna.md
+  - toromocho-morococha.md
+  - fondo-social-michiquillay.md
+columns:
+  - mechanismId
+  - family
+  - cases
+  - primaryDocumentExamples
+  - authority
+  - obligationOrDecision
+  - status
+  - followUpEvidence
+  - editorialRisk
+  - scopeQuestion
+  - relationshipUse
+entries:
+  - mechanismId: mechanism-environmental-certification
+    family: certificacion-ambiental
+    cases:
+      - conga
+      - tia-maria
+      - toromocho-morococha
+      - fondo-social-michiquillay
+      - cerro-quilish
+    primaryDocumentExamples:
+      - sourceId: conga-eia-explotacion-2010
+        locator: RD 351-2010-MEM/AAM; expediente Conga.
+      - sourceId: morococha-minem-eia-2010
+        locator: MINEM/gob.pe, EIA Toromocho / RD 411-2010-MEM-AAM.
+      - sourceId: michiquillay-sec-10q-2026
+        locator: Southern reporta EIAsd aprobado en octubre de 2021.
+    authority: MINEM, SENACE u autoridad ambiental competente según etapa y fecha.
+    obligationOrDecision: Aprobar, observar, modificar o evaluar instrumentos ambientales.
+    status: Uso transversal iniciado; requiere matriz por instrumento y obligación.
+    followUpEvidence: Resoluciones, EIA/MEIA/ITS, dictámenes, informes de seguimiento y cartera.
+    editorialRisk: Presentar aprobación técnica como legitimidad social.
+    scopeQuestion: ¿Qué obligaciones concretas produce cada instrumento y qué sigue vigente?
+    relationshipUse: Nodo institucional para conectar permisos con controversias de agua, territorio y confianza.
+
+  - mechanismId: mechanism-technical-review-dictamen
+    family: certificacion-ambiental
+    cases:
+      - conga
+      - toromocho-morococha
+    primaryDocumentExamples:
+      - sourceId: conga-dictamen-hidrico-2012
+        locator: Dictamen hídrico Conga, hito conga-peritaje.
+      - sourceId: morococha-cenepred-028-2013
+        locator: CENEPRED 028-SGI, pp. 15-17.
+    authority: Equipo pericial, CENEPRED, INGEMMET u órgano técnico aplicable.
+    obligationOrDecision: Emitir evaluación técnica, no necesariamente resolver legitimidad social.
+    status: Mecanismo documentado en paquetes; falta homologar tipo de hallazgo.
+    followUpEvidence: Informe técnico, metodología, recomendaciones y seguimiento.
+    editorialRisk: Tratar dictamen técnico como cierre político o social del conflicto.
+    scopeQuestion: ¿Qué valor documental tienen los dictámenes técnicos frente a decisiones administrativas?
+    relationshipUse: Capa de evidencia técnica dentro de conflictos de agua, riesgo y reasentamiento.
+
+  - mechanismId: mechanism-pama-transition
+    family: adecuacion-y-cumplimiento-ambiental
+    cases:
+      - la-oroya
+    primaryDocumentExamples:
+      - sourceId: la-oroya-corte-idh-2023
+        locator: Corte IDH, sentencia 27/11/2023, pp. 27-31.
+      - sourceId: pending-la-oroya-resolucion-pama-1997
+        locator: Resolución MINEM y PAMA íntegro pendientes.
+    authority: MINEM; titulares del complejo; órganos de fiscalización y sistema interamericano.
+    obligationOrDecision: Adecuar operación, ejecutar proyectos ambientales, modificar plazos y supervisar cumplimiento.
+    status: Matriz PAMA preliminar iniciada; requiere resolución y anexos.
+    followUpEvidence: Resoluciones, prórrogas, avances, sanciones, supervisiones y reparaciones.
+    editorialRisk: Reducir el caso a incumplimiento sin mapear obligaciones y modificaciones.
+    scopeQuestion: ¿Cuándo una transición ambiental se vuelve aplazamiento incompatible con derechos?
+    relationshipUse: Nodo de cumplimiento ambiental histórico y reparación.
+
+  - mechanismId: mechanism-constitutional-amparo
+    family: control-constitucional-y-judicial
+    cases:
+      - cerro-quilish
+    primaryDocumentExamples:
+      - sourceId: quilish-tc-00300-2002-aa-2003
+        locator: TC, sentencia 07/04/2003, pp. 1-7.
+    authority: Tribunal Constitucional.
+    obligationOrDecision: Delimitar ordenanza municipal, concesión, exploración, explotación y EIA.
+    status: Fuente primaria ubicada; falta lectura fina sobre alcance documental y uso como precedente.
+    followUpEvidence: Sentencia, nota TC, ordenanza original y actos MINEM posteriores.
+    editorialRisk: Usar la sentencia como veto municipal general.
+    scopeQuestion: ¿La sentencia opera como criterio de caso, jurisprudencia relevante o precedente?
+    relationshipUse: Capa judicial para conflicto agua-competencia-concesión.
+
+  - mechanismId: mechanism-criminal-cassation
+    family: control-constitucional-y-judicial
+    cases:
+      - yanacocha-maxima-acuna
+    primaryDocumentExamples:
+      - sourceId: acuna-pj-casacion-458-2015
+        locator: Casación 458-2015 Cajamarca, pp. 20-23.
+    authority: Corte Suprema de Justicia.
+    obligationOrDecision: Confirmar absolución penal y delimitar que la posesión corresponde a vía civil.
+    status: Fuente primaria ubicada; falta expediente civil y registral.
+    followUpEvidence: Expedientes civiles, partidas registrales, catastro y peritajes.
+    editorialRisk: Convertir absolución penal en propiedad o posesión definitiva.
+    scopeQuestion: ¿Cómo narrar el efecto penal sin resolver indebidamente la controversia civil?
+    relationshipUse: Nodo judicial para tierra, posesión, criminalización y defensa territorial.
+
+  - mechanismId: mechanism-habeas-privacy-protection
+    family: proteccion-constitucional
+    cases:
+      - yanacocha-maxima-acuna
+    primaryDocumentExamples:
+      - sourceId: acuna-tc-03882-04038-2016
+        locator: TC, sentencia 30/07/2020, pp. 1-3, 13-14 y 18.
+    authority: Tribunal Constitucional.
+    obligationOrDecision: Reconocer vulneración parcial de vida privada por dron y cámara.
+    status: Fuente primaria ubicada; extremos procesales requieren matriz fina.
+    followUpEvidence: Expediente completo de habeas corpus y medidas de cumplimiento.
+    editorialRisk: Usar privacidad o tránsito para resolver propiedad.
+    scopeQuestion: ¿Qué extremos fueron fundados, improcedentes o no examinados?
+    relationshipUse: Capa de protección individual dentro de conflicto territorial.
+
+  - mechanismId: mechanism-interamerican-reparation
+    family: control-internacional-y-reparacion
+    cases:
+      - la-oroya
+    primaryDocumentExamples:
+      - sourceId: la-oroya-corte-idh-2023
+        locator: Corte IDH, sentencia 27/11/2023, puntos resolutivos.
+      - sourceId: la-oroya-corte-idh-supervision-2025
+        locator: Corte IDH, supervisión 03/02/2025, pp. 4-6.
+    authority: Corte Interamericana de Derechos Humanos.
+    obligationOrDecision: Declarar responsabilidad internacional estatal y ordenar reparaciones.
+    status: Fuente primaria ubicada; falta matriz de cumplimiento por reparación.
+    followUpEvidence: Supervisiones de cumplimiento, actos estatales, planes de salud/remediación.
+    editorialRisk: Imputar responsabilidad penal o empresarial desde sentencia contra el Estado.
+    scopeQuestion: ¿Qué reparaciones están cumplidas, parcialmente cumplidas o pendientes?
+    relationshipUse: Nodo de reparación y responsabilidad internacional.
+
+  - mechanismId: mechanism-dialogue-agreements
+    family: dialogo-y-acuerdos
+    cases:
+      - toromocho-morococha
+      - las-bambas
+      - espinar
+      - fondo-social-michiquillay
+    primaryDocumentExamples:
+      - sourceId: morococha-minem-acuerdos-2018
+        locator: MINEM, nota 05/06/2018.
+      - sourceId: michiquillay-fsm-sobre
+        locator: Acuerdos sociales 2008 con comunidades, Fondo Social.
+    authority: MINEM, PCM, comunidades, empresas y mesas según caso.
+    obligationOrDecision: Registrar compromisos, acuerdos y espacios de seguimiento.
+    status: Mecanismo identificado; faltan actas completas y matriz de cumplimiento.
+    followUpEvidence: Actas, cronogramas, responsables, presupuesto, recepción y seguimiento.
+    editorialRisk: Confundir firma de acuerdo con cumplimiento.
+    scopeQuestion: ¿Qué acuerdos son exigibles y cuáles son compromisos programáticos?
+    relationshipUse: Nodo de compromisos y seguimiento territorial.
+
+  - mechanismId: mechanism-social-funds-benefits
+    family: distribucion-de-beneficios
+    cases:
+      - fondo-social-michiquillay
+      - espinar
+      - las-bambas
+      - toromocho-morococha
+    primaryDocumentExamples:
+      - sourceId: michiquillay-minem-fondos-sociales
+        locator: MINEM Fondos Sociales, líneas 215-231.
+      - sourceId: michiquillay-minem-memoria-2018
+        locator: MINEM Memoria Fondos Sociales 2018, pp. 3-4, 8 y 15.
+    authority: Fondos sociales, comunidades, MINEM, MEF, empresas y órganos de vigilancia.
+    obligationOrDecision: Transferir recursos, priorizar proyectos y reportar ejecución.
+    status: Matriz Michiquillay iniciada; faltan proyectos y auditorías extraídas.
+    followUpEvidence: Estatuto, informes, auditorías, reportes cuatrimestrales y matriz de proyectos.
+    editorialRisk: Equiparar dinero transferido con impacto verificado.
+    scopeQuestion: ¿Qué prueba mínima acredita ejecución, recepción e impacto?
+    relationshipUse: Nodo de beneficios, representación y control.
+
+  - mechanismId: mechanism-resettlement-risk
+    family: reasentamiento-y-gestion-de-riesgo
+    cases:
+      - toromocho-morococha
+    primaryDocumentExamples:
+      - sourceId: morococha-cenepred-028-2013
+        locator: CENEPRED 028-SGI, pp. 4-17.
+      - sourceId: morococha-ingemmet-a6760
+        locator: SIGRID, ficha INGEMMET A6760.
+    authority: CENEPRED, INGEMMET, MINEM, empresa y gobierno local.
+    obligationOrDecision: Evaluar seguridad física y orientar reasentamiento.
+    status: Fuente técnica localizada; falta plan social y expedientes de familias.
+    followUpEvidence: Plan de reasentamiento, matriz de familias, actas, títulos, indicadores y expedientes judiciales.
+    editorialRisk: Presentar seguridad física como calidad de vida o consentimiento.
+    scopeQuestion: ¿Qué estándar aplica a reasentamiento extractivo con población no reasentada?
+    relationshipUse: Nodo de transformación territorial y vivienda.
+
+  - mechanismId: mechanism-protection-measures
+    family: proteccion-de-personas-defensoras
+    cases:
+      - yanacocha-maxima-acuna
+      - espinar
+    primaryDocumentExamples:
+      - sourceId: acuna-defensoria-2015
+        locator: Defensoría, nota 06/02/2015.
+      - sourceId: acuna-cidh-mc-452-11
+        locator: CIDH, Resolución 9/2014, MC 452-11.
+    authority: CIDH, Defensoría del Pueblo, Ministerio del Interior y sistema de justicia.
+    obligationOrDecision: Activar garantías o medidas frente a riesgo de vida, integridad u hostilización.
+    status: Identificado en Máxima Acuña; falta expediente de implementación.
+    followUpEvidence: Resoluciones CIDH, comunicaciones estatales, informes de cumplimiento y denuncias.
+    editorialRisk: Tratar medidas cautelares como sentencia de fondo.
+    scopeQuestion: ¿Qué obligación concreta generó cada medida y cómo se implementó?
+    relationshipUse: Nodo de riesgo, protección y defensa territorial.
+
+  - mechanismId: mechanism-registers-traceability
+    family: trazabilidad-y-fiscalizacion-sectorial
+    cases:
+      - madre-de-dios
+      - conga
+      - toromocho-morococha
+    primaryDocumentExamples:
+      - sourceId: minem-reinfo-vigente
+        locator: REINFO vigente, registros agregados.
+      - sourceId: minem-cpim-2026
+        locator: Cartera de Proyectos de Inversión Minera 2026.
+      - sourceId: morococha-defensoria-267-2026
+        locator: Defensoría Reporte 267, mayo 2026, pp. 70-71.
+    authority: MINEM, Defensoría, OEFA, SERNANP, PCM u órgano sectorial según dato.
+    obligationOrDecision: Reportar estado, conteos, registros, cartera o conflictividad.
+    status: Usado en reportes territoriales; requiere cautela de agregación.
+    followUpEvidence: Fecha de corte, metodología, definición de unidad y locador exacto.
+    editorialRisk: Convertir registro agregado en actividad verificada en campo.
+    scopeQuestion: ¿Qué valor probatorio tiene cada registro frente a actividad real o conflicto vivo?
+    relationshipUse: Nodo de estado administrativo, monitoreo y datos territoriales.
+
+publicationGates:
+  - Cada mechanismId debe mantener documento primario o fuente objetivo explícita.
+  - No se debe mostrar un mecanismo como solución si no tiene evidencia de cumplimiento.
+  - Antes de pasar a content/data se debe definir schema, validación y relación con fuentes canónicas.

@@ -224,6 +224,33 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
 
   const selectedRegion = activeHeatSnapshot.regions.find((region) => region.id === selectedScope);
   const selectedScopeName = selectedRegion?.name ?? (selectedScope === "nacional" ? "Ámbito nacional" : "Ámbito multirregional");
+  const scopeActiveCount = scopeCases.filter((item) => item.status === "active").length;
+  const scopeLatentCount = scopeCases.filter((item) => item.status === "latent").length;
+  const registryKicker = registryTheme === "illegal-mining" ? "Sustento: minería ilegal" : registryTheme === "informal-mining" ? "Sustento: minería informal" : heatScope === "mining" ? "Registro minero del corte" : "Registro social completo";
+  const registryDescription = registryTheme === "illegal-mining"
+    ? "Casos del reporte que mencionan explícitamente minería ilegal; no equivale a delimitación territorial ni calificación judicial."
+    : registryTheme === "informal-mining"
+      ? "Casos del reporte que mencionan explícitamente minería informal; se mantiene separada de minería ilegal."
+      : heatScope === "mining"
+        ? "Selección de conflictos socioambientales vinculados con minería en el corte oficial."
+        : "Registro social completo del corte oficial, usado como contexto territorial comparable.";
+  const hasRegistryFilters = Boolean(caseQuery.trim()) || caseType !== "all" || caseStatus !== defaultRegistryCaseStatus(registryTheme);
+  const activeLayerLabels = [
+    showHeat ? "Calor" : null,
+    showCases ? "Expedientes" : null,
+    showIllegalMining ? "Ilegal" : null,
+    showInformalMining ? "Informal" : null,
+    showReinfo ? "REINFO" : null,
+    showFormalMining ? "Formal" : null,
+    showExploration ? "Exploración" : null,
+    showConcessions ? "Concesiones" : null,
+  ].filter((label): label is string => Boolean(label));
+  const mapStageTitle = showHeat
+    ? `${activeHeatSnapshot.totalRegistered} ${heatScope === "mining" ? "conflictos mineros" : "conflictos sociales"}`
+    : "Capas territoriales";
+  const mapStageSubtitle = showHeat
+    ? `${metricLabel(heatMetric)} por región · ${plottedTotal} representados como puntos de referencia`
+    : "Mapa base con capas seleccionadas";
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -236,13 +263,22 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
     }
   }, [selectedScope]);
 
+  useEffect(() => {
+    if (!selectedScope) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [selectedScope]);
+
   function openRegistry(scopeId: string, theme: RegistryTheme = "heat", trigger?: HTMLElement | null) {
     returnFocusRef.current = trigger ?? (document.activeElement instanceof HTMLElement ? document.activeElement : null);
     setSelectedScope(scopeId);
     setRegistryTheme(theme);
     setCaseQuery("");
     setCaseType("all");
-    setCaseStatus(theme !== "heat" || heatMetric === "total" ? "all" : heatMetric);
+    setCaseStatus(defaultRegistryCaseStatus(theme));
   }
 
   function closeRegistry() {
@@ -250,7 +286,6 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
   }
 
   function restoreRegistryFocus() {
-    if (selectedScope) setSelectedScope(null);
     requestAnimationFrame(() => returnFocusRef.current?.focus());
   }
 
@@ -258,6 +293,16 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
     setHeatScope(scope);
     setSelectedScope(null);
     setRegistryTheme("heat");
+  }
+
+  function defaultRegistryCaseStatus(theme: RegistryTheme): CaseStatusFilter {
+    return theme !== "heat" || heatMetric === "total" ? "all" : heatMetric;
+  }
+
+  function resetRegistryFilters() {
+    setCaseQuery("");
+    setCaseType("all");
+    setCaseStatus(defaultRegistryCaseStatus(registryTheme));
   }
 
   return (
@@ -273,6 +318,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
           <small>{activeHeatSnapshot.active} activos · {activeHeatSnapshot.latent} latentes</small>
           <small>Corte: abril de 2026 · Reporte n.º {socialConflictSnapshot.reportNumber}</small>
         </div>
+        <a className="map-jump-link" href="#map-stage">Ver mapa interactivo</a>
 
         <fieldset className="map-focus-switch">
           <legend>Enfoque del mapa de calor</legend>
@@ -345,12 +391,13 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             </select>
           </label>
           <div className="heat-legend" aria-label="Leyenda del número de casos por intensidad">
-            <p>Número de casos</p>
+            <p>Leyenda de intensidad</p>
             <div>
               <span><i data-band="low" aria-hidden="true" />Baja · 1–{heatRanges.lowMax}</span>
               <span><i data-band="medium" aria-hidden="true" />Media · {heatRanges.lowMax + 1}–{heatRanges.mediumMax}</span>
               <span><i data-band="high" aria-hidden="true" />Alta · {heatRanges.mediumMax + 1}–{heatRanges.max}</span>
             </div>
+            <small>La escala se recalcula según el enfoque y la métrica seleccionada.</small>
           </div>
           <div className="hotspot-list" aria-label={`Regiones con más conflictos ${metricLabel(heatMetric)}`}>
             <p>Mayor concentración · {heatScope === "mining" ? "mineros" : "todos"}</p>
@@ -380,6 +427,9 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <p>Menciones de minería ilegal</p>
             <strong>{illegalMiningCases.length} casos con mención explícita</strong>
             <span>{illegalMiningCases.length - illegalMiningMultiregional} regionales · {illegalMiningMultiregional} multirregionales</span>
+            <div className="map-layer-key" aria-label="Símbolo de minería ilegal en el mapa">
+              <span><i data-symbol="illegal" aria-hidden="true" />Punto rojo sólido</span>
+            </div>
             <small>No delimita zonas de actividad ni determina por sí sola una situación jurídica. {overlappingMiningCases.length} casos también mencionan minería informal.</small>
             {illegalMiningMultiregional > 0 && <button type="button" onClick={(event) => openRegistry("multiregional", "illegal-mining", event.currentTarget)}>Ver casos multirregionales</button>}
           </div>
@@ -390,6 +440,9 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <p>Menciones de minería informal</p>
             <strong>{informalMiningCases.length} casos con mención explícita</strong>
             <span>{informalMiningCases.length - informalMiningMultiregional} regionales · {informalMiningMultiregional} multirregional</span>
+            <div className="map-layer-key" aria-label="Símbolo de minería informal en el mapa">
+              <span><i data-symbol="informal" aria-hidden="true" />Anillo ámbar punteado</span>
+            </div>
             <small>No delimita zonas de actividad ni determina por sí sola una situación jurídica. {overlappingMiningCases.length} casos también mencionan minería ilegal.</small>
             {informalMiningMultiregional > 0 && <button type="button" onClick={(event) => openRegistry("multiregional", "informal-mining", event.currentTarget)}>Ver caso multirregional</button>}
           </div>
@@ -400,6 +453,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <p>REINFO vigente</p>
             <strong>{reinfoSnapshot.totalRegistered.toLocaleString("es-PE")} inscripciones</strong>
             <span>Corte de consulta: {fullDateLabel(reinfoSnapshot.cutoffDate)}</span>
+            <p className="map-legend-caption">Tamaño en mapa</p>
             <div className="point-size-legend" aria-label="Tamaño del punto según inscripciones REINFO">
               <span><i data-size="small" aria-hidden="true" />1–499</span>
               <span><i data-size="medium" aria-hidden="true" />500–1.999</span>
@@ -415,6 +469,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <p>Infraestructura de beneficio registrada por MINEM</p>
             <strong>{formalMiningSnapshot.mappedUnits.toLocaleString("es-PE")} plantas territorializables</strong>
             <span>{formalMiningSnapshot.totalUnits.toLocaleString("es-PE")} códigos únicos en la fuente · consulta: {fullDateLabel(formalMiningSnapshot.cutoffDate)}</span>
+            <p className="map-legend-caption">Tamaño en mapa</p>
             <div className="point-size-legend formal-point-size-legend" aria-label="Tamaño del anillo según plantas de beneficio vigentes">
               <span><i data-size="small" aria-hidden="true" />1–9</span>
               <span><i data-size="medium" aria-hidden="true" />10–29</span>
@@ -430,6 +485,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <p>Exploración documentada</p>
             <strong>{explorationSnapshot.totalProjects.toLocaleString("es-PE")} expedientes únicos</strong>
             <span>{explorationSnapshot.totalAreaHectares.toLocaleString("es-PE", { maximumFractionDigits: 0 })} ha informadas · consulta: {fullDateLabel(explorationSnapshot.cutoffDate)}</span>
+            <p className="map-legend-caption">Tamaño en mapa</p>
             <div className="point-size-legend exploration-point-size-legend" aria-label="Tamaño del anillo según expedientes de exploración">
               <span><i data-size="small" aria-hidden="true" />1–9</span>
               <span><i data-size="medium" aria-hidden="true" />10–24</span>
@@ -445,6 +501,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <p>Catastro minero titulado</p>
             <strong>{miningConcessionSnapshot.totalRights.toLocaleString("es-PE")} derechos únicos</strong>
             <span>{miningConcessionSnapshot.regionalPresences.toLocaleString("es-PE")} presencias departamentales · servicio de actualización diaria consultado el {fullDateLabel(miningConcessionSnapshot.cutoffDate)}</span>
+            <p className="map-legend-caption">Tamaño en mapa</p>
             <div className="point-size-legend concession-point-size-legend" aria-label="Tamaño del anillo según derechos mineros titulados">
               <span><i data-size="small" aria-hidden="true" />1–999</span>
               <span><i data-size="medium" aria-hidden="true" />1.000–2.999</span>
@@ -475,8 +532,16 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
         <a className="map-source" href={REPORT_URL} target="_blank" rel="noreferrer">Consultar reporte oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
       </aside>
 
-      <section className="map-stage" aria-label="Mapa interactivo de conflictos sociales mineros, conflictividad social general, minería ilegal, minería informal, REINFO, plantas de beneficio vigentes, exploración, concesiones y casos piloto" aria-describedby="map-accessibility-note">
+      <section id="map-stage" className="map-stage" aria-label="Mapa interactivo de conflictos sociales mineros, conflictividad social general, minería ilegal, minería informal, REINFO, plantas de beneficio vigentes, exploración, concesiones y casos piloto" aria-describedby="map-accessibility-note">
         <p id="map-accessibility-note" className="sr-only">Los botones de concentración, los botones de ámbito y el selector regional ofrecen acceso equivalente a los puntos gráficos del mapa.</p>
+        <div className="map-stage-context" aria-label="Resumen visible del mapa actual">
+          <span>Mapa actual</span>
+          <strong>{mapStageTitle}</strong>
+          <small>{mapStageSubtitle}</small>
+          <div aria-label={`Capas visibles: ${activeLayerLabels.length ? activeLayerLabels.join(", ") : "ninguna"}`}>
+            {(activeLayerLabels.length ? activeLayerLabels : ["Sin capas"]).map((label) => <span key={label}>{label}</span>)}
+          </div>
+        </div>
         <MapContainer center={[-9.19, -75.02]} zoom={5} scrollWheelZoom>
           <TileLayer attribution="&copy; OpenStreetMap contributors" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <FitMap showNationalLayers={showHeat || showIllegalMining || showInformalMining || showReinfo || showFormalMining || showExploration || showConcessions} territories={visibleTerritories} />
@@ -491,9 +556,17 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             >
               <Tooltip direction="top"><strong>{region.name}</strong><br />{region[heatMetric]} {metricLabel(heatMetric)} · Intensidad {heatBandLabel(region[heatMetric], heatMaximum).toLowerCase()}</Tooltip>
               <Popup>
-                <strong>{region.name}</strong><br />
-                {region.total} registrados<br />{region.active} activos · {region.latent} latentes
-                <button className="map-popup-action" type="button" onClick={(event) => openRegistry(region.id, "heat", event.currentTarget)}>Ver los {region.total} casos</button>
+                <div className="map-popup-card" data-layer="heat">
+                  <p>Registro regional</p>
+                  <strong>{region.name}</strong>
+                  <dl>
+                    <div><dt>{metricLabel(heatMetric)}</dt><dd>{region[heatMetric]}</dd></div>
+                    <div><dt>Total</dt><dd>{region.total}</dd></div>
+                    <div><dt>Estado</dt><dd>{region.active} activos · {region.latent} latentes</dd></div>
+                  </dl>
+                  <small>Intensidad {heatBandLabel(region[heatMetric], heatMaximum).toLowerCase()}. Punto regional de referencia; no representa impacto, violencia ni causalidad.</small>
+                  <button className="map-popup-action" type="button" onClick={(event) => openRegistry(region.id, "heat", event.currentTarget)}>Abrir registro de casos</button>
+                </div>
               </Popup>
             </CircleMarker>
           ))}
@@ -506,10 +579,13 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             >
               <Tooltip direction="top"><strong>{region.name}</strong><br />{region.count.toLocaleString("es-PE")} presencias de derechos titulados</Tooltip>
               <Popup>
-                <strong>{region.name}</strong><br />
-                {region.count.toLocaleString("es-PE")} presencias de derechos mineros titulados.<br />
-                <small>Referencia departamental. Una concesión no prueba actividad, propiedad superficial ni permisos operativos.</small><br />
-                <a href={CONCESSION_URL} target="_blank" rel="noreferrer">Consultar GEOCATMIN oficial</a>
+                <div className="map-popup-card" data-layer="concessions">
+                  <p>Catastro minero titulado</p>
+                  <strong>{region.name}</strong>
+                  <dl><div><dt>Presencias</dt><dd>{region.count.toLocaleString("es-PE")}</dd></div></dl>
+                  <small>Referencia departamental. Una concesión no prueba actividad, propiedad superficial ni permisos operativos.</small>
+                  <a className="map-popup-link" href={CONCESSION_URL} target="_blank" rel="noreferrer">Consultar GEOCATMIN oficial <ArrowSquareOut size={13} aria-hidden="true" /></a>
+                </div>
               </Popup>
             </CircleMarker>
           ))}
@@ -522,10 +598,16 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             >
               <Tooltip direction="top"><strong>{region.name}</strong><br />{region.count} {region.count === 1 ? "expediente de exploración" : "expedientes de exploración"}</Tooltip>
               <Popup>
-                <strong>{region.name}</strong><br />
-                {region.count} {region.count === 1 ? "expediente" : "expedientes"} · {region.areaHectares.toLocaleString("es-PE", { maximumFractionDigits: 0 })} ha informadas.<br />
-                <small>Referencia departamental; explorar no equivale a explotar ni producir.</small><br />
-                <a href={EXPLORATION_URL} target="_blank" rel="noreferrer">Consultar directorio oficial</a>
+                <div className="map-popup-card" data-layer="exploration">
+                  <p>Exploración documentada</p>
+                  <strong>{region.name}</strong>
+                  <dl>
+                    <div><dt>Expedientes</dt><dd>{region.count}</dd></div>
+                    <div><dt>Área informada</dt><dd>{region.areaHectares.toLocaleString("es-PE", { maximumFractionDigits: 0 })} ha</dd></div>
+                  </dl>
+                  <small>Referencia departamental; explorar no equivale a explotar ni producir.</small>
+                  <a className="map-popup-link" href={EXPLORATION_URL} target="_blank" rel="noreferrer">Consultar directorio oficial <ArrowSquareOut size={13} aria-hidden="true" /></a>
+                </div>
               </Popup>
             </CircleMarker>
           ))}
@@ -539,9 +621,13 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             >
               <Tooltip direction="top"><strong>{region.name}</strong><br />{region.count} {region.count === 1 ? "mención de minería informal" : "menciones de minería informal"}</Tooltip>
               <Popup>
-                <strong>{region.name}</strong><br />
-                {region.count} {region.count === 1 ? "caso menciona" : "casos mencionan"} minería informal.
-                <button className="map-popup-action" type="button" onClick={(event) => openRegistry(region.id, "informal-mining", event.currentTarget)}>Ver sustento documental</button>
+                <div className="map-popup-card" data-layer="informal-mining">
+                  <p>Menciones de minería informal</p>
+                  <strong>{region.name}</strong>
+                  <dl><div><dt>Casos</dt><dd>{region.count}</dd></div></dl>
+                  <small>Menciones explícitas del reporte. No delimita zonas de actividad ni determina por sí sola una situación jurídica.</small>
+                  <button className="map-popup-action" type="button" onClick={(event) => openRegistry(region.id, "informal-mining", event.currentTarget)}>Ver sustento documental</button>
+                </div>
               </Popup>
             </CircleMarker>
           ))}
@@ -555,9 +641,13 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             >
               <Tooltip direction="top"><strong>{region.name}</strong><br />{region.count} {region.count === 1 ? "mención de minería ilegal" : "menciones de minería ilegal"}</Tooltip>
               <Popup>
-                <strong>{region.name}</strong><br />
-                {region.count} {region.count === 1 ? "caso menciona" : "casos mencionan"} minería ilegal.
-                <button className="map-popup-action" type="button" onClick={(event) => openRegistry(region.id, "illegal-mining", event.currentTarget)}>Ver sustento documental</button>
+                <div className="map-popup-card" data-layer="illegal-mining">
+                  <p>Menciones de minería ilegal</p>
+                  <strong>{region.name}</strong>
+                  <dl><div><dt>Casos</dt><dd>{region.count}</dd></div></dl>
+                  <small>Menciones explícitas del reporte. No delimita zonas de actividad ni determina por sí sola una situación jurídica.</small>
+                  <button className="map-popup-action" type="button" onClick={(event) => openRegistry(region.id, "illegal-mining", event.currentTarget)}>Ver sustento documental</button>
+                </div>
               </Popup>
             </CircleMarker>
           ))}
@@ -570,10 +660,13 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             >
               <Tooltip direction="top"><strong>{region.name}</strong><br />{region.count.toLocaleString("es-PE")} inscripciones REINFO vigentes</Tooltip>
               <Popup>
-                <strong>{region.name}</strong><br />
-                {region.count.toLocaleString("es-PE")} inscripciones vigentes en el corte.<br />
-                <small>Referencia departamental; no es una ubicación de actividad.</small><br />
-                <a href={REINFO_URL} target="_blank" rel="noreferrer">Consultar REINFO oficial</a>
+                <div className="map-popup-card" data-layer="reinfo">
+                  <p>REINFO vigente</p>
+                  <strong>{region.name}</strong>
+                  <dl><div><dt>Inscripciones</dt><dd>{region.count.toLocaleString("es-PE")}</dd></div></dl>
+                  <small>Referencia departamental; no es una ubicación de actividad. Estar inscrito no equivale a formalidad concluida.</small>
+                  <a className="map-popup-link" href={REINFO_URL} target="_blank" rel="noreferrer">Consultar REINFO oficial <ArrowSquareOut size={13} aria-hidden="true" /></a>
+                </div>
               </Popup>
             </CircleMarker>
           ))}
@@ -586,17 +679,20 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             >
               <Tooltip direction="top"><strong>{region.name}</strong><br />{region.count} {region.count === 1 ? "planta de beneficio vigente" : "plantas de beneficio vigentes"}</Tooltip>
               <Popup>
-                <strong>{region.name}</strong><br />
-                {region.count} {region.count === 1 ? "planta de beneficio vigente" : "plantas de beneficio vigentes"} en el directorio.<br />
-                <small>Referencia regional; no es la ubicación exacta de cada planta ni el universo completo de operaciones mineras formales.</small><br />
-                <a href={FORMAL_MINING_URL} target="_blank" rel="noreferrer">Consultar directorio oficial</a>
+                <div className="map-popup-card" data-layer="formal-mining">
+                  <p>Plantas de beneficio vigentes</p>
+                  <strong>{region.name}</strong>
+                  <dl><div><dt>Plantas</dt><dd>{region.count}</dd></div></dl>
+                  <small>Referencia regional; no es la ubicación exacta de cada planta ni el universo completo de operaciones mineras formales.</small>
+                  <a className="map-popup-link" href={FORMAL_MINING_URL} target="_blank" rel="noreferrer">Consultar directorio oficial <ArrowSquareOut size={13} aria-hidden="true" /></a>
+                </div>
               </Popup>
             </CircleMarker>
           ))}
           {showCases && visibleTerritories.map((territory) => {
             const item = cases.find((entry) => entry.territoryIds.includes(territory.id));
             const markerName = `Abrir expediente ${item?.name} en ${territory.name}`;
-            return <Marker key={territory.id} position={territory.coordinates} icon={markerIcon} title={markerName} alt={markerName}><Popup><strong>{item?.name}</strong><br />{territory.name}<br /><Link href={`/conflictos/${item?.slug}`}>Abrir expediente</Link></Popup></Marker>;
+            return <Marker key={territory.id} position={territory.coordinates} icon={markerIcon} title={markerName} alt={markerName}><Popup><div className="map-popup-card" data-layer="pilot-case"><p>Expediente piloto</p><strong>{item?.name}</strong><small>{territory.name}</small><Link className="map-popup-link" href={`/conflictos/${item?.slug}`}>Abrir expediente</Link></div></Popup></Marker>;
           })}
         </MapContainer>
 
@@ -609,20 +705,36 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
         >
           {selectedScope && <>
             <header>
-              <div><p className="eyebrow">{registryTheme === "illegal-mining" ? "Sustento: minería ilegal" : registryTheme === "informal-mining" ? "Sustento: minería informal" : heatScope === "mining" ? "Registro minero del corte" : "Registro social completo"}</p><h2 id="map-registry-title">{selectedScopeName}</h2></div>
+              <div>
+                <p className="eyebrow">{registryKicker}</p>
+                <h2 id="map-registry-title">{selectedScopeName}</h2>
+                <p className="map-registry-note">{registryDescription}</p>
+              </div>
               <button type="button" className="icon-button" onClick={closeRegistry} aria-label="Cerrar registro"><X size={20} aria-hidden="true" /></button>
             </header>
-            <p className="map-drawer-summary">
-              {scopeCases.length} {scopeCases.length === 1 ? (isThematicRegistry ? "caso con mención explícita" : "caso") : (isThematicRegistry ? "casos con mención explícita" : "casos")} · {scopeCases.filter((item) => item.status === "active").length} {scopeCases.filter((item) => item.status === "active").length === 1 ? "activo" : "activos"} · {scopeCases.filter((item) => item.status === "latent").length} {scopeCases.filter((item) => item.status === "latent").length === 1 ? "latente" : "latentes"}
-            </p>
 
-            <div className="map-case-filters">
-              <label className="map-case-search"><MagnifyingGlass size={17} aria-hidden="true" /><span className="sr-only">Buscar casos</span><input ref={searchInputRef} autoFocus value={caseQuery} onChange={(event) => setCaseQuery(event.target.value)} placeholder="Buscar caso, lugar o tipo" /></label>
-              <label><span>Estado</span><select value={caseStatus} onChange={(event) => setCaseStatus(event.target.value as CaseStatusFilter)}><option value="all">Todos</option><option value="active">Activos</option><option value="latent">Latentes</option></select></label>
-              <label><span>Tipo</span><select value={caseType} onChange={(event) => setCaseType(event.target.value)}><option value="all">Todos</option>{availableTypes.map((type) => <option key={type} value={type}>{type}</option>)}</select></label>
+            <dl className="map-drawer-summary" aria-label="Resumen del registro seleccionado">
+              <div><dt>Total</dt><dd><strong>{scopeCases.length}</strong><span>{scopeCases.length === 1 ? (isThematicRegistry ? "mención" : "caso") : (isThematicRegistry ? "menciones" : "casos")}</span></dd></div>
+              <div><dt>Activos</dt><dd><strong>{scopeActiveCount}</strong><span>{scopeActiveCount === 1 ? "caso" : "casos"}</span></dd></div>
+              <div><dt>Latentes</dt><dd><strong>{scopeLatentCount}</strong><span>{scopeLatentCount === 1 ? "caso" : "casos"}</span></dd></div>
+            </dl>
+
+            <div className="map-case-filter-panel">
+              <div className="map-filter-heading">
+                <span>Filtrar registro</span>
+                <button type="button" onClick={resetRegistryFilters} disabled={!hasRegistryFilters}>Limpiar</button>
+              </div>
+              <div className="map-case-filters">
+                <label className="map-case-search"><MagnifyingGlass size={17} aria-hidden="true" /><span className="sr-only">Buscar casos</span><input ref={searchInputRef} autoFocus value={caseQuery} onChange={(event) => setCaseQuery(event.target.value)} placeholder="Buscar caso, lugar o tipo" /></label>
+                <label><span>Estado</span><select value={caseStatus} onChange={(event) => setCaseStatus(event.target.value as CaseStatusFilter)}><option value="all">Todos</option><option value="active">Activos</option><option value="latent">Latentes</option></select></label>
+                <label><span>Tipo</span><select value={caseType} onChange={(event) => setCaseType(event.target.value)}><option value="all">Todos</option>{availableTypes.map((type) => <option key={type} value={type}>{type}</option>)}</select></label>
+              </div>
             </div>
 
-            <p className="map-results-count" aria-live="polite">{filteredScopeCases.length} {filteredScopeCases.length === 1 ? "resultado" : "resultados"}</p>
+            <div className="map-results-bar">
+              <p className="map-results-count" aria-live="polite">{filteredScopeCases.length} {filteredScopeCases.length === 1 ? "resultado" : "resultados"}</p>
+              {hasRegistryFilters && <span>Filtros activos</span>}
+            </div>
             <div className="map-social-case-list">
               {filteredScopeCases.map((item) => (
                 <article key={item.id}>

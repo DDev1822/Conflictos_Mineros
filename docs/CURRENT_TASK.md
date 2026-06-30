@@ -2,7 +2,7 @@
 
 ## Estado
 
-CERRADA
+EN_REVISIÓN
 
 Valores permitidos:
 
@@ -18,72 +18,66 @@ Valores permitidos:
 
 ## Objetivo
 
-Corregir de forma segura los textos visibles y metodológicos que presentan o pueden presentar la capa de plantas de beneficio como si representara todo el universo de minería formal.
+Convertir el diagnóstico preliminar del barrido nacional en una metodología documental operativa para identificar y seleccionar casos emblemáticos que hayan transformado o acompañado transformaciones del sistema minero peruano.
 
-La denominación visible principal debe ser `Plantas de beneficio vigentes`. La descripción metodológica debe dejar claro que la capa representa infraestructura de procesamiento registrada por MINEM, es un indicador parcial relacionado con la actividad minera formal, no representa todas las operaciones mineras formales, no equivale a unidades mineras en producción, no representa concesiones, proyectos ni titulares, y sus valores actuales están agregados por departamento con puntos territoriales de referencia regional.
+Esta fase no investiga expedientes completos, no añade casos canónicos y no modifica datasets canónicos.
 
-## Nota sobre la tarea anterior
+## Alcance
 
-La tarea documental de Espinar permanece cerrada operativamente. Ese cierre registró la entrega del paquete de adquisición y no constituye aprobación sustantiva de fuentes pendientes ni autorización para modificar datasets, estados de verificación o conclusiones del caso.
+* Registrar un universo preliminar de 25 a 40 casos candidatos de conflictividad minera peruana.
+* Definir reglas de unidad y límites del caso para evitar duplicidades entre caso puntual, proceso territorial, operación minera y sistema regional.
+* Definir puertas obligatorias de selección y niveles preliminares `A`, `B`, `C` y `D`.
+* Crear una matriz maestra para evaluar transformaciones alegadas sin presumir causalidad.
+* Preparar los bloques futuros `1A`, `1B` y `1C` sin ejecutar adquisición documental ni búsqueda de fuentes nuevas.
 
 ## Archivos autorizados
 
-Modificar únicamente, si contienen la ambigüedad identificada:
+Modificar únicamente:
 
 * `docs/CURRENT_TASK.md`
-* `src/components/map-explorer.tsx`
-* `src/app/reinfo/page.tsx`
-* `docs/data-methodology.md`
-* `src/lib/content.test.ts`
+
+Crear únicamente:
+
+* `docs/research/national-case-scan.md`
+* `docs/research/case-selection-criteria.md`
+* `docs/research/case-impact-matrix.md`
 
 ## Criterios de aceptación
 
-1. Los textos visibles de la capa usan `Plantas de beneficio vigentes`, `Distribución territorial de plantas de beneficio vigentes`, `Infraestructura de beneficio registrada por MINEM` o `Indicador parcial de infraestructura minera formal`, según el contexto.
-2. No se reemplazan usos correctos de “minería formal” cuando funcionan como concepto general y no como nombre de la capa.
-3. La metodología indica que la capa representa plantas de beneficio registradas por MINEM y no todas las operaciones mineras formales.
-4. La metodología indica que la capa no equivale a unidades mineras en producción y no representa concesiones, proyectos ni titulares.
-5. La metodología indica que los conteos actuales están agregados por departamento y que los puntos son referencias regionales, no coordenadas exactas de cada planta.
-6. La prueba de regresión verifica el nombre sustantivo del snapshot, los límites metodológicos, los conteos vigentes y la identidad del dataset canónico.
-7. No se modifican datasets canónicos, YAML, cifras, diseño, dependencias, estados de verificación, rutas ni componentes puramente visuales.
+1. El universo preliminar contiene entre 25 y 40 candidatos e incluye como mínimo los 32 casos ya identificados.
+2. Los seis casos actuales se identifican como expedientes piloto, no como canon definitivo ni exhaustivo.
+3. La metodología diferencia caso puntual, proceso territorial, operación minera y sistema regional.
+4. Existen puertas obligatorias de selección: identidad, fuente primaria, transformación alegada, vínculo y valor del caso.
+5. Existen niveles `A — transformative-verified`, `B — documented-influence`, `C — relevant-candidate` y `D — observation-hypothesis`.
+6. Se distinguen transformaciones legislativas, reglamentarias, jurisprudenciales, interamericanas o internacionales, institucionales, administrativas, procedimentales, contractuales, económicas, empresariales, de fiscalización, reasentamiento, cierre, pasivos, remediación, formalización, seguridad territorial y transformación territorial sin cambio jurídico confirmado.
+7. La matriz maestra incluye contraevidencia, explicación alternativa, riesgo de duplicidad y riesgo de causalidad indebida.
+8. La causalidad no se presume y no se declara que un caso transformó una norma sin documento de vínculo.
+9. No se modifican datasets canónicos ni código.
+10. Los bloques futuros `1A`, `1B` y `1C` quedan preparados, pero no ejecutados.
 
 ## Restricciones particulares
 
-* No renombrar `formalMiningTerritorialSnapshots.yaml`, schemas, tipos, props, variables internas ni claves del contrato de datos.
-* No modificar YAML ni cifras.
-* No modificar CSS, colores, layout ni componentes puramente visuales.
-* No crear páginas ni rutas.
-* No añadir fuentes.
+* No modificar `content/data`.
+* No añadir casos canónicos.
+* No crear páginas.
+* No modificar código, pruebas, CSS, schemas ni dependencias.
 * No cambiar estados de verificación.
+* No añadir URLs inventadas.
+* No afirmar causalidad.
+* No declarar que un caso transformó una norma sin documento de vínculo.
 * No instalar dependencias.
 * No hacer commit ni push.
+* No modificar archivos fuera de los cuatro autorizados.
 
-## Comandos de validación
+## Validaciones documentales
 
-Ejecutar:
+Ejecutar únicamente:
 
 1. `git diff --check`
-2. `npm.cmd run typecheck`
-3. `npm.cmd test`
-4. `npm.cmd run validate:content`
-5. `npm.cmd run audit:content`
-6. `git status --short`
-7. `git diff -- docs/CURRENT_TASK.md src/components/map-explorer.tsx src/app/reinfo/page.tsx docs/data-methodology.md src/lib/content.test.ts`
+2. `git status --short`
+3. `git diff --stat`
+4. `git diff -- docs/CURRENT_TASK.md docs/research/national-case-scan.md docs/research/case-selection-criteria.md docs/research/case-impact-matrix.md`
 
-## Entrega esperada
+## Resultado esperado
 
-Al terminar, cambiar este estado a `EN_REVISIÓN` y reportar archivos modificados, textos corregidos, prueba añadida o ajustada, comandos ejecutados y resultado, ambigüedades pendientes y confirmación de que no se modificaron datasets, cifras, diseño ni dependencias.
-
-## Resultado de ejecución
-
-* DD y Kai aprobaron la corrección terminológica.
-* La capa visible se denomina `Plantas de beneficio vigentes`.
-* Se aclaró que representa infraestructura de procesamiento registrada por MINEM.
-* No representa todas las operaciones mineras formales ni equivale a unidades mineras en producción.
-* No representa concesiones, proyectos ni titulares.
-* Los datos permanecen agregados por departamento y sus puntos son referencias regionales.
-* Los conteos canónicos permanecen en `342` códigos únicos, `340` territorializables y `2` sin departamento.
-* Las 23 pruebas pasaron.
-* `typecheck`, `validate:content`, `audit:content` y `git diff --check` finalizaron correctamente.
-* Las ocho advertencias editoriales de `audit:content` eran preexistentes.
-* No se modificaron YAML, cifras, diseño, dependencias, fuentes ni estados de verificación.
-* La nomenclatura interna `formalMining...` queda pendiente para una tarea futura separada.
+Al terminar, cambiar este estado a `EN_REVISIÓN`, informar archivos creados y modificados, confirmar que no se añadieron fuentes ni casos canónicos, no hacer commit ni push, y esperar aprobación de DD y Kai.

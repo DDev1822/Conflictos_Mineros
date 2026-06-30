@@ -17,11 +17,11 @@ signoffs:
     reviewedAt: null
     reviewedBy: null
     evidence: docs/audits/2026-06-20-product-review/audit.md
-  legal:
+  documentary:
     status: pending
     reviewedAt: null
     reviewedBy: null
-    evidence: content/data/instruments.yaml
+    evidence: content/data
   accessibility:
     status: pending
     reviewedAt: null

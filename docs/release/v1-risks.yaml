@@ -3,11 +3,11 @@
   status: open
   evidence: https://ddev1822.github.io/Conflictos_Mineros/
   note: La URL pública debe devolver 404 o quedar deshabilitada antes del freeze privado.
-- id: legal-review
+- id: documentary-framing
   priority: P1
-  status: open
-  evidence: content/data/instruments.yaml
-  note: Requiere revisión especialista atribuida de 6 expedientes y 8 instrumentos.
+  status: resolved
+  evidence: src/lib/release-readiness.ts
+  note: La V1 se declara como observatorio académico-documental; no exige revisión de abogado ni simula una autoridad externa.
 - id: editorial-timelines
   priority: P1
   status: resolved

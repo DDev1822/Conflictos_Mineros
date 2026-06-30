@@ -12,11 +12,13 @@ describe("gates de investigación documental V1", () => {
     const result = evaluateResearchReadiness(cloneData());
     expect(result.metrics.casesMeetingMilestoneTarget).toBe(6);
     expect(result.metrics.caseResearchReady).toBe(6);
-    expect(result.metrics.legalPacketReady).toBe(8);
+    expect(result.metrics.normativePacketReady).toBe(8);
     expect(result.metrics.perspectiveCoverage).toBe(6);
     expect(result.metrics.unresolvedHiddenConflicts).toBe(0);
     expect(result.metrics.contextualOnlyClaims).toBe(0);
-    expect(result.metrics.directEvidenceCoverage).toBeLessThan(1);
+    expect(result.metrics.directEvidenceCoverage).toBe(1);
+    expect(result.metrics.directEvidenceCovered).toBe(result.metrics.directEvidenceRequired);
+    expect(result.ready).toBe(false);
   });
 
   it("falla deliberadamente al retirar un locador de evidencia directa", () => {
@@ -38,24 +40,24 @@ describe("gates de investigación documental V1", () => {
     expect(result.issues).toContain("Caso conga: cobertura de perspectivas insuficiente");
   });
 
-  it("impide verificar una norma sin memo jurídico atribuido", () => {
+  it("impide marcar una norma como revisada sin evidencia atribuida", () => {
     const instrument = cloneData().instruments[0];
     const result = legalInstrumentSchema.safeParse({
       ...instrument,
       legalReviewStatus: "verified",
       verifiedAt: "2026-06-20",
-      legalReviewedBy: "Especialista responsable",
+      legalReviewedBy: "Responsable documental",
     });
     expect(result.success).toBe(false);
   });
 
-  it("impide verificar un expediente sin memo jurídico atribuido", () => {
+  it("impide marcar un expediente como revisado sin evidencia atribuida", () => {
     const item = cloneData().cases[0];
     const result = conflictCaseSchema.safeParse({
       ...item,
       reviewStatus: "legal-verified",
       legalReviewedAt: "2026-06-20",
-      legalReviewedBy: "Especialista responsable",
+      legalReviewedBy: "Responsable documental",
     });
     expect(result.success).toBe(false);
   });

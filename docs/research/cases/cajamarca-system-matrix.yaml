@@ -1,0 +1,264 @@
+matrixId: cajamarca-system
+status: working-structured-matrix
+cutoffDate: 2026-06-29
+canonicalStatus: non-canonical-research
+purpose: >
+  Estructurar la lectura territorial Cajamarca para conectarla después al Sistema
+  de Relaciones sin fusionar casos distintos ni convertir hipótesis regionales en
+  conclusiones cerradas.
+sourceReadings:
+  - lectura-transversal-cajamarca.md
+  - cerro-quilish.md
+  - conga.md
+  - yanacocha-maxima-acuna.md
+  - fondo-social-michiquillay.md
+columns:
+  - id
+  - caseSlug
+  - canonicalCaseId
+  - hito
+  - institutionType
+  - primaryDocuments
+  - authorityOrActor
+  - controversy
+  - stateAtCutoff
+  - editorialCaution
+  - scopeQuestion
+  - relationshipHooks
+entries:
+  - id: cajamarca-quilish-ordenanza-2000
+    caseSlug: cerro-quilish
+    canonicalCaseId: null
+    hito: Ordenanza municipal 012-2000-CMPC sobre Cerro Quilish y microcuencas.
+    institutionType: municipal-protection
+    primaryDocuments:
+      - sourceId: quilish-tc-00300-2002-aa-2003
+        locator: TC, sentencia 07/04/2003, pp. 1-3.
+      - sourceId: pending-quilish-ordenanza-012-2000
+        locator: Texto oficial de la ordenanza pendiente.
+    authorityOrActor: Municipalidad Provincial de Cajamarca; Tribunal Constitucional.
+    controversy: Competencia municipal y protección hídrica frente a concesión minera.
+    stateAtCutoff: >
+      La existencia y alcance general de la ordenanza están respaldados por el TC,
+      pero falta el texto oficial completo y su expediente municipal.
+    editorialCaution: No presentar Quilish como precedente general de veto municipal.
+    scopeQuestion: >
+      ¿Qué alcance jurídico tuvo la ordenanza dentro del régimen de competencias
+      locales y áreas de conservación vigente en 2000-2004?
+    relationshipHooks:
+      theme: agua-y-potestad-local
+      connectsTo:
+        - cajamarca-conga-eia-2010
+        - cajamarca-michiquillay-fondo-2009
+
+  - id: cajamarca-quilish-autorizacion-revocatoria-2004
+    caseSlug: cerro-quilish
+    canonicalCaseId: null
+    hito: RD 361, RD 427 y RM 467-2004-MEM/DM sobre exploración en Quilish.
+    institutionType: sectoral-environmental-authorization
+    primaryDocuments:
+      - sourceId: quilish-rm-467-2004-mem-dm
+        locator: SPIJ, RM 467-2004-MEM/DM, pp. 36-38.
+      - sourceId: quilish-sinia-indicadores-cajamarca
+        locator: SINIA/MINAM, Indicadores Ambientales Cajamarca, p. 16.
+      - sourceId: pending-quilish-rd-361-2004
+        locator: RD 361-2004-MEM/AAM completa pendiente.
+      - sourceId: pending-quilish-rd-427-2004
+        locator: RD 427-2004-MEM/AAM completa pendiente.
+    authorityOrActor: MINEM; Minera Yanacocha; población movilizada.
+    controversy: Legalidad administrativa de exploración frente a legitimidad territorial.
+    stateAtCutoff: >
+      La RM 467 documenta autorización, condicionamiento y revocatoria de la RD 361;
+      faltan las resoluciones completas para reconstruir condiciones exactas.
+    editorialCaution: No decir que la revocatoria resolvió la relación Cajamarca-Yanacocha.
+    scopeQuestion: >
+      ¿Qué efectos tuvo dejar sin eficacia y luego revocar la autorización de
+      exploración frente a derechos de la empresa y reclamos territoriales?
+    relationshipHooks:
+      theme: autorizacion-vs-legitimidad
+      connectsTo:
+        - cajamarca-conga-eia-2010
+        - cajamarca-acuna-casacion-2017
+
+  - id: cajamarca-conga-eia-2010
+    caseSlug: conga
+    canonicalCaseId: conga
+    hito: Aprobación del EIA de explotación Conga mediante RD 351-2010-MEM/AAM.
+    institutionType: environmental-certification
+    primaryDocuments:
+      - sourceId: conga-eia-explotacion-2010
+        locator: content/data/cases.yaml, hito conga-eia-explotacion.
+      - sourceId: conga-dictamen-hidrico-2012
+        locator: content/data/cases.yaml, hito conga-peritaje.
+    authorityOrActor: MINEM; equipo pericial; comunidades y autoridades territoriales.
+    controversy: Aprobación ambiental y peritaje frente a confianza sobre agua y cabeceras.
+    stateAtCutoff: >
+      Expediente piloto existente; requiere texto consolidado de obligaciones,
+      efectos de modificaciones y lectura documental de suspensión material.
+    editorialCaution: Aprobación administrativa no equivale a legitimidad social.
+    scopeQuestion: >
+      ¿Cómo tratar un proyecto con instrumentos aprobados y autorizaciones vigentes
+      si su desarrollo material permanece inactivo o diferido?
+    relationshipHooks:
+      theme: agua-y-legitimidad-ambiental
+      connectsTo:
+        - cajamarca-quilish-ordenanza-2000
+        - cajamarca-acuna-casacion-2017
+
+  - id: cajamarca-conga-estado-2026
+    caseSlug: conga
+    canonicalCaseId: conga
+    hito: Estado 2026 de cartera, cuidado y mantenimiento.
+    institutionType: sectoral-status-report
+    primaryDocuments:
+      - sourceId: minem-cpim-2026
+        locator: content/data/cases.yaml, hito conga-estado-2026.
+      - sourceId: newmont-annual-report-2025
+        locator: content/data/cases.yaml, hito conga-estado-2026.
+    authorityOrActor: MINEM; Newmont.
+    controversy: Estado administrativo y cartera empresarial frente a conflicto territorial no cerrado.
+    stateAtCutoff: >
+      MINEM registra Conga en cartera 2026; Newmont reporta cuidado y mantenimiento
+      en 2025 y no anticipa desarrollarlo en los próximos diez años.
+    editorialCaution: No presentar inactividad material como solución del conflicto.
+    scopeQuestion: >
+      ¿Qué efectos jurídicos y editoriales tiene una suspensión material prolongada
+      frente a autorizaciones administrativas y obligaciones ambientales?
+    relationshipHooks:
+      theme: estado-material-vs-estado-administrativo
+      connectsTo:
+        - cajamarca-conga-eia-2010
+        - cajamarca-michiquillay-estado-2026
+
+  - id: cajamarca-acuna-casacion-2017
+    caseSlug: yanacocha-maxima-acuna
+    canonicalCaseId: null
+    hito: Casación 458-2015 confirma absolución penal por usurpación agravada.
+    institutionType: criminal-judicial-control
+    primaryDocuments:
+      - sourceId: acuna-pj-casacion-458-2015
+        locator: Casación 458-2015 Cajamarca, pp. 20-23.
+      - sourceId: acuna-pj-nota-2017
+        locator: Poder Judicial, nota 03/05/2017.
+    authorityOrActor: Corte Suprema; Minera Yanacocha; familia Chaupe/Acuña.
+    controversy: Cierre penal frente a disputa civil de propiedad y posesión.
+    stateAtCutoff: >
+      La vía penal queda cerrada con absolución, pero la propia casación remite
+      el derecho posesorio a la vía civil.
+    editorialCaution: No convertir absolución penal en adjudicación civil de propiedad.
+    scopeQuestion: >
+      ¿Cómo formular el efecto de la casación sin extrapolarlo a propiedad,
+      posesión o legitimidad territorial completa?
+    relationshipHooks:
+      theme: tierra-posesion-y-proteccion
+      connectsTo:
+        - cajamarca-acuna-tc-2020
+        - cajamarca-conga-eia-2010
+
+  - id: cajamarca-acuna-tc-2020
+    caseSlug: yanacocha-maxima-acuna
+    canonicalCaseId: null
+    hito: Habeas corpus por dron, cámara, tránsito y vida privada.
+    institutionType: constitutional-protection
+    primaryDocuments:
+      - sourceId: acuna-tc-03882-04038-2016
+        locator: TC, sentencia 30/07/2020, pp. 1-3, 13-14 y 18.
+      - sourceId: acuna-defensoria-2015
+        locator: Defensoría, nota 06/02/2015.
+    authorityOrActor: Tribunal Constitucional; Defensoría; Minera Yanacocha; familia Chaupe/Acuña.
+    controversy: Seguridad privada y defensa de propiedad frente a privacidad y protección.
+    stateAtCutoff: >
+      El TC declara vulneración parcial de vida privada por cámara y dron; propiedad
+      y posesión permanecen fuera del alcance de esa decisión.
+    editorialCaution: No usar habeas corpus como título de propiedad o posesión.
+    scopeQuestion: >
+      ¿Qué extremos del habeas corpus fueron fundados, improcedentes o no examinados,
+      y cómo deben narrarse junto con medidas de protección?
+    relationshipHooks:
+      theme: proteccion-y-vigilancia
+      connectsTo:
+        - cajamarca-acuna-casacion-2017
+        - cajamarca-quilish-autorizacion-revocatoria-2004
+
+  - id: cajamarca-michiquillay-fondo-2009
+    caseSlug: fondo-social-michiquillay
+    canonicalCaseId: null
+    hito: Constitución de la Asociación Fondo Social Michiquillay.
+    institutionType: benefit-governance
+    primaryDocuments:
+      - sourceId: michiquillay-fsm-sobre
+        locator: Fondo Social Michiquillay, líneas 45-56.
+      - sourceId: michiquillay-minem-fondos-sociales
+        locator: MINEM Fondos Sociales, líneas 215-231.
+      - sourceId: michiquillay-mef-ds-082-2008
+        locator: DS 082-2008-EF.
+    authorityOrActor: Fondo Social Michiquillay; MINEM; MEF; comunidades Michiquillay y La Encañada.
+    controversy: Gobernanza de recursos y representación comunitaria.
+    stateAtCutoff: >
+      La existencia del fondo y su marco general están documentados; faltan estatuto,
+      actas, reportes cuatrimestrales y matriz de proyectos.
+    editorialCaution: Fondo social no equivale a consenso ni desarrollo efectivo.
+    scopeQuestion: >
+      ¿Qué obligaciones exigibles nacen del régimen DL 996 y del estatuto del fondo?
+    relationshipHooks:
+      theme: beneficios-y-gobernanza
+      connectsTo:
+        - cajamarca-michiquillay-southern-2018
+        - cajamarca-conga-estado-2026
+
+  - id: cajamarca-michiquillay-southern-2018
+    caseSlug: fondo-social-michiquillay
+    canonicalCaseId: null
+    hito: Contrato 2018, incorporación de Southern y traslado de pago inicial.
+    institutionType: investment-contract-benefit-transfer
+    primaryDocuments:
+      - sourceId: michiquillay-minem-contrato-2018
+        locator: MINEM, nota 12/06/2018.
+      - sourceId: michiquillay-proinversion-2018
+        locator: ProInversión, comunicado 08/11/2018.
+      - sourceId: michiquillay-fsm-sobre
+        locator: Fondo Social Michiquillay, líneas 54-56.
+    authorityOrActor: PROINVERSIÓN; Southern Perú; Fondo Social Michiquillay.
+    controversy: Promesa contractual de beneficio frente a necesidad de auditoría y seguimiento.
+    stateAtCutoff: >
+      ProInversión reporta US$ 12.5 millones trasladados al fondo; falta contrato,
+      adendas, comprobantes y matriz de ejecución.
+    editorialCaution: No equiparar pago o transferencia con impacto territorial.
+    scopeQuestion: >
+      ¿Qué obligaciones concretas asumió Southern respecto del fondo, comunidades
+      y pagos futuros?
+    relationshipHooks:
+      theme: contrato-y-beneficio
+      connectsTo:
+        - cajamarca-michiquillay-fondo-2009
+        - cajamarca-michiquillay-estado-2026
+
+  - id: cajamarca-michiquillay-estado-2026
+    caseSlug: fondo-social-michiquillay
+    canonicalCaseId: null
+    hito: Estado 2026 del proyecto Michiquillay y compromisos sociales recientes.
+    institutionType: corporate-regulatory-status-report
+    primaryDocuments:
+      - sourceId: michiquillay-sec-10q-2026
+        locator: Southern Copper Form 10-Q 31/03/2026, líneas 5339-5354 y 12412-12417.
+      - sourceId: michiquillay-minem-dashboard
+        locator: Dashboard de inversión social minera, actualización 11/05/2026.
+    authorityOrActor: Southern Copper; MINEM.
+    controversy: Proyección empresarial y extensión preoperativa frente a cumplimiento social verificable.
+    stateAtCutoff: >
+      Southern reporta estudios en curso, producción esperada en 2032 y extensión
+      preoperativa 2025 con compromisos sociales adicionales.
+    editorialCaution: Tratar proyecciones empresariales como expectativas, no como hechos futuros.
+    scopeQuestion: >
+      ¿La extensión preoperativa y compromisos sociales adicionales modifican el
+      régimen del fondo o funcionan como compromisos paralelos?
+    relationshipHooks:
+      theme: proyecto-futuro-y-compromisos
+      connectsTo:
+        - cajamarca-michiquillay-southern-2018
+        - cajamarca-conga-estado-2026
+
+publicationGates:
+  - Cada fila debe conservar documento primario, locador y vacío pendiente.
+  - Ninguna fila debe presentarse como conclusión regional totalizante.
+  - La lectura Cajamarca solo puede subir a datos canónicos cuando cada caso tenga evidencia primaria suficiente o cautela explícita.

@@ -3,12 +3,12 @@
   primaryTextSourceId: congreso-ley-mineria
   regulationSourceIds: []
   amendmentSourceIds: []
-  legalQuestions:
+  scopeQuestions:
     - ¿Qué disposiciones citadas permanecen vigentes luego de sus modificaciones y normas complementarias?
     - ¿Qué alcance tienen las concesiones frente a propiedad superficial y autorizaciones ambientales u operativas?
   gaps:
     - id: ds-014-consolidacion
-      description: Falta una matriz especialista de modificaciones, derogaciones y jurisprudencia relevante al corte.
+      description: Falta una matriz documental de modificaciones, derogaciones y jurisprudencia relevante al corte.
       blocksRelease: true
   checkedAt: 2026-06-20
   status: prepared
@@ -17,12 +17,12 @@
   primaryTextSourceId: congreso-consulta-previa
   regulationSourceIds: [minem-ds-001-2012-mc]
   amendmentSourceIds: []
-  legalQuestions:
+  scopeQuestions:
     - ¿Qué actos estatales de los seis casos podrían activar el deber de consulta previa y bajo qué criterios?
     - ¿Cómo deben distinguirse consulta previa, participación ciudadana ambiental y mecanismos vecinales no vinculantes?
   gaps:
     - id: ley-29785-jurisprudencia
-      description: Falta incorporar jurisprudencia constitucional e interamericana seleccionada por la persona especialista.
+      description: Falta incorporar jurisprudencia constitucional e interamericana seleccionada con criterio documental.
       blocksRelease: true
   checkedAt: 2026-06-20
   status: prepared
@@ -31,9 +31,9 @@
   primaryTextSourceId: minem-ds-018-2017
   regulationSourceIds: []
   amendmentSourceIds: [minem-ds-010-2022-em]
-  legalQuestions:
+  scopeQuestions:
     - ¿Cuál es la vigencia consolidada del proceso de formalización minera integral al corte de la V1?
-    - ¿Qué efectos jurídicos produce la inscripción en REINFO y cuáles no produce?
+    - ¿Qué efectos administrativos produce la inscripción en REINFO y cuáles no produce?
   gaps:
     - id: ds-018-prorrogas
       description: Falta consolidar prórrogas, exclusiones y normas posteriores aplicables al REINFO al corte.
@@ -45,9 +45,9 @@
   primaryTextSourceId: congreso-ley-27446
   regulationSourceIds: [minam-ds-019-2009]
   amendmentSourceIds: []
-  legalQuestions:
+  scopeQuestions:
     - ¿Qué versión consolidada del SEIA corresponde aplicar a cada decisión histórica de los casos?
-    - ¿Qué diferencias jurídicas existen entre EIA, MEIA e ITS en los expedientes documentados?
+    - ¿Qué diferencias documentales y administrativas existen entre EIA, MEIA e ITS en los expedientes documentados?
   gaps:
     - id: ley-27446-modificaciones
       description: Falta consolidar modificaciones legales y reglamentarias y su vigencia temporal por expediente.
@@ -59,7 +59,7 @@
   primaryTextSourceId: congreso-ley-29338
   regulationSourceIds: [minem-ds-001-2010-ag]
   amendmentSourceIds: []
-  legalQuestions:
+  scopeQuestions:
     - ¿Qué títulos habilitantes de agua son pertinentes en cada expediente y cuál era su estado al corte?
     - ¿Qué afirmaciones sobre prioridad y protección de fuentes pueden sostenerse sin inferir causalidad ambiental?
   gaps:
@@ -73,7 +73,7 @@
   primaryTextSourceId: congreso-ley-29325
   regulationSourceIds: []
   amendmentSourceIds: [minam-ley-30011]
-  legalQuestions:
+  scopeQuestions:
     - ¿Qué competencias de supervisión, fiscalización y sanción correspondían a cada entidad en los periodos estudiados?
     - ¿Qué resoluciones firmes pueden citarse sin confundir monitoreo, evaluación y determinación de responsabilidad?
   gaps:
@@ -87,12 +87,12 @@
   primaryTextSourceId: congreso-ley-29968
   regulationSourceIds: [senace-ds-006-2015-minam]
   amendmentSourceIds: []
-  legalQuestions:
+  scopeQuestions:
     - ¿Desde qué fecha y para qué instrumentos mineros ejerció SENACE las funciones relevantes?
     - ¿Qué expedientes permanecieron en MINEM por reglas de competencia o transición?
   gaps:
     - id: ley-29968-transferencias
-      description: Falta una cronología jurídica consolidada de transferencias y reglas transitorias del sector minería.
+      description: Falta una cronología documental consolidada de transferencias y reglas transitorias del sector minería.
       blocksRelease: true
   checkedAt: 2026-06-20
   status: prepared
@@ -101,7 +101,7 @@
   primaryTextSourceId: congreso-ley-28090
   regulationSourceIds: [minem-ds-033-2005-em]
   amendmentSourceIds: []
-  legalQuestions:
+  scopeQuestions:
     - ¿Qué obligaciones de cierre y garantías son pertinentes para los proyectos y operaciones incluidos en la V1?
     - ¿Cómo debe distinguirse cierre de minas de remediación de pasivos ambientales mineros?
   gaps:

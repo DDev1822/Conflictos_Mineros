@@ -30,11 +30,12 @@ describe("contenido académico", () => {
     }
   });
 
-  it("no presenta normas vigentes sin revisión jurídica", () => {
-    const invalid = loadObservatoryData().instruments.filter(
-      (item) => item.status === "in-force" && item.legalReviewStatus !== "verified",
-    );
-    expect(invalid).toEqual([]);
+  it("presenta normas como información pública con fuente primaria y locador", () => {
+    const data = loadObservatoryData();
+    const primarySourceIds = new Set(data.sources.filter((source) => source.evidenceLevel === "primary").map((source) => source.id));
+    const instrumentLocators = new Set(data.evidenceRecords.filter((record) => record.entityType === "instrument" && record.locator).map((record) => record.entityId));
+    expect(data.instruments.every((item) => item.sourceIds.some((sourceId) => primarySourceIds.has(sourceId)))).toBe(true);
+    expect(data.instruments.every((item) => instrumentLocators.has(item.id))).toBe(true);
   });
 
   it("reconcilia el corte nacional de conflictos sociales", () => {
@@ -75,6 +76,20 @@ describe("contenido académico", () => {
     expect(data.cases.flatMap((item) => item.timeline).every((event) => event.kind)).toBe(true);
     expect(data.sources.every((source) => source.rightsStatus !== "unknown")).toBe(true);
     expect(data.evidenceRecords.every((record) => record.locator && record.relation)).toBe(true);
+  });
+
+  it("expone matrices canónicas para el Sistema de Relaciones", () => {
+    const data = loadObservatoryData();
+    const sourceIds = new Set(data.sources.map((source) => source.id));
+    const cajamarcaDocuments = data.cajamarcaSystemMatrix.entries.flatMap((entry) => entry.primaryDocuments);
+    const mechanismDocuments = data.institutionalMechanisms.entries.flatMap((entry) => entry.primaryDocumentExamples);
+    const canonicalDocuments = [...cajamarcaDocuments, ...mechanismDocuments].filter((document) => document.status === "canonical-source");
+    const researchTargets = [...cajamarcaDocuments, ...mechanismDocuments].filter((document) => document.status === "research-target");
+
+    expect(data.cajamarcaSystemMatrix.entries).toHaveLength(9);
+    expect(data.institutionalMechanisms.entries).toHaveLength(12);
+    expect(canonicalDocuments.every((document) => sourceIds.has(document.sourceId))).toBe(true);
+    expect(researchTargets.length).toBeGreaterThan(0);
   });
 
   it("reconcilia la selección de conflictos socioambientales mineros", () => {

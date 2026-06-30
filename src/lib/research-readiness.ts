@@ -53,7 +53,7 @@ export function evaluateResearchReadiness(data: ObservatoryData) {
     ? [`Evidencia ${record.id}: fuente con derechos desconocidos`]
     : []);
 
-  const legalPacketIssues = data.legalResearchPackets.flatMap((packet) => {
+  const normativePacketIssues = data.legalResearchPackets.flatMap((packet) => {
     const primary = sourceById.get(packet.primaryTextSourceId);
     if (packet.status !== "prepared") return [`Norma ${packet.instrumentId}: paquete documental incompleto`];
     if (primary?.evidenceLevel !== "primary") return [`Norma ${packet.instrumentId}: texto oficial primario no acreditado`];
@@ -83,7 +83,7 @@ export function evaluateResearchReadiness(data: ObservatoryData) {
     ...perspectiveIssues,
     ...contradictionIssues,
     ...rightsIssues,
-    ...legalPacketIssues,
+    ...normativePacketIssues,
     ...contextualOnlyClaims.map((claim) => `Afirmación ${claim.id}: depende solo de fuentes contextuales`),
     ...data.caseResearchPackets.flatMap((packet) => packet.gaps.filter((gap) => gap.blocksRelease).map((gap) => `Vacío ${packet.caseId}/${gap.id}: bloquea publicación`)),
   ];
@@ -97,7 +97,7 @@ export function evaluateResearchReadiness(data: ObservatoryData) {
       directEvidenceRequired: requiredEntities.length,
       casesMeetingMilestoneTarget: data.cases.length - milestoneIssues.length,
       caseResearchReady,
-      legalPacketReady: data.legalResearchPackets.length - legalPacketIssues.length,
+      normativePacketReady: data.legalResearchPackets.length - normativePacketIssues.length,
       perspectiveCoverage: data.caseResearchPackets.length - perspectiveIssues.length,
       unresolvedHiddenConflicts: contradictionIssues.length,
       contextualOnlyClaims: contextualOnlyClaims.length,

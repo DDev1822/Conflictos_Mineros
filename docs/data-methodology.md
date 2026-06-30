@@ -1,10 +1,10 @@
 # Metodología de datos y trazabilidad
 
-> Última revisión documental: 20 de junio de 2026. Signoff metodológico para publicación: pendiente. Esta fecha registra la revisión del texto y sus reglas; no sustituye revisión jurídica especialista ni aprobación de licencias.
+> Última revisión documental: 20 de junio de 2026. Signoff metodológico para publicación: pendiente. Esta fecha registra la revisión del texto y sus reglas; no sustituye la consulta directa de fuentes oficiales ni la aprobación de licencias.
 
 ## Propósito
 
-El observatorio organiza evidencia para estudiar conflictos mineros del Perú. No sustituye una investigación de campo, una pericia técnica ni una opinión jurídica. Su función es hacer explícitas las relaciones entre casos, territorios, actores, normas, controversias, hechos y alternativas de política pública.
+El observatorio organiza evidencia pública para estudiar conflictos mineros del Perú. No sustituye una investigación de campo, una pericia técnica, una decisión administrativa, una sentencia ni asesoría profesional. Su función es hacer explícitas las relaciones entre casos, territorios, actores, normas, controversias, hechos y alternativas de política pública.
 
 La fecha de corte de cada expediente indica hasta cuándo se revisó su contenido. Un expediente puede conservar fuentes anteriores y posteriores a sus hitos, pero no debe presentar como actual una conclusión que no haya sido comprobada a la fecha de corte.
 
@@ -14,7 +14,7 @@ La fecha de corte de cada expediente indica hasta cuándo se revisó su contenid
 - Un `TimelineEvent` registra un hito con la máxima precisión temporal que permite la fuente.
 - Un `Claim` contiene una sola afirmación clasificable como hecho, interpretación o propuesta.
 - Un `Source` describe un documento o conjunto documental identificable.
-- Un `LegalInstrument` registra una norma y su historial documental; su vigencia jurídica requiere revisión especializada fechada.
+- Un `LegalInstrument` registra una norma y su historial documental; el observatorio la presenta como documento público trazable, no como texto oficial consolidado ni dictamen sobre aplicabilidad.
 - Un `Territory` aporta un punto de referencia para navegación. No representa por sí solo el área de influencia, una concesión, una comunidad ni un límite administrativo.
 
 ## Precisión de fechas
@@ -55,7 +55,7 @@ Una cita general no basta para cerrar un hecho. Cada `EvidenceRecord` enlaza una
 
 Los hitos se clasifican como `event`, `decision`, `agreement`, `evidence` o `publication`. Las publicaciones académicas aportan contexto y contraste, pero no cuentan por sí solas para el mínimo sustantivo de una cronología.
 
-Cada paquete de caso registra tres o más perspectivas pertinentes, al menos una fuente directa de un actor involucrado, preguntas jurídicas y vacíos explícitos. `ready` significa que la estructura está lista para revisión y que los vacíos quedaron declarados; no significa que esos vacíos estén cerrados ni que exista verificación jurídica. Los paquetes normativos `prepared` identifican texto oficial, reglamentos, modificatorias y preguntas para especialista; tampoco determinan vigencia consolidada.
+Cada paquete de caso registra tres o más perspectivas pertinentes, al menos una fuente directa de un actor involucrado, preguntas de alcance y vacíos explícitos. `ready` significa que la estructura documental está lista para lectura y que los vacíos quedaron declarados; no significa que esos vacíos estén cerrados ni que exista consenso sobre el caso. Los paquetes normativos `prepared` identifican texto oficial, reglamentos, modificatorias y preguntas de alcance; tampoco determinan vigencia consolidada ni aplicabilidad a casos concretos.
 
 `npm run research:scorecard` calcula cobertura directa, mínimos sustantivos, perspectivas, paquetes normativos, conflictos no registrados y fuentes con derechos desconocidos. El comando falla mientras exista un vacío bloqueante; las mismas reglas se evalúan al final de `release:check`.
 
@@ -107,13 +107,13 @@ El valor de inicio `10/20205` visible en una tabla se normaliza como `2020-10`, 
 
 La ausencia de un elemento en el mapa no implica su inexistencia. Tampoco debe inferirse extensión, proximidad jurídica ni responsabilidad a partir de un punto de referencia.
 
-## Instrumentos jurídicos
+## Instrumentos normativos
 
-Una ficha normativa puede registrar número, autoridad, relaciones, modificaciones y última comprobación documental. Solo puede presentarse simultáneamente como vigente y verificada cuando exista una revisión jurídica especializada, fechada y explícita.
+Una ficha normativa puede registrar número, autoridad, relaciones, modificaciones y última comprobación documental. El observatorio puede mostrar que una norma existe, enlazar su texto primario y señalar su alcance documental; no emite dictámenes sobre vigencia consolidada, jerarquía, interpretación ni aplicabilidad.
 
-El control automático detecta relaciones rotas y datos incompletos, pero no determina vigencia, jerarquía, interpretación ni aplicabilidad jurídica.
+El control automático detecta relaciones rotas y datos incompletos, pero no determina vigencia, jerarquía, interpretación ni aplicabilidad.
 
-Una revisión marcada como `verified` requiere persona, fecha, alcance consignado en notas y referencia al memo de revisión. Los archivos preparatorios del repositorio no sustituyen ese memo ni autorizan cambiar el estado.
+Una revisión marcada como `verified` requiere responsable, fecha, alcance consignado en notas y referencia de evidencia. Los archivos preparatorios del repositorio no convierten por sí solos una norma en conclusión pública cerrada.
 
 ## Controles de calidad
 
@@ -133,7 +133,7 @@ La integración continua ejecuta:
 2. Formular afirmaciones atómicas y vincular la evidencia pertinente.
 3. Registrar precisión temporal, fecha de corte y limitaciones.
 4. Ejecutar validación y auditoría.
-5. Solicitar revisión académica, editorial o jurídica según corresponda.
+5. Solicitar revisión académica, editorial, técnica o comunitaria según corresponda.
 6. Integrar el cambio mediante pull request, conservando la historia de revisión en Git.
 
 Las correcciones deben preservar el registro del cambio. Git conserva metadatos, locadores y síntesis; las copias autorizadas se mantienen en un archivo privado con inventario y checksum. No se publica ni se archiva en Git un documento externo sin derechos claros.

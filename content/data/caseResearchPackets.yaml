@@ -24,9 +24,9 @@
       description: La legitimidad territorial expresada en la consulta y el alcance administrativo del desistimiento son planos distintos que no deben fusionarse.
       sourceIds: [tambogrande-consulta-municipal, tambogrande-retiro-eia-2005]
       status: open
-  legalQuestions:
-    - ¿Cuál fue el efecto jurídico exacto del desistimiento de 2005 sobre el proyecto y sus derechos asociados?
-    - ¿Qué alcance jurídico tuvo la consulta vecinal de 2002 dentro del marco vigente en ese momento?
+  scopeQuestions:
+    - ¿Qué efecto documental y administrativo tuvo el desistimiento de 2005 sobre el proyecto y sus derechos asociados?
+    - ¿Qué alcance documental y administrativo tuvo la consulta vecinal de 2002 dentro del marco vigente en ese momento?
   gaps:
     - id: tambogrande-expediente-completo
       description: Ya existen locadores empresariales primarios para 1999 a 2003; falta el expediente administrativo completo del EIA y del acuerdo de opción.
@@ -36,10 +36,10 @@
   caseId: conga
   depth: standard
   substantiveMilestoneTarget: 5
-  cutoffDate: 2026-06-21
-  currentStatusSummary: El expediente conserva decisiones ambientales y una controversia territorial no cerrada; la ausencia en el reporte mensual actual no prueba resolución.
-  sourceIds: [conga-exploracion-2004, conga-eia-semidetallado-2008, conga-eia-explotacion-2010, defensoria-conflictos-93, conga-dictamen-hidrico-2012, conga-peritaje-2012, conga-its-2013, conga-millones-2016, cooperaccion-conga-2024]
-  directActorSourceIds: [conga-exploracion-2004, cooperaccion-conga-2024]
+  cutoffDate: 2026-06-27
+  currentStatusSummary: El expediente conserva decisiones ambientales y controversia territorial no cerrada; MINEM registra Conga en cartera 2026 con autorizaciones relevantes y ejecución por definir, mientras Newmont lo reporta temporalmente inactivo en cuidado y mantenimiento durante 2025, sin desarrollo previsto en diez años.
+  sourceIds: [conga-exploracion-2004, conga-eia-semidetallado-2008, conga-eia-explotacion-2010, defensoria-conflictos-93, conga-dictamen-hidrico-2012, conga-peritaje-2012, conga-its-2013, conga-millones-2016, cooperaccion-conga-2024, minem-cpim-2026, newmont-annual-report-2025]
+  directActorSourceIds: [conga-exploracion-2004, cooperaccion-conga-2024, newmont-annual-report-2025]
   actorPositions:
     - actor: Autoridad sectorial
       position: El proyecto acumuló decisiones ambientales diferenciadas para exploración y cambios posteriores.
@@ -50,26 +50,30 @@
     - actor: Investigación académica
       position: La literatura interpreta Conga como disputa sobre desarrollo, autoridad y legitimidad, no solo como trámite ambiental.
       sourceIds: [conga-millones-2016]
+    - actor: Newmont / Minera Yanacocha
+      position: La empresa reporta Conga como proyecto temporalmente inactivo en cuidado y mantenimiento durante 2025, parte de la cartera de largo plazo, sin desarrollo previsto en los próximos diez años.
+      sourceIds: [newmont-annual-report-2025]
   contradictions:
     - id: conga-aprobacion-legitimidad
       description: Las decisiones administrativas documentadas coexisten con rechazo territorial persistente y no prueban legitimidad social.
-      sourceIds: [conga-its-2013, cooperaccion-conga-2024]
+      sourceIds: [conga-its-2013, minem-cpim-2026, newmont-annual-report-2025, cooperaccion-conga-2024]
       status: open
-  legalQuestions:
+  scopeQuestions:
     - ¿Cuál es el estado administrativo consolidado de los instrumentos ambientales del proyecto Conga al corte?
-    - ¿Qué efectos jurídicos tuvieron el peritaje y los ITS sobre las obligaciones del EIA aprobado?
+    - ¿Qué efectos documentales y administrativos tuvieron el peritaje y los ITS sobre las obligaciones del EIA aprobado?
+    - ¿Cómo debe leerse la coexistencia entre autorizaciones estatales registradas, suspensión material prolongada y rechazo territorial persistente?
   gaps:
     - id: conga-estado-actual
-      description: Falta una fuente primaria reciente que establezca el estado administrativo y material del proyecto al corte.
-      blocksRelease: true
+      description: Estado administrativo/material integrado con CPIM 2026 y Annual Report 2025 de Newmont; queda pendiente consolidar alcance documental de autorizaciones y obligaciones.
+      blocksRelease: false
   status: ready
 - id: research-tia-maria
   caseId: tia-maria
   depth: standard
   substantiveMilestoneTarget: 5
   cutoffDate: 2026-06-21
-  currentStatusSummary: El proyecto registra nuevas decisiones y apoyo estatal, mientras persiste oposición territorial; el estado jurídico debe consolidarse por especialista.
-  sourceIds: [tia-maria-eia-2014, tia-maria-salud-2015, tia-maria-dialogo-agua-2019, tia-maria-licencia-2019, tia-maria-suspension-2019, tia-maria-reinicio-2024, tia-maria-its-2024, tia-maria-southern-proyecto-2025, cooperaccion-tia-maria-2025, valle-tambo-agua-2018]
+  currentStatusSummary: El proyecto registra antecedentes ambientales, rechazo del primer EIA, aprobación del EIA 2014, ITS posteriores, avance corporativo informado en 2026 y apoyo estatal reciente, mientras persiste oposición territorial y litigios; el estado administrativo y documental debe consolidarse con fuentes directas.
+  sourceIds: [tia-maria-exploracion-modificacion-2008, tia-maria-eia-inadmisible-2011, tia-maria-eia-2014, tia-maria-salud-2015, valle-tambo-agua-2018, tia-maria-primer-its-2018, tia-maria-dialogo-agua-2019, tia-maria-licencia-2019, tia-maria-suspension-2019, tia-maria-reinicio-2024, tia-maria-its-2024, tia-maria-southern-proyecto-2025, tia-maria-southern-10q-2026, cooperaccion-tia-maria-2025]
   directActorSourceIds: [tia-maria-reinicio-2024, tia-maria-southern-proyecto-2025, cooperaccion-tia-maria-2025]
   actorPositions:
     - actor: Poder Ejecutivo
@@ -82,93 +86,102 @@
       position: SENACE comunica conformidad a un segundo ITS dentro del procedimiento ambiental del proyecto.
       sourceIds: [tia-maria-its-2024]
     - actor: Southern Copper Corporation
-      position: La empresa declara que el proyecto usará agua de mar desalinizada y presenta su propia delimitación de áreas de influencia y beneficios.
-      sourceIds: [tia-maria-southern-proyecto-2025]
+      position: La empresa declara que el proyecto usará agua de mar desalinizada, presenta su delimitación de áreas de influencia y reporta avance, inversión comprometida, empleo y operación esperada, mientras reconoce litigios pendientes.
+      sourceIds: [tia-maria-southern-proyecto-2025, tia-maria-southern-10q-2026]
   contradictions:
     - id: tia-maria-reinicio-oposicion
       description: El respaldo estatal al reinicio coexiste con rechazo territorial y no debe presentarse como consenso social.
       sourceIds: [tia-maria-reinicio-2024, cooperaccion-tia-maria-2025]
       status: open
-  legalQuestions:
+  scopeQuestions:
     - ¿Cuál es el estado vigente de la licencia de construcción luego de su suspensión y decisiones posteriores?
     - ¿Qué alcance tiene el segundo ITS respecto del EIA y de las autorizaciones necesarias para construir u operar?
+    - ¿Cómo debe diferenciarse documentalmente la modificación de evaluación ambiental de exploración, el primer EIA rechazado, el EIA de explotación aprobado y los ITS posteriores?
+    - ¿Qué efecto tienen los litigios reportados por la empresa sobre la lectura del avance constructivo y del cronograma corporativo?
   gaps:
     - id: tia-maria-eia
-      description: La resolución de aprobación de 2014 ya está integrada; faltan el primer EIA, la versión completa aprobada y una matriz de modificaciones con locadores.
-      blocksRelease: true
+      description: Matriz documental inicial integrada para antecedente de exploración 2008, primer EIA rechazado 2011, EIA 2014 y primer/segundo ITS; queda pendiente consolidar alcance de cada instrumento.
+      blocksRelease: false
     - id: tia-maria-empresa
-      description: La ficha corporativa fechada ya está integrada; falta un cronograma de ejecución vigente y un registro empresarial verificable de compromisos.
-      blocksRelease: true
+      description: Cronograma, avance e inversión corporativa integrados desde Form 10-Q Q1 2026; se conserva como posición empresarial y queda pendiente contraste documental de litigios y cumplimiento.
+      blocksRelease: false
   status: ready
 - id: research-las-bambas
   caseId: las-bambas
   depth: deep
   substantiveMilestoneTarget: 8
   cutoffDate: 2026-06-21
-  currentStatusSummary: El conflicto permanece activo y fragmentado en varios ámbitos del corredor; acuerdos coyunturales y modificaciones ambientales no equivalen a cierre.
-  sourceIds: [las-bambas-exploracion-2005, las-bambas-meia-2014, defensoria-las-bambas-140, las-bambas-meia-2018, huancuire-convenio-oefa-2019, las-bambas-acuerdo-velille-2021, las-bambas-acuerdos-2022, las-bambas-transito-2024, las-bambas-mmg-operacion-2024, cooperaccion-las-bambas-2024, las-bambas-land-2026, defensoria-conflictos-266]
-  directActorSourceIds: [huancuire-convenio-oefa-2019, las-bambas-acuerdo-velille-2021, las-bambas-mmg-operacion-2024, cooperaccion-las-bambas-2024]
+  currentStatusSummary: El conflicto permanece activo y fragmentado en varios ámbitos del corredor; actas, fuentes estatales y reportes corporativos documentan compromisos, logística, Chalcobamba y mecanismos empresariales, pero no equivalen a cierre ni acreditan cumplimiento integral.
+  sourceIds: [las-bambas-exploracion-2005, las-bambas-meia-2014, defensoria-las-bambas-140, las-bambas-meia-2018, huancuire-convenio-oefa-2019, las-bambas-acuerdo-velille-2021, las-bambas-acuerdos-2022, las-bambas-acta-compromisos-2022, pcm-rm-182-2022-las-bambas, minam-instalacion-comite-las-bambas-2022, defensoria-subgrupos-las-bambas-2022, minem-ruta-dialogo-cotabambas-2022, minem-83-acuerdos-cotabambas-2022, las-bambas-transito-2024, las-bambas-mmg-operacion-2024, mmg-las-bambas-operacion-2025, mmg-annual-report-2025-las-bambas, mmg-q2-production-report-2025-las-bambas, las-bambas-corhuan-2025, las-bambas-willana-wasi-reclamos, huancuire-comunicado-chalcobamba-2024, cooperaccion-las-bambas-2024, las-bambas-land-2026, defensoria-conflictos-266]
+  directActorSourceIds: [huancuire-convenio-oefa-2019, las-bambas-acuerdo-velille-2021, las-bambas-acta-compromisos-2022, defensoria-subgrupos-las-bambas-2022, las-bambas-mmg-operacion-2024, mmg-las-bambas-operacion-2025, mmg-annual-report-2025-las-bambas, mmg-q2-production-report-2025-las-bambas, las-bambas-corhuan-2025, las-bambas-willana-wasi-reclamos, huancuire-comunicado-chalcobamba-2024, cooperaccion-las-bambas-2024]
   actorPositions:
     - actor: Autoridades ambientales
       position: Las modificaciones ambientales fueron tramitadas mediante decisiones administrativas diferenciadas.
       sourceIds: [las-bambas-meia-2014, las-bambas-meia-2018]
     - actor: Comunidades y representantes del corredor
-      position: Las demandas incluyen transporte, beneficios, territorio y cumplimiento de compromisos con variaciones entre comunidades.
-      sourceIds: [huancuire-convenio-oefa-2019, las-bambas-acuerdo-velille-2021, las-bambas-acuerdos-2022, cooperaccion-las-bambas-2024]
+      position: Las demandas incluyen transporte, beneficios, territorio, Chalcobamba y cumplimiento de compromisos con variaciones entre comunidades y momentos del proceso.
+      sourceIds: [huancuire-convenio-oefa-2019, las-bambas-acuerdo-velille-2021, las-bambas-acuerdos-2022, las-bambas-acta-compromisos-2022, defensoria-subgrupos-las-bambas-2022, minem-83-acuerdos-cotabambas-2022, huancuire-comunicado-chalcobamba-2024, cooperaccion-las-bambas-2024]
     - actor: Estado mediador
-      position: El Ejecutivo registra acuerdos para restablecer tránsito y sostener mesas de diálogo en episodios concretos.
-      sourceIds: [las-bambas-transito-2024, defensoria-conflictos-266]
+      position: El Ejecutivo y la Defensoría registran acuerdos, comités y subgrupos para seguimiento, pero la evidencia pública no prueba cumplimiento integral por obligación.
+      sourceIds: [pcm-rm-182-2022-las-bambas, minam-instalacion-comite-las-bambas-2022, defensoria-subgrupos-las-bambas-2022, minem-ruta-dialogo-cotabambas-2022, minem-83-acuerdos-cotabambas-2022, las-bambas-transito-2024, defensoria-conflictos-266]
     - actor: MMG
-      position: La empresa reporta su modelo de relacionamiento comunitario, resultados 2024 y acciones ambientales vinculadas con Chalcobamba.
-      sourceIds: [las-bambas-mmg-operacion-2024]
+      position: La empresa reporta producción, operación en Ferrobamba y Chalcobamba, transporte bimodal, capacidad logística, participación de empresas comunales, modelo social, canal de reclamos y medidas ambientales; estos reportes son posición empresarial y no verificación externa de cumplimiento.
+      sourceIds: [las-bambas-acta-compromisos-2022, minem-83-acuerdos-cotabambas-2022, las-bambas-mmg-operacion-2024, mmg-las-bambas-operacion-2025, mmg-annual-report-2025-las-bambas, mmg-q2-production-report-2025-las-bambas, las-bambas-corhuan-2025, las-bambas-willana-wasi-reclamos]
   contradictions:
     - id: las-bambas-acuerdos-cumplimiento
-      description: Los anuncios estatales de acuerdos coexisten con nuevos episodios de protesta y posiciones comunitarias que cuestionan conformidad.
-      sourceIds: [las-bambas-acuerdos-2022, cooperaccion-las-bambas-2024, defensoria-conflictos-266]
+      description: Las actas, comités, acuerdos estatales y reportes empresariales coexisten con nuevos episodios de protesta y posiciones comunitarias que cuestionan conformidad; falta una matriz pública que permita verificar cumplimiento por obligación.
+      sourceIds: [las-bambas-acta-compromisos-2022, pcm-rm-182-2022-las-bambas, defensoria-subgrupos-las-bambas-2022, minem-83-acuerdos-cotabambas-2022, mmg-annual-report-2025-las-bambas, mmg-q2-production-report-2025-las-bambas, las-bambas-corhuan-2025, huancuire-comunicado-chalcobamba-2024, cooperaccion-las-bambas-2024, defensoria-conflictos-266]
       status: open
-  legalQuestions:
+  scopeQuestions:
     - ¿Qué obligaciones y mecanismos de participación corresponden a cada modificación ambiental documentada?
-    - ¿Qué acuerdos tienen fuerza jurídica exigible, responsables definidos y evidencia de cumplimiento al corte?
+    - ¿Qué acuerdos tienen responsables definidos, plazos y evidencia de cumplimiento al corte?
+    - ¿Qué valor probatorio debe darse a las actas escaneadas y a los anuncios oficiales cuando no existe una matriz pública de cumplimiento por obligación?
+    - ¿Cómo debe contrastarse la matriz empresarial de producción, logística, Chalcobamba y gestión social con evidencia independiente de cumplimiento?
   gaps:
     - id: las-bambas-actas
-      description: Faltan actas completas y matrices de cumplimiento de acuerdos para los ámbitos territoriales priorizados.
+      description: Acta del 9 de junio de 2022, instalación del comité, subgrupos y registro estatal de 83 acuerdos integrados; el paquete ya no depende solo de notas generales para esos hitos.
+      blocksRelease: false
+    - id: las-bambas-matriz-cumplimiento
+      description: Falta una matriz pública verificable de cumplimiento por acuerdo, responsable, plazo, evidencia y estado para los compromisos de Cotabambas y corredor.
       blocksRelease: true
     - id: las-bambas-empresa
-      description: La posición corporativa 2024 ya está integrada; falta una matriz empresarial vigente y verificable sobre corredor, Chalcobamba y cumplimiento de compromisos.
-      blocksRelease: true
+      description: Matriz empresarial vigente integrada desde MMG/Las Bambas/Willana Wasi para producción, corredor, Chalcobamba, empresas comunales, modelo social y reclamos; se conserva como posición corporativa y no como verificación externa de cumplimiento.
+      blocksRelease: false
   status: ready
 - id: research-espinar
   caseId: espinar
   depth: deep
   substantiveMilestoneTarget: 8
-  cutoffDate: 2026-06-21
-  currentStatusSummary: Espinar mantiene mesas, evaluaciones y acciones judiciales activas; la evidencia ambiental no se convierte en atribución causal sin dictamen competente.
-  sourceIds: [espinar-mesa-oefa-2012, espinar-monitoreo-2012, espinar-estudio-agua-2015, espinar-acuerdos-2019, espinar-acuerdos-2020, espinar-plan-2022, espinar-acuerdos-2025, cooperaccion-espinar-2025, espinar-sociospatial-2025, defensoria-conflictos-266]
-  directActorSourceIds: [cooperaccion-espinar-2025, espinar-acuerdos-2025]
+  cutoffDate: 2026-06-27
+  currentStatusSummary: Espinar mantiene mesas, evaluaciones técnicas y acciones judiciales activas; el MSAP 2013 y los informes OEFA 2023 ya documentan resultados ambientales y sanitarios con locadores, y CEJ verifica existencia, juzgado y partes del expediente 00042-2025-0-1009-JR-CI-01, aunque faltan piezas judiciales para pretensiones, resoluciones, actas y estado procesal completo.
+  sourceIds: [espinar-mesa-oefa-2012, espinar-monitoreo-2012, espinar-msap-final-2013, espinar-estudio-agua-2015, espinar-oefa-causalidad-aire-2023, espinar-oefa-causalidad-agua-2023, espinar-oefa-causalidad-suelo-2023, espinar-oefa-causalidad-animales-2023, espinar-oefa-precisiones-agua-2023, espinar-acuerdos-2019, espinar-acuerdos-2020, espinar-plan-2022, espinar-acuerdos-2025, pametec-demanda-amparo-2025, cooperaccion-espinar-2025, ocm-espinar-amparo-reprogramacion-2026, cooperaccion-espinar-amparo-audiencia-2026, cej-espinar-amparo-2026, espinar-sociospatial-2025, defensoria-conflictos-266]
+  directActorSourceIds: [pametec-demanda-amparo-2025, cooperaccion-espinar-2025, espinar-acuerdos-2025]
   actorPositions:
     - actor: Comunidades demandantes
-      position: Comunidades reclaman protección de derechos y respuesta estatal mediante una acción de amparo atribuida.
-      sourceIds: [cooperaccion-espinar-2025]
+      position: Comunidades reclaman protección de derechos y respuesta estatal mediante una acción de amparo atribuida; CEJ verifica existencia, juzgado y partes del expediente, mientras fuentes de seguimiento reportan admisión, reprogramaciones y una primera audiencia sin sustituir actas o resoluciones.
+      sourceIds: [pametec-demanda-amparo-2025, cooperaccion-espinar-2025, ocm-espinar-amparo-reprogramacion-2026, cooperaccion-espinar-amparo-audiencia-2026, cej-espinar-amparo-2026]
     - actor: Autoridades ambientales y sanitarias
-      position: El Estado ha desplegado monitoreos, estudios y planes que deben leerse sin anticipar conclusiones causales.
-      sourceIds: [espinar-monitoreo-2012, espinar-estudio-agua-2015, espinar-plan-2022]
+      position: El Estado ha desplegado monitoreos, informes finales, evaluaciones de causalidad y planes que deben leerse con sus límites técnicos y sin anticipar determinaciones integrales de responsabilidad.
+      sourceIds: [espinar-monitoreo-2012, espinar-msap-final-2013, espinar-oefa-causalidad-agua-2023, espinar-oefa-causalidad-suelo-2023, espinar-oefa-causalidad-animales-2023, espinar-oefa-causalidad-aire-2023, espinar-plan-2022]
     - actor: Ejecutivo y comunidades en diálogo
       position: Las mesas han producido acuerdos sucesivos cuyo cumplimiento integral requiere trazabilidad separada.
       sourceIds: [espinar-acuerdos-2019, espinar-acuerdos-2025]
   contradictions:
     - id: espinar-evidencia-causalidad
-      description: La existencia de monitoreos y planes estatales no resuelve por sí sola el desacuerdo sobre origen, causalidad y responsabilidad.
-      sourceIds: [espinar-estudio-agua-2015, cooperaccion-espinar-2025]
+      description: El MSAP 2013 y las evaluaciones OEFA 2023 documentan resultados, excedencias, fuentes posibles y límites técnicos; esos documentos coexisten con reclamos comunitarios y no resuelven por sí solos responsabilidades, reparación o cumplimiento.
+      sourceIds: [espinar-msap-final-2013, espinar-oefa-causalidad-agua-2023, espinar-oefa-causalidad-suelo-2023, espinar-oefa-causalidad-animales-2023, pametec-demanda-amparo-2025, cooperaccion-espinar-2025]
       status: open
-  legalQuestions:
+  scopeQuestions:
     - ¿Qué hallazgos ambientales cuentan con resolución firme y cuáles permanecen como evaluación o controversia técnica?
+    - ¿Qué conclusiones de los informes OEFA 2023 pueden citarse como hallazgos técnicos y cuáles requieren cautela probatoria o contraste administrativo adicional?
+    - ¿Qué piezas judiciales primarias verifican pretensiones, admisión, resoluciones, actas y estado procesal al corte del expediente 00042-2025-0-1009-JR-CI-01?
     - ¿Qué obligaciones derivan del convenio marco y de los acuerdos registrados, y cuál es su evidencia de cumplimiento?
   gaps:
     - id: espinar-resultados
-      description: Faltan informes finales completos de monitoreo, salud y causalidad con locadores exactos y metodología comparable.
-      blocksRelease: true
+      description: Informe final MSAP 2013 e informes OEFA 2023 de causalidad integrados con locadores exactos; queda pendiente lectura de alcance probatorio, no adquisición documental básica.
+      blocksRelease: false
     - id: espinar-amparo
-      description: Falta el expediente judicial primario de la demanda de amparo para verificar pretensiones y estado procesal.
+      description: CEJ verifica existencia, juzgado y partes del expediente 00042-2025-0-1009-JR-CI-01; faltan escrito de demanda, auto admisorio o resolución equivalente, acta de audiencia y constancia procesal para verificar pretensiones, admisión, resoluciones y estado procesal completo.
       blocksRelease: true
   status: ready
 - id: research-madre-de-dios
@@ -176,32 +189,37 @@
   depth: deep
   substantiveMilestoneTarget: 8
   cutoffDate: 2026-06-21
-  currentStatusSummary: La formalización sigue abierta y convive con minería informal e ilegal diferenciadas; REINFO no acredita formalización concluida.
-  sourceIds: [dl-1105-formalizacion, minem-reinfo, madre-dios-formalizacion-2018, madre-dios-formalizados-2020, fenamad-mercurio-2022, maap-196-madre-dios, cooperaccion-madre-dios-2024, madre-dios-mesa-2025, madre-dios-cierre-formalizacion-2025, madre-dios-indigenous-2025]
-  directActorSourceIds: [fenamad-mercurio-2022, madre-dios-mesa-2025]
+  currentStatusSummary: La formalización sigue abierta y convive con minería informal e ilegal diferenciadas; el corte REINFO archivado registra 2,556 inscripciones vigentes en Madre de Dios al 18 de junio de 2026, y existen controles oficiales de trazabilidad/comercialización y fiscalización, sin acreditar una cadena de custodia completa del oro regional.
+  sourceIds: [dl-1105-formalizacion, minem-reinfo, minem-reinfo-vigente-corte-2026-06-18, minem-rd-0004-2025-reinfo-exclusiones, minem-comunicado-reinfo-2025, madre-dios-formalizacion-2018, madre-dios-formalizados-2020, fenamad-mercurio-2022, madre-dios-trazabilidad-minem-2023, minem-recpo-oro-2026, sunat-oro-sin-origen-2025, mpfn-oro-reinfo-recpo-2026, sernanp-operativo-tambopata-2025, pcm-operativos-mineria-ilegal-2025, pcm-estrategia-mineria-ilegal-2025, maap-196-madre-dios, cooperaccion-madre-dios-2024, madre-dios-mesa-2025, madre-dios-cierre-formalizacion-2025, madre-dios-indigenous-2025]
+  directActorSourceIds: [fenamad-mercurio-2022, madre-dios-trazabilidad-minem-2023, sunat-oro-sin-origen-2025, mpfn-oro-reinfo-recpo-2026, sernanp-operativo-tambopata-2025, pcm-operativos-mineria-ilegal-2025, madre-dios-mesa-2025]
   actorPositions:
     - actor: FENAMAD y pueblos indígenas
       position: La federación exige visibilizar riesgos del mercurio y afectaciones a pueblos indígenas de la región.
       sourceIds: [fenamad-mercurio-2022]
     - actor: Pequeños mineros y Estado
-      position: Representantes mineros y MINEM acuerdan coordinar acciones para culminar procesos de formalización.
-      sourceIds: [madre-dios-mesa-2025, madre-dios-cierre-formalizacion-2025]
+      position: Representantes mineros y MINEM acuerdan coordinar acciones para culminar procesos de formalización; el Estado registra un corte vigente de REINFO y una depuración nacional de inscripciones suspendidas.
+      sourceIds: [minem-reinfo-vigente-corte-2026-06-18, minem-rd-0004-2025-reinfo-exclusiones, minem-comunicado-reinfo-2025, madre-dios-mesa-2025, madre-dios-cierre-formalizacion-2025]
+    - actor: Estado fiscalizador y de control comercial
+      position: MINEM, SUNAT, Ministerio Público, SERNANP y PCM registran herramientas, registros y operativos sobre comercialización, procedencia del oro y minería ilegal; esos controles no prueban trazabilidad total ni resultado judicial final.
+      sourceIds: [madre-dios-trazabilidad-minem-2023, minem-recpo-oro-2026, sunat-oro-sin-origen-2025, mpfn-oro-reinfo-recpo-2026, sernanp-operativo-tambopata-2025, pcm-operativos-mineria-ilegal-2025, pcm-estrategia-mineria-ilegal-2025]
     - actor: Sociedad civil
       position: Organizaciones civiles documentan costos socioambientales y reclaman respuestas frente a minería ilegal.
       sourceIds: [maap-196-madre-dios, cooperaccion-madre-dios-2024]
   contradictions:
     - id: madre-dios-registro-formalizacion
-      description: El avance registral y casos puntuales de formalización coexisten con reclamos por actividades ilegales y afectaciones territoriales.
-      sourceIds: [madre-dios-formalizados-2020, fenamad-mercurio-2022, cooperaccion-madre-dios-2024]
+      description: El corte registral vigente, la depuración nacional de inscripciones, controles de origen del oro y casos puntuales de formalización coexisten con reclamos por actividades ilegales y afectaciones territoriales.
+      sourceIds: [minem-reinfo-vigente-corte-2026-06-18, minem-rd-0004-2025-reinfo-exclusiones, minem-comunicado-reinfo-2025, sunat-oro-sin-origen-2025, mpfn-oro-reinfo-recpo-2026, sernanp-operativo-tambopata-2025, madre-dios-formalizados-2020, fenamad-mercurio-2022, cooperaccion-madre-dios-2024]
       status: open
-  legalQuestions:
-    - ¿Cuál es el efecto jurídico vigente de REINFO y qué supuestos determinan exclusión, suspensión o culminación?
-    - ¿Cómo deben diferenciarse jurídicamente minería informal, ilegal y actividad en proceso de formalización en la interfaz?
+  scopeQuestions:
+    - ¿Qué efecto administrativo documentado tiene REINFO y qué supuestos determinan exclusión, suspensión o culminación?
+    - ¿Cómo deben diferenciarse documentalmente minería informal, ilegal y actividad en proceso de formalización en la interfaz?
+    - ¿Cómo debe tratarse un corte agregado regional cuando la consulta oficial no publica historial individual ni conteo regional de exclusiones?
+    - ¿Qué valor probatorio tienen RECPO, controles SUNAT, acciones del Ministerio Público y operativos ambientales para acreditar o descartar origen legal del oro?
   gaps:
     - id: madre-dios-reinfo-corte
-      description: Falta un corte archivado y reproducible de registros de Madre de Dios con historial de cambios y exclusiones.
-      blocksRelease: true
+      description: "Corte agregado archivado al 18 de junio de 2026 integrado: 2,556 inscripciones vigentes en Madre de Dios, con contexto oficial de depuración nacional; no incluye datos personales ni historial individual."
+      blocksRelease: false
     - id: madre-dios-trazabilidad
-      description: Faltan fuentes primarias sobre trazabilidad comercial del oro y fiscalización con resultados al corte.
-      blocksRelease: true
+      description: "Fuentes primarias integradas sobre trazabilidad/comercialización y fiscalización: herramienta MINEM, RECPO, control SUNAT de oro sin origen acreditado, caso MPFN sobre REINFO/RECPO, operativo SERNANP en Tambopata y balances PCM; queda pendiente lectura documental sobre valor probatorio y alcance."
+      blocksRelease: false
   status: ready

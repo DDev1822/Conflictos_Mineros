@@ -3,7 +3,7 @@ import path from "node:path";
 import { loadObservatoryData } from "../src/lib/content";
 
 const data = loadObservatoryData();
-const routes = new Set(["/", "/explorar", "/mapa", "/cronologia", "/conflictos", "/normativa", "/reinfo", "/metodologia", ...data.cases.map((item) => `/conflictos/${item.slug}`)]);
+const routes = new Set(["/", "/explorar", "/mapa", "/cronologia", "/conflictos", "/normativa", "/oro-ilegal", "/reinfo", "/metodologia", ...data.cases.map((item) => `/conflictos/${item.slug}`)]);
 const root = path.join(process.cwd(), "src");
 
 function walk(directory: string): string[] {

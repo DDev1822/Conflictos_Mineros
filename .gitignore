@@ -9,3 +9,11 @@ tmp/
 *.tsbuildinfo
 *.log
 .DS_Store
+
+# Multimedia fuente de investigación: conservar local, no versionar
+/docs/research/multimedia/incoming/*
+!/docs/research/multimedia/incoming/.gitkeep
+
+# Multimedia fuente de investigación: conservar local, no versionar
+/docs/research/multimedia/incoming/*
+!/docs/research/multimedia/incoming/.gitkeep

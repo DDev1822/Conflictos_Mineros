@@ -6,7 +6,7 @@ Base académica navegable para conectar conflictos, territorios, actores, hechos
 
 ## Publicación
 
-El despliegue automático desde `main` y `codex/observatorio-v1` está desactivado. GitHub Pages solo puede ejecutarse manualmente, después de superar los gates técnicos, editoriales, jurídicos y de accesibilidad y de recibir la aprobación del entorno `github-pages` por `DDev1822`.
+El despliegue automático desde `main` y `codex/observatorio-v1` está desactivado. GitHub Pages solo puede ejecutarse manualmente, después de superar los gates técnicos, documentales, editoriales y de accesibilidad y de recibir la aprobación del entorno `github-pages` por `DDev1822`.
 
 La URL histórica de Pages no se considera una versión autorizada de la V1 mientras el manifiesto permanezca en `private-review`.
 
@@ -45,23 +45,23 @@ Gate de publicación:
 npm.cmd run release:check
 ```
 
-Este gate falla intencionalmente mientras exista un P0/P1 abierto, una advertencia editorial, una revisión jurídica o un signoff pendiente.
+Este gate falla intencionalmente mientras exista un P0/P1 abierto, una advertencia editorial, un vacío documental bloqueante o un signoff pendiente.
 
 ## Estructura
 
 - `content/data`: colecciones YAML validadas.
 - `content/data/evidenceRecords.yaml`: locadores exactos y relaciones `supports | qualifies | contradicts`.
-- `content/data/caseResearchPackets.yaml`: cobertura, posiciones, contradicciones, preguntas jurídicas y vacíos de los seis casos.
-- `content/data/legalResearchPackets.yaml`: ocho paquetes documentales para revisión especialista.
+- `content/data/caseResearchPackets.yaml`: cobertura, posiciones, contradicciones, preguntas de alcance y vacíos de los seis casos.
+- `content/data/legalResearchPackets.yaml`: ocho paquetes normativos documentales.
 - `content/data/socialConflictSnapshots.yaml`: cortes territoriales trazables para la capa de calor.
 - `content/data/miningConflictSelections.yaml`: selección minera reconciliada con los totales publicados por la Defensoría del Pueblo.
 - `content/narratives`: narrativas MDX de los expedientes.
 - `src/lib/schemas.ts`: contrato público de datos.
-- `docs/data-methodology.md`: criterios de evidencia, precisión, mapa y revisión jurídica.
+- `docs/data-methodology.md`: criterios de evidencia, precisión, mapa y alcance documental.
 - `docs/design`: referencia visual y QA.
 - `docs/release/v1-manifest.yaml`: signoffs fechados y evidencia de la V1.
 - `docs/release/v1-risks.yaml`: riesgos P0/P1 que bloquean publicación.
-- `docs/research`: seis memos de caso y ocho fichas normativas de entrega.
+- `docs/research`: memos de caso, fichas normativas y paquetes de investigación documental.
 
 La [metodología de datos](docs/data-methodology.md) explica qué significa verificar una fuente o una afirmación, cómo se expresan las fechas imprecisas y cuáles son los límites del mapa.
 

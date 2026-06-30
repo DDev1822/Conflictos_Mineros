@@ -6,7 +6,7 @@
   status: vigente
   totalRegistered: 24669
   coordinateMethod: Punto de referencia en la capital o centro urbano principal de cada departamento; no corresponde a la ubicación declarada de cada actividad.
-  notes: Conteos agregados mediante la consulta oficial dinámica del REINFO. No se reproducen datos personales. Una inscripción vigente identifica permanencia en el registro y no equivale a formalidad minera concluida.
+  notes: Conteos agregados mediante la consulta oficial dinámica del REINFO. No se reproducen datos personales. Una inscripción vigente identifica permanencia en el registro y no equivale a formalidad minera concluida. El corte no reemplaza el historial individual de exclusiones.
   regions:
     - { id: amazonas, name: Amazonas, coordinates: [-6.2317, -77.869], count: 72 }
     - { id: ancash, name: Áncash, coordinates: [-9.5278, -77.5278], count: 951 }

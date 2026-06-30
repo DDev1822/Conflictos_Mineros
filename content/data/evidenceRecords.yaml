@@ -52,6 +52,24 @@
   summary: La resolución documenta una decisión sobre cambios menores del proyecto Conga.
   checkedAt: 2026-06-20
   reviewStatus: reviewed
+- id: ev-conga-estado-minem-2026
+  sourceId: minem-cpim-2026
+  entityType: timeline
+  entityId: conga-estado-2026
+  locator: "CPIM 2026, página PDF 64, ficha CONGA; tabla de proyectos página PDF 9"
+  relation: supports
+  summary: MINEM registra Conga en etapa de factibilidad, con inicio de ejecución y puesta en marcha operativa por definir, 2da MEIA-d aprobada, autorización de explotación y concesión de beneficio autorizada.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-conga-estado-newmont-2025
+  sourceId: newmont-annual-report-2025
+  entityType: timeline
+  entityId: conga-estado-2026
+  locator: Annual Report 2025, páginas PDF 126 y 143, secciones Carrying Value of Idled Development Projects in Peru y Note 7
+  relation: qualifies
+  summary: Newmont reporta que Conga estuvo temporalmente inactivo en cuidado y mantenimiento durante 2025, sin desarrollo previsto en los próximos diez años, aunque permanece en su cartera de largo plazo.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
 - id: ev-tia-protesta
   sourceId: tia-maria-salud-2015
   entityType: timeline
@@ -142,6 +160,60 @@
   summary: La fuente registra acuerdos comerciales con comunidades de Chumbivilcas e intermediación estatal.
   checkedAt: 2026-06-20
   reviewStatus: reviewed
+- id: ev-bambas-acta-compromisos-2022
+  sourceId: las-bambas-acta-compromisos-2022
+  entityType: timeline
+  entityId: las-bambas-acta-compromisos-cotabambas
+  locator: Portada del acta y sección "Acuerdos", numerales 1 a 6
+  relation: supports
+  summary: El acta escaneada registra la reunión del 9 de junio de 2022, identifica a las seis comunidades y consigna compromisos sobre tregua, seguimiento, estado de emergencia y Chalcobamba.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-bambas-rm-182-comite
+  sourceId: pcm-rm-182-2022-las-bambas
+  entityType: timeline
+  entityId: las-bambas-comite-seguimiento
+  locator: Resolución Ministerial 182-2022-PCM, artículos 1 a 3
+  relation: supports
+  summary: La resolución crea un comité temporal para acompañar y evaluar el cumplimiento de acuerdos vinculados con Las Bambas.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-bambas-instalacion-comite-2022
+  sourceId: minam-instalacion-comite-las-bambas-2022
+  entityType: timeline
+  entityId: las-bambas-comite-seguimiento
+  locator: Título y párrafos sobre instalación del grupo de trabajo
+  relation: supports
+  summary: La nota oficial informa la instalación del comité de seguimiento, las reuniones por comunidad y el rol del MINEM como secretaría técnica.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-bambas-subgrupos-defensoria-2022
+  sourceId: defensoria-subgrupos-las-bambas-2022
+  entityType: timeline
+  entityId: las-bambas-subgrupos-actas
+  locator: Título y párrafos sobre seis subgrupos, agendas y actas suscritas
+  relation: supports
+  summary: La Defensoría registra reuniones de subgrupos por comunidad, verificación de cumplimiento, agendas consensuadas y actas suscritas.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-bambas-ruta-dialogo-minem-2022
+  sourceId: minem-ruta-dialogo-cotabambas-2022
+  entityType: timeline
+  entityId: las-bambas-subgrupos-actas
+  locator: Título y párrafos sobre publicación de actas y contenidos informativos
+  relation: supports
+  summary: El MINEM informa la publicación de actas y materiales del proceso de diálogo con comunidades de Cotabambas.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-bambas-83-acuerdos-2022
+  sourceId: minem-83-acuerdos-cotabambas-2022
+  entityType: timeline
+  entityId: las-bambas-acuerdos-cotabambas-83
+  locator: Título y párrafos sobre acuerdos por subgrupo comunitario
+  relation: supports
+  summary: El MINEM registra 83 acuerdos alcanzados por el grupo de trabajo con comunidades de Cotabambas, diferenciados por subgrupos.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
 - id: ev-bambas-huancuire
   sourceId: cooperaccion-las-bambas-2024
   entityType: timeline
@@ -150,6 +222,15 @@
   relation: qualifies
   summary: La fuente atribuida cuestiona que exista conformidad comunitaria para el tajo Chalcobamba.
   checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-bambas-huancuire-comunicado
+  sourceId: huancuire-comunicado-chalcobamba-2024
+  entityType: timeline
+  entityId: las-bambas-huancuire
+  locator: Comunicado 001-2024, puntos 1 a 7 y fecha/firma al pie
+  relation: supports
+  summary: El comunicado comunitario fechado en Cotabambas el 10 de febrero de 2024 sostiene que Huancuire no dio conformidad total para el inicio de operaciones en Chalcobamba y rechaza trabajos sin resolver controversias.
+  checkedAt: 2026-06-27
   reviewStatus: reviewed
 - id: ev-bambas-transito
   sourceId: las-bambas-transito-2024
@@ -160,6 +241,51 @@
   summary: La PCM comunica el restablecimiento del tránsito tras acuerdos de un episodio concreto.
   checkedAt: 2026-06-20
   reviewStatus: reviewed
+- id: ev-bambas-corhuan-transporte-2025
+  sourceId: las-bambas-corhuan-2025
+  entityType: timeline
+  entityId: las-bambas-corhuan-transporte-2025
+  locator: Título y párrafos sobre inicio de operaciones, 30 camiones, diálogo y acuerdos
+  relation: supports
+  summary: La empresa informa que Corhuan de Huancuire inició transporte de concentrado el 1 de marzo de 2025 y atribuye el hito a diálogo y acuerdos con Las Bambas.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-bambas-logistica-corredor-2025
+  sourceId: mmg-q2-production-report-2025-las-bambas
+  entityType: timeline
+  entityId: las-bambas-logistica-corredor-2025
+  locator: Página PDF 6, sección "Community and Transport Logistics Update"; página PDF 3, Key Points
+  relation: qualifies
+  summary: MMG reporta bloqueos intermitentes en el Corredor Vial Sur, reanudación del transporte, inventario en sitio y capacidad permitida de 170 camiones diarios.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-bambas-mmg-operacion-social-2025
+  sourceId: mmg-las-bambas-operacion-2025
+  entityType: case-status
+  entityId: las-bambas
+  locator: Secciones "Community engagement", "Sustainability", transporte bimodal y Chalcobamba
+  relation: qualifies
+  summary: La página corporativa registra el modelo social, oficinas de información, planes comunitarios, proyectos, inversión social, negocios locales, transporte bimodal y medidas ambientales asociadas a Chalcobamba.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-bambas-mmg-annual-2025
+  sourceId: mmg-annual-report-2025-las-bambas
+  entityType: case-status
+  entityId: las-bambas
+  locator: Página PDF 31, producción anual; página PDF 54, contratos Chalcobamba; página PDF 66, riesgos de país y comunidad
+  relation: qualifies
+  summary: MMG reporta producción anual récord, operación estable en Ferrobamba y Chalcobamba, contratos de Chalcobamba con participación local y riesgo por disrupciones comunitarias.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-bambas-willana-wasi-reclamos
+  sourceId: las-bambas-willana-wasi-reclamos
+  entityType: case-status
+  entityId: las-bambas
+  locator: Página "Consultas y Reclamos", párrafos iniciales y listado de canales de atención
+  relation: supports
+  summary: Las Bambas declara un sistema de consultas y reclamos para asuntos relacionados con operaciones, conducta del personal, derechos humanos y contratistas.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
 - id: ev-espinar-monitoreo
   sourceId: espinar-monitoreo-2012
   entityType: timeline
@@ -168,6 +294,15 @@
   relation: supports
   summary: La fuente documenta el despliegue de un monitoreo ambiental con participación de especialistas.
   checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-espinar-msap-final
+  sourceId: espinar-msap-final-2013
+  entityType: timeline
+  entityId: espinar-msap-final
+  locator: Páginas PDF 5-6, alcance del MSAP; páginas PDF 24-25, puntos y determinaciones; páginas PDF 92-95, límites sanitarios y animales; páginas PDF 109-111, conclusiones generales
+  relation: supports
+  summary: El informe final integrado documenta alcance, metodología, resultados ambientales y sanitarios, exposición reciente en personas, limitaciones y necesidad de estudios complementarios para relación causa-efecto.
+  checkedAt: 2026-06-27
   reviewStatus: reviewed
 - id: ev-espinar-estudio-agua
   sourceId: espinar-estudio-agua-2015
@@ -196,6 +331,51 @@
   summary: El MINAM documenta la aprobación de un plan de trabajo interinstitucional y social.
   checkedAt: 2026-06-20
   reviewStatus: reviewed
+- id: ev-espinar-oefa-causalidad-aire
+  sourceId: espinar-oefa-causalidad-aire-2023
+  entityType: timeline
+  entityId: espinar-evaluacion-causalidad-2023
+  locator: Página PDF 1, asunto y fecha; páginas PDF 8-9, conclusiones sobre PM10, zonas de afectación y recomendación administrativa
+  relation: supports
+  summary: OEFA aprueba una evaluación complementaria de calidad de aire de 2022 e identifica excedencias y zonas de afectación por material particulado para remisión a supervisión ambiental.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-espinar-oefa-causalidad-agua
+  sourceId: espinar-oefa-causalidad-agua-2023
+  entityType: timeline
+  entityId: espinar-evaluacion-causalidad-2023
+  locator: Página PDF 1, objeto y aprobación; páginas PDF 17-25, conclusiones por cuencas, afloramientos, cuerpos de agua y recomendaciones
+  relation: supports
+  summary: OEFA evalúa agua superficial, sedimentos y comunidades hidrobiológicas en el ámbito Antapaccay y otras fuentes, diferenciando rasgos geológicos, descargas domésticas y aportes vinculados a componentes mineros.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-espinar-oefa-causalidad-suelo
+  sourceId: espinar-oefa-causalidad-suelo-2023
+  entityType: timeline
+  entityId: espinar-evaluacion-causalidad-2023
+  locator: Página PDF 1, objeto y aprobación; páginas PDF 18-26, conclusiones sobre humedales, aguas subterráneas, suelos, botaderos, relaves y recomendaciones
+  relation: supports
+  summary: OEFA evalúa el posible efecto de la actividad minera y otros factores de riesgo en humedales, agua subterránea y suelo, incluyendo conclusiones sobre lixiviados, flujos, afectación y fuentes de contaminación.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-espinar-oefa-causalidad-animales
+  sourceId: espinar-oefa-causalidad-animales-2023
+  entityType: timeline
+  entityId: espinar-evaluacion-causalidad-2023
+  locator: Página PDF 1, objeto y aprobación; páginas PDF 11 y 15-18, conclusiones sobre suelo, flora, tejido vegetal y animales domésticos
+  relation: supports
+  summary: OEFA registra resultados técnicos sobre agua, suelo, flora y salud de animales domésticos en zonas expuestas y de control; su uso público requiere conservar la distinción entre evaluación técnica y atribución legal.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-espinar-oefa-precisiones-agua
+  sourceId: espinar-oefa-precisiones-agua-2023
+  entityType: timeline
+  entityId: espinar-evaluacion-causalidad-2023
+  locator: Página PDF 1, asunto y fecha; páginas PDF 80-82, precisiones sobre correcciones, observaciones técnicas y referencias al Informe 00144-2023
+  relation: qualifies
+  summary: OEFA emite precisiones al Informe 00095-2023, corrige información duplicada y acota observaciones técnicas, por lo que debe citarse junto con el informe principal cuando se use esa evaluación.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
 - id: ev-espinar-amparo
   sourceId: cooperaccion-espinar-2025
   entityType: timeline
@@ -204,6 +384,42 @@
   relation: qualifies
   summary: La fuente de sociedad civil registra la presentación de una demanda, pendiente de contraste con el expediente judicial.
   checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-espinar-amparo-pametec
+  sourceId: pametec-demanda-amparo-2025
+  entityType: timeline
+  entityId: espinar-demanda-amparo
+  locator: Descripción del reel, encabezado y párrafo "Hoy, 13 de marzo..."
+  relation: supports
+  summary: La publicación directa de actor registra que PAMETEC y comunidades originarias de Espinar presentaron una demanda de amparo el 13 de marzo de 2025; el expediente judicial sigue siendo necesario para verificar pretensiones, resoluciones y estado procesal.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-espinar-amparo-ocm-2026
+  sourceId: ocm-espinar-amparo-reprogramacion-2026
+  entityType: timeline
+  entityId: espinar-demanda-amparo
+  locator: Párrafos sobre expediente 00042-2025-0-1009-JR-CI-01, Juzgado Civil de Espinar, partes, admisión del 14 de abril de 2025 y reprogramación al 10 de marzo de 2026
+  relation: qualifies
+  summary: La fuente de sociedad civil identifica número de expediente, juzgado, partes y estado procesal reportado, pero no sustituye consulta CEJ, acta, resolución ni escrito judicial.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-espinar-amparo-audiencia-2026
+  sourceId: cooperaccion-espinar-amparo-audiencia-2026
+  entityType: case-status
+  entityId: espinar
+  locator: Párrafos iniciales sobre audiencia del 8 de abril de 2026; párrafos sobre partes asistentes, excepciones procesales y continuación programada para el 23 de abril de 2026
+  relation: qualifies
+  summary: CooperAcción reporta realización de la primera audiencia, participación de comunidades, empresa y entidades estatales, debate de excepciones y suspensión con continuación programada; el acta o resolución judicial permanece pendiente.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-espinar-amparo-cej-2026
+  sourceId: cej-espinar-amparo-2026
+  entityType: timeline
+  entityId: espinar-demanda-amparo
+  locator: "Resultado CEJ consultado el 2026-06-27 por expediente 00042-2025-0-1009-JR-CI-01 y parte COMPAÑIA MINERA ANTAPACCAY SA; campos \"Expedientes encontrados: 1\", \"JUZGADO CIVIL - SEDE ESPINAR\" y listado de demandantes, demandados y emplazados."
+  relation: supports
+  summary: La consulta CEJ verifica que existe un registro oficial para el expediente, su órgano jurisdiccional y las partes procesales; no expone escrito de demanda, pretensiones, actas, resoluciones ni estado procesal completo.
+  checkedAt: 2026-06-27
   reviewStatus: reviewed
 - id: ev-espinar-acuerdos-2025
   sourceId: espinar-acuerdos-2025
@@ -250,6 +466,15 @@
   summary: FENAMAD documenta su intervención para visibilizar preocupaciones indígenas sobre mercurio.
   checkedAt: 2026-06-20
   reviewStatus: reviewed
+- id: ev-madre-trazabilidad-minem-2023
+  sourceId: madre-dios-trazabilidad-minem-2023
+  entityType: timeline
+  entityId: madre-dios-trazabilidad-2023
+  locator: Título y párrafos sobre herramienta tecnológica, comercialización de oro y Mesa Técnica
+  relation: supports
+  summary: El MINEM comunica una propuesta tecnológica para ordenar la comercialización y trazabilidad del oro en Madre de Dios.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
 - id: ev-madre-perdidas
   sourceId: cooperaccion-madre-dios-2024
   entityType: timeline
@@ -258,6 +483,42 @@
   relation: qualifies
   summary: La nota difunde una estimación que debe rastrearse al estudio original antes de reutilizar cifras.
   checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-madre-control-oro-sunat-2025
+  sourceId: sunat-oro-sin-origen-2025
+  entityType: timeline
+  entityId: madre-dios-control-oro-2025
+  locator: Título y párrafos sobre 720 kilos de oro, valor estimado, exportación y falta de origen acreditado
+  relation: supports
+  summary: SUNAT reporta la intervención de oro sin origen acreditado y describe controles sobre documentación y procedencia en la cadena de exportación.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-madre-recpo-2026
+  sourceId: minem-recpo-oro-2026
+  entityType: timeline
+  entityId: madre-dios-control-oro-2025
+  locator: PDF RECPO, página 1, encabezado, campos del registro y nota de actualización cada 24 horas
+  relation: qualifies
+  summary: El RECPO acredita la existencia de un registro especial de comercializadores y procesadores de oro, pero no se reproduce información personal ni se trata como prueba automática de origen legal.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-madre-mpfn-oro-reinfo-recpo-2026
+  sourceId: mpfn-oro-reinfo-recpo-2026
+  entityType: timeline
+  entityId: madre-dios-control-oro-2025
+  locator: Título y párrafos sobre extinción de dominio, REINFO, RECPO y acreditación de origen legal
+  relation: qualifies
+  summary: El Ministerio Público reporta un caso en el que registros REINFO y RECPO no bastaron para acreditar origen legal del oro intervenido.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-madre-fiscalizacion-tambopata-2025
+  sourceId: sernanp-operativo-tambopata-2025
+  entityType: timeline
+  entityId: madre-dios-fiscalizacion-tambopata-2025
+  locator: Título y párrafos sobre operativo, ubicación y resultados en la Reserva Nacional Tambopata
+  relation: supports
+  summary: SERNANP reporta resultados de fiscalización contra minería ilegal dentro de la Reserva Nacional Tambopata.
+  checkedAt: 2026-06-27
   reviewStatus: reviewed
 - id: ev-madre-mesa
   sourceId: madre-dios-mesa-2025
@@ -268,6 +529,24 @@
   summary: La fuente estatal registra el acuerdo para coordinar una mesa de trabajo de formalización.
   checkedAt: 2026-06-20
   reviewStatus: reviewed
+- id: ev-madre-operativos-2025
+  sourceId: pcm-operativos-mineria-ilegal-2025
+  entityType: timeline
+  entityId: madre-dios-operativos-2025
+  locator: Título y párrafos sobre operativos en Madre de Dios, Arequipa y San Martín e incautaciones valorizadas
+  relation: supports
+  summary: PCM comunica incautaciones valorizadas en operativos contra minería ilegal en Madre de Dios y otras regiones.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-madre-estrategia-mineria-ilegal-2025
+  sourceId: pcm-estrategia-mineria-ilegal-2025
+  entityType: timeline
+  entityId: madre-dios-operativos-2025
+  locator: Título y párrafos sobre más de 460 operativos e incautación nacional de bienes
+  relation: qualifies
+  summary: PCM reporta resultados nacionales de la estrategia contra minería ilegal; se usa como contexto de fiscalización, no como medición regional exhaustiva.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
 - id: ev-madre-cierre
   sourceId: madre-dios-cierre-formalizacion-2025
   entityType: timeline
@@ -276,6 +555,33 @@
   relation: supports
   summary: El MINEM comunica un llamado a culminar los trámites de formalización minera.
   checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-madre-reinfo-corte-2026
+  sourceId: minem-reinfo-vigente-corte-2026-06-18
+  entityType: timeline
+  entityId: madre-dios-reinfo-corte-2026
+  locator: content/data/reinfoTerritorialSnapshots.yaml, id minem-reinfo-vigente-2026-06-18, región Madre de Dios, count 2556, status vigente
+  relation: supports
+  summary: El snapshot agregado archivado desde la consulta oficial REINFO registra 2,556 inscripciones vigentes para Madre de Dios al 18 de junio de 2026.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-madre-reinfo-exclusiones-2025
+  sourceId: minem-rd-0004-2025-reinfo-exclusiones
+  entityType: timeline
+  entityId: madre-dios-reinfo-corte-2026
+  locator: Resolución Directoral 0004-2025-MINEM/DGFM, artículos 1 y 2
+  relation: qualifies
+  summary: La resolución registra la depuración nacional de 50,565 inscripciones suspendidas por más de un año; no entrega desglose regional de Madre de Dios.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-madre-reinfo-comunicado-2025
+  sourceId: minem-comunicado-reinfo-2025
+  entityType: timeline
+  entityId: madre-dios-reinfo-corte-2026
+  locator: Comunicado MINEM del 4 de julio de 2025, cifras nacionales de continuidad y exclusión
+  relation: qualifies
+  summary: El comunicado oficial diferencia inscripciones que continúan en proceso y registros excluidos a escala nacional, reforzando que el corte regional vigente no equivale a formalización concluida.
+  checkedAt: 2026-06-27
   reviewStatus: reviewed
 - id: ev-claim-tambogrande
   sourceId: tambogrande-muradian-2003
@@ -385,6 +691,42 @@
   summary: La resolución identifica titular, ubicación y expediente y aprueba el EIA del proyecto de explotación y beneficio Tía María.
   checkedAt: 2026-06-21
   reviewStatus: reviewed
+- id: ev-tia-exploracion-modificacion-2008
+  sourceId: tia-maria-exploracion-modificacion-2008
+  entityType: case-status
+  entityId: tia-maria
+  locator: Informe 753-2008-MEM-AAM/EAV/GS, páginas PDF 12 y 13; Resolución Directoral 169-2008-MEM/AAM
+  relation: qualifies
+  summary: El antecedente aprueba una modificación de evaluación ambiental de exploración y menciona línea base para un futuro EIA; no equivale a la aprobación del EIA de explotación.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-tia-eia-inadmisible-2011
+  sourceId: tia-maria-eia-inadmisible-2011
+  entityType: timeline
+  entityId: tia-maria-primer-eia-inadmisible
+  locator: Resolución Directoral 105-2011-MEM/AAM, página PDF 12, parte resolutiva; página PDF 11, numerales 3.12 y 4.1
+  relation: supports
+  summary: La resolución declara inadmisible y rechaza el EIA presentado, dispone la devolución de actuados y da por concluido ese procedimiento.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-tia-eia-2014-expediente
+  sourceId: tia-maria-eia-2014
+  entityType: case-status
+  entityId: tia-maria
+  locator: "Página oficial MINEM, sección Documentos: RD 392-2014-MEM/DGAAM, Informe 806-2014-MEM-DGAAM/DNAM/DGAM/B y EIA parte 1 y 2 en ZIP"
+  relation: qualifies
+  summary: La publicación oficial conserva no solo la resolución de aprobación, sino también el informe de evaluación y los archivos del EIA aprobado por partes.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
+- id: ev-tia-primer-its-2018
+  sourceId: tia-maria-primer-its-2018
+  entityType: timeline
+  entityId: tia-maria-primer-its
+  locator: Página oficial SENACE, Resolución 030-2018-SENACE-PE/DEAR, título y documento adjunto
+  relation: supports
+  summary: SENACE registra la conformidad al primer ITS del proyecto Tía María como modificación acotada del instrumento ambiental.
+  checkedAt: 2026-06-27
+  reviewStatus: reviewed
 - id: ev-claim-tia-dialogo-agua
   sourceId: tia-maria-dialogo-agua-2019
   entityType: claim
@@ -402,6 +744,15 @@
   relation: qualifies
   summary: La propia empresa dedica información sustantiva a agua desalinizada, valle de Tambo y áreas de influencia, lo que confirma la centralidad pública de esos asuntos sin validar sus conclusiones.
   checkedAt: 2026-06-21
+  reviewStatus: reviewed
+- id: ev-tia-company-10q-2026
+  sourceId: tia-maria-southern-10q-2026
+  entityType: case-status
+  entityId: tia-maria
+  locator: Form 10-Q Q1 2026, Item 2, Capital Investment Programs, Tia Maria - Arequipa; líneas SEC 12371 a 12380 y litigios líneas 5165 a 5172
+  relation: qualifies
+  summary: La empresa reporta inicio operativo esperado en el tercer trimestre de 2027, avance de 32.5%, US$948 millones comprometidos, empleos generados y litigios contra el proyecto; es posición corporativa, no consenso territorial ni cierre documental.
+  checkedAt: 2026-06-27
   reviewStatus: reviewed
 - id: ev-las-bambas-exploracion
   sourceId: las-bambas-exploracion-2005

@@ -66,7 +66,7 @@
   cutoffDate: 2026-06-21
   updatedAt: 2026-06-21
   reviewStatus: legal-pending
-  legalReviewNotes: Revisión jurídica especialista pendiente; no se atribuye vigencia normativa ni conclusión legal al expediente.
+  legalReviewNotes: Alcance documental pendiente de consolidación; no se atribuye vigencia normativa ni conclusión final al expediente.
 - id: conga
   slug: conga
   name: Conga
@@ -128,6 +128,13 @@
       title: Publicación de estudio académico
       summary: Se publica un análisis académico del proyecto Conga centrado en desarrollo, conflicto y controversias territoriales.
       sourceIds: [conga-millones-2016]
+    - id: conga-estado-2026
+      kind: evidence
+      date: 2026-06-17
+      datePrecision: day
+      title: Estado de cartera y cuidado/mantenimiento
+      summary: MINEM registra Conga en cartera 2026 con ejecución y puesta en marcha por definir, mientras Newmont reporta que el proyecto permaneció temporalmente inactivo bajo cuidado y mantenimiento durante 2025.
+      sourceIds: [minem-cpim-2026, newmont-annual-report-2025]
   claims:
     - id: conga-hecho-1
       kind: fact
@@ -139,10 +146,10 @@
       text: La disputa muestra que la aprobación administrativa de un instrumento no resuelve por sí sola la controversia sobre legitimidad y riesgo.
       sourceIds: [senace-evaluacion, conga-millones-2016, metodologia-observatorio]
       verificationStatus: partial
-  cutoffDate: 2026-06-21
-  updatedAt: 2026-06-21
+  cutoffDate: 2026-06-27
+  updatedAt: 2026-06-27
   reviewStatus: legal-pending
-  legalReviewNotes: Revisión jurídica especialista pendiente; las relaciones normativas se mantienen como referencias documentales parciales.
+  legalReviewNotes: Alcance documental pendiente de consolidación; las relaciones normativas se mantienen como referencias documentales parciales.
 - id: tia-maria
   slug: tia-maria
   name: Tía María
@@ -155,6 +162,13 @@
   legalInstrumentIds: [ley-27446, ley-29338, ley-29325]
   minerals: [cobre]
   timeline:
+    - id: tia-maria-primer-eia-inadmisible
+      kind: decision
+      date: 2011-04-08
+      datePrecision: day
+      title: Primer EIA declarado inadmisible
+      summary: El MINEM declara inadmisible y rechaza el primer EIA presentado por Southern Peru Copper Corporation, ordenando la devolución de actuados.
+      sourceIds: [tia-maria-eia-inadmisible-2011]
     - id: tia-maria-evaluacion
       kind: decision
       date: 2014-08-01
@@ -204,6 +218,13 @@
       title: Publicación de estudio sobre agua y agricultura
       summary: Se publica un estudio académico sobre el uso agrícola del agua en el Valle de Tambo, sin atribuir impactos al proyecto minero.
       sourceIds: [valle-tambo-agua-2018]
+    - id: tia-maria-primer-its
+      kind: decision
+      date: 2018-07-31
+      datePrecision: day
+      title: Conformidad al primer ITS
+      summary: SENACE emite conformidad al primer Informe Técnico Sustentatorio del proyecto, como modificación acotada y no como nueva evaluación integral.
+      sourceIds: [tia-maria-primer-its-2018]
   claims:
     - id: tia-maria-hecho-1
       kind: fact
@@ -218,7 +239,7 @@
   cutoffDate: 2026-06-21
   updatedAt: 2026-06-21
   reviewStatus: legal-pending
-  legalReviewNotes: Revisión jurídica especialista pendiente; el expediente no presenta decisiones administrativas como conclusión legal consolidada.
+  legalReviewNotes: Alcance documental pendiente de consolidación; el expediente no presenta decisiones administrativas como conclusión final consolidada.
 - id: las-bambas
   slug: las-bambas
   name: Las Bambas
@@ -280,13 +301,41 @@
       title: Acuerdos comerciales con comunidades
       summary: Comunidades de Chumbivilcas y la empresa registran acuerdos comerciales con intermediación estatal.
       sourceIds: [las-bambas-acuerdos-2022]
+    - id: las-bambas-acta-compromisos-cotabambas
+      kind: agreement
+      date: 2022-06-09
+      datePrecision: day
+      title: Acta de compromisos con seis comunidades de Cotabambas
+      summary: Se suscribe un acta entre presidentes comunales, la empresa, el Ejecutivo y la Defensoría que abre una tregua, mesa de seguimiento y compromisos específicos.
+      sourceIds: [las-bambas-acta-compromisos-2022, pcm-rm-182-2022-las-bambas]
+    - id: las-bambas-comite-seguimiento
+      kind: decision
+      date: 2022-06-20
+      datePrecision: day
+      title: Instalación del comité de seguimiento
+      summary: El grupo de trabajo temporal inicia reuniones por comunidad para acompañar y evaluar compromisos asociados al conflicto.
+      sourceIds: [pcm-rm-182-2022-las-bambas, minam-instalacion-comite-las-bambas-2022]
+    - id: las-bambas-subgrupos-actas
+      kind: agreement
+      date: 2022-07-14
+      datePrecision: day
+      title: Subgrupos de diálogo y actas suscritas
+      summary: La Defensoría registra reuniones de seis subgrupos con agendas, verificación de cumplimiento y actas suscritas; el MINEM publica materiales del proceso.
+      sourceIds: [defensoria-subgrupos-las-bambas-2022, minem-ruta-dialogo-cotabambas-2022]
+    - id: las-bambas-acuerdos-cotabambas-83
+      kind: agreement
+      date: 2022-09-15
+      datePrecision: day
+      title: Registro estatal de 83 acuerdos
+      summary: El MINEM informa 83 acuerdos alcanzados por subgrupos comunitarios en Cotabambas, sin que ello pruebe por sí solo cumplimiento posterior.
+      sourceIds: [minem-83-acuerdos-cotabambas-2022]
     - id: las-bambas-huancuire
       kind: event
-      date: 2024-02-27
+      date: 2024-02-10
       datePrecision: day
       title: Posición de Huancuire sobre Chalcobamba
       summary: Se documenta una posición comunitaria que cuestiona la existencia de conformidad para el tajo Chalcobamba.
-      sourceIds: [cooperaccion-las-bambas-2024]
+      sourceIds: [huancuire-comunicado-chalcobamba-2024, cooperaccion-las-bambas-2024]
     - id: las-bambas-transito
       kind: agreement
       date: 2024-04-16
@@ -294,6 +343,20 @@
       title: Restablecimiento del tránsito
       summary: Un nuevo acuerdo coyuntural permite restablecer el tránsito en el corredor vial sur.
       sourceIds: [las-bambas-transito-2024]
+    - id: las-bambas-corhuan-transporte-2025
+      kind: evidence
+      date: 2025-03-01
+      datePrecision: day
+      title: Transporte comunal de concentrado por Corhuan
+      summary: Las Bambas informa que la empresa comunal Corhuan de Huancuire inicia transporte de concentrado con 30 camiones, como resultado atribuido a diálogo y acuerdos.
+      sourceIds: [las-bambas-corhuan-2025]
+    - id: las-bambas-logistica-corredor-2025
+      kind: evidence
+      date: 2025-07-22
+      datePrecision: day
+      title: Reporte corporativo de logística en el corredor
+      summary: MMG reporta bloqueos intermitentes asociados a protestas por REINFO, reanudación del transporte y aumento de capacidad permitida a 170 camiones diarios.
+      sourceIds: [mmg-q2-production-report-2025-las-bambas]
     - id: las-bambas-estudio-territorial-2026
       kind: publication
       date: 2026-04-22
@@ -315,7 +378,7 @@
   cutoffDate: 2026-06-21
   updatedAt: 2026-06-21
   reviewStatus: legal-pending
-  legalReviewNotes: Revisión jurídica especialista pendiente; acuerdos, resoluciones y obligaciones requieren contraste legal fechado.
+  legalReviewNotes: Alcance documental pendiente de consolidación; acuerdos, resoluciones y obligaciones requieren contraste fechado.
 - id: espinar
   slug: espinar
   name: Espinar
@@ -342,6 +405,13 @@
       title: Monitoreo ambiental participativo
       summary: Equipos estatales y representantes acreditados participan en un monitoreo ambiental sin que el registro pruebe causalidad.
       sourceIds: [espinar-monitoreo-2012]
+    - id: espinar-msap-final
+      kind: evidence
+      date: 2013-06-01
+      datePrecision: month
+      title: Informe final del monitoreo sanitario ambiental
+      summary: El informe integrado del MSAP consolida metodología, resultados ambientales y sanitarios, y advierte necesidad de estudios complementarios para relación causa-efecto.
+      sourceIds: [espinar-msap-final-2013]
     - id: espinar-estudio-agua
       kind: evidence
       date: 2015-04-24
@@ -370,13 +440,20 @@
       title: Aprobación de plan de trabajo ambiental
       summary: Autoridades y sociedad civil aprueban un plan de trabajo para abordar la problemática ambiental de Espinar.
       sourceIds: [espinar-plan-2022]
+    - id: espinar-evaluacion-causalidad-2023
+      kind: evidence
+      date: 2023-07-05
+      datePrecision: day
+      title: Informes OEFA de evaluación ambiental de causalidad
+      summary: OEFA aprueba informes técnicos de 2023 sobre aire, agua superficial, sedimentos, humedales, agua subterránea, suelo, flora y animales; sus conclusiones se registran como evaluación técnica, no como determinación integral de responsabilidades.
+      sourceIds: [espinar-oefa-causalidad-aire-2023, espinar-oefa-causalidad-agua-2023, espinar-oefa-causalidad-suelo-2023, espinar-oefa-causalidad-animales-2023, espinar-oefa-precisiones-agua-2023]
     - id: espinar-demanda-amparo
       kind: event
-      date: 2025-03-26
+      date: 2025-03-13
       datePrecision: day
       title: Demanda de amparo de comunidades
-      summary: Organizaciones comunales presentan una demanda de amparo contra la empresa y entidades estatales, según fuente atribuida.
-      sourceIds: [cooperaccion-espinar-2025]
+      summary: Organizaciones comunales presentan una demanda de amparo contra la empresa y entidades estatales; CEJ verifica existencia, juzgado y partes del expediente 00042-2025-0-1009-JR-CI-01, pero siguen pendientes piezas judiciales para pretensiones y estado procesal completo.
+      sourceIds: [pametec-demanda-amparo-2025, cooperaccion-espinar-2025, ocm-espinar-amparo-reprogramacion-2026, cooperaccion-espinar-amparo-audiencia-2026, cej-espinar-amparo-2026]
     - id: espinar-acuerdos-recientes
       kind: agreement
       date: 2025-04-05
@@ -402,10 +479,10 @@
       text: El monitoreo participativo requiere protocolos de custodia, interpretación compartida y seguimiento de medidas correctivas.
       sourceIds: [oefa-fiscalizacion, defensoria-conflictos-hidricos, ana-agua]
       verificationStatus: partial
-  cutoffDate: 2026-06-21
-  updatedAt: 2026-06-21
+  cutoffDate: 2026-06-27
+  updatedAt: 2026-06-27
   reviewStatus: legal-pending
-  legalReviewNotes: Revisión jurídica especialista pendiente; no se formulan conclusiones causales ni responsabilidades legales no verificadas.
+  legalReviewNotes: Alcance documental pendiente de consolidación; no se formulan conclusiones causales ni responsabilidades no documentadas por la fuente.
 - id: madre-de-dios
   slug: madre-de-dios
   name: Madre de Dios
@@ -453,6 +530,13 @@
       title: Posición indígena sobre mercurio
       summary: FENAMAD lleva a un foro internacional su preocupación por los impactos del mercurio en pueblos indígenas.
       sourceIds: [fenamad-mercurio-2022]
+    - id: madre-dios-trazabilidad-2023
+      kind: evidence
+      date: 2023-08-08
+      datePrecision: day
+      title: Herramienta tecnológica de comercialización del oro
+      summary: El MINEM comunica una propuesta tecnológica para mejorar la comercialización y trazabilidad del oro en Madre de Dios.
+      sourceIds: [madre-dios-trazabilidad-minem-2023]
     - id: madre-dios-perdidas-2024
       kind: evidence
       date: 2024-05-22
@@ -460,6 +544,20 @@
       title: Publicación de estimación socioambiental
       summary: MAAP publica una valoración modelada de impactos por deforestación, sedimentación y mercurio en tres comunidades indígenas.
       sourceIds: [maap-196-madre-dios, cooperaccion-madre-dios-2024]
+    - id: madre-dios-control-oro-2025
+      kind: evidence
+      date: 2025-06-10
+      datePrecision: day
+      title: Control comercial de oro sin origen acreditado
+      summary: SUNAT y Ministerio Público reportan intervenciones sobre oro sin origen acreditado; el RECPO se registra como pieza documental de comercialización, no como prueba automática de legalidad.
+      sourceIds: [sunat-oro-sin-origen-2025, minem-recpo-oro-2026, mpfn-oro-reinfo-recpo-2026]
+    - id: madre-dios-fiscalizacion-tambopata-2025
+      kind: evidence
+      date: 2025-07-25
+      datePrecision: day
+      title: Operativo contra minería ilegal en Tambopata
+      summary: SERNANP reporta resultados de un operativo contra minería ilegal en la Reserva Nacional Tambopata.
+      sourceIds: [sernanp-operativo-tambopata-2025]
     - id: madre-dios-mesa-2025
       kind: agreement
       date: 2025-08-22
@@ -467,6 +565,13 @@
       title: Acuerdo para coordinar mesa de trabajo
       summary: MINEM y representantes mineros acuerdan coordinar una mesa para impulsar la formalización.
       sourceIds: [madre-dios-mesa-2025]
+    - id: madre-dios-operativos-2025
+      kind: evidence
+      date: 2025-08-23
+      datePrecision: day
+      title: Balance de operativos contra minería ilegal
+      summary: PCM reporta incautaciones e intervenciones en Madre de Dios y otras regiones dentro de la estrategia contra minería ilegal.
+      sourceIds: [pcm-operativos-mineria-ilegal-2025, pcm-estrategia-mineria-ilegal-2025]
     - id: madre-dios-cierre-2025
       kind: event
       date: 2025-09-05
@@ -481,6 +586,13 @@
       title: Publicación de estudio sobre minería y pueblos indígenas
       summary: Se publica un capítulo académico sobre minería aurífera y conflictos indígenas en Madre de Dios.
       sourceIds: [madre-dios-indigenous-2025]
+    - id: madre-dios-reinfo-corte-2026
+      kind: evidence
+      date: 2026-06-18
+      datePrecision: day
+      title: Corte agregado de REINFO vigente en Madre de Dios
+      summary: El corte territorial archivado desde la consulta oficial REINFO registra 2,556 inscripciones vigentes en Madre de Dios, sin equivaler a formalización concluida.
+      sourceIds: [minem-reinfo-vigente-corte-2026-06-18, minem-rd-0004-2025-reinfo-exclusiones, minem-comunicado-reinfo-2025]
   claims:
     - id: madre-dios-hecho-1
       kind: fact
@@ -495,4 +607,4 @@
   cutoffDate: 2026-06-21
   updatedAt: 2026-06-21
   reviewStatus: legal-pending
-  legalReviewNotes: Revisión jurídica especialista pendiente; informalidad, ilegalidad y registro de formalización permanecen diferenciados.
+  legalReviewNotes: Alcance documental pendiente de consolidación; informalidad, ilegalidad y registro de formalización permanecen diferenciados.

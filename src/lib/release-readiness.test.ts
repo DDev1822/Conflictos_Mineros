@@ -12,7 +12,7 @@ function approvedManifest(): ReleaseManifest {
       methodology: { ...approvedSignoff },
       licenses: { ...approvedSignoff },
       editorial: { ...approvedSignoff },
-      legal: { ...approvedSignoff },
+      documentary: { ...approvedSignoff },
       accessibility: { ...approvedSignoff },
     },
   };
@@ -25,7 +25,7 @@ describe("signoffs de publicación V1", () => {
 
   it("bloquea deliberadamente un signoff pendiente", () => {
     const manifest = approvedManifest();
-    manifest.signoffs.legal = { status: "pending", reviewedAt: null, reviewedBy: null, evidence: "content/data/instruments.yaml" };
-    expect(collectSignoffIssues(manifest)).toContain("Signoff legal: pendiente");
+    manifest.signoffs.documentary = { status: "pending", reviewedAt: null, reviewedBy: null, evidence: "content/data" };
+    expect(collectSignoffIssues(manifest)).toContain("Signoff documentary: pendiente");
   });
 });

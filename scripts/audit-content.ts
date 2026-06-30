@@ -50,8 +50,10 @@ data.instruments.forEach((instrument) => {
   if (instrument.relatedInstrumentIds.includes(instrument.id)) {
     errors.push(`Norma ${instrument.id}: no puede relacionarse consigo misma`);
   }
-  if (instrument.legalReviewStatus === "pending") {
-    warnings.push(`Norma ${instrument.id}: revisión jurídica pendiente al ${instrument.lastCheckedAt}`);
+  const hasPrimarySource = instrument.sourceIds.some((sourceId) => sourceById.get(sourceId)?.evidenceLevel === "primary");
+  const hasLocator = data.evidenceRecords.some((record) => record.entityType === "instrument" && record.entityId === instrument.id && record.locator.trim().length >= 3);
+  if (!hasPrimarySource || !hasLocator) {
+    warnings.push(`Norma ${instrument.id}: falta texto primario o locador documental al ${instrument.lastCheckedAt}`);
   }
 });
 

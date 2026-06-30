@@ -79,18 +79,15 @@ export const legalInstrumentSchema = z.object({
   lastCheckedAt: isoDate,
   verificationNotes: z.string().min(15),
 }).superRefine((instrument, ctx) => {
-  if (instrument.status === "in-force" && instrument.legalReviewStatus !== "verified") {
-    ctx.addIssue({ code: "custom", path: ["legalReviewStatus"], message: "Una norma vigente requiere revisión jurídica verificada" });
-  }
   if (instrument.legalReviewStatus === "verified") {
     if (!instrument.verifiedAt) {
-      ctx.addIssue({ code: "custom", path: ["verifiedAt"], message: "La revisión jurídica verificada requiere fecha" });
+      ctx.addIssue({ code: "custom", path: ["verifiedAt"], message: "Una revisión documental verificada requiere fecha" });
     }
     if (!instrument.legalReviewedBy) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewedBy"], message: "La revisión jurídica verificada requiere atribución especialista" });
+      ctx.addIssue({ code: "custom", path: ["legalReviewedBy"], message: "Una revisión documental verificada requiere responsable" });
     }
     if (!instrument.legalReviewMemo) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewMemo"], message: "La revisión jurídica verificada requiere referencia al memo" });
+      ctx.addIssue({ code: "custom", path: ["legalReviewMemo"], message: "Una revisión documental verificada requiere referencia de evidencia" });
     }
   }
 });
@@ -129,13 +126,13 @@ export const conflictCaseSchema = z.object({
 }).superRefine((item, ctx) => {
   if (item.reviewStatus === "legal-verified") {
     if (!item.legalReviewedAt) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewedAt"], message: "Un expediente verificado requiere fecha de revisión jurídica" });
+      ctx.addIssue({ code: "custom", path: ["legalReviewedAt"], message: "Un expediente verificado requiere fecha de revisión documental" });
     }
     if (!item.legalReviewedBy) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewedBy"], message: "Un expediente verificado requiere atribución especialista" });
+      ctx.addIssue({ code: "custom", path: ["legalReviewedBy"], message: "Un expediente verificado requiere responsable de revisión" });
     }
     if (!item.legalReviewMemo) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewMemo"], message: "Un expediente verificado requiere referencia al memo" });
+      ctx.addIssue({ code: "custom", path: ["legalReviewMemo"], message: "Un expediente verificado requiere referencia de evidencia" });
     }
   }
 });
@@ -182,7 +179,7 @@ export const caseResearchPacketSchema = z.object({
   directActorSourceIds: z.array(id).min(1),
   actorPositions: z.array(actorPositionSchema).min(3),
   contradictions: z.array(researchContradictionSchema).min(1),
-  legalQuestions: z.array(z.string().min(20)).min(2),
+  scopeQuestions: z.array(z.string().min(20)).min(2),
   gaps: z.array(researchGapSchema),
   status: z.enum(["ready", "incomplete"]),
 });
@@ -193,10 +190,74 @@ export const legalResearchPacketSchema = z.object({
   primaryTextSourceId: id,
   regulationSourceIds: z.array(id),
   amendmentSourceIds: z.array(id),
-  legalQuestions: z.array(z.string().min(20)).min(2),
+  scopeQuestions: z.array(z.string().min(20)).min(2),
   gaps: z.array(researchGapSchema),
   checkedAt: isoDate,
   status: z.enum(["prepared", "incomplete"]),
+});
+
+const matrixDocumentRefSchema = z.object({
+  sourceId: id,
+  status: z.enum(["canonical-source", "research-target"]),
+  locator: z.string().min(3),
+});
+
+const relationshipHookSchema = z.object({
+  theme: id,
+  connectsTo: z.array(id).min(1),
+});
+
+export const cajamarcaSystemEntrySchema = z.object({
+  id,
+  caseSlug: id,
+  canonicalCaseId: id.nullable(),
+  hito: z.string().min(20),
+  institutionType: id,
+  primaryDocuments: z.array(matrixDocumentRefSchema).min(1),
+  authorityOrActor: z.string().min(5),
+  controversy: z.string().min(20),
+  stateAtCutoff: z.string().min(30),
+  editorialCaution: z.string().min(20),
+  scopeQuestion: z.string().min(20),
+  relationshipHooks: relationshipHookSchema,
+});
+
+export const cajamarcaSystemMatrixSchema = z.object({
+  matrixId: z.literal("cajamarca-system"),
+  status: z.enum(["canonicalized", "working-structured-matrix"]),
+  cutoffDate: isoDate,
+  canonicalStatus: z.enum(["canonical-data", "non-canonical-research"]),
+  purpose: z.string().min(40),
+  sourceReadings: z.array(z.string().min(3)).min(1),
+  columns: z.array(z.string().min(2)).min(1),
+  entries: z.array(cajamarcaSystemEntrySchema).min(1),
+  publicationGates: z.array(z.string().min(20)).min(1),
+});
+
+export const institutionalMechanismEntrySchema = z.object({
+  mechanismId: id,
+  family: id,
+  cases: z.array(id).min(1),
+  primaryDocumentExamples: z.array(matrixDocumentRefSchema).min(1),
+  authority: z.string().min(5),
+  obligationOrDecision: z.string().min(20),
+  status: z.string().min(20),
+  followUpEvidence: z.string().min(20),
+  editorialRisk: z.string().min(20),
+  scopeQuestion: z.string().min(20),
+  relationshipUse: z.string().min(20),
+});
+
+export const institutionalMechanismsMatrixSchema = z.object({
+  matrixId: z.literal("institutional-mechanisms"),
+  status: z.enum(["canonicalized", "working-structured-matrix"]),
+  cutoffDate: isoDate,
+  canonicalStatus: z.enum(["canonical-data", "non-canonical-research"]),
+  purpose: z.string().min(40),
+  sourceReadings: z.array(z.string().min(3)).min(1),
+  columns: z.array(z.string().min(2)).min(1),
+  entries: z.array(institutionalMechanismEntrySchema).min(1),
+  publicationGates: z.array(z.string().min(20)).min(1),
 });
 
 export const policyAlternativeSchema = z.object({
@@ -416,6 +477,8 @@ export const datasetSchema = z.object({
   evidenceRecords: z.array(evidenceRecordSchema),
   caseResearchPackets: z.array(caseResearchPacketSchema),
   legalResearchPackets: z.array(legalResearchPacketSchema),
+  cajamarcaSystemMatrix: cajamarcaSystemMatrixSchema,
+  institutionalMechanisms: institutionalMechanismsMatrixSchema,
   alternatives: z.array(policyAlternativeSchema),
   socialConflictSnapshots: z.array(socialConflictSnapshotSchema).min(1),
   socialConflictCases: z.array(socialConflictCaseSchema).min(1),
@@ -437,6 +500,10 @@ export type TimelineEvent = z.infer<typeof timelineEventSchema>;
 export type EvidenceRecord = z.infer<typeof evidenceRecordSchema>;
 export type CaseResearchPacket = z.infer<typeof caseResearchPacketSchema>;
 export type LegalResearchPacket = z.infer<typeof legalResearchPacketSchema>;
+export type CajamarcaSystemMatrix = z.infer<typeof cajamarcaSystemMatrixSchema>;
+export type CajamarcaSystemEntry = z.infer<typeof cajamarcaSystemEntrySchema>;
+export type InstitutionalMechanismsMatrix = z.infer<typeof institutionalMechanismsMatrixSchema>;
+export type InstitutionalMechanismEntry = z.infer<typeof institutionalMechanismEntrySchema>;
 export type NormativeIssue = z.infer<typeof normativeIssueSchema>;
 export type PolicyAlternative = z.infer<typeof policyAlternativeSchema>;
 export type SocialConflictRegion = z.infer<typeof socialConflictRegionSchema>;
