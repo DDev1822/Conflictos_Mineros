@@ -8,7 +8,7 @@ test.describe("cierre V1 en escritorio", () => {
   test("mantiene la navegación completa sin overflow horizontal", async ({ page }) => {
     await page.goto("/");
     const nav = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(nav.getByRole("link")).toHaveCount(7);
+    await expect(nav.getByRole("link")).toHaveCount(8);
     for (const link of await nav.getByRole("link").all()) await expect(link).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   });
@@ -82,7 +82,7 @@ test.describe("cierre V1 en escritorio", () => {
     await page.goto("/normativa");
     await expect(page.locator(".instrument-table article")).toHaveCount(8);
     await expect(page.locator('.review-chip[data-status="pending"]')).toHaveCount(8);
-    await expect(page.locator(".review-chip").first()).toContainText("sin atribución especialista");
+    await expect(page.locator(".review-chip").first()).toContainText("Texto oficial y alcance documental");
   });
 });
 
@@ -93,7 +93,7 @@ test.describe("cierre V1 móvil", () => {
     await page.goto("/mapa");
     await page.getByRole("button", { name: "Abrir navegación" }).click();
     const nav = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(nav.getByRole("link")).toHaveCount(7);
+    await expect(nav.getByRole("link")).toHaveCount(8);
     for (const link of await nav.getByRole("link").all()) await expect(link).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     expect(await page.locator(".map-layout > aside").evaluate((element) => getComputedStyle(element).overflowY)).not.toBe("auto");
