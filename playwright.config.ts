@@ -1,5 +1,9 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const webServerCommand = process.env.CI
+  ? "GITHUB_ACTIONS=false npm run dev -- --port 3100"
+  : "npm run dev -- --port 3100";
+
 export default defineConfig({
   testDir: "./tests/e2e",
   fullyParallel: false,
@@ -14,7 +18,7 @@ export default defineConfig({
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
   ],
   webServer: {
-    command: "npm run dev -- --port 3100",
+    command: webServerCommand,
     url: "http://127.0.0.1:3100",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
