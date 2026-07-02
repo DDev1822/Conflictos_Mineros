@@ -1,8 +1,8 @@
 - id: pages-public
-  priority: P0
-  status: open
+  priority: P3
+  status: resolved
   evidence: https://ddev1822.github.io/Conflictos_Mineros/
-  note: La URL pública debe devolver 404 o quedar deshabilitada antes del freeze privado.
+  note: "La exposición pública deja de bloquear: la V1 se asume como observatorio civil, académico y corregible, no como dictamen ni acusación."
 - id: documentary-framing
   priority: P1
   status: resolved

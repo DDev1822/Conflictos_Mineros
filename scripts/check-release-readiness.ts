@@ -1,18 +1,9 @@
-import fs from "node:fs";
-import path from "node:path";
-import YAML from "yaml";
-import { loadObservatoryData } from "../src/lib/content";
-import { evaluateReleaseReadiness, releaseManifestSchema, releaseRisksSchema } from "../src/lib/release-readiness";
+import { loadReleaseState } from "../src/lib/release-state";
 
-function readYaml(file: string) {
-  return YAML.parse(fs.readFileSync(path.join(process.cwd(), file), "utf8"));
-}
-
-const manifest = releaseManifestSchema.parse(readYaml("docs/release/v1-manifest.yaml"));
-const risks = releaseRisksSchema.parse(readYaml("docs/release/v1-risks.yaml"));
-const result = evaluateReleaseReadiness(loadObservatoryData(), manifest, risks);
+const { readiness: result } = loadReleaseState();
 
 console.log(JSON.stringify({ release_ready: result.ready, ...result.metrics }, null, 2));
+result.notices.forEach((notice) => console.warn(`AVISO: ${notice}`));
 
 if (!result.ready) {
   result.issues.forEach((issue) => console.error(`BLOQUEO: ${issue}`));

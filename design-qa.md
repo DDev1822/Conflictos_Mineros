@@ -3,15 +3,16 @@
 - Fuente visual: `docs/design/reference-system-relations.png`
 - Capturas actuales: `docs/audits/2026-06-20-v1-freeze/`
 - Viewports revisados: 1440 × 1024, 1280 × 720 y 390 × 844
-- Fecha: 20 de junio de 2026
-- Resultado visual y funcional: aprobado para freeze privado
-- Resultado de publicación: bloqueado
+- Fecha base de capturas: 20 de junio de 2026
+- Validación automatizada vigente: 2 de julio de 2026
+- Resultado visual y funcional: aprobado para publicación controlada `public-learning`
+- Resultado de publicación: habilitado como versión académica corregible, con avisos de transparencia
 
 ## Hallazgos vigentes
 
-- [P0] GitHub Pages continúa respondiendo HTTP 200. La publicación automática quedó eliminada del workflow, pero la despublicación requiere un ajuste externo de Pages que no está disponible desde este entorno.
-- [P1] Permanecen pendientes las revisiones jurídicas atribuidas de 6 expedientes y 8 instrumentos.
-- [P1] Permanecen pendientes los cinco signoffs del manifiesto V1.
+- [Transparencia] Permanecen pendientes los cinco signoffs del manifiesto V1; la interfaz los muestra como pendientes y no los convierte en aprobaciones.
+- [Transparencia] Los expedientes y normas conservan contraste documental pendiente cuando no existe revisión especializada atribuida.
+- [Transparencia] Tres vacíos de investigación permanecen visibles en la publicación `public-learning`.
 
 No quedan hallazgos P0/P1 abiertos en accesibilidad del diálogo, nombres de marcadores, navegación responsive, overflow horizontal o estructura de capas.
 
@@ -24,6 +25,7 @@ La implementación conserva la anatomía de la referencia: encabezado tinta, bú
 - Navegación completa visible a 1280 px.
 - Menú móvil funcional y sin overflow horizontal a 390 px.
 - Mapa por defecto en 64 conflictos mineros y cambio explícito a 190 sociales.
+- Sistema de relaciones inicia con dos problemas raíz y revela conexiones de forma progresiva por interacción.
 - Diálogo regional modal con foco inicial, Escape y retorno al control de apertura.
 - Seis marcadores con nombre accesible único.
 - Panel territorial móvil sin scroll interno.
@@ -50,8 +52,12 @@ La implementación conserva la anatomía de la referencia: encabezado tinta, bú
 - `08-mapa-390x844.png`
 - `09-menu-390x844.png`
 
-Final result: private freeze passed; public release blocked.
+Final result: `public-learning` passed; `public-reviewed` remains pending until signoffs are approved.
 
 ## Actualización documental del 20 de junio de 2026
 
-Las capturas fueron regeneradas después de incorporar 69 fuentes, seis paquetes de caso, ocho fichas normativas y cronologías ampliadas. Product Design se aplicó como control de legibilidad contra la referencia vigente, sin rediseño ni nuevas rutas. La ampliación no introdujo overflow horizontal ni cambió la identidad visual; la publicación continúa bloqueada por evidencia directa incompleta, revisión jurídica y signoffs.
+Las capturas fueron regeneradas después de incorporar 69 fuentes, seis paquetes de caso, ocho fichas normativas y cronologías ampliadas. Product Design se aplicó como control de legibilidad contra la referencia vigente, sin rediseño ni nuevas rutas. La ampliación no introdujo overflow horizontal ni cambió la identidad visual.
+
+## Actualización de publicación del 2 de julio de 2026
+
+La V1 cambia de freeze privado a publicación académica `public-learning`: los bloqueos P0/P1 operativos quedan resueltos y `release:check` pasa con avisos explícitos. La publicación no afirma signoff jurídico, editorial, documental, metodológico ni de accesibilidad aprobado; esos pendientes son metadatos de transparencia visibles.

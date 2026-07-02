@@ -94,6 +94,7 @@ type FocusDetail = {
   routeLinks: FocusLink[];
 };
 
+const rootGraphFocuses: GraphFocus[] = ["conflicto-social-minero", "mineria-ilegal-informal"];
 const allCaseIds = ["tambogrande", "conga", "tia-maria", "las-bambas", "espinar", "madre-de-dios"];
 
 const graphNodes: GraphNodeDefinition[] = [
@@ -513,9 +514,9 @@ function RelationshipNode({ icon: Icon, title, subtitle, layer, tone, role }: Om
   );
 }
 
-function makeNodes(focus: GraphFocus): Node[] {
+function makeNodes(focus: GraphFocus, revealed: Set<GraphFocus>): Node[] {
   const related = new Set(focusRelations[focus]);
-  return graphNodes.map((item) => ({
+  return graphNodes.filter((item) => revealed.has(item.id)).map((item) => ({
     id: item.id,
     position: item.position,
     className: [
@@ -542,6 +543,14 @@ function makeNodes(focus: GraphFocus): Node[] {
       ),
     },
   }));
+}
+
+function makeEdges(revealed: Set<GraphFocus>, expanded: Set<GraphFocus>): Edge[] {
+  return edges.filter((item) => {
+    const source = item.source as GraphFocus;
+    const target = item.target as GraphFocus;
+    return revealed.has(source) && revealed.has(target) && (expanded.has(source) || expanded.has(target));
+  });
 }
 
 function edge(id: string, source: GraphFocus, target: GraphFocus, label: string, tone: NodeTone, animated = false): Edge {
@@ -855,6 +864,8 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
   const [issue, setIssue] = useState("all");
   const [sourceType, setSourceType] = useState("all");
   const [focus, setFocus] = useState<GraphFocus>("conflicto-social-minero");
+  const [revealed, setRevealed] = useState<Set<GraphFocus>>(() => new Set(rootGraphFocuses));
+  const [expanded, setExpanded] = useState<Set<GraphFocus>>(() => new Set());
   const [citationOpen, setCitationOpen] = useState(false);
 
   const sourceById = useMemo(() => new Map(data.sources.map((source) => [source.id, source])), [data.sources]);
@@ -893,6 +904,24 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
   const activeDisputeCopy = activeActors.length
     ? `${activeActors.length} actor(es) conectado(s): ${activeActors.map((actor) => actor.name).join(", ")}.`
     : "Límites de lectura que deben quedar visibles antes de cerrar una afirmación.";
+  const visibleGraphNodes = useMemo(() => makeNodes(focus, revealed), [focus, revealed]);
+  const visibleGraphEdges = useMemo(() => makeEdges(revealed, expanded), [expanded, revealed]);
+  const guidedFocuses = useMemo(() => graphNodes.filter((node) => revealed.has(node.id)), [revealed]);
+
+  const revealFocus = (nextFocus: GraphFocus) => {
+    setFocus(nextFocus);
+    setRevealed((current) => {
+      const next = new Set(current);
+      next.add(nextFocus);
+      focusRelations[nextFocus].forEach((related) => next.add(related));
+      return next;
+    });
+    setExpanded((current) => {
+      const next = new Set(current);
+      next.add(nextFocus);
+      return next;
+    });
+  };
 
   const results = useMemo<ResultItem[]>(() => [
     {
@@ -1028,6 +1057,9 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     setEntityType("all");
     setIssue("all");
     setSourceType("all");
+    setFocus("conflicto-social-minero");
+    setRevealed(new Set(rootGraphFocuses));
+    setExpanded(new Set());
   };
 
   return (
@@ -1084,17 +1116,19 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           <div className="pane-heading"><p>Dossier / índice</p><span>{results.length} resultados</span></div>
           <div className="guided-reading" aria-label="Rutas de lectura sugeridas">
             <p>Rutas de lectura</p>
-            <button className={focus === "conflicto-social-minero" ? "active" : ""} onClick={() => setFocus("conflicto-social-minero")}><MapPin size={15} /> Conflicto social minero</button>
-            <button className={focus === "mineria-ilegal-informal" ? "active" : ""} onClick={() => setFocus("mineria-ilegal-informal")}><WarningCircle size={15} /> Minería ilegal e informal</button>
-            <button className={focus === "solapamiento-territorial" ? "active" : ""} onClick={() => setFocus("solapamiento-territorial")}><Network size={15} /> Puentes y solapamientos</button>
-            <button className={focus === "matriz-documental" ? "active" : ""} onClick={() => setFocus("matriz-documental")}><TreeStructure size={15} /> Evidencia y revisión</button>
-            <button className={focus === "cajamarca-system" ? "active" : ""} onClick={() => setFocus("cajamarca-system")}><TreeStructure size={15} /> Sistema Cajamarca</button>
-            <button className={focus === "institutional-mechanisms" ? "active" : ""} onClick={() => setFocus("institutional-mechanisms")}><Gavel size={15} /> Mecanismos</button>
+            {guidedFocuses.map((item) => {
+              const Icon = item.icon;
+              return (
+                <button key={item.id} className={focus === item.id ? "active" : ""} onClick={() => revealFocus(item.id)}>
+                  <Icon size={15} /> {item.title}
+                </button>
+              );
+            })}
           </div>
           <div className="result-list">
             {results.slice(0, 10).map((item) => (
               <div key={item.id} className={focus === item.focus ? "result-row active" : "result-row"}>
-                <button className="result-row-main" onClick={() => setFocus(item.focus)}>
+                <button className="result-row-main" onClick={() => revealFocus(item.focus)}>
                   <span className="result-icon">{item.type === "case" ? <MapPin /> : item.type === "instrument" ? <BookOpenText /> : item.type === "alternative" ? <Scales /> : item.type === "actor" ? <Buildings /> : item.type === "matrix" ? <TreeStructure /> : <CirclesThreePlus />}</span>
                   <span><strong>{item.label}</strong><small>{item.subtitle}</small></span>
                   <em>{item.count.toLocaleString("es-PE")}<small> vínculos</small></em>
@@ -1127,7 +1161,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
             <TreeStructure size={16} aria-hidden />
             <span>Las líneas muestran relación documental; no prueban causalidad automática ni equivalencia administrativa.</span>
           </div>
-          <ReactFlow nodes={makeNodes(focus)} edges={edges} fitView fitViewOptions={{ padding: 0.08 }} minZoom={0.36} maxZoom={1.18} nodesDraggable={false} onNodeClick={(_, node) => setFocus(node.id as GraphFocus)} proOptions={{ hideAttribution: true }}>
+          <ReactFlow key={`${visibleGraphNodes.length}-${visibleGraphEdges.length}`} nodes={visibleGraphNodes} edges={visibleGraphEdges} fitView fitViewOptions={{ padding: 0.08 }} minZoom={0.36} maxZoom={1.18} nodesDraggable={false} onNodeClick={(_, node) => revealFocus(node.id as GraphFocus)} proOptions={{ hideAttribution: true }}>
             <Background color="#1b536b" gap={30} size={1} />
             <Controls showInteractive={false} />
           </ReactFlow>

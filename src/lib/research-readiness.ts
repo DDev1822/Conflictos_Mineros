@@ -76,6 +76,8 @@ export function evaluateResearchReadiness(data: ObservatoryData) {
     return packet.status === "ready" && packet.actorPositions.length >= 3 && packet.contradictions.length > 0 && substantive >= packet.substantiveMilestoneTarget;
   }).length;
 
+  const declaredGaps = data.caseResearchPackets.flatMap((packet) => packet.gaps.filter((gap) => gap.blocksRelease).map((gap) => `Vacío ${packet.caseId}/${gap.id}: visible en publicación`));
+
   const issues = [
     ...structuralIssues,
     ...milestoneIssues,
@@ -85,12 +87,12 @@ export function evaluateResearchReadiness(data: ObservatoryData) {
     ...rightsIssues,
     ...normativePacketIssues,
     ...contextualOnlyClaims.map((claim) => `Afirmación ${claim.id}: depende solo de fuentes contextuales`),
-    ...data.caseResearchPackets.flatMap((packet) => packet.gaps.filter((gap) => gap.blocksRelease).map((gap) => `Vacío ${packet.caseId}/${gap.id}: bloquea publicación`)),
   ];
 
   return {
     ready: issues.length === 0,
     issues,
+    notices: declaredGaps,
     metrics: {
       directEvidenceCoverage: requiredEntities.length === 0 ? 0 : (requiredEntities.length - directEvidenceMissing.length) / requiredEntities.length,
       directEvidenceCovered: requiredEntities.length - directEvidenceMissing.length,
@@ -102,6 +104,7 @@ export function evaluateResearchReadiness(data: ObservatoryData) {
       unresolvedHiddenConflicts: contradictionIssues.length,
       contextualOnlyClaims: contextualOnlyClaims.length,
       rightsUnknownInUse: rightsIssues.length,
+      declaredGaps: declaredGaps.length,
     },
   };
 }

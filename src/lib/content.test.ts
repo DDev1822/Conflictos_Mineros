@@ -158,4 +158,36 @@ describe("contenido académico", () => {
     expect(snapshot.regionalPresences).toBe(43484);
     expect(snapshot.sourceId).toBe("ingemmet-catastro-minero");
   });
+
+  it("mantiene cinco capas territoriales con fuente primaria y coordenadas como referencia", () => {
+    const data = loadObservatoryData();
+    const sourceById = new Map(data.sources.map((source) => [source.id, source]));
+    const layers = [
+      ...data.socialConflictSnapshots,
+      ...data.reinfoTerritorialSnapshots,
+      ...data.formalMiningTerritorialSnapshots,
+      ...data.explorationTerritorialSnapshots,
+      ...data.miningConcessionTerritorialSnapshots,
+    ];
+
+    expect(layers).toHaveLength(5);
+    expect(layers.every((layer) => sourceById.get(layer.sourceId)?.evidenceLevel === "primary")).toBe(true);
+    expect(layers.every((layer) => /(referencia|capital|centro urbano principal|no corresponde|no corresponden|no ubica|no se reproducen)/.test(layer.coordinateMethod.toLowerCase()))).toBe(true);
+  });
+
+  it("traza y reconcilia la lectura de devastación aurífera en Madre de Dios", () => {
+    const devastation = loadObservatoryData().madreDiosDevastation;
+    const sourceIds = new Set(devastation.sourceIds);
+
+    expect(devastation.documentedTotal.hectares).toBe(135939);
+    expect(devastation.recentRate.observedHectares).toBe(500);
+    expect(sourceIds.has(devastation.documentedTotal.sourceId)).toBe(true);
+    expect(sourceIds.has(devastation.recentRate.sourceId)).toBe(true);
+    expect(devastation.recentRate.hectaresPerDay).toBeCloseTo(devastation.recentRate.observedHectares / devastation.recentRate.observedDays, 2);
+    expect(devastation.recentRate.hectaresPerHour).toBeCloseTo(devastation.recentRate.hectaresPerDay / 24, 3);
+    for (const projection of devastation.projectionYears) {
+      expect(projection.projectedHectares).toBeCloseTo(devastation.recentRate.hectaresPerDay * 365 * projection.years, 0);
+    }
+    expect(devastation.caveat).toContain("no afirma nueva deforestación observada después del corte");
+  });
 });

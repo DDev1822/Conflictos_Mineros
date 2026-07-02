@@ -1668,6 +1668,34 @@
   rightsStatus: link-only
   verificationStatus: verified
   notes: Informe original con metodología, insumos y resultados de valoración; las cifras son estimaciones modeladas y no pérdidas contables observadas.
+- id: maap-233-gold-mining-peru-amazon
+  title: MAAP 233 — Current situation of gold mining in the Peruvian Amazon
+  institution: Monitoring of the Andean Amazon Project / Amazon Conservation
+  date: 2025-09-29
+  datePrecision: day
+  url: https://www.maapprogram.org/gold-mining-peru-amazon/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: primary
+  accessedAt: 2026-07-01
+  license: Condiciones del sitio y atribución del informe
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reporte satelital MAAP sobre minería de oro en la Amazonía peruana; registra 139.169 hectáreas de deforestación minera nacional a mediados de 2025 y 135.939 hectáreas en Madre de Dios.
+- id: maap-241-tambopata-2026
+  title: MAAP 241 — Rapid Expansion of Illegal Gold Mining in Tambopata National Reserve
+  institution: Monitoring of the Andean Amazon Project / Amazon Conservation
+  date: 2026-05-10
+  datePrecision: day
+  url: https://www.maapprogram.org/mining-peru-tambopata/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: primary
+  accessedAt: 2026-07-01
+  license: Condiciones del sitio y atribución del informe
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reporte satelital MAAP con análisis de muy alta resolución; documenta 500 hectáreas deforestadas por minería ilegal en el norte de la Reserva Nacional Tambopata entre el segundo semestre de 2025 y febrero de 2026.
 - id: manhattan-annual-report-2002
   title: Manhattan Minerals Corp. — Annual Report 2002
   institution: Manhattan Minerals Corp. / U.S. Securities and Exchange Commission

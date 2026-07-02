@@ -197,8 +197,8 @@ export default function CasesPage() {
         </article>
         <article>
           <strong>{blockingGaps}</strong>
-          <span>Vacíos bloqueantes</span>
-          <small>{openContradictions} contradicciones abiertas visibles.</small>
+          <span>Vacíos visibles</span>
+          <small>{openContradictions} contradicciones abiertas y límites documentales visibles.</small>
         </article>
       </section>
 

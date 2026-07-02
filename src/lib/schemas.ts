@@ -467,6 +467,74 @@ export const miningConcessionTerritorialSnapshotSchema = z.object({
   }
 });
 
+export const madreDiosDevastationSchema = z.object({
+  id,
+  title: z.string().min(10),
+  region: z.literal("Madre de Dios"),
+  cutoffDate: isoDate,
+  sourceIds: z.array(id).min(2),
+  documentedTotal: z.object({
+    hectares: z.number().positive(),
+    label: z.string().min(30),
+    sourceId: id,
+    locator: z.string().min(10),
+  }),
+  recentRate: z.object({
+    scope: z.string().min(20),
+    observedHectares: z.number().positive(),
+    periodStart: isoDate,
+    periodEnd: isoDate,
+    observedDays: z.number().int().positive(),
+    hectaresPerDay: z.number().positive(),
+    hectaresPerHour: z.number().positive(),
+    projectionStartAt: z.string().min(10),
+    projectionBaseHectares: z.number().nonnegative(),
+    sourceId: id,
+    locator: z.string().min(10),
+  }),
+  projectionYears: z.array(z.object({
+    years: z.number().int().positive(),
+    projectedHectares: z.number().positive(),
+  })).min(1),
+  caveat: z.string().min(40),
+}).superRefine((item, ctx) => {
+  const sourceIds = new Set(item.sourceIds);
+  if (!sourceIds.has(item.documentedTotal.sourceId)) {
+    ctx.addIssue({ code: "custom", path: ["documentedTotal", "sourceId"], message: "La fuente del total documentado debe figurar en sourceIds" });
+  }
+  if (!sourceIds.has(item.recentRate.sourceId)) {
+    ctx.addIssue({ code: "custom", path: ["recentRate", "sourceId"], message: "La fuente de la tasa reciente debe figurar en sourceIds" });
+  }
+
+  const projectionStart = Date.parse(item.recentRate.projectionStartAt);
+  if (Number.isNaN(projectionStart)) {
+    ctx.addIssue({ code: "custom", path: ["recentRate", "projectionStartAt"], message: "La fecha de inicio de proyección debe ser parseable" });
+  } else {
+    const observedPeriodEnd = Date.parse(item.recentRate.periodEnd);
+    if (!Number.isNaN(observedPeriodEnd) && projectionStart < observedPeriodEnd) {
+      ctx.addIssue({ code: "custom", path: ["recentRate", "projectionStartAt"], message: "La proyección no debe comenzar antes del fin del periodo observado" });
+    }
+  }
+
+  const expectedPerDay = item.recentRate.observedHectares / item.recentRate.observedDays;
+  if (Math.abs(expectedPerDay - item.recentRate.hectaresPerDay) > 0.01) {
+    ctx.addIssue({ code: "custom", path: ["recentRate", "hectaresPerDay"], message: "La tasa diaria no reconcilia con hectáreas/días observados" });
+  }
+  if (Math.abs(item.recentRate.hectaresPerDay / 24 - item.recentRate.hectaresPerHour) > 0.001) {
+    ctx.addIssue({ code: "custom", path: ["recentRate", "hectaresPerHour"], message: "La tasa horaria no reconcilia con la tasa diaria" });
+  }
+  const projectionYears = [...item.projectionYears].sort((a, b) => a.years - b.years);
+  if (projectionYears.some((entry, index) => index > 0 && entry.years === projectionYears[index - 1].years)) {
+    ctx.addIssue({ code: "custom", path: ["projectionYears"], message: "Las proyecciones no deben repetir horizontes temporales" });
+  }
+  item.projectionYears.forEach((entry, index) => {
+    const expectedProjection = Math.round(item.recentRate.hectaresPerDay * 365 * entry.years);
+    if (Math.abs(expectedProjection - entry.projectedHectares) > 1) {
+      ctx.addIssue({ code: "custom", path: ["projectionYears", index, "projectedHectares"], message: "La proyección anual no reconcilia con la tasa diaria declarada" });
+    }
+  });
+});
+
 export const datasetSchema = z.object({
   sources: z.array(sourceSchema),
   actors: z.array(actorSchema),
@@ -487,6 +555,7 @@ export const datasetSchema = z.object({
   formalMiningTerritorialSnapshots: z.array(formalMiningTerritorialSnapshotSchema).min(1),
   explorationTerritorialSnapshots: z.array(explorationTerritorialSnapshotSchema).min(1),
   miningConcessionTerritorialSnapshots: z.array(miningConcessionTerritorialSnapshotSchema).min(1),
+  madreDiosDevastation: madreDiosDevastationSchema,
 });
 
 export type ObservatoryData = z.infer<typeof datasetSchema>;
@@ -514,3 +583,4 @@ export type ReinfoTerritorialSnapshot = z.infer<typeof reinfoTerritorialSnapshot
 export type FormalMiningTerritorialSnapshot = z.infer<typeof formalMiningTerritorialSnapshotSchema>;
 export type ExplorationTerritorialSnapshot = z.infer<typeof explorationTerritorialSnapshotSchema>;
 export type MiningConcessionTerritorialSnapshot = z.infer<typeof miningConcessionTerritorialSnapshotSchema>;
+export type MadreDiosDevastation = z.infer<typeof madreDiosDevastationSchema>;

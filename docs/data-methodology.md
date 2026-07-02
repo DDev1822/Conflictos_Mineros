@@ -57,7 +57,7 @@ Los hitos se clasifican como `event`, `decision`, `agreement`, `evidence` o `pub
 
 Cada paquete de caso registra tres o más perspectivas pertinentes, al menos una fuente directa de un actor involucrado, preguntas de alcance y vacíos explícitos. `ready` significa que la estructura documental está lista para lectura y que los vacíos quedaron declarados; no significa que esos vacíos estén cerrados ni que exista consenso sobre el caso. Los paquetes normativos `prepared` identifican texto oficial, reglamentos, modificatorias y preguntas de alcance; tampoco determinan vigencia consolidada ni aplicabilidad a casos concretos.
 
-`npm run research:scorecard` calcula cobertura directa, mínimos sustantivos, perspectivas, paquetes normativos, conflictos no registrados y fuentes con derechos desconocidos. El comando falla mientras exista un vacío bloqueante; las mismas reglas se evalúan al final de `release:check`.
+`npm run research:scorecard` calcula cobertura directa, mínimos sustantivos, perspectivas, paquetes normativos, conflictos no registrados y fuentes con derechos desconocidos. El comando falla ante rupturas estructurales, falta de evidencia directa revisada, derechos desconocidos en uso o contradicciones sin contraste suficiente. Los vacíos declarados se reportan como avisos de transparencia y deben permanecer visibles en la publicación `public-learning`.
 
 ## Cartografía
 

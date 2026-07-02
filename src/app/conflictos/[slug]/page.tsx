@@ -158,7 +158,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
                 <article><strong>{sources.length}</strong><span>Fuentes</span><small>{directActorSources} actorales directas.</small></article>
                 <article><strong>{evidenceRecords.length}</strong><span>Locadores</span><small>{evidenceRecords.filter((record) => record.reviewStatus === "reviewed").length} revisados.</small></article>
                 <article><strong>{openContradictions}</strong><span>Contradicciones</span><small>Abiertas y atribuidas.</small></article>
-                <article><strong>{blockingGaps}</strong><span>Vacíos bloqueantes</span><small>No se ocultan en la V1.</small></article>
+                <article><strong>{blockingGaps}</strong><span>Vacíos visibles</span><small>Declarados como límites de la V1.</small></article>
               </div>
             </section>
           )}

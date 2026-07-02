@@ -18,12 +18,12 @@ function approvedManifest(): ReleaseManifest {
   };
 }
 
-describe("signoffs de publicación V1", () => {
-  it("acepta cinco aprobaciones fechadas, atribuidas y con evidencia", () => {
+describe("notas de transparencia V1", () => {
+  it("no genera avisos cuando las cinco notas están fechadas, atribuidas y con evidencia", () => {
     expect(collectSignoffIssues(approvedManifest())).toEqual([]);
   });
 
-  it("bloquea deliberadamente un signoff pendiente", () => {
+  it("registra un aviso no bloqueante cuando una nota queda pendiente", () => {
     const manifest = approvedManifest();
     manifest.signoffs.documentary = { status: "pending", reviewedAt: null, reviewedBy: null, evidence: "content/data" };
     expect(collectSignoffIssues(manifest)).toContain("Signoff documentary: pendiente");

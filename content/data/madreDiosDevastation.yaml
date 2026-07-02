@@ -1,0 +1,32 @@
+id: madre-dios-devastation-v1
+title: Devastación minera aurífera en Madre de Dios
+region: Madre de Dios
+cutoffDate: 2026-07-01
+sourceIds:
+  - maap-233-gold-mining-peru-amazon
+  - maap-241-tambopata-2026
+documentedTotal:
+  hectares: 135939
+  label: Deforestación por minería de oro acumulada en Madre de Dios a mediados de 2025.
+  sourceId: maap-233-gold-mining-peru-amazon
+  locator: "MAAP #233, líneas 46 y 118."
+recentRate:
+  scope: Norte de la Reserva Nacional Tambopata, río Malinowski.
+  observedHectares: 500
+  periodStart: 2025-07-01
+  periodEnd: 2026-02-28
+  observedDays: 243
+  hectaresPerDay: 2.0576
+  hectaresPerHour: 0.0857
+  projectionStartAt: 2026-03-01T00:00:00-05:00
+  projectionBaseHectares: 500
+  sourceId: maap-241-tambopata-2026
+  locator: "MAAP #241, líneas 41-44, 68 y 71."
+projectionYears:
+  - years: 1
+    projectedHectares: 751
+  - years: 5
+    projectedHectares: 3755
+  - years: 10
+    projectedHectares: 7510
+caveat: El contador no afirma nueva deforestación observada después del corte; proyecta linealmente el ritmo reciente documentado para mostrar el costo de la inacción si la tendencia continúa.

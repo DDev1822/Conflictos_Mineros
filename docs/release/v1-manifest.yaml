@@ -1,6 +1,6 @@
 version: v1
-visibility: private-review
-updatedAt: 2026-06-20
+visibility: public-learning
+updatedAt: 2026-07-01
 signoffs:
   methodology:
     status: pending

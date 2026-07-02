@@ -18,7 +18,9 @@ describe("gates de investigación documental V1", () => {
     expect(result.metrics.contextualOnlyClaims).toBe(0);
     expect(result.metrics.directEvidenceCoverage).toBe(1);
     expect(result.metrics.directEvidenceCovered).toBe(result.metrics.directEvidenceRequired);
-    expect(result.ready).toBe(false);
+    expect(result.ready).toBe(true);
+    expect(result.metrics.declaredGaps).toBe(3);
+    expect(result.notices).toContain("Vacío tambogrande/tambogrande-expediente-completo: visible en publicación");
   });
 
   it("falla deliberadamente al retirar un locador de evidencia directa", () => {

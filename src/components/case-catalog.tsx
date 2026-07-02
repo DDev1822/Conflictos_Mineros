@@ -136,7 +136,7 @@ export function CaseCatalog({ cases, issues, territories, researchPackets, sourc
               <span>
                 {packet ? researchStatusLabels[packet.status] : "sin paquete"}
                 <small>{packet ? `${depthLabels[packet.depth]} · meta ${packet.substantiveMilestoneTarget} hitos` : reviewLabels[item.reviewStatus]}</small>
-                <small>{openContradictions} contradicción(es) · {blockingGaps} vacío(s) bloqueante(s)</small>
+                <small>{openContradictions} contradicción(es) · {blockingGaps} vacío(s) visible(s)</small>
               </span>
               <span className="case-status-cell">
                 <StatusPill status={item.status} />

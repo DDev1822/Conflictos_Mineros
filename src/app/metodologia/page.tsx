@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, FileText, MapTrifold, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import { loadObservatoryData } from "@/lib/content";
+import { loadReleaseState } from "@/lib/release-state";
+import type { ReleaseManifest } from "@/lib/release-readiness";
 import type { Claim, EvidenceRecord, Source, TimelineEvent } from "@/lib/schemas";
 
 export const metadata: Metadata = { title: "Metodología" };
@@ -48,6 +50,25 @@ const relationLabels: Record<EvidenceRecord["relation"], string> = {
   contradicts: "contradicen",
 };
 
+const visibilityLabels: Record<ReleaseManifest["visibility"], string> = {
+  "private-review": "revisión privada",
+  "public-reviewed": "publicación revisada",
+  "public-learning": "publicación de aprendizaje",
+};
+
+const signoffLabels: Record<keyof ReleaseManifest["signoffs"], string> = {
+  methodology: "Metodología",
+  licenses: "Licencias",
+  editorial: "Editorial",
+  documentary: "Documental",
+  accessibility: "Accesibilidad",
+};
+
+const signoffStatusLabels: Record<ReleaseManifest["signoffs"][keyof ReleaseManifest["signoffs"]]["status"], string> = {
+  approved: "aprobado",
+  pending: "pendiente",
+};
+
 function countBy<T extends string>(values: T[]) {
   return values.reduce<Record<T, number>>((acc, value) => {
     acc[value] = (acc[value] ?? 0) + 1;
@@ -66,6 +87,7 @@ function methodRow(label: string, value: string | number, note: string) {
 
 export default function MethodologyPage() {
   const data = loadObservatoryData();
+  const { manifest, risks, readiness } = loadReleaseState(data);
   const claims = data.cases.flatMap((item) => item.claims);
   const events = data.cases.flatMap((item) => item.timeline);
   const sourceTypeCounts = countBy(data.sources.map((source) => source.type));
@@ -84,12 +106,16 @@ export default function MethodologyPage() {
   const latestSocialSnapshot = [...data.socialConflictSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
   const latestMiningSelection = [...data.miningConflictSelections].sort((a, b) => b.totalRegistered - a.totalRegistered)[0];
   const latestReinfo = [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
+  const signoffEntries = Object.entries(manifest.signoffs) as Array<[keyof ReleaseManifest["signoffs"], ReleaseManifest["signoffs"][keyof ReleaseManifest["signoffs"]]]>;
+  const pendingSignoffs = signoffEntries.filter(([, signoff]) => signoff.status === "pending").length;
+  const openHighRisks = risks.filter((risk) => risk.status === "open" && (risk.priority === "P0" || risk.priority === "P1")).length;
+  const resolvedHighRisks = risks.filter((risk) => risk.status === "resolved" && (risk.priority === "P0" || risk.priority === "P1")).length;
 
   const topMetrics = [
     methodRow("Fuentes", data.sources.length, `${evidenceLevelCounts.primary ?? 0} primarias · último acceso ${formatDate(latestSourceAccess)}`),
     methodRow("Evidencias", `${reviewedEvidence}/${data.evidenceRecords.length}`, "locadores internos revisados"),
     methodRow("Expedientes", `${readyCasePackets}/${data.caseResearchPackets.length}`, `corte máximo ${formatDate(latestCaseCutoff)}`),
-    methodRow("Paquetes normativos", `${preparedLegalPackets}/${data.legalResearchPackets.length}`, "texto oficial, fuentes y preguntas de alcance"),
+    methodRow("Estado V1", readiness.ready ? "Lista" : "Bloqueada", `${manifest.visibility} · ${pendingSignoffs} signoffs pendientes`),
   ];
 
   return (
@@ -117,13 +143,14 @@ export default function MethodologyPage() {
       <div className="method-alert">
         <WarningCircle size={22} />
         <div>
-          <strong>La V1 sigue en revisión privada.</strong>
-          <span>{blockingGaps} vacío(s) bloqueante(s) y {openContradictions} contradicción(es) abierta(s) permanecen visibles como límites documentales, no como errores ocultos.</span>
+          <strong>{readiness.ready ? "La V1 está lista para publicación controlada." : "La V1 no debe publicarse todavía."}</strong>
+          <span>Visibilidad declarada: {visibilityLabels[manifest.visibility]} ({manifest.visibility}). Mantiene {pendingSignoffs} signoff(s) pendiente(s), {blockingGaps} vacío(s) documentales visibles y {openContradictions} contradicción(es) abierta(s) como límites, no como conclusiones cerradas.</span>
         </div>
       </div>
 
       <div className="method-layout">
         <nav aria-label="Índice de metodología">
+          <a href="#publicacion">Estado V1</a>
           <a href="#principios">Principios</a>
           <a href="#fuentes">Fuentes y derechos</a>
           <a href="#locadores">Locadores</a>
@@ -134,6 +161,52 @@ export default function MethodologyPage() {
         </nav>
 
         <div className="prose long-form">
+          <section id="publicacion">
+            <h2>Estado de publicación V1</h2>
+            <p>
+              El manifiesto vigente declara la V1 como <code>{manifest.visibility}</code>: una publicación de aprendizaje, corregible y trazable.
+              El release check no detecta bloqueos P0/P1 abiertos, pero conserva signoffs pendientes y vacíos declarados como avisos de transparencia.
+            </p>
+
+            <div className="publication-status-grid">
+              <article>
+                <CheckCircle size={24} />
+                <strong>{readiness.ready ? "Lista para publicación controlada" : "Bloqueada"}</strong>
+                <span>{openHighRisks} riesgo(s) P0/P1 abierto(s) · {resolvedHighRisks} P0/P1 resuelto(s)</span>
+              </article>
+              <article>
+                <WarningCircle size={24} />
+                <strong>{readiness.metrics.transparencyNotices} avisos de transparencia</strong>
+                <span>{pendingSignoffs} signoff(s) pendiente(s) · {readiness.metrics.declaredGaps} vacío(s) de investigación visibles</span>
+              </article>
+              <article>
+                <FileText size={24} />
+                <strong>{readiness.metrics.directEvidenceCovered}/{readiness.metrics.directEvidenceRequired} evidencias directas</strong>
+                <span>Locadores primarios revisados para hitos, hechos y normas requeridas.</span>
+              </article>
+            </div>
+
+            <div className="publication-review-columns">
+              <article>
+                <h3>Signoffs de publicación</h3>
+                <ul className="publication-checklist">
+                  {signoffEntries.map(([name, signoff]) => (
+                    <li key={name} data-status={signoff.status}>
+                      <strong>{signoffLabels[name]}</strong>
+                      <span>{signoffStatusLabels[signoff.status]} · evidencia: {signoff.evidence}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+              <article>
+                <h3>Avisos que deben permanecer visibles</h3>
+                <ul className="publication-notices">
+                  {readiness.notices.map((notice) => <li key={notice}>{notice}</li>)}
+                </ul>
+              </article>
+            </div>
+          </section>
+
           <section id="principios">
             <h2>Principios editoriales</h2>
             <blockquote>

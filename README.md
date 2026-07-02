@@ -2,13 +2,13 @@
 
 Base académica navegable para conectar conflictos, territorios, actores, hechos, normas, fuentes y alternativas de política pública.
 
-> Estado: V1 privada en revisión. GitHub Pages debe permanecer sin contenido público hasta que `npm run release:check` retorne 0 y exista aprobación manual del entorno.
+> Estado: V1 académica abierta y en evolución. La información se publica con trazabilidad, disclaimer y corrección abierta; no constituye dictamen, acusación ni sentencia.
 
 ## Publicación
 
-El despliegue automático desde `main` y `codex/observatorio-v1` está desactivado. GitHub Pages solo puede ejecutarse manualmente, después de superar los gates técnicos, documentales, editoriales y de accesibilidad y de recibir la aprobación del entorno `github-pages` por `DDev1822`.
+El despliegue automático desde `main` y `codex/observatorio-v1` está desactivado. GitHub Pages puede ejecutarse manualmente cuando los controles técnicos y de datos pasen. Las notas de metodología, licencias, edición, documentación y accesibilidad son metadatos de transparencia: orientan mejoras, pero no sustituyen el carácter civil y corregible del observatorio.
 
-La URL histórica de Pages no se considera una versión autorizada de la V1 mientras el manifiesto permanezca en `private-review`.
+La URL pública se entiende como una versión académica en aprendizaje continuo, abierta a correcciones documentadas.
 
 ## V1
 
@@ -45,7 +45,7 @@ Gate de publicación:
 npm.cmd run release:check
 ```
 
-Este gate falla intencionalmente mientras exista un P0/P1 abierto, una advertencia editorial, un vacío documental bloqueante o un signoff pendiente.
+Este gate falla intencionalmente cuando hay ruptura técnica, datos inconsistentes, referencias rotas o P0/P1 operativos abiertos. Las notas editoriales, documentales, de licencias y accesibilidad se reportan como avisos de transparencia, no como candados de publicación.
 
 ## Estructura
 
@@ -59,8 +59,8 @@ Este gate falla intencionalmente mientras exista un P0/P1 abierto, una advertenc
 - `src/lib/schemas.ts`: contrato público de datos.
 - `docs/data-methodology.md`: criterios de evidencia, precisión, mapa y alcance documental.
 - `docs/design`: referencia visual y QA.
-- `docs/release/v1-manifest.yaml`: signoffs fechados y evidencia de la V1.
-- `docs/release/v1-risks.yaml`: riesgos P0/P1 que bloquean publicación.
+- `docs/release/v1-manifest.yaml`: notas de transparencia fechadas y evidencia de la V1.
+- `docs/release/v1-risks.yaml`: riesgos operativos y decisiones de publicación.
 - `docs/research`: memos de caso, fichas normativas y paquetes de investigación documental.
 
 La [metodología de datos](docs/data-methodology.md) explica qué significa verificar una fuente o una afirmación, cómo se expresan las fechas imprecisas y cuáles son los límites del mapa.

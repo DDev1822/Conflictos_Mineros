@@ -13,6 +13,7 @@ import {
   WarningCircle,
 } from "@phosphor-icons/react/dist/ssr";
 import { loadObservatoryData } from "@/lib/content";
+import { loadReleaseState } from "@/lib/release-state";
 import type { Source } from "@/lib/schemas";
 
 const sourceTypeLabels: Record<Source["type"], string> = {
@@ -38,6 +39,7 @@ function countSourcesByType(sources: Source[]) {
 
 export default function HomePage() {
   const data = loadObservatoryData();
+  const { manifest, readiness } = loadReleaseState(data);
   const latestSocialSnapshot = [...data.socialConflictSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
   const latestMiningSelection = [...data.miningConflictSelections].sort((a, b) => b.totalRegistered - a.totalRegistered)[0];
   const latestReinfo = [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
@@ -46,6 +48,7 @@ export default function HomePage() {
   const reviewedEvidence = data.evidenceRecords.filter((record) => record.reviewStatus === "reviewed").length;
   const blockingGaps = data.caseResearchPackets.flatMap((packet) => packet.gaps).filter((gap) => gap.blocksRelease).length;
   const openContradictions = data.caseResearchPackets.flatMap((packet) => packet.contradictions).filter((item) => item.status === "open").length;
+  const pendingSignoffs = Object.values(manifest.signoffs).filter((signoff) => signoff.status === "pending").length;
   const sourceTypeCounts = countSourcesByType(data.sources);
   const timelineCount = data.cases.reduce((sum, item) => sum + item.timeline.length, 0);
   const claimCount = data.cases.reduce((sum, item) => sum + item.claims.length, 0);
@@ -53,7 +56,7 @@ export default function HomePage() {
   return (
     <div className="home-page">
       <section className="hero">
-        <p className="eyebrow">Observatorio documental · V1 privada en revisión</p>
+        <p className="eyebrow">Observatorio documental · V1 {manifest.visibility}</p>
         <h1>Conflictos mineros del Perú, leídos desde evidencia trazable.</h1>
         <p className="hero-copy">
           Seis expedientes piloto conectan territorio, cronología, actores, fuentes, normas y límites de revisión.
@@ -76,10 +79,11 @@ export default function HomePage() {
           <WarningCircle size={26} />
           <div>
             <p className="eyebrow">Estado de publicación</p>
-            <h2>V1 en revisión documental y editorial</h2>
+            <h2>{readiness.ready ? "V1 lista para publicación controlada" : "V1 bloqueada para publicación"}</h2>
             <p>
-              El observatorio organiza información pública para lectura académica y ciudadana. Hay {blockingGaps} vacío(s) bloqueante(s)
-              y {openContradictions} contradicción(es) abierta(s) visibles; no se presentan como errores ocultos ni como conclusiones cerradas.
+              El observatorio organiza información pública para lectura académica y ciudadana. Conserva {readiness.metrics.transparencyNotices} aviso(s)
+              de transparencia, {pendingSignoffs} signoff(s) pendiente(s), {blockingGaps} vacío(s) documentales visibles y {openContradictions} contradicción(es)
+              abierta(s); no se presentan como errores ocultos ni como conclusiones cerradas.
             </p>
           </div>
         </article>
@@ -193,7 +197,7 @@ export default function HomePage() {
         <div><span>01</span><h3>Hechos</h3><p>{claimCount} afirmaciones separadas por hecho, interpretación o propuesta.</p></div>
         <div><span>02</span><h3>Locadores</h3><p>Página, sección, tabla o artículo para sostener, matizar o contradecir.</p></div>
         <div><span>03</span><h3>Normativa</h3><p>{preparedLegalPackets}/{data.legalResearchPackets.length} paquetes normativos con texto oficial, fuentes y preguntas de alcance.</p></div>
-        <div><span>04</span><h3>Gates</h3><p>Publicación pública cuando metodología, licencias, edición documental y accesibilidad estén claras.</p></div>
+        <div><span>04</span><h3>Corrección abierta</h3><p>La V1 publica información trazable y conserva avisos de mejora sin convertirlos en candados.</p></div>
       </section>
 
       <section className="home-next">
@@ -205,6 +209,7 @@ export default function HomePage() {
             <Link href="/metodologia">Metodología <ArrowRight /></Link>
             <Link href="/normativa">Normativa <Gavel size={15} /></Link>
             <Link href="/oro-ilegal">Oro sin trazabilidad <Coins size={15} /></Link>
+            <Link href="/madre-de-dios">Madre de Dios <ArrowRight /></Link>
             <Link href="/reinfo">REINFO / MAPE <ArrowRight /></Link>
           </div>
         </div>

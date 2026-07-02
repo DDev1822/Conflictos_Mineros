@@ -12,6 +12,7 @@ const navigation = [
   { href: "/conflictos", label: "Casos", icon: List },
   { href: "/normativa", label: "Normas", icon: BookOpenText },
   { href: "/oro-ilegal", label: "Oro ilegal", icon: Coins },
+  { href: "/madre-de-dios", label: "Madre de Dios", icon: MapTrifold },
   { href: "/reinfo", label: "REINFO / MAPE", icon: Info },
   { href: "/metodologia", label: "Metodología", icon: BookOpenText },
 ];

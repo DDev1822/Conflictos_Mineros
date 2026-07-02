@@ -12,7 +12,7 @@ const signoffSchema = z.object({
 
 export const releaseManifestSchema = z.object({
   version: z.literal("v1"),
-  visibility: z.enum(["private-review", "public-reviewed"]),
+  visibility: z.enum(["private-review", "public-reviewed", "public-learning"]),
   updatedAt: z.string().date(),
   signoffs: z.object({
     methodology: signoffSchema,
@@ -58,11 +58,16 @@ export function collectEditorialWarnings(data: ObservatoryData) {
 
 export function evaluateReleaseReadiness(data: ObservatoryData, manifest: ReleaseManifest, risks: ReleaseRisk[]) {
   const research = evaluateResearchReadiness(data);
+  const editorialWarnings = collectEditorialWarnings(data);
+  const signoffNotices = collectSignoffIssues(manifest);
   const issues = [
     ...risks.filter((risk) => risk.status === "open" && (risk.priority === "P0" || risk.priority === "P1")).map((risk) => `${risk.priority} ${risk.id}: abierto`),
-    ...collectEditorialWarnings(data),
-    ...collectSignoffIssues(manifest),
     ...research.issues.map((issue) => `Investigación: ${issue}`),
+  ];
+  const notices = [
+    ...editorialWarnings.map((warning) => `Advertencia editorial: ${warning}`),
+    ...signoffNotices.map((notice) => `Nota de transparencia: ${notice}`),
+    ...research.notices.map((notice) => `Investigación: ${notice}`),
   ];
 
   const social = data.socialConflictSnapshots[0];
@@ -79,13 +84,15 @@ export function evaluateReleaseReadiness(data: ObservatoryData, manifest: Releas
   return {
     ready: issues.length === 0,
     issues,
+    notices,
     metrics: {
       openP0P1: risks.filter((risk) => risk.status === "open" && (risk.priority === "P0" || risk.priority === "P1")).length,
-      editorialWarnings: collectEditorialWarnings(data).length,
+      editorialWarnings: editorialWarnings.length,
       casesWithThreeMilestones: data.cases.filter((item) => item.timeline.length >= 3).length,
       documentedCases: data.cases.filter((item) => item.timeline.length >= 3 && item.claims.every((claim) => claim.sourceIds.length > 0)).length,
       documentedInstruments: data.instruments.filter((instrument) => instrument.sourceIds.some((sourceId) => data.sources.find((source) => source.id === sourceId)?.evidenceLevel === "primary")).length,
       approvedSignoffs: Object.values(manifest.signoffs).filter((signoff) => signoff.status === "approved" && signoff.reviewedAt && signoff.reviewedBy).length,
+      transparencyNotices: notices.length,
       ...research.metrics,
     },
   };
