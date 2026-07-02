@@ -9,6 +9,7 @@ Base académica navegable para conectar conflictos, territorios, actores, hechos
 El despliegue automático desde `main` y `codex/observatorio-v1` está desactivado. GitHub Pages puede ejecutarse manualmente cuando los controles técnicos y de datos pasen. Las notas de metodología, licencias, edición, documentación y accesibilidad son metadatos de transparencia: orientan mejoras, pero no sustituyen el carácter civil y corregible del observatorio.
 
 La URL pública se entiende como una versión académica en aprendizaje continuo, abierta a correcciones documentadas.
+El procedimiento operativo de merge, despliegue manual y verificación posterior está en [docs/release/v1-publication-runbook.md](docs/release/v1-publication-runbook.md).
 
 ## V1
 
@@ -61,6 +62,7 @@ Este gate falla intencionalmente cuando hay ruptura técnica, datos inconsistent
 - `docs/design`: referencia visual y QA.
 - `docs/release/v1-manifest.yaml`: notas de transparencia fechadas y evidencia de la V1.
 - `docs/release/v1-risks.yaml`: riesgos operativos y decisiones de publicación.
+- `docs/release/v1-publication-runbook.md`: checklist de merge, despliegue manual y verificación posterior.
 - `docs/research`: memos de caso, fichas normativas y paquetes de investigación documental.
 
 La [metodología de datos](docs/data-methodology.md) explica qué significa verificar una fuente o una afirmación, cómo se expresan las fechas imprecisas y cuáles son los límites del mapa.
