@@ -66,7 +66,7 @@ test.describe("cierre V1 en escritorio", () => {
     }
   });
 
-  test("los seis expedientes renderizan su cronología ampliada y la normativa expone estado real", async ({ page }) => {
+  test("los seis expedientes renderizan su cronología y permiten abrir los documentos de cada hito", async ({ page }) => {
     const minimumMilestones: Record<string, number> = {
       tambogrande: 5,
       conga: 5,
@@ -75,10 +75,25 @@ test.describe("cierre V1 en escritorio", () => {
       espinar: 8,
       "madre-de-dios": 8,
     };
+
     for (const slug of caseSlugs) {
       await page.goto(`/conflictos/${slug}`);
-      expect(await page.locator(".vertical-timeline > li").count()).toBeGreaterThanOrEqual(minimumMilestones[slug]);
+      const milestones = page.locator(".vertical-timeline > li");
+      const milestoneCount = await milestones.count();
+      expect(milestoneCount).toBeGreaterThanOrEqual(minimumMilestones[slug]);
+
+      for (let index = 0; index < milestoneCount; index += 1) {
+        const milestone = milestones.nth(index);
+        const documentLinks = milestone.locator(".timeline-card-sources a");
+        expect(await documentLinks.count()).toBeGreaterThan(0);
+        const invalidLinks = await documentLinks.evaluateAll((links) => links.filter((link) => {
+          const href = link.getAttribute("href");
+          return !href || link.getAttribute("target") !== "_blank";
+        }).length);
+        expect(invalidLinks).toBe(0);
+      }
     }
+
     await page.goto("/normativa");
     await expect(page.locator(".instrument-table article")).toHaveCount(8);
     await expect(page.locator('.review-chip[data-status="pending"]')).toHaveCount(8);
