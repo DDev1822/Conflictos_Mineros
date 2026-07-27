@@ -1,0 +1,213 @@
+id: mining-social-conflict-commitments
+cutoffDate: 2026-07-27
+scope: Comparación académica de compromisos documentados dentro de los trece expedientes trazados de conflictos sociales mineros; no es un registro general de inversión social ni una evaluación legal.
+methodology: Cada entrada parte de un hito canónico y distingue existencia documental, seguimiento y evidencia de ejecución; una nota, acta o contrato no se convierte automáticamente en prueba de cumplimiento integral.
+excludedCaseIds: [conga, tia-maria, la-oroya, yanacocha-maxima-acuna]
+entries:
+  - id: tambogrande-agua-acuerdo-social
+    caseId: tambogrande
+    timelineEventId: tambogrande-algarrobo-contrato
+    theme: water
+    title: Agua y acuerdo social antes de exploración
+    commitment: Identificar fuentes de agua para Locuto y alcanzar un acuerdo social como condición previa al inicio de estudios geológicos y exploratorios de El Algarrobo.
+    responsibleActors: [Compañía de Minas Buenaventura, PROINVERSIÓN]
+    territorialScope: Centro poblado Locuto y ocho anexos, Tambogrande
+    documentBasis: contract-condition
+    documentaryStage: condition-documented
+    implementationEvidence: not-located
+    evidenceSummary: El contrato inicial y la comunicación del MEF documentan la secuencia agua, acuerdo social y posterior exploración.
+    limit: No se localizó el acuerdo social concluido, el diseño hídrico final, obra ejecutada, agua entregada ni inicio de exploración.
+    sourceIds: [proinversion-algarrobo-contrato-inicial-2024, mef-algarrobo-contrato-2025, buenaventura-algarrobo-contrato-2025]
+    checkedAt: 2026-07-27
+
+  - id: las-bambas-huancuire-monitoreo-aire
+    caseId: las-bambas
+    timelineEventId: las-bambas-huancuire-monitoreo
+    theme: environmental-monitoring
+    title: Estación fija de monitoreo de aire en Huancuire
+    commitment: Instalar y operar una estación fija de vigilancia ambiental para monitorear la calidad del aire y coordinar el acceso comunitario a información.
+    responsibleActors: [OEFA, Comunidad Campesina Huancuire]
+    territorialScope: Comunidad Campesina Huancuire, Cotabambas
+    documentBasis: convention
+    documentaryStage: agreement-documented
+    implementationEvidence: not-located
+    evidenceSummary: El convenio firmado identifica objeto, coordinación, obligaciones de información y actores responsables.
+    limit: El expediente revisado no contiene evidencia posterior suficiente sobre instalación, operación continua, datos producidos o uso comunitario de resultados.
+    sourceIds: [huancuire-convenio-oefa-2019]
+    checkedAt: 2026-07-27
+
+  - id: las-bambas-cotabambas-acuerdos-2022
+    caseId: las-bambas
+    timelineEventId: las-bambas-acuerdos-cotabambas-83
+    theme: employment-capacity
+    title: Empleo, capacitación y empresas comunales en Cotabambas
+    commitment: Desarrollar acuerdos por subgrupos sobre empleo, capacitación, centros de empleabilidad, fortalecimiento de empresas comunales, equipos y revisión de compromisos pendientes.
+    responsibleActors: [Grupo de Trabajo multisectorial, Minera Las Bambas, seis comunidades de Cotabambas]
+    territorialScope: Choaquere, Chila, Chuicuni, Pumamarca, Fuerabamba y Huancuire
+    documentBasis: public-record
+    documentaryStage: follow-up-documented
+    implementationEvidence: partial
+    evidenceSummary: MINEM registra 83 acuerdos y publica actas por subgrupo; la Defensoría documenta reuniones y seguimiento del proceso.
+    limit: El número de acuerdos y la existencia de actas no prueban ejecución individual, calidad del resultado, recepción comunitaria ni cierre de controversias.
+    sourceIds: [minem-83-acuerdos-cotabambas-2022, minem-ruta-dialogo-cotabambas-2022, defensoria-subgrupos-las-bambas-2022]
+    checkedAt: 2026-07-27
+
+  - id: las-bambas-velille-transito-2024
+    caseId: las-bambas
+    timelineEventId: las-bambas-transito
+    theme: mobility
+    title: Tránsito, servicios públicos y capacidades municipales
+    commitment: Levantar las medidas de fuerza, impulsar iniciativas para servicios e infraestructura y fortalecer capacidades locales para gestionar proyectos de inversión pública.
+    responsibleActors: [Poder Ejecutivo, Minera Las Bambas, representantes de Velille]
+    territorialScope: Distrito de Velille y corredor vial sur
+    documentBasis: agreement
+    documentaryStage: result-documented
+    implementationEvidence: partial
+    evidenceSummary: La PCM documenta el restablecimiento puntual del tránsito y atribuye compromisos posteriores al Ejecutivo y a la empresa.
+    limit: El resultado puntual sobre tránsito no acredita implementación posterior de servicios, reducción de brechas, asistencia técnica ni resolución del conflicto general.
+    sourceIds: [las-bambas-transito-2024]
+    checkedAt: 2026-07-27
+
+  - id: espinar-fondo-consulta-evaluacion-2019
+    caseId: espinar
+    timelineEventId: espinar-acuerdos-comunidades
+    theme: social-investment
+    title: Fondo social, consulta y evaluación multisectorial
+    commitment: Formar un grupo para implementar un fondo de emergencia social, preparar la normativa de consulta previa para Coroccohuayco y evaluar presuntas afectaciones territoriales.
+    responsibleActors: [Presidencia del Consejo de Ministros, Gobierno Regional del Cusco, Ministerio de Energía y Minas]
+    territorialScope: Trece comunidades originarias de Espinar
+    documentBasis: agreement
+    documentaryStage: agreement-documented
+    implementationEvidence: not-located
+    evidenceSummary: La PCM registra tres líneas de acuerdo, actores estatales participantes y un plazo anunciado de treinta días para la labor normativa.
+    limit: La fuente no demuestra constitución efectiva del fondo, norma emitida dentro del plazo, resultados de la comisión ni ejecución por comunidad.
+    sourceIds: [espinar-acuerdos-2019]
+    checkedAt: 2026-07-27
+
+  - id: espinar-plan-ambiental-2022
+    caseId: espinar
+    timelineEventId: espinar-plan-ambiental
+    theme: environmental-monitoring
+    title: Salud, metales, ambiente y saneamiento
+    commitment: Ejecutar un plan de trabajo con participación social en tres ejes y comunicar evaluaciones ambientales sobre Tintaya, Antapaccay y Coroccohuayco.
+    responsibleActors: [Ministerio del Ambiente, OEFA, entidades sectoriales y gobiernos locales]
+    territorialScope: Provincia de Espinar
+    documentBasis: work-plan
+    documentaryStage: follow-up-documented
+    implementationEvidence: partial
+    evidenceSummary: MINAM documenta el plan y el rol de seguimiento; expedientes OEFA posteriores registran evaluaciones ambientales de causalidad en 2023.
+    limit: Las evaluaciones técnicas posteriores no prueban por sí solas ejecución integral de los tres ejes, medidas correctivas, saneamiento ni causalidad sanitaria.
+    sourceIds: [espinar-plan-2022, espinar-oefa-causalidad-aire-2023, espinar-oefa-causalidad-agua-2023, espinar-oefa-causalidad-suelo-2023, espinar-oefa-causalidad-animales-2023]
+    checkedAt: 2026-07-27
+
+  - id: espinar-plan-reparaciones-consulta-2025
+    caseId: espinar
+    timelineEventId: espinar-acuerdos-recientes
+    theme: dialogue-governance
+    title: Plan de reparaciones y pasos fechados de consulta
+    commitment: Remitir y revisar el Plan de Acción, informar sobre la Planta de Óxidos, publicar resultados OEFA y realizar reuniones de consulta previa y de la segunda MEIA.
+    responsibleActors: [Presidencia del Consejo de Ministros, Ministerio de Energía y Minas, OEFA]
+    territorialScope: Nueve comunidades originarias participantes de Espinar
+    documentBasis: agreement
+    documentaryStage: agreement-documented
+    implementationEvidence: not-located
+    evidenceSummary: La comunicación oficial enumera responsables y fechas previstas entre abril y junio de 2025.
+    limit: No se localizaron en el expediente actual los productos posteriores necesarios para verificar cada fecha, aprobación, reunión, resultado o acuerdo final.
+    sourceIds: [espinar-acuerdos-2025]
+    checkedAt: 2026-07-27
+
+  - id: madre-dios-mesa-formalizacion-2025
+    caseId: madre-de-dios
+    timelineEventId: madre-dios-mesa-2025
+    theme: formalization
+    title: Mesa sobre superposiciones y formalización minera
+    commitment: Iniciar coordinaciones para establecer una mesa sobre superposición de concesiones, minería aluvial responsable y fortalecimiento de la formalización.
+    responsibleActors: [Dirección General de Formalización Minera, Federación de Mineros de Madre de Dios]
+    territorialScope: Madre de Dios
+    documentBasis: public-record
+    documentaryStage: agreement-documented
+    implementationEvidence: not-located
+    evidenceSummary: MINEM documenta el acuerdo inicial para coordinar la futura mesa y enumera los temas propuestos.
+    limit: La fuente no acredita instalación posterior de la mesa, acta constitutiva, plan, responsables por acción ni resultados de formalización.
+    sourceIds: [madre-dios-mesa-2025]
+    checkedAt: 2026-07-27
+
+  - id: quilish-dialogo-estudio-hidrico-2004
+    caseId: cerro-quilish
+    timelineEventId: quilish-rd-427-2004
+    theme: dialogue-governance
+    title: Diálogo y eventual estudio hídrico en Quilish
+    commitment: Institucionalizar el diálogo entre población, gobiernos y empresa y considerar términos de referencia para un eventual estudio hidrológico e hidrogeológico de la cuenca.
+    responsibleActors: [Ministerio de Energía y Minas, gobiernos subnacionales, Minera Yanacocha y población participante]
+    territorialScope: Cerro Quilish, Río Porcón y ámbito de Cajamarca
+    documentBasis: public-record
+    documentaryStage: condition-documented
+    implementationEvidence: partial
+    evidenceSummary: El TFA reproduce el contenido central de la RD 427 y el informe regional registra la formación posterior de una mesa mediante ordenanzas municipales.
+    limit: No se localizaron la RD original completa, términos de referencia finales, estudio hídrico concluido, actas integrales ni matriz de resultados del diálogo.
+    sourceIds: [quilish-oefa-tfa-002-2021, quilish-sinia-indicadores-cajamarca]
+    checkedAt: 2026-07-27
+
+  - id: morococha-acuerdos-territoriales-2018
+    caseId: toromocho-morococha
+    timelineEventId: morococha-acuerdos-2018
+    theme: dialogue-governance
+    title: Acuerdos territoriales y reinicio de mesas en Morococha
+    commitment: Disponer terreno para proyectos productivos, actualizar el plan de desarrollo sostenible, valorizar infraestructura, adquirir predios de manera armónica y reiniciar las mesas de reasentamiento y convenio marco.
+    responsibleActors: [Ministerio de Energía y Minas, Minera Chinalco Perú, autoridades y representantes de Morococha]
+    territorialScope: Antigua y Nueva Morococha, distrito de Morococha
+    documentBasis: public-record
+    documentaryStage: agreement-documented
+    implementationEvidence: not-located
+    evidenceSummary: El MINEM documenta cinco acuerdos y la programación del reinicio de dos espacios de diálogo en junio de 2018.
+    limit: La nota no contiene acta completa, cronograma por obligación, matriz de responsables ni evidencia suficiente para afirmar ejecución integral de cada acuerdo.
+    sourceIds: [morococha-minem-acuerdos-2018]
+    checkedAt: 2026-07-27
+
+  - id: choropampa-convenio-obras-2000
+    caseId: choropampa
+    timelineEventId: choropampa-convenio-comunidad-2000
+    theme: social-investment
+    title: Convenio municipal y obras posteriores al derrame
+    commitment: Ejecutar medidas y obras de compensación para la comunidad de Choropampa conforme al convenio celebrado con su municipalidad delegada después del derrame.
+    responsibleActors: [Minera Yanacocha, Municipalidad Delegada de San Sebastián de Choropampa]
+    territorialScope: Centro poblado San Sebastián de Choropampa
+    documentBasis: agreement
+    documentaryStage: follow-up-documented
+    implementationEvidence: partial
+    evidenceSummary: La Defensoría incorpora el convenio del 14 de agosto de 2000 y Newmont reportó después la provisión de obras públicas en las tres comunidades afectadas.
+    limit: No existe en el paquete una matriz independiente por obra, costo, recepción y beneficiario; convenio y gasto reportado no equivalen a reparación integral.
+    sourceIds: [choropampa-defensoria-62, choropampa-newmont-10k-2002]
+    checkedAt: 2026-07-27
+
+  - id: michiquillay-transferencia-fondo-2009
+    caseId: fondo-social-michiquillay
+    timelineEventId: michiquillay-fondo-2009
+    theme: social-investment
+    title: Transferencia de recursos y gestión del Fondo Social
+    commitment: Transferir al Fondo el 50 por ciento de determinados pagos del precio ofertado y administrar esos recursos mediante programas y proyectos para Michiquillay y La Encañada.
+    responsibleActors: [PROINVERSIÓN, Asociación Fondo Social Michiquillay, empresa asociada]
+    territorialScope: Comunidad Campesina Michiquillay y distrito de La Encañada
+    documentBasis: contract-condition
+    documentaryStage: follow-up-documented
+    implementationEvidence: partial
+    evidenceSummary: La historia institucional y la memoria estatal documentan el mecanismo; PROINVERSIÓN registra un traslado de US$ 12.5 millones y el Fondo publica informes posteriores.
+    limit: No existe todavía una matriz reconciliada por transferencia, proyecto, costo, plazo, recepción, resultado territorial y conformidad de los sectores beneficiarios.
+    sourceIds: [michiquillay-fsm-sobre, michiquillay-minem-memoria-2018, michiquillay-proinversion-2018, michiquillay-fsm-informes]
+    checkedAt: 2026-07-27
+
+  - id: rio-blanco-rehabilitacion-2008
+    caseId: rio-blanco-majaz
+    timelineEventId: rio-blanco-sancion-2008
+    theme: environmental-monitoring
+    title: Rehabilitación de componentes de exploración
+    commitment: Rehabilitar los componentes intervenidos durante la exploración y presentar el plan correspondiente conforme a la medida correctiva ordenada por OSINERGMIN.
+    responsibleActors: [Río Blanco Copper S.A., OSINERGMIN, Ministerio de Energía y Minas]
+    territorialScope: Área de exploración del proyecto Río Blanco, Ayabaca y Huancabamba
+    documentBasis: public-record
+    documentaryStage: follow-up-documented
+    implementationEvidence: partial
+    evidenceSummary: La resolución de 2008 ordenó rehabilitación y las decisiones del MINEM de 2016 y 2020 documentan modificaciones posteriores del plan.
+    limit: La secuencia administrativa no contiene en este paquete verificación física integral, indicadores finales, actas de conformidad comunal ni declaración de cierre ambiental.
+    sourceIds: [rio-blanco-osinergmin-444-2008, rio-blanco-minem-rehabilitacion-2016, rio-blanco-minem-rehabilitacion-2020]
+    checkedAt: 2026-07-27

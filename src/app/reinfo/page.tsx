@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import {
   ArrowRight,
   ArrowSquareOut,
@@ -10,7 +12,7 @@ import {
   WarningCircle,
 } from "@phosphor-icons/react/dist/ssr";
 import { loadObservatoryData } from "@/lib/content";
-import { mentionsMiningCategory } from "@/lib/mining-classification";
+import { getLatestPublicMiningCut, mentionsMiningCategory } from "@/lib/mining-classification";
 import type { Source } from "@/lib/schemas";
 
 export const metadata: Metadata = { title: "REINFO y formalización MAPE" };
@@ -44,7 +46,9 @@ function SourceCard({ source }: { source: Source }) {
 }
 
 export default function ReinfoPage() {
+  if (!isPublishedSocialMiningCase({ id: "madre-de-dios" })) notFound();
   const data = loadObservatoryData();
+  const { cases: publicMiningCases } = getLatestPublicMiningCut(data);
   const alternative = data.alternatives.find((item) => item.id === "expediente-unico-trazable");
   const latestReinfo = [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
   const madreDeDiosCount = latestReinfo?.regions.find((region) => region.id === "madre-de-dios")?.count;
@@ -55,23 +59,24 @@ export default function ReinfoPage() {
     .map((id) => data.sources.find((source) => source.id === id))
     .filter((source): source is Source => Boolean(source));
   const reinfoEvidenceRecords = data.evidenceRecords.filter((record) => reinfoSourceIds.includes(record.sourceId));
-  const illegalMentions = data.socialConflictCases.filter((item) => mentionsMiningCategory(item, "ilegal"));
-  const informalMentions = data.socialConflictCases.filter((item) => mentionsMiningCategory(item, "informal"));
-  const overlappingMentions = data.socialConflictCases.filter((item) => mentionsMiningCategory(item, "ilegal") && mentionsMiningCategory(item, "informal"));
+  const illegalMentions = publicMiningCases.filter((item) => mentionsMiningCategory(item, "ilegal"));
+  const informalMentions = publicMiningCases.filter((item) => mentionsMiningCategory(item, "informal"));
+  const overlappingMentions = publicMiningCases.filter((item) => mentionsMiningCategory(item, "ilegal") && mentionsMiningCategory(item, "informal"));
 
   return (
     <div className="reinfo-page">
       <section className="reinfo-hero">
         <div>
-          <p className="eyebrow">Módulo documental</p>
+          <p className="eyebrow">Formalización MAPE · registro y origen</p>
           <h1>REINFO / MAPE</h1>
           <p>
             Corte MINEM: {formatNumber(latestReinfo?.totalRegistered)} inscripciones vigentes al {formatDate(latestReinfo?.cutoffDate)}.
-            La V1 lo usa como registro administrativo, no como prueba automática de formalización concluida.
+            El registro acredita permanencia administrativa en un proceso; no prueba por sí solo formalización concluida,
+            origen lícito del mineral ni ausencia de infracciones.
           </p>
           <div className="review-banner">
             <WarningCircle />
-            <span><strong>Alcance documental</strong> · consulta registrada {formatDate(latestReinfo?.accessedAt)} · fuente oficial enlazada</span>
+            <span><strong>Fuente oficial MINEM</strong> · consulta registrada {formatDate(latestReinfo?.accessedAt)} · corte nacional y regional</span>
           </div>
         </div>
         <Gavel size={116} weight="thin" aria-hidden />
@@ -91,7 +96,7 @@ export default function ReinfoPage() {
         <article>
           <strong>{formatNumber(illegalMentions.length)}</strong>
           <span>Minería ilegal</span>
-          <small>Menciones explícitas en el corte social.</small>
+          <small>Menciones explícitas en el corte social minero.</small>
         </article>
         <article>
           <strong>{formatNumber(informalMentions.length)}</strong>
@@ -114,25 +119,25 @@ export default function ReinfoPage() {
         <article>
           <WarningCircle />
           <h2>Minería informal</h2>
-          <p>{formatNumber(informalMentions.length)} casos del corte social la mencionan explícitamente; se mantiene separada de minería ilegal.</p>
+          <p>{formatNumber(informalMentions.length)} casos del corte social minero la mencionan explícitamente; se mantiene separada de minería ilegal.</p>
         </article>
         <article>
           <Prohibit />
           <h2>Minería ilegal</h2>
-          <p>{formatNumber(illegalMentions.length)} casos del corte social la mencionan explícitamente; no sustituye calificación judicial o administrativa individual.</p>
+          <p>{formatNumber(illegalMentions.length)} casos del corte social minero la mencionan explícitamente; no sustituye calificación judicial o administrativa individual.</p>
         </article>
       </section>
 
       <section className="reinfo-system">
         <div>
-          <p className="eyebrow">Lo que ya sostiene la V1</p>
+          <p className="eyebrow">Registro, norma y territorio</p>
           <h2>Registro, norma y trazabilidad conectados</h2>
           <ul>
             <li>Fuente oficial REINFO/MINEM enlazada y corte territorial archivado con {formatNumber(latestReinfo?.regions.length)} agregados regionales.</li>
             <li>Madre de Dios aparece como expediente profundo con {formatNumber(madreDeDiosCount)} inscripciones vigentes y fuentes de trazabilidad del oro.</li>
             <li>{formatNumber(formalizationInstruments.length)} instrumento(s) normativo(s) conectados al nudo {formalizationIssue?.name ?? "Formalización MAPE"}.</li>
-          <li>{formatNumber(reinfoEvidenceRecords.length)} registro(s) de evidencia interna enlazan fuente, entidad respaldada, locador y estado de revisión.</li>
-            <li>Las menciones de minería ilegal e informal vienen del corte social y no delimitan zonas de actividad ni responsabilidad individual.</li>
+            <li>{formatNumber(reinfoEvidenceRecords.length)} registro(s) de evidencia enlazan fuente, entidad respaldada, locador y comprobación.</li>
+            <li>Las menciones de minería ilegal e informal vienen del corte social minero y no delimitan zonas de actividad ni responsabilidad individual.</li>
           </ul>
         </div>
         <aside>
@@ -148,7 +153,7 @@ export default function ReinfoPage() {
       <section className="reinfo-evidence">
         <div>
           <p className="eyebrow">Fuentes enlazadas</p>
-          <h2>Textos y registros que sostienen esta página</h2>
+          <h2>Textos y registros del régimen REINFO / MAPE</h2>
         </div>
         <div className="reinfo-source-list">
           {reinfoSources.map((source) => <SourceCard key={source.id} source={source} />)}
@@ -156,8 +161,8 @@ export default function ReinfoPage() {
       </section>
 
       <section className="reinfo-locators">
-        <p className="eyebrow">Locadores internos</p>
-        <h2>Evidencia registrada</h2>
+        <p className="eyebrow">Locadores probatorios</p>
+        <h2>Dónde se sostiene cada afirmación sobre REINFO</h2>
         <div>
           {reinfoEvidenceRecords.slice(0, 6).map((record) => (
             <article key={record.id}>
@@ -170,10 +175,11 @@ export default function ReinfoPage() {
       </section>
 
       <section className="source-note">
-        <h2>Regla editorial</h2>
+        <h2>Regla probatoria</h2>
         <p>
           La condición de una persona, actividad o territorio no se infiere desde prensa, apariencia territorial o una sola base.
-          Toda clasificación debe citar fuente, fecha, criterio y alcance; el observatorio no emite determinaciones individuales ni reemplaza expedientes oficiales.
+          Toda clasificación debe citar fuente, fecha, criterio y alcance. Una inscripción no prueba formalidad concluida,
+          una suspensión no prueba delito y una mención territorial no reemplaza expedientes oficiales ni determinaciones individuales.
         </p>
         {alternative && <p><strong>Alternativa conectada:</strong> {alternative.title}. {alternative.mechanism}</p>}
         {reinfoSources[0] && <a href={reinfoSources[0].url} target="_blank" rel="noreferrer">Consultar registro oficial <ArrowRight /></a>}

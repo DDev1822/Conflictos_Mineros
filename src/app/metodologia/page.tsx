@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, FileText, MapTrifold, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import { loadObservatoryData } from "@/lib/content";
+import { getLatestPublicMiningCut } from "@/lib/mining-classification";
+import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import type { Claim, EvidenceRecord, Source, TimelineEvent } from "@/lib/schemas";
 
 export const metadata: Metadata = { title: "Metodología" };
@@ -31,7 +33,7 @@ const rightsLabels: Record<Source["rightsStatus"], string> = {
 const claimLabels: Record<Claim["verificationStatus"], string> = {
   verified: "verificadas",
   partial: "parciales",
-  pending: "pendientes",
+  pending: "en contraste",
 };
 
 const timelineKindLabels: Record<TimelineEvent["kind"], string> = {
@@ -66,8 +68,11 @@ function methodRow(label: string, value: string | number, note: string) {
 
 export default function MethodologyPage() {
   const data = loadObservatoryData();
-  const claims = data.cases.flatMap((item) => item.claims);
-  const events = data.cases.flatMap((item) => item.timeline);
+  const publicCases = data.cases.filter(isPublishedSocialMiningCase);
+  const publicCaseIds = new Set(publicCases.map((item) => item.id));
+  const publicCasePackets = data.caseResearchPackets.filter((packet) => publicCaseIds.has(packet.caseId));
+  const claims = publicCases.flatMap((item) => item.claims);
+  const events = publicCases.flatMap((item) => item.timeline);
   const sourceTypeCounts = countBy(data.sources.map((source) => source.type));
   const evidenceLevelCounts = countBy(data.sources.map((source) => source.evidenceLevel));
   const rightsCounts = countBy(data.sources.map((source) => source.rightsStatus));
@@ -75,21 +80,20 @@ export default function MethodologyPage() {
   const eventKindCounts = countBy(events.map((event) => event.kind));
   const relationCounts = countBy(data.evidenceRecords.map((record) => record.relation));
   const reviewedEvidence = data.evidenceRecords.filter((record) => record.reviewStatus === "reviewed").length;
-  const readyCasePackets = data.caseResearchPackets.filter((packet) => packet.status === "ready").length;
+  const readyCasePackets = publicCasePackets.filter((packet) => packet.status === "ready").length;
   const preparedLegalPackets = data.legalResearchPackets.filter((packet) => packet.status === "prepared").length;
-  const blockingGaps = data.caseResearchPackets.flatMap((packet) => packet.gaps).filter((gap) => gap.blocksRelease).length;
-  const openContradictions = data.caseResearchPackets.flatMap((packet) => packet.contradictions).filter((item) => item.status === "open").length;
-  const latestCaseCutoff = [...data.caseResearchPackets].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0]?.cutoffDate;
+  const openContradictions = publicCasePackets.flatMap((packet) => packet.contradictions).filter((item) => item.status === "open").length;
+  const scopeLimitCount = publicCasePackets.reduce((sum, packet) => sum + packet.gaps.length, 0);
+  const latestCaseCutoff = [...publicCasePackets].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0]?.cutoffDate;
   const latestSourceAccess = [...data.sources].sort((a, b) => b.accessedAt.localeCompare(a.accessedAt))[0]?.accessedAt;
-  const latestSocialSnapshot = [...data.socialConflictSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
-  const latestMiningSelection = [...data.miningConflictSelections].sort((a, b) => b.totalRegistered - a.totalRegistered)[0];
-  const latestReinfo = [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
+  const { snapshot: latestMiningSnapshot, selection: latestMiningSelection } = getLatestPublicMiningCut(data);
+  if (!latestMiningSnapshot || !latestMiningSelection) throw new Error("No existe un corte público de conflictos sociales mineros");
 
   const topMetrics = [
     methodRow("Fuentes", data.sources.length, `${evidenceLevelCounts.primary ?? 0} primarias · último acceso ${formatDate(latestSourceAccess)}`),
-    methodRow("Evidencias", `${reviewedEvidence}/${data.evidenceRecords.length}`, "locadores internos revisados"),
-    methodRow("Expedientes", `${readyCasePackets}/${data.caseResearchPackets.length}`, `corte máximo ${formatDate(latestCaseCutoff)}`),
-    methodRow("Paquetes normativos", `${preparedLegalPackets}/${data.legalResearchPackets.length}`, "texto oficial, fuentes y preguntas de alcance"),
+    methodRow("Evidencias", `${reviewedEvidence}/${data.evidenceRecords.length}`, "referencias exactas revisadas"),
+    methodRow("Casos", `${readyCasePackets}/${publicCasePackets.length}`, `último corte ${formatDate(latestCaseCutoff)}`),
+    methodRow("Trazabilidad", "Documentada", "fuentes y ubicaciones precisas disponibles para contraste"),
   ];
 
   return (
@@ -98,9 +102,8 @@ export default function MethodologyPage() {
         <p className="eyebrow">Método antes que conclusión</p>
         <h1>Cómo leer evidencia trazable</h1>
         <p>
-          La metodología de la V1 explica qué puede afirmar el observatorio, qué solo puede atribuir
-          y qué debe quedar pendiente. El centro no es “tener una conclusión”, sino conservar la ruta
-          completa entre fuente, hito, afirmación, locador y revisión.
+          El método separa hechos documentados, posiciones atribuidas, interpretación y propuesta. El centro no es “tener
+          una conclusión”, sino mostrar la ruta completa entre fuente, hito, afirmación, ubicación exacta y comprobación.
         </p>
       </header>
 
@@ -117,45 +120,91 @@ export default function MethodologyPage() {
       <div className="method-alert">
         <WarningCircle size={22} />
         <div>
-          <strong>La V1 sigue en revisión privada.</strong>
-          <span>{blockingGaps} vacío(s) bloqueante(s) y {openContradictions} contradicción(es) abierta(s) permanecen visibles como límites documentales, no como errores ocultos.</span>
+          <strong>Fuentes, referencias exactas y límites probatorios visibles.</strong>
+          <span>El contenido es corregible, conserva {openContradictions} contradicción(es) atribuida(s) y diferencia hechos documentados de interpretación.</span>
         </div>
       </div>
 
       <div className="method-layout">
         <nav aria-label="Índice de metodología">
+          <a href="#publicacion">Evidencia</a>
           <a href="#principios">Principios</a>
           <a href="#fuentes">Fuentes y derechos</a>
-          <a href="#locadores">Locadores</a>
-          <a href="#revision">Alcance</a>
+          <a href="#referencias">Referencias exactas</a>
+          <a href="#revision">Límites</a>
           <a href="#cartografia">Cartografía</a>
           <a href="#glosario">Glosario</a>
           <a href="#correcciones">Correcciones</a>
         </nav>
 
         <div className="prose long-form">
+          <section id="publicacion">
+            <h2>Cómo se comprueba una afirmación</h2>
+            <p>
+              Cada afirmación sensible se presenta con fuente, ubicación precisa, fecha de corte y límite probatorio.
+              Estos elementos permiten contrastar lo publicado, pero no sustituyen conclusiones jurídicas ni determinaciones de responsabilidad.
+            </p>
+
+            <div className="publication-status-grid">
+              <article>
+                <CheckCircle size={24} />
+                <strong>Evidencia disponible para contraste documental</strong>
+                <span>{reviewedEvidence}/{data.evidenceRecords.length} referencias revisadas</span>
+              </article>
+              <article>
+                <WarningCircle size={24} />
+                <strong>{scopeLimitCount} límites documentales declarados</strong>
+                <span>{openContradictions} contradicción(es) atribuida(s) · cada límite señala qué falta comprobar</span>
+              </article>
+              <article>
+                <FileText size={24} />
+                <strong>{evidenceLevelCounts.primary ?? 0} fuentes primarias</strong>
+                <span>Documentos directos para comprobar hitos, hechos y normas.</span>
+              </article>
+            </div>
+
+            <div className="publication-review-columns">
+              <article>
+                <h3>Alcance académico</h3>
+                <ul className="publication-checklist">
+                  <li><strong>Finalidad informativa</strong><span>Organiza evidencia pública para consulta, docencia e investigación.</span></li>
+                  <li><strong>Alcance académico</strong><span>Organiza información para consulta y no sustituye asesoría profesional, peritajes ni decisiones de autoridad.</span></li>
+                  <li><strong>Sin determinación de responsabilidad</strong><span>No atribuye causalidad, culpabilidad ni vigencia normativa consolidada.</span></li>
+                  <li><strong>Corrección abierta</strong><span>Todo cambio debe conservar fuente, ubicación exacta, fecha y justificación.</span></li>
+                </ul>
+              </article>
+              <article>
+                <h3>Límites documentales</h3>
+                <ul className="publication-notices">
+                  <li>{scopeLimitCount} límites de investigación permanecen visibles en las fichas de caso.</li>
+                  <li>{openContradictions} contradicciones permanecen atribuidas a sus fuentes.</li>
+                  <li>Un límite probatorio indica qué no puede afirmarse con la documentación disponible.</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
           <section id="principios">
             <h2>Principios editoriales</h2>
             <blockquote>
-              Este observatorio organiza información pública, documental y académica sobre conflictos mineros en el Perú.
-              No emite dictámenes legales, no reemplaza asesoría jurídica ni determina responsabilidades. Su objetivo es facilitar lectura,
-              trazabilidad de fuentes y contraste ciudadano/académico de hechos documentados, posiciones de actores y controversias abiertas.
+              El observatorio reúne información pública y académica sobre conflictos sociales mineros en el Perú. Su función es
+              ordenar hechos documentados, posiciones de actores y controversias abiertas; no resolverlas ni determinar responsabilidades.
             </blockquote>
             <div className="method-contract-grid">
               <article>
                 <FileText size={24} />
                 <h3>Hecho, interpretación y propuesta no se mezclan</h3>
-                <p>{claims.length} afirmaciones están tipadas. Una fuente oficial puede respaldar un hecho, pero no convierte automáticamente una interpretación en conclusión.</p>
+                <p>{claims.length} afirmaciones se clasifican como hechos, interpretaciones o propuestas. Una fuente oficial puede respaldar un hecho, pero no convierte automáticamente una interpretación en conclusión.</p>
               </article>
               <article>
                 <CheckCircle size={24} />
                 <h3>Fecha de corte antes que actualidad aparente</h3>
-                <p>Cada expediente y paquete declara corte. Si un estado cambió después, debe actualizarse con fuente, locador y revisión.</p>
+                <p>Cada caso declara una fecha de corte. Si un estado cambió después, debe actualizarse con fuente, ubicación exacta y comprobación.</p>
               </article>
               <article>
                 <WarningCircle size={24} />
-                <h3>Ausencia de evidencia no es resolución</h3>
-                <p>Los desacuerdos y vacíos se publican como límites. No se “cierra” un conflicto por falta de documento disponible.</p>
+                <h3>Límite probatorio no es resolución</h3>
+                <p>Los desacuerdos y límites probatorios impiden cerrar un conflicto solo por ausencia de documento disponible.</p>
               </article>
             </div>
 
@@ -180,7 +229,7 @@ export default function MethodologyPage() {
           <section id="fuentes">
             <h2>Fuentes, perspectivas y derechos</h2>
             <p>
-              La V1 contiene {data.sources.length} fuentes con metadatos de institución, fecha, perspectiva, nivel de evidencia,
+              La documentación reúne {data.sources.length} fuentes con información sobre institución, fecha, perspectiva, nivel de evidencia,
               estado de derechos, licencia y verificación. Una fuente contextual ayuda a orientar; no sustituye el texto primario cuando el hecho exige documento directo.
             </p>
 
@@ -200,15 +249,15 @@ export default function MethodologyPage() {
             </div>
 
             <blockquote>
-              Git conserva metadatos, locadores y síntesis. Las copias autorizadas permanecen en archivo privado; ningún documento externo se republica sin derechos claros.
+              Cada fuente conserva institución, fecha, nivel de evidencia, derechos y una síntesis. Las copias autorizadas permanecen en archivo privado; la republicación de documentos externos exige derechos claros.
             </blockquote>
           </section>
 
-          <section id="locadores">
-            <h2>Locadores y relaciones de evidencia</h2>
+          <section id="referencias">
+            <h2>Referencias exactas y relaciones de evidencia</h2>
             <p>
-              Un enlace general no basta. Cada registro de evidencia conecta una fuente con un hito, afirmación, instrumento, estado de caso o posición de actor,
-              e identifica página, sección, tabla, artículo o locador equivalente.
+              Un enlace general no basta. Cada referencia documentada conecta una fuente con un hito, afirmación, instrumento, estado de caso o posición de actor,
+              e identifica el folio, sección, tabla, artículo u otra ubicación precisa donde aparece la información.
             </p>
 
             <div className="method-relation-strip">
@@ -221,49 +270,49 @@ export default function MethodologyPage() {
             </div>
 
             <div className="method-contract-list">
-              <div><strong>supports</strong><span>La fuente respalda directamente la formulación.</span></div>
-              <div><strong>qualifies</strong><span>La fuente matiza alcance, lenguaje, fecha, actor o interpretación.</span></div>
-              <div><strong>contradicts</strong><span>La fuente introduce una discrepancia que debe permanecer visible.</span></div>
+              <div><strong>Sostiene</strong><span>La fuente respalda directamente la formulación.</span></div>
+              <div><strong>Matiza</strong><span>La fuente precisa el alcance, lenguaje, fecha, actor o interpretación.</span></div>
+              <div><strong>Contradice</strong><span>La fuente introduce una discrepancia que debe permanecer visible.</span></div>
             </div>
           </section>
 
           <section id="revision">
-            <h2>Alcance documental y disclaimer académico</h2>
+            <h2>Límites probatorios y disclaimer académico</h2>
             <p>
-              Las normas, resoluciones, actas y sentencias se exponen como documentos públicos dentro de una lectura académica.
-              El observatorio no declara vigencia consolidada, responsabilidad ni solución definitiva: conserva fuente, fecha, locador,
+              Las normas, resoluciones, actas y sentencias se exponen como documentos públicos dentro de un análisis académico.
+              El análisis documental no declara vigencia consolidada, responsabilidad ni solución definitiva: conserva fuente, fecha, ubicación exacta,
               alcance y contradicciones para que cualquier lector pueda contrastar.
             </p>
             <div className="method-warning-card">
               <FileText size={26} />
               <div>
-                <h3>Lo que la interfaz no debe hacer</h3>
+                <h3>Reglas para no convertir documentos en conclusiones</h3>
                 <ul>
                   <li>No presentar una norma o sentencia como conclusión total del conflicto.</li>
-                  <li>No convertir inscripción REINFO en formalidad concluida.</li>
-                  <li>No inferir responsabilidad ambiental, sanitaria, administrativa o judicial si el documento no la formula.</li>
+                  <li>No convertir un registro administrativo en una conclusión total sobre el caso.</li>
+                  <li>No inferir responsabilidad o causalidad si la fuente no la formula.</li>
                   <li>No usar una nota de prensa como prueba automática de cumplimiento de acuerdos.</li>
                 </ul>
               </div>
             </div>
-            <p>{preparedLegalPackets}/{data.legalResearchPackets.length} paquetes normativos están preparados con textos oficiales y preguntas de alcance; eso no determina vigencia consolidada ni aplicabilidad a casos concretos.</p>
+            <p>{preparedLegalPackets}/{data.legalResearchPackets.length} instrumentos cuentan con texto oficial y preguntas de aplicación; eso no determina vigencia consolidada ni aplicabilidad a casos concretos.</p>
           </section>
 
           <section id="cartografia">
             <h2>Cartografía y límites territoriales</h2>
             <p>
-              El mapa usa puntos de referencia para navegar datos, no para delimitar áreas de influencia, concesiones, comunidades, responsabilidad o causalidad territorial.
-              El corte social registra {latestSocialSnapshot.totalRegistered} conflictos; la selección minera conserva {latestMiningSelection.totalRegistered} conflictos socioambientales vinculados a minería.
-              REINFO registra {latestReinfo.totalRegistered.toLocaleString("es-PE")} inscripciones vigentes al {formatDate(latestReinfo.cutoffDate)}.
+              Los puntos territoriales son referencias agregadas, no delimitan áreas de influencia, concesiones, comunidades, responsabilidad o causalidad territorial.
+              El corte público registra exclusivamente {latestMiningSelection.totalRegistered} conflictos sociales vinculados a minería:
+              {" "}{latestMiningSelection.active} activos y {latestMiningSelection.latent} latentes, según el Reporte {latestMiningSnapshot.reportNumber}.
             </p>
             <div className="method-warning-card">
               <MapTrifold size={26} />
               <div>
-                <h3>Reglas de lectura del mapa</h3>
+                <h3>Reglas probatorias del mapa</h3>
                 <ul>
                   <li>Calor territorial expresa cantidad de casos, no gravedad ni impacto.</li>
-                  <li>Minería ilegal e informal son capas separadas por mención textual del reporte.</li>
-                  <li>REINFO, plantas formales, exploración y concesiones son agregados registrales comparables, no ubicaciones exactas de actividad.</li>
+                  <li>Los marcadores de casos señalan referencias territoriales para consulta, no áreas afectadas.</li>
+                  <li>La coincidencia espacial entre casos no prueba relación causal ni responsabilidad compartida.</li>
                 </ul>
               </div>
             </div>
@@ -273,10 +322,9 @@ export default function MethodologyPage() {
             <h2>Glosario mínimo</h2>
             <dl className="glossary">
               <div><dt>Conflicto social</dt><dd>Proceso con posiciones y demandas percibidas como incompatibles; no se reduce a protesta, bloqueo o violencia.</dd></div>
-              <div><dt>Hito sustantivo</dt><dd>Evento, decisión, acuerdo o evidencia que cambió o documentó el curso del expediente; una publicación no rellena cronología salvo que sea el hito registrado.</dd></div>
-              <div><dt>Locador</dt><dd>Página, sección, tabla, artículo o referencia exacta que permite comprobar dónde la fuente sostiene, matiza o contradice una afirmación.</dd></div>
-              <div><dt>MAPE</dt><dd>Minería artesanal y de pequeña escala; requiere distinguir regímenes, formalización, informalidad e ilegalidad.</dd></div>
-              <div><dt>REINFO</dt><dd>Registro Integral de Formalización Minera; permanencia registral no equivale automáticamente a formalidad concluida.</dd></div>
+              <div><dt>Hito sustantivo</dt><dd>Evento, decisión, acuerdo o evidencia que cambió o documentó el curso del caso; una publicación solo integra la cronología cuando registra ese cambio.</dd></div>
+              <div><dt>Referencia exacta</dt><dd>Folio, sección, tabla, artículo u otra ubicación que permite comprobar dónde la fuente sostiene, matiza o contradice una afirmación.</dd></div>
+              <div><dt>Fecha de corte</dt><dd>Última fecha hasta la cual se revisó la documentación de un caso; no garantiza que su situación siga igual después.</dd></div>
               <div><dt>Nudo normativo</dt><dd>Problema persistente donde diseño legal, competencias, interpretación o implementación producen controversias.</dd></div>
             </dl>
           </section>
@@ -285,16 +333,16 @@ export default function MethodologyPage() {
             <h2>Política de correcciones</h2>
             <p>
               Toda corrección debe identificar el dato, justificar el cambio, aportar fuente y declarar conflictos de interés.
-              Si cambia una fuente o un hito, también debe actualizar locador, fecha de comprobación, estado de revisión y relación de evidencia.
+              Si cambia una fuente o un hito, también debe actualizar su ubicación exacta, fecha de comprobación, estado de contraste y relación de evidencia.
             </p>
             <div className="quality-commands">
-              <span>Validación mínima local</span>
-              <code>npm run validate:content</code>
-              <code>npm run audit:content</code>
-              <code>npm run check:links</code>
-              <code>npm run test:e2e</code>
+              <span>Comprobaciones de consistencia</span>
+              <code>fuente primaria</code>
+              <code>referencia exacta</code>
+              <code>fecha de corte</code>
+              <code>relación de evidencia</code>
             </div>
-            <Link className="method-next-link" href="/cronologia">Ver cómo se aplican estas reglas en la cronología <ArrowRight /></Link>
+            <Link className="method-next-link" href="/cronologia">Abrir cronología documentada <ArrowRight /></Link>
           </section>
         </div>
       </div>

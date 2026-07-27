@@ -1,5 +1,6 @@
 - id: defensoria-2026-04
   title: Distribución regional de conflictos sociales — abril 2026
+  scope: all-social-internal
   reportNumber: 266
   reportingPeriod: 2026-04
   cutoffDate: 2026-04-30
@@ -39,3 +40,37 @@
     - { id: madre-de-dios, name: Madre de Dios, coordinates: [-12.5933, -69.1891], total: 1, active: 1, latent: 0 }
     - { id: ica, name: Ica, coordinates: [-14.0678, -75.7286], total: 1, active: 1, latent: 0 }
     - { id: tacna, name: Tacna, coordinates: [-18.0147, -70.253], total: 0, active: 0, latent: 0 }
+- id: defensoria-2026-06-mining
+  title: Distribución regional de conflictos sociales mineros — junio 2026
+  scope: mining-public
+  reportNumber: 268
+  reportingPeriod: 2026-06
+  cutoffDate: 2026-06-30
+  publishedAt: 2026-07-16
+  datePrecision: day
+  sourceId: defensoria-conflictos-268
+  totalRegistered: 61
+  active: 50
+  latent: 11
+  national: { total: 0, active: 0, latent: 0 }
+  multiregional: { total: 0, active: 0, latent: 0 }
+  coordinateMethod: Punto de referencia en la capital o centro urbano principal de cada ámbito regional.
+  notes: La capa pública contiene exclusivamente conflictos socioambientales vinculados con minería. La página 92 repite CC Mariscal Castilla - Minera Chaska II; el registro conserva una sola ocurrencia y reconcilia con los cuadros 15 y 17.
+  regions:
+    - { id: puno, name: Puno, coordinates: [-15.8402, -70.0219], total: 10, active: 10, latent: 0 }
+    - { id: apurimac, name: Apurímac, coordinates: [-13.6339, -72.8814], total: 9, active: 8, latent: 1 }
+    - { id: cusco, name: Cusco, coordinates: [-13.5319, -71.9675], total: 8, active: 7, latent: 1 }
+    - { id: ancash, name: Áncash, coordinates: [-9.5278, -77.5278], total: 7, active: 4, latent: 3 }
+    - { id: moquegua, name: Moquegua, coordinates: [-17.193, -70.935], total: 4, active: 4, latent: 0 }
+    - { id: junin, name: Junín, coordinates: [-12.0651, -75.2049], total: 3, active: 3, latent: 0 }
+    - { id: la-libertad, name: La Libertad, coordinates: [-8.1116, -79.0287], total: 3, active: 2, latent: 1 }
+    - { id: lima-provincias, name: Lima Provincias, coordinates: [-11.1067, -77.605], total: 3, active: 1, latent: 2 }
+    - { id: amazonas, name: Amazonas, coordinates: [-6.2317, -77.869], total: 2, active: 1, latent: 1 }
+    - { id: huanuco, name: Huánuco, coordinates: [-9.9298, -76.2422], total: 2, active: 2, latent: 0 }
+    - { id: loreto, name: Loreto, coordinates: [-3.7437, -73.2516], total: 2, active: 2, latent: 0 }
+    - { id: pasco, name: Pasco, coordinates: [-10.6867, -76.256], total: 2, active: 0, latent: 2 }
+    - { id: piura, name: Piura, coordinates: [-5.1945, -80.6328], total: 2, active: 2, latent: 0 }
+    - { id: arequipa, name: Arequipa, coordinates: [-16.409, -71.5375], total: 1, active: 1, latent: 0 }
+    - { id: ayacucho, name: Ayacucho, coordinates: [-13.1631, -74.2236], total: 1, active: 1, latent: 0 }
+    - { id: cajamarca, name: Cajamarca, coordinates: [-7.1617, -78.5128], total: 1, active: 1, latent: 0 }
+    - { id: tumbes, name: Tumbes, coordinates: [-3.5669, -80.4515], total: 1, active: 1, latent: 0 }

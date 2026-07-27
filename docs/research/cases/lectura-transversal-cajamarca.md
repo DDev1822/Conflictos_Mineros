@@ -20,13 +20,14 @@ Cajamarca no debe leerse como una suma de episodios aislados ni como un único c
 3. ¿Qué ocurre cuando una autorización administrativa no produce legitimidad social suficiente?
 4. ¿Cómo se distribuyen beneficios y quién controla esa distribución?
 
-La secuencia Quilish → Conga → Máxima Acuña/Yanacocha → Michiquillay permite leer Cajamarca como un laboratorio de confianza institucional: ordenanzas, EIA, decisiones judiciales, medidas de protección, fondos sociales, contratos y promesas de desarrollo conviven con desacuerdos territoriales persistentes.
+La secuencia Choropampa → Quilish → Conga → Máxima Acuña/Yanacocha → Michiquillay permite leer Cajamarca como un laboratorio de confianza institucional: emergencias, salud, ordenanzas, EIA, decisiones judiciales, medidas de protección, fondos sociales, contratos y promesas de desarrollo conviven con desacuerdos territoriales persistentes.
 
 ## Secuencia de lectura
 
 | nodo | caso | función dentro de Cajamarca | evidencia base | cautela |
 |---|---|---|---|---|
 | Agua y potestad local | Cerro Quilish / Yanacocha | Introduce la tensión entre microcuencas, autoridad municipal, concesión minera y autorización de exploración. | TC 300/301/302-2002-AA; RM 467-2004-MEM/DM; SINIA/MINAM. | No convertir Quilish en veto municipal general. |
+| Emergencia, salud y reparación | Choropampa | Introduce transporte peligroso, exposición, respuesta, sanción, acuerdos y litigio como problema de confianza territorial. | Informe Defensorial 62; investigación y caso CAO; Primer Pleno Casatorio; Newmont/SEC. | No convertir datos agregados en diagnósticos individuales ni acuerdos en reparación integral. |
 | Agua y legitimidad ambiental | Conga | Lleva la discusión de cabeceras de cuenca al EIA de explotación, peritaje hídrico, suspensión material y estado latente. | EIA Conga, RD 351-2010-MEM/AAM, dictamen hídrico, Defensoría, MINEM 2026, Newmont 2025. | Aprobación administrativa no equivale a legitimidad social. |
 | Tierra, posesión y protección | Máxima Acuña / Yanacocha | Muestra cómo la disputa territorial se judicializa en vía penal, civil y constitucional. | Casación 458-2015, TC 03882/04038-2016-PHC, Defensoría, CIDH, Newmont. | Absolución penal no resuelve propiedad ni posesión civil. |
 | Beneficios y gobernanza | Fondo Social Michiquillay | Desplaza la pregunta desde oposición/protesta hacia distribución, representación, auditoría y control de recursos. | DL 996, DS 082-2008-EF, MINEM 2018, Fondo Social, ProInversión, Southern 10-Q 2026. | Fondo social no equivale a consenso ni cumplimiento probado. |
@@ -35,7 +36,7 @@ La secuencia Quilish → Conga → Máxima Acuña/Yanacocha → Michiquillay per
 
 ### 1. La autorización formal no cierra el conflicto
 
-En Quilish, la autorización administrativa de exploración fue seguida por protesta, condicionamiento y revocatoria. En Conga, el EIA aprobado y el dictamen hídrico no cerraron la controversia territorial. En Michiquillay, contratos y fondos sociales no prueban por sí solos aceptación o cumplimiento.
+En Choropampa, sanción, atención y acuerdos coexistieron con preocupación y desconfianza persistentes. En Quilish, la autorización administrativa de exploración fue seguida por protesta, condicionamiento y revocatoria. En Conga, el EIA aprobado y el dictamen hídrico no cerraron la controversia territorial. En Michiquillay, contratos y fondos sociales no prueban por sí solos aceptación o cumplimiento.
 
 Regla editorial: cada decisión administrativa debe acompañarse de estado social, estado judicial y fuente de seguimiento.
 
@@ -62,13 +63,14 @@ Regla editorial: diferenciar recurso transferido, proyecto ejecutado, beneficio 
 | desacuerdo | cómo aparece | qué falta para cerrar |
 |---|---|---|
 | Competencia municipal vs. autoridad sectorial | Quilish: ordenanza municipal, TC, RD 361/RD 427/RM 467. | Ordenanza original y RD 361/RD 427 completas. |
+| Respuesta documentada vs. reparación integral | Choropampa: atención, sanción, convenio, seguimiento CAO y litigio. | Series sanitarias anonimizadas, matriz de reparación y expedientes completos. |
 | EIA aprobado vs. confianza territorial | Conga: EIA, peritaje, Defensoría, estado Newmont/MINEM. | Texto consolidado de obligaciones y lectura documental de suspensión material. |
 | Absolución penal vs. propiedad/posesión | Máxima Acuña: Casación 458-2015 y procesos civiles pendientes. | Expedientes civiles, registros, catastro y peritajes. |
 | Fondo social vs. desarrollo efectivo | Michiquillay: recursos, órganos, auditorías, proyectos. | Matriz de proyectos, auditorías extraídas, actas comunales y reportes 2009-2026. |
 
 ## Reglas de publicación para la lectura Cajamarca
 
-- No fusionar Quilish, Conga, Máxima Acuña y Michiquillay en un solo caso.
+- No fusionar Choropampa, Quilish, Conga, Máxima Acuña y Michiquillay en un solo caso.
 - No convertir el sistema regional Yanacocha/Cajamarca en causalidad automática.
 - No presentar ausencia de actividad material como resolución del conflicto.
 - No decir “Cajamarca rechaza minería” como afirmación totalizante.

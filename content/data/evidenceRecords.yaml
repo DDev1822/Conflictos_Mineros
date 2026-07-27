@@ -835,6 +835,78 @@
   summary: La fuente empresarial documenta que agricultura, territorio, participación, reasentamiento y viabilidad formaron parte explícita del proyecto y su controversia.
   checkedAt: 2026-06-21
   reviewStatus: reviewed
+- id: ev-tambogrande-algarrobo-adjudicacion
+  sourceId: proinversion-algarrobo-adjudicacion-2024
+  entityType: timeline
+  entityId: tambogrande-algarrobo-adjudicacion
+  locator: Párrafos sobre adjudicación y primera etapa del proyecto
+  relation: supports
+  summary: PROINVERSIÓN comunica la adjudicación a Buenaventura y describe la secuencia anunciada de gestión social, proyecto hídrico, exploración y estudios posteriores.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-tambogrande-algarrobo-contrato
+  sourceId: mef-algarrobo-contrato-2025
+  entityType: timeline
+  entityId: tambogrande-algarrobo-contrato
+  locator: Párrafos 1 a 5 de la nota oficial del 25 de marzo de 2025
+  relation: supports
+  summary: El MEF documenta la suscripción del contrato de opción y presenta el acuerdo social como paso previo a los estudios geológicos y exploratorios.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-tambogrande-algarrobo-garantias
+  sourceId: mef-ds-107-2025-ef
+  entityType: timeline
+  entityId: tambogrande-algarrobo-garantias
+  locator: Artículo 1 y denominación oficial del Decreto Supremo 107-2025-EF
+  relation: supports
+  summary: La norma oficial documenta el otorgamiento de seguridades y garantías estatales a obligaciones contenidas en el contrato de opción de El Algarrobo.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-tambogrande-algarrobo-estado-268
+  sourceId: defensoria-conflictos-268
+  entityType: timeline
+  entityId: tambogrande-algarrobo-estado-268
+  locator: Página 92, tabla de conflictos activos sin hechos nuevos
+  relation: supports
+  summary: El Reporte 268 mantiene Tambogrande - Proyecto El Algarrobo como conflicto socioambiental activo e identifica septiembre de 2024 como fecha de ingreso.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-claim-tambogrande-algarrobo-condicion
+  sourceId: proinversion-algarrobo-contrato-inicial-2024
+  entityType: claim
+  entityId: tambogrande-hecho-2
+  locator: Cláusulas 3.1 a 3.4, página 6; cláusulas 5.1 y 5.2, página 8
+  relation: supports
+  summary: La versión inicial condiciona la vigencia de la opción al Acuerdo Marco Social con Locuto y limita las labores autorizadas durante la opción a exploración y estudios.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-claim-tambogrande-algarrobo-hidraulico
+  sourceId: proinversion-algarrobo-contrato-inicial-2024
+  entityType: claim
+  entityId: tambogrande-hecho-2
+  locator: Anexo 3, página 70; Anexo 4, páginas 71 y 72
+  relation: qualifies
+  summary: El anexo señala que el proyecto hídrico estaba a nivel de idea y que sus características finales se definirían en el acuerdo social, por lo que no acredita diseño final ni ejecución.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-claim-tambogrande-estado-268
+  sourceId: defensoria-conflictos-268
+  entityType: claim
+  entityId: tambogrande-hecho-3
+  locator: Página 92, fila Tambogrande - Proyecto El Algarrobo
+  relation: supports
+  summary: La tabla oficial sustenta la clasificación activa y socioambiental del conflicto contemporáneo en el corte de junio de 2026.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-claim-tambogrande-memoria
+  sourceId: cooperaccion-tambogrande-2024
+  entityType: claim
+  entityId: tambogrande-interpretacion-1
+  locator: Secciones sobre memoria de la consulta y anuncio de El Algarrobo
+  relation: qualifies
+  summary: La fuente de sociedad civil conecta ambos momentos en la memoria territorial, pero no demuestra identidad administrativa entre los proyectos.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
 - id: ev-conga-conflicto-2011
   sourceId: defensoria-conflictos-93
   entityType: timeline
@@ -915,4 +987,1174 @@
   relation: supports
   summary: El texto oficial regula planes de cierre y garantías en sus disposiciones generales.
   checkedAt: 2026-06-20
+  reviewStatus: reviewed
+- id: ev-la-oroya-complejo-1922
+  sourceId: la-oroya-corte-idh-2023
+  entityType: timeline
+  entityId: la-oroya-complejo-1922
+  locator: Página 27, párrafo 67
+  relation: supports
+  summary: La sentencia ubica en 1922 el inicio histórico de las operaciones del complejo metalúrgico.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-doe-run-pama
+  sourceId: la-oroya-corte-idh-2023
+  entityType: timeline
+  entityId: la-oroya-doe-run-pama-1997
+  locator: Páginas 27 y 28, párrafos 67 a 69
+  relation: supports
+  summary: La reconstrucción judicial documenta la adquisición del complejo y la distribución de obligaciones del PAMA.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-tc-2006
+  sourceId: la-oroya-tc-2006
+  entityType: timeline
+  entityId: la-oroya-tc-2006
+  locator: Página 26, puntos resolutivos 1 a 5
+  relation: supports
+  summary: El fallo ordena atención de emergencia, línea base, alerta, vigilancia e informe de cumplimiento a las autoridades estatales.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-prorroga-2006
+  sourceId: la-oroya-corte-idh-2023
+  entityType: timeline
+  entityId: la-oroya-prorroga-2006
+  locator: Página 29, párrafo 71
+  relation: supports
+  summary: La sentencia reconstruye la solicitud y decisión de prórroga excepcional del PAMA en 2006.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-ley-29410
+  sourceId: la-oroya-ley-29410
+  entityType: timeline
+  entityId: la-oroya-ley-29410-2009
+  locator: Página 1, artículos 1 a 4
+  relation: supports
+  summary: La ley documenta objeto, plazos máximos, garantías e informes semestrales para el proyecto pendiente.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-pama-vencimiento
+  sourceId: la-oroya-corte-idh-2023
+  entityType: timeline
+  entityId: la-oroya-pama-vencimiento-2010
+  locator: Página 31, párrafo 74
+  relation: supports
+  summary: La sentencia registra el vencimiento de 2010 sin culminación de la planta de ácido sulfúrico y modificación del circuito de cobre.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-transferencia-2022
+  sourceId: la-oroya-corte-idh-2023
+  entityType: timeline
+  entityId: la-oroya-transferencia-2022
+  locator: Página 31, párrafo 75
+  relation: supports
+  summary: La sentencia documenta el acuerdo de transferencia a trabajadores acreedores y la constitución de la nueva empresa.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-aire-2022
+  sourceId: la-oroya-oefa-aire-2022
+  entityType: timeline
+  entityId: la-oroya-aire-2022
+  locator: Resumen ejecutivo, periodo enero a octubre de 2022 y condición operacional del CMLO
+  relation: qualifies
+  summary: El informe contiene datos del periodo paralizado y por ello no permite inferir condiciones posteriores al reinicio.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-reinicio-2023
+  sourceId: la-oroya-minem-reinicio-2023
+  entityType: timeline
+  entityId: la-oroya-reinicio-2023
+  locator: Párrafos 1 a 9 de la nota oficial del 18 de octubre de 2023
+  relation: supports
+  summary: MINEM comunica el reinicio, identifica al nuevo operador y atribuye a su presidente una posición ambiental y laboral.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-corte-idh-2023
+  sourceId: la-oroya-corte-idh-2023
+  entityType: timeline
+  entityId: la-oroya-corte-idh-2023
+  locator: Páginas 141 a 143, puntos resolutivos 3 a 26
+  relation: supports
+  summary: Los puntos resolutivos declaran responsabilidad internacional del Estado y detallan reparaciones y supervisión.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-plan-cierre-2024
+  sourceId: la-oroya-minem-cierre-2024
+  entityType: timeline
+  entityId: la-oroya-plan-cierre-2024
+  locator: Sumilla oficial y Resolución Directoral 100-2024-MEM-DGAAM
+  relation: supports
+  summary: La resolución aprueba la segunda actualización del plan de cierre presentada por el operador actual.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-supervision-2025
+  sourceId: la-oroya-corte-idh-supervision-2025
+  entityType: timeline
+  entityId: la-oroya-supervision-2025
+  locator: Páginas 4 a 6, puntos resolutivos 1 a 4
+  relation: supports
+  summary: La resolución declara cumplimiento parcial de publicaciones y enumera las reparaciones cuyo seguimiento permanece abierto.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-tc-2026
+  sourceId: la-oroya-tc-2026
+  entityType: timeline
+  entityId: la-oroya-tc-seguimiento-2026
+  locator: Fundamentos 15 y 16, decisión y fundamentos de voto de Domínguez Haro y Ochoa Cardich
+  relation: qualifies
+  summary: La ponencia registra cumplimiento parcial, pero los dos fundamentos de voto cuestionan la pertinencia de esa observación para el proceso.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-claim-la-oroya-pama
+  sourceId: la-oroya-corte-idh-2023
+  entityType: claim
+  entityId: la-oroya-hecho-pama
+  locator: Páginas 29 a 31, párrafos 71 a 74
+  relation: supports
+  summary: La sentencia reconstruye las prórrogas y el estado de los componentes no culminados al vencimiento.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-claim-la-oroya-tc
+  sourceId: la-oroya-tc-2006
+  entityType: claim
+  entityId: la-oroya-hecho-tc
+  locator: Página 26, puntos resolutivos 1 a 5
+  relation: supports
+  summary: Los puntos resolutivos sustentan el contenido y los destinatarios estatales de las medidas ordenadas.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-claim-la-oroya-corte-idh
+  sourceId: la-oroya-corte-idh-2023
+  entityType: claim
+  entityId: la-oroya-hecho-corte-idh
+  locator: Páginas 141 a 143, puntos resolutivos 3 a 23
+  relation: supports
+  summary: El fallo identifica los derechos afectados y las medidas de reparación impuestas al Estado peruano.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-claim-la-oroya-operacion
+  sourceId: la-oroya-minem-reinicio-2023
+  entityType: claim
+  entityId: la-oroya-hecho-operacion
+  locator: Nota oficial del 18 de octubre de 2023, párrafos 1 a 9
+  relation: supports
+  summary: La comunicación estatal sustenta fecha, operador y contexto laboral del reinicio del complejo.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-claim-la-oroya-cumplimiento
+  sourceId: la-oroya-corte-idh-supervision-2025
+  entityType: claim
+  entityId: la-oroya-interpretacion-cumplimiento
+  locator: Páginas 4 a 6, medidas mantenidas bajo supervisión
+  relation: qualifies
+  summary: La lista de reparaciones abiertas impide equiparar reinicio, permisos o plan de cierre con cumplimiento integral.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-claim-la-oroya-tc-2026
+  sourceId: la-oroya-tc-2026
+  entityType: claim
+  entityId: la-oroya-hecho-tc-2026
+  locator: Fundamentos 15 y 16 y fundamentos de voto concurrentes
+  relation: qualifies
+  summary: La fuente sustenta tanto la observación de cumplimiento parcial como el apartamiento expreso de dos magistrados.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-actor-victimas
+  sourceId: la-oroya-aida-hitos-2024
+  entityType: actor-position
+  entityId: la-oroya
+  locator: Introducción y secciones 1 a 5
+  relation: supports
+  summary: La organización representante de víctimas expone su lectura del fallo, las reparaciones y su alcance regional.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-la-oroya-actor-mbp
+  sourceId: la-oroya-mbp-comunicado-2025
+  entityType: actor-position
+  entityId: la-oroya
+  locator: Comunicado 002-2025, párrafos sobre operación, monitoreo y responsabilidad desde el reinicio
+  relation: qualifies
+  summary: El comunicado conserva la posición directa del operador y delimita temporalmente la responsabilidad que declara asumir.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-ordenanza
+  sourceId: quilish-tc-00300-2002-aa-2003
+  entityType: timeline
+  entityId: quilish-ordenanza-2000
+  locator: Antecedentes y fundamentos 2 a 10
+  relation: supports
+  summary: La sentencia identifica la ordenanza, su objeto, las posiciones de las partes y el alcance discutido ante el Tribunal Constitucional.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-evaluacion-2000
+  sourceId: quilish-oefa-dfai-0274-2020
+  entityType: timeline
+  entityId: quilish-evaluacion-2000
+  locator: Página 12, antecedentes de la RD 111-2000-EM-DGAA
+  relation: supports
+  summary: OEFA registra la evaluación ambiental inicial, el máximo de taladros, la exploración superficial y la suspensión de la campaña.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-tc
+  sourceId: quilish-tc-00300-2002-aa-2003
+  entityType: timeline
+  entityId: quilish-tc-2003
+  locator: Fundamentos 8 a 11 y fallo
+  relation: qualifies
+  summary: El fallo mantiene la ordenanza y simultáneamente delimita los derechos de exploración y las exigencias previas a una eventual explotación.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-memorial
+  sourceId: quilish-sinia-indicadores-cajamarca
+  entityType: timeline
+  entityId: quilish-memorial-2004
+  locator: Página 16, sección 2.5.1.A
+  relation: supports
+  summary: El informe regional registra el memorial comunitario, sus preocupaciones hídricas y el desacuerdo con la exploración.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-movilizacion
+  sourceId: quilish-sinia-indicadores-cajamarca
+  entityType: timeline
+  entityId: quilish-movilizacion-2004
+  locator: Página 16, cronología agosto-septiembre de 2004
+  relation: supports
+  summary: La fuente documenta protestas urbanas y rurales, marcha al campamento, enfrentamiento y posterior intervención institucional.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-rd-361
+  sourceId: quilish-oefa-dfai-0274-2020
+  entityType: timeline
+  entityId: quilish-rd-361-2004
+  locator: Página 12, antecedentes del proyecto
+  relation: supports
+  summary: OEFA registra fecha, proyecto, máximo de taladros y falta de culminación de la evaluación ambiental aprobada en 2004.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-rd-427
+  sourceId: quilish-oefa-tfa-002-2021
+  entityType: timeline
+  entityId: quilish-rd-427-2004
+  locator: Páginas 28 y 29, fundamento de voto, numerales 2 y 3
+  relation: supports
+  summary: El TFA reproduce la decisión de dejar sin eficacia la RD 361 y los considerandos sobre diálogo y estudio de la problemática hídrica.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-revocatoria
+  sourceId: quilish-rm-467-2004-mem-dm
+  entityType: timeline
+  entityId: quilish-revocatoria-2004
+  locator: Considerandos y artículo 1
+  relation: supports
+  summary: La resolución identifica la solicitud empresarial y revoca la RD 361, dejándola sin efecto en todos sus extremos.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-empresa
+  sourceId: quilish-newmont-10k-2009
+  entityType: actor-position
+  entityId: cerro-quilish
+  locator: Form 10-K, página 23, riesgos políticos en Perú
+  relation: qualifies
+  summary: La fuente corporativa atribuye a la oposición local el retiro del permiso y la reclasificación del depósito fuera de reservas.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-claim-cierre
+  sourceId: quilish-rm-467-2004-mem-dm
+  entityType: claim
+  entityId: quilish-interpretacion
+  locator: Considerandos y artículo 1
+  relation: qualifies
+  summary: La revocatoria acredita el cierre del acto habilitante específico, pero su texto no declara resuelta toda controversia territorial.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-claim-ordenanza
+  sourceId: quilish-tc-00300-2002-aa-2003
+  entityType: claim
+  entityId: quilish-hecho-ordenanza
+  locator: Antecedentes y fundamentos 2 a 10
+  relation: supports
+  summary: La sentencia acredita la existencia, el objeto territorial y la controversia constitucional vinculada con la ordenanza.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-claim-tc
+  sourceId: quilish-tc-00300-2002-aa-2003
+  entityType: claim
+  entityId: quilish-hecho-tc
+  locator: Fundamentos 10 y 11 y fallo
+  relation: qualifies
+  summary: La decisión declara infundadas las demandas y diferencia exploración de una eventual explotación sujeta a evaluación ambiental.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-claim-conflicto
+  sourceId: quilish-rm-467-2004-mem-dm
+  entityType: claim
+  entityId: quilish-hecho-conflicto
+  locator: Considerandos sobre RD 361, RD 427 y solicitud del 3 de noviembre
+  relation: supports
+  summary: La resolución enlaza autorización, condicionamiento, preocupaciones poblacionales, solicitud empresarial y revocatoria.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-quilish-claim-empresa
+  sourceId: quilish-newmont-10k-2009
+  entityType: claim
+  entityId: quilish-hecho-posicion-empresa
+  locator: Form 10-K, página 23, riesgos políticos en Perú
+  relation: supports
+  summary: El reporte corporativo registra la decisión de dejar el permiso y reclasificar el depósito en respuesta a la oposición local.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-documentos-1994
+  sourceId: acuna-pj-casacion-458-2015
+  entityType: timeline
+  entityId: acuna-documentos-1994
+  locator: Página 20, documentos invocados por los acusados
+  relation: qualifies
+  summary: La casación registra los documentos alegados por la familia sin convertir el proceso penal en una decisión civil de titularidad.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-hechos-2011
+  sourceId: acuna-pj-casacion-458-2015
+  entityType: timeline
+  entityId: acuna-hechos-2011
+  locator: Páginas 3 y 4 y 20 a 21
+  relation: supports
+  summary: La sentencia reconstruye fechas, imputación y controversia probatoria que dieron origen al proceso por usurpación.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-cidh-2014
+  sourceId: acuna-cidh-mc-452-11
+  entityType: timeline
+  entityId: acuna-cidh-2014
+  locator: Resolución 9/2014, páginas 1 a 3 y parte resolutiva
+  relation: supports
+  summary: La resolución identifica personas beneficiarias, contexto de riesgo y medidas solicitadas al Estado peruano.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-condena-2014
+  sourceId: acuna-pj-casacion-458-2015
+  entityType: timeline
+  entityId: acuna-condena-2014
+  locator: Página 2, sentencia de primera instancia
+  relation: supports
+  summary: La casación registra fecha, personas condenadas, pena, reparación civil y orden de restitución posteriormente revocadas.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-absolucion-2014
+  sourceId: acuna-pj-casacion-458-2015
+  entityType: timeline
+  entityId: acuna-absolucion-2014
+  locator: Páginas 1 a 4 y 22
+  relation: supports
+  summary: La decisión registra que la Sala Penal de Apelaciones revocó la condena y absolvió a las personas acusadas.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-defensoria-2015
+  sourceId: acuna-defensoria-2015
+  entityType: timeline
+  entityId: acuna-defensoria-2015
+  locator: Nota institucional del 6 de febrero de 2015, párrafos 1 a 6
+  relation: supports
+  summary: La Defensoría documenta su pedido de garantías y la referencia a medidas cautelares interamericanas.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-casacion-2017
+  sourceId: acuna-pj-casacion-458-2015
+  entityType: timeline
+  entityId: acuna-casacion-2017
+  locator: Páginas 20 a 23 y parte resolutiva
+  relation: qualifies
+  summary: La Corte confirma la absolución penal y precisa que la posesión debe determinarse por la vía civil.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-tc-2020
+  sourceId: acuna-tc-03882-04038-2016
+  entityType: timeline
+  entityId: acuna-tc-2020
+  locator: Páginas 1 a 3, 13 a 14 y 18
+  relation: qualifies
+  summary: La sentencia sustenta la vulneración parcial de privacidad y delimita los extremos ajenos a la decisión constitucional.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-scotus-2021
+  sourceId: acuna-scotus-21-33
+  entityType: timeline
+  entityId: acuna-scotus-2021
+  locator: Orden del 8 de noviembre de 2021, página 1, expediente 21-33
+  relation: qualifies
+  summary: La orden acredita únicamente la denegación de certiorari y no contiene razonamiento ni decisión sobre el fondo.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-claim-absolucion
+  sourceId: acuna-pj-casacion-458-2015
+  entityType: claim
+  entityId: acuna-hecho-absolucion
+  locator: Páginas 22 y 23 y parte resolutiva
+  relation: supports
+  summary: La decisión final declara infundado el recurso de Yanacocha y mantiene la absolución penal.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-claim-limite-civil
+  sourceId: acuna-pj-casacion-458-2015
+  entityType: claim
+  entityId: acuna-hecho-limite-civil
+  locator: Página 22, fundamento sobre determinación de la posesión en vía civil
+  relation: qualifies
+  summary: El locador impide extrapolar la absolución penal a una adjudicación civil de propiedad o posesión.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-claim-privacidad
+  sourceId: acuna-tc-03882-04038-2016
+  entityType: claim
+  entityId: acuna-hecho-privacidad
+  locator: Páginas 13 y 14 y parte resolutiva
+  relation: supports
+  summary: El Tribunal Constitucional identifica la afectación de la vida privada por cámara y dron.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-claim-empresa
+  sourceId: acuna-newmont-2017
+  entityType: claim
+  entityId: acuna-hecho-posicion-empresa
+  locator: Página 1, párrafos sobre decisión penal, procesos civiles y diálogo
+  relation: qualifies
+  summary: El comunicado acredita la existencia de la posición empresarial, sin validar por sí mismo su pretensión civil.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-claim-scotus
+  sourceId: acuna-scotus-21-33
+  entityType: claim
+  entityId: acuna-hecho-scotus
+  locator: Orden del 8 de noviembre de 2021, página 1, expediente 21-33
+  relation: qualifies
+  summary: La ausencia de fundamentos y la fórmula de denegación delimitan el alcance estrictamente procesal de la orden.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-acuna-actor-empresa
+  sourceId: acuna-newmont-2021
+  entityType: actor-position
+  entityId: yanacocha-maxima-acuna
+  locator: Páginas 1 y 2, posición sobre propiedad, litigios civiles y foro estadounidense
+  relation: qualifies
+  summary: La actualización conserva la versión corporativa y permite separarla de las conclusiones judiciales verificadas.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-conflicto-2008
+  sourceId: defensoria-conflictos-268
+  entityType: timeline
+  entityId: morococha-conflicto-2008
+  locator: Página 92, ficha Morococha–Chinalco
+  relation: supports
+  summary: La ficha defensorial registra el tipo socioambiental, estado activo y fecha de inicio del conflicto.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-eia-2010
+  sourceId: morococha-minem-eia-2010
+  entityType: timeline
+  entityId: morococha-eia-2010
+  locator: Publicación oficial del EIA y referencia a RD 411-2010-MEM/AAM
+  relation: supports
+  summary: La página sectorial acredita la existencia del EIA del proyecto Toromocho y su resolución aprobatoria.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-riesgo-solicitud
+  sourceId: morococha-cenepred-028-2013
+  entityType: timeline
+  entityId: morococha-riesgo-solicitud-2012
+  locator: Páginas 4 y 5, antecedentes y oficio municipal 077-ALC/MDM-2012
+  relation: supports
+  summary: El informe registra la solicitud municipal y las preocupaciones técnicas que motivaron la evaluación de Carhuacoto.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-obras-2012
+  sourceId: morococha-cenepred-028-2013
+  entityType: timeline
+  entityId: morococha-obras-2012
+  locator: Página 14, visita técnica del 28 de agosto de 2012
+  relation: qualifies
+  summary: La visita acredita avance físico e infraestructura preventiva, sin constituir evidencia de aceptación o resultado social.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-eia-reasentamiento
+  sourceId: morococha-cenepred-028-2013
+  entityType: timeline
+  entityId: morococha-eia-reasentamiento-2012
+  locator: Página 14, documento ECA-VP-209-2012 del 5 de septiembre
+  relation: supports
+  summary: El informe estatal registra la remisión empresarial del EIA específico del proyecto de reasentamiento.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-cenepred-2013
+  sourceId: morococha-cenepred-028-2013
+  entityType: timeline
+  entityId: morococha-cenepred-2013
+  locator: Páginas 15 a 17, estado situacional, logros y conclusiones
+  relation: qualifies
+  summary: La fuente sustenta la conclusión de seguridad física bajo medidas evaluadas y delimita su naturaleza técnica.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-acuerdos-2018
+  sourceId: morococha-minem-acuerdos-2018
+  entityType: timeline
+  entityId: morococha-acuerdos-2018
+  locator: Nota del 5 de junio de 2018, párrafos sobre los cinco acuerdos y reinicio de mesas
+  relation: qualifies
+  summary: La comunicación estatal enumera acuerdos, responsables generales y espacios de diálogo, pero no acredita ejecución posterior.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-mesa-2020
+  sourceId: morococha-pcm-rm-068-2020
+  entityType: timeline
+  entityId: morococha-mesa-2020
+  locator: Artículos 1 y 2, conformación y objeto del grupo de trabajo
+  relation: supports
+  summary: La resolución acredita la creación de la mesa y sus objetivos de convenio marco y culminación del reasentamiento.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-mesa-2025
+  sourceId: morococha-minam-ogasa-2025
+  entityType: timeline
+  entityId: morococha-mesa-2025
+  locator: Página 22, fila 17, situación actual de la mesa de Morococha
+  relation: qualifies
+  summary: El informe registra la sesión y la presentación del estado del Plan de Acción, sin publicar resultados por obligación.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-estado-268
+  sourceId: defensoria-conflictos-268
+  entityType: timeline
+  entityId: morococha-estado-268
+  locator: Página 92, ficha Morococha–Chinalco y ausencia de hechos del mes
+  relation: supports
+  summary: La ficha mantiene el estado activo y permite diferenciar ausencia de hechos mensuales de resolución del conflicto.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-claim-activo
+  sourceId: defensoria-conflictos-268
+  entityType: claim
+  entityId: morococha-hecho-activo
+  locator: Página 92, estado activo de Morococha–Chinalco
+  relation: supports
+  summary: El reporte público vigente sustenta el estado activo del conflicto al corte de junio de 2026.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-claim-eia
+  sourceId: morococha-minem-eia-2010
+  entityType: claim
+  entityId: morococha-hecho-eia
+  locator: Publicación oficial del EIA y referencia a RD 411-2010-MEM/AAM
+  relation: supports
+  summary: La fuente sectorial acredita el acto de aprobación ambiental sin demostrar cumplimiento material de sus obligaciones.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-claim-riesgo
+  sourceId: morococha-cenepred-028-2013
+  entityType: claim
+  entityId: morococha-hecho-riesgo
+  locator: Páginas 15 a 17, conclusiones sobre seguridad y medidas preventivas
+  relation: qualifies
+  summary: La conclusión técnica queda limitada a peligros físicos evaluados y no se extiende a calidad de vida o legitimidad.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-claim-acuerdos
+  sourceId: morococha-minem-acuerdos-2018
+  entityType: claim
+  entityId: morococha-hecho-acuerdos
+  locator: Nota del 5 de junio de 2018, acuerdos informados por MINEM
+  relation: qualifies
+  summary: La fuente prueba la declaración de acuerdos, mientras la ausencia de seguimiento en la nota impide afirmar cumplimiento integral.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-claim-mesa
+  sourceId: morococha-pcm-rm-068-2020
+  entityType: claim
+  entityId: morococha-hecho-mesa
+  locator: Artículos 1 y 2; contrastado con RM 064-2025-PCM
+  relation: supports
+  summary: Las resoluciones sustentan conformación, objetivos y continuidad temporal del espacio de diálogo.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-claim-empresa
+  sourceId: morococha-chinalco-nueva
+  entityType: claim
+  entityId: morococha-hecho-posicion-empresa
+  locator: Sección Nueva Morococha, párrafos sobre estándares, NBI y calidad de vida
+  relation: qualifies
+  summary: La página acredita la posición empresarial, que el observatorio conserva atribuida y sujeta a contraste independiente.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-morococha-actor-poblacion
+  sourceId: morococha-cooperaccion-2025
+  entityType: actor-position
+  entityId: toromocho-morococha
+  locator: Publicación del 29 de septiembre de 2025, párrafos sobre familias no reasentadas
+  relation: qualifies
+  summary: La fuente aporta una perspectiva territorial y de sociedad civil sobre el desalojo reportado y condiciones reclamadas.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-derrame-2000
+  sourceId: choropampa-defensoria-62
+  entityType: timeline
+  entityId: choropampa-derrame-2000
+  locator: Página 7, alcance del informe; contrastado con CAO, páginas 4 y 16 a 18
+  relation: qualifies
+  summary: Las fuentes coinciden en fecha, ruta, sustancia y actores, pero difieren en la longitud estimada del tramo afectado.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-respuesta-inicial
+  sourceId: choropampa-cao-investigacion-2000
+  entityType: timeline
+  entityId: choropampa-respuesta-inicial-2000
+  locator: Páginas 16 a 20, cronología del incidente y respuesta inmediata
+  relation: supports
+  summary: La cronología independiente documenta confirmación tardía, recolección por residentes y limitaciones de aviso, equipo y respuesta inicial.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-atencion-salud
+  sourceId: choropampa-cao-investigacion-2000
+  entityType: timeline
+  entityId: choropampa-atencion-salud-2000
+  locator: Páginas 42 a 45, riesgos, viviendas, atención y clasificación de casos
+  relation: qualifies
+  summary: La fuente acredita monitoreo y atención agregada, y a la vez limita la equivalencia entre consulta, exposición, síntomas e intoxicación atribuible.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-sancion
+  sourceId: choropampa-defensoria-62
+  entityType: timeline
+  entityId: choropampa-sancion-2000
+  locator: Anexo 1, Resolución Directoral 103-2000-EM/DGM del 16 de junio de 2000
+  relation: supports
+  summary: La resolución incorporada al informe acredita la multa de 600 UIT y la obligación de atender recomendaciones de fiscalización.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-investigacion-cao
+  sourceId: choropampa-cao-investigacion-2000
+  entityType: timeline
+  entityId: choropampa-investigacion-cao-2000
+  locator: Páginas 4 a 8, 16 a 20 y 34 a 40, hallazgos y cronología
+  relation: supports
+  summary: El informe independiente examina causas, transporte, envasado, emergencia, limpieza, salud y cambios requeridos.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-convenio-comunidad
+  sourceId: choropampa-defensoria-62
+  entityType: timeline
+  entityId: choropampa-convenio-comunidad-2000
+  locator: Índice de anexos y anexo 4, convenio del 14 de agosto de 2000
+  relation: qualifies
+  summary: El informe acredita la existencia del convenio municipal, sin demostrar por sí mismo ejecución completa, suficiencia o adhesión de toda la población.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-evaluacion-salud-cao
+  sourceId: choropampa-cao-caso
+  entityType: timeline
+  entityId: choropampa-evaluacion-salud-cao-2001
+  locator: Secciones Complaint, Action y Status del expediente Yanacocha-01/Cajamarca
+  relation: qualifies
+  summary: La ficha registra acuerdo para evaluación independiente, seguimiento por más de dos años y cierre de mediación sin realizar el estudio sanitario más amplio.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-pleno-casatorio
+  sourceId: choropampa-pj-pleno-2008
+  entityType: timeline
+  entityId: choropampa-pleno-casatorio-2008
+  locator: Páginas 109 a 150 y parte resolutiva del Primer Pleno Casatorio Civil
+  relation: qualifies
+  summary: La sentencia fija efectos procesales de determinadas transacciones, sin convertir el resultado individual en reparación integral de toda la población.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-claim-derrame
+  sourceId: choropampa-defensoria-62
+  entityType: claim
+  entityId: choropampa-hecho-derrame
+  locator: Página 7, fecha, ruta y transporte; contrastado con CAO, página 4
+  relation: qualifies
+  summary: La fuente sustenta el núcleo del derrame y permite mostrar sin ocultar la discrepancia documental sobre extensión vial.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-claim-respuesta
+  sourceId: choropampa-cao-investigacion-2000
+  entityType: claim
+  entityId: choropampa-hecho-respuesta
+  locator: Páginas 16 a 20 y 49 a 53, cronología, conclusiones y recomendaciones
+  relation: supports
+  summary: La investigación identifica fallas de preparación, comunicación y respuesta y formula medidas correctivas específicas.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-claim-salud-limite
+  sourceId: choropampa-cao-investigacion-2000
+  entityType: claim
+  entityId: choropampa-hecho-salud-limite
+  locator: Páginas 42 a 45, clasificación clínica y tablas de atención y viviendas
+  relation: qualifies
+  summary: Los datos agregados documentan atención y exposición, mientras sus categorías impiden atribuir causalidad individual uniforme o estado actual.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-claim-sancion
+  sourceId: choropampa-defensoria-62
+  entityType: claim
+  entityId: choropampa-hecho-sancion
+  locator: Anexo 1, Resolución Directoral 103-2000-EM/DGM
+  relation: supports
+  summary: El texto de la resolución incorporado al expediente defensorial acredita autoridad, fecha, infracciones y cuantía de la multa.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-claim-acuerdos
+  sourceId: choropampa-pj-pleno-2008
+  entityType: claim
+  entityId: choropampa-hecho-acuerdos
+  locator: Páginas 5 a 9, 78 a 83 y 109 a 150, transacciones y alcance procesal
+  relation: qualifies
+  summary: La decisión acredita transacciones específicas y sus efectos litigiosos, pero no permite generalizar cobertura ni suficiencia reparadora.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-claim-empresa
+  sourceId: choropampa-newmont-10k-2002
+  entityType: claim
+  entityId: choropampa-hecho-posicion-empresa
+  locator: Form 10-K 2002, sección Other Legal Matters — Choropampa
+  relation: qualifies
+  summary: El archivo regulatorio acredita lo que Newmont reportó sobre remediación, multa, acuerdos, obras y litigios, no la suficiencia de esas medidas.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-choropampa-actor-comunidad
+  sourceId: choropampa-cao-caso
+  entityType: actor-position
+  entityId: choropampa
+  locator: Complaint Overview y Synopsis del expediente Yanacocha-01/Cajamarca
+  relation: qualifies
+  summary: La ficha conserva la identidad del Frente de Defensa y resume sus alegaciones sobre salud y compromisos sin presentarlas como decisión médica o judicial.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-adjudicacion-2007
+  sourceId: michiquillay-fsm-sobre
+  entityType: timeline
+  entityId: michiquillay-adjudicacion-2007
+  locator: Sección Sobre el Fondo Social, cronología, párrafo del 30 de abril de 2007
+  relation: supports
+  summary: La fuente institucional sitúa la buena pro a Anglo American como inicio del primer ciclo privado reconstruido por el expediente.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-acuerdos-2008
+  sourceId: michiquillay-fsm-sobre
+  entityType: timeline
+  entityId: michiquillay-acuerdos-sociales-2008
+  locator: Sección Sobre el Fondo Social, párrafo sobre acuerdos del 23 de mayo y 3 de junio de 2008
+  relation: qualifies
+  summary: La página acredita fechas y partes de los acuerdos, pero no publica el contenido completo de las obligaciones asumidas.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-fondo-2009
+  sourceId: michiquillay-fsm-sobre
+  entityType: timeline
+  entityId: michiquillay-fondo-2009
+  locator: Sección Sobre el Fondo Social, párrafos sobre adenda del 5 de junio de 2009 y constitución de la asociación
+  relation: supports
+  summary: La historia institucional documenta el porcentaje de pagos vinculado con el Fondo y la constitución de la asociación gestora.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-dialogo-2010
+  sourceId: michiquillay-defensoria-73
+  entityType: timeline
+  entityId: michiquillay-dialogo-2010
+  locator: Páginas 17 a 18, caso Michiquillay, reuniones del 2 y 9 de marzo y acuerdos de diálogo
+  relation: supports
+  summary: El reporte defensorial acredita el reinicio del diálogo, los acuerdos operativos y los seis grupos de trabajo acordados.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-demanda-2011
+  sourceId: michiquillay-defensoria-90
+  entityType: timeline
+  entityId: michiquillay-demanda-fondo-2011
+  locator: Página 13, caso Michiquillay, descripción y hechos de agosto de 2011
+  relation: supports
+  summary: El reporte clasifica el caso como socioambiental y registra la demanda comunal de cumplimiento y ejecución del Fondo Social.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-retiro-anglo-2014
+  sourceId: michiquillay-fsm-sobre
+  entityType: timeline
+  entityId: michiquillay-retiro-anglo-2014
+  locator: Sección Sobre el Fondo Social, párrafo del 4 de diciembre de 2014
+  relation: supports
+  summary: La fuente del Fondo registra la resolución del contrato y el retiro de Anglo American sin presentar ese cambio como extinción de la asociación.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-proinversion-2015
+  sourceId: michiquillay-minem-memoria-2018
+  entityType: timeline
+  entityId: michiquillay-proinversion-2015
+  locator: Memoria Fondos Sociales 2018, ficha Fondo Social Michiquillay, antecedentes y asociados
+  relation: supports
+  summary: La memoria estatal confirma la incorporación temporal de PROINVERSIÓN durante la transición entre inversionistas.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-adjudicacion-southern-2018
+  sourceId: michiquillay-minem-contrato-2018
+  entityType: timeline
+  entityId: michiquillay-adjudicacion-southern-2018
+  locator: Nota institucional del 12 de junio de 2018, párrafos sobre adjudicación y firma del contrato
+  relation: supports
+  summary: La comunicación oficial documenta la adjudicación a Southern y la suscripción del contrato de transferencia del proyecto.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-transferencia-2018
+  sourceId: michiquillay-proinversion-2018
+  entityType: timeline
+  entityId: michiquillay-transferencia-fondo-2018
+  locator: Comunicado del 8 de noviembre de 2018, párrafos sobre pago inicial de US$ 12.5 millones y traslado al Fondo
+  relation: qualifies
+  summary: PROINVERSIÓN acredita el traslado informado del pago inicial, no la ejecución posterior ni el resultado de proyectos financiados.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-diagnostico-2019
+  sourceId: michiquillay-oefa-diagnostico-2019
+  entityType: timeline
+  entityId: michiquillay-diagnostico-oefa-2019
+  locator: Ficha y resumen del diagnóstico social, apartados de organización, servicios, salud y educación
+  relation: qualifies
+  summary: El diagnóstico acredita condiciones territoriales y acciones atribuidas al Fondo, pero no constituye una evaluación integral de desempeño.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-acuerdos-southern-2021
+  sourceId: michiquillay-sec-10q-2026
+  entityType: timeline
+  entityId: michiquillay-acuerdos-southern-2021
+  locator: Form 10-Q al 31 de marzo de 2026, sección Michiquillay Project, párrafo sobre social agreements de 2021
+  relation: qualifies
+  summary: El archivo regulatorio acredita la declaración empresarial sobre acuerdos sociales, no su texto completo ni cumplimiento independiente.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-demanda-escuela-2025
+  sourceId: michiquillay-defensoria-256
+  entityType: timeline
+  entityId: michiquillay-demanda-escuela-2025
+  locator: Página 100, tabla de acciones colectivas del 10 de junio de 2025, Cajamarca
+  relation: qualifies
+  summary: La tabla acredita la movilización y su demanda educativa, pero no clasifica por sí sola a Michiquillay como caso vigente del registro mensual.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-estado-proyecto-2026
+  sourceId: michiquillay-sec-10q-2026
+  entityType: timeline
+  entityId: michiquillay-estado-proyecto-2026
+  locator: Form 10-Q al 31 de marzo de 2026, sección Michiquillay Project, estado de estudios y social commitments
+  relation: qualifies
+  summary: La fuente documenta el estado y los compromisos reportados por la empresa; no es una verificación estatal o comunitaria de ejecución.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-claim-conflicto
+  sourceId: michiquillay-defensoria-73
+  entityType: claim
+  entityId: michiquillay-hecho-conflicto
+  locator: Páginas 17 a 18, tipo, descripción, actores y acuerdos del caso Michiquillay
+  relation: supports
+  summary: La fuente primaria establece la naturaleza socioambiental del conflicto y documenta sus materias de diálogo.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-claim-fondo
+  sourceId: michiquillay-fsm-sobre
+  entityType: claim
+  entityId: michiquillay-hecho-fondo
+  locator: Sección Sobre el Fondo Social, párrafos sobre adenda y constitución de la asociación en 2009
+  relation: supports
+  summary: La fuente institucional acredita el diseño de transferencia y la constitución de la asociación, contrastados con la memoria del MINEM.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-claim-transicion
+  sourceId: michiquillay-minem-memoria-2018
+  entityType: claim
+  entityId: michiquillay-hecho-transicion
+  locator: Memoria Fondos Sociales 2018, ficha Michiquillay, antecedentes y composición institucional
+  relation: supports
+  summary: La memoria estatal sustenta la transición institucional entre Anglo American, PROINVERSIÓN y Southern Perú.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-claim-transferencia
+  sourceId: michiquillay-proinversion-2018
+  entityType: claim
+  entityId: michiquillay-hecho-transferencia
+  locator: Comunicado del 8 de noviembre de 2018, párrafos sobre pago inicial y traslado al Fondo
+  relation: supports
+  summary: El comunicado oficial sustenta monto y traslado informado, manteniendo separada la verificación de ejecución posterior.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-claim-transparencia
+  sourceId: michiquillay-fsm-informes
+  entityType: claim
+  entityId: michiquillay-hecho-transparencia
+  locator: Índice de informes, entradas de gestión 2019-2022, auditorías, control interno y estados financieros
+  relation: qualifies
+  summary: El índice acredita disponibilidad documental; su sola publicación no permite inferir calidad de gestión, impacto o legitimidad.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-claim-territorio
+  sourceId: michiquillay-oefa-diagnostico-2019
+  entityType: claim
+  entityId: michiquillay-hecho-territorio
+  locator: Ficha y resumen del diagnóstico social de la Comunidad Campesina Michiquillay
+  relation: supports
+  summary: La fuente estatal documenta organización, servicios y acciones institucionales al corte del estudio territorial de 2019.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-claim-estado
+  sourceId: michiquillay-defensoria-256
+  entityType: claim
+  entityId: michiquillay-hecho-estado
+  locator: Página 100, acción colectiva de Cajamarca del 10 de junio de 2025; contrastado con Reporte 268, selección minera
+  relation: qualifies
+  summary: La fuente acredita contestación reciente y permite distinguirla de una inclusión no demostrada en el registro minero vigente.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-actor-comunidades
+  sourceId: michiquillay-defensoria-90
+  entityType: actor-position
+  entityId: fondo-social-michiquillay
+  locator: Página 13, demanda de la Comunidad Campesina Michiquillay y reuniones informativas
+  relation: supports
+  summary: El reporte conserva la demanda comunal de ejecución sin presentarla como opinión uniforme de todos los sectores beneficiarios.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-actor-fondo
+  sourceId: michiquillay-fsm-sobre
+  entityType: actor-position
+  entityId: fondo-social-michiquillay
+  locator: Sección Sobre el Fondo Social, objeto, ámbito y cronología institucional
+  relation: qualifies
+  summary: La fuente directa acredita cómo el Fondo describe su mandato y trayectoria, sujetos a contraste con auditorías y experiencia territorial.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-actor-estado
+  sourceId: michiquillay-oefa-diagnostico-2019
+  entityType: actor-position
+  entityId: fondo-social-michiquillay
+  locator: Resumen del diagnóstico social, condiciones territoriales y referencias a intervenciones institucionales
+  relation: qualifies
+  summary: OEFA aporta un diagnóstico territorial estatal que no sustituye una auditoría financiera ni una evaluación causal de resultados.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-michiquillay-actor-empresa
+  sourceId: michiquillay-sec-10q-2026
+  entityType: actor-position
+  entityId: fondo-social-michiquillay
+  locator: Form 10-Q al 31 de marzo de 2026, sección Michiquillay Project
+  relation: qualifies
+  summary: El archivo regulatorio conserva la posición corporativa sobre acuerdos, programas, estado del proyecto y cronograma esperado.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-actas-2002
+  sourceId: rio-blanco-defensoria-informe-2006
+  entityType: timeline
+  entityId: rio-blanco-actas-2002
+  locator: páginas 6-8, documentos de 2002 y revisión de aprobación comunal
+  relation: supports
+  summary: El informe reproduce y evalúa los documentos suscritos por las directivas comunales y su falta de aprobación asamblearia por dos tercios.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-ea-2003
+  sourceId: rio-blanco-minem-ea-2003
+  entityType: timeline
+  entityId: rio-blanco-ea-2003
+  locator: ficha oficial y RD 478-2003-EM/DGAA
+  relation: supports
+  summary: El portal del MINEM identifica la resolución que aprobó la Evaluación Ambiental del proyecto de exploración Río Blanco.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-conflicto-2004
+  sourceId: defensoria-conflictos-268
+  entityType: timeline
+  entityId: rio-blanco-conflicto-2004
+  locator: página 92, caso Río Blanco (ex Majaz), fecha de inicio abril de 2004
+  relation: supports
+  summary: El registro vigente mantiene abril de 2004 como fecha de inicio del conflicto socioambiental minero.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-enfrentamiento-2005
+  sourceId: rio-blanco-defensoria-reporte-36
+  entityType: timeline
+  entityId: rio-blanco-enfrentamiento-2005
+  locator: páginas 28-30, cronología del 26 de julio y 1 de agosto de 2005
+  relation: supports
+  summary: El reporte consigna la movilización, el enfrentamiento, las cifras agregadas de personas afectadas y la comisión de diálogo posterior.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-informe-2006
+  sourceId: rio-blanco-defensoria-informe-2006
+  entityType: timeline
+  entityId: rio-blanco-informe-defensoria-2006
+  locator: páginas 26-30, conclusiones y recomendaciones
+  relation: supports
+  summary: La Defensoría concluye que no se acreditó aprobación por dos tercios y recomienda controles sobre acuerdo superficial previo.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-consulta-2007
+  sourceId: rio-blanco-defensoria-reporte-139
+  entityType: timeline
+  entityId: rio-blanco-consulta-2007
+  locator: página 79, octavo aniversario y resultado político de la consulta de 2007
+  relation: supports
+  summary: El reporte identifica la consulta vecinal del 16 de septiembre de 2007 y registra el rechazo expresado frente al proyecto.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-sancion-2008
+  sourceId: rio-blanco-osinergmin-444-2008
+  entityType: timeline
+  entityId: rio-blanco-sancion-2008
+  locator: páginas 65-71 del boletín, artículos 1 y 2 de la Resolución 444-2008-1-OS/GFM
+  relation: supports
+  summary: La resolución impone 100 UIT y una medida correctiva de rehabilitación para los componentes de exploración intervenidos.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-desistimiento-2009
+  sourceId: rio-blanco-minem-desistimiento-2009
+  entityType: timeline
+  entityId: rio-blanco-desistimiento-2009
+  locator: ficha oficial y RD 015-2009-MEM/AAM
+  relation: supports
+  summary: El MINEM documenta la aceptación del desistimiento del procedimiento de evaluación del programa de exploración 2008-2010.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-rehabilitacion-2016
+  sourceId: rio-blanco-minem-rehabilitacion-2016
+  entityType: timeline
+  entityId: rio-blanco-rehabilitacion-2016
+  locator: ficha oficial y RD 274-2016-MEM/DGAAM
+  relation: supports
+  summary: El portal oficial registra la aprobación de una modificación de la actualización del plan de rehabilitación de Río Blanco.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-rehabilitacion-2020
+  sourceId: rio-blanco-minem-rehabilitacion-2020
+  entityType: timeline
+  entityId: rio-blanco-rehabilitacion-2020
+  locator: ficha oficial y RD 057-2020-MINEM/DGAAM
+  relation: supports
+  summary: El portal oficial registra la segunda modificación de la actualización del plan de rehabilitación del proyecto.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-reactivacion-2024
+  sourceId: rio-blanco-defensoria-reporte-246
+  entityType: timeline
+  entityId: rio-blanco-reactivacion-2024
+  locator: páginas 79-81, reactivación, notificación pública y reunión del 26 de agosto
+  relation: supports
+  summary: La Defensoría registra el caso reactivado y activo, sin diálogo, junto con demandas y preocupaciones territoriales.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-claim-estado
+  sourceId: defensoria-conflictos-268
+  entityType: case-status
+  entityId: rio-blanco-majaz
+  locator: página 92, estado activo y fecha de inicio
+  relation: supports
+  summary: El Reporte 268 mantiene Río Blanco como conflicto socioambiental activo iniciado en abril de 2004.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-claim-autorizacion
+  sourceId: rio-blanco-defensoria-informe-2006
+  entityType: claim
+  entityId: rio-blanco-hecho-autorizacion
+  locator: páginas 26-27, conclusiones 4.1 a 4.6
+  relation: supports
+  summary: Las conclusiones diferencian los documentos de directiva del acuerdo asambleario exigido para disponer de tierras comunales.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-claim-estado-activo
+  sourceId: defensoria-conflictos-268
+  entityType: claim
+  entityId: rio-blanco-hecho-estado
+  locator: página 92, caso Río Blanco (ex Majaz), tipo socioambiental y estado activo
+  relation: supports
+  summary: El reporte vigente respalda directamente la clasificación activa y la fecha institucional de inicio del caso.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-claim-consulta
+  sourceId: rio-blanco-defensoria-reporte-139
+  entityType: claim
+  entityId: rio-blanco-hecho-consulta
+  locator: página 79, consulta vecinal de 2007
+  relation: supports
+  summary: El reporte documenta fecha y rechazo expresado; la calificación de alcance jurídico queda fuera de esa constatación.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-claim-violencia
+  sourceId: rio-blanco-defensoria-reporte-36
+  entityType: claim
+  entityId: rio-blanco-hecho-violencia
+  locator: páginas 28-30, hechos del 1 de agosto de 2005
+  relation: supports
+  summary: La cronología defensorial consigna una persona fallecida, cinco heridas y treinta y dos detenidas durante el enfrentamiento.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-claim-fiscalizacion
+  sourceId: rio-blanco-osinergmin-444-2008
+  entityType: claim
+  entityId: rio-blanco-hecho-fiscalizacion
+  locator: páginas 70-71, sanción y medida correctiva
+  relation: supports
+  summary: La resolución sanciona incumplimientos e impone rehabilitación, que luego aparece como plan modificado en expedientes del MINEM.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-claim-reactivacion
+  sourceId: rio-blanco-defensoria-reporte-246
+  entityType: claim
+  entityId: rio-blanco-hecho-reactivacion
+  locator: páginas 79-81, estado, demandas y actuación defensorial
+  relation: supports
+  summary: El reporte acredita reactivación, ausencia de diálogo y presentación pública de demandas territoriales en agosto de 2024.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-claim-empresa
+  sourceId: rio-blanco-empresa-proyecto-2026
+  entityType: claim
+  entityId: rio-blanco-hecho-posicion-empresa
+  locator: secciones Estado del proyecto, Medio ambiente y Beneficios
+  relation: supports
+  summary: La página corporativa declara prefactibilidad, rediseño, exclusión de páramos y beneficios proyectados como posición empresarial.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-claim-interpretacion
+  sourceId: rio-blanco-iep-2009
+  entityType: claim
+  entityId: rio-blanco-interpretacion
+  locator: capítulo Disputas por la legalidad, los derechos de propiedad y el futuro agrícola o minero
+  relation: supports
+  summary: El estudio académico sustenta la lectura diferenciada de legalidad, propiedad, participación y disputa por el futuro territorial.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-actor-comunidades
+  sourceId: rio-blanco-red-muqui-2024
+  entityType: actor-position
+  entityId: rio-blanco-majaz
+  locator: declaraciones de dirigencias comunales y rondas, 12 de diciembre de 2024
+  relation: supports
+  summary: La publicación recoge posiciones atribuidas sobre consulta, agricultura, territorio y rechazo al proyecto.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-actor-empresa
+  sourceId: rio-blanco-empresa-proyecto-2026
+  entityType: actor-position
+  entityId: rio-blanco-majaz
+  locator: descripción, estado, medio ambiente y beneficios del proyecto
+  relation: supports
+  summary: La página expone la posición directa de la empresa sobre diseño, ambiente y beneficios esperados.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-actor-estado
+  sourceId: rio-blanco-defensoria-informe-2006
+  entityType: actor-position
+  entityId: rio-blanco-majaz
+  locator: conclusiones y recomendaciones del Informe de Adjuntía
+  relation: supports
+  summary: La Defensoría formula una posición institucional sobre autorización superficial y deberes de verificación estatal.
+  checkedAt: 2026-07-27
+  reviewStatus: reviewed
+- id: ev-rio-blanco-actor-academia
+  sourceId: rio-blanco-iep-2009
+  entityType: actor-position
+  entityId: rio-blanco-majaz
+  locator: capítulo sobre Majaz, páginas 45 en adelante
+  relation: supports
+  summary: La fuente académica aporta una interpretación situada de legalidad, propiedad, participación y alternativas territoriales.
+  checkedAt: 2026-07-27
   reviewStatus: reviewed

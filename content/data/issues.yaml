@@ -48,3 +48,28 @@
   summary: Garantías, remediación, responsabilidades y seguimiento de impactos que persisten después de la operación minera.
   status: structural
   sourceIds: [minam-pasivos, oefa-fiscalizacion]
+- id: salud-ambiental
+  name: Salud ambiental y exposición poblacional
+  summary: Respuesta pública ante exposición a contaminantes, vigilancia sanitaria, información de riesgos y atención diferenciada a población afectada.
+  status: implementation-gap
+  sourceIds: [la-oroya-tc-2006, la-oroya-corte-idh-2023, la-oroya-corte-idh-supervision-2025]
+- id: proteccion-privacidad
+  name: Protección de personas defensoras y privacidad
+  summary: Garantías de integridad, tránsito y vida privada en conflictos territoriales con vigilancia, seguridad y medidas de protección.
+  status: implementation-gap
+  sourceIds: [acuna-defensoria-2015, acuna-cidh-mc-452-11, acuna-tc-03882-04038-2016]
+- id: reasentamiento-compensacion
+  name: Reasentamiento, vivienda y compensación territorial
+  summary: Criterios, participación, vivienda, servicios, arraigo, compensaciones y seguimiento cuando un proyecto minero transforma o desplaza un asentamiento.
+  status: implementation-gap
+  sourceIds: [morococha-cenepred-028-2013, morococha-minem-acuerdos-2018, morococha-pcm-rm-068-2020]
+- id: transporte-emergencias-reparacion
+  name: Transporte peligroso, respuesta de emergencia y reparación
+  summary: Prevención, comunicación de riesgos, atención coordinada, remediación, compensación y seguimiento frente a incidentes con sustancias peligrosas vinculadas con actividad minera.
+  status: implementation-gap
+  sourceIds: [choropampa-defensoria-62, choropampa-cao-investigacion-2000, choropampa-pj-pleno-2008]
+- id: gobernanza-fondos-sociales
+  name: Gobernanza, representación y control de fondos sociales
+  summary: Reglas de representación, priorización, transferencia, ejecución, auditoría y rendición de cuentas de recursos sociales vinculados con procesos de promoción minera.
+  status: implementation-gap
+  sourceIds: [michiquillay-mef-ds-082-2008, michiquillay-defensoria-90, michiquillay-fsm-informes, michiquillay-pucp-2021]

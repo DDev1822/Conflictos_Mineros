@@ -1,19 +1,22 @@
 # Observatorio Académico de Conflictos Mineros del Perú
 
-Base académica navegable para conectar conflictos, territorios, actores, hechos, normas, fuentes y alternativas de política pública.
+Observatorio académico navegable para comprender conflictos sociales vinculados con minería, sus territorios, actores, hechos, acuerdos y fuentes.
 
-> Estado: V1 privada en revisión. GitHub Pages debe permanecer sin contenido público hasta que `npm run release:check` retorne 0 y exista aprobación manual del entorno.
+> Estado: observatorio académico abierto y en evolución. La información se publica con trazabilidad y corrección abierta; no constituye dictamen, acusación, sentencia ni asesoría profesional.
+
+> **Disclaimer:** este proyecto tiene fines exclusivamente académicos e informativos. Organiza fuentes públicas y análisis documentales; no sustituye asesoría profesional, peritajes ni decisiones de autoridad, y no determina responsabilidades o causalidad.
 
 ## Publicación
 
-El despliegue automático desde `main` y `codex/observatorio-v1` está desactivado. GitHub Pages solo puede ejecutarse manualmente, después de superar los gates técnicos, documentales, editoriales y de accesibilidad y de recibir la aprobación del entorno `github-pages` por `DDev1822`.
+El despliegue automático desde `main` y `codex/observatorio-v1` está desactivado. GitHub Pages puede ejecutarse manualmente cuando los controles técnicos y de datos pasen. Las notas de metodología, licencias, edición, documentación y accesibilidad son metadatos de transparencia: orientan mejoras, pero no sustituyen el carácter civil y corregible del observatorio.
 
-La URL histórica de Pages no se considera una versión autorizada de la V1 mientras el manifiesto permanezca en `private-review`.
+La URL pública se entiende como una versión académica en aprendizaje continuo, abierta a correcciones documentadas.
+El procedimiento operativo de merge, despliegue manual y verificación posterior está en [docs/release/v1-publication-runbook.md](docs/release/v1-publication-runbook.md).
 
 ## V1
 
-- Seis casos piloto: Tambogrande, Conga, Tía María, Las Bambas, Espinar y Madre de Dios.
-- Sistema de relaciones, catálogo de casos, mapa enfocado en conflictos socioambientales mineros con comparación del registro social completo, cronología y módulo REINFO/MAPE.
+- Doce casos hito publicados: Tambogrande, Conga, Tía María, Las Bambas, Espinar, La Oroya, Cerro Quilish, Máxima Acuña–Yanacocha, Toromocho–Morococha, Choropampa, Fondo Social Michiquillay y Río Blanco–Majaz.
+- Sistema de relaciones, catálogo de casos, mapa de conflictos sociales mineros, cronología y comparación de compromisos.
 - Contenido estructurado en YAML, narrativas en MDX y validación con Zod.
 - Afirmaciones clasificadas como hechos, interpretaciones o propuestas.
 - Compilación bloqueada ante relaciones rotas, IDs duplicados o afirmaciones sin fuente.
@@ -45,29 +48,30 @@ Gate de publicación:
 npm.cmd run release:check
 ```
 
-Este gate falla intencionalmente mientras exista un P0/P1 abierto, una advertencia editorial, un vacío documental bloqueante o un signoff pendiente.
+Este gate falla intencionalmente cuando hay ruptura técnica, datos inconsistentes, referencias rotas o P0/P1 operativos abiertos. Las notas editoriales, documentales, de licencias y accesibilidad se reportan como avisos de transparencia, no como candados de publicación.
 
 ## Estructura
 
 - `content/data`: colecciones YAML validadas.
-- `content/data/evidenceRecords.yaml`: locadores exactos y relaciones `supports | qualifies | contradicts`.
-- `content/data/caseResearchPackets.yaml`: cobertura, posiciones, contradicciones, preguntas de alcance y vacíos de los seis casos.
+- `content/data/evidenceRecords.yaml`: referencias exactas y relaciones `supports | qualifies | contradicts`.
+- `content/data/caseResearchPackets.yaml`: cobertura, posiciones, contradicciones y preguntas de alcance de los casos investigados.
 - `content/data/legalResearchPackets.yaml`: ocho paquetes normativos documentales.
 - `content/data/socialConflictSnapshots.yaml`: cortes territoriales trazables para la capa de calor.
 - `content/data/miningConflictSelections.yaml`: selección minera reconciliada con los totales publicados por la Defensoría del Pueblo.
-- `content/narratives`: narrativas MDX de los expedientes.
+- `content/narratives`: narrativas MDX de los casos.
 - `src/lib/schemas.ts`: contrato público de datos.
 - `docs/data-methodology.md`: criterios de evidencia, precisión, mapa y alcance documental.
 - `docs/design`: referencia visual y QA.
-- `docs/release/v1-manifest.yaml`: signoffs fechados y evidencia de la V1.
-- `docs/release/v1-risks.yaml`: riesgos P0/P1 que bloquean publicación.
+- `docs/release/v1-manifest.yaml`: alcance académico, disclaimer y fecha del estado publicable.
+- `docs/release/v1-risks.yaml`: riesgos operativos y decisiones de publicación.
+- `docs/release/v1-publication-runbook.md`: checklist de merge, despliegue manual y verificación posterior.
 - `docs/research`: memos de caso, fichas normativas y paquetes de investigación documental.
 
 La [metodología de datos](docs/data-methodology.md) explica qué significa verificar una fuente o una afirmación, cómo se expresan las fechas imprecisas y cuáles son los límites del mapa.
 
 ## Contribuciones
 
-Las correcciones y nuevos expedientes se revisan mediante pull request. Consulta [CONTRIBUTING.md](CONTRIBUTING.md).
+Las correcciones y nuevos casos se revisan mediante pull request. Consulta [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Licencias
 
@@ -75,4 +79,4 @@ Las correcciones y nuevos expedientes se revisan mediante pull request. Consulta
 - Contenido y datos propios: [CC BY 4.0](LICENSE-CONTENT.md).
 - Las fuentes y materiales de terceros conservan sus licencias originales.
 
-Este proyecto tiene fines académicos e informativos y no constituye asesoría jurídica.
+Este proyecto tiene fines académicos e informativos y no sustituye asesoría profesional, peritajes ni decisiones de autoridad.

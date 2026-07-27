@@ -4,8 +4,8 @@
   authority: Poder Ejecutivo
   publishedAt: 1992-06-04
   effectiveFrom: 1992-06-05
-  status: pending-review
-  legalReviewStatus: pending
+  status: documented
+  documentaryStatus: source-reviewed
   relevantArticles: [Título Preliminar, Concesiones mineras]
   issueIds: [concesion-superficie, competencias-estado]
   sourceIds: [congreso-ley-mineria]
@@ -18,8 +18,8 @@
   authority: Congreso de la República
   publishedAt: 2011-09-07
   effectiveFrom: 2011-09-08
-  status: pending-review
-  legalReviewStatus: pending
+  status: documented
+  documentaryStatus: source-reviewed
   relevantArticles: [Objeto de la ley, Etapas del proceso]
   issueIds: [consulta-participacion]
   sourceIds: [congreso-consulta-previa, minem-ds-001-2012-mc, oit-convenio-169]
@@ -32,8 +32,8 @@
   authority: Ministerio de Energía y Minas
   publishedAt: 2017-06-01
   effectiveFrom: 2017-06-02
-  status: pending-review
-  legalReviewStatus: pending
+  status: documented
+  documentaryStatus: source-reviewed
   relevantArticles: [Registro Integral de Formalización Minera]
   issueIds: [formalizacion-mape, competencias-estado]
   sourceIds: [minem-ds-018-2017, minem-ds-010-2022-em, minem-reinfo]
@@ -46,8 +46,8 @@
   authority: Congreso de la República
   publishedAt: 2001-04-23
   effectiveFrom: 2001-04-24
-  status: pending-review
-  legalReviewStatus: pending
+  status: documented
+  documentaryStatus: source-reviewed
   relevantArticles: [Ámbito, Certificación ambiental]
   issueIds: [certificacion-ambiental, consulta-participacion]
   sourceIds: [congreso-ley-27446, minam-ds-019-2009]
@@ -60,8 +60,8 @@
   authority: Congreso de la República
   publishedAt: 2009-03-31
   effectiveFrom: 2009-04-01
-  status: pending-review
-  legalReviewStatus: pending
+  status: documented
+  documentaryStatus: source-reviewed
   relevantArticles: [Principios, Prioridad de acceso al agua]
   issueIds: [agua-cuencas]
   sourceIds: [congreso-ley-29338, minem-ds-001-2010-ag]
@@ -74,8 +74,8 @@
   authority: Congreso de la República
   publishedAt: 2009-03-05
   effectiveFrom: 2009-03-06
-  status: pending-review
-  legalReviewStatus: pending
+  status: documented
+  documentaryStatus: source-reviewed
   relevantArticles: [Finalidad, Funciones del OEFA]
   issueIds: [fiscalizacion-ambiental, competencias-estado]
   sourceIds: [congreso-ley-29325, minam-ley-30011]
@@ -88,8 +88,8 @@
   authority: Congreso de la República
   publishedAt: 2012-12-20
   effectiveFrom: 2012-12-21
-  status: pending-review
-  legalReviewStatus: pending
+  status: documented
+  documentaryStatus: source-reviewed
   relevantArticles: [Objeto, Funciones]
   issueIds: [certificacion-ambiental, competencias-estado]
   sourceIds: [congreso-ley-29968, senace-ds-006-2015-minam]
@@ -102,8 +102,8 @@
   authority: Congreso de la República
   publishedAt: 2003-10-14
   effectiveFrom: 2003-10-15
-  status: pending-review
-  legalReviewStatus: pending
+  status: documented
+  documentaryStatus: source-reviewed
   relevantArticles: [Plan de cierre, Garantías]
   issueIds: [cierre-pasivos]
   sourceIds: [congreso-ley-28090, minem-ds-033-2005-em]

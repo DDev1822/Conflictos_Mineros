@@ -73,3 +73,75 @@
     - rcs-266-176
     - rcs-266-177
     - rcs-266-183
+- id: defensoria-2026-06-mining-selection
+  snapshotId: defensoria-2026-06-mining
+  title: Conflictos socioambientales relacionados con la actividad minera — junio 2026
+  sourceId: defensoria-conflictos-268
+  sourcePage: 45
+  totalRegistered: 61
+  active: 50
+  latent: 11
+  classificationMethod: Selección revisada de casos socioambientales vinculados con minería, reconciliada con los cuadros 15 y 17 y con continuidad de identidades respecto del corte anterior.
+  notes: La selección excluye el registro social general. La fila duplicada de CC Mariscal Castilla - Minera Chaska II en la página 92 se conserva una sola vez.
+  caseIds:
+    - rcs-268-004
+    - rcs-268-005
+    - rcs-268-006
+    - rcs-268-008
+    - rcs-268-009
+    - rcs-268-010
+    - rcs-268-012
+    - rcs-268-015
+    - rcs-268-016
+    - rcs-268-017
+    - rcs-268-018
+    - rcs-268-019
+    - rcs-268-020
+    - rcs-268-021
+    - rcs-268-022
+    - rcs-268-027
+    - rcs-268-035
+    - rcs-268-037
+    - rcs-268-044
+    - rcs-268-045
+    - rcs-268-046
+    - rcs-268-052
+    - rcs-268-053
+    - rcs-268-054
+    - rcs-268-055
+    - rcs-268-056
+    - rcs-268-059
+    - rcs-268-060
+    - rcs-268-061
+    - rcs-268-062
+    - rcs-268-071
+    - rcs-268-072
+    - rcs-268-073
+    - rcs-268-074
+    - rcs-268-077
+    - rcs-268-079
+    - rcs-268-085
+    - rcs-268-093
+    - rcs-268-095
+    - rcs-268-099
+    - rcs-268-100
+    - rcs-268-101
+    - rcs-268-102
+    - rcs-268-103
+    - rcs-268-106
+    - rcs-268-112
+    - rcs-268-117
+    - rcs-268-119
+    - rcs-268-143
+    - rcs-268-146
+    - rcs-268-153
+    - rcs-268-155
+    - rcs-268-161
+    - rcs-268-162
+    - rcs-268-163
+    - rcs-268-167
+    - rcs-268-179
+    - rcs-268-180
+    - rcs-268-182
+    - rcs-268-183
+    - rcs-268-192

@@ -4,23 +4,22 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowSquareOut, CalendarBlank, MapPin, Scales } from "@phosphor-icons/react/dist/ssr";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getCaseBySlug, loadNarrative, loadObservatoryData } from "@/lib/content";
+import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import { StatusPill } from "@/components/status-pill";
 import type { CaseResearchPacket, Claim, ConflictCase, EvidenceRecord, Source, TimelineEvent } from "@/lib/schemas";
 
 export function generateStaticParams() {
-  return loadObservatoryData().cases.map((item) => ({ slug: item.slug }));
+  return loadObservatoryData().cases.filter(isPublishedSocialMiningCase).map((item) => ({ slug: item.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const item = getCaseBySlug(slug);
-  return { title: item?.name ?? "Expediente" };
+  return { title: item?.name ?? "Caso" };
 }
 
 const caseReviewLabels: Record<ConflictCase["reviewStatus"], string> = {
-  documentary: "Revisión documental",
-  "legal-pending": "Contraste documental",
-  "legal-verified": "Contraste documentado",
+  documentary: "Contraste documental",
 };
 
 const claimLabels: Record<Claim["kind"], string> = {
@@ -32,7 +31,13 @@ const claimLabels: Record<Claim["kind"], string> = {
 const verificationLabels: Record<Claim["verificationStatus"], string> = {
   verified: "verificada",
   partial: "parcial",
-  pending: "pendiente",
+  pending: "en contraste",
+};
+
+const evidenceLevelLabels: Record<Source["evidenceLevel"], string> = {
+  primary: "primaria",
+  secondary: "secundaria",
+  contextual: "contextual",
 };
 
 const timelineKindLabels: Record<TimelineEvent["kind"], string> = {
@@ -77,9 +82,7 @@ function uniqueIds(values: string[]) {
 }
 
 function reviewLabel(item: ConflictCase) {
-  if (item.reviewStatus === "legal-verified") return `Contraste documentado · ${formatDate(item.legalReviewedAt)} · ${item.legalReviewedBy}`;
-  if (item.reviewStatus === "legal-pending") return "Contraste documental";
-  return "Revisión documental";
+  return caseReviewLabels[item.reviewStatus];
 }
 
 function publicReviewNote(note: string) {
@@ -87,8 +90,16 @@ function publicReviewNote(note: string) {
     .replaceAll("responsabilidades legales no verificadas", "responsabilidades no documentadas por la fuente");
 }
 
+function publicStatusSummary(value: string) {
+  return value
+    .replaceAll("El expediente conserva", "La documentación disponible reúne")
+    .replaceAll("el expediente integra", "la documentación reúne")
+    .replaceAll("queda integrado como", "se presenta como")
+    .replaceAll("con locadores", "con referencias exactas");
+}
+
 function sourceMeta(source: Source) {
-  return `${source.institution} · ${source.evidenceLevel} · ${formatDate(source.date)}`;
+  return `${source.institution} · fuente ${evidenceLevelLabels[source.evidenceLevel]} · ${formatDate(source.date)}`;
 }
 
 function linkedSources(item: ConflictCase, packet: CaseResearchPacket | undefined, sources: Source[]) {
@@ -119,7 +130,7 @@ function linkedEvidenceRecords(item: ConflictCase, packet: CaseResearchPacket | 
 export default async function CasePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const item = getCaseBySlug(slug);
-  if (!item) notFound();
+  if (!item || !isPublishedSocialMiningCase(item)) notFound();
 
   const data = loadObservatoryData();
   const packet = data.caseResearchPackets.find((entry) => entry.caseId === item.id);
@@ -132,7 +143,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const verifiedClaims = item.claims.filter((claim) => claim.verificationStatus === "verified").length;
   const directActorSources = packet?.directActorSourceIds.length ?? 0;
   const openContradictions = packet?.contradictions.filter((entry) => entry.status === "open").length ?? 0;
-  const blockingGaps = packet?.gaps.filter((gap) => gap.blocksRelease).length ?? 0;
+  const scopeLimitCount = packet?.gaps.length ?? 0;
 
   return (
     <article className="dossier-page">
@@ -140,7 +151,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <Link className="back-link" href="/conflictos"><ArrowLeft />Todos los casos</Link>
         <div className="dossier-title">
           <div>
-            <p className="eyebrow">Expediente territorial</p>
+            <p className="eyebrow">Caso social minero</p>
             <h1>{item.name}</h1>
             <p>{item.summary}</p>
           </div>
@@ -149,7 +160,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <dl className="dossier-meta">
           <div><MapPin /><dt>Territorio</dt><dd>{territories.map((entry) => entry.name).join(", ")}</dd></div>
           <div><CalendarBlank /><dt>Corte documental</dt><dd>{formatDate(packet?.cutoffDate ?? item.cutoffDate)}</dd></div>
-          <div><Scales /><dt>Revisión</dt><dd>{reviewLabel(item)}</dd></div>
+          <div><Scales /><dt>Contraste</dt><dd>{reviewLabel(item)}</dd></div>
         </dl>
       </div>
 
@@ -162,20 +173,20 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           {packet && (
             <section className="case-status-summary">
               <p className="eyebrow">Estado documentado al corte</p>
-              <h2>Lectura actual del expediente</h2>
-              <p>{packet.currentStatusSummary}</p>
+              <h2>Situación documentada del caso</h2>
+              <p>{publicStatusSummary(packet.currentStatusSummary)}</p>
               <div className="case-status-grid">
                 <article><strong>{sources.length}</strong><span>Fuentes</span><small>{directActorSources} actorales directas.</small></article>
-                <article><strong>{evidenceRecords.length}</strong><span>Locadores</span><small>{evidenceRecords.filter((record) => record.reviewStatus === "reviewed").length} revisados.</small></article>
+                <article><strong>{evidenceRecords.length}</strong><span>Referencias exactas</span><small>{evidenceRecords.filter((record) => record.reviewStatus === "reviewed").length} revisadas.</small></article>
                 <article><strong>{openContradictions}</strong><span>Contradicciones</span><small>Abiertas y atribuidas.</small></article>
-                <article><strong>{blockingGaps}</strong><span>Vacíos bloqueantes</span><small>No se ocultan en la V1.</small></article>
+                <article><strong>{scopeLimitCount}</strong><span>Límite probatorio</span><small>Seguimiento académico que delimita el alcance del corte actual.</small></article>
               </div>
             </section>
           )}
 
           <section>
             <p className="eyebrow">Cronología documentada</p>
-            <h2>Hitos del expediente</h2>
+            <h2>Hitos del caso</h2>
             <ol className="vertical-timeline">
               {item.timeline.map((event) => {
                 const eventSources = event.sourceIds
@@ -198,7 +209,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
                       <div className="timeline-card-evidence" aria-label={`Trazabilidad documental de ${event.title}`}>
                         <span>{eventSources.length} documento(s) disponible(s)</span>
-                        <span>{eventLocators.length} locador(es) de evidencia</span>
+                        <span>{eventLocators.length} referencia(s) precisa(s)</span>
                       </div>
 
                       <div className="timeline-card-sources" aria-label={`Documentos vinculados al hito ${event.title}`}>
@@ -219,7 +230,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
                       </div>
 
                       {eventLocators.length > 0 && (
-                        <div className="timeline-locators" aria-label={`Locadores de evidencia de ${event.title}`}>
+                        <div className="timeline-locators" aria-label={`Referencias precisas de ${event.title}`}>
                           {eventLocators.map((record) => (
                             <section key={record.id}>
                               <strong>{evidenceRelationLabels[record.relation]} · {record.locator}</strong>
@@ -271,7 +282,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
             </div>
           </section>
           <section>
-            <h2>Locadores de evidencia</h2>
+            <h2>Ubicación en las fuentes</h2>
             <div className="locator-stack">
               {evidenceRecords.slice(0, 6).map((record) => (
                 <article key={record.id}>
@@ -283,14 +294,14 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           </section>
           {packet && (
             <section>
-              <h2>Preguntas de alcance</h2>
+              <h2>Preguntas probatorias</h2>
               <ul className="question-list">
                 {packet.scopeQuestions.slice(0, 4).map((question) => <li key={question}>{question}</li>)}
               </ul>
             </section>
           )}
           <p className="review-note">
-            Actualizado: {formatDate(item.updatedAt)}. {caseReviewLabels[item.reviewStatus]}. {verifiedClaims}/{item.claims.length} afirmaciones verificadas. {publicReviewNote(item.legalReviewNotes)}
+            Actualizado: {formatDate(item.updatedAt)}. {caseReviewLabels[item.reviewStatus]}. {verifiedClaims}/{item.claims.length} afirmaciones verificadas. {publicReviewNote(item.reviewNotes)}
           </p>
         </aside>
       </div>

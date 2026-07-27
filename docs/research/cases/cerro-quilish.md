@@ -1,8 +1,8 @@
 # Memo de caso hito: Cerro Quilish / Yanacocha
 
-Estado: paquete documental iniciado; no es expediente público completo.
+Estado: integrado como octavo expediente canónico profundo; conserva límites documentales explícitos.
 
-Fecha de estructuración: 2026-06-29.
+Fecha de estructuración: 2026-06-29. Cierre e integración canónica: 2026-07-27.
 
 ## Lectura de caso
 
@@ -48,7 +48,7 @@ Regla editorial: no presentar Quilish como precedente general de veto municipal 
 | actor / plano | posición o función documentada | fuente base | cautela |
 |---|---|---|---|
 | Municipalidad Provincial de Cajamarca | Declara protección municipal sobre Quilish y microcuencas; argumenta conservación local y protección del colchón hídrico. | TC, sentencia, pp. 1-2. | Falta expediente municipal completo, ordenanza original y sustento técnico. |
-| Minera Yanacocha / empresas recurrentes | Cuestionan la competencia municipal y alegan afectación de propiedad/libertad de trabajo; después Yanacocha solicita revocatoria de la RD 361. | TC, sentencia, pp. 1-2; RM 467, pp. 36-37. | Falta comunicado o documento empresarial directo de 2004 para reconstruir su posición pública. |
+| Minera Yanacocha / empresas recurrentes | Cuestionan la competencia municipal y alegan afectación de propiedad/libertad de trabajo; después Yanacocha solicita revocatoria de la RD 361. Newmont atribuyó el retiro del permiso a la oposición local. | TC, sentencia, pp. 1-2; RM 467, pp. 36-37; Newmont Form 10-K 2009, p. 23. | La fuente corporativa es posterior y expresa posición empresarial; no sustituye la solicitud original de 2004. |
 | Comunidades y población de Cajamarca | Reportan preocupación por cantidad y calidad del agua, protestas urbanas/rurales y exigencia de paralización de exploraciones. | SINIA/MINAM, p. 16; CNDDHH Informe Anual 2004, p. 102. | Buscar memorial, actas y vocerías comunitarias directas. |
 | MINEM | Autoriza evaluación ambiental mediante RD 361, condiciona mediante RD 427 y revoca mediante RM 467. | RM 467, SPIJ, pp. 36-38. | Faltan RD 361, RD 427 y expediente administrativo íntegro. |
 | Tribunal Constitucional | Declara infundadas las demandas y delimita concesión, propiedad, exploración, explotación, EIA y opinión municipal. | TC, sentencia 07/04/2003; nota 30/04/2003. | La lectura documental debe precisar si se usa como decisión de caso o como criterio más amplio. |
@@ -65,14 +65,15 @@ Regla editorial: no presentar Quilish como precedente general de veto municipal 
 
 ## Estado documentado al corte
 
-Al 2026-06-29, el paquete permite sostener con evidencia directa que:
+Al 2026-07-27, el expediente canónico permite sostener con evidencia directa que:
 
 - Existió una ordenanza municipal que declaró Quilish y microcuencas como zona reservada protegida municipal provincial, según sentencia del TC.
 - Las empresas vinculadas a Yanacocha litigaron contra esa ordenanza mediante amparo.
 - El TC declaró infundadas las demandas y no anuló la ordenanza, pero tampoco entendió que ella suspendiera automáticamente derechos de exploración.
 - El MINEM autorizó en 2004 la Evaluación Ambiental para el proyecto de exploración “Yanacocha Sur - Cuenca del Río Porcón - Cerro Quilish”.
-- El MINEM dejó sin eficacia la parte resolutiva de la RD 361 mediante RD 427 hasta cumplir condicionamientos de transparencia y participación.
+- El MINEM dejó sin eficacia la parte resolutiva de la RD 361 mediante RD 427; el TFA reprodujo posteriormente el llamado a institucionalizar el diálogo y considerar términos de referencia para un estudio hidrológico e hidrogeológico.
 - El MINEM revocó finalmente la RD 361 mediante RM 467-2004-MEM/DM, a pedido de Minera Yanacocha.
+- Newmont atribuyó a la oposición local la decisión de dejar el permiso y reclasificar el depósito fuera de reservas.
 
 No queda documentado todavía, con fuente primaria completa dentro del paquete:
 
@@ -81,7 +82,7 @@ No queda documentado todavía, con fuente primaria completa dentro del paquete:
 - Texto íntegro de la RD 427-2004-MEM/AAM y sus condicionamientos exactos.
 - Memorial de comunidades del 15/02/2004.
 - Actas de diálogo, acta de carretera Bambamarca y mesa posterior.
-- Documento empresarial directo de renuncia, solicitud, anuncio público o posición institucional de Minera Yanacocha/Newmont.
+- Solicitud original de revocatoria y comunicación empresarial contemporánea de 2004; existe una posición corporativa posterior en el Form 10-K de Newmont.
 - Estudios hidrogeológicos usados por actores territoriales o por la autoridad.
 
 ## Registro interno de evidencia inicial
@@ -94,15 +95,21 @@ No queda documentado todavía, con fuente primaria completa dentro del paquete:
 | quilish-e04 | quilish-rm-467-2004-mem-dm | RD 361, RD 427 y revocatoria | SPIJ, pp. 36-38 | supports | La RM 467 documenta autorización inicial, condicionamiento posterior y revocatoria final. | Revisado documentalmente; faltan RD completas. |
 | quilish-e05 | quilish-sinia-indicadores-cajamarca | Cronología social 2004 | SINIA/MINAM, p. 16 | qualifies | Reconstruye memorial, protestas, comisión, mesa propuesta y RD 427. | Contextual; requiere fuentes primarias adicionales. |
 | quilish-e06 | quilish-cnddhh-informe-2004 | Perspectiva de sociedad civil/derechos humanos | CNDDHH Informe Anual 2004, p. 102 | qualifies | Describe desconfianza social, protesta y lectura de Quilish como reserva de agua. | Contextual; no sustituye expediente estatal. |
+| quilish-e07 | quilish-oefa-dfai-0274-2020 | Antecedentes ambientales, paralización y remediación | OEFA/DFAI, p. 12 | supports / qualifies | Reconstruye RD 111, RD 361, suspensión, revocatoria y actuaciones posteriores. | Resolución primaria posterior; no sustituye las RD originales. |
+| quilish-e08 | quilish-oefa-tfa-002-2021 | Alcance reproducido de la RD 427 | TFA, pp. 28-29 | supports | Reproduce el llamado al diálogo y al eventual estudio hídrico. | Falta el documento original completo. |
+| quilish-e09 | quilish-newmont-10k-2009 | Posición empresarial sobre retiro del permiso | Newmont Form 10-K 2009, p. 23 | qualifies | Atribuye el retiro del permiso a la oposición local y registra reclasificación del depósito. | Posición corporativa posterior sujeta a contraste. |
 
 ## Fuentes localizadas
 
 | sourceId | tipo | título | enlace | derechos | uso |
 |---|---|---|---|---|---|
-| quilish-tc-00300-2002-aa-2003 | primaria judicial | Tribunal Constitucional, expedientes acumulados 300-2002-AA/TC, 301-2002-AA/TC y 302-2002-AA/TC, sentencia 07/04/2003 | https://www.tc.gob.pe/jurisprudencia/2003/00300-2002-AA%2000301-2002-AA%2000302-2002-AA.pdf | link-only | Base constitucional del caso. |
+| quilish-tc-00300-2002-aa-2003 | primaria judicial | Tribunal Constitucional, expedientes acumulados 300-2002-AA/TC, 301-2002-AA/TC y 302-2002-AA/TC, sentencia 07/04/2003 | https://www.tc.gob.pe/jurisprudencia/2003/00300-2002-AA%2000301-2002-AA%2000302-2002-AA.html | link-only | Base constitucional del caso. |
 | quilish-tc-nota-2003 | primaria institucional | TC, nota de prensa 30/04/2003 sobre demanda Yanacocha/Quilish | https://www.tc.gob.pe/institucional/notas-de-prensa/not-ad22f8286bcbca110d0618d27e0d4cb7/ | link-only | Lectura institucional del alcance de la sentencia. |
-| quilish-rm-467-2004-mem-dm | primaria normativa | Resolución Ministerial 467-2004-MEM/DM, publicada en SPIJ | https://spij.minjus.gob.pe/Normas/textos/061104T.pdf | link-only | Base administrativa para RD 361, RD 427 y revocatoria. |
-| quilish-sinia-indicadores-cajamarca | estatal contextual | Indicadores Ambientales Cajamarca, SINIA/MINAM | https://sinia.minam.gob.pe/sites/default/files/sinia/archivos/public/docs/86.pdf | link-only | Cronología ambiental y social regional. |
+| quilish-rm-467-2004-mem-dm | primaria normativa | Resolución Ministerial 467-2004-MEM/DM | https://cdn.www.gob.pe/uploads/document/file/95120/RM_467_2004_DM.pdf | link-only | Base administrativa para RD 361, RD 427 y revocatoria. |
+| quilish-sinia-indicadores-cajamarca | estatal contextual | Indicadores Ambientales Cajamarca, Gobierno Regional/DREM | https://siar.regioncajamarca.gob.pe/sites/default/files/archivos/public/docs/677.pdf | link-only | Cronología ambiental y social regional. |
+| quilish-oefa-dfai-0274-2020 | primaria administrativa | OEFA/DFAI, Resolución Directoral 0274-2020 | https://cdn.www.gob.pe/uploads/document/file/4488169/Resoluci%C3%B3n%20N%C2%B0%200274-2020-OEFA-DFAI.pdf | link-only | Antecedentes ambientales y actuaciones posteriores. |
+| quilish-oefa-tfa-002-2021 | primaria administrativa | TFA, Resolución 002-2021-OEFA/TFA-SE | https://cdn.www.gob.pe/uploads/document/file/1671825/Resoluci%C3%B3n%20N%C2%B0%20002-2021-OEFA/TFA-SE.pdf | link-only | Reproduce contenido central de la RD 427 y analiza la revocatoria. |
+| quilish-newmont-10k-2009 | empresarial directa | Newmont Mining Corporation, Form 10-K 2009 | https://newmont.com/files/doc_financials/quarterly/2009/q4/SEC-NEM-950123-10-16613.pdf | link-only | Posición corporativa sobre oposición, permiso y reservas. |
 | quilish-cnddhh-informe-2004 | sociedad civil contextual | Coordinadora Nacional de Derechos Humanos, Informe Anual 2004 | https://lum.cultura.pe/cdi/sites/default/files/documento/pdf/Informe%20anual%202004.pdf | link-only | Perspectiva de derechos humanos y reconstrucción del conflicto. |
 
 ## Preguntas de alcance documental
@@ -126,6 +133,6 @@ No queda documentado todavía, con fuente primaria completa dentro del paquete:
 7. Fuentes directas de Municipalidad Provincial de Cajamarca, comunidades, Comité Cívico y empresa.
 8. Seguimiento posterior de la mesa de diálogo formada por Ordenanzas Municipales 042-2004-CMPC y 058-2005-CMPC.
 
-## Regla de publicación
+## Regla de publicación aplicada
 
-Este paquete puede alimentar una ficha hito o una lectura transversal Cajamarca, pero no debe ascender a expediente completo hasta cerrar, como mínimo, la ordenanza original, RD 361, RD 427 y documento empresarial directo, o dejar esos vacíos explícitos en la interfaz.
+El caso ascendió a expediente canónico porque reúne ocho hitos, fuentes estatales y empresariales directas, posiciones actorales, contradicciones y locadores revisados. La ordenanza y las RD originales no se simulan como cerradas: permanecen declaradas como límites probatorios en la interfaz pública.

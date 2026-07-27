@@ -18,7 +18,7 @@
   regulationSourceIds: [minem-ds-001-2012-mc]
   amendmentSourceIds: []
   scopeQuestions:
-    - ¿Qué actos estatales de los seis casos podrían activar el deber de consulta previa y bajo qué criterios?
+    - ¿Qué actos estatales de los expedientes trazados y casos hito podrían activar el deber de consulta previa y bajo qué criterios?
     - ¿Cómo deben distinguirse consulta previa, participación ciudadana ambiental y mecanismos vecinales no vinculantes?
   gaps:
     - id: ley-29785-jurisprudencia
@@ -78,7 +78,7 @@
     - ¿Qué resoluciones firmes pueden citarse sin confundir monitoreo, evaluación y determinación de responsabilidad?
   gaps:
     - id: ley-29325-resoluciones
-      description: Falta inventariar resoluciones y expedientes de fiscalización específicos de los seis casos.
+      description: Falta inventariar resoluciones y expedientes de fiscalización específicos de los expedientes trazados y casos hito.
       blocksRelease: true
   checkedAt: 2026-06-20
   status: prepared

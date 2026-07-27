@@ -30,7 +30,8 @@ import {
   X,
 } from "@phosphor-icons/react";
 import type { Actor, ConflictCase, EvidenceRecord, NormativeIssue, ObservatoryData, Source } from "@/lib/schemas";
-import { mentionsMiningCategory } from "@/lib/mining-classification";
+import { getLatestPublicMiningCut, mentionsMiningCategory } from "@/lib/mining-classification";
+import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 
 type ResultItem = {
   id: string;
@@ -46,7 +47,7 @@ type GraphFocus =
   | "conflicto-social-minero"
   | "mineria-ilegal-informal"
   | "solapamiento-territorial"
-  | "casos-piloto"
+  | "casos-hito"
   | "actores-acuerdos"
   | "reinfo"
   | "fiscalizacion"
@@ -94,7 +95,31 @@ type FocusDetail = {
   routeLinks: FocusLink[];
 };
 
-const allCaseIds = ["tambogrande", "conga", "tia-maria", "las-bambas", "espinar", "madre-de-dios"];
+const publicGraphFocuses = new Set<GraphFocus>([
+  "conflicto-social-minero",
+  "solapamiento-territorial",
+  "casos-hito",
+  "actores-acuerdos",
+  "evidencia-ambiental",
+  "matriz-documental",
+  "cajamarca-system",
+  "institutional-mechanisms",
+]);
+const rootGraphFocuses: GraphFocus[] = ["conflicto-social-minero"];
+const allCaseIds = [
+  "tambogrande",
+  "conga",
+  "tia-maria",
+  "las-bambas",
+  "espinar",
+  "cerro-quilish",
+  "yanacocha-maxima-acuna",
+  "fondo-social-michiquillay",
+  "rio-blanco-majaz",
+  "la-oroya",
+  "toromocho-morococha",
+  "choropampa",
+];
 
 const graphNodes: GraphNodeDefinition[] = [
   {
@@ -105,9 +130,9 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "social",
     role: "root",
     icon: MapPin,
-    position: { x: 54, y: 170 },
-    width: 270,
-    height: 150,
+    position: { x: 92, y: 124 },
+    width: 320,
+    height: 142,
   },
   {
     id: "mineria-ilegal-informal",
@@ -117,9 +142,9 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "illegal",
     role: "root",
     icon: WarningCircle,
-    position: { x: 374, y: 170 },
-    width: 270,
-    height: 150,
+    position: { x: 592, y: 124 },
+    width: 320,
+    height: 142,
   },
   {
     id: "solapamiento-territorial",
@@ -129,21 +154,21 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "bridge",
     role: "bridge",
     icon: Network,
-    position: { x: 252, y: 350 },
-    width: 220,
-    height: 88,
+    position: { x: 382, y: 292 },
+    width: 250,
+    height: 92,
   },
   {
-    id: "casos-piloto",
-    title: "Casos piloto",
-    subtitle: "Seis expedientes con cronología y estado",
-    layer: "Expedientes",
+    id: "casos-hito",
+    title: "Casos hito",
+    subtitle: "Cronologías, actores y fuentes por caso",
+    layer: "Casos",
     tone: "social",
     role: "node",
     icon: Article,
-    position: { x: 50, y: 462 },
-    width: 158,
-    height: 104,
+    position: { x: 78, y: 414 },
+    width: 190,
+    height: 98,
   },
   {
     id: "actores-acuerdos",
@@ -153,9 +178,9 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "social",
     role: "node",
     icon: UsersThree,
-    position: { x: 222, y: 462 },
-    width: 160,
-    height: 104,
+    position: { x: 300, y: 414 },
+    width: 200,
+    height: 98,
   },
   {
     id: "reinfo",
@@ -165,9 +190,9 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "instrument",
     role: "node",
     icon: ShieldCheck,
-    position: { x: 396, y: 462 },
-    width: 150,
-    height: 104,
+    position: { x: 532, y: 414 },
+    width: 180,
+    height: 98,
   },
   {
     id: "fiscalizacion",
@@ -177,9 +202,9 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "control",
     role: "node",
     icon: Gavel,
-    position: { x: 560, y: 462 },
-    width: 150,
-    height: 104,
+    position: { x: 744, y: 414 },
+    width: 188,
+    height: 98,
   },
   {
     id: "evidencia-ambiental",
@@ -189,45 +214,45 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "evidence",
     role: "node",
     icon: BookOpenText,
-    position: { x: 54, y: 600 },
-    width: 190,
-    height: 104,
+    position: { x: 84, y: 532 },
+    width: 220,
+    height: 100,
   },
   {
     id: "matriz-documental",
-    title: "Matriz de evidencia",
-    subtitle: "Fuente directa, locador y revisión",
-    layer: "Gate V1",
+    title: "Sustento documental",
+    subtitle: "Fuentes directas y referencias precisas",
+    layer: "Evidencia",
     tone: "bridge",
     role: "node",
     icon: TreeStructure,
-    position: { x: 266, y: 600 },
-    width: 210,
-    height: 104,
+    position: { x: 340, y: 532 },
+    width: 240,
+    height: 100,
   },
   {
     id: "cajamarca-system",
-    title: "Sistema Cajamarca",
+    title: "Conflictos en Cajamarca",
     subtitle: "Quilish, Conga, Acuña y Michiquillay",
-    layer: "Matriz territorial",
+    layer: "Lectura territorial",
     tone: "bridge",
     role: "node",
     icon: TreeStructure,
-    position: { x: 48, y: 738 },
-    width: 300,
-    height: 112,
+    position: { x: 182, y: 650 },
+    width: 320,
+    height: 104,
   },
   {
     id: "institutional-mechanisms",
     title: "Mecanismos institucionales",
     subtitle: "EIA, PAMA, sentencias, actas, fondos y registros",
-    layer: "Matriz comparada",
+    layer: "Comparación",
     tone: "control",
     role: "node",
     icon: Gavel,
-    position: { x: 384, y: 738 },
-    width: 310,
-    height: 112,
+    position: { x: 536, y: 650 },
+    width: 340,
+    height: 104,
   },
   {
     id: "trazabilidad-oro",
@@ -237,42 +262,42 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "illegal",
     role: "node",
     icon: Briefcase,
-    position: { x: 500, y: 600 },
-    width: 190,
-    height: 104,
+    position: { x: 616, y: 532 },
+    width: 230,
+    height: 100,
   },
 ];
 
 const focusRelations: Record<GraphFocus, GraphFocus[]> = {
-  "conflicto-social-minero": ["solapamiento-territorial", "casos-piloto", "actores-acuerdos", "evidencia-ambiental", "matriz-documental", "cajamarca-system", "institutional-mechanisms"],
+  "conflicto-social-minero": ["solapamiento-territorial", "casos-hito", "actores-acuerdos", "evidencia-ambiental", "matriz-documental", "cajamarca-system", "institutional-mechanisms"],
   "mineria-ilegal-informal": ["solapamiento-territorial", "reinfo", "fiscalizacion", "trazabilidad-oro", "matriz-documental", "institutional-mechanisms"],
   "solapamiento-territorial": ["conflicto-social-minero", "mineria-ilegal-informal", "evidencia-ambiental", "matriz-documental", "cajamarca-system", "institutional-mechanisms"],
-  "casos-piloto": ["conflicto-social-minero", "actores-acuerdos", "evidencia-ambiental", "matriz-documental", "cajamarca-system"],
-  "actores-acuerdos": ["conflicto-social-minero", "casos-piloto", "reinfo", "matriz-documental", "institutional-mechanisms"],
+  "casos-hito": ["conflicto-social-minero", "actores-acuerdos", "evidencia-ambiental", "matriz-documental", "cajamarca-system"],
+  "actores-acuerdos": ["conflicto-social-minero", "casos-hito", "reinfo", "matriz-documental", "institutional-mechanisms"],
   reinfo: ["mineria-ilegal-informal", "actores-acuerdos", "fiscalizacion", "trazabilidad-oro", "matriz-documental", "institutional-mechanisms"],
   fiscalizacion: ["mineria-ilegal-informal", "reinfo", "trazabilidad-oro", "evidencia-ambiental", "matriz-documental", "institutional-mechanisms"],
   "evidencia-ambiental": ["conflicto-social-minero", "solapamiento-territorial", "fiscalizacion", "matriz-documental", "cajamarca-system", "institutional-mechanisms"],
   "matriz-documental": ["conflicto-social-minero", "mineria-ilegal-informal", "solapamiento-territorial", "reinfo", "evidencia-ambiental", "cajamarca-system", "institutional-mechanisms"],
-  "cajamarca-system": ["conflicto-social-minero", "casos-piloto", "evidencia-ambiental", "matriz-documental", "institutional-mechanisms"],
+  "cajamarca-system": ["conflicto-social-minero", "casos-hito", "evidencia-ambiental", "matriz-documental", "institutional-mechanisms"],
   "institutional-mechanisms": ["conflicto-social-minero", "mineria-ilegal-informal", "actores-acuerdos", "fiscalizacion", "matriz-documental", "cajamarca-system"],
   "trazabilidad-oro": ["mineria-ilegal-informal", "reinfo", "fiscalizacion", "matriz-documental", "institutional-mechanisms"],
 };
 
 const focusDetails: Record<GraphFocus, FocusDetail> = {
   "conflicto-social-minero": {
-    kicker: "Ventana A",
+    kicker: "Relaciones del conflicto",
     title: "Conflicto social minero",
-    summary: "Lee los seis expedientes piloto desde cronología, actores, fuentes y estado al corte; el punto de partida cuantitativo es el corte Defensoría y la selección minera documentada.",
-    evidenceTitle: "Base documental",
-    evidenceItems: ["6 expedientes piloto enlazados", "selección minera derivada del corte Defensoría", "nudos de agua, participación, beneficios y acuerdos"],
-    disputeTitle: "Límites visibles",
+    summary: "Relaciona los conflictos sociales mineros con territorio, agua, acuerdos, actores y fuentes. El punto de partida cuantitativo es el corte de la Defensoría del Pueblo.",
+    evidenceTitle: "Información disponible",
+    evidenceItems: ["corte nacional de conflictos sociales mineros", "casos desarrollados con cronología y fuentes", "temas de agua, participación, beneficios y acuerdos"],
+    disputeTitle: "Límites de interpretación",
     disputeItems: ["conflicto social no equivale a protesta aislada", "causalidad ambiental solo si una fuente técnica la formula", "desacuerdos y estados abiertos permanecen atribuidos"],
-    nextStep: "Abrir expedientes y cronología antes de leer interpretaciones; cada hito debe conservar fuente directa y locador.",
+    nextStep: "Abrir cada caso y su cronología antes de formular interpretaciones; los hitos enlazan la fuente y su ubicación exacta cuando está disponible.",
     sourceIds: ["defensoria-conflictos", "defensoria-acuerdos-187", "defensoria-conflictos-hidricos"],
     caseIds: allCaseIds,
     issueIds: ["agua-cuencas", "dialogo-acuerdos", "beneficios-territoriales", "consulta-participacion"],
     routeLinks: [
-      { label: "Ver catálogo de casos", href: "/conflictos", description: "Seis expedientes piloto con cronología y fuentes." },
+      { label: "Ver catálogo de casos", href: "/conflictos", description: "Casos sociales mineros con cronología y fuentes." },
       { label: "Ver cronología comparada", href: "/cronologia", description: "Hitos documentados por caso." },
       { label: "Ver mapa territorial", href: "/mapa", description: "Capa espacial de conflictos y registros territoriales." },
     ],
@@ -280,10 +305,10 @@ const focusDetails: Record<GraphFocus, FocusDetail> = {
   "mineria-ilegal-informal": {
     kicker: "Ventana B",
     title: "Minería ilegal e informal",
-    summary: "Separa menciones de minería ilegal, minería informal, MAPE, REINFO, fiscalización y trazabilidad; la interfaz conserva el solapamiento textual sin convertirlo en determinación individual.",
+    summary: "Separa menciones de minería ilegal, minería informal, MAPE, REINFO, fiscalización y trazabilidad; el solapamiento textual no se convierte en determinación individual.",
     evidenceTitle: "Cortes conectados",
-    evidenceItems: ["menciones explícitas de minería ilegal e informal en el corte social", "REINFO vigente como registro administrativo", "controles de origen y comercialización del oro"],
-    disputeTitle: "Límites de lectura",
+    evidenceItems: ["menciones explícitas de minería ilegal e informal en el corte social minero", "REINFO vigente como registro administrativo", "controles de origen y comercialización del oro"],
+    disputeTitle: "Límites probatorios",
     disputeItems: ["informalidad e ilegalidad no son equivalentes", "inscripción REINFO no acredita formalización concluida", "Madre de Dios es caso profundo, no plantilla nacional"],
     nextStep: "Contrastar REINFO/MAPE con fiscalización, trazabilidad y fuentes territoriales antes de formular una conclusión pública.",
     sourceIds: ["minem-reinfo", "minem-reinfo-vigente-corte-2026-06-18", "minem-rd-0004-2025-reinfo-exclusiones", "minem-comunicado-reinfo-2025"],
@@ -291,7 +316,7 @@ const focusDetails: Record<GraphFocus, FocusDetail> = {
     issueIds: ["formalizacion-mape", "competencias-estado"],
     actorIds: ["mineros-mape", "minem", "gobiernos-subnacionales"],
     routeLinks: [
-      { label: "Abrir REINFO / MAPE", href: "/reinfo", description: "Página conceptual del registro y proceso de formalización." },
+      { label: "Abrir REINFO / MAPE", href: "/reinfo", description: "Registro y proceso de formalización." },
       { label: "Ver Madre de Dios", href: "/conflictos/madre-de-dios", description: "Caso profundo para diferenciar REINFO, ilegalidad y trazabilidad." },
       { label: "Ver nudo normativo", href: "/normativa#formalizacion-mape", description: "Formalización de la MAPE y REINFO." },
     ],
@@ -299,58 +324,57 @@ const focusDetails: Record<GraphFocus, FocusDetail> = {
   "solapamiento-territorial": {
     kicker: "Puente analítico",
     title: "Solapamiento territorial",
-    summary: "Cruza territorio, evidencia ambiental, gobernanza y capacidad estatal; el vínculo es documental y exige abrir expediente o fuente antes de inferir causalidad.",
+    summary: "Relaciona territorio, información ambiental, gobernanza y capacidad estatal. La proximidad o coincidencia territorial no demuestra por sí sola una relación causal.",
     evidenceTitle: "Cruces documentados",
     evidenceItems: ["mapa y registro regional", "fuentes ambientales y de agua", "competencias estatales concurrentes"],
-    disputeTitle: "Regla de lectura",
+    disputeTitle: "Límites de interpretación",
     disputeItems: ["el cruce territorial no fusiona categorías administrativas", "la evidencia técnica requiere alcance, fecha y entidad", "los conflictos pueden permanecer abiertos"],
-    nextStep: "Usar el mapa para ver proximidad territorial y luego abrir el expediente o fuente exacta.",
+    nextStep: "Usar el mapa para observar la distribución territorial y luego abrir el caso o la fuente correspondiente.",
     sourceIds: ["ana-agua", "oefa-fiscalizacion", "defensoria-conflictos"],
-    caseIds: ["madre-de-dios", "espinar", "las-bambas"],
+    caseIds: ["espinar", "las-bambas"],
     issueIds: ["competencias-estado", "agua-cuencas", "fiscalizacion-ambiental"],
     routeLinks: [
-      { label: "Ver mapa completo", href: "/mapa", description: "Capas de conflictos, REINFO, formal, exploración y concesiones." },
+      { label: "Ver mapa completo", href: "/mapa", description: "Distribución regional de conflictos sociales mineros y casos documentados." },
       { label: "Ver metodología", href: "/metodologia#principios", description: "Separación entre hecho, interpretación y propuesta." },
     ],
   },
-  "casos-piloto": {
-    kicker: "Expedientes",
-    title: "Casos piloto",
-    summary: "Entrada territorial de la V1: cada expediente conserva cronología, afirmaciones, actores, fuentes, estado al corte y límites documentales.",
+  "casos-hito": {
+    kicker: "Casos documentados",
+    title: "Casos hito",
+    summary: "Cada caso presenta su cronología, actores, afirmaciones documentadas, fuentes y estado a la fecha de corte.",
     evidenceTitle: "Casos enlazados",
-    evidenceItems: ["Tambogrande, Conga, Tía María, Las Bambas, Espinar y Madre de Dios", "mínimo tres hitos por expediente", "afirmaciones separadas por tipo"],
-    disputeTitle: "Gate V1",
-    disputeItems: ["sin fuente directa no hay hito sustantivo", "sin locador no hay hecho documentado", "sin estado al corte no hay cierre editorial"],
-    nextStep: "Abrir cada expediente y revisar primero la cronología documentada.",
+    evidenceItems: ["casos sociales mineros desarrollados", "cronología documentada por caso", "afirmaciones diferenciadas entre hechos e interpretación"],
+    disputeTitle: "Criterios de lectura",
+    disputeItems: ["los hitos relevantes remiten a fuentes directas", "la página o sección exacta permite contrastar la información", "el estado al corte evita generalizaciones posteriores"],
+    nextStep: "Abrir cada caso y revisar primero su cronología documentada.",
     sourceIds: ["metodologia-observatorio", "defensoria-conflictos"],
     caseIds: allCaseIds,
     routeLinks: [
-      { label: "Ver todos los casos", href: "/conflictos", description: "Tabla general de expedientes piloto." },
-      { label: "Ver cronología", href: "/cronologia", description: "Hitos comparados entre expedientes." },
+      { label: "Ver todos los casos", href: "/conflictos", description: "Catálogo de conflictos sociales mineros desarrollados." },
+      { label: "Ver cronología", href: "/cronologia", description: "Hitos comparados entre casos." },
     ],
   },
   "actores-acuerdos": {
     kicker: "Relación",
     title: "Actores y actas",
-    summary: "Agrupa comunidades, Estado, empresas, organizaciones, actas y acuerdos por expediente; los comunicados son posición de actor, no verificación independiente de cumplimiento.",
+    summary: "Relaciona comunidades, entidades del Estado, empresas, organizaciones, actas y acuerdos por caso. Los comunicados expresan la posición de quien los emite y no demuestran por sí solos el cumplimiento.",
     evidenceTitle: "Actores y documentos",
-    evidenceItems: ["actores por expediente", "actas, acuerdos y compromisos", "posiciones directas de afectados o involucrados"],
+    evidenceItems: ["actores vinculados con cada caso", "actas, acuerdos y compromisos", "posiciones directas de las partes involucradas"],
     disputeTitle: "Contradicciones abiertas",
     disputeItems: ["no homogeneizar comunidades", "no tomar comunicado corporativo como verificación", "no ocultar contradicciones abiertas"],
     nextStep: "Abrir los casos y contrastar actores con fuentes directas disponibles.",
-    sourceIds: ["defensoria-acuerdos-187", "madre-dios-mesa-2025", "las-bambas-actas-2025"],
-    caseIds: ["las-bambas", "espinar", "madre-de-dios"],
-    actorIds: ["comunidades-cotabambas", "comunidades-espinar", "federaciones-madre-dios", "minem"],
+    sourceIds: ["defensoria-acuerdos-187", "las-bambas-actas-2025"],
+    caseIds: ["las-bambas", "espinar"],
+    actorIds: ["comunidades-cotabambas", "comunidades-espinar", "minem"],
     routeLinks: [
       { label: "Ver Las Bambas", href: "/conflictos/las-bambas", description: "Actas, acuerdos y corredor minero." },
       { label: "Ver Espinar", href: "/conflictos/espinar", description: "Salud ambiental, acuerdos y actores." },
-      { label: "Ver Madre de Dios", href: "/conflictos/madre-de-dios", description: "Actores indígenas, gremiales y estatales." },
     ],
   },
   reinfo: {
     kicker: "Instrumento",
     title: "REINFO",
-    summary: "Registro administrativo dentro del eje minería ilegal/informal: muestra permanencia registral y corte, pero no acredita por sí solo formalización concluida.",
+    summary: "Registro administrativo dentro del eje minería ilegal/informal: acredita permanencia registral y corte, pero no formalización concluida por sí solo.",
     evidenceTitle: "Corte registral",
     evidenceItems: ["registro vigente y fecha de corte", "exclusiones y comunicados aplicables", "diferencia entre inscripción y formalización concluida"],
     disputeTitle: "Límite documental",
@@ -360,7 +384,7 @@ const focusDetails: Record<GraphFocus, FocusDetail> = {
     caseIds: ["madre-de-dios"],
     issueIds: ["formalizacion-mape"],
     routeLinks: [
-      { label: "Abrir página REINFO / MAPE", href: "/reinfo", description: "Explicación del registro como instrumento." },
+      { label: "Abrir REINFO / MAPE", href: "/reinfo", description: "Registro administrativo y formalización." },
       { label: "Ver norma vinculada", href: "/normativa#formalizacion-mape", description: "Nudo normativo de formalización." },
     ],
   },
@@ -384,10 +408,10 @@ const focusDetails: Record<GraphFocus, FocusDetail> = {
   "evidencia-ambiental": {
     kicker: "Evidencia",
     title: "Monitoreo ambiental",
-    summary: "Dato técnico trazable para Espinar, Conga y nudos de agua/fiscalización; cada lectura debe conservar alcance, entidad emisora, fecha y límite causal.",
+    summary: "Reúne información técnica vinculada con Espinar, Conga y controversias sobre agua o fiscalización. Cada lectura conserva alcance, entidad emisora y fecha.",
     evidenceTitle: "Fuentes técnicas",
     evidenceItems: ["monitoreos e informes", "fuentes de agua y ambiente", "alcance territorial y temporal"],
-    disputeTitle: "Regla editorial",
+    disputeTitle: "Límites de interpretación",
     disputeItems: ["no inferir causalidad no respaldada", "no omitir contradicciones", "no mezclar evidencia técnica con conclusión política"],
     nextStep: "Abrir los casos de Espinar y Conga o los nudos de agua/fiscalización para leer el alcance de cada fuente.",
     sourceIds: ["oefa-fiscalizacion", "ana-agua", "espinar-sociospatial-2025", "conga-millones-2016"],
@@ -400,54 +424,54 @@ const focusDetails: Record<GraphFocus, FocusDetail> = {
     ],
   },
   "matriz-documental": {
-    kicker: "Gate V1",
-    title: "Matriz de evidencia",
-    summary: "Controla que cada afirmación, hito o instrumento tenga fuente directa, locador exacto, relación de evidencia y estado de revisión antes de pasar gates.",
-    evidenceTitle: "Contrato de evidencia",
-    evidenceItems: ["fuente directa", "página, sección, tabla o artículo", "relación supports, qualifies o contradicts"],
-    disputeTitle: "Bloqueos",
-    disputeItems: ["sin locador no hay verificación", "sin evidencia no hay afirmación fuerte", "sin derechos claros no se republica documento externo"],
-    nextStep: "Revisar metodología y gates antes de declarar la V1 como pública revisada.",
+    kicker: "Sustento documental",
+    title: "Cómo se sustenta la información",
+    summary: "Las afirmaciones y los hitos enlazan fuentes directas y, cuando es posible, la página, sección, tabla o artículo donde aparece la información.",
+    evidenceTitle: "Referencias utilizadas",
+    evidenceItems: ["fuente directa", "página, sección, tabla o artículo", "indicación de si la fuente sustenta, matiza o contradice una afirmación"],
+    disputeTitle: "Criterios de lectura",
+    disputeItems: ["la referencia precisa facilita el contraste", "las afirmaciones relevantes requieren respaldo directo", "el uso de cada fuente respeta sus condiciones de acceso y cita"],
+    nextStep: "Consultar la metodología para conocer cómo se seleccionan, contrastan y presentan las fuentes.",
     sourceIds: ["metodologia-observatorio"],
     issueIds: ["competencias-estado"],
     routeLinks: [
-      { label: "Ver metodología", href: "/metodologia#fuentes", description: "Criterios de evidencia, fuentes y revisión." },
-      { label: "Ver alcance documental", href: "/metodologia#revision", description: "Disclaimer académico, evidencia y límites." },
-      { label: "Ver normativa", href: "/normativa", description: "Instrumentos conectados y estado de revisión." },
+      { label: "Ver metodología", href: "/metodologia#fuentes", description: "Criterios de evidencia, fuentes y comprobación." },
+      { label: "Ver límites probatorios", href: "/metodologia#revision", description: "Límites académicos, evidencia y contraste." },
+      { label: "Ver normativa", href: "/normativa", description: "Instrumentos conectados y preguntas de aplicación." },
     ],
   },
   "cajamarca-system": {
-    kicker: "Matriz territorial",
-    title: "Sistema Cajamarca",
-    summary: "Lee Quilish, Conga, Máxima Acuña y Michiquillay como una red territorial: cada hito conserva documento, controversia, cautela editorial y pregunta de alcance.",
+    kicker: "Lectura territorial",
+    title: "Conflictos mineros en Cajamarca",
+    summary: "Lee Quilish, Conga, Máxima Acuña y Michiquillay como una red territorial: cada hito conserva documento, controversia, límite probatorio y pregunta de fondo.",
     evidenceTitle: "Hitos estructurados",
-    evidenceItems: ["hitos Cajamarca con locador documental", "documentos separados entre fuente canónica y objetivo de búsqueda", "conexiones explícitas entre agua, potestad local, propiedad, beneficios y estado del proyecto"],
-    disputeTitle: "Cautelas",
+    evidenceItems: ["hitos de Cajamarca con referencias precisas", "fuentes incorporadas a cada caso", "relaciones entre agua, potestad local, propiedad, beneficios y estado del proyecto"],
+    disputeTitle: "Límites de interpretación",
     disputeItems: ["no fusiona Quilish, Conga, Acuña y Michiquillay como un solo caso", "no convierte absolución penal en propiedad civil", "no trata fondo social o pago contractual como impacto territorial verificado"],
-    nextStep: "Usar la matriz para abrir cada hito, cerrar objetivos de búsqueda y pasar la lectura documental sin inferencias regionales indebidas.",
+    nextStep: "Abrir cada caso y contrastar sus fuentes sin tratar los conflictos de Cajamarca como una única historia o causalidad regional.",
     sourceIds: [],
     caseIds: ["conga"],
     issueIds: ["agua-cuencas", "beneficios-territoriales", "competencias-estado"],
     routeLinks: [
-      { label: "Ver lectura Cajamarca", href: "/conflictos", description: "Entrada transversal desde la página de conflictos." },
-      { label: "Ver Conga", href: "/conflictos/conga", description: "Expediente canónico conectado a la matriz territorial." },
+      { label: "Ver casos de Cajamarca", href: "/conflictos", description: "Entrada comparada desde los casos documentados." },
+      { label: "Ver Conga", href: "/conflictos/conga", description: "Caso vinculado con la lectura territorial de Cajamarca." },
     ],
   },
   "institutional-mechanisms": {
-    kicker: "Matriz comparada",
+    kicker: "Comparación transversal",
     title: "Mecanismos institucionales",
     summary: "Ordena EIA, PAMA, sentencias, actas, fondos sociales, medidas de protección, reasentamiento y registros como mecanismos documentales comparables.",
     evidenceTitle: "Mecanismos y documentos",
-    evidenceItems: ["familias institucionales con documentos primarios", "obligación o decisión separada de cumplimiento", "riesgo editorial y pregunta de alcance por mecanismo"],
-    disputeTitle: "Cautelas",
-    disputeItems: ["un instrumento aprobado no prueba legitimidad social", "un acuerdo firmado no prueba cumplimiento", "un registro agregado no prueba actividad real en campo"],
-    nextStep: "Usar la matriz para leer obligaciones, seguimiento y valor probatorio antes de convertir mecanismos en afirmaciones del observatorio.",
+    evidenceItems: ["familias institucionales con documentos primarios", "obligación o decisión separada de cumplimiento", "límite probatorio y pregunta de fondo por mecanismo"],
+    disputeTitle: "Límites de interpretación",
+    disputeItems: ["un instrumento aprobado no prueba legitimidad social", "un acuerdo firmado no prueba cumplimiento", "un registro documental no prueba por sí solo resultados en campo"],
+    nextStep: "Comparar obligaciones, seguimiento y resultados documentados sin asumir que la existencia de un instrumento demuestra su cumplimiento.",
     sourceIds: [],
-    caseIds: ["conga", "tia-maria", "las-bambas", "espinar", "madre-de-dios"],
-    issueIds: ["dialogo-acuerdos", "fiscalizacion-ambiental", "formalizacion-mape", "beneficios-territoriales"],
+    caseIds: ["conga", "tia-maria", "las-bambas", "espinar", "la-oroya", "toromocho-morococha"],
+    issueIds: ["dialogo-acuerdos", "fiscalizacion-ambiental", "beneficios-territoriales"],
     routeLinks: [
-      { label: "Ver conflictos", href: "/conflictos", description: "Puerta de lectura por caso y comparativa." },
-      { label: "Ver normativa", href: "/normativa", description: "Instrumentos normativos, fuentes y alcance documental." },
+      { label: "Ver conflictos", href: "/conflictos", description: "Comparación por caso y mecanismo." },
+      { label: "Ver normativa", href: "/normativa", description: "Instrumentos normativos, fuentes y preguntas de aplicación." },
     ],
   },
   "trazabilidad-oro": {
@@ -470,16 +494,18 @@ const focusDetails: Record<GraphFocus, FocusDetail> = {
 };
 
 const focusAliases: Record<string, GraphFocus> = {
-  tambogrande: "casos-piloto",
-  conga: "casos-piloto",
+  tambogrande: "casos-hito",
+  conga: "casos-hito",
   "cerro-quilish": "cajamarca-system",
   "yanacocha-maxima-acuna": "cajamarca-system",
   "fondo-social-michiquillay": "cajamarca-system",
+  "rio-blanco-majaz": "casos-hito",
   "la-oroya": "institutional-mechanisms",
   "toromocho-morococha": "institutional-mechanisms",
+  choropampa: "cajamarca-system",
   "cajamarca-system": "cajamarca-system",
   "institutional-mechanisms": "institutional-mechanisms",
-  "tia-maria": "casos-piloto",
+  "tia-maria": "casos-hito",
   "las-bambas": "actores-acuerdos",
   espinar: "evidencia-ambiental",
   "madre-de-dios": "mineria-ilegal-informal",
@@ -513,9 +539,9 @@ function RelationshipNode({ icon: Icon, title, subtitle, layer, tone, role }: Om
   );
 }
 
-function makeNodes(focus: GraphFocus): Node[] {
+function makeNodes(focus: GraphFocus, revealed: Set<GraphFocus>): Node[] {
   const related = new Set(focusRelations[focus]);
-  return graphNodes.map((item) => ({
+  return graphNodes.filter((item) => revealed.has(item.id)).map((item) => ({
     id: item.id,
     position: item.position,
     className: [
@@ -544,6 +570,14 @@ function makeNodes(focus: GraphFocus): Node[] {
   }));
 }
 
+function makeEdges(revealed: Set<GraphFocus>, expanded: Set<GraphFocus>): Edge[] {
+  return edges.filter((item) => {
+    const source = item.source as GraphFocus;
+    const target = item.target as GraphFocus;
+    return revealed.has(source) && revealed.has(target) && (expanded.has(source) || expanded.has(target));
+  });
+}
+
 function edge(id: string, source: GraphFocus, target: GraphFocus, label: string, tone: NodeTone, animated = false): Edge {
   const colors: Record<NodeTone, string> = {
     social: "#38bdf8",
@@ -570,7 +604,7 @@ function edge(id: string, source: GraphFocus, target: GraphFocus, label: string,
 const edges: Edge[] = [
   edge("conflicto-solapamiento", "conflicto-social-minero", "solapamiento-territorial", "comparte territorio", "social", true),
   edge("ilegal-solapamiento", "mineria-ilegal-informal", "solapamiento-territorial", "comparte evidencia", "illegal", true),
-  edge("conflicto-casos", "conflicto-social-minero", "casos-piloto", "expedientes", "social"),
+  edge("conflicto-casos", "conflicto-social-minero", "casos-hito", "casos hito", "social"),
   edge("conflicto-actores", "conflicto-social-minero", "actores-acuerdos", "actores", "social"),
   edge("conflicto-ambiental", "conflicto-social-minero", "evidencia-ambiental", "sustenta", "evidence"),
   edge("ilegal-reinfo", "mineria-ilegal-informal", "reinfo", "registro", "instrument"),
@@ -578,8 +612,8 @@ const edges: Edge[] = [
   edge("ilegal-trazabilidad", "mineria-ilegal-informal", "trazabilidad-oro", "cadena", "illegal"),
   edge("actores-reinfo", "actores-acuerdos", "reinfo", "diferencia", "bridge"),
   edge("fiscalizacion-trazabilidad", "trazabilidad-oro", "fiscalizacion", "alerta", "control"),
-  edge("ambiental-matriz", "evidencia-ambiental", "matriz-documental", "locador", "evidence"),
-  edge("solapamiento-matriz", "solapamiento-territorial", "matriz-documental", "gate", "bridge"),
+  edge("ambiental-matriz", "evidencia-ambiental", "matriz-documental", "referencia", "evidence"),
+  edge("solapamiento-matriz", "solapamiento-territorial", "matriz-documental", "verifica", "bridge"),
   edge("matriz-cajamarca", "matriz-documental", "cajamarca-system", "hitos", "bridge"),
   edge("matriz-mecanismos", "matriz-documental", "institutional-mechanisms", "mecanismos", "control"),
   edge("cajamarca-mecanismos", "cajamarca-system", "institutional-mechanisms", "contrasta", "bridge"),
@@ -592,25 +626,6 @@ const sourceTypeLabels: Record<Source["type"], string> = {
   company: "Empresa",
   ngo: "Sociedad civil",
   press: "Prensa",
-};
-
-const sourceRightsLabels: Record<Source["rightsStatus"], string> = {
-  reusable: "reutilizable",
-  "link-only": "solo enlace",
-  "permission-required": "requiere permiso",
-  unknown: "derechos por confirmar",
-};
-
-const sourceEvidenceLabels: Record<Source["evidenceLevel"], string> = {
-  primary: "primaria",
-  secondary: "secundaria",
-  contextual: "contextual",
-};
-
-const caseReviewLabels: Record<ConflictCase["reviewStatus"], string> = {
-  documentary: "revisión documental",
-  "legal-pending": "contraste documental",
-  "legal-verified": "contraste documentado",
 };
 
 const caseStatusLabels: Record<ConflictCase["status"], string> = {
@@ -641,11 +656,6 @@ const relationLabels: Record<EvidenceRecord["relation"], string> = {
   contradicts: "Contradice",
 };
 
-const reviewStatusLabels: Record<EvidenceRecord["reviewStatus"], string> = {
-  reviewed: "revisado",
-  pending: "pendiente",
-};
-
 type FocusMetric = {
   label: string;
   value: string;
@@ -662,8 +672,7 @@ function formatNumber(value?: number) {
 }
 
 function describeCase(item: ConflictCase) {
-  const verifiedClaims = item.claims.filter((claim) => claim.verificationStatus === "verified").length;
-  return `${item.timeline.length} hitos · ${verifiedClaims}/${item.claims.length} afirmaciones verificadas · ${caseStatusLabels[item.status]} · corte ${formatDate(item.cutoffDate)} · ${caseReviewLabels[item.reviewStatus]}.`;
+  return `${item.timeline.length} hitos · ${item.claims.length} afirmaciones documentadas · ${caseStatusLabels[item.status]} · corte ${formatDate(item.cutoffDate)}.`;
 }
 
 function describeIssue(item: NormativeIssue) {
@@ -671,8 +680,8 @@ function describeIssue(item: NormativeIssue) {
 }
 
 function describeActor(item: Actor, data: ObservatoryData) {
-  const caseCount = data.cases.filter((entry) => entry.actorIds.includes(item.id)).length;
-  return `${actorTypeLabels[item.type]} · presente en ${caseCount} expediente(s) piloto.`;
+  const caseCount = data.cases.filter((entry) => isPublishedSocialMiningCase(entry) && entry.actorIds.includes(item.id)).length;
+  return `${actorTypeLabels[item.type]} · presente en ${caseCount} caso(s) documentado(s).`;
 }
 
 type MatrixReference = {
@@ -710,9 +719,12 @@ function getMatrixReferences(focus: GraphFocus, data: ObservatoryData): MatrixRe
     })),
   );
 
-  if (focus === "cajamarca-system") return cajamarcaReferences;
-  if (focus === "institutional-mechanisms") return mechanismReferences;
-  if (focus === "matriz-documental") return [...cajamarcaReferences, ...mechanismReferences];
+  const publishedCajamarcaReferences = cajamarcaReferences.filter((item) => item.status === "canonical-source");
+  const publishedMechanismReferences = mechanismReferences.filter((item) => item.status === "canonical-source");
+
+  if (focus === "cajamarca-system") return publishedCajamarcaReferences;
+  if (focus === "institutional-mechanisms") return publishedMechanismReferences;
+  if (focus === "matriz-documental") return [...publishedCajamarcaReferences, ...publishedMechanismReferences];
   return [];
 }
 
@@ -733,40 +745,41 @@ function buildDataSummary(
   latestReinfoSnapshot: ObservatoryData["reinfoTerritorialSnapshots"][number] | undefined,
   miningMentionStats: { illegal: number; informal: number; overlap: number },
 ) {
-  const socialCut = latestSocialSnapshot ? `Defensoría reporte ${latestSocialSnapshot.reportNumber}, corte ${formatDate(latestSocialSnapshot.cutoffDate)}` : "corte social no disponible";
-  const miningCut = latestMiningSelection ? `${formatNumber(latestMiningSelection.totalRegistered)} conflictos mineros seleccionados` : "selección minera no disponible";
+  const socialMiningCases = data.cases.filter(isPublishedSocialMiningCase);
+  const miningSource = latestSocialSnapshot ? `reporte ${latestSocialSnapshot.reportNumber} de la Defensoría del Pueblo, corte ${formatDate(latestSocialSnapshot.cutoffDate)}` : "corte minero no disponible";
+  const miningCut = latestMiningSelection ? `${formatNumber(latestMiningSelection.totalRegistered)} conflictos sociales mineros` : "corte minero no disponible";
   const reinfoCut = latestReinfoSnapshot ? `${formatNumber(latestReinfoSnapshot.totalRegistered)} inscripciones REINFO vigentes al ${formatDate(latestReinfoSnapshot.cutoffDate)}` : "corte REINFO no disponible";
 
   switch (focus) {
     case "conflicto-social-minero":
-      return `${data.cases.length} expedientes piloto enlazados; ${miningCut} dentro de ${formatNumber(latestSocialSnapshot?.totalRegistered)} conflictos sociales del ${socialCut}.`;
+      return `${miningCut} del ${miningSource}; ${socialMiningCases.length} casos desarrollados con cronología y fuentes.`;
     case "mineria-ilegal-informal":
-      return `${reinfoCut}. En el mismo corte social: ${miningMentionStats.illegal} casos mencionan minería ilegal, ${miningMentionStats.informal} minería informal y ${miningMentionStats.overlap} ambas categorías.`;
+      return `${reinfoCut}. En el corte social minero: ${miningMentionStats.illegal} casos mencionan minería ilegal, ${miningMentionStats.informal} minería informal y ${miningMentionStats.overlap} ambas categorías.`;
     case "solapamiento-territorial":
-      return `Cruce entre ${formatNumber(latestSocialSnapshot?.totalRegistered)} conflictos sociales, ${formatNumber(latestMiningSelection?.totalRegistered)} conflictos mineros, ${reinfoCut} y fuentes técnicas de agua/fiscalización.`;
-    case "casos-piloto":
-      return `${data.cases.length}/6 expedientes renderizados; ${data.cases.reduce((sum, item) => sum + item.timeline.length, 0)} hitos y ${data.cases.reduce((sum, item) => sum + item.claims.length, 0)} afirmaciones documentadas en datos canónicos.`;
+      return `Cruce entre ${formatNumber(latestMiningSelection?.totalRegistered)} conflictos sociales mineros y fuentes técnicas de agua, ambiente y fiscalización.`;
+    case "casos-hito":
+      return `${socialMiningCases.reduce((sum, item) => sum + item.timeline.length, 0)} hitos y ${socialMiningCases.reduce((sum, item) => sum + item.claims.length, 0)} afirmaciones documentadas en ${socialMiningCases.length} casos sociales mineros.`;
     case "actores-acuerdos":
-      return `${data.actors.length} actores canónicos; el foco enlaza Las Bambas, Espinar y Madre de Dios para leer actas, posiciones y cumplimiento sin asumir consenso.`;
+      return `Comunidades, entidades públicas, empresas y organizaciones vinculadas con Las Bambas y Espinar para leer actas, posiciones y seguimiento sin asumir consenso.`;
     case "reinfo":
-      return `${reinfoCut}; fuente oficial MINEM enlazada. La lectura distingue inscripción, permanencia registral, exclusión y formalización concluida.`;
+      return `${reinfoCut}; fuente oficial MINEM enlazada. El contraste distingue inscripción, permanencia registral, exclusión y formalización concluida.`;
     case "fiscalizacion":
       return `Fuentes OEFA, SERNANP y PCM conectadas; ${data.evidenceRecords.filter((record) => ["oefa-fiscalizacion", "sernanp-operativo-tambopata-2025", "pcm-operativos-mineria-ilegal-2025", "pcm-estrategia-mineria-ilegal-2025"].includes(record.sourceId)).length} registros de evidencia sostienen este foco.`;
     case "evidencia-ambiental":
-      return `Conecta Espinar y Conga con fuentes de agua, ambiente y monitoreo; el panel muestra locadores para evitar inferencias causales no formuladas por la fuente.`;
+      return `Conecta Espinar y Conga con fuentes de agua, ambiente y monitoreo; las referencias precisas permiten distinguir lo documentado de las interpretaciones.`;
     case "matriz-documental":
-      return `${data.evidenceRecords.length} registros de evidencia internos, ${data.cajamarcaSystemMatrix.entries.length} hitos Cajamarca y ${data.institutionalMechanisms.entries.length} mecanismos institucionales en datos canónicos.`;
+      return `${data.evidenceRecords.length} referencias documentales, ${data.cajamarcaSystemMatrix.entries.length} hitos de Cajamarca y ${data.institutionalMechanisms.entries.length} mecanismos institucionales relacionados.`;
     case "cajamarca-system": {
       const stats = matrixStats(getMatrixReferences(focus, data));
-      return `${data.cajamarcaSystemMatrix.entries.length} hitos territoriales; ${stats.canonical} referencias canónicas y ${stats.targets} objetivos de búsqueda visibles al corte ${formatDate(data.cajamarcaSystemMatrix.cutoffDate)}.`;
+      return `${data.cajamarcaSystemMatrix.entries.length} hitos territoriales y ${stats.canonical} referencias incorporadas al corte ${formatDate(data.cajamarcaSystemMatrix.cutoffDate)}.`;
     }
     case "institutional-mechanisms": {
       const stats = matrixStats(getMatrixReferences(focus, data));
       const families = uniqueValues(data.institutionalMechanisms.entries.map((entry) => entry.family)).length;
-      return `${data.institutionalMechanisms.entries.length} mecanismos en ${families} familias; ${stats.canonical} referencias canónicas y ${stats.targets} objetivos de búsqueda visibles al corte ${formatDate(data.institutionalMechanisms.cutoffDate)}.`;
+      return `${data.institutionalMechanisms.entries.length} mecanismos en ${families} familias y ${stats.canonical} referencias incorporadas al corte ${formatDate(data.institutionalMechanisms.cutoffDate)}.`;
     }
     case "trazabilidad-oro":
-      return `Madre de Dios concentra la lectura de cadena: MINEM, SUNAT, MPFN y controles estatales de origen/comercialización del oro, sin sustituir expedientes judiciales.`;
+      return `Madre de Dios concentra la cadena: MINEM, SUNAT, MPFN y controles estatales de origen/comercialización del oro, sin sustituir expedientes judiciales.`;
   }
 }
 
@@ -782,18 +795,17 @@ function buildFocusMetrics(
   miningMentionStats: { illegal: number; informal: number; overlap: number },
   data: ObservatoryData,
 ) {
-  const reviewedEvidence = activeEvidenceRecords.filter((record) => record.reviewStatus === "reviewed").length;
   const base: FocusMetric[] = [
-    { label: "Fuentes", value: formatNumber(activeSources.length), note: activeSources.length ? "según filtro activo" : "sin fuentes tras filtro" },
-    { label: "Locadores", value: `${formatNumber(reviewedEvidence)}/${formatNumber(activeEvidenceRecords.length)}`, note: "evidencias internas revisadas" },
-    { label: "Rutas", value: formatNumber(activeCases.length + activeIssues.length), note: "casos y nudos conectados" },
+    { label: "Fuentes", value: formatNumber(activeSources.length), note: activeSources.length ? "según filtro activo" : "el filtro no devuelve fuentes" },
+    ...(activeEvidenceRecords.length ? [{ label: "Referencias precisas", value: formatNumber(activeEvidenceRecords.length), note: "página o sección cuando está disponible" }] : []),
+    { label: "Conexiones", value: formatNumber(activeCases.length + activeIssues.length), note: "casos y temas relacionados" },
   ];
 
   if (focus === "conflicto-social-minero") {
     return [
-      { label: "Corte social", value: formatNumber(latestSocialSnapshot?.totalRegistered), note: `reporte ${latestSocialSnapshot?.reportNumber ?? "s/n"} · ${formatDate(latestSocialSnapshot?.cutoffDate)}` },
-      { label: "Selección minera", value: formatNumber(latestMiningSelection?.totalRegistered), note: `${formatNumber(latestMiningSelection?.active)} activos · ${formatNumber(latestMiningSelection?.latent)} latentes` },
-      { label: "Pilotos V1", value: formatNumber(activeCases.length), note: "expedientes enlazados al foco" },
+      { label: "Corte minero", value: formatNumber(latestMiningSelection?.totalRegistered), note: `reporte ${latestSocialSnapshot?.reportNumber ?? "s/n"} · ${formatDate(latestSocialSnapshot?.cutoffDate)}` },
+      { label: "Estado", value: `${formatNumber(latestMiningSelection?.active)}/${formatNumber(latestMiningSelection?.latent)}`, note: "activos / latentes" },
+      { label: "Casos desarrollados", value: formatNumber(activeCases.length), note: "con cronología y fuentes" },
       ...base,
     ];
   }
@@ -801,7 +813,7 @@ function buildFocusMetrics(
   if (focus === "mineria-ilegal-informal") {
     return [
       { label: "REINFO vigente", value: formatNumber(latestReinfoSnapshot?.totalRegistered), note: `corte ${formatDate(latestReinfoSnapshot?.cutoffDate)}` },
-      { label: "Mención ilegal", value: formatNumber(miningMentionStats.illegal), note: "casos del corte social" },
+      { label: "Mención ilegal", value: formatNumber(miningMentionStats.illegal), note: "casos del corte social minero" },
       { label: "Mención informal", value: formatNumber(miningMentionStats.informal), note: `${formatNumber(miningMentionStats.overlap)} también mencionan ilegal` },
       ...base,
     ];
@@ -819,9 +831,8 @@ function buildFocusMetrics(
   if (focus === "cajamarca-system") {
     const stats = matrixStats(getMatrixReferences(focus, data));
     return [
-      { label: "Hitos", value: formatNumber(data.cajamarcaSystemMatrix.entries.length), note: "matriz territorial canónica" },
-      { label: "Fuentes canónicas", value: formatNumber(stats.sourceIds.length), note: `${formatNumber(stats.canonical)} referencias con fuente` },
-      { label: "Objetivos", value: formatNumber(stats.targets), note: "documentos por cerrar" },
+      { label: "Hitos", value: formatNumber(data.cajamarcaSystemMatrix.entries.length), note: "lectura territorial de Cajamarca" },
+      { label: "Fuentes", value: formatNumber(stats.sourceIds.length), note: `${formatNumber(stats.canonical)} referencias incorporadas` },
       ...base,
     ];
   }
@@ -829,9 +840,9 @@ function buildFocusMetrics(
   if (focus === "institutional-mechanisms") {
     const stats = matrixStats(getMatrixReferences(focus, data));
     return [
-      { label: "Mecanismos", value: formatNumber(data.institutionalMechanisms.entries.length), note: "matriz institucional canónica" },
+      { label: "Mecanismos", value: formatNumber(data.institutionalMechanisms.entries.length), note: "comparación entre casos" },
       { label: "Familias", value: formatNumber(uniqueValues(data.institutionalMechanisms.entries.map((entry) => entry.family)).length), note: "tipos de mecanismo" },
-      { label: "Objetivos", value: formatNumber(stats.targets), note: `${formatNumber(stats.sourceIds.length)} fuentes canónicas únicas` },
+      { label: "Fuentes", value: formatNumber(stats.sourceIds.length), note: `${formatNumber(stats.canonical)} referencias incorporadas` },
       ...base,
     ];
   }
@@ -839,9 +850,9 @@ function buildFocusMetrics(
   if (focus === "matriz-documental") {
     const stats = matrixStats(getMatrixReferences(focus, data));
     return [
-      { label: "Evidencia interna", value: formatNumber(data.evidenceRecords.length), note: "registros EvidenceRecord" },
-      { label: "Matrices", value: "2", note: "Cajamarca y mecanismos" },
-      { label: "Objetivos", value: formatNumber(stats.targets), note: "sin tratarlos como verificados" },
+      { label: "Referencias", value: formatNumber(data.evidenceRecords.length), note: "fuentes vinculadas con afirmaciones" },
+      { label: "Lecturas comparadas", value: "2", note: "Cajamarca y mecanismos institucionales" },
+      { label: "Fuentes incorporadas", value: formatNumber(stats.sourceIds.length), note: `${formatNumber(stats.canonical)} referencias precisas` },
       ...base,
     ];
   }
@@ -855,21 +866,31 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
   const [issue, setIssue] = useState("all");
   const [sourceType, setSourceType] = useState("all");
   const [focus, setFocus] = useState<GraphFocus>("conflicto-social-minero");
+  const [revealed, setRevealed] = useState<Set<GraphFocus>>(() => new Set(rootGraphFocuses));
+  const [expanded, setExpanded] = useState<Set<GraphFocus>>(() => new Set());
   const [citationOpen, setCitationOpen] = useState(false);
 
   const sourceById = useMemo(() => new Map(data.sources.map((source) => [source.id, source])), [data.sources]);
   const caseById = useMemo(() => new Map(data.cases.map((item) => [item.id, item])), [data.cases]);
+  const publicCases = useMemo(() => data.cases.filter(isPublishedSocialMiningCase), [data.cases]);
+  const publicIssueIds = useMemo(() => new Set(publicCases.flatMap((item) => item.issueIds)), [publicCases]);
+  const publicIssues = useMemo(() => data.issues.filter((item) => publicIssueIds.has(item.id)), [data.issues, publicIssueIds]);
+  const publicActorIds = useMemo(() => new Set(publicCases.flatMap((item) => item.actorIds)), [publicCases]);
+  const publicActors = useMemo(() => data.actors.filter((item) => publicActorIds.has(item.id)), [data.actors, publicActorIds]);
+  const publicInstruments = useMemo(() => data.instruments.filter((item) => item.issueIds.some((id) => publicIssueIds.has(id))), [data.instruments, publicIssueIds]);
+  const publicAlternatives = useMemo(() => data.alternatives.filter((item) => item.issueIds.some((id) => publicIssueIds.has(id))), [data.alternatives, publicIssueIds]);
   const issueById = useMemo(() => new Map(data.issues.map((item) => [item.id, item])), [data.issues]);
   const actorById = useMemo(() => new Map(data.actors.map((item) => [item.id, item])), [data.actors]);
-  const latestSocialSnapshot = useMemo(() => [...data.socialConflictSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0], [data.socialConflictSnapshots]);
+  const latestMiningCut = useMemo(() => getLatestPublicMiningCut(data), [data]);
+  const latestSocialSnapshot = latestMiningCut.snapshot;
   const latestReinfoSnapshot = useMemo(() => [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0], [data.reinfoTerritorialSnapshots]);
-  const latestMiningSelection = useMemo(() => [...data.miningConflictSelections].sort((a, b) => b.title.localeCompare(a.title))[0], [data.miningConflictSelections]);
+  const latestMiningSelection = latestMiningCut.selection;
   const miningMentionStats = useMemo(() => {
-    const illegal = data.socialConflictCases.filter((item) => mentionsMiningCategory(item, "ilegal"));
-    const informal = data.socialConflictCases.filter((item) => mentionsMiningCategory(item, "informal"));
-    const overlap = data.socialConflictCases.filter((item) => mentionsMiningCategory(item, "ilegal") && mentionsMiningCategory(item, "informal"));
+    const illegal = latestMiningCut.cases.filter((item) => mentionsMiningCategory(item, "ilegal"));
+    const informal = latestMiningCut.cases.filter((item) => mentionsMiningCategory(item, "informal"));
+    const overlap = latestMiningCut.cases.filter((item) => mentionsMiningCategory(item, "ilegal") && mentionsMiningCategory(item, "informal"));
     return { illegal: illegal.length, informal: informal.length, overlap: overlap.length };
-  }, [data.socialConflictCases]);
+  }, [latestMiningCut.cases]);
 
   const activeDetail = focusDetails[focus];
   const activeMatrixDocuments = useMemo(() => getMatrixReferences(focus, data), [data, focus]);
@@ -888,30 +909,41 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
   const activeDataSummary = buildDataSummary(focus, data, latestSocialSnapshot, latestMiningSelection, latestReinfoSnapshot, miningMentionStats);
   const activeMetrics = buildFocusMetrics(focus, activeSources, activeCases, activeIssues, activeEvidenceRecords, latestSocialSnapshot, latestMiningSelection, latestReinfoSnapshot, miningMentionStats, data);
   const activeEvidenceCopy = activeEvidenceRecords.length
-    ? `${activeEvidenceRecords.filter((record) => record.reviewStatus === "reviewed").length}/${activeEvidenceRecords.length} registros de evidencia revisados; se muestran locadores debajo.`
-    : `${activeSources.length} fuente(s) enlazada(s); sin registros de evidencia internos para este foco.`;
+    ? `${activeEvidenceRecords.length} referencia(s) con página, sección o descripción precisa dentro de la fuente.`
+    : `${activeSources.length} fuente(s) directa(s) enlazada(s) con este tema.`;
   const activeDisputeCopy = activeActors.length
     ? `${activeActors.length} actor(es) conectado(s): ${activeActors.map((actor) => actor.name).join(", ")}.`
-    : "Límites de lectura que deben quedar visibles antes de cerrar una afirmación.";
+    : "Pautas para distinguir hechos documentados, posiciones de actores e interpretación académica.";
+  const visibleGraphNodes = useMemo(() => makeNodes(focus, revealed), [focus, revealed]);
+  const visibleGraphEdges = useMemo(() => makeEdges(revealed, expanded), [expanded, revealed]);
+  const isRootOnlyGraph = visibleGraphNodes.length <= rootGraphFocuses.length;
+  const guidedFocuses = useMemo(() => graphNodes.filter((node) => publicGraphFocuses.has(node.id) && revealed.has(node.id)), [revealed]);
+
+  const revealFocus = (nextFocus: GraphFocus) => {
+    if (!publicGraphFocuses.has(nextFocus)) return;
+    setFocus(nextFocus);
+    setRevealed((current) => {
+      const next = new Set(current);
+      next.add(nextFocus);
+      focusRelations[nextFocus].filter((related) => publicGraphFocuses.has(related)).forEach((related) => next.add(related));
+      return next;
+    });
+    setExpanded((current) => {
+      const next = new Set(current);
+      next.add(nextFocus);
+      return next;
+    });
+  };
 
   const results = useMemo<ResultItem[]>(() => [
     {
       id: "conflicto-social-minero",
       label: "Conflicto social minero",
-      subtitle: `${data.cases.length} expedientes piloto · ${latestMiningSelection?.totalRegistered ?? 0} conflictos mineros registrados`,
+      subtitle: `${latestMiningSelection?.totalRegistered ?? 0} conflictos sociales mineros · casos con cronología y fuentes`,
       type: "route",
       focus: "conflicto-social-minero" as GraphFocus,
       href: "/conflictos",
-      count: data.cases.length,
-    },
-    {
-      id: "mineria-ilegal-informal",
-      label: "Minería ilegal e informal",
-      subtitle: `REINFO / MAPE · ${latestReinfoSnapshot?.totalRegistered.toLocaleString("es-PE") ?? "s/d"} registros vigentes`,
-      type: "route",
-      focus: "mineria-ilegal-informal" as GraphFocus,
-      href: "/reinfo",
-      count: latestReinfoSnapshot?.totalRegistered ?? 0,
+      count: publicCases.length,
     },
     {
       id: "solapamiento-territorial",
@@ -920,12 +952,12 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
       type: "route",
       focus: "solapamiento-territorial" as GraphFocus,
       href: "/mapa",
-      count: data.issues.length,
+      count: publicIssues.length,
     },
     {
       id: "matriz-documental",
-      label: "Evidencia y revisión",
-      subtitle: "Fuentes directas, locadores y gates V1",
+      label: "Sustento documental",
+      subtitle: "Fuentes directas, referencias precisas y criterios de lectura",
       type: "route",
       focus: "matriz-documental" as GraphFocus,
       href: "/metodologia#fuentes",
@@ -933,8 +965,8 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     },
     {
       id: "cajamarca-system",
-      label: "Sistema Cajamarca",
-      subtitle: `${data.cajamarcaSystemMatrix.entries.length} hitos · lectura territorial estructurada`,
+      label: "Conflictos en Cajamarca",
+      subtitle: `${data.cajamarcaSystemMatrix.entries.length} hitos · lectura territorial comparada`,
       type: "matrix",
       focus: "cajamarca-system" as GraphFocus,
       href: "/conflictos",
@@ -943,7 +975,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     {
       id: "institutional-mechanisms",
       label: "Mecanismos institucionales",
-      subtitle: `${data.institutionalMechanisms.entries.length} mecanismos · obligaciones, seguimiento y cautelas`,
+      subtitle: `${data.institutionalMechanisms.entries.length} mecanismos · obligaciones, seguimiento y alcance documental`,
       type: "matrix",
       focus: "institutional-mechanisms" as GraphFocus,
       href: "/conflictos",
@@ -952,7 +984,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     ...data.cajamarcaSystemMatrix.entries.map((item) => ({
       id: item.id,
       label: item.hito,
-      subtitle: `Sistema Cajamarca · ${item.primaryDocuments.length} documento(s)`,
+      subtitle: `Conflictos en Cajamarca · ${item.primaryDocuments.filter((document) => document.status === "canonical-source").length} fuente(s) incorporada(s)`,
       type: "matrix",
       focus: "cajamarca-system" as GraphFocus,
       href: "/conflictos",
@@ -967,25 +999,25 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
       href: "/conflictos",
       count: item.primaryDocumentExamples.length,
     })),
-    ...data.cases.map((item) => ({
+    ...publicCases.map((item) => ({
       id: item.id,
       label: item.name,
-      subtitle: "Expediente territorial",
+      subtitle: "Caso social minero",
       type: "case",
       focus: getGraphFocus(item.id),
       href: `/conflictos/${item.slug}`,
       count: item.claims.length + item.timeline.length,
     })),
-    ...data.issues.map((item) => ({
+    ...publicIssues.map((item) => ({
       id: item.id,
       label: item.name,
-      subtitle: "Nudo normativo",
+      subtitle: "Tema normativo",
       type: "issue",
       focus: getGraphFocus(item.id),
       href: `/normativa#${item.id}`,
       count: item.sourceIds.length,
     })),
-    ...data.instruments.map((item) => ({
+    ...publicInstruments.map((item) => ({
       id: item.id,
       label: item.number,
       subtitle: item.title,
@@ -994,40 +1026,44 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
       href: "/normativa",
       count: item.sourceIds.length,
     })),
-    ...data.alternatives.map((item) => ({
+    ...publicAlternatives.map((item) => ({
       id: item.id,
       label: item.title,
-      subtitle: "Alternativa de política",
+      subtitle: "Propuesta documentada",
       type: "alternative",
       focus: getGraphFocus(item.id),
       href: "/metodologia#principios",
       count: item.sourceIds.length,
     })),
-    ...data.actors.map((item) => ({
+    ...publicActors.map((item) => ({
       id: item.id,
       label: item.name,
       subtitle: "Actor relacionado",
       type: "actor",
       focus: getGraphFocus(item.id),
-      count: data.cases.filter((entry) => entry.actorIds.includes(item.id)).length,
+      count: publicCases.filter((entry) => entry.actorIds.includes(item.id)).length,
     })),
   ].filter((item) => {
+    if (!publicGraphFocuses.has(item.focus)) return false;
     const matchesText = `${item.label} ${item.subtitle}`.toLowerCase().includes(query.toLowerCase());
     const matchesType = entityType === "all" || item.type === entityType;
     const matchesIssue = issue === "all" || item.id.includes(issue) || data.cases.find((entry) => entry.id === item.id)?.issueIds.includes(issue);
     return matchesText && matchesType && matchesIssue;
   }).sort((a, b) => {
-    const priority = ["conflicto-social-minero", "mineria-ilegal-informal", "solapamiento-territorial", "matriz-documental", "cajamarca-system", "institutional-mechanisms", "madre-de-dios", "formalizacion-mape"];
+    const priority = ["conflicto-social-minero", "solapamiento-territorial", "matriz-documental", "cajamarca-system", "institutional-mechanisms"];
     const aRank = priority.indexOf(a.id);
     const bRank = priority.indexOf(b.id);
     return (aRank === -1 ? 999 : aRank) - (bRank === -1 ? 999 : bRank);
-  }), [data, entityType, issue, latestMiningSelection, latestReinfoSnapshot, query]);
+  }), [data, entityType, issue, latestMiningSelection, publicActors, publicAlternatives, publicCases, publicInstruments, publicIssues, query]);
 
   const reset = () => {
     setQuery("");
     setEntityType("all");
     setIssue("all");
     setSourceType("all");
+    setFocus("conflicto-social-minero");
+    setRevealed(new Set(rootGraphFocuses));
+    setExpanded(new Set());
   };
 
   return (
@@ -1050,11 +1086,11 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           <select value={entityType} onChange={(event) => setEntityType(event.target.value)}>
             <option value="all">Todas</option>
             <option value="route">Rutas</option>
-            <option value="matrix">Matrices</option>
+            <option value="matrix">Comparaciones</option>
             <option value="case">Casos</option>
-            <option value="issue">Nudos</option>
+            <option value="issue">Temas</option>
             <option value="instrument">Normas</option>
-            <option value="alternative">Alternativas</option>
+            <option value="alternative">Propuestas documentadas</option>
             <option value="actor">Actores</option>
           </select>
         </label>
@@ -1062,7 +1098,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           <span>Tema</span>
           <select value={issue} onChange={(event) => setIssue(event.target.value)}>
             <option value="all">Todos</option>
-            {data.issues.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}
+            {publicIssues.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}
           </select>
         </label>
         <label>
@@ -1081,20 +1117,22 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
       </section>
       <div className="explorer-grid">
         <aside className="results-pane" aria-label="Índice de resultados">
-          <div className="pane-heading"><p>Dossier / índice</p><span>{results.length} resultados</span></div>
-          <div className="guided-reading" aria-label="Rutas de lectura sugeridas">
-            <p>Rutas de lectura</p>
-            <button className={focus === "conflicto-social-minero" ? "active" : ""} onClick={() => setFocus("conflicto-social-minero")}><MapPin size={15} /> Conflicto social minero</button>
-            <button className={focus === "mineria-ilegal-informal" ? "active" : ""} onClick={() => setFocus("mineria-ilegal-informal")}><WarningCircle size={15} /> Minería ilegal e informal</button>
-            <button className={focus === "solapamiento-territorial" ? "active" : ""} onClick={() => setFocus("solapamiento-territorial")}><Network size={15} /> Puentes y solapamientos</button>
-            <button className={focus === "matriz-documental" ? "active" : ""} onClick={() => setFocus("matriz-documental")}><TreeStructure size={15} /> Evidencia y revisión</button>
-            <button className={focus === "cajamarca-system" ? "active" : ""} onClick={() => setFocus("cajamarca-system")}><TreeStructure size={15} /> Sistema Cajamarca</button>
-            <button className={focus === "institutional-mechanisms" ? "active" : ""} onClick={() => setFocus("institutional-mechanisms")}><Gavel size={15} /> Mecanismos</button>
+          <div className="pane-heading"><p>Índice de relaciones</p><span>{results.length} resultados</span></div>
+          <div className="guided-reading" aria-label="Conexiones sugeridas">
+            <p>Conexiones progresivas</p>
+            {guidedFocuses.map((item) => {
+              const Icon = item.icon;
+              return (
+                <button key={item.id} className={focus === item.id ? "active" : ""} onClick={() => revealFocus(item.id)}>
+                  <Icon size={15} /> {item.title}
+                </button>
+              );
+            })}
           </div>
           <div className="result-list">
             {results.slice(0, 10).map((item) => (
               <div key={item.id} className={focus === item.focus ? "result-row active" : "result-row"}>
-                <button className="result-row-main" onClick={() => setFocus(item.focus)}>
+                <button className="result-row-main" onClick={() => revealFocus(item.focus)}>
                   <span className="result-icon">{item.type === "case" ? <MapPin /> : item.type === "instrument" ? <BookOpenText /> : item.type === "alternative" ? <Scales /> : item.type === "actor" ? <Buildings /> : item.type === "matrix" ? <TreeStructure /> : <CirclesThreePlus />}</span>
                   <span><strong>{item.label}</strong><small>{item.subtitle}</small></span>
                   <em>{item.count.toLocaleString("es-PE")}<small> vínculos</small></em>
@@ -1102,22 +1140,21 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
                 {item.href && <InlineLink href={item.href} label="Abrir" />}
               </div>
             ))}
-            {!results.length && <p className="empty-state">No hay coincidencias. Prueba retirando un filtro.</p>}
+            {!results.length && <p className="empty-state">Ajusta los filtros para recuperar relaciones.</p>}
           </div>
           <div className="case-links">
-            <p>Casos piloto</p>
-            {data.cases.map((item) => <Link key={item.id} href={`/conflictos/${item.slug}`}><MapPin size={14} />{item.name}</Link>)}
+            <p>Casos hito</p>
+            {publicCases.map((item) => <Link key={item.id} href={`/conflictos/${item.slug}`}><MapPin size={14} />{item.name}</Link>)}
           </div>
         </aside>
-        <section className="graph-pane" aria-label="Relaciones de conocimiento">
+        <section className={`graph-pane ${isRootOnlyGraph ? "is-root-only" : "is-expanded"}`} aria-label="Relaciones de conocimiento">
           <div className="graph-title">
             <p>{activeDetail.kicker}</p>
             <h1>{activeDetail.title}</h1>
-            <span><i className="dot warning" /> alcance documental <i className="dot official" /> vínculo a fuente</span>
+            <span><i className="dot warning" /> precaución de lectura <i className="dot official" /> vínculo a fuente</span>
           </div>
           <div className="graph-layers" aria-label="Leyenda de capas del sistema">
             <span><i data-tone="social" /> conflicto</span>
-            <span><i data-tone="illegal" /> ilegal / informal</span>
             <span><i data-tone="bridge" /> puente</span>
             <span><i data-tone="instrument" /> instrumento</span>
             <span><i data-tone="control" /> control</span>
@@ -1125,15 +1162,15 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           </div>
           <div className="graph-principle">
             <TreeStructure size={16} aria-hidden />
-            <span>Las líneas muestran relación documental; no prueban causalidad automática ni equivalencia administrativa.</span>
+            <span>Las líneas indican relación documental; no prueban causalidad automática ni equivalencia administrativa.</span>
           </div>
-          <ReactFlow nodes={makeNodes(focus)} edges={edges} fitView fitViewOptions={{ padding: 0.08 }} minZoom={0.36} maxZoom={1.18} nodesDraggable={false} onNodeClick={(_, node) => setFocus(node.id as GraphFocus)} proOptions={{ hideAttribution: true }}>
+          <ReactFlow key={`${visibleGraphNodes.length}-${visibleGraphEdges.length}`} nodes={visibleGraphNodes} edges={visibleGraphEdges} fitView fitViewOptions={{ padding: 0.05, maxZoom: isRootOnlyGraph ? 1 : 0.8 }} minZoom={0.45} maxZoom={1.2} nodesDraggable={false} onNodeClick={(_, node) => revealFocus(node.id as GraphFocus)} proOptions={{ hideAttribution: true }}>
             <Background color="#1b536b" gap={30} size={1} />
             <Controls showInteractive={false} />
           </ReactFlow>
         </section>
-        <aside className="evidence-pane" aria-label="Inspector de evidencia">
-          <div className="pane-heading"><p>Inspector de evidencia</p><strong>{activeDetail.title}</strong></div>
+        <aside className="evidence-pane" aria-label="Información relacionada">
+          <div className="pane-heading"><p>Información relacionada</p><strong>{activeDetail.title}</strong></div>
           <section className="focus-card">
             <p>{activeDetail.kicker}</p>
             <h2>{activeDetail.title}</h2>
@@ -1152,7 +1189,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           <section className="link-group">
             <div className="link-group-title">
               <p>Enlaces conectados</p>
-              <span>{activeDetail.routeLinks.length + activeCases.length + activeIssues.length} rutas</span>
+              <span>{activeDetail.routeLinks.length + activeCases.length + activeIssues.length} conexiones</span>
             </div>
             <div className="linked-list">
               {activeDetail.routeLinks.map((item) => <LinkedCard key={item.href} item={item} />)}
@@ -1165,14 +1202,14 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           {activeEvidenceRecords.length > 0 && (
             <section className="locator-group">
               <div className="link-group-title">
-                <p>Locadores de evidencia</p>
-                <span>{activeEvidenceRecords.length} registro(s)</span>
+                <p>Referencias precisas</p>
+                <span>{activeEvidenceRecords.length} referencia(s)</span>
               </div>
               {activeEvidenceRecords.slice(0, 4).map((record) => (
                 <article key={record.id}>
                   <strong>{relationLabels[record.relation]} · {record.locator}</strong>
                   <span>{record.summary}</span>
-                  <small>{reviewStatusLabels[record.reviewStatus]} · comprobado {formatDate(record.checkedAt)}</small>
+                  <small>Consulta documental: {formatDate(record.checkedAt)}</small>
                 </article>
               ))}
             </section>
@@ -1180,14 +1217,14 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           {activeMatrixDocuments.length > 0 && (
             <section className="locator-group">
               <div className="link-group-title">
-                <p>Locadores de matriz canónica</p>
+                <p>Fuentes de las comparaciones</p>
                 <span>{activeMatrixDocuments.length} referencia(s)</span>
               </div>
               {activeMatrixDocuments.slice(0, 6).map((record) => (
                 <article key={`${record.owner}-${record.sourceId}-${record.locator}`}>
-                  <strong>{record.status === "canonical-source" ? "Fuente canónica" : "Objetivo de búsqueda"} · {record.locator}</strong>
+                  <strong>Referencia directa · {record.locator}</strong>
                   <span>{record.label}</span>
-                  <small>{record.owner} · {record.sourceId}</small>
+                  <small>{sourceById.get(record.sourceId)?.institution ?? "Fuente documental"}</small>
                 </article>
               ))}
             </section>
@@ -1201,23 +1238,19 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
               <a key={source.id} href={source.url} target="_blank" rel="noreferrer">
                 <strong>{source.institution}</strong>
                 <span>{source.title}</span>
-                <small>{sourceTypeLabels[source.type]} · evidencia {sourceEvidenceLabels[source.evidenceLevel]} · {formatDate(source.date)} · {sourceRightsLabels[source.rightsStatus]}</small>
+                <small>{sourceTypeLabels[source.type]} · {formatDate(source.date)}</small>
                 <ArrowSquareOut size={14} aria-hidden />
               </a>
             )) : <p className="empty-state">El filtro de tipo de fuente no devuelve fuentes para este foco. Retira el filtro o abre otro nodo.</p>}
           </section>
           <div className="evidence-level">
-            <span>Estado de revisión del foco</span>
-            <strong><WarningCircle size={16} aria-hidden /><i /> Parcial</strong>
+            <span>Cómo leer esta relación</span>
+            <strong><BookOpenText size={16} aria-hidden /><i /> Lectura académica</strong>
             <p>{activeDetail.nextStep}</p>
           </div>
         </aside>
       </div>
-      <section className="compact-timeline" aria-label="Línea de tiempo del REINFO">
-        <p>Línea de tiempo REINFO</p>
-        {[1992, 2002, 2009, 2012, 2017, 2020, 2026].map((year, index) => <div key={year} className={year === 2017 ? "active" : ""}><i /><strong>{year}</strong><span>{["Ley minería", "Formalización", "Reformas", "Nueva etapa", "REINFO", "Adecuaciones", "Corte"][index]}</span></div>)}
-      </section>
-      {citationOpen && <div className="dialog-backdrop" role="presentation" onMouseDown={() => setCitationOpen(false)}><section className="citation-dialog" role="dialog" aria-modal="true" aria-labelledby="citation-title" onMouseDown={(event) => event.stopPropagation()}><button className="dialog-close" onClick={() => setCitationOpen(false)} aria-label="Cerrar"><X /></button><p className="eyebrow">Cita sugerida</p><h2 id="citation-title">Sistema de relaciones: conflictos mineros, minería ilegal e informal</h2><blockquote>Observatorio de Conflictos Mineros del Perú (2026). “Sistema de relaciones: dos problemas raíz”. Fecha de consulta: {new Date().toLocaleDateString("es-PE")}.</blockquote><p>Incluye siempre la fecha de corte porque los estados administrativos, normativos y territoriales pueden cambiar.</p></section></div>}
+      {citationOpen && <div className="dialog-backdrop" role="presentation" onMouseDown={() => setCitationOpen(false)}><section className="citation-dialog" role="dialog" aria-modal="true" aria-labelledby="citation-title" onMouseDown={(event) => event.stopPropagation()}><button className="dialog-close" onClick={() => setCitationOpen(false)} aria-label="Cerrar"><X /></button><p className="eyebrow">Cita sugerida</p><h2 id="citation-title">Sistema de relaciones de conflictos sociales mineros</h2><blockquote>Observatorio de Conflictos Mineros del Perú (2026). “Sistema de relaciones de conflictos sociales mineros”. Fecha de consulta: {new Date().toLocaleDateString("es-PE")}.</blockquote><p>Incluye siempre la fecha de corte porque los estados, acuerdos y registros documentales pueden cambiar.</p></section></div>}
     </div>
   );
 }

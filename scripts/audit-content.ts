@@ -1,9 +1,55 @@
 import { loadObservatoryData } from "../src/lib/content";
+import { getLatestPublicMiningCut } from "../src/lib/mining-classification";
 
 const data = loadObservatoryData();
+const { selection: publicMiningSelection, cases: publicMiningCases } = getLatestPublicMiningCut(data);
+if (!publicMiningSelection) throw new Error("No existe un corte público de conflictos sociales mineros");
 const sourceById = new Map(data.sources.map((source) => [source.id, source]));
 const errors: string[] = [];
 const warnings: string[] = [];
+
+const territorialLayers = [
+  ...data.socialConflictSnapshots.map((snapshot) => ({
+    id: snapshot.id,
+    kind: "conflictos sociales",
+    sourceId: snapshot.sourceId,
+    coordinateMethod: snapshot.coordinateMethod,
+    notes: snapshot.notes,
+    coordinates: snapshot.regions.map((region) => region.coordinates.join(",")),
+  })),
+  ...data.reinfoTerritorialSnapshots.map((snapshot) => ({
+    id: snapshot.id,
+    kind: "REINFO",
+    sourceId: snapshot.sourceId,
+    coordinateMethod: snapshot.coordinateMethod,
+    notes: snapshot.notes,
+    coordinates: snapshot.regions.map((region) => region.coordinates.join(",")),
+  })),
+  ...data.formalMiningTerritorialSnapshots.map((snapshot) => ({
+    id: snapshot.id,
+    kind: "minería formal",
+    sourceId: snapshot.sourceId,
+    coordinateMethod: snapshot.coordinateMethod,
+    notes: `${snapshot.unitDefinition} ${snapshot.notes}`,
+    coordinates: snapshot.regions.map((region) => region.coordinates.join(",")),
+  })),
+  ...data.explorationTerritorialSnapshots.map((snapshot) => ({
+    id: snapshot.id,
+    kind: "exploración",
+    sourceId: snapshot.sourceId,
+    coordinateMethod: snapshot.coordinateMethod,
+    notes: `${snapshot.unitDefinition} ${snapshot.notes}`,
+    coordinates: snapshot.regions.map((region) => region.coordinates.join(",")),
+  })),
+  ...data.miningConcessionTerritorialSnapshots.map((snapshot) => ({
+    id: snapshot.id,
+    kind: "concesiones",
+    sourceId: snapshot.sourceId,
+    coordinateMethod: snapshot.coordinateMethod,
+    notes: `${snapshot.unitDefinition} ${snapshot.notes}`,
+    coordinates: snapshot.regions.map((region) => region.coordinates.join(",")),
+  })),
+];
 
 function checkDatePrecision(date: string, precision: "day" | "month" | "year", owner: string) {
   if (precision === "year" && !date.endsWith("-01-01")) {
@@ -18,6 +64,22 @@ data.sources.forEach((source) => {
   checkDatePrecision(source.date, source.datePrecision, `Fuente ${source.id}`);
   if (source.evidenceLevel === "primary" && source.verificationStatus === "pending") {
     errors.push(`Fuente ${source.id}: una fuente primaria no puede quedar sin verificación mínima`);
+  }
+});
+
+territorialLayers.forEach((layer) => {
+  const source = sourceById.get(layer.sourceId);
+  if (!source) {
+    errors.push(`Capa territorial ${layer.id}: referencia fuente inexistente ${layer.sourceId}`);
+  } else if (source.evidenceLevel !== "primary") {
+    errors.push(`Capa territorial ${layer.id}: la fuente de ${layer.kind} debe ser primaria`);
+  }
+  if (new Set(layer.coordinates).size !== layer.coordinates.length) {
+    errors.push(`Capa territorial ${layer.id}: dos ámbitos comparten el mismo punto de referencia`);
+  }
+  const scopeText = `${layer.coordinateMethod} ${layer.notes}`.toLowerCase();
+  if (!/(referencia|capital|centro urbano principal|no corresponde|no corresponden|no ubica|no se reproducen)/.test(scopeText)) {
+    errors.push(`Capa territorial ${layer.id}: debe declarar que sus coordenadas son puntos de referencia`);
   }
 });
 
@@ -43,6 +105,29 @@ data.cases.forEach((item) => {
   }
   if (item.claims.some((claim) => claim.verificationStatus === "pending")) {
     warnings.push(`Caso ${item.id}: conserva afirmaciones pendientes de contraste editorial`);
+  }
+});
+
+const commitmentCoveredCaseIds = new Set(data.commitmentComparison.entries.map((entry) => entry.caseId));
+const commitmentExcludedCaseIds = new Set(data.commitmentComparison.excludedCaseIds);
+data.cases.forEach((item) => {
+  if (!commitmentCoveredCaseIds.has(item.id) && !commitmentExcludedCaseIds.has(item.id)) {
+    errors.push(`Comparación de compromisos: el caso ${item.id} no está cubierto ni declarado sin registro comparable`);
+  }
+  if (commitmentCoveredCaseIds.has(item.id) && commitmentExcludedCaseIds.has(item.id)) {
+    errors.push(`Comparación de compromisos: el caso ${item.id} figura simultáneamente cubierto y excluido`);
+  }
+});
+data.commitmentComparison.entries.forEach((entry) => {
+  const hasPrimarySource = entry.sourceIds.some((sourceId) => sourceById.get(sourceId)?.evidenceLevel === "primary");
+  if (!hasPrimarySource) {
+    errors.push(`Compromiso ${entry.id}: no conserva evidencia primaria`);
+  }
+  if (entry.implementationEvidence === "documented" && entry.documentaryStage !== "result-documented") {
+    errors.push(`Compromiso ${entry.id}: declara ejecución documentada sin un resultado documental`);
+  }
+  if (!entry.limit.toLowerCase().includes("no ") && !entry.limit.toLowerCase().includes("sin ")) {
+    warnings.push(`Compromiso ${entry.id}: el límite probatorio no explicita qué permanece sin demostrar`);
   }
 });
 
@@ -98,6 +183,21 @@ data.miningConflictSelections.forEach((selection) => {
   }
 });
 
+const madreDios = data.madreDiosDevastation;
+const madreDiosSources = madreDios.sourceIds.map((sourceId) => sourceById.get(sourceId));
+if (madreDiosSources.some((source) => !source)) {
+  errors.push(`Devastación Madre de Dios ${madreDios.id}: referencia fuentes inexistentes`);
+}
+if (madreDiosSources.some((source) => source?.evidenceLevel !== "primary")) {
+  errors.push(`Devastación Madre de Dios ${madreDios.id}: las fuentes cuantitativas deben mantenerse como evidencia primaria`);
+}
+if (madreDios.documentedTotal.hectares < madreDios.recentRate.observedHectares) {
+  errors.push(`Devastación Madre de Dios ${madreDios.id}: el acumulado regional no puede ser menor que el tramo observado`);
+}
+if (!madreDios.caveat.includes("no afirma nueva deforestación observada")) {
+  errors.push(`Devastación Madre de Dios ${madreDios.id}: el caveat debe separar proyección de observación documentada`);
+}
+
 const sourceTypes = Object.entries(
   data.sources.reduce<Record<string, number>>((counts, source) => {
     counts[source.type] = (counts[source.type] ?? 0) + 1;
@@ -108,7 +208,7 @@ const sourceTypes = Object.entries(
   .map(([type, count]) => `${type}: ${count}`)
   .join(", ");
 
-console.log(`Auditoría editorial: ${data.cases.length} expedientes piloto, ${data.socialConflictCases.length} casos del corte social, ${data.miningConflictSelections[0].totalRegistered} conflictos socioambientales mineros, ${data.sources.length} fuentes, ${data.instruments.length} normas.`);
+console.log(`Auditoría editorial: ${data.cases.length} expedientes trazados, ${publicMiningCases.length} conflictos sociales mineros del corte público, ${publicMiningSelection.active} activos, ${publicMiningSelection.latent} latentes, ${data.sources.length} fuentes, ${data.instruments.length} normas, ${territorialLayers.length} capas territoriales, 1 lectura de devastación en Madre de Dios.`);
 console.log(`Cobertura por tipo de fuente: ${sourceTypes}.`);
 warnings.forEach((warning) => console.warn(`ADVERTENCIA: ${warning}`));
 

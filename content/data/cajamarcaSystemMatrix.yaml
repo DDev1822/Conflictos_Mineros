@@ -1,6 +1,6 @@
 matrixId: cajamarca-system
 status: canonicalized
-cutoffDate: 2026-06-29
+cutoffDate: 2026-07-27
 canonicalStatus: canonical-data
 purpose: >
   Estructurar la lectura territorial de Cajamarca para que el Sistema de
@@ -12,6 +12,7 @@ sourceReadings:
   - docs/research/cases/cerro-quilish.md
   - docs/research/cases/conga.md
   - docs/research/cases/yanacocha-maxima-acuna.md
+  - docs/research/cases/choropampa.md
   - docs/research/cases/fondo-social-michiquillay.md
 columns:
   - id
@@ -29,7 +30,7 @@ columns:
 entries:
   - id: cajamarca-quilish-ordenanza-2000
     caseSlug: cerro-quilish
-    canonicalCaseId: null
+    canonicalCaseId: cerro-quilish
     hito: Ordenanza municipal 012-2000-CMPC sobre Cerro Quilish y microcuencas.
     institutionType: municipal-protection
     primaryDocuments:
@@ -56,13 +57,16 @@ entries:
 
   - id: cajamarca-quilish-autorizacion-revocatoria-2004
     caseSlug: cerro-quilish
-    canonicalCaseId: null
+    canonicalCaseId: cerro-quilish
     hito: RD 361, RD 427 y RM 467-2004-MEM-DM sobre exploración en Quilish.
     institutionType: sectoral-environmental-authorization
     primaryDocuments:
       - sourceId: quilish-rm-467-2004-mem-dm
         status: canonical-source
         locator: SPIJ, RM 467-2004-MEM/DM, pp. 36-38.
+      - sourceId: quilish-oefa-tfa-002-2021
+        status: canonical-source
+        locator: TFA, páginas 28-29, reproducción de la RD 427.
       - sourceId: quilish-sinia-indicadores-cajamarca
         status: research-target
         locator: SINIA/MINAM, Indicadores Ambientales Cajamarca, p. 16.
@@ -102,7 +106,7 @@ entries:
     authorityOrActor: MINEM; equipo pericial; comunidades y autoridades territoriales.
     controversy: Aprobación ambiental y peritaje frente a confianza sobre agua y cabeceras.
     stateAtCutoff: >
-      Expediente piloto existente; requiere texto consolidado de obligaciones,
+      Expediente trazado existente; requiere texto consolidado de obligaciones,
       efectos de modificaciones y lectura documental de suspensión material.
     editorialCaution: Aprobación administrativa no equivale a legitimidad social.
     scopeQuestion: >
@@ -143,7 +147,7 @@ entries:
 
   - id: cajamarca-acuna-casacion-2017
     caseSlug: yanacocha-maxima-acuna
-    canonicalCaseId: null
+    canonicalCaseId: yanacocha-maxima-acuna
     hito: Casación 458-2015 confirma absolución penal por usurpación agravada.
     institutionType: criminal-judicial-control
     primaryDocuments:
@@ -170,7 +174,7 @@ entries:
 
   - id: cajamarca-acuna-tc-2020
     caseSlug: yanacocha-maxima-acuna
-    canonicalCaseId: null
+    canonicalCaseId: yanacocha-maxima-acuna
     hito: Habeas corpus por dron, cámara, tránsito y vida privada.
     institutionType: constitutional-protection
     primaryDocuments:
@@ -197,12 +201,12 @@ entries:
 
   - id: cajamarca-michiquillay-fondo-2009
     caseSlug: fondo-social-michiquillay
-    canonicalCaseId: null
+    canonicalCaseId: fondo-social-michiquillay
     hito: Constitución de la Asociación Fondo Social Michiquillay.
     institutionType: benefit-governance
     primaryDocuments:
       - sourceId: michiquillay-fsm-sobre
-        status: research-target
+        status: canonical-source
         locator: Fondo Social Michiquillay, líneas 45-56.
       - sourceId: michiquillay-minem-fondos-sociales
         status: research-target
@@ -226,7 +230,7 @@ entries:
 
   - id: cajamarca-michiquillay-southern-2018
     caseSlug: fondo-social-michiquillay
-    canonicalCaseId: null
+    canonicalCaseId: fondo-social-michiquillay
     hito: Contrato 2018, incorporación de Southern y traslado de pago inicial.
     institutionType: investment-contract-benefit-transfer
     primaryDocuments:
@@ -237,7 +241,7 @@ entries:
         status: canonical-source
         locator: ProInversión, comunicado 08/11/2018.
       - sourceId: michiquillay-fsm-sobre
-        status: research-target
+        status: canonical-source
         locator: Fondo Social Michiquillay, líneas 54-56.
     authorityOrActor: PROINVERSIÓN; Southern Perú; Fondo Social Michiquillay.
     controversy: Promesa contractual de beneficio frente a necesidad de auditoría y seguimiento.
@@ -256,7 +260,7 @@ entries:
 
   - id: cajamarca-michiquillay-estado-2026
     caseSlug: fondo-social-michiquillay
-    canonicalCaseId: null
+    canonicalCaseId: fondo-social-michiquillay
     hito: Estado 2026 del proyecto Michiquillay y compromisos sociales recientes.
     institutionType: corporate-regulatory-status-report
     primaryDocuments:
@@ -280,6 +284,63 @@ entries:
       connectsTo:
         - cajamarca-michiquillay-southern-2018
         - cajamarca-conga-estado-2026
+
+  - id: cajamarca-choropampa-derrame-2000
+    caseSlug: choropampa
+    canonicalCaseId: choropampa
+    hito: Derrame de mercurio, respuesta de emergencia y sanción sectorial de 2000.
+    institutionType: mining-transport-emergency-response
+    primaryDocuments:
+      - sourceId: choropampa-defensoria-62
+        status: canonical-source
+        locator: Informe Defensorial 62, página 7, análisis y anexo 1.
+      - sourceId: choropampa-cao-investigacion-2000
+        status: canonical-source
+        locator: Informe de comisión independiente, páginas 4 a 8 y 16 a 20.
+    authorityOrActor: Población afectada; Minera Yanacocha; RANSA; autoridades de minería y salud.
+    controversy: Exposición y atención frente a prevención, comunicación, fiscalización y coordinación insuficientes.
+    stateAtCutoff: >
+      El derrame, la exposición poblacional, la respuesta y la sanción están documentados;
+      la longitud del tramo afectado y categorías sanitarias requieren cautelas visibles.
+    editorialCaution: No convertir cifras agregadas en diagnósticos individuales ni ocultar la discrepancia de 27 y 40-41 km.
+    scopeQuestion: >
+      ¿Qué obligaciones de prevención, transporte, comunicación, salud y fiscalización
+      surgieron del incidente y qué seguimiento independiente acredita su cumplimiento?
+    relationshipHooks:
+      theme: emergencia-salud-y-confianza
+      connectsTo:
+        - cajamarca-choropampa-reparacion-2000-2008
+        - cajamarca-quilish-ordenanza-2000
+
+  - id: cajamarca-choropampa-reparacion-2000-2008
+    caseSlug: choropampa
+    canonicalCaseId: choropampa
+    hito: Convenios, transacciones, seguimiento CAO y Primer Pleno Casatorio Civil.
+    institutionType: compensation-dispute-resolution-civil-litigation
+    primaryDocuments:
+      - sourceId: choropampa-defensoria-62
+        status: canonical-source
+        locator: Informe Defensorial 62, anexos 3 y 4.
+      - sourceId: choropampa-cao-caso
+        status: canonical-source
+        locator: Secciones Complaint, Action y Status.
+      - sourceId: choropampa-pj-pleno-2008
+        status: canonical-source
+        locator: Primer Pleno Casatorio Civil, páginas 109 a 150.
+    authorityOrActor: Población y Frente de Defensa; Minera Yanacocha; CAO; Corte Suprema.
+    controversy: Acuerdos y cierre procesal de controversias específicas frente a reclamos persistentes de salud, confianza y reparación.
+    stateAtCutoff: >
+      Existen convenios, transacciones, seguimiento institucional y una decisión plenaria;
+      no hay base para tratarlos como reparación integral de toda la población.
+    editorialCaution: No generalizar el efecto de una transacción o litigio individual a todas las personas y derechos afectados.
+    scopeQuestion: >
+      ¿Qué cubrió cada acuerdo, qué evidencia de ejecución existe y qué reclamos
+      colectivos, sanitarios o individuales quedaron fuera de su alcance?
+    relationshipHooks:
+      theme: acuerdo-vs-reparacion
+      connectsTo:
+        - cajamarca-choropampa-derrame-2000
+        - cajamarca-acuna-casacion-2017
 
 publicationGates:
   - Cada hito debe mantener al menos un documento primario o un objetivo de búsqueda explícito.

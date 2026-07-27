@@ -67,29 +67,14 @@ export const legalInstrumentSchema = z.object({
   authority: z.string().min(2),
   publishedAt: isoDate,
   effectiveFrom: isoDate.optional(),
-  status: z.enum(["in-force", "modified", "repealed", "pending-review"]),
-  legalReviewStatus: z.enum(["verified", "pending"]),
-  verifiedAt: isoDate.optional(),
-  legalReviewedBy: z.string().min(3).optional(),
-  legalReviewMemo: z.string().min(3).optional(),
+  status: z.literal("documented"),
+  documentaryStatus: z.literal("source-reviewed"),
   relevantArticles: z.array(z.string()).default([]),
   issueIds: z.array(id).min(1),
   sourceIds: z.array(id).min(1),
   relatedInstrumentIds: z.array(id),
   lastCheckedAt: isoDate,
   verificationNotes: z.string().min(15),
-}).superRefine((instrument, ctx) => {
-  if (instrument.legalReviewStatus === "verified") {
-    if (!instrument.verifiedAt) {
-      ctx.addIssue({ code: "custom", path: ["verifiedAt"], message: "Una revisión documental verificada requiere fecha" });
-    }
-    if (!instrument.legalReviewedBy) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewedBy"], message: "Una revisión documental verificada requiere responsable" });
-    }
-    if (!instrument.legalReviewMemo) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewMemo"], message: "Una revisión documental verificada requiere referencia de evidencia" });
-    }
-  }
 });
 
 export const timelineEventSchema = z.object({
@@ -118,23 +103,8 @@ export const conflictCaseSchema = z.object({
   claims: z.array(claimSchema).min(1),
   cutoffDate: isoDate,
   updatedAt: isoDate,
-  reviewStatus: z.enum(["documentary", "legal-pending", "legal-verified"]),
-  legalReviewedAt: isoDate.optional(),
-  legalReviewedBy: z.string().min(3).optional(),
-  legalReviewMemo: z.string().min(3).optional(),
-  legalReviewNotes: z.string().min(15),
-}).superRefine((item, ctx) => {
-  if (item.reviewStatus === "legal-verified") {
-    if (!item.legalReviewedAt) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewedAt"], message: "Un expediente verificado requiere fecha de revisión documental" });
-    }
-    if (!item.legalReviewedBy) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewedBy"], message: "Un expediente verificado requiere responsable de revisión" });
-    }
-    if (!item.legalReviewMemo) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewMemo"], message: "Un expediente verificado requiere referencia de evidencia" });
-    }
-  }
+  reviewStatus: z.literal("documentary"),
+  reviewNotes: z.string().min(15),
 });
 
 export const evidenceRecordSchema = z.object({
@@ -182,6 +152,41 @@ export const caseResearchPacketSchema = z.object({
   scopeQuestions: z.array(z.string().min(20)).min(2),
   gaps: z.array(researchGapSchema),
   status: z.enum(["ready", "incomplete"]),
+});
+
+export const commitmentComparisonEntrySchema = z.object({
+  id,
+  caseId: id,
+  timelineEventId: id,
+  theme: z.enum([
+    "water",
+    "environmental-monitoring",
+    "social-investment",
+    "employment-capacity",
+    "dialogue-governance",
+    "mobility",
+    "formalization",
+  ]),
+  title: z.string().min(8),
+  commitment: z.string().min(30),
+  responsibleActors: z.array(z.string().min(3)).min(1),
+  territorialScope: z.string().min(5),
+  documentBasis: z.enum(["contract-condition", "agreement", "convention", "work-plan", "public-record"]),
+  documentaryStage: z.enum(["condition-documented", "agreement-documented", "follow-up-documented", "result-documented"]),
+  implementationEvidence: z.enum(["not-located", "partial", "documented"]),
+  evidenceSummary: z.string().min(25),
+  limit: z.string().min(25),
+  sourceIds: z.array(id).min(1),
+  checkedAt: isoDate,
+});
+
+export const commitmentComparisonSchema = z.object({
+  id: z.literal("mining-social-conflict-commitments"),
+  cutoffDate: isoDate,
+  scope: z.string().min(40),
+  methodology: z.string().min(40),
+  excludedCaseIds: z.array(id),
+  entries: z.array(commitmentComparisonEntrySchema).min(1),
 });
 
 export const legalResearchPacketSchema = z.object({
@@ -305,7 +310,7 @@ export const socialConflictCaseSchema = z.object({
   ]),
   regionIds: z.array(id).min(1),
   startPeriod: z.string().regex(/^\d{4}-\d{2}$/).optional(),
-  sourcePage: z.number().int().min(37).max(75),
+  sourcePage: z.number().int().min(37).max(120),
   hasMonthlyEvents: z.boolean(),
   summary: z.string().min(20).optional(),
   location: z.string().min(5).optional(),
@@ -318,6 +323,7 @@ export const socialConflictCaseSchema = z.object({
 export const socialConflictSnapshotSchema = z.object({
   id,
   title: z.string().min(10),
+  scope: z.enum(["all-social-internal", "mining-public"]),
   reportNumber: z.number().int().positive(),
   reportingPeriod: z.string().regex(/^\d{4}-\d{2}$/),
   cutoffDate: isoDate,
@@ -467,6 +473,74 @@ export const miningConcessionTerritorialSnapshotSchema = z.object({
   }
 });
 
+export const madreDiosDevastationSchema = z.object({
+  id,
+  title: z.string().min(10),
+  region: z.literal("Madre de Dios"),
+  cutoffDate: isoDate,
+  sourceIds: z.array(id).min(2),
+  documentedTotal: z.object({
+    hectares: z.number().positive(),
+    label: z.string().min(30),
+    sourceId: id,
+    locator: z.string().min(10),
+  }),
+  recentRate: z.object({
+    scope: z.string().min(20),
+    observedHectares: z.number().positive(),
+    periodStart: isoDate,
+    periodEnd: isoDate,
+    observedDays: z.number().int().positive(),
+    hectaresPerDay: z.number().positive(),
+    hectaresPerHour: z.number().positive(),
+    projectionStartAt: z.string().min(10),
+    projectionBaseHectares: z.number().nonnegative(),
+    sourceId: id,
+    locator: z.string().min(10),
+  }),
+  projectionYears: z.array(z.object({
+    years: z.number().int().positive(),
+    projectedHectares: z.number().positive(),
+  })).min(1),
+  caveat: z.string().min(40),
+}).superRefine((item, ctx) => {
+  const sourceIds = new Set(item.sourceIds);
+  if (!sourceIds.has(item.documentedTotal.sourceId)) {
+    ctx.addIssue({ code: "custom", path: ["documentedTotal", "sourceId"], message: "La fuente del total documentado debe figurar en sourceIds" });
+  }
+  if (!sourceIds.has(item.recentRate.sourceId)) {
+    ctx.addIssue({ code: "custom", path: ["recentRate", "sourceId"], message: "La fuente de la tasa reciente debe figurar en sourceIds" });
+  }
+
+  const projectionStart = Date.parse(item.recentRate.projectionStartAt);
+  if (Number.isNaN(projectionStart)) {
+    ctx.addIssue({ code: "custom", path: ["recentRate", "projectionStartAt"], message: "La fecha de inicio de proyección debe ser parseable" });
+  } else {
+    const observedPeriodEnd = Date.parse(item.recentRate.periodEnd);
+    if (!Number.isNaN(observedPeriodEnd) && projectionStart < observedPeriodEnd) {
+      ctx.addIssue({ code: "custom", path: ["recentRate", "projectionStartAt"], message: "La proyección no debe comenzar antes del fin del periodo observado" });
+    }
+  }
+
+  const expectedPerDay = item.recentRate.observedHectares / item.recentRate.observedDays;
+  if (Math.abs(expectedPerDay - item.recentRate.hectaresPerDay) > 0.01) {
+    ctx.addIssue({ code: "custom", path: ["recentRate", "hectaresPerDay"], message: "La tasa diaria no reconcilia con hectáreas/días observados" });
+  }
+  if (Math.abs(item.recentRate.hectaresPerDay / 24 - item.recentRate.hectaresPerHour) > 0.001) {
+    ctx.addIssue({ code: "custom", path: ["recentRate", "hectaresPerHour"], message: "La tasa horaria no reconcilia con la tasa diaria" });
+  }
+  const projectionYears = [...item.projectionYears].sort((a, b) => a.years - b.years);
+  if (projectionYears.some((entry, index) => index > 0 && entry.years === projectionYears[index - 1].years)) {
+    ctx.addIssue({ code: "custom", path: ["projectionYears"], message: "Las proyecciones no deben repetir horizontes temporales" });
+  }
+  item.projectionYears.forEach((entry, index) => {
+    const expectedProjection = Math.round(item.recentRate.hectaresPerDay * 365 * entry.years);
+    if (Math.abs(expectedProjection - entry.projectedHectares) > 1) {
+      ctx.addIssue({ code: "custom", path: ["projectionYears", index, "projectedHectares"], message: "La proyección anual no reconcilia con la tasa diaria declarada" });
+    }
+  });
+});
+
 export const datasetSchema = z.object({
   sources: z.array(sourceSchema),
   actors: z.array(actorSchema),
@@ -476,6 +550,7 @@ export const datasetSchema = z.object({
   cases: z.array(conflictCaseSchema),
   evidenceRecords: z.array(evidenceRecordSchema),
   caseResearchPackets: z.array(caseResearchPacketSchema),
+  commitmentComparison: commitmentComparisonSchema,
   legalResearchPackets: z.array(legalResearchPacketSchema),
   cajamarcaSystemMatrix: cajamarcaSystemMatrixSchema,
   institutionalMechanisms: institutionalMechanismsMatrixSchema,
@@ -487,6 +562,7 @@ export const datasetSchema = z.object({
   formalMiningTerritorialSnapshots: z.array(formalMiningTerritorialSnapshotSchema).min(1),
   explorationTerritorialSnapshots: z.array(explorationTerritorialSnapshotSchema).min(1),
   miningConcessionTerritorialSnapshots: z.array(miningConcessionTerritorialSnapshotSchema).min(1),
+  madreDiosDevastation: madreDiosDevastationSchema,
 });
 
 export type ObservatoryData = z.infer<typeof datasetSchema>;
@@ -499,6 +575,8 @@ export type Territory = z.infer<typeof territorySchema>;
 export type TimelineEvent = z.infer<typeof timelineEventSchema>;
 export type EvidenceRecord = z.infer<typeof evidenceRecordSchema>;
 export type CaseResearchPacket = z.infer<typeof caseResearchPacketSchema>;
+export type CommitmentComparison = z.infer<typeof commitmentComparisonSchema>;
+export type CommitmentComparisonEntry = z.infer<typeof commitmentComparisonEntrySchema>;
 export type LegalResearchPacket = z.infer<typeof legalResearchPacketSchema>;
 export type CajamarcaSystemMatrix = z.infer<typeof cajamarcaSystemMatrixSchema>;
 export type CajamarcaSystemEntry = z.infer<typeof cajamarcaSystemEntrySchema>;
@@ -514,3 +592,4 @@ export type ReinfoTerritorialSnapshot = z.infer<typeof reinfoTerritorialSnapshot
 export type FormalMiningTerritorialSnapshot = z.infer<typeof formalMiningTerritorialSnapshotSchema>;
 export type ExplorationTerritorialSnapshot = z.infer<typeof explorationTerritorialSnapshotSchema>;
 export type MiningConcessionTerritorialSnapshot = z.infer<typeof miningConcessionTerritorialSnapshotSchema>;
+export type MadreDiosDevastation = z.infer<typeof madreDiosDevastationSchema>;

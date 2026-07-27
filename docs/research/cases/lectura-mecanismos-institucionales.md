@@ -10,7 +10,9 @@ Paquetes conectados:
 - `cerro-quilish.md`
 - `yanacocha-maxima-acuna.md`
 - `toromocho-morococha.md`
+- `choropampa.md`
 - `fondo-social-michiquillay.md`
+- `rio-blanco-majaz.md`
 - Expedientes piloto existentes: Conga, Tía María, Las Bambas, Espinar, Madre de Dios y Tambogrande, según matriz canónica.
 
 ## Tesis de lectura
@@ -30,14 +32,15 @@ La pregunta transversal no es “¿el mecanismo existe?”, sino:
 
 | familia | mecanismo | casos donde aparece | función | riesgo editorial |
 |---|---|---|---|---|
-| Certificación ambiental | EIA, EIAsd, MEIA, ITS, dictámenes técnicos | Conga, Tía María, Toromocho, Michiquillay, Quilish | Autorizar, modificar o evaluar proyectos y componentes. | Presentar aprobación técnica como legitimidad social. |
+| Certificación ambiental | EIA, EIAsd, MEIA, ITS, dictámenes técnicos | Conga, Tía María, Toromocho, Michiquillay, Quilish, Río Blanco | Autorizar, modificar o evaluar proyectos y componentes. | Presentar aprobación técnica como legitimidad social. |
 | Control constitucional y judicial | Amparo, habeas corpus, casación, Corte IDH | Quilish, Máxima Acuña, La Oroya | Delimitar derechos, competencias, responsabilidad o garantías. | Usar sentencias fuera de su alcance. |
 | Adecuación y cumplimiento ambiental | PAMA, prórrogas, planes, supervisión | La Oroya | Ordenar transición ambiental y obligaciones de remediación/cumplimiento. | Reducir el caso a “incumplimiento” sin matriz de obligaciones. |
-| Diálogo y acuerdos | Mesas, actas, convenios, acuerdos comunitarios | Toromocho, Las Bambas, Espinar, Michiquillay | Canalizar demandas, compromisos y seguimiento. | Confundir firma con cumplimiento. |
+| Diálogo y acuerdos | Mesas, actas, convenios, acuerdos comunitarios | Toromocho, Las Bambas, Espinar, Michiquillay, Río Blanco | Canalizar demandas, compromisos y seguimiento. | Confundir firma con cumplimiento. |
 | Distribución de beneficios | Fondos sociales, convenios marco, inversión social, canon local | Michiquillay, Espinar, Las Bambas, Toromocho | Transferir recursos o financiar proyectos territoriales. | Equiparar dinero comprometido con impacto verificado. |
 | Reasentamiento y gestión de riesgo | Planes de reasentamiento, estudios de riesgo, seguridad física | Toromocho / Morococha | Reubicar población y justificar aptitud física del nuevo asentamiento. | Presentar seguridad física como calidad de vida o consentimiento. |
 | Protección de personas defensoras | Medidas cautelares, garantías, pedidos defensoriales | Máxima Acuña, Espinar, otros casos con defensores | Atender riesgo de vida, integridad o hostilización. | Tratar medidas cautelares como sentencia de fondo. |
 | Trazabilidad y fiscalización sectorial | Registros, supervisión, reportes de cartera, reportes mensuales | Madre de Dios/REINFO, Conga, Morococha | Dar estado administrativo o cuantitativo. | Convertir registro agregado en actividad verificada en campo. |
+| Emergencia, salud y reparación | Protocolos, atención, monitoreo, sanción, remediación, convenios y litigio | Choropampa, La Oroya, Espinar | Responder a exposición, corregir, compensar y delimitar responsabilidades o acuerdos. | Convertir datos agregados en causalidad individual o medidas en reparación integral. |
 
 ## Reglas comparativas
 
@@ -84,7 +87,9 @@ Regla: distinguir anunciado, comprometido, contratado, ejecutado, recibido y eva
 | Quilish | Ordenanza municipal, amparo y autorización sectorial | ¿Cómo conviven competencia local, concesión y evaluación ambiental? |
 | Máxima Acuña | Penal, civil, habeas corpus y protección | ¿Cómo narrar defensa territorial sin resolver indebidamente propiedad? |
 | Toromocho / Morococha | Reasentamiento, riesgo y acuerdos | ¿Qué convierte una nueva ciudad en reparación suficiente o insuficiente? |
+| Choropampa | Emergencia, salud, fiscalización, acuerdos y litigio | ¿Qué distingue respuesta inmediata, resultado sanitario, cumplimiento y reparación suficiente? |
 | Michiquillay | Fondo social, contrato y auditoría | ¿Qué demuestra que una promesa de beneficio produjo desarrollo verificable? |
+| Río Blanco–Majaz | Autorización superficial, consulta vecinal, sanción y rehabilitación | ¿Cómo distinguir permiso ambiental, acuerdo comunal, legitimidad política y cierre material? |
 | Conga | EIA, peritaje y suspensión material | ¿Cómo tratar un proyecto administrativamente habilitado pero materialmente inactivo? |
 
 ## Riesgos de interfaz

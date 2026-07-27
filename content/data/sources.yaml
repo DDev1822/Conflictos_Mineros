@@ -352,6 +352,19 @@
   license: Documento institucional; verificar condiciones de reutilización
   verificationStatus: verified
   notes: Fuente del corte territorial de abril de 2026; registra 190 conflictos sociales, 159 activos y 31 latentes.
+- id: defensoria-conflictos-268
+  title: Reporte de Conflictos Sociales n.° 268 — junio 2026
+  institution: Defensoría del Pueblo
+  date: 2026-07-16
+  datePrecision: day
+  url: https://www.defensoria.gob.pe/wp-content/uploads/2026/07/Reporte-de-Conflictos-Sociales-n-268.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento institucional; reutilización limitada a datos, citas breves y enlace a la fuente
+  verificationStatus: verified
+  notes: Fuente del corte público minero de junio de 2026; los cuadros 15 y 17 registran 61 conflictos socioambientales vinculados con minería, 50 activos y 11 latentes.
 - id: congreso-ley-27446
   title: Ley del Sistema Nacional de Evaluación del Impacto Ambiental
   institution: Congreso de la República del Perú
@@ -449,7 +462,7 @@
   license: Documento oficial
   rightsStatus: link-only
   verificationStatus: verified
-  notes: Reglamento oficial identificado para el paquete del SEIA; vigencia consolidada pendiente de revisión.
+  notes: Reglamento oficial identificado para el paquete del SEIA; el observatorio no determina vigencia consolidada.
 - id: minem-ds-001-2010-ag
   title: Reglamento de la Ley de Recursos Hídricos
   institution: Ministerio de Energía y Minas
@@ -477,7 +490,7 @@
   license: Documento oficial
   rightsStatus: link-only
   verificationStatus: verified
-  notes: Copia oficial del reglamento; alcance y aplicación concreta pendientes de revisión legal.
+  notes: Copia oficial del reglamento; el observatorio no determina alcance jurídico ni aplicación concreta.
 - id: minem-ds-033-2005-em
   title: Reglamento para el cierre de minas
   institution: Ministerio de Energía y Minas
@@ -576,6 +589,76 @@
   rightsStatus: link-only
   verificationStatus: verified
   notes: Posición de sociedad civil; distingue memoria histórica y proceso contemporáneo, sin equipararlos automáticamente.
+- id: proinversion-algarrobo-contrato-inicial-2024
+  title: Versión inicial del Contrato de Opción de Transferencia de Concesiones Mineras del proyecto El Algarrobo
+  institution: PROINVERSIÓN
+  date: 2024-08-28
+  datePrecision: day
+  url: https://info.investinperu.pe/wp-content/uploads/2024/10/VIC-ALGARROBO.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento institucional; reutilización no determinada
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Versión inicial, no texto final firmado. Permite documentar la arquitectura prevista de condición suspensiva, opción, proyecto hidráulico y acuerdo social sin afirmar por sí sola cumplimiento actual.
+- id: proinversion-algarrobo-adjudicacion-2024
+  title: PROINVERSIÓN adjudica el proyecto minero El Algarrobo a Buenaventura
+  institution: PROINVERSIÓN
+  date: 2024-12-30
+  datePrecision: day
+  url: https://www.gob.pe/institucion/proinversion/noticias/1083620-proinversion-cierra-el-ano-adjudicando-proyecto-minero-el-algarrobo-por-us-2753-millones
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Pronunciamiento estatal sobre adjudicación, secuencia anunciada y montos referenciales; no prueba ejecución física, acuerdo social ni operación minera.
+- id: mef-algarrobo-contrato-2025
+  title: Suscripción del contrato de opción del proyecto hídrico minero El Algarrobo
+  institution: Ministerio de Economía y Finanzas
+  date: 2025-03-25
+  datePrecision: day
+  url: https://www.gob.pe/institucion/mef/noticias/1132860-proyecto-hidrico-minero-el-algarrobo-en-marcha-tras-firma-de-contrato-por-us-2-753-millones
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Comunicación oficial de la firma y de la condición de alcanzar un acuerdo social antes de la etapa exploratoria; no acredita que esa condición ya se haya cumplido.
+- id: mef-ds-107-2025-ef
+  title: Decreto Supremo 107-2025-EF sobre garantías estatales al contrato de opción de El Algarrobo
+  institution: Ministerio de Economía y Finanzas
+  date: 2025-05-31
+  datePrecision: day
+  url: https://www.gob.pe/institucion/mef/normas-legales/7111413-107-2025-ef
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Documenta el otorgamiento de seguridades y garantías estatales; no se usa para emitir una interpretación sobre validez, cumplimiento o efectos jurídicos concretos.
+- id: buenaventura-algarrobo-contrato-2025
+  title: Posición de Buenaventura sobre el contrato del proyecto El Algarrobo
+  institution: Compañía de Minas Buenaventura
+  date: 2025-03-01
+  datePrecision: month
+  url: https://buenaventura.com/en/noticia/buenaventura-y-proinversion-suscriben-contrato-de-concesion-del-proyecto-el-algarrobo/
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Condiciones del sitio
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Posición corporativa sobre agua, acuerdo social, exploración e inversión; requiere contraste y no constituye verificación independiente de beneficios o cumplimiento.
 - id: conga-exploracion-2004
   title: Evaluación ambiental del proyecto de exploración Conga
   institution: Ministerio de Energía y Minas
@@ -873,13 +956,13 @@
 - id: las-bambas-transito-2024
   title: Restablecimiento del tránsito en el corredor vial sur
   institution: Presidencia del Consejo de Ministros
-  date: 2024-04-16
+  date: 2024-04-12
   datePrecision: day
   url: https://www.gob.pe/institucion/pcm/noticias/936345-se-restablece-el-transito-en-corredor-vial-sur-tras-acuerdos-alcanzados-por-ejecutivo-representantes-de-velille-y-minera-las-bambas
   type: official
   perspective: state
   evidenceLevel: primary
-  accessedAt: 2026-06-20
+  accessedAt: 2026-07-27
   license: Portal institucional
   rightsStatus: link-only
   verificationStatus: verified
@@ -1027,13 +1110,13 @@
 - id: espinar-acuerdos-2019
   title: Acuerdos con trece comunidades originarias de Espinar
   institution: Presidencia del Consejo de Ministros
-  date: 2019-11-21
+  date: 2019-11-19
   datePrecision: day
   url: https://www.gob.pe/institucion/pcm/noticias/68879-cusco-ejecutivo-alcanza-acuerdos-con-las-13-comunidades-originarias-en-espinar
   type: official
   perspective: state
   evidenceLevel: primary
-  accessedAt: 2026-06-20
+  accessedAt: 2026-07-27
   license: Portal institucional
   rightsStatus: link-only
   verificationStatus: verified
@@ -1041,13 +1124,13 @@
 - id: espinar-plan-2022
   title: Plan de trabajo para abordar contaminación ambiental en Espinar
   institution: Ministerio del Ambiente
-  date: 2022-05-19
+  date: 2022-05-14
   datePrecision: day
   url: https://www.gob.pe/institucion/minam/noticias/606517-cusco-gobierno-autoridades-y-sociedad-civil-aprueban-plan-de-trabajo-para-solucionar-la-contaminacion-ambiental-en-espinar
   type: official
   perspective: state
   evidenceLevel: primary
-  accessedAt: 2026-06-20
+  accessedAt: 2026-07-27
   license: Portal institucional
   rightsStatus: link-only
   verificationStatus: verified
@@ -1055,13 +1138,13 @@
 - id: espinar-acuerdos-2025
   title: Acuerdos entre el Ejecutivo y comunidades originarias de Espinar
   institution: Ministerio de Energía y Minas
-  date: 2025-04-05
+  date: 2025-04-08
   datePrecision: day
   url: https://www.gob.pe/institucion/minem/noticias/1141874-poder-ejecutivo-y-comunidades-originarias-de-espinar-arriban-a-importantes-acuerdos-a-traves-del-dialogo
   type: official
   perspective: state
   evidenceLevel: primary
-  accessedAt: 2026-06-20
+  accessedAt: 2026-07-27
   license: Portal institucional
   rightsStatus: link-only
   verificationStatus: verified
@@ -1167,13 +1250,13 @@
 - id: madre-dios-mesa-2025
   title: Mesa de trabajo para impulsar la formalización minera en Madre de Dios
   institution: Ministerio de Energía y Minas
-  date: 2025-08-22
+  date: 2025-08-14
   datePrecision: day
   url: https://www.gob.pe/institucion/minem/noticias/1226781-minem-y-mineros-de-madre-de-dios-acuerdan-coordinar-mesa-de-trabajo-para-impulsar-la-formalizacion-minera
   type: official
   perspective: state
   evidenceLevel: primary
-  accessedAt: 2026-06-20
+  accessedAt: 2026-07-27
   license: Portal institucional
   rightsStatus: link-only
   verificationStatus: verified
@@ -1668,6 +1751,34 @@
   rightsStatus: link-only
   verificationStatus: verified
   notes: Informe original con metodología, insumos y resultados de valoración; las cifras son estimaciones modeladas y no pérdidas contables observadas.
+- id: maap-233-gold-mining-peru-amazon
+  title: MAAP 233 — Current situation of gold mining in the Peruvian Amazon
+  institution: Monitoring of the Andean Amazon Project / Amazon Conservation
+  date: 2025-09-29
+  datePrecision: day
+  url: https://www.maapprogram.org/gold-mining-peru-amazon/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: primary
+  accessedAt: 2026-07-01
+  license: Condiciones del sitio y atribución del informe
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reporte satelital MAAP sobre minería de oro en la Amazonía peruana; registra 139.169 hectáreas de deforestación minera nacional a mediados de 2025 y 135.939 hectáreas en Madre de Dios.
+- id: maap-241-tambopata-2026
+  title: MAAP 241 — Rapid Expansion of Illegal Gold Mining in Tambopata National Reserve
+  institution: Monitoring of the Andean Amazon Project / Amazon Conservation
+  date: 2026-05-10
+  datePrecision: day
+  url: https://www.maapprogram.org/mining-peru-tambopata/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: primary
+  accessedAt: 2026-07-01
+  license: Condiciones del sitio y atribución del informe
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reporte satelital MAAP con análisis de muy alta resolución; documenta 500 hectáreas deforestadas por minería ilegal en el norte de la Reserva Nacional Tambopata entre el segundo semestre de 2025 y febrero de 2026.
 - id: manhattan-annual-report-2002
   title: Manhattan Minerals Corp. — Annual Report 2002
   institution: Manhattan Minerals Corp. / U.S. Securities and Exchange Commission
@@ -1697,33 +1808,33 @@
   verificationStatus: verified
   notes: Comunicado corporativo archivado en un 6-K; registra la decisión comunicada por Centromin y la discrepancia de la empresa, no una determinación jurídica independiente.
 - id: quilish-tc-00300-2002-aa-2003
-  title: Sentencia del Tribunal Constitucional sobre Cerro Quilish
-  institution: Tribunal Constitucional
+  title: Sentencia de los expedientes acumulados 300, 301 y 302-2002-AA/TC
+  institution: Tribunal Constitucional del Perú
   date: 2003-04-07
   datePrecision: day
-  url: https://www.tc.gob.pe/jurisprudencia/2003/00300-2002-AA%2000301-2002-AA%2000302-2002-AA.pdf
+  url: https://www.tc.gob.pe/jurisprudencia/2003/00300-2002-AA%2000301-2002-AA%2000302-2002-AA.html
   type: official
   perspective: state
   evidenceLevel: primary
-  accessedAt: 2026-06-29
+  accessedAt: 2026-07-27
   license: Documento jurisdiccional de acceso público
   rightsStatus: link-only
   verificationStatus: verified
-  notes: Fuente primaria para ordenanza municipal, concesión, exploración y exigencia de EIA; requiere cautela documental antes de tratarla como precedente general.
+  notes: Sentencia primaria sobre la Ordenanza 012-2000-CMPC, las pretensiones empresariales y el alcance de prospección, exploración, explotación y evaluación ambiental.
 - id: quilish-rm-467-2004-mem-dm
-  title: Resolución Ministerial 467-2004-MEM-DM sobre autorización de exploración en Cerro Quilish
-  institution: Ministerio de Energía y Minas / SPIJ
+  title: Resolución Ministerial 467-2004-MEM/DM — revocatoria de la autorización de exploración
+  institution: Ministerio de Energía y Minas
   date: 2004-11-05
   datePrecision: day
-  url: https://spij.minjus.gob.pe/Normas/textos/061104T.pdf
+  url: https://cdn.www.gob.pe/uploads/document/file/95120/RM_467_2004_DM.pdf
   type: official
   perspective: state
   evidenceLevel: primary
-  accessedAt: 2026-06-29
-  license: Norma legal de acceso público
+  accessedAt: 2026-07-27
+  license: Norma administrativa de acceso público
   rightsStatus: link-only
   verificationStatus: verified
-  notes: Publicación normativa que documenta autorización, condicionamiento y revocatoria; faltan las resoluciones directorales completas como expediente administrativo.
+  notes: Texto oficial que reproduce los antecedentes de las RD 361 y 427 y revoca, a pedido de Yanacocha, la autorización contenida en la RD 361.
 - id: acuna-pj-casacion-458-2015
   title: Casación 458-2015 Cajamarca — proceso penal Máxima Acuña
   institution: Poder Judicial
@@ -1794,6 +1905,76 @@
   rightsStatus: link-only
   verificationStatus: verified
   notes: Medida cautelar interamericana vinculada al contexto Cajamarca-Conga; exige no presentarla como sentencia de fondo.
+- id: acuna-newmont-2017
+  title: Yanacocha will continue to seek good-faith dialogue with Chaupe family
+  institution: Minera Yanacocha / Newmont
+  date: 2017-05-03
+  datePrecision: day
+  url: https://s24.q4cdn.com/382246808/files/doc_downloads/sustainability/chaupe_family/Yan.News_.Release.SC_.Ruling-3-May-2017-FINAL.pdf
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Comunicación corporativa de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Posición empresarial directa posterior a la casación; atribuye propiedad a Yanacocha, anuncia defensa civil y diálogo, sin constituir decisión judicial.
+- id: acuna-newmont-2021
+  title: Chaupe Land Dispute Information Update
+  institution: Newmont
+  date: 2021-02-02
+  datePrecision: day
+  url: https://s24.q4cdn.com/382246808/files/doc_downloads/sustainability/chaupe_family/Newmont_Statement-on-Chaupe-Feb-2-2021_Final.pdf
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Comunicación corporativa de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Actualización empresarial sobre litigios civiles y vía estadounidense; sus afirmaciones se conservan atribuidas y requieren contraste judicial.
+- id: acuna-goldman-2016
+  title: Máxima Acuña — Goldman Environmental Prize 2016
+  institution: Goldman Environmental Foundation
+  date: 2016-04-18
+  datePrecision: day
+  url: https://www.goldmanprize.org/recipient/maxima-acuna/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: contextual
+  accessedAt: 2026-07-27
+  license: Sitio institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Fuente de reconocimiento y lectura social como defensora ambiental; no sustituye expedientes judiciales, civiles o registrales.
+- id: acuna-scotus-21-33
+  title: Order List 595 U.S. — Acuña-Atalaya v. Newmont Mining Corp.
+  institution: Supreme Court of the United States
+  date: 2021-11-08
+  datePrecision: day
+  url: https://www.supremecourt.gov/orders/courtorders/110821zor_apl1.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento jurisdiccional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Orden que deniega certiorari en el expediente 21-33; no contiene una decisión sobre el fondo de las alegaciones ni sobre procesos peruanos.
+- id: gore-cajamarca-sorochuco-reference
+  title: Relación de áreas naturales y atractivos naturales de la región Cajamarca
+  institution: Gobierno Regional de Cajamarca
+  date: 2021-06-23
+  datePrecision: day
+  url: https://dircetur.regioncajamarca.gob.pe/media/portal/RMSTZ/documento/14539/RELACION_DE_AREAS_NATURALES_Y_ATRACTIVOS_NATURALES_EN_LA_RE_5HyAIcB.pdf?r=1624417671
+  type: official
+  perspective: state
+  evidenceLevel: contextual
+  accessedAt: 2026-07-27
+  license: Documento institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Catálogo regional con coordenadas geográficas de la campiña de Sorochuco; se usa solo como referencia regional y no ubica el predio Tragadero Grande.
 - id: la-oroya-corte-idh-2023
   title: Caso Habitantes de La Oroya Vs. Perú — sentencia
   institution: Corte Interamericana de Derechos Humanos
@@ -1822,6 +2003,118 @@
   rightsStatus: link-only
   verificationStatus: verified
   notes: Resolución de supervisión que permite distinguir reparaciones cumplidas, pendientes o bajo seguimiento; requiere matriz de cumplimiento.
+- id: la-oroya-tc-2006
+  title: Sentencia del Tribunal Constitucional — expediente 02002-2006-PC/TC
+  institution: Tribunal Constitucional del Perú
+  date: 2006-05-12
+  datePrecision: day
+  url: https://www.tc.gob.pe/jurisprudencia/2006/02002-2006-AC.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento jurisdiccional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Sentencia de cumplimiento sobre medidas estatales de salud, línea base, alerta y vigilancia; no determina por sí sola responsabilidad empresarial.
+- id: la-oroya-ley-29410
+  title: Ley 29410 — prórroga del proyecto de ácido sulfúrico y circuito de cobre del CMLO
+  institution: Congreso de la República / Sistema Peruano de Información Jurídica
+  date: 2009-09-26
+  datePrecision: day
+  url: https://spij.minjus.gob.pe/Normas/textos/260909T.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Norma legal de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Texto oficial que registra una ampliación excepcional con plazos y garantías; no acredita culminación ni cumplimiento material.
+- id: la-oroya-oefa-aire-2022
+  title: Evaluación de seguimiento de la calidad del aire en el área de influencia del CMLO, enero-octubre 2022
+  institution: Organismo de Evaluación y Fiscalización Ambiental
+  date: 2022-11-29
+  datePrecision: day
+  url: https://repositorio.oefa.gob.pe/items/b6320820-c1a1-4dfe-91d6-c3146586728d/full
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento técnico estatal de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Evaluación del periodo en que el complejo permanecía paralizado; sus resultados no describen automáticamente la calidad del aire posterior al reinicio.
+- id: la-oroya-minem-reinicio-2023
+  title: Complejo Metalúrgico de La Oroya reinicia operaciones
+  institution: Ministerio de Energía y Minas
+  date: 2023-10-18
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/852216-complejo-metalurgico-de-la-oroya-reinicia-operaciones-en-la-provincia-de-yauli-junin
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Comunicación institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Comunicación estatal del reinicio por Metalurgia Business Perú y posición corporativa atribuida; no verifica desempeño ambiental posterior.
+- id: la-oroya-minem-cierre-2024
+  title: Resolución Directoral 100-2024-MEM-DGAAM — segunda actualización del plan de cierre del CMLO
+  institution: Ministerio de Energía y Minas
+  date: 2024-04-04
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/normas-legales/5637576-100-2024-mem-dgaam
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Resolución administrativa de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resolución que aprueba la segunda actualización del plan de cierre presentada por Metalurgia Business Perú; aprobación documental no equivale a ejecución.
+- id: la-oroya-tc-2026
+  title: Sentencia 0220/2026 del Tribunal Constitucional — expediente 01686-2023-PC/TC
+  institution: Tribunal Constitucional del Perú
+  date: 2026-01-21
+  datePrecision: day
+  url: https://www.tc.gob.pe/jurisprudencia/2026/01686-2023-AC.html
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento jurisdiccional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: La ponencia registra cumplimiento parcial de órdenes previas, pero dos fundamentos de voto se apartan expresamente de esa consideración por no ser pertinente al petitorio resuelto.
+- id: la-oroya-mbp-comunicado-2025
+  title: Comunicado 002-2025 — Metalurgia Business Perú reafirma su compromiso ambiental
+  institution: Metalurgia Business Perú
+  date: 2025-03-26
+  datePrecision: day
+  url: https://metalurgiabusinessperu.com/wp-content/uploads/2025/03/2-COMU-OFICIAL-26.3.25.pdf
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Comunicación corporativa de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Posición directa del operador sobre alcance productivo, monitoreo y responsabilidad desde el reinicio; sus afirmaciones requieren contraste externo.
+- id: la-oroya-aida-hitos-2024
+  title: Cinco hitos de la sentencia del caso Habitantes de La Oroya vs. Perú
+  institution: Asociación Interamericana para la Defensa del Ambiente
+  date: 2024-07-25
+  datePrecision: day
+  url: https://aida-americas.org/es/blog/5-hitos-de-la-sentencia-del-caso-habitantes-de-la-oroya-vs-peru
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Publicación institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Posición de una organización representante de víctimas sobre alcance e importancia del fallo; se atribuye y se contrasta con la sentencia.
 - id: morococha-minem-eia-2010
   title: Estudio de Impacto Ambiental del proyecto de explotación Toromocho
   institution: Ministerio de Energía y Minas
@@ -1892,6 +2185,76 @@
   rightsStatus: link-only
   verificationStatus: verified
   notes: Reporte defensorial que conserva el estado activo del conflicto Morococha; no sustituye actas, expedientes ni evaluación de cumplimiento.
+- id: morococha-chinalco-nueva
+  title: Nueva Morococha
+  institution: Minera Chinalco Perú
+  date: 2020-01-01
+  datePrecision: year
+  url: https://www.chinalco.com.pe/sostenibilidad/nueva-morococha
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Página corporativa de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Posición empresarial directa sobre planificación, estándares e indicadores de Nueva Morococha; sus afirmaciones de calidad de vida requieren contraste independiente.
+- id: morococha-pcm-rm-068-2020
+  title: Resolución Ministerial 068-2020-PCM — Mesa de Diálogo para el Reasentamiento de Morococha
+  institution: Presidencia del Consejo de Ministros
+  date: 2020-02-26
+  datePrecision: day
+  url: https://www.gob.pe/institucion/pcm/normas-legales/454085-068-2020-pcm
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Norma y documento institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Crea la mesa con objetivos de convenio marco y culminación del reasentamiento; su existencia no acredita logro de esos objetivos.
+- id: morococha-pcm-rm-064-2025
+  title: Resolución Ministerial 064-2025-PCM — ampliación de la Mesa de Diálogo de Morococha
+  institution: Presidencia del Consejo de Ministros / Diario Oficial El Peruano
+  date: 2025-03-27
+  datePrecision: day
+  url: https://busquedas.elperuano.pe/dispositivo/NL/2384519-1
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Norma publicada en diario oficial
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Amplía la vigencia del espacio institucional de diálogo; no contiene por sí sola una evaluación del cumplimiento del reasentamiento.
+- id: morococha-minam-ogasa-2025
+  title: Informe OGASA marzo 2025 — Mesa de diálogo de Morococha
+  institution: Ministerio del Ambiente
+  date: 2025-03-01
+  datePrecision: month
+  url: https://sinia.minam.gob.pe/sites/default/files/archivos/public/docs/03.Informe%20OGASA%20-%20Marzo%202025.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra la sesión del 27 de marzo y la presentación empresarial del estado del Plan de Acción; no publica una matriz detallada de resultados.
+- id: morococha-cooperaccion-2025
+  title: Desalojo en Morococha — la otra cara de la inversión china
+  institution: CooperAcción
+  date: 2025-09-29
+  datePrecision: day
+  url: https://cooperaccion.org.pe/desalojo-en-morococha-la-otra-cara-de-la-inversion-china/
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: contextual
+  accessedAt: 2026-07-27
+  license: Publicación de sociedad civil de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reconstrucción de sociedad civil y testimonio sobre el desalojo reportado en septiembre de 2025; falta incorporar el expediente judicial primario completo.
 - id: michiquillay-mef-ds-082-2008
   title: Decreto Supremo 082-2008-EF — Reglamento del Decreto Legislativo 996
   institution: Ministerio de Economía y Finanzas
@@ -1976,3 +2339,437 @@
   rightsStatus: link-only
   verificationStatus: partial
   notes: Fuente estatal dinámica para inversión social minera; debe conservar fecha de consulta, metodología y captura del dato utilizado.
+- id: michiquillay-defensoria-73
+  title: Reporte de Conflictos Sociales 73 — marzo de 2010
+  institution: Defensoría del Pueblo
+  date: 2010-03-01
+  datePrecision: month
+  url: https://www.defensoria.gob.pe/wp-content/uploads/2018/07/Reporte-73.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento defensorial de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra el conflicto socioambiental de Michiquillay por pasivos, acuerdos y fondo social, así como la reanudación del diálogo y seis grupos de trabajo en marzo de 2010.
+- id: michiquillay-defensoria-90
+  title: Reporte de Conflictos Sociales 90 — agosto de 2011
+  institution: Defensoría del Pueblo
+  date: 2011-08-01
+  datePrecision: month
+  url: https://www.defensoria.gob.pe/wp-content/uploads/2018/07/Reporte_conflictos_90.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento defensorial de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra como conflicto socioambiental la demanda comunal de cumplimiento y ejecución del Fondo Social Michiquillay y las reuniones informativas reportadas por el Fondo.
+- id: michiquillay-defensoria-256
+  title: Reporte de Conflictos Sociales 256 — junio de 2025
+  institution: Defensoría del Pueblo
+  date: 2025-06-01
+  datePrecision: month
+  url: https://www.defensoria.gob.pe/wp-content/uploads/2025/07/Reporte-de-conflictos-sociales-n.%C2%BA-256-%E2%80%93-junio-2025.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento defensorial de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra una acción colectiva del 10 de junio de 2025 por la construcción de la institución educativa 82154; no clasifica por sí sola al caso dentro del registro mensual vigente.
+- id: michiquillay-fsm-sobre
+  title: Sobre el Fondo Social Michiquillay
+  institution: Asociación Fondo Social Michiquillay
+  date: 2026-07-27
+  datePrecision: day
+  url: https://fsmichiquillay.org.pe/paginas/sobre-el-fondo-social
+  type: community
+  perspective: community
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Página institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Página institucional sin fecha propia de publicación; la fecha consignada corresponde a la consulta. Reconstruye acuerdos, transferencias y cambios de asociados entre 2007 y 2018 desde la posición del Fondo.
+- id: michiquillay-fsm-informes
+  title: Informes de gestión, auditoría y control del Fondo Social Michiquillay
+  institution: Asociación Fondo Social Michiquillay
+  date: 2024-02-04
+  datePrecision: day
+  url: https://www.fsmichiquillay.org.pe/transparencia/informes-de-gestion
+  type: community
+  perspective: community
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Archivo institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Índice público de informes de gestión, auditorías, control interno y estados financieros; publicar documentos no demuestra por sí solo desempeño, ejecución ni conformidad comunal.
+- id: michiquillay-oefa-diagnostico-2019
+  title: Diagnóstico social de la Comunidad Campesina Michiquillay
+  institution: Organismo de Evaluación y Fiscalización Ambiental
+  date: 2019-11-29
+  datePrecision: day
+  url: https://repositorio.oefa.gob.pe/items/0b186674-01ec-4fbc-8e18-a181468fa51e
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Diagnóstico territorial que registra organización interna, servicios, salud, educación y acciones del Fondo; describe condiciones al corte sin evaluar integralmente el desempeño institucional.
+- id: michiquillay-pucp-2021
+  title: Factores que influyen en la generación de expectativas sostenibles en el Fondo Social Michiquillay
+  institution: Pontificia Universidad Católica del Perú
+  date: 2021-01-01
+  datePrecision: year
+  url: https://tesis.pucp.edu.pe/items/621944f2-4750-461b-ab34-ac010fbbe4a6
+  type: academic
+  perspective: academic
+  evidenceLevel: secondary
+  accessedAt: 2026-07-27
+  license: Repositorio académico de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Tesis de gestión social que analiza expectativas, representación y conocimiento de reglas; sus conclusiones se presentan como hallazgos académicos situados, no como voz de toda la comunidad.
+- id: quilish-tc-nota-2003
+  title: TC declara infundada demanda de Minera Yanacocha dejando expedito su derecho a realizar labores de exploración
+  institution: Tribunal Constitucional del Perú
+  date: 2003-04-30
+  datePrecision: day
+  url: https://www.tc.gob.pe/institucional/notas-de-prensa/not-ad22f8286bcbca110d0618d27e0d4cb7/
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Comunicación institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Comunicación oficial sobre el alcance público del fallo; se usa junto con la sentencia y no como sustituto de sus fundamentos.
+- id: quilish-oefa-dfai-0274-2020
+  title: Resolución Directoral 0274-2020-OEFA/DFAI — Yanacocha Sur, Río Porcón y Cerro Quilish
+  institution: Organismo de Evaluación y Fiscalización Ambiental
+  date: 2020-02-27
+  datePrecision: day
+  url: https://cdn.www.gob.pe/uploads/document/file/4488169/Resoluci%C3%B3n%20N%C2%B0%200274-2020-OEFA-DFAI.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Resolución administrativa de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Expediente sancionador posterior que reconstruye decisiones ambientales, paralización y trabajos de remediación; no sustituye los textos originales de todas las decisiones citadas.
+- id: quilish-oefa-tfa-002-2021
+  title: Resolución 002-2021-OEFA/TFA-SE — Cerro Quilish
+  institution: Tribunal de Fiscalización Ambiental del OEFA
+  date: 2021-01-07
+  datePrecision: day
+  url: https://cdn.www.gob.pe/uploads/document/file/1671825/Resoluci%C3%B3n%20N%C2%B0%20002-2021-OEFA/TFA-SE.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Resolución administrativa de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Decisión del TFA que reproduce el contenido resolutivo y los considerandos centrales de la RD 427, además de confirmar la revocatoria solicitada por Yanacocha.
+- id: quilish-sinia-indicadores-cajamarca
+  title: Indicadores Ambientales Cajamarca — conflicto por la exploración minera del Cerro Quilish
+  institution: Gobierno Regional de Cajamarca / Dirección Regional de Energía y Minas
+  date: 2005-08-01
+  datePrecision: month
+  url: https://siar.regioncajamarca.gob.pe/sites/default/files/archivos/public/docs/677.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reconstrucción estatal regional de la movilización, el memorial comunitario, la intervención institucional y las mesas; algunas cifras requieren contraste con actas originales.
+- id: quilish-newmont-10k-2009
+  title: Newmont Mining Corporation — Form 10-K 2009
+  institution: Newmont Mining Corporation / U.S. Securities and Exchange Commission
+  date: 2010-02-25
+  datePrecision: day
+  url: https://newmont.com/files/doc_financials/quarterly/2009/q4/SEC-NEM-950123-10-16613.pdf
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Archivo corporativo regulatorio de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Fuente corporativa directa que atribuye a la oposición local la decisión de dejar el permiso de perforación y reclasificar el depósito fuera de reservas.
+- id: quilish-cnddhh-informe-2004
+  title: Informe anual 2004 — conflicto de Cerro Quilish
+  institution: Coordinadora Nacional de Derechos Humanos
+  date: 2005-01-01
+  datePrecision: year
+  url: https://lum.cultura.pe/cdi/sites/default/files/documento/pdf/Informe%20anual%202004.pdf
+  type: ngo
+  perspective: civil-society
+  evidenceLevel: contextual
+  accessedAt: 2026-07-27
+  license: Publicación institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Perspectiva institucional de sociedad civil sobre protesta, agua y desconfianza; se usa como contraste y no reemplaza los expedientes estatales.
+- id: choropampa-defensoria-62
+  title: Informe Defensorial 62 — derrame de mercurio en Choropampa, Magdalena y San Juan
+  institution: Defensoría del Pueblo
+  date: 2001-12-01
+  datePrecision: month
+  url: https://www.defensoria.gob.pe/wp-content/uploads/2018/05/informe_62.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento defensorial de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Expediente estatal principal sobre el derrame, atención, fiscalización, coordinación institucional, transacciones y recomendaciones; las cifras sanitarias son agregadas y no prueban causalidad médica individual.
+- id: choropampa-cao-investigacion-2000
+  title: Investigación independiente del derrame de mercurio del 2 de junio de 2000
+  institution: Comisión independiente para la Oficina del Compliance Advisor Ombudsman de IFC/MIGA
+  date: 2000-07-01
+  datePrecision: month
+  url: https://www.cao-ombudsman.org/sites/default/files/downloads/June2000MercurySpill_000.pdf
+  type: official
+  perspective: academic
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Informe institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reconstrucción técnica independiente de la cronología, exposición, atención y procedimientos; documenta contradicciones entre relatos y limita el alcance de los hallazgos sanitarios.
+- id: choropampa-cao-caso
+  title: Peru Yanacocha-01/Cajamarca — expediente de resolución de disputas
+  institution: Office of the Compliance Advisor Ombudsman
+  date: 2003-11-01
+  datePrecision: month
+  url: https://www.cao-ombudsman.org/cases/peru-yanacocha-01cajamarca
+  type: official
+  perspective: community
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Ficha institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resume la queja del Frente de Defensa, la evaluación independiente de salud, el seguimiento y el cierre de la mediación; no equivale a cierre sanitario, judicial o social del caso.
+- id: choropampa-pj-pleno-2008
+  title: Primer Pleno Casatorio Civil — Casación 1465-2007 Cajamarca
+  institution: Corte Suprema de Justicia de la República
+  date: 2008-01-22
+  datePrecision: day
+  url: https://www.pj.gob.pe/wps/wcm/connect/09ca528047e3d59dbb60ff1f51d74444/Primer%2BPleno%2BCasatorio%2BCivil.pdf?CACHEID=09ca528047e3d59dbb60ff1f51d74444&MOD=AJPERES
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Sentencia judicial de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Decisión sobre transacciones extrajudiciales y legitimación procesal en un litigio derivado del derrame; no declara reparación integral de toda la población ni resuelve causalidad médica individual.
+- id: choropampa-newmont-10k-2002
+  title: Newmont Mining Corporation — Form 10-K 2002
+  institution: Newmont Mining Corporation / U.S. Securities and Exchange Commission
+  date: 2003-03-01
+  datePrecision: month
+  url: https://www.sec.gov/Archives/edgar/data/1164727/000104596903000796/d10k.htm
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Archivo corporativo regulatorio de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Fuente empresarial regulada sobre cantidad derramada, multa, remediación, transacciones, obras públicas y litigios; acredita la posición corporativa, no su suficiencia material o social.
+- id: choropampa-newmont-relaciones-2009
+  title: Reseña de las relaciones de Newmont con la comunidad — Yanacocha
+  institution: Newmont Mining Corporation / Community Relationships Review
+  date: 2009-03-01
+  datePrecision: month
+  url: https://www.newmont.com/files/doc_downloads/sustainability/other_reports/CRR-Yanacocha-Report-Spanish.pdf
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Informe corporativo de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Revisión encargada por Newmont que reconoce cambios de transporte y emergencia y registra persistencia de preocupación y desconfianza entre residentes entrevistados.
+- id: rio-blanco-defensoria-informe-2006
+  title: Informe de Adjuntía 001-2006-ASPMA-MA — Proyecto minero Majaz
+  institution: Defensoría del Pueblo
+  date: 2006-11-14
+  datePrecision: day
+  url: https://www.defensoria.gob.pe/modules/Downloads/informes/varios/2006/Informe-de-Adjuntia-N-001-2006-ASPMA-MA.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento defensorial de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Examen estatal de las autorizaciones superficiales, el procedimiento ambiental y las quejas de Yanta y Segunda y Cajas; distingue actos de directiva de acuerdos aprobados por dos tercios de la asamblea.
+- id: rio-blanco-minem-ea-2003
+  title: Evaluación Ambiental del proyecto de exploración Río Blanco — RD 478-2003-EM/DGAA
+  institution: Ministerio de Energía y Minas
+  date: 2003-11-28
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6496508-evaluacion-ambiental-del-proyecto-de-exploracion-rio-blanco
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Expediente ambiental de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Portal oficial que aloja la resolución aprobatoria y el expediente ambiental histórico; la aprobación administrativa no se presenta como prueba de consentimiento comunal.
+- id: rio-blanco-defensoria-reporte-36
+  title: Reporte de Conflictos Sociales 36 — caso Majaz
+  institution: Defensoría del Pueblo
+  date: 2007-02-01
+  datePrecision: month
+  url: https://www.defensoria.gob.pe/wp-content/uploads/2018/05/conflictos_sociales36.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento defensorial de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reconstruye el inicio del conflicto, la movilización y el enfrentamiento de 2005, los espacios de diálogo y la preparación de la consulta vecinal.
+- id: rio-blanco-defensoria-reporte-139
+  title: Reporte Mensual de Conflictos Sociales 139 — Río Blanco
+  institution: Defensoría del Pueblo
+  date: 2015-09-01
+  datePrecision: month
+  url: https://cdn.www.gob.pe/uploads/document/file/1958119/Reporte-Mensual-de-Conflictos-Sociales-N--139-Septiembre-2015.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento defensorial de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra el conflicto activo y la conmemoración de la consulta vecinal de 2007; documenta el rechazo expresado sin atribuirle efecto jurídico automático.
+- id: rio-blanco-osinergmin-444-2008
+  title: Resolución de Gerencia General 444-2008-1-OS/GFM — proyecto Río Blanco
+  institution: Organismo Supervisor de la Inversión en Energía y Minería
+  date: 2008-02-07
+  datePrecision: day
+  url: https://www.sunat.gob.pe/legislacion/nor_graf/2008/febrero/nl20080223.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Resolución administrativa publicada en El Peruano
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resolución que sanciona incumplimientos de exploración con 100 UIT y ordena rehabilitar componentes; no acredita por sí sola la ejecución completa de la medida correctiva.
+- id: rio-blanco-minem-desistimiento-2009
+  title: Desistimiento del EIA-sd del programa de exploración Río Blanco 2008-2010 — RD 015-2009-MEM/AAM
+  institution: Ministerio de Energía y Minas
+  date: 2009-01-01
+  datePrecision: year
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6573021-solicitud-de-desistimiento-del-procedimiento-administrativo-de-evaluacion-del-estudio-de-impacto-ambiental-semidetallado-del-proyecto-de-exploracion-minera-rio-blanco-programa-de-exploracion-2008-2010
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Expediente ambiental de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Portal oficial que documenta la aceptación del desistimiento empresarial del procedimiento de evaluación; no equivale a cierre definitivo del proyecto o del conflicto.
+- id: rio-blanco-minem-rehabilitacion-2016
+  title: Modificación de la actualización del Plan de Rehabilitación de Río Blanco — RD 274-2016-MEM/DGAAM
+  institution: Ministerio de Energía y Minas
+  date: 2016-01-01
+  datePrecision: year
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6494577-modificacion-de-la-actualizacion-del-plan-de-rehabilitacion-del-proyecto-de-exploracion-minera-rio-blanco
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Expediente ambiental de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Decisión ambiental sobre una modificación del plan de rehabilitación; registra continuidad administrativa del seguimiento sin probar culminación material integral.
+- id: rio-blanco-minem-rehabilitacion-2020
+  title: Segunda modificación de la actualización del Plan de Rehabilitación de Río Blanco — RD 057-2020-MINEM/DGAAM
+  institution: Ministerio de Energía y Minas
+  date: 2020-01-01
+  datePrecision: year
+  url: https://www.gob.pe/institucion/minem/informes-publicaciones/6759672-segunda-modificacion-de-la-actualizacion-del-plan-de-rehanilitacion-del-proyecto-de-exploracion-minera-rio-blanco-presentado-por-rio-blanco-copper-s-a
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Expediente ambiental de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Segunda modificación del plan de rehabilitación publicada en el portal oficial; se conserva como seguimiento documental, no como certificado de cierre ambiental.
+- id: rio-blanco-defensoria-reporte-246
+  title: Reporte Mensual de Conflictos Sociales 246 — reactivación de Río Blanco
+  institution: Defensoría del Pueblo
+  date: 2024-08-01
+  datePrecision: month
+  url: https://www.defensoria.gob.pe/wp-content/uploads/2024/09/Reporte-Mensual-de-Conflictos-Sociales-N%C2%B0-246-Agosto_2024-1.pdf
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Documento defensorial de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Registra la reactivación, ausencia de diálogo, pliego territorial y reunión defensorial de agosto de 2024; las demandas se presentan como posiciones de actores.
+- id: rio-blanco-empresa-proyecto-2026
+  title: Proyecto Río Blanco
+  institution: Río Blanco Copper S.A.
+  date: 2026-07-27
+  datePrecision: day
+  url: https://rioblanco.com.pe/proyecto-rio-blanco/
+  type: company
+  perspective: company
+  evidenceLevel: primary
+  accessedAt: 2026-07-27
+  license: Sitio corporativo de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Página corporativa sin fecha visible, consultada al corte, que ubica el proyecto en prefactibilidad y expone afirmaciones ambientales, sociales y económicas atribuidas exclusivamente a la empresa.
+- id: rio-blanco-red-muqui-2024
+  title: Rondas y comunidades de Piura ratifican rechazo al proyecto minero Río Blanco
+  institution: Red Muqui
+  date: 2024-12-12
+  datePrecision: day
+  url: https://muqui.org/rondas-y-comunidades-de-piura-ratifican-rechazo-al-proyecto-minero-rio-blanco/
+  type: ngo
+  perspective: community
+  evidenceLevel: contextual
+  accessedAt: 2026-07-27
+  license: Publicación institucional de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Fuente de sociedad civil que recoge posiciones de dirigencias comunales y rondas; no se trata como voz unánime de toda la población ni como expediente estatal.
+- id: rio-blanco-iep-2009
+  title: Minería y conflicto social — capítulo sobre el caso Majaz
+  institution: Instituto de Estudios Peruanos
+  date: 2009-02-01
+  datePrecision: month
+  url: https://repositorio.iep.org.pe/server/api/core/bitstreams/3af0aa61-2826-4a7d-bdda-dac67e2b3bfb/content
+  type: academic
+  perspective: academic
+  evidenceLevel: secondary
+  accessedAt: 2026-07-27
+  license: Repositorio académico de acceso público
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Estudio académico de legalidad, derechos de propiedad, participación y futuro agrícola o minero de la sierra de Piura; sus conclusiones son análisis situado.

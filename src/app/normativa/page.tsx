@@ -13,10 +13,13 @@ const issueStatusLabels: Record<NormativeIssue["status"], string> = {
 };
 
 const instrumentStatusLabels: Record<LegalInstrument["status"], string> = {
-  "in-force": "vigente",
-  modified: "modificada",
-  repealed: "derogada",
-  "pending-review": "pendiente de revisión",
+  documented: "documentada",
+};
+
+const evidenceLevelLabels: Record<Source["evidenceLevel"], string> = {
+  primary: "primaria",
+  secondary: "secundaria",
+  contextual: "contextual",
 };
 
 function formatDate(value?: string) {
@@ -45,8 +48,9 @@ export default function NormsPage() {
         <p className="eyebrow">Marco normativo vivo</p>
         <h1>Normas, implementación y controversias</h1>
         <p>
-          Catálogo V1 con {data.instruments.length} instrumentos, {data.issues.length} nudos normativos y {preparedPackets} paquetes normativos preparados.
-          La página organiza textos oficiales, fuentes, locadores y preguntas abiertas; no emite dictámenes ni determina responsabilidades.
+          {data.instruments.length} instrumentos, {data.issues.length} nudos normativos y {preparedPackets} análisis documentales conectan
+          autorización minera, agua, fiscalización, consulta, acuerdos y cumplimiento en conflictos sociales mineros. Cada instrumento conserva
+          texto oficial, fuente y referencia documental; no emite dictámenes ni determina responsabilidades.
         </p>
       </header>
 
@@ -54,17 +58,17 @@ export default function NormsPage() {
         <article>
           <strong>{data.instruments.length}</strong>
           <span>Instrumentos</span>
-          <small>{instrumentsWithLocators} con locadores documentales.</small>
+          <small>{instrumentsWithLocators} con referencias documentales.</small>
         </article>
         <article>
           <strong>{data.issues.length}</strong>
           <span>Nudos</span>
-          <small>Taxonomía transversal del observatorio.</small>
+          <small>Problemas recurrentes de diseño, aplicación e implementación.</small>
         </article>
         <article>
           <strong>{preparedPackets}</strong>
-          <span>Paquetes normativos</span>
-          <small>Preparados para lectura documental.</small>
+          <span>Con análisis documental</span>
+          <small>Competencia, obligación, fuente y pregunta de aplicación.</small>
         </article>
       </section>
 
@@ -72,13 +76,13 @@ export default function NormsPage() {
         <WarningCircle size={24} />
         <div>
           <strong>Último contraste documental: {formatDate(latestCheck)}</strong>
-          <p>Este catálogo expone información pública y trazable. No sustituye asesoría jurídica, sentencia, dictamen ni texto consolidado oficial.</p>
+          <p>La existencia de una norma no prueba cumplimiento, legitimidad social ni responsabilidad. Cada instrumento debe leerse con autoridad competente, fecha, obligación y fuente oficial.</p>
         </div>
       </div>
 
       <section className="issue-index">
-        <p className="eyebrow">Taxonomía transversal</p>
-        <h2>Diez nudos normativos</h2>
+        <p className="eyebrow">Problemas recurrentes</p>
+        <h2>{data.issues.length} nudos normativos</h2>
         {data.issues.map((issue, index) => (
           <article id={issue.id} key={issue.id}>
             <span>{String(index + 1).padStart(2, "0")}</span>
@@ -94,7 +98,7 @@ export default function NormsPage() {
 
       <section className="instrument-section">
         <p className="eyebrow">Instrumentos conectados</p>
-        <h2>Catálogo normativo inicial</h2>
+        <h2>Instrumentos y problemas de aplicación</h2>
         <div className="instrument-table">
           {data.instruments.map((instrument) => {
             const source = primarySourceFor(instrument, data.sources);
@@ -106,7 +110,7 @@ export default function NormsPage() {
                   <strong>{instrument.number}</strong>
                   <h3>{instrument.title}</h3>
                   <p>{instrument.authority} · Publicación: {formatDate(instrument.publishedAt)} · Estado: {instrumentStatusLabels[instrument.status]}</p>
-                  <small>{instrument.sourceIds.length} fuente(s) · {locators.length} locador(es) · paquete normativo {packet?.status ?? "no registrado"}</small>
+                  <small>{instrument.sourceIds.length} fuente(s) · {locators.length} referencia(s) exacta(s){packet ? " · preguntas de aplicación documentadas" : ""}</small>
                   <div className="instrument-issues">
                     {instrument.issueIds.map((issueId) => {
                       const issue = data.issues.find((item) => item.id === issueId);
@@ -114,17 +118,17 @@ export default function NormsPage() {
                     })}
                   </div>
                 </div>
-                <span className="review-chip" data-status={instrument.legalReviewStatus}>
-                  Texto oficial y alcance documental
-                  <small>Contraste documental: {formatDate(instrument.lastCheckedAt)} · no constituye dictamen ni texto consolidado oficial</small>
+                <span className="review-chip" data-status={instrument.documentaryStatus}>
+                  Fuente oficial y pregunta de aplicación
+                  <small>Comprobación documental: {formatDate(instrument.lastCheckedAt)} · uso académico, no constituye dictamen ni texto consolidado oficial</small>
                 </span>
                 {source && (
                   <a href={source.url} target="_blank" rel="noreferrer">
                     Fuente oficial <ArrowSquareOut />
-                    <small>{source.institution} · {source.evidenceLevel}</small>
+                    <small>{source.institution} · fuente {evidenceLevelLabels[source.evidenceLevel]}</small>
                   </a>
                 )}
-                {packet && <Link className="packet-link" href="/metodologia#revision">Alcance y metodología <ArrowRight /></Link>}
+                {packet && <Link className="packet-link" href="/metodologia#revision">Criterios probatorios <ArrowRight /></Link>}
               </article>
             );
           })}

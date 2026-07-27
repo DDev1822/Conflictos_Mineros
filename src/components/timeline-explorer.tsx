@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowSquareOut, Funnel, MagnifyingGlass } from "@phosphor-icons/react";
 import type { EvidenceRecord, ObservatoryData, Source, TimelineEvent } from "@/lib/schemas";
@@ -47,6 +47,10 @@ function formatDate(value?: string) {
 
 function unique<T>(values: T[]) {
   return Array.from(new Set(values));
+}
+
+function eventYear(value: string) {
+  return value.slice(0, 4);
 }
 
 function buildTimeline(data: ObservatoryData): TimelineItem[] {
@@ -102,6 +106,19 @@ export function TimelineExplorer({ data }: { data: ObservatoryData }) {
       && (sourceType === "all" || event.sources.some((source) => source.type === sourceType))
       && text.includes(query.toLowerCase());
   }), [caseId, kind, query, sourceType, timeline]);
+  const yearIndex = useMemo(() => {
+    const counts = new Map<string, number>();
+    filtered.forEach((event) => {
+      const year = eventYear(event.date);
+      counts.set(year, (counts.get(year) ?? 0) + 1);
+    });
+
+    return Array.from(counts.entries()).map(([year, count]) => ({
+      year,
+      count,
+      href: `#timeline-year-${year}`,
+    }));
+  }, [filtered]);
 
   const reset = () => {
     setQuery("");
@@ -111,12 +128,12 @@ export function TimelineExplorer({ data }: { data: ObservatoryData }) {
   };
 
   return (
-    <section className="timeline-tool" aria-label="Herramienta de lectura cronológica">
+    <section className="timeline-tool" aria-label="Explorador cronológico de hitos documentados">
       <div className="timeline-controls">
         <label className="search-box">
           <MagnifyingGlass />
           <span className="sr-only">Buscar hitos</span>
-          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar hito, caso, fuente o locador" />
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar hito, caso, fuente o referencia" />
         </label>
         <label>
           <Funnel />Caso
@@ -151,52 +168,77 @@ export function TimelineExplorer({ data }: { data: ObservatoryData }) {
         ))}
       </div>
 
-      <div className="timeline-count">
-        <strong>{filtered.length}</strong>
-        <span>hito(s) visibles de {timeline.length}; lectura ordenada de más antiguo a más reciente.</span>
-      </div>
+      <div className="timeline-reader-layout">
+        <div className="timeline-reader-main">
+          <div className="timeline-count">
+            <strong>{filtered.length}</strong>
+            <span>hito(s) visibles de {timeline.length}; ordenados de más antiguo a más reciente.</span>
+          </div>
 
-      <div className="chronology-reader">
-        {filtered.map((event) => {
-          const sourceInstitutions = unique(event.sources.map((source) => source.institution)).slice(0, 3);
-          return (
-            <article key={`${event.caseId}-${event.id}`} data-kind={event.kind}>
-              <time dateTime={event.date}>{formatDate(event.date)}</time>
-              <div>
-                <div className="timeline-card-meta">
-                  <span>{timelineKindLabels[event.kind]}</span>
-                  <Link href={`/conflictos/${event.caseSlug}`}>{event.caseName}</Link>
-                </div>
-                <h2>{event.title}</h2>
-                <p>{event.summary}</p>
-                <div className="timeline-card-evidence">
-                  <span>{event.sources.length} fuente(s): {sourceInstitutions.join(", ") || "sin fuente resuelta"}</span>
-                  <span>{event.locators.length} locador(es) de evidencia</span>
-                </div>
-                <div className="timeline-card-sources">
-                  {event.sources.slice(0, 3).map((source) => (
-                    <a key={source.id} href={source.url} target="_blank" rel="noreferrer">
-                      <strong>{source.institution}</strong>
-                      <small>{sourceTypeLabels[source.type]} · {formatDate(source.date)}</small>
-                      <ArrowSquareOut size={13} aria-hidden />
-                    </a>
-                  ))}
-                </div>
-                {event.locators.length > 0 && (
-                  <div className="timeline-locators">
-                    {event.locators.slice(0, 2).map((record) => (
-                      <section key={record.id}>
-                        <strong>{relationLabels[record.relation]} · {record.locator}</strong>
-                        <small>{record.summary}</small>
-                      </section>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </article>
-          );
-        })}
-        {!filtered.length && <p className="empty-state">No hay hitos con los filtros activos.</p>}
+          <div className="chronology-reader">
+            {filtered.map((event, index) => {
+              const year = eventYear(event.date);
+              const startsYear = index === 0 || eventYear(filtered[index - 1].date) !== year;
+              const sourceInstitutions = unique(event.sources.map((source) => source.institution)).slice(0, 3);
+              return (
+                <Fragment key={`${event.caseId}-${event.id}`}>
+                  <article id={startsYear ? `timeline-year-${year}` : undefined} data-kind={event.kind}>
+                    <time dateTime={event.date}>{formatDate(event.date)}</time>
+                    <div>
+                      <div className="timeline-card-meta">
+                        <span>{timelineKindLabels[event.kind]}</span>
+                        <Link href={`/conflictos/${event.caseSlug}`}>{event.caseName}</Link>
+                      </div>
+                      <h2>{event.title}</h2>
+                      <p>{event.summary}</p>
+                      <div className="timeline-card-evidence">
+                        <span>{event.sources.length} fuente(s): {sourceInstitutions.join(", ") || "fuente en contraste"}</span>
+                        <span>{event.locators.length} referencia(s) exacta(s)</span>
+                      </div>
+                      <div className="timeline-card-sources">
+                        {event.sources.slice(0, 3).map((source) => (
+                          <a key={source.id} href={source.url} target="_blank" rel="noreferrer">
+                            <strong>{source.institution}</strong>
+                            <small>{sourceTypeLabels[source.type]} · {formatDate(source.date)}</small>
+                            <ArrowSquareOut size={13} aria-hidden />
+                          </a>
+                        ))}
+                      </div>
+                      {event.locators.length > 0 && (
+                        <div className="timeline-locators">
+                          {event.locators.slice(0, 2).map((record) => (
+                            <section key={record.id}>
+                              <strong>{relationLabels[record.relation]} · {record.locator}</strong>
+                              <small>{record.summary}</small>
+                            </section>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                </Fragment>
+              );
+            })}
+            {!filtered.length && <p className="empty-state">Ajusta los filtros para recuperar hitos de la cronología.</p>}
+          </div>
+        </div>
+
+        {yearIndex.length > 0 && (
+          <nav className="timeline-year-nav" aria-label="Saltar por año en la cronología">
+            <strong>Años</strong>
+            <span>Índice filtrado</span>
+            <ol>
+              {yearIndex.map((item) => (
+                <li key={item.year}>
+                  <a href={item.href}>
+                    <span>{item.year}</span>
+                    <small>{item.count}</small>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
       </div>
     </section>
   );

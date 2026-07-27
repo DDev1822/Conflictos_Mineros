@@ -1,12 +1,12 @@
 # Memo de caso hito: Fondo Social Michiquillay
 
-Estado: paquete documental iniciado; no es expediente público completo.
+Estado: duodécimo expediente canónico profundo; integrado en `content/data/cases.yaml` y publicado con narrativa propia.
 
-Fecha de estructuración: 2026-06-29.
+Fecha de estructuración: 2026-06-29. Cierre canónico: 2026-07-27.
 
 ## Lectura de caso
 
-El Fondo Social Michiquillay debe incorporarse al observatorio como caso hito porque permite leer una dimensión menos visible del conflicto minero: la promesa institucional de convertir recursos provenientes de promoción de inversión privada en programas de desarrollo local, con gobernanza compartida entre empresa, comunidades, Estado y órganos de vigilancia.
+El Fondo Social Michiquillay se incorpora al observatorio como caso hito porque permite leer una dimensión menos visible del conflicto minero: la promesa institucional de convertir recursos provenientes de promoción de inversión privada en programas de desarrollo local, con gobernanza compartida entre empresa, comunidades, Estado y órganos de vigilancia. Los reportes 73 y 90 de la Defensoría acreditan que el Fondo, los acuerdos y su ejecución fueron parte de un conflicto socioambiental, no solo de una política corporativa de beneficios.
 
 La unidad de análisis no es solo el proyecto minero Michiquillay ni solo una lista de obras. Es la relación entre adjudicación, contratos de transferencia, normas de fondos sociales, acuerdos con comunidades, administración de recursos, ejecución de proyectos, auditorías, representación comunal, prioridades sociales y expectativas de desarrollo.
 
@@ -23,6 +23,8 @@ Regla editorial: no presentar el fondo como consenso social, licencia social aut
 | 2008-06-25 | decision | Se aprueba el Reglamento del DL 996 mediante DS 082-2008-EF. | MEF/gob.pe, DS 082-2008-EF; Fondo Social Michiquillay, línea 45. | Marco operativo del fondo; revisar prioridades, órganos y reportes obligatorios. |
 | 2009-06-05 | agreement | Se suscribe adenda modificatoria del contrato de transferencia: el 50 % de pagos de Anglo American correspondientes al precio ofertado sería transferido al Fondo vía PROINVERSIÓN. | Fondo Social Michiquillay, línea 50. | Hito contractual de financiamiento; requiere adenda completa. |
 | 2009 | decision | Se constituye por escritura pública la Asociación Fondo Social Michiquillay como asociación sin fines de lucro para gestionar recursos del fondo. | Fondo Social Michiquillay, líneas 51-52; MINEM Memoria 2018, p. 3. | Nacimiento institucional; faltan estatuto y escritura completos. |
+| 2010-03-09 | agreement | La Defensoría registra diálogo, acuerdos para implementar el Fondo y seis grupos de trabajo sobre empleo, ambiente, fondo, exploración, reasentamiento y otros asuntos. | Reporte de Conflictos Sociales 73, pp. 17-18. | Prueba que el Fondo forma parte del conflicto socioambiental y de su arquitectura de diálogo. |
+| 2011-08 | evidence | La Defensoría registra la demanda comunal de cumplimiento y ejecución del Fondo Social Michiquillay. | Reporte de Conflictos Sociales 90, p. 13. | Distingue existencia institucional de cumplimiento reclamado. |
 | 2014-12-04 | event | Anglo American decide rescindir el contrato de transferencia y se retira del proyecto en fase de exploración. | Fondo Social Michiquillay, línea 53. | Cambio crítico de gobernanza; no implica cierre del fondo. |
 | 2015-03-11 | decision | PROINVERSIÓN se incorpora como asociado transitorio de la Asociación Fondo Social Michiquillay hasta el ingreso de un nuevo asociado. | Fondo Social Michiquillay, línea 53; MINEM Memoria 2018, p. 3. | Puente institucional entre inversionistas. |
 | 2016-07-28 | decision | DS 238-2016-EF modifica el Reglamento del DL 996, incorpora mejoras de control y crea/ordena el Consejo de Vigilancia. | MINEM Memoria 2018, pp. 1-2; MEF/gob.pe, DS 238-2016-EF. | Hito de control y transparencia; revisar obligaciones posteriores. |
@@ -33,6 +35,7 @@ Regla editorial: no presentar el fondo como consenso social, licencia social aut
 | 2018-11-08 | evidence | PROINVERSIÓN informa que el pago inicial de US$ 12.5 millones realizado por Southern fue trasladado al Fondo Social Michiquillay; señala precio de transferencia de US$ 400 millones y regalía contractual de 3 %. | ProInversión, comunicado 08/11/2018, líneas 350-351. | Vincula contrato, pago inicial y fondo; requiere contrato completo. |
 | 2021 | agreement / evidence | Southern Copper reporta acuerdos sociales con comunidades Michiquillay y La Encañada y aprobación de EIA semidetallado por MINEM en octubre de 2021. | Southern Copper, Form 10-Q 31/03/2026, líneas 5342-5347. | Fuente empresarial-regulatoria; falta fuente MINEM directa de 2021. |
 | 2023-10 / 2024-02 | evidence | El portal del Fondo publica informes de auditoría, control interno y gestión, incluido informe de gestión 2019-2022. | Fondo Social Michiquillay, Informes de Gestión, líneas 50-79; informe 2019-2022, líneas 44-48. | Evidencia de transparencia documental; falta extraer hallazgos de auditorías. |
+| 2025-06-10 | event | La Defensoría registra una concentración para demandar que empresa y Fondo construyan la I.E. 82154 Michiquillay. | Reporte de Conflictos Sociales 256, p. 100. | Contestación reciente; no equivale a inclusión automática en el corte vigente. |
 | 2025-04 | agreement | Southern reporta acuerdo con autoridades peruanas para extender por tres años el periodo preoperativo, diferir pago de saldo de US$ 375 millones y asumir US$ 15 millones adicionales de inversiones sociales entre el cuarto y sexto año. | Southern Copper, Form 10-Q 31/03/2026, líneas 5353-5354. | Hito actual de contrato y compromisos sociales; requiere documento estatal/contractual. |
 | 2026-03-31 | evidence | Southern reporta estudios geotécnicos, hidrológicos e hidrogeológicos en curso, estudios de reserva/plan de mina iniciados y expectativa de inicio de producción en 2032. | Southern Copper, Form 10-Q 31/03/2026, líneas 12412-12417. | Estado actual del proyecto; reemplaza la fecha 2025 anunciada en 2018. |
 | 2026-05-11 | evidence | MINEM informa que el dashboard de inversión social minera permite consultar inversión por regiones, distritos, rubros, empresas y tipo de inversión; última actualización 11/05/2026. | MINEM, dashboard de inversión social minera, líneas 213-225. | Fuente objetivo para cerrar métricas actuales, no extraída todavía. |
@@ -88,7 +91,7 @@ Regla editorial: no presentar el fondo como consenso social, licencia social aut
 
 ## Estado documentado al corte
 
-Al 2026-06-29, el paquete permite sostener con evidencia directa que:
+Al 2026-07-27, el paquete permite sostener con evidencia directa que:
 
 - El Fondo Social Michiquillay se basa en el régimen del DL 996 y su reglamento DS 082-2008-EF.
 - La Asociación Fondo Social Michiquillay se constituyó en 2009 y tiene como ámbito principal las comunidades campesinas Michiquillay y La Encañada.
@@ -98,6 +101,7 @@ Al 2026-06-29, el paquete permite sostener con evidencia directa que:
 - MINEM 2018 documentó órganos del fondo, montos, proyectos y alertas de gasto administrativo/control.
 - El portal del fondo publica informes de gestión, auditorías y control interno, incluidos documentos 2016-2020 y gestión 2019-2022.
 - Southern reportó en 2026 que Michiquillay sigue en fase de estudios y que espera inicio de producción en 2032.
+- La Defensoría registró el conflicto socioambiental en 2010-2011 y una acción colectiva vinculada con empresa y Fondo en junio de 2025.
 
 No queda documentado todavía, con fuente primaria completa dentro del paquete:
 
