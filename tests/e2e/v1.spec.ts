@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const caseSlugs = ["tambogrande", "conga", "tia-maria", "las-bambas", "espinar", "la-oroya", "cerro-quilish", "yanacocha-maxima-acuna", "toromocho-morococha", "choropampa", "fondo-social-michiquillay", "rio-blanco-majaz"];
+const editorialPaths = ["/", "/conflictos", "/conflictos/rio-blanco-majaz", "/metodologia", "/normativa"];
 
 test.describe("publicación V2 en escritorio", () => {
   test.use({ viewport: { width: 1280, height: 720 } });
@@ -75,12 +76,16 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(status).not.toContainText("Vacío");
   });
 
-  test("portada, casos y normativa explican el contenido sin jerga interna", async ({ page }) => {
-    for (const path of ["/", "/conflictos", "/conflictos/rio-blanco-majaz", "/metodologia", "/normativa"]) {
-      await page.goto(path);
-      await expect(page.locator("main")).not.toContainText(/locador|matriz|expediente canónico|repositorio|P0|P1/i);
-    }
-  });
+  for (const path of editorialPaths) {
+    test(`explica el contenido sin jerga interna en ${path}`, async ({ page }) => {
+      const response = await page.goto(path);
+      expect(response?.status()).toBe(200);
+
+      const main = page.locator("main");
+      await expect(main).toBeVisible();
+      await expect(main).not.toContainText(/locador|matriz|expediente canónico|repositorio|P0|P1/i);
+    });
+  }
 
   test("el mapa no expone capas ajenas a conflictos sociales mineros", async ({ page }) => {
     await page.goto("/mapa");
