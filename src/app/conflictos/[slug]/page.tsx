@@ -209,7 +209,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
                       <div className="timeline-card-evidence" aria-label={`Trazabilidad documental de ${event.title}`}>
                         <span>{eventSources.length} documento(s) disponible(s)</span>
-                        <span>{eventLocators.length} locador(es) de evidencia</span>
+                        <span>{eventLocators.length} referencia(s) precisa(s)</span>
                       </div>
 
                       <div className="timeline-card-sources" aria-label={`Documentos vinculados al hito ${event.title}`}>
@@ -230,7 +230,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
                       </div>
 
                       {eventLocators.length > 0 && (
-                        <div className="timeline-locators" aria-label={`Locadores de evidencia de ${event.title}`}>
+                        <div className="timeline-locators" aria-label={`Referencias precisas de ${event.title}`}>
                           {eventLocators.map((record) => (
                             <section key={record.id}>
                               <strong>{evidenceRelationLabels[record.relation]} · {record.locator}</strong>

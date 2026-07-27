@@ -69,7 +69,6 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(status).toContainText("Cada afirmación sensible se presenta con fuente");
     await expect(status).toContainText("Evidencia disponible para contraste documental");
     await expect(status).toContainText("Alcance académico");
-    await expect(status).toContainText("Alcance académico");
     await expect(status).toContainText("límites documentales declarados");
     await expect(status).not.toContainText("V1");
     await expect(status).not.toContainText(/P0|P1|matriz|locador/i);
