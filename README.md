@@ -16,7 +16,8 @@ El procedimiento operativo de merge, despliegue manual y verificación posterior
 ## V1
 
 - Doce casos hito publicados: Tambogrande, Conga, Tía María, Las Bambas, Espinar, La Oroya, Cerro Quilish, Máxima Acuña–Yanacocha, Toromocho–Morococha, Choropampa, Fondo Social Michiquillay y Río Blanco–Majaz.
-- Sistema de relaciones, catálogo de casos, mapa de conflictos sociales mineros, cronología y comparación de compromisos.
+- Sistema de relaciones con ejes separados para conflictos sociales mineros y REINFO, catálogo de casos, mapa territorial, cronología y comparación de compromisos.
+- Página y capa REINFO basadas en un corte agregado oficial; el registro no se contabiliza como conflicto ni acredita formalización concluida.
 - Contenido estructurado en YAML, narrativas en MDX y validación con Zod.
 - Afirmaciones clasificadas como hechos, interpretaciones o propuestas.
 - Compilación bloqueada ante relaciones rotas, IDs duplicados o afirmaciones sin fuente.

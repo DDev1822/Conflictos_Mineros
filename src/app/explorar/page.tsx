@@ -3,8 +3,8 @@ import { RelationshipExplorer } from "@/components/relationship-explorer";
 import { loadObservatoryData } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Relaciones entre conflictos sociales mineros",
-  description: "Explora cómo se relacionan los casos sociales mineros con territorios, actores, fuentes, acuerdos y mecanismos institucionales.",
+  title: "Relaciones: conflictos sociales mineros y REINFO",
+  description: "Explora por separado los conflictos sociales mineros y el registro REINFO, junto con sus fuentes, actores y mecanismos relacionados.",
 };
 
 export default function ExplorePage() {

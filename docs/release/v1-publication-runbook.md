@@ -30,8 +30,9 @@ No se despliega si:
 - Existe un riesgo P0/P1 abierto en `docs/release/v1-risks.yaml`.
 - El disclaimer académico no aparece en la interfaz.
 - La página `/metodologia` no expone el alcance `public-academic`.
-- El Sistema de Relaciones expone ejes ajenos a los conflictos sociales mineros.
-- Las rutas `/madre-de-dios`, `/oro-ilegal` o `/reinfo` dejan de responder 404.
+- El Sistema de Relaciones incorpora conflictos sociales no mineros o presenta REINFO como si fuera un conflicto social.
+- Las rutas `/madre-de-dios` u `/oro-ilegal` dejan de responder 404.
+- La ruta `/reinfo` no responde 200, pierde su corte o deja de diferenciar inscripción vigente de formalización concluida.
 - Aparecen dependencias nuevas no aprobadas.
 - Existen datos o afirmaciones publicadas sin trazabilidad mínima.
 
@@ -42,12 +43,13 @@ Después de desplegar, revisar manualmente:
 - Home: presenta el observatorio como académico e informativo y enfocado en conflictos sociales mineros.
 - Pie global: declara que el contenido no sustituye asesoría profesional ni decisiones de autoridad.
 - `/metodologia`: muestra alcance académico, evidencia apta para contraste y límites documentales declarados.
-- `/explorar`: inicia con `Conflicto social minero`; las conexiones públicas se limitan a casos, territorio, actores, evidencia y mecanismos vinculados.
-- `/mapa`: abre en los 61 conflictos sociales mineros del Reporte 268; no ofrece el registro social general.
+- `/explorar`: presenta `Conflicto social minero` y `REINFO` como raíces distintas; no suma el registro administrativo al conteo de conflictos.
+- `/mapa`: abre en los 61 conflictos sociales mineros del Reporte 268, no ofrece el registro social general y permite activar REINFO como capa administrativa separada.
 - `/conflictos`: muestra los 12 casos publicados, sus fuentes y límites de interpretación sin atribuir responsabilidades.
 - `/compromisos`: compara documentos, seguimiento y resultados sin presentar acuerdos como cumplimiento integral.
 - `/normativa`: presenta fuentes oficiales y preguntas de aplicación sin afirmar vigencia consolidada.
-- `/madre-de-dios`, `/oro-ilegal` y `/reinfo`: responden 404 y emiten `noindex`.
+- `/reinfo`: responde 200, es indexable y muestra corte, fuente oficial, distribución regional agregada y límites de interpretación.
+- `/madre-de-dios` y `/oro-ilegal`: responden 404 y emiten `noindex`.
 
 Registrar en el PR o en una nota de release:
 
