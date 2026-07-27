@@ -262,7 +262,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
   const [showCases, setShowCases] = useState(() => readMapBoolean("cases", true));
   const showIllegalMining = false;
   const showInformalMining = false;
-  const showReinfo = false;
+  const [showReinfo, setShowReinfo] = useState(() => readMapBoolean("reinfo", false));
   const showFormalMining = false;
   const showExploration = false;
   const showConcessions = false;
@@ -355,10 +355,14 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
   ].filter((label): label is string => Boolean(label));
   const mapStageTitle = showHeat
     ? `${activeHeatSnapshot.totalRegistered} conflictos sociales mineros`
-    : "Capas territoriales";
+    : showReinfo
+      ? `${reinfoSnapshot.totalRegistered.toLocaleString("es-PE")} inscripciones REINFO vigentes`
+      : "Capas territoriales";
   const mapStageSubtitle = showHeat
     ? `${metricLabel(heatMetric)} por región · ${plottedTotal} representados como puntos de referencia`
-    : "Mapa base con capas seleccionadas";
+    : showReinfo
+      ? `Registro administrativo agregado por departamento · corte ${fullDateLabel(reinfoSnapshot.cutoffDate)}`
+      : "Mapa base con capas seleccionadas";
   const validScopeIds = useMemo(
     () => new Set(["nacional", "multiregional", ...activeHeatSnapshot.regions.map((region) => region.id)]),
     [activeHeatSnapshot.regions],
@@ -378,9 +382,10 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
     if (heatMetric === "total") url.searchParams.delete("metric"); else url.searchParams.set("metric", heatMetric);
     if (showHeat) url.searchParams.delete("heat"); else url.searchParams.set("heat", "0");
     if (showCases) url.searchParams.delete("cases"); else url.searchParams.set("cases", "0");
+    if (showReinfo) url.searchParams.set("reinfo", "1"); else url.searchParams.delete("reinfo");
     if (selectedScope) url.searchParams.set("region", selectedScope); else url.searchParams.delete("region");
     window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
-  }, [heatMetric, selectedScope, showCases, showHeat, status]);
+  }, [heatMetric, selectedScope, showCases, showHeat, showReinfo, status]);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -455,6 +460,15 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <input type="checkbox" checked={showCases} onChange={(event) => setShowCases(event.target.checked)} />
             <span><strong>Casos desarrollados</strong><small>{cases.length} fichas con cronología y fuentes</small></span>
           </label>
+        </fieldset>
+
+        <fieldset className="map-layers map-layer-group">
+          <legend>Registro administrativo separado</legend>
+          <label className="map-layer-toggle" data-layer-toggle="reinfo">
+            <input type="checkbox" checked={showReinfo} onChange={(event) => setShowReinfo(event.target.checked)} />
+            <span><strong>Inscripciones REINFO</strong><small>Registros vigentes agregados por departamento; no son conflictos sociales ni ubicaciones de actividad</small></span>
+          </label>
+          <Link className="map-jump-link" href="/reinfo">Abrir página REINFO / MAPE</Link>
         </fieldset>
 
         {showHeat && <>
@@ -595,6 +609,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
 
         <small className="map-disclaimer">
           {plottedTotal} conflictos sociales mineros se representan mediante puntos regionales de referencia. Los {activeHeatSnapshot.national.total + activeHeatSnapshot.multiregional.total} casos nacionales o multirregionales no se asignan a un punto para evitar doble conteo. La intensidad no representa impacto, violencia ni causalidad.
+          {showReinfo && " REINFO se muestra como registro administrativo agregado y no se suma al conteo de conflictos."}
         </small>
         <a className="map-source" href={REPORT_URL} target="_blank" rel="noreferrer">Consultar reporte oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
       </aside>
@@ -725,7 +740,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
               key={`reinfo-${region.id}`}
               center={region.coordinates}
               radius={reinfoRadius(region.count)}
-              pathOptions={{ color: "#343a73", weight: 2, fillColor: "#7479c9", fillOpacity: 0.62 }}
+              pathOptions={{ className: "map-marker-reinfo", color: "#343a73", weight: 2, fillColor: "#7479c9", fillOpacity: 0.62 }}
             >
               <Tooltip direction="top"><strong>{region.name}</strong><br />{region.count.toLocaleString("es-PE")} inscripciones REINFO vigentes</Tooltip>
               <Popup>

@@ -3,7 +3,7 @@ import { basename, dirname, resolve } from "node:path";
 
 const workspaceRoot = resolve(process.cwd());
 const outputRoot = resolve(workspaceRoot, "out");
-const excludedRoutes = ["madre-de-dios", "oro-ilegal", "reinfo"];
+const excludedRoutes = ["madre-de-dios", "oro-ilegal"];
 
 if (dirname(outputRoot) !== workspaceRoot || basename(outputRoot) !== "out") {
   throw new Error(`Directorio de salida inseguro: ${outputRoot}`);

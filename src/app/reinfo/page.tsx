@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import {
   ArrowRight,
   ArrowSquareOut,
@@ -15,7 +13,10 @@ import { loadObservatoryData } from "@/lib/content";
 import { getLatestPublicMiningCut, mentionsMiningCategory } from "@/lib/mining-classification";
 import type { Source } from "@/lib/schemas";
 
-export const metadata: Metadata = { title: "REINFO y formalización MAPE" };
+export const metadata: Metadata = {
+  title: "REINFO y formalización MAPE",
+  description: "Consulta académica del corte agregado del REINFO, sus fuentes y sus límites de interpretación.",
+};
 
 const reinfoSourceIds = [
   "minem-reinfo",
@@ -46,13 +47,11 @@ function SourceCard({ source }: { source: Source }) {
 }
 
 export default function ReinfoPage() {
-  if (!isPublishedSocialMiningCase({ id: "madre-de-dios" })) notFound();
   const data = loadObservatoryData();
   const { cases: publicMiningCases } = getLatestPublicMiningCut(data);
   const alternative = data.alternatives.find((item) => item.id === "expediente-unico-trazable");
   const latestReinfo = [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
   const madreDeDiosCount = latestReinfo?.regions.find((region) => region.id === "madre-de-dios")?.count;
-  const madreDeDiosCase = data.cases.find((item) => item.id === "madre-de-dios");
   const formalizationIssue = data.issues.find((item) => item.id === "formalizacion-mape");
   const formalizationInstruments = data.instruments.filter((item) => item.issueIds.includes("formalizacion-mape"));
   const reinfoSources = reinfoSourceIds
@@ -134,19 +133,19 @@ export default function ReinfoPage() {
           <h2>Registro, norma y trazabilidad conectados</h2>
           <ul>
             <li>Fuente oficial REINFO/MINEM enlazada y corte territorial archivado con {formatNumber(latestReinfo?.regions.length)} agregados regionales.</li>
-            <li>Madre de Dios aparece como expediente profundo con {formatNumber(madreDeDiosCount)} inscripciones vigentes y fuentes de trazabilidad del oro.</li>
+            <li>Madre de Dios registra {formatNumber(madreDeDiosCount)} inscripciones vigentes en el agregado regional; la cifra no identifica ubicaciones ni acredita actividad.</li>
             <li>{formatNumber(formalizationInstruments.length)} instrumento(s) normativo(s) conectados al nudo {formalizationIssue?.name ?? "Formalización MAPE"}.</li>
-            <li>{formatNumber(reinfoEvidenceRecords.length)} registro(s) de evidencia enlazan fuente, entidad respaldada, locador y comprobación.</li>
+            <li>{formatNumber(reinfoEvidenceRecords.length)} registro(s) de evidencia enlazan fuente, entidad respaldada, referencia precisa y fecha de comprobación.</li>
             <li>Las menciones de minería ilegal e informal vienen del corte social minero y no delimitan zonas de actividad ni responsabilidad individual.</li>
           </ul>
         </div>
         <aside>
-          <p>Caso y nudo conectados</p>
-          <h3>{madreDeDiosCase?.name}</h3>
-          <p>{madreDeDiosCase?.summary}</p>
-          <Link href="/conflictos/madre-de-dios">Abrir expediente Madre de Dios <ArrowRight /></Link>
+          <p>Eje documental separado</p>
+          <h3>REINFO no es un conflicto social</h3>
+          <p>Es un registro administrativo que puede relacionarse con debates de formalización, sin convertirse por ello en caso, actividad verificada o conclusión jurídica individual.</p>
+          <Link href="/mapa?heat=0&cases=0&reinfo=1">Ver distribución regional <ArrowRight /></Link>
           <Link href="/normativa#formalizacion-mape">Ver nudo normativo <ArrowRight /></Link>
-          <Link href="/explorar">Ver en sistema de relaciones <ArrowRight /></Link>
+          <Link href="/explorar">Comparar ejes en Relaciones <ArrowRight /></Link>
         </aside>
       </section>
 
@@ -161,7 +160,7 @@ export default function ReinfoPage() {
       </section>
 
       <section className="reinfo-locators">
-        <p className="eyebrow">Locadores probatorios</p>
+        <p className="eyebrow">Referencias precisas</p>
         <h2>Dónde se sostiene cada afirmación sobre REINFO</h2>
         <div>
           {reinfoEvidenceRecords.slice(0, 6).map((record) => (

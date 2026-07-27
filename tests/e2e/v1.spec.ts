@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const caseSlugs = ["tambogrande", "conga", "tia-maria", "las-bambas", "espinar", "la-oroya", "cerro-quilish", "yanacocha-maxima-acuna", "toromocho-morococha", "choropampa", "fondo-social-michiquillay", "rio-blanco-majaz"];
-const editorialPaths = ["/", "/conflictos", "/conflictos/rio-blanco-majaz", "/metodologia", "/normativa"];
+const editorialPaths = ["/", "/conflictos", "/conflictos/rio-blanco-majaz", "/metodologia", "/normativa", "/reinfo"];
 
 test.describe("publicación V2 en escritorio", () => {
   test.use({ viewport: { width: 1280, height: 720 } });
@@ -9,8 +9,9 @@ test.describe("publicación V2 en escritorio", () => {
   test("mantiene la navegación académica enfocada sin overflow horizontal", async ({ page }) => {
     await page.goto("/");
     const nav = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(nav.getByRole("link")).toHaveCount(6);
-    await expect(nav).not.toContainText(/Oro ilegal|Madre de Dios|REINFO/);
+    await expect(nav.getByRole("link")).toHaveCount(7);
+    await expect(nav).not.toContainText(/Oro ilegal|Madre de Dios/);
+    await expect(nav.getByRole("link", { name: "REINFO y formalización MAPE" })).toBeVisible();
     for (const link of await nav.getByRole("link").all()) await expect(link).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   });
@@ -29,20 +30,28 @@ test.describe("publicación V2 en escritorio", () => {
     const graph = page.getByLabel("Relaciones de conocimiento");
     const graphNode = (label: string) => graph.locator(".knowledge-node").filter({ hasText: label });
 
-    await expect(page.getByRole("combobox", { name: "Tema" })).not.toContainText(/REINFO|formalización minera|minería ilegal/i);
+    await expect(page.getByRole("combobox", { name: "Tema" })).toContainText("Formalización de la MAPE y REINFO");
     await expect(page.locator("main")).not.toContainText(/Expediente territorial|Locadores|Fuente canónica|Objetivo de búsqueda|Nivel probatorio/);
 
-    await expect(graph.locator(".knowledge-node")).toHaveCount(1);
+    await expect(graph.locator(".knowledge-node")).toHaveCount(2);
     await expect(graphNode("Conflicto social minero")).toBeVisible();
+    await expect(graphNode("REINFO")).toBeVisible();
     await expect(graphNode("Minería ilegal e informal")).toHaveCount(0);
+    await expect(graphNode("Casos hito")).toHaveCount(0);
+    await expect(page.getByText("Conflictos sociales mineros y REINFO son ejes distintos.")).toBeVisible();
+
+    await graphNode("REINFO").click();
+    await expect(graph.locator(".knowledge-node")).toHaveCount(5);
+    await expect(page.locator(".focus-card").getByRole("heading", { name: "REINFO" })).toBeVisible();
+    await expect(graphNode("Conflicto social minero")).toBeVisible();
     await expect(graphNode("Casos hito")).toHaveCount(0);
 
     await graphNode("Conflicto social minero").click();
-    await expect(graph.locator(".knowledge-node")).toHaveCount(8);
+    await expect(graph.locator(".knowledge-node")).toHaveCount(9);
     await expect(graphNode("Casos hito")).toBeVisible();
     await expect(graphNode("Sustento documental")).toBeVisible();
     await expect(graphNode("Conflictos en Cajamarca")).toBeVisible();
-    await expect(graphNode("REINFO")).toHaveCount(0);
+    await expect(graphNode("REINFO")).toBeVisible();
     await expect(graphNode("Trazabilidad del oro")).toHaveCount(0);
   });
 
@@ -87,11 +96,18 @@ test.describe("publicación V2 en escritorio", () => {
     });
   }
 
-  test("el mapa no expone capas ajenas a conflictos sociales mineros", async ({ page }) => {
+  test("el mapa separa REINFO del corte de conflictos sociales mineros", async ({ page }) => {
     await page.goto("/mapa");
-    await expect(page.getByText("Minería ilegal, informal y REINFO", { exact: true })).toHaveCount(0);
-    await expect(page.getByRole("checkbox", { name: /Minería ilegal|Minería informal|REINFO|Plantas de beneficio|Exploración minera|Concesiones mineras/ })).toHaveCount(0);
+    await expect(page.getByRole("checkbox", { name: /Minería ilegal|Minería informal|Plantas de beneficio|Exploración minera|Concesiones mineras/ })).toHaveCount(0);
     await expect(page.getByText("Distribución regional de conflictos sociales vinculados con minería, con estado al corte y casos documentados para consulta.")).toBeVisible();
+
+    const reinfo = page.getByRole("checkbox", { name: /Inscripciones REINFO/ });
+    await expect(reinfo).not.toBeChecked();
+    await reinfo.check();
+    await expect(page).toHaveURL(/reinfo=1/);
+    await expect(page.locator('[data-layer="reinfo"]')).toContainText("REINFO vigente");
+    await expect(page.locator(".map-marker-reinfo").first()).toBeVisible();
+    await expect(page.getByText("REINFO se muestra como registro administrativo agregado y no se suma al conteo de conflictos.")).toBeVisible();
   });
 
   test("Puno abre como diálogo, recibe foco, cierra con Escape y devuelve el foco", async ({ page }) => {
@@ -193,8 +209,16 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(page.getByText(/\bcumplido\b/i)).toHaveCount(0);
   });
 
+  test("REINFO es una página pública y diferenciada de los conflictos", async ({ page }) => {
+    const response = await page.goto("/reinfo");
+    expect(response?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "REINFO / MAPE", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "REINFO no es un conflicto social" })).toBeVisible();
+    await expect(page.locator('meta[name="robots"][content="noindex"]')).toHaveCount(0);
+  });
+
   test("las rutas fuera del alcance público responden 404", async ({ page }) => {
-    for (const path of ["/madre-de-dios", "/oro-ilegal", "/reinfo"]) {
+    for (const path of ["/madre-de-dios", "/oro-ilegal"]) {
       const response = await page.goto(path);
       expect(response?.status()).toBe(404);
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
@@ -211,7 +235,7 @@ test.describe("publicación V2 móvil", () => {
     await menuButton.click();
     await expect(page.getByRole("button", { name: "Cerrar navegación" })).toBeVisible();
     const nav = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(nav.getByRole("link")).toHaveCount(6);
+    await expect(nav.getByRole("link")).toHaveCount(7);
     for (const link of await nav.getByRole("link").all()) await expect(link).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     expect(await page.locator(".map-layout > aside").evaluate((element) => getComputedStyle(element).overflowY)).not.toBe("auto");

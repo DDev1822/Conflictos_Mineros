@@ -97,6 +97,7 @@ type FocusDetail = {
 
 const publicGraphFocuses = new Set<GraphFocus>([
   "conflicto-social-minero",
+  "reinfo",
   "solapamiento-territorial",
   "casos-hito",
   "actores-acuerdos",
@@ -105,7 +106,7 @@ const publicGraphFocuses = new Set<GraphFocus>([
   "cajamarca-system",
   "institutional-mechanisms",
 ]);
-const rootGraphFocuses: GraphFocus[] = ["conflicto-social-minero"];
+const rootGraphFocuses: GraphFocus[] = ["conflicto-social-minero", "reinfo"];
 const allCaseIds = [
   "tambogrande",
   "conga",
@@ -185,14 +186,14 @@ const graphNodes: GraphNodeDefinition[] = [
   {
     id: "reinfo",
     title: "REINFO",
-    subtitle: "Registro puente; no centro narrativo",
-    layer: "Instrumento",
+    subtitle: "Registro administrativo agregado; no es conflicto social",
+    layer: "Eje documental",
     tone: "instrument",
-    role: "node",
+    role: "root",
     icon: ShieldCheck,
-    position: { x: 532, y: 414 },
-    width: 180,
-    height: 98,
+    position: { x: 592, y: 124 },
+    width: 320,
+    height: 142,
   },
   {
     id: "fiscalizacion",
@@ -274,7 +275,7 @@ const focusRelations: Record<GraphFocus, GraphFocus[]> = {
   "solapamiento-territorial": ["conflicto-social-minero", "mineria-ilegal-informal", "evidencia-ambiental", "matriz-documental", "cajamarca-system", "institutional-mechanisms"],
   "casos-hito": ["conflicto-social-minero", "actores-acuerdos", "evidencia-ambiental", "matriz-documental", "cajamarca-system"],
   "actores-acuerdos": ["conflicto-social-minero", "casos-hito", "reinfo", "matriz-documental", "institutional-mechanisms"],
-  reinfo: ["mineria-ilegal-informal", "actores-acuerdos", "fiscalizacion", "trazabilidad-oro", "matriz-documental", "institutional-mechanisms"],
+  reinfo: ["actores-acuerdos", "matriz-documental", "institutional-mechanisms"],
   fiscalizacion: ["mineria-ilegal-informal", "reinfo", "trazabilidad-oro", "evidencia-ambiental", "matriz-documental", "institutional-mechanisms"],
   "evidencia-ambiental": ["conflicto-social-minero", "solapamiento-territorial", "fiscalizacion", "matriz-documental", "cajamarca-system", "institutional-mechanisms"],
   "matriz-documental": ["conflicto-social-minero", "mineria-ilegal-informal", "solapamiento-territorial", "reinfo", "evidencia-ambiental", "cajamarca-system", "institutional-mechanisms"],
@@ -372,16 +373,15 @@ const focusDetails: Record<GraphFocus, FocusDetail> = {
     ],
   },
   reinfo: {
-    kicker: "Instrumento",
+    kicker: "Eje documental independiente",
     title: "REINFO",
-    summary: "Registro administrativo dentro del eje minería ilegal/informal: acredita permanencia registral y corte, pero no formalización concluida por sí solo.",
+    summary: "Registro administrativo del proceso de formalización MAPE. Se presenta separado de los conflictos sociales mineros y no acredita formalización concluida por sí solo.",
     evidenceTitle: "Corte registral",
     evidenceItems: ["registro vigente y fecha de corte", "exclusiones y comunicados aplicables", "diferencia entre inscripción y formalización concluida"],
     disputeTitle: "Límite documental",
     disputeItems: ["no equivale automáticamente a formalidad", "no borra categorías de ilegalidad o informalidad", "requiere fuente y alcance para afirmaciones públicas"],
     nextStep: "Abrir REINFO/MAPE y consultar la fuente oficial del registro con fecha de corte.",
     sourceIds: ["minem-reinfo", "minem-reinfo-vigente-corte-2026-06-18", "minem-rd-0004-2025-reinfo-exclusiones", "minem-comunicado-reinfo-2025"],
-    caseIds: ["madre-de-dios"],
     issueIds: ["formalizacion-mape"],
     routeLinks: [
       { label: "Abrir REINFO / MAPE", href: "/reinfo", description: "Registro administrativo y formalización." },
@@ -509,8 +509,8 @@ const focusAliases: Record<string, GraphFocus> = {
   "las-bambas": "actores-acuerdos",
   espinar: "evidencia-ambiental",
   "madre-de-dios": "mineria-ilegal-informal",
-  "formalizacion-mape": "mineria-ilegal-informal",
-  "mineros-mape": "mineria-ilegal-informal",
+  "formalizacion-mape": "reinfo",
+  "mineros-mape": "reinfo",
   "fiscalizacion-ambiental": "fiscalizacion",
   "agua-cuencas": "evidencia-ambiental",
   "dialogo-acuerdos": "actores-acuerdos",
@@ -873,7 +873,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
   const sourceById = useMemo(() => new Map(data.sources.map((source) => [source.id, source])), [data.sources]);
   const caseById = useMemo(() => new Map(data.cases.map((item) => [item.id, item])), [data.cases]);
   const publicCases = useMemo(() => data.cases.filter(isPublishedSocialMiningCase), [data.cases]);
-  const publicIssueIds = useMemo(() => new Set(publicCases.flatMap((item) => item.issueIds)), [publicCases]);
+  const publicIssueIds = useMemo(() => new Set([...publicCases.flatMap((item) => item.issueIds), "formalizacion-mape"]), [publicCases]);
   const publicIssues = useMemo(() => data.issues.filter((item) => publicIssueIds.has(item.id)), [data.issues, publicIssueIds]);
   const publicActorIds = useMemo(() => new Set(publicCases.flatMap((item) => item.actorIds)), [publicCases]);
   const publicActors = useMemo(() => data.actors.filter((item) => publicActorIds.has(item.id)), [data.actors, publicActorIds]);
@@ -944,6 +944,15 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
       focus: "conflicto-social-minero" as GraphFocus,
       href: "/conflictos",
       count: publicCases.length,
+    },
+    {
+      id: "reinfo",
+      label: "REINFO",
+      subtitle: `${latestReinfoSnapshot?.totalRegistered.toLocaleString("es-PE") ?? "s/d"} inscripciones vigentes · registro separado de los conflictos`,
+      type: "route",
+      focus: "reinfo" as GraphFocus,
+      href: "/reinfo",
+      count: latestReinfoSnapshot?.totalRegistered ?? 0,
     },
     {
       id: "solapamiento-territorial",
@@ -1050,11 +1059,11 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     const matchesIssue = issue === "all" || item.id.includes(issue) || data.cases.find((entry) => entry.id === item.id)?.issueIds.includes(issue);
     return matchesText && matchesType && matchesIssue;
   }).sort((a, b) => {
-    const priority = ["conflicto-social-minero", "solapamiento-territorial", "matriz-documental", "cajamarca-system", "institutional-mechanisms"];
+    const priority = ["conflicto-social-minero", "reinfo", "solapamiento-territorial", "matriz-documental", "cajamarca-system", "institutional-mechanisms"];
     const aRank = priority.indexOf(a.id);
     const bRank = priority.indexOf(b.id);
     return (aRank === -1 ? 999 : aRank) - (bRank === -1 ? 999 : bRank);
-  }), [data, entityType, issue, latestMiningSelection, publicActors, publicAlternatives, publicCases, publicInstruments, publicIssues, query]);
+  }), [data, entityType, issue, latestMiningSelection, latestReinfoSnapshot, publicActors, publicAlternatives, publicCases, publicInstruments, publicIssues, query]);
 
   const reset = () => {
     setQuery("");
@@ -1162,7 +1171,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           </div>
           <div className="graph-principle">
             <TreeStructure size={16} aria-hidden />
-            <span>Las líneas indican relación documental; no prueban causalidad automática ni equivalencia administrativa.</span>
+            <span>Conflictos sociales mineros y REINFO son ejes distintos. Las líneas indican relación documental; no prueban causalidad ni equivalencia administrativa.</span>
           </div>
           <ReactFlow key={`${visibleGraphNodes.length}-${visibleGraphEdges.length}`} nodes={visibleGraphNodes} edges={visibleGraphEdges} fitView fitViewOptions={{ padding: 0.05, maxZoom: isRootOnlyGraph ? 1 : 0.8 }} minZoom={0.45} maxZoom={1.2} nodesDraggable={false} onNodeClick={(_, node) => revealFocus(node.id as GraphFocus)} proOptions={{ hideAttribution: true }}>
             <Background color="#1b536b" gap={30} size={1} />
@@ -1250,7 +1259,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           </div>
         </aside>
       </div>
-      {citationOpen && <div className="dialog-backdrop" role="presentation" onMouseDown={() => setCitationOpen(false)}><section className="citation-dialog" role="dialog" aria-modal="true" aria-labelledby="citation-title" onMouseDown={(event) => event.stopPropagation()}><button className="dialog-close" onClick={() => setCitationOpen(false)} aria-label="Cerrar"><X /></button><p className="eyebrow">Cita sugerida</p><h2 id="citation-title">Sistema de relaciones de conflictos sociales mineros</h2><blockquote>Observatorio de Conflictos Mineros del Perú (2026). “Sistema de relaciones de conflictos sociales mineros”. Fecha de consulta: {new Date().toLocaleDateString("es-PE")}.</blockquote><p>Incluye siempre la fecha de corte porque los estados, acuerdos y registros documentales pueden cambiar.</p></section></div>}
+      {citationOpen && <div className="dialog-backdrop" role="presentation" onMouseDown={() => setCitationOpen(false)}><section className="citation-dialog" role="dialog" aria-modal="true" aria-labelledby="citation-title" onMouseDown={(event) => event.stopPropagation()}><button className="dialog-close" onClick={() => setCitationOpen(false)} aria-label="Cerrar"><X /></button><p className="eyebrow">Cita sugerida</p><h2 id="citation-title">Sistema de relaciones: conflictos sociales mineros y REINFO</h2><blockquote>Observatorio de Conflictos Mineros del Perú (2026). “Sistema de relaciones: conflictos sociales mineros y REINFO”. Fecha de consulta: {new Date().toLocaleDateString("es-PE")}.</blockquote><p>Incluye siempre la fecha de corte porque los estados, acuerdos y registros documentales pueden cambiar.</p></section></div>}
     </div>
   );
 }
