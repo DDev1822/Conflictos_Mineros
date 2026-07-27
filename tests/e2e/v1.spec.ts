@@ -124,7 +124,7 @@ test.describe("publicación V2 en escritorio", () => {
     }
   });
 
-  test("los casos publicados renderizan su cronología ampliada y la normativa expone estado real", async ({ page }) => {
+  test("los casos publicados muestran su cronología, documentos por hito y estado normativo", async ({ page }) => {
     const minimumMilestones: Record<string, number> = {
       tambogrande: 8,
       conga: 5,
@@ -139,9 +139,23 @@ test.describe("publicación V2 en escritorio", () => {
       "fondo-social-michiquillay": 8,
       "rio-blanco-majaz": 8,
     };
+
     for (const slug of caseSlugs) {
       await page.goto(`/conflictos/${slug}`);
-      expect(await page.locator(".vertical-timeline > li").count()).toBeGreaterThanOrEqual(minimumMilestones[slug]);
+      const milestones = page.locator(".vertical-timeline > li");
+      const milestoneCount = await milestones.count();
+      expect(milestoneCount).toBeGreaterThanOrEqual(minimumMilestones[slug]);
+
+      for (let index = 0; index < milestoneCount; index += 1) {
+        const milestone = milestones.nth(index);
+        const documentLinks = milestone.locator(".timeline-card-sources a");
+        expect(await documentLinks.count()).toBeGreaterThan(0);
+        const invalidLinks = await documentLinks.evaluateAll((links) => links.filter((link) => {
+          const href = link.getAttribute("href");
+          return !href || link.getAttribute("target") !== "_blank";
+        }).length);
+        expect(invalidLinks).toBe(0);
+      }
     }
     await page.goto("/conflictos");
     await expect(page.getByText("Preguntas de contraste").first()).toBeVisible();

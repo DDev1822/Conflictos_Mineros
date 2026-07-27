@@ -48,6 +48,15 @@ const timelineKindLabels: Record<TimelineEvent["kind"], string> = {
   publication: "publicación",
 };
 
+const sourceTypeLabels: Record<Source["type"], string> = {
+  official: "Oficial",
+  academic: "Academia",
+  community: "Comunidad",
+  company: "Empresa",
+  ngo: "Sociedad civil",
+  press: "Prensa",
+};
+
 const evidenceRelationLabels: Record<EvidenceRecord["relation"], string> = {
   supports: "sostiene",
   qualifies: "matiza",
@@ -129,6 +138,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const actors = data.actors.filter((entry) => item.actorIds.includes(entry.id));
   const issues = data.issues.filter((entry) => item.issueIds.includes(entry.id));
   const sources = linkedSources(item, packet, data.sources);
+  const sourceById = new Map(data.sources.map((source) => [source.id, source]));
   const evidenceRecords = linkedEvidenceRecords(item, packet, data.evidenceRecords);
   const verifiedClaims = item.claims.filter((claim) => claim.verificationStatus === "verified").length;
   const directActorSources = packet?.directActorSourceIds.length ?? 0;
@@ -178,16 +188,61 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
             <p className="eyebrow">Cronología documentada</p>
             <h2>Hitos del caso</h2>
             <ol className="vertical-timeline">
-              {item.timeline.map((event) => (
-                <li key={event.id}>
-                  <time>{formatDate(event.date)}</time>
-                  <div>
-                    <span className="timeline-kind">{timelineKindLabels[event.kind]} · {event.sourceIds.length} fuente(s)</span>
-                    <h3>{event.title}</h3>
-                    <p>{event.summary}</p>
-                  </div>
-                </li>
-              ))}
+              {item.timeline.map((event) => {
+                const eventSources = event.sourceIds
+                  .map((sourceId) => sourceById.get(sourceId))
+                  .filter((source): source is Source => Boolean(source));
+                const directLocators = data.evidenceRecords.filter(
+                  (record) => record.entityType === "timeline" && record.entityId === event.id,
+                );
+                const eventLocators = directLocators.length
+                  ? directLocators
+                  : data.evidenceRecords.filter((record) => event.sourceIds.includes(record.sourceId)).slice(0, 2);
+
+                return (
+                  <li key={event.id} id={event.id}>
+                    <time dateTime={event.date}>{formatDate(event.date)}</time>
+                    <div>
+                      <span className="timeline-kind">{timelineKindLabels[event.kind]} · {event.sourceIds.length} fuente(s)</span>
+                      <h3>{event.title}</h3>
+                      <p>{event.summary}</p>
+
+                      <div className="timeline-card-evidence" aria-label={`Trazabilidad documental de ${event.title}`}>
+                        <span>{eventSources.length} documento(s) disponible(s)</span>
+                        <span>{eventLocators.length} locador(es) de evidencia</span>
+                      </div>
+
+                      <div className="timeline-card-sources" aria-label={`Documentos vinculados al hito ${event.title}`}>
+                        {eventSources.map((source) => (
+                          <a
+                            key={source.id}
+                            href={source.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            title={source.title}
+                            aria-label={`Abrir documento: ${source.title}. ${source.institution}`}
+                          >
+                            <strong>{source.title}</strong>
+                            <small>{source.institution} · {sourceTypeLabels[source.type]} · {formatDate(source.date)}</small>
+                            <ArrowSquareOut size={13} aria-hidden />
+                          </a>
+                        ))}
+                      </div>
+
+                      {eventLocators.length > 0 && (
+                        <div className="timeline-locators" aria-label={`Locadores de evidencia de ${event.title}`}>
+                          {eventLocators.map((record) => (
+                            <section key={record.id}>
+                              <strong>{evidenceRelationLabels[record.relation]} · {record.locator}</strong>
+                              <small>{record.summary}</small>
+                            </section>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
             </ol>
           </section>
 
