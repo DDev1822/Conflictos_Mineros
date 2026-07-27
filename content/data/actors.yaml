@@ -6,6 +6,18 @@
   name: Manhattan Minerals
   type: company
   description: Empresa vinculada a la etapa histórica del proyecto Tambogrande.
+- id: comunidad-locuto
+  name: Comunidad Campesina Apóstol Juan Bautista de Locuto
+  type: community
+  description: Comunidad comprendida en la etapa social e hídrica del proyecto contemporáneo El Algarrobo.
+- id: empresa-buenaventura
+  name: Compañía de Minas Buenaventura
+  type: company
+  description: Empresa adjudicataria y optante del proyecto contemporáneo El Algarrobo.
+- id: proinversion-activos-mineros
+  name: PROINVERSIÓN y Activos Mineros
+  type: state
+  description: Entidades estatales vinculadas a la promoción, opción y eventual transferencia de las concesiones del proyecto El Algarrobo.
 - id: comunidades-cajamarca
   name: Comunidades y organizaciones de Cajamarca
   type: community
@@ -58,3 +70,103 @@
   name: Gobiernos regionales y locales
   type: state
   description: Autoridades con competencias territoriales, de formalización y gestión del conflicto.
+- id: habitantes-la-oroya
+  name: Habitantes y personas defensoras de La Oroya
+  type: community
+  description: Población, víctimas reconocidas y personas defensoras con demandas sobre ambiente, salud, información, participación y reparación.
+- id: trabajadores-la-oroya
+  name: Trabajadores y extrabajadores del Complejo Metalúrgico de La Oroya
+  type: collective
+  description: Colectivo laboral vinculado a la continuidad productiva, el empleo y la transferencia del complejo a una empresa de sus extrabajadores.
+- id: doe-run-peru
+  name: Doe Run Perú
+  type: company
+  description: Empresa que adquirió el complejo en 1997 y asumió obligaciones ambientales del PAMA según la reconstrucción documental de la Corte IDH.
+- id: metalurgia-business-peru
+  name: Metalurgia Business Perú
+  type: company
+  description: Empresa de extrabajadores que administra el complejo desde su transferencia y reinicio operacional.
+- id: autoridades-salud-ambiente
+  name: Autoridades estatales de salud y ambiente
+  type: state
+  description: Entidades nacionales y subnacionales con competencias documentadas en salud pública, calidad ambiental, fiscalización y cumplimiento de reparaciones.
+- id: comunidades-quilish
+  name: Comunidades y organizaciones vinculadas al Cerro Quilish
+  type: community
+  description: Población rural y urbana, organizaciones sociales y vocerías territoriales que participaron en la defensa del agua y la oposición a la exploración minera en Quilish.
+- id: municipalidad-cajamarca
+  name: Municipalidad Provincial de Cajamarca
+  type: state
+  description: Gobierno local que emitió la Ordenanza 012-2000-CMPC y participó en la controversia constitucional y las instancias de diálogo.
+- id: familia-chaupe-acuna
+  name: Familia Chaupe Acuña
+  type: community
+  description: Familia vinculada a la disputa territorial sobre Tragadero Grande, al proceso penal y a acciones constitucionales de protección.
+- id: organizaciones-defensa-acuna
+  name: Organizaciones de defensa de Máxima Acuña
+  type: civil-society
+  description: Organizaciones ambientales y de derechos humanos que acompañaron el caso y difundieron su dimensión de defensa territorial.
+- id: autoridades-justicia-proteccion
+  name: Autoridades de justicia y protección
+  type: state
+  description: Poder Judicial, Tribunal Constitucional, Defensoría del Pueblo y sistema interamericano en sus competencias diferenciadas.
+- id: poblacion-morococha
+  name: Población reasentada y no reasentada de Morococha
+  type: community
+  description: Habitantes, familias, propietarios y organizaciones vinculados con Antigua y Nueva Morococha y con las distintas posiciones sobre reasentamiento.
+- id: minera-chinalco
+  name: Minera Chinalco Perú
+  type: company
+  description: Empresa operadora del proyecto Toromocho y responsable empresarial del proceso de reasentamiento según los documentos revisados.
+- id: municipalidad-morococha
+  name: Municipalidad Distrital de Morococha
+  type: state
+  description: Gobierno local que formuló observaciones técnicas y participa en espacios institucionales vinculados con el reasentamiento.
+- id: autoridades-reasentamiento
+  name: Autoridades de reasentamiento, riesgo y diálogo
+  type: state
+  description: PCM, MINEM, MINAM, CENEPRED, INGEMMET y otras entidades con funciones diferenciadas en ambiente, riesgo, diálogo y seguimiento.
+- id: poblacion-choropampa
+  name: Población de Choropampa, Magdalena y San Juan
+  type: community
+  description: Personas y organizaciones de las localidades afectadas por el derrame de mercurio, sus efectos, la respuesta de emergencia y los procesos de compensación y seguimiento.
+- id: ransa-comercial
+  name: RANSA Comercial
+  type: company
+  description: Empresa transportista cuyo camión trasladaba el mercurio de Minera Yanacocha cuando ocurrió el derrame del 2 de junio de 2000.
+- id: autoridades-choropampa
+  name: Autoridades de salud, minería, justicia y gobierno local
+  type: state
+  description: Entidades con competencias diferenciadas en atención sanitaria, fiscalización minera, investigación, justicia, coordinación de emergencia y gobierno territorial en el caso Choropampa.
+- id: comunidades-michiquillay-encanada
+  name: Comunidades campesinas Michiquillay y La Encañada
+  type: community
+  description: Comunidades y sectores del ámbito de influencia que participan en acuerdos, representación del Fondo, priorización de proyectos y demandas de cumplimiento vinculadas con Michiquillay.
+- id: asociacion-fondo-social-michiquillay
+  name: Asociación Fondo Social Michiquillay
+  type: collective
+  description: Asociación sin fines de lucro constituida para administrar recursos y ejecutar programas y proyectos en Michiquillay y La Encañada, con órganos de decisión y vigilancia propios.
+- id: empresas-michiquillay
+  name: Anglo American Michiquillay y Southern Perú
+  type: company
+  description: Empresas vinculadas con ciclos sucesivos de transferencia y exploración del proyecto Michiquillay y con cambios en la asociación y los compromisos sociales del Fondo.
+- id: autoridades-michiquillay
+  name: PROINVERSIÓN, MINEM y entidades públicas vinculadas
+  type: state
+  description: Entidades con funciones diferenciadas en promoción de inversión, transferencia del proyecto, regulación de fondos sociales, diálogo, supervisión y diagnóstico territorial.
+- id: comunidades-yanta-segunda-cajas
+  name: Comunidades campesinas Yanta y Segunda y Cajas
+  type: community
+  description: Comunidades titulares y usuarias del territorio vinculado con el proyecto Río Blanco, con posiciones y decisiones internas que deben leerse sin presumir una voz comunal homogénea.
+- id: rondas-frontera-norte-rio-blanco
+  name: Rondas y organizaciones de la frontera norte de Piura
+  type: collective
+  description: Federaciones, rondas campesinas y organizaciones territoriales de Ayabaca y Huancabamba vinculadas con movilización, consulta vecinal, vigilancia territorial y demandas sobre el proyecto.
+- id: rio-blanco-copper
+  name: Río Blanco Copper S.A. y antecedente Minera Majaz
+  type: company
+  description: Empresa titular del proyecto y su antecedente societario, cuyas autorizaciones, actividades de exploración, planes de rehabilitación y posiciones públicas forman parte del expediente.
+- id: autoridades-rio-blanco
+  name: Autoridades estatales y gobiernos locales vinculados con Río Blanco
+  type: state
+  description: MINEM, OSINERGMIN, Defensoría del Pueblo, municipalidades y otras entidades con competencias diferenciadas en ambiente, fiscalización, participación, seguridad y diálogo.

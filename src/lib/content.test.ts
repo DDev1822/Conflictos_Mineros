@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { loadObservatoryData } from "./content";
 
 describe("contenido académico", () => {
-  it("incluye los seis expedientes piloto", () => {
-    expect(loadObservatoryData().cases).toHaveLength(6);
+  it("mantiene los expedientes canónicos trazados", () => {
+    expect(loadObservatoryData().cases).toHaveLength(13);
   });
 
   it("mantiene todas las afirmaciones trazables", () => {
@@ -38,9 +38,54 @@ describe("contenido académico", () => {
     expect(data.instruments.every((item) => instrumentLocators.has(item.id))).toBe(true);
   });
 
+  it("separa el ciclo histórico y el proceso contemporáneo de Tambogrande", () => {
+    const data = loadObservatoryData();
+    const item = data.cases.find((entry) => entry.id === "tambogrande");
+    const packet = data.caseResearchPackets.find((entry) => entry.caseId === "tambogrande");
+
+    expect(item?.status).toBe("active");
+    expect(item?.period.end).toBeNull();
+    expect(item?.timeline.map((event) => event.id)).toEqual(expect.arrayContaining([
+      "tambogrande-consulta",
+      "tambogrande-desistimiento-2005",
+      "tambogrande-algarrobo-adjudicacion",
+      "tambogrande-algarrobo-contrato",
+      "tambogrande-algarrobo-estado-268",
+    ]));
+    expect(item?.claims.find((claim) => claim.id === "tambogrande-hecho-2")?.verificationStatus).toBe("verified");
+    expect(packet?.depth).toBe("deep");
+    expect(packet?.substantiveMilestoneTarget).toBe(8);
+    expect(packet?.sourceIds).toContain("defensoria-conflictos-268");
+    expect(packet?.gaps.map((gap) => gap.id)).toEqual(expect.arrayContaining([
+      "tambogrande-contrato-final",
+      "tambogrande-acuerdo-agua",
+    ]));
+  });
+
+  it("compara compromisos sin confundir documento y ejecución", () => {
+    const data = loadObservatoryData();
+    const comparison = data.commitmentComparison;
+    const coveredCaseIds = new Set(comparison.entries.map((entry) => entry.caseId));
+
+    expect(comparison.entries).toHaveLength(13);
+    expect([...coveredCaseIds].sort()).toEqual(["cerro-quilish", "choropampa", "espinar", "fondo-social-michiquillay", "las-bambas", "madre-de-dios", "rio-blanco-majaz", "tambogrande", "toromocho-morococha"]);
+    expect(comparison.excludedCaseIds.sort()).toEqual(["conga", "la-oroya", "tia-maria", "yanacocha-maxima-acuna"]);
+    expect(comparison.entries.every((entry) => entry.sourceIds.length > 0)).toBe(true);
+    expect(comparison.entries.every((entry) => entry.limit.length >= 25)).toBe(true);
+    expect(comparison.entries.find((entry) => entry.id === "tambogrande-agua-acuerdo-social")?.implementationEvidence).toBe("not-located");
+    expect(comparison.entries.find((entry) => entry.id === "las-bambas-velille-transito-2024")?.documentaryStage).toBe("result-documented");
+    expect(comparison.entries.find((entry) => entry.id === "las-bambas-velille-transito-2024")?.implementationEvidence).toBe("partial");
+    expect(comparison.entries.find((entry) => entry.id === "quilish-dialogo-estudio-hidrico-2004")?.implementationEvidence).toBe("partial");
+    expect(comparison.entries.find((entry) => entry.id === "choropampa-convenio-obras-2000")?.implementationEvidence).toBe("partial");
+    expect(comparison.entries.find((entry) => entry.id === "michiquillay-transferencia-fondo-2009")?.documentaryStage).toBe("follow-up-documented");
+    expect(comparison.entries.find((entry) => entry.id === "rio-blanco-rehabilitacion-2008")?.implementationEvidence).toBe("partial");
+  });
+
   it("reconcilia el corte nacional de conflictos sociales", () => {
     const data = loadObservatoryData();
-    const snapshot = data.socialConflictSnapshots[0];
+    const snapshot = data.socialConflictSnapshots.find((item) => item.id === "defensoria-2026-04");
+    expect(snapshot).toBeDefined();
+    if (!snapshot) return;
     const registry = data.socialConflictCases.filter((item) => item.snapshotId === snapshot.id);
     const plotted = snapshot.regions.reduce((sum, region) => sum + region.total, 0);
     expect(snapshot.active + snapshot.latent).toBe(snapshot.totalRegistered);
@@ -53,21 +98,22 @@ describe("contenido académico", () => {
 
   it("reconcilia cada punto regional con su lista de casos", () => {
     const data = loadObservatoryData();
-    const snapshot = data.socialConflictSnapshots[0];
-    const registry = data.socialConflictCases.filter((item) => item.snapshotId === snapshot.id);
+    for (const snapshot of data.socialConflictSnapshots) {
+      const registry = data.socialConflictCases.filter((item) => item.snapshotId === snapshot.id);
 
-    for (const region of snapshot.regions) {
-      const regionalCases = registry.filter((item) => item.regionIds.includes(region.id));
-      expect(regionalCases, region.name).toHaveLength(region.total);
-      expect(regionalCases.filter((item) => item.status === "active"), `${region.name}: activos`).toHaveLength(region.active);
-      expect(regionalCases.filter((item) => item.status === "latent"), `${region.name}: latentes`).toHaveLength(region.latent);
-    }
+      for (const region of snapshot.regions) {
+        const regionalCases = registry.filter((item) => item.regionIds.includes(region.id));
+        expect(regionalCases, `${snapshot.id} · ${region.name}`).toHaveLength(region.total);
+        expect(regionalCases.filter((item) => item.status === "active"), `${snapshot.id} · ${region.name}: activos`).toHaveLength(region.active);
+        expect(regionalCases.filter((item) => item.status === "latent"), `${snapshot.id} · ${region.name}: latentes`).toHaveLength(region.latent);
+      }
 
-    for (const [scope, counts] of [["nacional", snapshot.national], ["multiregional", snapshot.multiregional]] as const) {
-      const scopedCases = registry.filter((item) => item.regionIds.includes(scope));
-      expect(scopedCases, scope).toHaveLength(counts.total);
-      expect(scopedCases.filter((item) => item.status === "active"), `${scope}: activos`).toHaveLength(counts.active);
-      expect(scopedCases.filter((item) => item.status === "latent"), `${scope}: latentes`).toHaveLength(counts.latent);
+      for (const [scope, counts] of [["nacional", snapshot.national], ["multiregional", snapshot.multiregional]] as const) {
+        const scopedCases = registry.filter((item) => item.regionIds.includes(scope));
+        expect(scopedCases, `${snapshot.id} · ${scope}`).toHaveLength(counts.total);
+        expect(scopedCases.filter((item) => item.status === "active"), `${snapshot.id} · ${scope}: activos`).toHaveLength(counts.active);
+        expect(scopedCases.filter((item) => item.status === "latent"), `${snapshot.id} · ${scope}: latentes`).toHaveLength(counts.latent);
+      }
     }
   });
 
@@ -86,22 +132,24 @@ describe("contenido académico", () => {
     const canonicalDocuments = [...cajamarcaDocuments, ...mechanismDocuments].filter((document) => document.status === "canonical-source");
     const researchTargets = [...cajamarcaDocuments, ...mechanismDocuments].filter((document) => document.status === "research-target");
 
-    expect(data.cajamarcaSystemMatrix.entries).toHaveLength(9);
-    expect(data.institutionalMechanisms.entries).toHaveLength(12);
+    expect(data.cajamarcaSystemMatrix.entries).toHaveLength(11);
+    expect(data.institutionalMechanisms.entries).toHaveLength(13);
     expect(canonicalDocuments.every((document) => sourceIds.has(document.sourceId))).toBe(true);
     expect(researchTargets.length).toBeGreaterThan(0);
   });
 
   it("reconcilia la selección de conflictos socioambientales mineros", () => {
     const data = loadObservatoryData();
-    const selection = data.miningConflictSelections[0];
+    const selection = data.miningConflictSelections.find((item) => item.id === "defensoria-2026-06-mining-selection");
+    expect(selection).toBeDefined();
+    if (!selection) return;
     const selectedIds = new Set(selection.caseIds);
     const registry = data.socialConflictCases.filter((item) => selectedIds.has(item.id));
 
-    expect(selection.totalRegistered).toBe(64);
-    expect(selection.active).toBe(57);
-    expect(selection.latent).toBe(7);
-    expect(selection.sourcePage).toBe(34);
+    expect(selection.totalRegistered).toBe(61);
+    expect(selection.active).toBe(50);
+    expect(selection.latent).toBe(11);
+    expect(selection.sourcePage).toBe(45);
     expect(registry).toHaveLength(selection.totalRegistered);
     expect(registry.every((item) => item.snapshotId === selection.snapshotId)).toBe(true);
     expect(registry.every((item) => item.conflictType === "Socioambiental")).toBe(true);
@@ -111,7 +159,7 @@ describe("contenido académico", () => {
 
   it("mantiene trazabilidad de cada caso del registro social", () => {
     const registry = loadObservatoryData().socialConflictCases;
-    expect(registry.every((item) => item.sourcePage >= 37 && item.sourcePage <= 75)).toBe(true);
+    expect(registry.every((item) => item.sourcePage >= 37 && item.sourcePage <= 120)).toBe(true);
     expect(registry.every((item) => item.titleMethod !== "editorial-summary" || Boolean(item.summary))).toBe(true);
     expect(new Set(registry.map((item) => item.id)).size).toBe(registry.length);
   });
@@ -159,7 +207,7 @@ describe("contenido académico", () => {
     expect(snapshot.sourceId).toBe("ingemmet-catastro-minero");
   });
 
-  it("mantiene cinco capas territoriales con fuente primaria y coordenadas como referencia", () => {
+  it("mantiene seis cortes o capas territoriales con fuente primaria y coordenadas como referencia", () => {
     const data = loadObservatoryData();
     const sourceById = new Map(data.sources.map((source) => [source.id, source]));
     const layers = [
@@ -170,7 +218,7 @@ describe("contenido académico", () => {
       ...data.miningConcessionTerritorialSnapshots,
     ];
 
-    expect(layers).toHaveLength(5);
+    expect(layers).toHaveLength(6);
     expect(layers.every((layer) => sourceById.get(layer.sourceId)?.evidenceLevel === "primary")).toBe(true);
     expect(layers.every((layer) => /(referencia|capital|centro urbano principal|no corresponde|no corresponden|no ubica|no se reproducen)/.test(layer.coordinateMethod.toLowerCase()))).toBe(true);
   });

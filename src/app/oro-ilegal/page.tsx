@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import {
   ArrowRight,
   Bank,
@@ -15,14 +17,14 @@ import {
 export const metadata: Metadata = {
   title: "Oro sin trazabilidad",
   description:
-    "Página de investigación sobre minería ilegal de oro, cadena de salida, trazabilidad, controles estatales y vacíos documentales.",
+    "Cadena de salida del oro ilegal e informal, trazabilidad comercial, controles estatales, REINFO y brechas entre producción declarada y exportación.",
 };
 
 const chainStages = [
   {
     stage: "01",
     title: "Extracción",
-    body: "La lectura parte de zonas de extracción ilegal, informal o en proceso de formalización, sin asumir equivalencia jurídica entre esas categorías.",
+    body: "El primer tramo exige diferenciar extracción ilegal, actividad informal y actividad en proceso de formalización, porque cada categoría produce efectos jurídicos distintos.",
     control: "Gobiernos regionales, MINEM, Fiscalía/FEMA, PNP",
   },
   {
@@ -55,22 +57,22 @@ const riskNodes = [
   {
     title: "Libre comercialización",
     text: "El material de investigación ubica el Art. 4 del TUO de la Ley General de Minería como nudo de análisis: compra a personas autorizadas, no reivindicación y deber de verificar origen.",
-    status: "Fuente normativa primaria pendiente de ficha documental",
+    status: "Normativa primaria en ficha documental",
   },
   {
     title: "REINFO como escudo documental",
-    text: "Los insumos señalan que el registro puede operar como protección documental cuando la formalización no avanza. La página lo conecta con REINFO sin confundir informalidad con ilegalidad penal.",
-    status: "Conectado a /reinfo; requiere contraste documental",
+    text: "El registro puede operar como protección documental cuando la formalización no avanza. La distinción clave es no confundir informalidad administrativa con ilegalidad penal.",
+    status: "REINFO / MAPE como contraste documental",
   },
   {
     title: "Exportación y SFE",
     text: "El flujo documentado incorpora DAM, factura, transporte, RECPO y declaración jurada. El Saldo a Favor del Exportador aparece como riesgo tributario si la cadena previa fue simulada.",
-    status: "Pendiente de contraste SUNAT/tributario",
+    status: "Contraste SUNAT/tributario requerido",
   },
   {
     title: "Concentrados y ensayos",
     text: "La investigación cita a la OCDE sobre vulnerabilidades en concentrados: valor, ley mineral, ensayos y posible subdeclaración en comercio marítimo.",
-    status: "Requiere locador OCDE antes de afirmar caso peruano concreto",
+    status: "Locador OCDE requerido antes de afirmar caso peruano concreto",
   },
 ];
 
@@ -85,7 +87,7 @@ const metrics = [
     value: "104 TM",
     label: "exportación ilegal reportada para 2025",
     source: "IPE citado por el insumo",
-    caveat: "Pendiente de fuente primaria verificable antes de usar como gate.",
+    caveat: "Requiere fuente primaria verificable antes de operar como umbral probatorio.",
   },
   {
     value: "720 kg",
@@ -97,7 +99,7 @@ const metrics = [
     value: "78 %",
     label: "REINFO suspendido según insumo",
     source: "FCDS / HTML recibido",
-    caveat: "Debe cruzarse con corte oficial REINFO antes de mostrarse como dato final.",
+    caveat: "Se contrasta con corte oficial REINFO antes de presentarlo como dato consolidado.",
   },
 ];
 
@@ -161,17 +163,17 @@ const sourcePackets: SourcePacket[] = [
     title: "Control, Legislación y Minería Ilegal de Oro en el Perú",
     kind: "investigación recibida · archivo interno",
     locator: "pp. 1-15",
-    use: "Marco inicial para cadena, normativa, exportación, REINFO, brechas y preguntas de alcance.",
+    use: "Marco inicial para cadena, normativa, exportación, REINFO, brechas y preguntas probatorias.",
   },
   {
     title: "Radiografía del oro ilegal: mercado de la impunidad",
-    kind: "página recibida · archivo interno",
+    kind: "insumo visual recibido · archivo interno",
     locator: "secciones I-V",
     use: "Propuesta visual y narrativa fuerte; sus afirmaciones deben pasar por matriz de evidencia.",
   },
   {
     title: "Radiografía del oro ilegal: cadena del oro en el Perú",
-    kind: "página recibida · archivo interno",
+    kind: "insumo visual recibido · archivo interno",
     locator: "secciones I-V",
     use: "Base para explicar producción, transporte, acopio, exportación y mercados.",
   },
@@ -186,14 +188,14 @@ const sourcePackets: SourcePacket[] = [
     title: "Estimaciones de minería ilegal 2025",
     kind: "sociedad civil / investigación",
     href: "https://fcds.org.pe/wp-content/uploads/2025/05/Estimaciones-mineria-ilegal-2025_final.pdf",
-    locator: "pendiente de extracción",
+    locator: "rango y metodología",
     use: "Fuente base a verificar para rangos históricos y composición de estimaciones.",
   },
   {
     title: "Illicit flows of gold concentrates in the maritime space",
     kind: "organismo internacional",
     href: "https://www.oecd.org/en/publications/illicit-flows-of-gold-concentrates-in-the-maritime-space_2beb54ce-en/full-report.html",
-    locator: "pendiente de extracción",
+    locator: "capítulos sobre concentrados",
     use: "Contraste sobre concentrados, comercio marítimo, ensayos y lavado comercial.",
   },
 ];
@@ -203,32 +205,32 @@ const scopeQuestions = [
   "¿Qué documento basta para acreditar origen lícito del oro y qué documento solo prueba circulación comercial?",
   "¿Qué responsabilidad puede atribuirse a acopiadores, plantas o exportadores sin resolución, investigación directa o fuente primaria?",
   "¿Cómo deben tratarse las cifras estimadas cuando no provienen de registros estatales primarios?",
-  "¿Qué afirmaciones sobre REINFO requieren fuente directa y fecha de corte antes de publicarse sin matiz?",
+  "¿Qué afirmaciones sobre REINFO requieren fuente directa y fecha de corte antes de formularse sin matiz?",
 ];
 
 export default function OroIlegalPage() {
+  if (!isPublishedSocialMiningCase({ id: "madre-de-dios" })) notFound();
   return (
     <div className="gold-page">
       <section className="gold-hero">
         <div>
-          <p className="eyebrow">Investigación documental · V1 privada</p>
+          <p className="eyebrow">Oro ilegal · trazabilidad y mercado</p>
           <h1>Oro sin trazabilidad</h1>
           <p>
-            Nueva sección para leer cómo el oro de origen no acreditado puede desplazarse desde extracción y acopio hacia
-            procesamiento, exportación y mercados internacionales. No imputa responsabilidad penal propia: separa hechos,
-            hipótesis, estimaciones y vacíos de control.
+            El oro de origen no acreditado puede desplazarse desde extracción y acopio hacia procesamiento, exportación
+            y mercados internacionales. El problema central es probar origen, no solo documentar circulación comercial.
           </p>
           <div className="gold-actions">
             <a href="#cadena" className="button primary">Ver cadena de salida <ArrowRight size={18} /></a>
             <a href="#evidencia" className="button secondary">Revisar fuentes</a>
           </div>
         </div>
-        <aside aria-label="Estado de revisión">
+        <aside aria-label="Estado de contraste">
           <WarningCircle size={30} />
-          <strong>Investigación documental en construcción</strong>
+          <strong>Estimaciones, intervención y registro no miden lo mismo</strong>
           <span>
-            Las cifras y tesis fuertes quedan marcadas como estimaciones o afirmaciones citadas hasta contar con locador
-            primario, metodología y fuente directa suficiente.
+            Producción declarada, exportación, oro intervenido y REINFO pertenecen a tramos distintos de la cadena; cruzarlos
+            sin método puede inflar o borrar el problema.
           </span>
         </aside>
       </section>
@@ -237,20 +239,20 @@ export default function OroIlegalPage() {
         <article>
           <FileText size={25} />
           <div>
-            <h2>Qué sí afirma la sección</h2>
+            <h2>El problema está en la cadena probatoria</h2>
             <p>
-              Que existen nudos documentales de trazabilidad, control, formalización, acopio y exportación que deben leerse
-              como cadena probatoria, no como categorías sueltas.
+              Trazabilidad, control, formalización, acopio y exportación forman una cadena: si un tramo no acredita origen,
+              el metal puede ingresar al mercado con apariencia documental.
             </p>
           </div>
         </article>
         <article>
           <BookOpenText size={25} />
           <div>
-            <h2>Qué no afirma todavía</h2>
+            <h2>La brecha estadística no equivale a condena</h2>
             <p>
-              No estima kilos diarios, no señala responsables penales ni convierte una brecha estadística en condena. Esos
-              pasos requieren fuente directa, alcance documental y revisión fechada.
+              Una diferencia entre producción declarada y salida reportada abre preguntas sobre origen, acopio y exportación;
+              no identifica por sí sola responsables penales ni volúmenes diarios de extracción ilegal.
             </p>
           </div>
         </article>
@@ -267,11 +269,11 @@ export default function OroIlegalPage() {
           />
         </figure>
         <div>
-          <p className="eyebrow">Problema de lectura</p>
+          <p className="eyebrow">Problema probatorio</p>
           <h2>El metal puede circular como mercancía antes de que el origen quede probado.</h2>
           <p>
-            Por eso la página no se organiza solo por territorio. Se organiza por cadena: extracción, acopio, procesamiento,
-            despacho, mercados y controles. Cada tramo exige un tipo distinto de evidencia.
+            La extracción, el acopio, el procesamiento, el despacho y la venta internacional producen documentos distintos.
+            El riesgo aparece cuando esos documentos prueban circulación comercial, pero no origen lícito del metal.
           </p>
         </div>
       </section>
@@ -296,7 +298,7 @@ export default function OroIlegalPage() {
       <section className="gold-risk-panel">
         <div>
           <p className="eyebrow">Nudos de control</p>
-          <h2>La página mira dónde se rompe o se vuelve insuficiente la trazabilidad.</h2>
+          <h2>La trazabilidad se debilita cuando origen, acopio y exportación usan estándares distintos.</h2>
         </div>
         <div className="gold-risk-grid">
           {riskNodes.map((node) => (
@@ -309,10 +311,10 @@ export default function OroIlegalPage() {
         </div>
       </section>
 
-      <section className="gold-metrics" aria-label="Cifras en revisión">
+      <section className="gold-metrics" aria-label="Cifras del oro en contraste">
         <div className="section-heading">
-          <p className="eyebrow">Cifras con etiqueta</p>
-          <h2>Ningún número entra sin fuente, corte y advertencia</h2>
+          <p className="eyebrow">Datos del oro</p>
+          <h2>Exportación, intervención y REINFO muestran escalas distintas del problema.</h2>
         </div>
         <div className="gold-metric-grid">
           {metrics.map((metric) => (
@@ -331,24 +333,24 @@ export default function OroIlegalPage() {
           <p className="eyebrow">Brecha de trazabilidad</p>
           <h2 id="oro-gap-heading">La salida reportada se separa de la producción declarada.</h2>
           <p>
-            Este es el gráfico que hace ruido —con razón—: la serie de trabajo recibida compara toneladas exportadas con
-            toneladas declaradas como producidas. En la página queda como alarma documental, no como prueba penal cerrada.
+            La serie de trabajo recibida compara toneladas exportadas con toneladas declaradas como producidas. La separación
+            sostenida desde 2013 obliga a mirar origen productivo, documentos de compra, DAM, RECPO y metodología de estimación.
           </p>
           <ul>
-            <li>Lectura útil: dónde pedir explicación, fuente primaria y trazabilidad de origen.</li>
-            <li>Límite: la serie debe contrastarse con MINEM, SUNAT/Aduanas y metodología FCDS antes de publicarse como dato final.</li>
+            <li>Uso probatorio: identificar dónde pedir explicación, fuente primaria y trazabilidad de origen.</li>
+            <li>Límite: la serie se mantiene como señal de contraste frente a MINEM, SUNAT/Aduanas y metodología FCDS.</li>
           </ul>
         </div>
         <figure className="gold-gap-card">
           <figcaption>
             <strong>Exportación total vs. producción declarada</strong>
-            <span>Toneladas métricas · serie extraída de la investigación recibida · pendiente de contraste primario</span>
+            <span>Toneladas métricas · serie extraída de la investigación recibida · contraste primario requerido</span>
           </figcaption>
           <svg
             className="gold-gap-chart"
             viewBox={`0 0 ${gapChart.width} ${gapChart.height}`}
             role="img"
-            aria-label="Gráfico comparativo de exportación total y producción declarada de oro entre 2003 y 2023. La serie muestra una separación amplia desde 2013."
+            aria-label="Gráfico comparativo de exportación total y producción declarada de oro entre 2003 y 2023. La serie registra una separación amplia desde 2013."
           >
             {yTicks.map((tick) => (
               <g key={tick}>
@@ -396,7 +398,7 @@ export default function OroIlegalPage() {
             <span><i className="gap" /> Brecha a documentar</span>
           </div>
           <p className="gold-gap-note">
-            Nota editorial: la brecha no prueba por sí sola origen ilegal; sí justifica abrir trazabilidad, documentos de
+            Criterio probatorio: la brecha no prueba por sí sola origen ilegal; sí justifica abrir trazabilidad, documentos de
             compra, DAM, RECPO, origen productivo y metodología de estimación.
           </p>
         </figure>
@@ -413,10 +415,10 @@ export default function OroIlegalPage() {
         <div>
           <MapTrifold size={28} />
           <p className="eyebrow">Territorio no equivale a imputación</p>
-          <h2>Madre de Dios será el núcleo inicial, pero la ruta no reemplaza el mapa ni los expedientes.</h2>
+          <h2>Madre de Dios concentra presión sobre bosque, ríos, formalización y mercado aurífero.</h2>
           <p>
-            La sección se conecta con Madre de Dios, REINFO, normativa y sistema de relaciones. Cuando el dato solo sea
-            regional, se mostrará como agregado regional; no como ubicación exacta de extracción o acopio.
+            Los datos regionales ubican presión territorial, no puntos exactos de extracción o acopio. La diferencia
+            entre agregado regional, operativo estatal y expediente individual sigue siendo central.
           </p>
           <Link href="/conflictos/madre-de-dios">Abrir expediente Madre de Dios <ArrowRight size={16} /></Link>
         </div>
@@ -424,11 +426,11 @@ export default function OroIlegalPage() {
 
       <section id="evidencia" className="gold-evidence">
         <div>
-          <p className="eyebrow">Archivo de partida</p>
-          <h2>Insumos recibidos y fuentes prioritarias</h2>
+          <p className="eyebrow">Fuentes y contraste</p>
+          <h2>La cadena exige cruzar estimaciones, intervención estatal, comercio exterior y normativa minera.</h2>
           <p>
-            Estos materiales no quedan como autoridad automática. La tarea siguiente es extraer locadores, separar hechos de
-            interpretación y contrastar cada afirmación sensible con fuente primaria.
+            FCDS, SUNAT, OCDE, normativa minera, reportes periodísticos y registros administrativos observan tramos distintos.
+            El cruce útil es el que diferencia origen material, circulación comercial y control estatal.
           </p>
         </div>
         <div className="gold-source-list">
@@ -460,8 +462,8 @@ export default function OroIlegalPage() {
       <section className="gold-legal-questions">
         <div>
           <BookOpenText size={30} />
-          <p className="eyebrow">Preguntas de investigación</p>
-          <h2>Antes de endurecer el lenguaje, hay que cerrar estándar probatorio.</h2>
+          <p className="eyebrow">Preguntas probatorias</p>
+          <h2>El punto crítico es probar origen, no solo circulación comercial.</h2>
         </div>
         <ol>
           {scopeQuestions.map((question) => (
@@ -473,20 +475,20 @@ export default function OroIlegalPage() {
       <section className="gold-next">
         <article>
           <Coins size={30} />
-          <h2>Conectar con REINFO / MAPE</h2>
-          <p>La página depende de distinguir informalidad, formalización, suspensión, ilegalidad penal y trazabilidad comercial.</p>
+          <h2>REINFO / MAPE</h2>
+          <p>La formalización, la suspensión registral, la informalidad administrativa y la ilegalidad penal producen efectos distintos sobre el origen declarado del oro.</p>
           <Link href="/reinfo">Ir a REINFO / MAPE <ArrowRight size={16} /></Link>
         </article>
         <article>
           <Database size={30} />
-          <h2>Conectar con sistema de relaciones</h2>
-          <p>El oro ilegal debe leerse como problema raíz separado del conflicto social minero, pero conectado por territorio y normas.</p>
+          <h2>Relaciones territoriales y normativas</h2>
+          <p>Oro ilegal e informalidad minera forman un problema raíz distinto del conflicto social minero, pero se cruzan por territorio, control estatal y reglas de formalización.</p>
           <Link href="/explorar">Abrir relaciones <ArrowRight size={16} /></Link>
         </article>
         <article>
           <Bank size={30} />
-          <h2>Próximo paquete documental</h2>
-          <p>Extraer locadores de FCDS, SUNAT, OCDE, Ojo Público, Convoca y normativa oficial antes de pasar a afirmaciones verificadas.</p>
+          <h2>Fuentes críticas de contraste</h2>
+          <p>FCDS, SUNAT, OCDE, Ojo Público, Convoca y normativa oficial permiten contrastar estimación, operativo, comercio marítimo y régimen minero.</p>
           <Link href="/normativa">Ver normativa <ArrowRight size={16} /></Link>
         </article>
       </section>

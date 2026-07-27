@@ -1,6 +1,6 @@
 matrixId: institutional-mechanisms
 status: working-structured-matrix
-cutoffDate: 2026-06-29
+cutoffDate: 2026-07-27
 canonicalStatus: non-canonical-research
 purpose: >
   Convertir la lectura comparativa de mecanismos institucionales en una matriz
@@ -12,7 +12,9 @@ sourceReadings:
   - cerro-quilish.md
   - yanacocha-maxima-acuna.md
   - toromocho-morococha.md
+  - choropampa.md
   - fondo-social-michiquillay.md
+  - rio-blanco-majaz.md
 columns:
   - mechanismId
   - family
@@ -34,6 +36,7 @@ entries:
       - toromocho-morococha
       - fondo-social-michiquillay
       - cerro-quilish
+      - rio-blanco-majaz
     primaryDocumentExamples:
       - sourceId: conga-eia-explotacion-2010
         locator: RD 351-2010-MEM/AAM; expediente Conga.
@@ -41,6 +44,8 @@ entries:
         locator: MINEM/gob.pe, EIA Toromocho / RD 411-2010-MEM-AAM.
       - sourceId: michiquillay-sec-10q-2026
         locator: Southern reporta EIAsd aprobado en octubre de 2021.
+      - sourceId: rio-blanco-minem-ea-2003
+        locator: MINEM, RD 478-2003-EM/DGAA y expediente de Evaluación Ambiental.
     authority: MINEM, SENACE u autoridad ambiental competente según etapa y fecha.
     obligationOrDecision: Aprobar, observar, modificar o evaluar instrumentos ambientales.
     status: Uso transversal iniciado; requiere matriz por instrumento y obligación.
@@ -153,14 +158,17 @@ entries:
       - las-bambas
       - espinar
       - fondo-social-michiquillay
+      - rio-blanco-majaz
     primaryDocumentExamples:
       - sourceId: morococha-minem-acuerdos-2018
         locator: MINEM, nota 05/06/2018.
       - sourceId: michiquillay-fsm-sobre
         locator: Acuerdos sociales 2008 con comunidades, Fondo Social.
+      - sourceId: rio-blanco-defensoria-reporte-36
+        locator: Defensoría, cronología y comisión de diálogo posterior a agosto de 2005.
     authority: MINEM, PCM, comunidades, empresas y mesas según caso.
     obligationOrDecision: Registrar compromisos, acuerdos y espacios de seguimiento.
-    status: Mecanismo identificado; faltan actas completas y matriz de cumplimiento.
+    status: Caso Michiquillay canonizado; faltan actas completas y matriz de cumplimiento obligación por obligación.
     followUpEvidence: Actas, cronogramas, responsables, presupuesto, recepción y seguimiento.
     editorialRisk: Confundir firma de acuerdo con cumplimiento.
     scopeQuestion: ¿Qué acuerdos son exigibles y cuáles son compromisos programáticos?
@@ -178,9 +186,11 @@ entries:
         locator: MINEM Fondos Sociales, líneas 215-231.
       - sourceId: michiquillay-minem-memoria-2018
         locator: MINEM Memoria Fondos Sociales 2018, pp. 3-4, 8 y 15.
+      - sourceId: michiquillay-fsm-informes
+        locator: Índice de informes de gestión, auditoría y control, consulta 27/07/2026.
     authority: Fondos sociales, comunidades, MINEM, MEF, empresas y órganos de vigilancia.
     obligationOrDecision: Transferir recursos, priorizar proyectos y reportar ejecución.
-    status: Matriz Michiquillay iniciada; faltan proyectos y auditorías extraídas.
+    status: Expediente Michiquillay profundo; faltan matriz por proyecto y extracción completa de hallazgos y cierres de auditoría.
     followUpEvidence: Estatuto, informes, auditorías, reportes cuatrimestrales y matriz de proyectos.
     editorialRisk: Equiparar dinero transferido con impacto verificado.
     scopeQuestion: ¿Qué prueba mínima acredita ejecución, recepción e impacto?
@@ -241,6 +251,27 @@ entries:
     editorialRisk: Convertir registro agregado en actividad verificada en campo.
     scopeQuestion: ¿Qué valor probatorio tiene cada registro frente a actividad real o conflicto vivo?
     relationshipUse: Nodo de estado administrativo, monitoreo y datos territoriales.
+
+  - mechanismId: mechanism-emergency-reparation
+    family: emergencia-salud-y-reparacion
+    cases:
+      - choropampa
+      - la-oroya
+      - espinar
+    primaryDocumentExamples:
+      - sourceId: choropampa-defensoria-62
+        locator: Informe Defensorial 62, página 7, análisis y anexos 1, 3 y 4.
+      - sourceId: choropampa-cao-investigacion-2000
+        locator: Informe independiente CAO, páginas 16 a 20 y 42 a 53.
+      - sourceId: choropampa-pj-pleno-2008
+        locator: Primer Pleno Casatorio Civil, páginas 109 a 150.
+    authority: Autoridades de salud y minería, empresa, transportista, gobierno local, CAO y sistema de justicia.
+    obligationOrDecision: Prevenir y responder a emergencias, atender exposición, fiscalizar, remediar y delimitar acuerdos o reparaciones.
+    status: Secuencia Choropampa documentada; faltan matriz de reparación, series sanitarias comparables y todos los expedientes judiciales.
+    followUpEvidence: Protocolos, registros anonimizados, monitoreo ambiental, convenios, obras, recepción, decisiones y seguimiento independiente.
+    editorialRisk: Convertir atención agregada en causalidad individual o acuerdo documentado en reparación integral.
+    scopeQuestion: ¿Qué evidencia permite separar respuesta inmediata, resultado sanitario, cumplimiento material y reparación suficiente?
+    relationshipUse: Nodo de emergencia minera, salud ambiental, fiscalización, acuerdos y reparación.
 
 publicationGates:
   - Cada mechanismId debe mantener documento primario o fuente objetivo explícita.

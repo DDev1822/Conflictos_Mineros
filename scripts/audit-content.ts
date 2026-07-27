@@ -1,6 +1,9 @@
 import { loadObservatoryData } from "../src/lib/content";
+import { getLatestPublicMiningCut } from "../src/lib/mining-classification";
 
 const data = loadObservatoryData();
+const { selection: publicMiningSelection, cases: publicMiningCases } = getLatestPublicMiningCut(data);
+if (!publicMiningSelection) throw new Error("No existe un corte público de conflictos sociales mineros");
 const sourceById = new Map(data.sources.map((source) => [source.id, source]));
 const errors: string[] = [];
 const warnings: string[] = [];
@@ -105,6 +108,29 @@ data.cases.forEach((item) => {
   }
 });
 
+const commitmentCoveredCaseIds = new Set(data.commitmentComparison.entries.map((entry) => entry.caseId));
+const commitmentExcludedCaseIds = new Set(data.commitmentComparison.excludedCaseIds);
+data.cases.forEach((item) => {
+  if (!commitmentCoveredCaseIds.has(item.id) && !commitmentExcludedCaseIds.has(item.id)) {
+    errors.push(`Comparación de compromisos: el caso ${item.id} no está cubierto ni declarado sin registro comparable`);
+  }
+  if (commitmentCoveredCaseIds.has(item.id) && commitmentExcludedCaseIds.has(item.id)) {
+    errors.push(`Comparación de compromisos: el caso ${item.id} figura simultáneamente cubierto y excluido`);
+  }
+});
+data.commitmentComparison.entries.forEach((entry) => {
+  const hasPrimarySource = entry.sourceIds.some((sourceId) => sourceById.get(sourceId)?.evidenceLevel === "primary");
+  if (!hasPrimarySource) {
+    errors.push(`Compromiso ${entry.id}: no conserva evidencia primaria`);
+  }
+  if (entry.implementationEvidence === "documented" && entry.documentaryStage !== "result-documented") {
+    errors.push(`Compromiso ${entry.id}: declara ejecución documentada sin un resultado documental`);
+  }
+  if (!entry.limit.toLowerCase().includes("no ") && !entry.limit.toLowerCase().includes("sin ")) {
+    warnings.push(`Compromiso ${entry.id}: el límite probatorio no explicita qué permanece sin demostrar`);
+  }
+});
+
 data.instruments.forEach((instrument) => {
   if (instrument.relatedInstrumentIds.includes(instrument.id)) {
     errors.push(`Norma ${instrument.id}: no puede relacionarse consigo misma`);
@@ -182,7 +208,7 @@ const sourceTypes = Object.entries(
   .map(([type, count]) => `${type}: ${count}`)
   .join(", ");
 
-console.log(`Auditoría editorial: ${data.cases.length} expedientes piloto, ${data.socialConflictCases.length} casos del corte social, ${data.miningConflictSelections[0].totalRegistered} conflictos socioambientales mineros, ${data.sources.length} fuentes, ${data.instruments.length} normas, ${territorialLayers.length} capas territoriales, 1 lectura de devastación en Madre de Dios.`);
+console.log(`Auditoría editorial: ${data.cases.length} expedientes trazados, ${publicMiningCases.length} conflictos sociales mineros del corte público, ${publicMiningSelection.active} activos, ${publicMiningSelection.latent} latentes, ${data.sources.length} fuentes, ${data.instruments.length} normas, ${territorialLayers.length} capas territoriales, 1 lectura de devastación en Madre de Dios.`);
 console.log(`Cobertura por tipo de fuente: ${sourceTypes}.`);
 warnings.forEach((warning) => console.warn(`ADVERTENCIA: ${warning}`));
 

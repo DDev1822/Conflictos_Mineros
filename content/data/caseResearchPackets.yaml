@@ -1,36 +1,177 @@
 - id: research-tambogrande
   caseId: tambogrande
-  depth: standard
-  substantiveMilestoneTarget: 5
-  cutoffDate: 2026-06-21
-  currentStatusSummary: El proyecto original es histórico; su consulta y desistimiento están documentados, pero no debe confundirse con iniciativas mineras contemporáneas del distrito.
-  sourceIds: [manhattan-annual-report-2002, manhattan-centromin-2003, tambogrande-consulta-municipal, tambogrande-retiro-eia-2005, tambogrande-muradian-2003, cooperaccion-tambogrande-2024]
-  directActorSourceIds: [manhattan-annual-report-2002, tambogrande-consulta-municipal, tambogrande-retiro-eia-2005]
+  depth: deep
+  substantiveMilestoneTarget: 8
+  cutoffDate: 2026-07-27
+  currentStatusSummary: El ciclo Manhattan/TG-1 es histórico y concluyó su secuencia documentada con terminación de opción y desistimiento del EIA; El Algarrobo/TG-3 es un proceso contemporáneo distinto, adjudicado a Buenaventura, con contrato de opción firmado y conflicto socioambiental activo en el Reporte 268. Las fuentes revisadas no acreditan todavía un Acuerdo Marco Social concluido, ejecución hídrica, exploración ni operación.
+  sourceIds: [manhattan-annual-report-2002, manhattan-centromin-2003, tambogrande-consulta-municipal, tambogrande-retiro-eia-2005, tambogrande-muradian-2003, cooperaccion-tambogrande-2024, proinversion-algarrobo-contrato-inicial-2024, proinversion-algarrobo-adjudicacion-2024, mef-algarrobo-contrato-2025, mef-ds-107-2025-ef, buenaventura-algarrobo-contrato-2025, defensoria-conflictos-268]
+  directActorSourceIds: [manhattan-annual-report-2002, manhattan-centromin-2003, tambogrande-consulta-municipal, tambogrande-retiro-eia-2005, proinversion-algarrobo-contrato-inicial-2024, proinversion-algarrobo-adjudicacion-2024, mef-algarrobo-contrato-2025, buenaventura-algarrobo-contrato-2025]
   actorPositions:
-    - actor: Municipalidad y memoria territorial
-      position: La consulta vecinal de 2002 se mantiene como un hito de la decisión territorial frente al proyecto.
-      sourceIds: [tambogrande-consulta-municipal]
+    - actor: Organizaciones de Tambogrande y memoria territorial
+      position: La consulta vecinal de 2002 se mantiene como un hito de decisión territorial y sectores de la sociedad civil conectan esa memoria con su oposición al proyecto contemporáneo.
+      sourceIds: [tambogrande-consulta-municipal, cooperaccion-tambogrande-2024]
     - actor: Autoridad sectorial
-      position: El procedimiento de evaluación ambiental concluyó con la aceptación de un desistimiento en 2005.
-      sourceIds: [tambogrande-retiro-eia-2005]
-    - actor: Sociedad civil
-      position: Organizaciones ambientales conectan el proceso contemporáneo con la memoria de oposición al proyecto original.
-      sourceIds: [cooperaccion-tambogrande-2024]
+      position: El procedimiento ambiental del proyecto histórico concluyó con la aceptación del desistimiento en 2005; este hecho no resuelve el estado del proyecto contemporáneo.
+      sourceIds: [tambogrande-retiro-eia-2005, mef-algarrobo-contrato-2025]
     - actor: Manhattan Minerals
       position: La empresa defendió la viabilidad ambiental, económica y social del proyecto y discrepó con la terminación del acuerdo de opción comunicada por Centromin.
       sourceIds: [manhattan-annual-report-2002, manhattan-centromin-2003]
+    - actor: PROINVERSIÓN, MEF y Activos Mineros
+      position: El Estado presenta El Algarrobo como un proyecto de opción por etapas, con gestión social e infraestructura hídrica antes de exploración, y comunicó su adjudicación, firma contractual y garantías estatales.
+      sourceIds: [proinversion-algarrobo-contrato-inicial-2024, proinversion-algarrobo-adjudicacion-2024, mef-algarrobo-contrato-2025, mef-ds-107-2025-ef]
+    - actor: Compañía de Minas Buenaventura
+      position: La empresa sostiene que priorizará agua y acuerdo social con Locuto antes de la exploración y presenta minería y agricultura como actividades compatibles; estas afirmaciones se conservan como posición corporativa.
+      sourceIds: [buenaventura-algarrobo-contrato-2025]
+    - actor: Comunidad Campesina Apóstol Juan Bautista de Locuto
+      position: El contrato inicial la identifica como contraparte del Acuerdo Marco Social que condiciona la vigencia de la opción; las fuentes revisadas no permiten atribuir una posición uniforme a toda la comunidad ni afirmar que el acuerdo esté concluido.
+      sourceIds: [proinversion-algarrobo-contrato-inicial-2024, mef-algarrobo-contrato-2025]
   contradictions:
     - id: tambogrande-legitimidad
-      description: La legitimidad territorial expresada en la consulta y el alcance administrativo del desistimiento son planos distintos que no deben fusionarse.
-      sourceIds: [tambogrande-consulta-municipal, tambogrande-retiro-eia-2005]
+      description: La legitimidad territorial expresada en la consulta de 2002 y el alcance administrativo del desistimiento de 2005 son planos distintos, y ninguno sustituye la evaluación documental del proceso El Algarrobo/TG-3.
+      sourceIds: [tambogrande-consulta-municipal, tambogrande-retiro-eia-2005, proinversion-algarrobo-adjudicacion-2024]
+      status: open
+    - id: tambogrande-agua-primero
+      description: El Estado y la empresa presentan una secuencia de agua y acuerdo social antes de exploración, mientras el Reporte 268 mantiene un conflicto socioambiental activo; falta evidencia pública que permita verificar por obligación el acuerdo, los estudios y la ejecución hídrica.
+      sourceIds: [proinversion-algarrobo-contrato-inicial-2024, mef-algarrobo-contrato-2025, buenaventura-algarrobo-contrato-2025, defensoria-conflictos-268]
+      status: open
+    - id: tambogrande-representacion-territorial
+      description: La identificación contractual de Locuto como contraparte y las posiciones de autoridades u organizaciones de Tambogrande no deben presentarse como una sola voluntad territorial ni como consenso distrital.
+      sourceIds: [proinversion-algarrobo-contrato-inicial-2024, tambogrande-consulta-municipal, cooperaccion-tambogrande-2024]
       status: open
   scopeQuestions:
-    - ¿Qué efecto documental y administrativo tuvo el desistimiento de 2005 sobre el proyecto y sus derechos asociados?
-    - ¿Qué alcance documental y administrativo tuvo la consulta vecinal de 2002 dentro del marco vigente en ese momento?
+    - ¿Qué elementos territoriales y documentales pertenecen al ciclo Manhattan/TG-1 y cuáles corresponden exclusivamente a El Algarrobo/TG-3?
+    - ¿Cuál es el texto final firmado del contrato de opción y qué diferencias presenta frente a la versión inicial de agosto de 2024?
+    - ¿Existe un Acuerdo Marco Social suscrito con Locuto y qué compromisos, responsables, plazos, indicadores y mecanismos de rendición de cuentas contiene?
+    - ¿Qué estudios de fuentes hídricas, expediente técnico, certificaciones y evidencia de ejecución existen al corte, diferenciando anuncios de resultados verificables?
+    - ¿Cómo se distribuyen las posiciones entre Locuto, otras organizaciones de Tambogrande, autoridades, empresa y entidades estatales sin atribuir consenso?
   gaps:
-    - id: tambogrande-expediente-completo
-      description: Ya existen locadores empresariales primarios para 1999 a 2003; falta el expediente administrativo completo del EIA y del acuerdo de opción.
-      blocksRelease: true
+    - id: tambogrande-expediente-historico
+      description: La matriz integra fuentes empresariales, consulta municipal, estudio académico y resolución de desistimiento; falta el expediente administrativo completo del EIA histórico y del acuerdo de opción para reconstrucción documental, sin convertirlo en condición de publicación.
+      blocksRelease: false
+    - id: tambogrande-contrato-final
+      description: Se revisó visualmente la versión inicial oficial del contrato y la comunicación oficial de firma; falta incorporar el texto final firmado para verificar cambios, anexos, montos y obligaciones definitivas.
+      blocksRelease: false
+    - id: tambogrande-acuerdo-agua
+      description: No se localizó en las fuentes oficiales revisadas el Acuerdo Marco Social concluido ni una matriz pública de estudios, inversión y ejecución del componente hídrico; el expediente declara esta ausencia y evita afirmar cumplimiento.
+      blocksRelease: false
+  status: ready
+- id: yanacocha-maxima-acuna-deep
+  caseId: yanacocha-maxima-acuna
+  depth: deep
+  substantiveMilestoneTarget: 8
+  cutoffDate: 2026-07-27
+  currentStatusSummary: El expediente documenta la disputa territorial, la secuencia penal hasta la absolución definitiva, medidas de protección, el fallo constitucional sobre privacidad y el cierre procesal estadounidense; no adjudica propiedad ni presenta como cerrados los procesos civiles peruanos.
+  sourceIds: [acuna-pj-casacion-458-2015, acuna-pj-nota-2017, acuna-tc-03882-04038-2016, acuna-defensoria-2015, acuna-cidh-mc-452-11, acuna-newmont-2017, acuna-newmont-2021, acuna-goldman-2016, acuna-scotus-21-33]
+  directActorSourceIds: [acuna-newmont-2017, acuna-newmont-2021]
+  actorPositions:
+    - actor: Máxima Acuña y familia Chaupe
+      position: La familia invocó documentos de posesión y compraventa, sostuvo su permanencia en Tragadero Grande y denunció afectaciones de tránsito, integridad y privacidad.
+      sourceIds: [acuna-pj-casacion-458-2015, acuna-tc-03882-04038-2016, acuna-defensoria-2015]
+    - actor: Minera Yanacocha y Newmont
+      position: La empresa afirma haber adquirido el terreno, respeta la absolución penal, mantiene acciones civiles y declara disposición a un diálogo de buena fe.
+      sourceIds: [acuna-newmont-2017, acuna-newmont-2021]
+    - actor: Poder Judicial y Tribunal Constitucional
+      position: La justicia penal confirmó la absolución y remitió la posesión a la vía civil; el TC protegió parcialmente la vida privada sin decidir propiedad o posesión.
+      sourceIds: [acuna-pj-casacion-458-2015, acuna-tc-03882-04038-2016]
+    - actor: Defensoría del Pueblo y CIDH
+      position: Las instituciones activaron mecanismos de protección para la familia y otras personas defensoras del contexto Cajamarca, sin resolver el fondo civil de la disputa.
+      sourceIds: [acuna-defensoria-2015, acuna-cidh-mc-452-11]
+    - actor: Organizaciones ambientales
+      position: El reconocimiento Goldman presenta a Máxima Acuña como defensora ambiental vinculada a la resistencia frente a Conga; se conserva como lectura social y no como conclusión judicial.
+      sourceIds: [acuna-goldman-2016]
+  contradictions:
+    - id: acuna-penal-civil
+      description: La absolución cerró la imputación penal por usurpación, pero no decidió la titularidad ni el mejor derecho de posesión sobre Tragadero Grande.
+      sourceIds: [acuna-pj-casacion-458-2015, acuna-tc-03882-04038-2016]
+      status: open
+    - id: acuna-defensa-propiedad
+      description: La familia presenta permanencia y defensa territorial, mientras Yanacocha afirma propiedad adquirida y ocupación; el paquete no contiene el expediente civil y registral completo para resolver ese desacuerdo.
+      sourceIds: [acuna-pj-casacion-458-2015, acuna-newmont-2017]
+      status: open
+    - id: acuna-proteccion-seguridad
+      description: Las medidas de protección y el fallo sobre privacidad coexisten con la posición empresarial de seguridad y defensa de propiedad, sin que una fuente individual cierre todos los hechos denunciados.
+      sourceIds: [acuna-defensoria-2015, acuna-cidh-mc-452-11, acuna-tc-03882-04038-2016, acuna-newmont-2021]
+      status: open
+    - id: acuna-conga-autonomia
+      description: El reconocimiento social conecta el caso con Conga, pero los expedientes judiciales revisados no prueban que Tragadero Grande explique por sí solo el estado general del proyecto.
+      sourceIds: [acuna-goldman-2016, acuna-pj-casacion-458-2015, acuna-newmont-2017]
+      status: open
+  scopeQuestions:
+    - ¿Cuál es el estado procesal completo de los procesos civiles de reivindicación e interdicto de retener mencionados por la empresa?
+    - ¿Qué acreditan exactamente las partidas registrales, escrituras, mapas y peritajes catastrales de Tragadero Grande?
+    - ¿Cómo se implementaron las medidas cautelares de la CIDH y qué seguimiento estatal documentado existe?
+    - ¿Qué extremos de tránsito, privacidad y vigilancia quedaron fundados, improcedentes o fuera del habeas corpus?
+    - ¿Cómo se conecta este conflicto con Conga sin fusionar expedientes ni afirmar una causalidad única?
+  gaps:
+    - id: acuna-expedientes-civiles
+      description: No se incorporaron los expedientes civiles completos de reivindicación e interdicto de retener ni una decisión final posterior a 2021.
+      blocksRelease: false
+    - id: acuna-registro-catastro
+      description: Faltan partidas registrales, escrituras, mapas y peritajes catastrales completos que permitan reconstruir la controversia predial.
+      blocksRelease: false
+    - id: acuna-proteccion-implementacion
+      description: El paquete contiene la medida cautelar y la alerta defensorial, pero no el expediente completo de implementación y seguimiento.
+      blocksRelease: false
+    - id: acuna-seguridad-denuncias
+      description: No se incorporaron denuncias fiscales y policiales completas ni convenios de seguridad aplicables a todos los episodios alegados.
+      blocksRelease: false
+  status: ready
+- id: cerro-quilish-deep
+  caseId: cerro-quilish
+  depth: deep
+  substantiveMilestoneTarget: 8
+  cutoffDate: 2026-07-27
+  currentStatusSummary: El expediente documenta la protección municipal, la sentencia constitucional, la autorización ambiental de 2004, la movilización social, la suspensión de eficacia y la revocatoria solicitada por Yanacocha; conserva como límites los documentos originales y estudios técnicos no localizados.
+  sourceIds: [quilish-tc-00300-2002-aa-2003, quilish-tc-nota-2003, quilish-rm-467-2004-mem-dm, quilish-oefa-dfai-0274-2020, quilish-oefa-tfa-002-2021, quilish-sinia-indicadores-cajamarca, quilish-newmont-10k-2009, quilish-cnddhh-informe-2004]
+  directActorSourceIds: [quilish-tc-00300-2002-aa-2003, quilish-rm-467-2004-mem-dm, quilish-newmont-10k-2009]
+  actorPositions:
+    - actor: Comunidades y población movilizada
+      position: La reconstrucción regional atribuye a comunidades y población rural y urbana preocupación por cantidad y calidad del agua y oposición a la exploración; no se presenta esa posición como homogénea ni como conclusión hidrogeológica.
+      sourceIds: [quilish-sinia-indicadores-cajamarca, quilish-cnddhh-informe-2004]
+    - actor: Municipalidad Provincial de Cajamarca
+      position: La municipalidad defendió la ordenanza como una medida local de conservación y protección del sistema hídrico, posición registrada en la sentencia constitucional.
+      sourceIds: [quilish-tc-00300-2002-aa-2003]
+    - actor: Minera Yanacocha y empresas recurrentes
+      position: Las empresas cuestionaron la competencia municipal y alegaron afectación de derechos; posteriormente Yanacocha solicitó la revocatoria y Newmont atribuyó el retiro del permiso a la oposición local.
+      sourceIds: [quilish-tc-00300-2002-aa-2003, quilish-rm-467-2004-mem-dm, quilish-newmont-10k-2009]
+    - actor: Ministerio de Energía y Minas
+      position: El MINEM autorizó la evaluación ambiental, dejó sin eficacia la decisión ante la necesidad de diálogo y finalmente revocó la autorización a pedido de la empresa.
+      sourceIds: [quilish-rm-467-2004-mem-dm, quilish-oefa-tfa-002-2021]
+    - actor: Tribunal Constitucional
+      position: El TC declaró infundadas las demandas y delimitó el alcance de la ordenanza, la concesión, la exploración y una eventual explotación sujeta a evaluación ambiental y autorizaciones.
+      sourceIds: [quilish-tc-00300-2002-aa-2003, quilish-tc-nota-2003]
+  contradictions:
+    - id: quilish-proteccion-competencia
+      description: La protección municipal del agua coexistió con derechos concesionales previos; el fallo mantuvo la ordenanza sin convertirla en una prohibición absoluta de exploración.
+      sourceIds: [quilish-tc-00300-2002-aa-2003, quilish-tc-nota-2003]
+      status: open
+    - id: quilish-autorizacion-legitimidad
+      description: La RD 361 habilitó administrativamente la evaluación ambiental de exploración, pero la movilización y las decisiones posteriores muestran que la autorización no resolvió la legitimidad territorial.
+      sourceIds: [quilish-rm-467-2004-mem-dm, quilish-sinia-indicadores-cajamarca]
+      status: open
+    - id: quilish-revocatoria-cierre
+      description: La revocatoria dejó sin efecto la autorización específica y la empresa retiró el permiso, pero esos actos no prueban solución permanente de las controversias territoriales de Cajamarca.
+      sourceIds: [quilish-rm-467-2004-mem-dm, quilish-newmont-10k-2009]
+      status: open
+  scopeQuestions:
+    - ¿Qué fundamento técnico, cartográfico y competencial contiene el expediente original de la Ordenanza 012-2000-CMPC?
+    - ¿Qué componentes, obligaciones, medidas ambientales y condiciones exactas establecieron las RD 361 y 427?
+    - ¿Qué actores participaron en el diálogo propuesto y qué evidencia existe sobre sus resultados?
+    - ¿Qué estudios hidrológicos e hidrogeológicos posteriores permiten contrastar las afirmaciones públicas sobre Quilish?
+    - ¿Cómo se documenta la influencia territorial de Quilish sobre Conga sin fusionar expedientes administrativos distintos?
+  gaps:
+    - id: quilish-ordenanza-original
+      description: La sentencia acredita existencia y alcance general de la Ordenanza 012-2000-CMPC, pero falta incorporar su texto oficial completo y el expediente municipal.
+      blocksRelease: false
+    - id: quilish-rd-originales
+      description: La RM 467 y el TFA reproducen antecedentes y partes centrales de las RD 361 y 427, pero faltan los textos originales completos y sus anexos técnicos.
+      blocksRelease: false
+    - id: quilish-fuentes-comunitarias
+      description: El memorial, las actas de movilización y las actas de diálogo se reconstruyen mediante un informe estatal regional; faltan originales y fuentes comunitarias directas representativas.
+      blocksRelease: false
+    - id: quilish-hidrogeologia
+      description: El expediente documenta preocupaciones hídricas y la propuesta de estudio, pero no contiene una matriz comparada de estudios hidrogeológicos que permita resolver todas las afirmaciones técnicas.
+      blocksRelease: false
   status: ready
 - id: research-conga
   caseId: conga
@@ -142,8 +283,8 @@
       description: Acta del 9 de junio de 2022, instalación del comité, subgrupos y registro estatal de 83 acuerdos integrados; el paquete ya no depende solo de notas generales para esos hitos.
       blocksRelease: false
     - id: las-bambas-matriz-cumplimiento
-      description: Falta una matriz pública verificable de cumplimiento por acuerdo, responsable, plazo, evidencia y estado para los compromisos de Cotabambas y corredor.
-      blocksRelease: true
+      description: La V1 integra actas, comité, subgrupos, registro estatal de 83 acuerdos y matriz empresarial; la matriz pública verificable por acuerdo, responsable, plazo, evidencia y estado queda como seguimiento no bloqueante y como límite para no afirmar cumplimiento integral.
+      blocksRelease: false
     - id: las-bambas-empresa
       description: Matriz empresarial vigente integrada desde MMG/Las Bambas/Willana Wasi para producción, corredor, Chalcobamba, empresas comunales, modelo social y reclamos; se conserva como posición corporativa y no como verificación externa de cumplimiento.
       blocksRelease: false
@@ -181,8 +322,8 @@
       description: Informe final MSAP 2013 e informes OEFA 2023 de causalidad integrados con locadores exactos; queda pendiente lectura de alcance probatorio, no adquisición documental básica.
       blocksRelease: false
     - id: espinar-amparo
-      description: CEJ verifica existencia, juzgado y partes del expediente 00042-2025-0-1009-JR-CI-01; faltan escrito de demanda, auto admisorio o resolución equivalente, acta de audiencia y constancia procesal para verificar pretensiones, admisión, resoluciones y estado procesal completo.
-      blocksRelease: true
+      description: CEJ verifica existencia, juzgado y partes del expediente 00042-2025-0-1009-JR-CI-01; las piezas judiciales completas quedan como seguimiento no bloqueante, y la V1 no verifica pretensiones, resoluciones ni estado procesal completo.
+      blocksRelease: false
   status: ready
 - id: research-madre-de-dios
   caseId: madre-de-dios
@@ -221,5 +362,306 @@
       blocksRelease: false
     - id: madre-dios-trazabilidad
       description: "Fuentes primarias integradas sobre trazabilidad/comercialización y fiscalización: herramienta MINEM, RECPO, control SUNAT de oro sin origen acreditado, caso MPFN sobre REINFO/RECPO, operativo SERNANP en Tambopata y balances PCM; queda pendiente lectura documental sobre valor probatorio y alcance."
+      blocksRelease: false
+  status: ready
+- id: research-la-oroya
+  caseId: la-oroya
+  depth: deep
+  substantiveMilestoneTarget: 8
+  cutoffDate: 2026-07-27
+  currentStatusSummary: El complejo reinició operaciones en 2023 bajo Metalurgia Business Perú y cuenta con una segunda actualización del plan de cierre aprobada en 2024, mientras la supervisión interamericana mantiene abiertas reparaciones ambientales, sanitarias e institucionales; el expediente no forma parte del corte mensual de 61 conflictos mineros de la Defensoría.
+  sourceIds: [la-oroya-corte-idh-2023, la-oroya-corte-idh-supervision-2025, la-oroya-tc-2006, la-oroya-ley-29410, la-oroya-oefa-aire-2022, la-oroya-minem-reinicio-2023, la-oroya-minem-cierre-2024, la-oroya-tc-2026, la-oroya-mbp-comunicado-2025, la-oroya-aida-hitos-2024]
+  directActorSourceIds: [la-oroya-corte-idh-2023, la-oroya-minem-reinicio-2023, la-oroya-mbp-comunicado-2025, la-oroya-aida-hitos-2024]
+  actorPositions:
+    - actor: Habitantes, víctimas y personas defensoras
+      position: Las posiciones recogidas en la sentencia reclaman protección de la salud y el ambiente, acceso a información, participación y reparación, sin que ello permita atribuir una postura uniforme a toda la población de La Oroya.
+      sourceIds: [la-oroya-corte-idh-2023, la-oroya-aida-hitos-2024]
+    - actor: Estado peruano
+      position: Las decisiones nacionales y la sentencia interamericana documentan obligaciones estatales en salud, vigilancia, remediación, información y garantía de la operación bajo estándares ambientales.
+      sourceIds: [la-oroya-tc-2006, la-oroya-corte-idh-2023, la-oroya-corte-idh-supervision-2025]
+    - actor: Doe Run Perú
+      position: La reconstrucción judicial registra que adquirió el complejo, asumió la mayor parte de obligaciones del PAMA y solicitó prórrogas; esta ficha no deriva de ello responsabilidad penal o civil individual.
+      sourceIds: [la-oroya-corte-idh-2023, la-oroya-ley-29410]
+    - actor: Trabajadores y extrabajadores
+      position: La transferencia y el reinicio expresan una demanda de continuidad laboral y productiva, diferenciada de la evaluación del cumplimiento ambiental y de las reparaciones.
+      sourceIds: [la-oroya-corte-idh-2023, la-oroya-minem-reinicio-2023]
+    - actor: Metalurgia Business Perú
+      position: La empresa declara que su operación actual es parcial, realiza monitoreos y asume responsabilidad por condiciones ambientales desde el reinicio; se conserva como posición corporativa, no como verificación independiente del desempeño.
+      sourceIds: [la-oroya-minem-reinicio-2023, la-oroya-mbp-comunicado-2025]
+  contradictions:
+    - id: la-oroya-operacion-reparacion
+      description: El reinicio operacional y la aprobación del plan de cierre coexisten con reparaciones abiertas; permisos o decisiones administrativas no prueban cumplimiento integral de la sentencia ni desempeño ambiental posterior.
+      sourceIds: [la-oroya-minem-reinicio-2023, la-oroya-minem-cierre-2024, la-oroya-corte-idh-supervision-2025]
+      status: open
+    - id: la-oroya-empleo-salud
+      description: La continuidad laboral es una dimensión documentada del caso, pero no cancela las obligaciones de salud, ambiente y reparación ni autoriza a presentar a la población como un bloque homogéneo.
+      sourceIds: [la-oroya-minem-reinicio-2023, la-oroya-corte-idh-2023]
+      status: open
+    - id: la-oroya-aire-corte
+      description: La evaluación de aire de 2022 corresponde a un periodo de paralización y no puede extrapolarse al escenario posterior al reinicio de octubre de 2023.
+      sourceIds: [la-oroya-oefa-aire-2022, la-oroya-minem-reinicio-2023]
+      status: open
+    - id: la-oroya-tc-2026-alcance
+      description: La ponencia de 2026 consignó cumplimiento parcial, mientras dos votos concurrentes consideraron esos fundamentos ajenos al petitorio; el expediente conserva ambas dimensiones.
+      sourceIds: [la-oroya-tc-2026, la-oroya-corte-idh-supervision-2025]
+      status: open
+  scopeQuestions:
+    - ¿Qué obligación concreta del PAMA correspondió a cada titular y qué decisión modificó su plazo, alcance, garantía o mecanismo de seguimiento?
+    - ¿Qué evidencia posterior al reinicio permite evaluar calidad del aire, emisiones, vigilancia sanitaria y respuesta ante alertas?
+    - ¿Cuál es el estado verificable de cada medida de reparación ordenada por la Corte IDH y qué entidad estatal es responsable de ejecutarla?
+    - ¿Qué obligaciones del plan de cierre 2024 cuentan con cronograma, garantía, supervisión y evidencia de ejecución accesible?
+    - ¿Cómo se representan posiciones de víctimas, trabajadores, población, empresa y Estado sin convertirlas en una sola voluntad territorial?
+  gaps:
+    - id: la-oroya-matriz-pama
+      description: La sentencia y la Ley 29410 permiten reconstruir hitos centrales, pero falta consolidar el PAMA original, sus modificatorias, resoluciones de prórroga, garantías y seguimiento por obligación.
+      blocksRelease: false
+    - id: la-oroya-datos-post-reinicio
+      description: La evaluación OEFA integrada corresponde a 2022 durante la paralización; faltan series públicas comparables posteriores al reinicio para no extrapolar condiciones ambientales.
+      blocksRelease: false
+    - id: la-oroya-matriz-reparaciones
+      description: La resolución de 2025 enumera medidas abiertas y cumplimiento parcial de publicaciones; falta una matriz posterior por medida, entidad, plazo, evidencia y observaciones de víctimas.
+      blocksRelease: false
+    - id: la-oroya-fuentes-directas
+      description: Las posiciones comunitarias, laborales y empresariales se reconstruyen desde expedientes y comunicaciones oficiales; falta ampliar fuentes directas contemporáneas con representatividad y fecha verificables.
+      blocksRelease: false
+  status: ready
+- id: toromocho-morococha-deep
+  caseId: toromocho-morococha
+  depth: deep
+  substantiveMilestoneTarget: 8
+  cutoffDate: 2026-07-27
+  currentStatusSummary: El Reporte 268 mantiene Morococha–Chinalco activo; el expediente integra habilitación ambiental, traslado urbano, evaluación de riesgo, acuerdos, mesa de diálogo y seguimiento del plan, sin equiparar infraestructura o seguridad física con consentimiento y cumplimiento integral.
+  sourceIds: [morococha-minem-eia-2010, morococha-cenepred-028-2013, morococha-ingemmet-a6760, morococha-minem-acuerdos-2018, defensoria-conflictos-268, morococha-chinalco-nueva, morococha-pcm-rm-068-2020, morococha-pcm-rm-064-2025, morococha-minam-ogasa-2025, morococha-cooperaccion-2025]
+  directActorSourceIds: [morococha-chinalco-nueva, morococha-minem-acuerdos-2018]
+  actorPositions:
+    - actor: Población reasentada y no reasentada
+      position: Las fuentes estatales y de sociedad civil registran posiciones diferenciadas sobre vivienda, predios, arraigo, proyectos productivos y condiciones de reasentamiento; no se presenta a la población como un bloque homogéneo.
+      sourceIds: [morococha-minem-acuerdos-2018, morococha-cooperaccion-2025]
+    - actor: Minera Chinalco Perú
+      position: La empresa presenta Nueva Morococha como ciudad planificada bajo estándares internacionales y sostiene mejoras de calidad de vida; en 2025 presentó ante la mesa el estado de su Plan de Acción.
+      sourceIds: [morococha-chinalco-nueva, morococha-minam-ogasa-2025]
+    - actor: Municipalidad Distrital de Morococha
+      position: La municipalidad solicitó evaluación técnica de Carhuacoto ante preocupaciones de riesgo y participó posteriormente en acuerdos sobre el proceso territorial.
+      sourceIds: [morococha-cenepred-028-2013, morococha-minem-acuerdos-2018]
+    - actor: CENEPRED e INGEMMET
+      position: Las entidades evaluaron peligros físicos y concluyeron que la zona reunía condiciones de seguridad bajo medidas preventivas, sin evaluar consentimiento o suficiencia de compensaciones.
+      sourceIds: [morococha-cenepred-028-2013, morococha-ingemmet-a6760]
+    - actor: PCM, MINEM, MINAM y Defensoría
+      position: El Estado aprobó, facilitó acuerdos, mantuvo una mesa y siguió el Plan de Acción, mientras Defensoría conserva el conflicto como activo al corte de junio de 2026.
+      sourceIds: [morococha-minem-eia-2010, morococha-minem-acuerdos-2018, morococha-pcm-rm-068-2020, morococha-minam-ogasa-2025, defensoria-conflictos-268]
+  contradictions:
+    - id: morococha-seguridad-legitimidad
+      description: La conclusión técnica favorable sobre seguridad física de Carhuacoto no acredita aceptación, calidad de vida ni cierre del conflicto, que Defensoría mantiene activo.
+      sourceIds: [morococha-cenepred-028-2013, defensoria-conflictos-268]
+      status: open
+    - id: morococha-acuerdo-cumplimiento
+      description: Los acuerdos de 2018 y la presentación del Plan de Acción en 2025 documentan negociación y seguimiento, pero no publican una matriz suficiente de cumplimiento por obligación.
+      sourceIds: [morococha-minem-acuerdos-2018, morococha-minam-ogasa-2025]
+      status: open
+    - id: morococha-empresa-estado-conflicto
+      description: La empresa afirma mejoras sociales en Nueva Morococha, mientras el registro defensorial conserva un conflicto activo y las fuentes territoriales describen población no reasentada.
+      sourceIds: [morococha-chinalco-nueva, defensoria-conflictos-268, morococha-cooperaccion-2025]
+      status: open
+    - id: morococha-mesa-desalojo
+      description: La mesa fue creada para culminar el reasentamiento mediante diálogo, pero sociedad civil reportó en 2025 un desalojo judicial de familias no reasentadas cuyo expediente completo falta incorporar.
+      sourceIds: [morococha-pcm-rm-068-2020, morococha-cooperaccion-2025]
+      status: open
+  scopeQuestions:
+    - ¿Qué obligaciones concretas contienen el EIA, sus modificatorias y el Plan de Acción del Reasentamiento, y qué evidencia existe por obligación?
+    - ¿Qué criterios determinaron quién calificaba como población reasentada, no reasentada o compensada?
+    - ¿Qué resultados verificables produjeron los acuerdos de 2018, el convenio marco y las sesiones posteriores de la mesa?
+    - ¿Qué expediente judicial sustentó el desalojo reportado en septiembre de 2025 y qué decisiones posteriores existen?
+    - ¿Qué indicadores independientes permiten evaluar vivienda, empleo, servicios, movilidad, economía y arraigo en Nueva Morococha?
+  gaps:
+    - id: morococha-instrumentos-sociales
+      description: Faltan el EIA y MEIA completos, el plan de reasentamiento, el Plan de Acción y sus matrices de obligaciones y seguimiento con locadores finos.
+      blocksRelease: false
+    - id: morococha-actas-cumplimiento
+      description: No se incorporaron todas las actas de la mesa, el convenio marco ni una matriz pública de cumplimiento de los acuerdos de 2018.
+      blocksRelease: false
+    - id: morococha-familias-compensaciones
+      description: Falta una relación trazable de familias reasentadas, no reasentadas, compensadas y tituladas, con criterios, fechas y fuentes registrales.
+      blocksRelease: false
+    - id: morococha-expediente-desalojo
+      description: El desalojo de septiembre de 2025 se conserva como hecho reportado porque falta el expediente judicial primario completo, el acta de lanzamiento y decisiones posteriores.
+      blocksRelease: false
+    - id: morococha-indicadores-independientes
+      description: Las afirmaciones corporativas de calidad de vida requieren contraste con indicadores independientes y fuentes directas representativas de experiencias diversas.
+      blocksRelease: false
+  status: ready
+- id: research-choropampa
+  caseId: choropampa
+  depth: deep
+  substantiveMilestoneTarget: 8
+  cutoffDate: 2026-07-27
+  currentStatusSummary: Choropampa queda integrado como caso histórico autónomo con derrame, respuesta, atención agregada, fiscalización, evaluación independiente, acuerdos y litigio trazados; no forma parte de los 61 conflictos sociales mineros del Reporte 268.
+  sourceIds: [choropampa-defensoria-62, choropampa-cao-investigacion-2000, choropampa-cao-caso, choropampa-pj-pleno-2008, choropampa-newmont-10k-2002, choropampa-newmont-relaciones-2009]
+  directActorSourceIds: [choropampa-cao-caso, choropampa-newmont-10k-2002, choropampa-newmont-relaciones-2009]
+  actorPositions:
+    - actor: Población y Frente de Defensa de Choropampa
+      position: La queja resumida por CAO y las entrevistas de la revisión corporativa registran preocupación por efectos de largo plazo, compromisos alegadamente incumplidos y falta de confianza en una respuesta considerada completa.
+      sourceIds: [choropampa-cao-caso, choropampa-newmont-relaciones-2009]
+    - actor: Defensoría y autoridades estatales
+      position: La Defensoría documentó afectación, debilidades de fiscalización y coordinación, atención estatal, sanción y deberes diferenciados de salud, minería, justicia y gobierno territorial.
+      sourceIds: [choropampa-defensoria-62]
+    - actor: Minera Yanacocha y Newmont
+      position: La empresa reportó programa de remediación, multa pagada bajo protesta, transacciones, obras públicas y posteriores mejoras de transporte y respuesta de emergencia.
+      sourceIds: [choropampa-newmont-10k-2002, choropampa-newmont-relaciones-2009]
+    - actor: RANSA Comercial
+      position: La transportista aparece en la reconstrucción del traslado, el derrame y los litigios; el expediente no atribuye a una sola entidad todas las responsabilidades administrativas, civiles, penales o sanitarias.
+      sourceIds: [choropampa-defensoria-62, choropampa-pj-pleno-2008]
+  contradictions:
+    - id: choropampa-extension-derrame
+      description: La Defensoría sitúa el derrame en aproximadamente 27 km, mientras la investigación CAO lo reconstruye en unos 40 km y su ficha pública usa 41 km; se conserva la discrepancia sin elegir una precisión falsa.
+      sourceIds: [choropampa-defensoria-62, choropampa-cao-investigacion-2000, choropampa-cao-caso]
+      status: resolved
+    - id: choropampa-atencion-causalidad
+      description: Los registros agregados acreditan atención, exposición y síntomas, pero también diferencias de clasificación clínica; no permiten generalizar causalidad individual ni estado médico actual.
+      sourceIds: [choropampa-defensoria-62, choropampa-cao-investigacion-2000]
+      status: resolved
+    - id: choropampa-reparacion
+      description: La empresa reporta remediación, transacciones y obras, mientras fuentes institucionales y la propia revisión corporativa registran preocupación, litigios y desconfianza persistente; acuerdo documentado no equivale a reparación integral.
+      sourceIds: [choropampa-defensoria-62, choropampa-pj-pleno-2008, choropampa-newmont-10k-2002, choropampa-newmont-relaciones-2009]
+      status: resolved
+  scopeQuestions:
+    - ¿Qué obligaciones concretas de salud, ambiente, transporte y comunicación quedaron asignadas a cada entidad y qué evidencia posterior demuestra su cumplimiento?
+    - ¿Qué diferencia debe mantener el observatorio entre persona atendida, exposición medida, intoxicación diagnosticada y causalidad médica individual?
+    - ¿Qué cubrió cada transacción o convenio, quién la suscribió y qué derechos o reclamos quedaron fuera de su alcance?
+    - ¿Qué cambios de transporte y respuesta de emergencia fueron implementados y qué verificación independiente existe sobre su continuidad?
+  gaps:
+    - id: choropampa-expediente-sanitario
+      description: Faltan series sanitarias anonimizadas y comparables de largo plazo con metodología, población, seguimiento y límites para evaluar resultados sin invadir privacidad ni inferir diagnósticos individuales.
+      blocksRelease: false
+    - id: choropampa-matriz-reparacion
+      description: Falta una matriz pública por transacción, convenio, obra, responsable, beneficiario colectivo, plazo y evidencia de ejecución que permita evaluar cobertura sin declarar reparación integral.
+      blocksRelease: false
+    - id: choropampa-expedientes-judiciales
+      description: El paquete incorpora el Primer Pleno Casatorio, pero no la totalidad de procesos civiles, penales, arbitrales y sus decisiones finales vinculadas con todas las personas demandantes.
+      blocksRelease: false
+    - id: choropampa-fuentes-comunitarias
+      description: Faltan documentos directos archivados del Frente de Defensa, actas comunales, municipalidad y testimonios representativos con consentimiento y contexto temporal verificable.
+      blocksRelease: false
+  status: ready
+- id: research-fondo-social-michiquillay
+  caseId: fondo-social-michiquillay
+  depth: deep
+  substantiveMilestoneTarget: 8
+  cutoffDate: 2026-07-27
+  currentStatusSummary: Michiquillay queda integrado como conflicto social minero histórico y experimento institucional de gestión social; una acción colectiva de 2025 acredita contestación reciente, pero el caso no figura entre los 61 conflictos mineros del Reporte 268.
+  sourceIds: [michiquillay-defensoria-73, michiquillay-defensoria-90, michiquillay-defensoria-256, michiquillay-fsm-sobre, michiquillay-fsm-informes, michiquillay-mef-ds-082-2008, michiquillay-minem-contrato-2018, michiquillay-proinversion-2018, michiquillay-minem-memoria-2018, michiquillay-oefa-diagnostico-2019, michiquillay-pucp-2021, michiquillay-sec-10q-2026]
+  directActorSourceIds: [michiquillay-fsm-sobre, michiquillay-fsm-informes, michiquillay-sec-10q-2026]
+  actorPositions:
+    - actor: Comunidades campesinas Michiquillay y La Encañada
+      position: Los reportes defensoriales registran demandas por remediación, acuerdos y cumplimiento del Fondo; la acción de 2025 muestra que la provisión de infraestructura educativa seguía siendo objeto de movilización.
+      sourceIds: [michiquillay-defensoria-73, michiquillay-defensoria-90, michiquillay-defensoria-256]
+    - actor: Asociación Fondo Social Michiquillay
+      position: El Fondo se presenta como asociación orientada a administrar recursos y ejecutar programas y proyectos, y expone un archivo de gestión, auditoría y control para consulta pública.
+      sourceIds: [michiquillay-fsm-sobre, michiquillay-fsm-informes]
+    - actor: Estado y entidades de promoción y supervisión
+      position: La Defensoría, PROINVERSIÓN, MINEM y OEFA documentan respectivamente conflicto, transferencias, arquitectura institucional y condiciones territoriales, sin que una sola entidad certifique todo el desempeño del Fondo.
+      sourceIds: [michiquillay-defensoria-73, michiquillay-proinversion-2018, michiquillay-minem-memoria-2018, michiquillay-oefa-diagnostico-2019]
+    - actor: Southern Perú
+      position: La empresa reporta acuerdos sociales, programas y compromisos en agricultura, educación, agua, residuos y salud mientras el proyecto continúa en estudios.
+      sourceIds: [michiquillay-sec-10q-2026]
+    - actor: Investigación académica
+      position: La tesis revisada identifica problemas de representación y conocimiento de reglas como factores que afectan expectativas y percepción de funcionamiento; el observatorio conserva ese hallazgo como análisis situado.
+      sourceIds: [michiquillay-pucp-2021]
+  contradictions:
+    - id: michiquillay-institucion-conflicto
+      description: La constitución del Fondo y su continuidad administrativa coexisten con reclamos de implementación y cumplimiento registrados por la Defensoría; institución existente no equivale a legitimidad ni consenso.
+      sourceIds: [michiquillay-fsm-sobre, michiquillay-defensoria-73, michiquillay-defensoria-90]
+      status: resolved
+    - id: michiquillay-recursos-impacto
+      description: PROINVERSIÓN documenta la transferencia de recursos y el Fondo publica informes, mientras OEFA registra brechas territoriales y la Defensoría una demanda educativa posterior; monto transferido no prueba impacto suficiente.
+      sourceIds: [michiquillay-proinversion-2018, michiquillay-fsm-informes, michiquillay-oefa-diagnostico-2019, michiquillay-defensoria-256]
+      status: resolved
+    - id: michiquillay-representacion
+      description: La arquitectura formal contempla participación comunal, pero la investigación académica reporta límites de representación y conocimiento de reglas; el expediente distingue diseño institucional de experiencia social.
+      sourceIds: [michiquillay-minem-memoria-2018, michiquillay-pucp-2021]
+      status: resolved
+    - id: michiquillay-estado-actual
+      description: Existe acción colectiva reciente y el proyecto sigue activo, pero Michiquillay no aparece como caso vigente dentro de la selección minera del Reporte 268; el estado latente es editorial, no una etiqueta defensorial actual.
+      sourceIds: [michiquillay-defensoria-256, michiquillay-sec-10q-2026, defensoria-conflictos-268]
+      status: resolved
+  scopeQuestions:
+    - ¿Cómo se distribuye la capacidad de decisión entre comunidades, empresa, directorio, consejo de vigilancia y entidades estatales?
+    - ¿Qué recursos fueron transferidos, comprometidos y ejecutados por proyecto, y qué resultados verificables produjeron en cada sector beneficiario?
+    - ¿Qué compromisos de los acuerdos de 2008, 2010 y 2021 cuentan con acta, responsable, plazo, indicador y evidencia posterior de cumplimiento?
+    - ¿Qué diferencias existen entre transparencia documental, control financiero, desempeño institucional, legitimidad representativa e impacto territorial?
+  gaps:
+    - id: michiquillay-actas-estatuto
+      description: Faltan el estatuto vigente consolidado, actas comunales y de directorio, reglamentos internos y reglas completas de representación y contratación.
+      blocksRelease: false
+    - id: michiquillay-matriz-ejecucion
+      description: Falta una matriz reconciliada por transferencia, proyecto, costo, plazo, beneficiario, recepción, auditoría y resultado territorial verificable.
+      blocksRelease: false
+    - id: michiquillay-acuerdos-completos
+      description: No están incorporados los textos completos de los acuerdos sociales de 2008 y 2021 ni una trazabilidad obligación por obligación.
+      blocksRelease: false
+    - id: michiquillay-voz-comunitaria
+      description: Faltan actas y documentos directos archivados de sectores y organizaciones comunales que permitan representar desacuerdos internos sin generalizar una sola voz comunitaria.
+      blocksRelease: false
+  status: ready
+- id: research-rio-blanco-majaz
+  caseId: rio-blanco-majaz
+  depth: deep
+  substantiveMilestoneTarget: 8
+  cutoffDate: 2026-07-27
+  currentStatusSummary: Río Blanco–Majaz queda integrado como conflicto socioambiental minero activo con autorización superficial, exploración, consulta vecinal, violencia, fiscalización, rehabilitación y reactivación trazadas; el Reporte 268 lo mantiene activo.
+  sourceIds: [rio-blanco-defensoria-informe-2006, rio-blanco-minem-ea-2003, rio-blanco-defensoria-reporte-36, rio-blanco-defensoria-reporte-139, rio-blanco-osinergmin-444-2008, rio-blanco-minem-desistimiento-2009, rio-blanco-minem-rehabilitacion-2016, rio-blanco-minem-rehabilitacion-2020, rio-blanco-defensoria-reporte-246, rio-blanco-empresa-proyecto-2026, rio-blanco-red-muqui-2024, rio-blanco-iep-2009, defensoria-conflictos-268]
+  directActorSourceIds: [rio-blanco-empresa-proyecto-2026, rio-blanco-red-muqui-2024]
+  actorPositions:
+    - actor: Comunidades campesinas Yanta y Segunda y Cajas
+      position: Los reportes defensoriales y las vocerías recogidas por Red Muqui registran oposición al proyecto, defensa de agricultura, páramos y bosques, y cuestionamientos sobre autorización y presencia empresarial.
+      sourceIds: [rio-blanco-defensoria-informe-2006, rio-blanco-defensoria-reporte-246, rio-blanco-red-muqui-2024]
+    - actor: Rondas y organizaciones territoriales de Ayabaca y Huancabamba
+      position: Las organizaciones sostienen la vigencia política de la consulta de 2007, solicitan protección territorial y plantean demandas frente a concesiones y contactos empresariales.
+      sourceIds: [rio-blanco-defensoria-reporte-246, rio-blanco-red-muqui-2024]
+    - actor: Río Blanco Copper
+      position: La empresa presenta el proyecto en prefactibilidad, sostiene que fue rediseñado para excluir páramos y afirma que no afectará ecosistemas frágiles ni fuentes de agua, junto con beneficios económicos proyectados.
+      sourceIds: [rio-blanco-empresa-proyecto-2026]
+    - actor: Defensoría, MINEM y OSINERGMIN
+      position: Las entidades documentan respectivamente autorización superficial insuficientemente acreditada, decisiones de evaluación ambiental, sanción y rehabilitación, y seguimiento de un conflicto activo sin diálogo.
+      sourceIds: [rio-blanco-defensoria-informe-2006, rio-blanco-minem-ea-2003, rio-blanco-osinergmin-444-2008, rio-blanco-defensoria-reporte-246, defensoria-conflictos-268]
+    - actor: Investigación académica
+      position: El estudio del IEP analiza el caso como una disputa por legalidad, propiedad, participación y futuro agrícola o minero de la sierra de Piura; el observatorio conserva esa lectura como interpretación situada.
+      sourceIds: [rio-blanco-iep-2009]
+  contradictions:
+    - id: rio-blanco-autorizacion-formal-comunal
+      description: La evaluación ambiental fue aprobada y existían documentos suscritos por directivas, pero la Defensoría concluyó que estos no acreditaban el acuerdo de dos tercios de las asambleas; autorización administrativa y disponibilidad superficial no se sustituyen entre sí.
+      sourceIds: [rio-blanco-minem-ea-2003, rio-blanco-defensoria-informe-2006]
+      status: resolved
+    - id: rio-blanco-consulta-alcance
+      description: La consulta vecinal expresó rechazo territorial al proyecto, pero el expediente no la convierte en consulta previa ni en veto jurídico automático; se distinguen legitimidad política, participación y efecto legal.
+      sourceIds: [rio-blanco-defensoria-reporte-139, rio-blanco-iep-2009]
+      status: resolved
+    - id: rio-blanco-rehabilitacion-cierre
+      description: La sanción de 2008 ordenó rehabilitación y el MINEM aprobó modificaciones en 2016 y 2020; esa secuencia acredita seguimiento documental, pero no prueba por sí sola culminación física, conformidad comunal o cierre del conflicto.
+      sourceIds: [rio-blanco-osinergmin-444-2008, rio-blanco-minem-rehabilitacion-2016, rio-blanco-minem-rehabilitacion-2020]
+      status: resolved
+    - id: rio-blanco-rediseno-conflicto
+      description: La empresa sostiene que el proyecto rediseñado excluye páramos y evita afectaciones, mientras comunidades y rondas mantienen objeciones y la Defensoría registra el conflicto activo; las posiciones quedan atribuidas y no reconciliadas como hecho único.
+      sourceIds: [rio-blanco-empresa-proyecto-2026, rio-blanco-defensoria-reporte-246, rio-blanco-red-muqui-2024, defensoria-conflictos-268]
+      status: resolved
+  scopeQuestions:
+    - ¿Qué actas completas, padrones y reglas comunales permiten reconstruir la autorización, sus objeciones y las decisiones internas de Yanta y Segunda y Cajas?
+    - ¿Qué alcance normativo, municipal y político tuvo la consulta vecinal de 2007 y cómo se diferencia de participación ambiental y consulta previa?
+    - ¿Qué componentes fueron intervenidos, rehabilitados y verificados, y qué indicadores técnicos o actas territoriales permiten evaluar el resultado de cada plan?
+    - ¿Qué cambios concretos contiene el rediseño actual del proyecto y qué estudios ambientales, hídricos y sociales independientes permiten contrastar las afirmaciones empresariales y comunitarias?
+  gaps:
+    - id: rio-blanco-actas-comunales
+      description: Faltan las actas integrales, padrones, estatutos, convocatorias y registros de asamblea de 2002 y decisiones posteriores de ambas comunidades.
+      blocksRelease: false
+    - id: rio-blanco-consulta-expediente
+      description: Faltan ordenanzas, actas, cédulas, resultados distritales completos y expediente municipal consolidado de la consulta vecinal de septiembre de 2007.
+      blocksRelease: false
+    - id: rio-blanco-procesos-judiciales
+      description: No se incorporó la totalidad de expedientes fiscales, penales, constitucionales o civiles derivados de protestas, detenciones, denuncias y controversias territoriales.
+      blocksRelease: false
+    - id: rio-blanco-rehabilitacion-ejecucion
+      description: Faltan informes de cierre, verificación en campo, indicadores, coordenadas, actas de conformidad y resultados independientes para evaluar la ejecución material de la rehabilitación.
+      blocksRelease: false
+    - id: rio-blanco-estudios-actuales
+      description: El expediente no contiene los estudios actuales de prefactibilidad, rediseño, agua, biodiversidad, impactos acumulativos o participación que permitan contrastar integralmente la página corporativa.
       blocksRelease: false
   status: ready

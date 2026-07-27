@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import { ArrowRight, BookOpenText, Database, FileText, MapTrifold, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import { DeforestationCounter } from "@/components/deforestation-counter";
 import { loadObservatoryData } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Madre de Dios: devastación aurífera",
-  description: "Lectura documental sobre deforestación minera, oro ilegal, Tambopata y proyección del avance si el ritmo continúa.",
+  description: "Deforestación minera, oro ilegal, Tambopata y proyección del avance si el ritmo continúa.",
 };
 
 const formatter = new Intl.NumberFormat("es-PE");
@@ -17,6 +19,7 @@ function sourceLabel(sourceId: string) {
 }
 
 export default function MadreDeDiosPage() {
+  if (!isPublishedSocialMiningCase({ id: "madre-de-dios" })) notFound();
   const data = loadObservatoryData();
   const devastation = data.madreDiosDevastation;
   const sourceById = new Map(data.sources.map((source) => [source.id, source]));
@@ -28,8 +31,8 @@ export default function MadreDeDiosPage() {
           <p className="eyebrow">Madre de Dios · oro, bosque y ríos</p>
           <h1>La devastación no es una metáfora: se mide en hectáreas.</h1>
           <p>
-            Esta página separa tres capas: deforestación minera documentada, expansión reciente de minería ilegal en Tambopata
-            y proyección lineal para entender qué significa dejar correr el reloj.
+            Madre de Dios concentra deforestación minera documentada, expansión reciente de minería ilegal en Tambopata
+            y una proyección lineal del avance si el ritmo observado continúa.
           </p>
           <div className="madre-actions">
             <a className="button primary" href="#contador">Ver contador <ArrowRight size={18} /></a>
@@ -44,15 +47,15 @@ export default function MadreDeDiosPage() {
             height={720}
             priority
           />
-          <figcaption>Imagen editorial del observatorio. Los datos cuantitativos provienen de MAAP/ACCA.</figcaption>
+          <figcaption>Referencia visual amazónica. Los datos cuantitativos provienen de MAAP/ACCA.</figcaption>
         </figure>
       </section>
 
       <section className="madre-disclaimer">
         <WarningCircle size={24} />
         <p>
-          Observatorio civil y académico: no sentencia, no acusa y no reemplaza información oficial. Expone fuentes, locadores,
-          método y vacíos para que cualquier corrección documentada pueda incorporarse.
+          El análisis civil y académico no sentencia ni acusa. Las fuentes y locadores permiten distinguir hectáreas medidas,
+          ritmo observado, proyección lineal, impacto territorial y responsabilidades que aún requieren expediente específico.
         </p>
       </section>
 
@@ -113,16 +116,16 @@ export default function MadreDeDiosPage() {
           <Database size={28} />
           <h2>Qué mide</h2>
           <p>
-            La página mide deforestación minera y ritmo reciente. No mide todo daño ecológico, contaminación por mercurio,
+            La evidencia disponible mide deforestación minera y ritmo reciente. No mide todo daño ecológico, contaminación por mercurio,
             violencia territorial ni economías criminales; esos ejes deben sumarse con fuentes específicas.
           </p>
         </article>
         <article>
           <BookOpenText size={28} />
-          <h2>Cómo se corrige</h2>
+          <h2>Qué falta medir</h2>
           <p>
-            Si aparece una fuente más reciente o una tasa mejor, se actualiza el YAML canónico y el contador cambia sin tocar
-            la narrativa de fondo.
+            La deforestación visible debe cruzarse con mercurio, salud, violencia territorial, rutas de compra y controles
+            estatales para no reducir el daño amazónico a una sola métrica.
           </p>
         </article>
       </section>

@@ -1,14 +1,14 @@
 - id: tambogrande
   slug: tambogrande
   name: Tambogrande
-  summary: Caso histórico de controversia entre un proyecto minero, el uso agrícola del territorio y mecanismos locales de participación.
-  period: { start: 1999, end: 2003 }
-  status: historical
+  summary: Caso territorial con un ciclo histórico asociado a Manhattan/TG-1 y un conflicto contemporáneo distinto alrededor de Buenaventura/El Algarrobo-TG-3, atravesados por agricultura, agua, participación y legitimidad.
+  period: { start: 1999, end: null }
+  status: active
   territoryIds: [tambogrande-piura]
-  actorIds: [comunidades-tambogrande, empresa-manhattan, gobiernos-subnacionales]
-  issueIds: [concesion-superficie, consulta-participacion, agua-cuencas]
+  actorIds: [comunidades-tambogrande, empresa-manhattan, comunidad-locuto, empresa-buenaventura, proinversion-activos-mineros, gobiernos-subnacionales]
+  issueIds: [concesion-superficie, consulta-participacion, agua-cuencas, dialogo-acuerdos]
   legalInstrumentIds: [ds-014-1992-em, ley-27446]
-  minerals: [oro, cobre]
+  minerals: [oro, cobre, zinc, plata]
   timeline:
     - id: tambogrande-proyecto
       kind: event
@@ -52,21 +52,61 @@
       title: Publicación de estudio académico
       summary: Se publica un estudio específico sobre el conflicto ambiental del proyecto minero de Tambogrande y su relación con la población local.
       sourceIds: [tambogrande-muradian-2003]
+    - id: tambogrande-algarrobo-adjudicacion
+      kind: decision
+      date: 2024-12-30
+      datePrecision: day
+      title: Adjudicación del proyecto El Algarrobo
+      summary: PROINVERSIÓN comunica la adjudicación directa del proyecto El Algarrobo a Buenaventura y presenta una secuencia que comienza con gestión social y proyecto hídrico antes de exploración y estudios posteriores.
+      sourceIds: [proinversion-algarrobo-adjudicacion-2024]
+    - id: tambogrande-algarrobo-contrato
+      kind: agreement
+      date: 2025-03-25
+      datePrecision: day
+      title: Suscripción del contrato de opción
+      summary: El MEF comunica la firma del contrato de opción y señala que alcanzar un acuerdo social con la comunidad de Locuto precede a la etapa de estudios geológicos y exploratorios.
+      sourceIds: [mef-algarrobo-contrato-2025, buenaventura-algarrobo-contrato-2025]
+    - id: tambogrande-algarrobo-garantias
+      kind: decision
+      date: 2025-05-31
+      datePrecision: day
+      title: Garantías estatales al contrato de opción
+      summary: El Decreto Supremo 107-2025-EF otorga seguridades y garantías estatales a las obligaciones contenidas en el contrato de opción del proyecto El Algarrobo.
+      sourceIds: [mef-ds-107-2025-ef]
+    - id: tambogrande-algarrobo-estado-268
+      kind: evidence
+      date: 2026-06-30
+      datePrecision: day
+      title: El Algarrobo permanece en el registro activo
+      summary: El Reporte 268 de la Defensoría mantiene Tambogrande - Proyecto El Algarrobo como conflicto socioambiental activo, con ingreso registrado en septiembre de 2024.
+      sourceIds: [defensoria-conflictos-268]
   claims:
     - id: tambogrande-hecho-1
       kind: fact
-      text: El caso articuló controversias sobre uso del territorio, agricultura, participación y viabilidad de un proyecto minero.
+      text: El ciclo histórico de Manhattan/TG-1 articuló controversias sobre uso del territorio, agricultura, participación y viabilidad del proyecto, y concluyó su secuencia documentada con la terminación del acuerdo de opción y el desistimiento de la evaluación del EIA.
       sourceIds: [manhattan-annual-report-2002, manhattan-centromin-2003, tambogrande-muradian-2003]
       verificationStatus: partial
+    - id: tambogrande-hecho-2
+      kind: fact
+      text: El Algarrobo/TG-3 es un proceso contemporáneo distinto, adjudicado a Buenaventura y estructurado mediante un contrato de opción cuya versión inicial condiciona la vigencia de la opción a un acuerdo social con la Comunidad Campesina Apóstol Juan Bautista de Locuto.
+      sourceIds: [proinversion-algarrobo-contrato-inicial-2024, proinversion-algarrobo-adjudicacion-2024, mef-algarrobo-contrato-2025]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: tambogrande-hecho-3
+      kind: fact
+      text: La Defensoría del Pueblo mantiene Tambogrande - Proyecto El Algarrobo como conflicto socioambiental activo en el Reporte 268, con ingreso registrado en septiembre de 2024.
+      sourceIds: [defensoria-conflictos-268]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
     - id: tambogrande-interpretacion-1
       kind: interpretation
-      text: Su relevancia histórica reside en haber situado la legitimidad territorial junto a los procedimientos sectoriales formales.
-      sourceIds: [defensoria-conflictos, tambogrande-muradian-2003, metodologia-observatorio]
+      text: La memoria de la consulta de 2002 influye en la lectura territorial del proyecto contemporáneo, pero no convierte a Manhattan/TG-1 y El Algarrobo/TG-3 en un mismo expediente administrativo ni determina por sí sola el resultado del proceso actual.
+      sourceIds: [tambogrande-consulta-municipal, tambogrande-muradian-2003, cooperaccion-tambogrande-2024, defensoria-conflictos-268, metodologia-observatorio]
       verificationStatus: partial
-  cutoffDate: 2026-06-21
-  updatedAt: 2026-06-21
-  reviewStatus: legal-pending
-  legalReviewNotes: Alcance documental pendiente de consolidación; no se atribuye vigencia normativa ni conclusión final al expediente.
+  cutoffDate: 2026-07-27
+  updatedAt: 2026-07-27
+  reviewStatus: documentary
+  reviewNotes: Lectura académica documentada que separa el ciclo histórico TG-1 del proceso contemporáneo TG-3; no acredita acuerdo social, ejecución hídrica, exploración, operación ni consenso territorial sin evidencia específica.
 - id: conga
   slug: conga
   name: Conga
@@ -148,8 +188,8 @@
       verificationStatus: partial
   cutoffDate: 2026-06-27
   updatedAt: 2026-06-27
-  reviewStatus: legal-pending
-  legalReviewNotes: Alcance documental pendiente de consolidación; las relaciones normativas se mantienen como referencias documentales parciales.
+  reviewStatus: documentary
+  reviewNotes: Lectura académica documentada; las relaciones normativas se presentan como referencias parciales y contrastables.
 - id: tia-maria
   slug: tia-maria
   name: Tía María
@@ -238,8 +278,8 @@
       verificationStatus: partial
   cutoffDate: 2026-06-21
   updatedAt: 2026-06-21
-  reviewStatus: legal-pending
-  legalReviewNotes: Alcance documental pendiente de consolidación; el expediente no presenta decisiones administrativas como conclusión final consolidada.
+  reviewStatus: documentary
+  reviewNotes: Lectura académica documentada; las decisiones administrativas no se presentan como conclusión final del conflicto.
 - id: las-bambas
   slug: las-bambas
   name: Las Bambas
@@ -338,7 +378,7 @@
       sourceIds: [huancuire-comunicado-chalcobamba-2024, cooperaccion-las-bambas-2024]
     - id: las-bambas-transito
       kind: agreement
-      date: 2024-04-16
+      date: 2024-04-12
       datePrecision: day
       title: Restablecimiento del tránsito
       summary: Un nuevo acuerdo coyuntural permite restablecer el tránsito en el corredor vial sur.
@@ -377,8 +417,8 @@
       verificationStatus: partial
   cutoffDate: 2026-06-21
   updatedAt: 2026-06-21
-  reviewStatus: legal-pending
-  legalReviewNotes: Alcance documental pendiente de consolidación; acuerdos, resoluciones y obligaciones requieren contraste fechado.
+  reviewStatus: documentary
+  reviewNotes: Lectura académica documentada; acuerdos, resoluciones y obligaciones conservan fecha, fuente y límites de contraste.
 - id: espinar
   slug: espinar
   name: Espinar
@@ -421,7 +461,7 @@
       sourceIds: [espinar-estudio-agua-2015]
     - id: espinar-acuerdos-comunidades
       kind: agreement
-      date: 2019-11-21
+      date: 2019-11-19
       datePrecision: day
       title: Acuerdos con trece comunidades
       summary: El Ejecutivo comunica acuerdos con trece comunidades originarias de la provincia.
@@ -435,7 +475,7 @@
       sourceIds: [espinar-acuerdos-2020]
     - id: espinar-plan-ambiental
       kind: agreement
-      date: 2022-05-19
+      date: 2022-05-14
       datePrecision: day
       title: Aprobación de plan de trabajo ambiental
       summary: Autoridades y sociedad civil aprueban un plan de trabajo para abordar la problemática ambiental de Espinar.
@@ -456,7 +496,7 @@
       sourceIds: [pametec-demanda-amparo-2025, cooperaccion-espinar-2025, ocm-espinar-amparo-reprogramacion-2026, cooperaccion-espinar-amparo-audiencia-2026, cej-espinar-amparo-2026]
     - id: espinar-acuerdos-recientes
       kind: agreement
-      date: 2025-04-05
+      date: 2025-04-08
       datePrecision: day
       title: Nuevos acuerdos mediante diálogo
       summary: El Ejecutivo y comunidades originarias registran nuevos acuerdos cuya ejecución requiere seguimiento.
@@ -481,8 +521,8 @@
       verificationStatus: partial
   cutoffDate: 2026-06-27
   updatedAt: 2026-06-27
-  reviewStatus: legal-pending
-  legalReviewNotes: Alcance documental pendiente de consolidación; no se formulan conclusiones causales ni responsabilidades no documentadas por la fuente.
+  reviewStatus: documentary
+  reviewNotes: Lectura académica documentada; no formula causalidad ni responsabilidades que no estén expresamente sostenidas por las fuentes.
 - id: madre-de-dios
   slug: madre-de-dios
   name: Madre de Dios
@@ -560,7 +600,7 @@
       sourceIds: [sernanp-operativo-tambopata-2025]
     - id: madre-dios-mesa-2025
       kind: agreement
-      date: 2025-08-22
+      date: 2025-08-14
       datePrecision: day
       title: Acuerdo para coordinar mesa de trabajo
       summary: MINEM y representantes mineros acuerdan coordinar una mesa para impulsar la formalización.
@@ -606,5 +646,924 @@
       verificationStatus: partial
   cutoffDate: 2026-06-21
   updatedAt: 2026-06-21
-  reviewStatus: legal-pending
-  legalReviewNotes: Alcance documental pendiente de consolidación; informalidad, ilegalidad y registro de formalización permanecen diferenciados.
+  reviewStatus: documentary
+  reviewNotes: Lectura académica documentada; informalidad, ilegalidad y registro de formalización permanecen diferenciados.
+- id: la-oroya
+  slug: la-oroya
+  name: La Oroya–Doe Run
+  summary: Caso hito sobre operación metalúrgica, PAMA y prórrogas, exposición poblacional, respuesta estatal, continuidad laboral y cumplimiento de reparaciones nacionales e interamericanas.
+  period: { start: 1922, end: null }
+  status: active
+  territoryIds: [la-oroya-junin]
+  actorIds: [habitantes-la-oroya, trabajadores-la-oroya, doe-run-peru, metalurgia-business-peru, autoridades-salud-ambiente, minem, gobiernos-subnacionales]
+  issueIds: [salud-ambiental, fiscalizacion-ambiental, certificacion-ambiental, competencias-estado, cierre-pasivos]
+  legalInstrumentIds: [ley-29325, ley-28090]
+  minerals: [cobre, plomo, zinc]
+  timeline:
+    - id: la-oroya-complejo-1922
+      kind: event
+      date: 1922-01-01
+      datePrecision: year
+      title: Inicio histórico del complejo metalúrgico
+      summary: La reconstrucción de la Corte IDH ubica en 1922 el inicio de operaciones del Complejo Metalúrgico de La Oroya.
+      sourceIds: [la-oroya-corte-idh-2023]
+    - id: la-oroya-doe-run-pama-1997
+      kind: decision
+      date: 1997-10-23
+      datePrecision: day
+      title: Adquisición por Doe Run y distribución de obligaciones del PAMA
+      summary: Doe Run adquirió el complejo y asumió la mayor parte de las obligaciones del PAMA, mientras otras permanecieron a cargo estatal según la reconstrucción judicial.
+      sourceIds: [la-oroya-corte-idh-2023]
+    - id: la-oroya-tc-2006
+      kind: decision
+      date: 2006-05-12
+      datePrecision: day
+      title: Sentencia constitucional sobre salud y vigilancia
+      summary: El Tribunal Constitucional ordenó al Ministerio de Salud y a DIGESA implementar medidas de emergencia, línea base, alerta y vigilancia en La Oroya.
+      sourceIds: [la-oroya-tc-2006]
+    - id: la-oroya-prorroga-2006
+      kind: decision
+      date: 2006-05-29
+      datePrecision: day
+      title: Prórroga excepcional del PAMA
+      summary: El MINEM otorgó una prórroga excepcional para proyectos vinculados a las plantas de ácido sulfúrico, dentro de una secuencia de adecuación ambiental discutida posteriormente por la Corte IDH.
+      sourceIds: [la-oroya-corte-idh-2023]
+    - id: la-oroya-ley-29410-2009
+      kind: decision
+      date: 2009-09-26
+      datePrecision: day
+      title: Nueva ampliación para el proyecto de ácido sulfúrico y circuito de cobre
+      summary: La Ley 29410 amplió plazos para financiar, construir y poner en marcha el proyecto, estableció garantías e informes semestrales al Congreso.
+      sourceIds: [la-oroya-ley-29410]
+    - id: la-oroya-pama-vencimiento-2010
+      kind: evidence
+      date: 2010-10-01
+      datePrecision: month
+      title: Vencimiento sin culminar dos componentes centrales
+      summary: La Corte IDH registró que el PAMA llegó a su vencimiento en 2010 sin culminarse la planta de ácido sulfúrico y la modificación del circuito de cobre.
+      sourceIds: [la-oroya-corte-idh-2023]
+    - id: la-oroya-transferencia-2022
+      kind: decision
+      date: 2022-01-15
+      datePrecision: day
+      title: Transferencia acordada a trabajadores acreedores
+      summary: La Junta de Acreedores acordó transferir el complejo a sus trabajadores como dación en pago, quienes constituyeron la nueva empresa operadora.
+      sourceIds: [la-oroya-corte-idh-2023]
+    - id: la-oroya-aire-2022
+      kind: evidence
+      date: 2022-11-29
+      datePrecision: day
+      title: Evaluación de calidad del aire durante la paralización
+      summary: OEFA publicó una evaluación de enero a octubre de 2022; el propio informe sitúa sus resultados en un periodo en que el complejo estaba paralizado.
+      sourceIds: [la-oroya-oefa-aire-2022]
+    - id: la-oroya-reinicio-2023
+      kind: event
+      date: 2023-10-18
+      datePrecision: day
+      title: Reinicio de operaciones por Metalurgia Business Perú
+      summary: MINEM comunicó el reinicio del complejo, tras trece años de paralización, bajo administración de una empresa de extrabajadores accionistas.
+      sourceIds: [la-oroya-minem-reinicio-2023]
+    - id: la-oroya-corte-idh-2023
+      kind: decision
+      date: 2023-11-27
+      datePrecision: day
+      title: Sentencia de la Corte Interamericana
+      summary: La Corte IDH declaró responsabilidad internacional del Estado peruano por violaciones de derechos y ordenó un conjunto de medidas de reparación.
+      sourceIds: [la-oroya-corte-idh-2023]
+    - id: la-oroya-plan-cierre-2024
+      kind: decision
+      date: 2024-04-04
+      datePrecision: day
+      title: Segunda actualización del plan de cierre
+      summary: El MINEM aprobó la segunda actualización del plan de cierre del complejo presentada por Metalurgia Business Perú.
+      sourceIds: [la-oroya-minem-cierre-2024]
+    - id: la-oroya-supervision-2025
+      kind: evidence
+      date: 2025-02-03
+      datePrecision: day
+      title: Supervisión interamericana mantiene reparaciones abiertas
+      summary: La Corte IDH declaró cumplimiento parcial de las medidas de publicación y mantuvo abierto el seguimiento de las demás reparaciones enumeradas en la resolución.
+      sourceIds: [la-oroya-corte-idh-supervision-2025]
+    - id: la-oroya-tc-seguimiento-2026
+      kind: decision
+      date: 2026-01-21
+      datePrecision: day
+      title: Pronunciamiento constitucional con observación sobre cumplimiento parcial
+      summary: Una sentencia del TC señaló cumplimiento parcial de órdenes previas, pero dos magistrados se apartaron de esos fundamentos por considerarlos ajenos al petitorio resuelto.
+      sourceIds: [la-oroya-tc-2026]
+  claims:
+    - id: la-oroya-hecho-pama
+      kind: fact
+      text: El PAMA y sus prórrogas organizaron obligaciones de adecuación ambiental; al vencimiento de 2010 no se habían culminado la planta de ácido sulfúrico ni la modificación del circuito de cobre.
+      sourceIds: [la-oroya-corte-idh-2023, la-oroya-ley-29410]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: la-oroya-hecho-tc
+      kind: fact
+      text: La sentencia constitucional de 2006 ordenó medidas estatales concretas sobre atención de emergencia, línea base, alerta y vigilancia epidemiológica y ambiental.
+      sourceIds: [la-oroya-tc-2006]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: la-oroya-hecho-corte-idh
+      kind: fact
+      text: La Corte IDH declaró responsabilidad internacional del Estado peruano y ordenó reparaciones ambientales, sanitarias, informativas, institucionales y económicas.
+      sourceIds: [la-oroya-corte-idh-2023]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: la-oroya-hecho-operacion
+      kind: fact
+      text: El complejo reinició operaciones en octubre de 2023 bajo Metalurgia Business Perú y en abril de 2024 obtuvo aprobación de la segunda actualización de su plan de cierre.
+      sourceIds: [la-oroya-minem-reinicio-2023, la-oroya-minem-cierre-2024]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: la-oroya-interpretacion-cumplimiento
+      kind: interpretation
+      text: La coexistencia entre reinicio operacional y reparaciones abiertas exige evaluar por separado operación, desempeño ambiental, salud, cierre y cumplimiento estatal; ningún documento individual acredita el cierre integral del caso.
+      sourceIds: [la-oroya-minem-reinicio-2023, la-oroya-minem-cierre-2024, la-oroya-corte-idh-supervision-2025, metodologia-observatorio]
+      verificationStatus: partial
+    - id: la-oroya-hecho-tc-2026
+      kind: fact
+      text: La sentencia 0220/2026 consignó cumplimiento parcial de decisiones previas, pero dos votos concurrentes se apartaron expresamente de esa observación por no considerarla pertinente al proceso resuelto.
+      sourceIds: [la-oroya-tc-2026]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+  cutoffDate: 2026-07-27
+  updatedAt: 2026-07-27
+  reviewStatus: documentary
+  reviewNotes: Lectura académica e informativa; no integra La Oroya al corte mensual de 61 conflictos, no presume causalidad médica individual y separa responsabilidad internacional del Estado de responsabilidades empresariales que requieren expediente propio.
+- id: cerro-quilish
+  slug: cerro-quilish
+  name: Cerro Quilish–Yanacocha
+  summary: Caso hito de Cajamarca sobre protección municipal de microcuencas, autorización ambiental de exploración, movilización social, diálogo y revocatoria administrativa solicitada por la empresa.
+  period: { start: 2000, end: 2004 }
+  status: historical
+  territoryIds: [cerro-quilish-cajamarca]
+  actorIds: [comunidades-quilish, empresa-yanacocha, municipalidad-cajamarca, minem, autoridades-ambientales, gobiernos-subnacionales]
+  issueIds: [agua-cuencas, concesion-superficie, certificacion-ambiental, consulta-participacion, competencias-estado, dialogo-acuerdos]
+  legalInstrumentIds: [ds-014-1992-em, ley-27446]
+  minerals: [oro]
+  timeline:
+    - id: quilish-evaluacion-2000
+      kind: decision
+      date: 2000-05-22
+      datePrecision: day
+      title: Evaluación ambiental inicial de exploración
+      summary: El MINEM aprobó la evaluación ambiental de Cerro Quilish/Cerro Negro; OEFA registró posteriormente que la campaña de perforación no se ejecutó y que solo hubo exploración superficial.
+      sourceIds: [quilish-oefa-dfai-0274-2020, quilish-oefa-tfa-002-2021]
+    - id: quilish-ordenanza-2000
+      kind: decision
+      date: 2000-10-05
+      datePrecision: day
+      title: Protección municipal del cerro y las microcuencas
+      summary: La Municipalidad Provincial de Cajamarca declaró al Cerro Quilish y las microcuencas de los ríos Quilish, Porcón y Grande como zona reservada protegida municipal provincial.
+      sourceIds: [quilish-tc-00300-2002-aa-2003, quilish-oefa-dfai-0274-2020]
+    - id: quilish-tc-2003
+      kind: decision
+      date: 2003-04-07
+      datePrecision: day
+      title: Sentencia constitucional sobre ordenanza y concesiones
+      summary: El Tribunal Constitucional declaró infundadas las demandas empresariales, mantuvo la ordenanza y precisó que no impedía la prospección y exploración conforme a ley ni autorizaba por sí sola una explotación.
+      sourceIds: [quilish-tc-00300-2002-aa-2003, quilish-tc-nota-2003]
+    - id: quilish-memorial-2004
+      kind: event
+      date: 2004-02-15
+      datePrecision: day
+      title: Memorial de comunidades a autoridades
+      summary: Una reconstrucción estatal regional registra que comunidades aledañas comunicaron preocupación por la cantidad y calidad del agua y desacuerdo con la exploración.
+      sourceIds: [quilish-sinia-indicadores-cajamarca]
+    - id: quilish-rd-361-2004
+      kind: decision
+      date: 2004-07-16
+      datePrecision: day
+      title: Autorización ambiental para explorar
+      summary: La RD 361-2004-MEM/AAM aprobó la evaluación ambiental del proyecto Yanacocha Sur–Cuenca del Río Porcón–Cerro Quilish, con un máximo de 298 taladros según la reconstrucción posterior de OEFA.
+      sourceIds: [quilish-rm-467-2004-mem-dm, quilish-oefa-dfai-0274-2020]
+    - id: quilish-movilizacion-2004
+      kind: event
+      date: 2004-09-02
+      datePrecision: day
+      title: Movilización y escalamiento del conflicto
+      summary: El informe ambiental regional registra una marcha campesina al campamento, enfrentamiento con la PNP y posterior bloqueo, dentro de una movilización rural y urbana por el agua.
+      sourceIds: [quilish-sinia-indicadores-cajamarca]
+    - id: quilish-rd-427-2004
+      kind: decision
+      date: 2004-09-16
+      datePrecision: day
+      title: Suspensión de eficacia y llamado al diálogo
+      summary: La RD 427 dejó sin eficacia la parte resolutiva de la RD 361 y planteó institucionalizar el diálogo, incluida la preparación de términos de referencia para un eventual estudio hidrológico e hidrogeológico.
+      sourceIds: [quilish-oefa-tfa-002-2021, quilish-rm-467-2004-mem-dm]
+    - id: quilish-revocatoria-2004
+      kind: decision
+      date: 2004-11-05
+      datePrecision: day
+      title: Revocatoria de la autorización de exploración
+      summary: El MINEM revocó, a pedido de Minera Yanacocha, la RD 361 y la dejó sin efecto en todos sus extremos; Newmont atribuyó la decisión empresarial a la oposición local.
+      sourceIds: [quilish-rm-467-2004-mem-dm, quilish-newmont-10k-2009]
+  claims:
+    - id: quilish-hecho-ordenanza
+      kind: fact
+      text: La Ordenanza 012-2000-CMPC declaró una protección municipal sobre Cerro Quilish y las microcuencas Quilish, Porcón y Grande, y fue objeto de las demandas resueltas por el Tribunal Constitucional.
+      sourceIds: [quilish-tc-00300-2002-aa-2003]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: quilish-hecho-tc
+      kind: fact
+      text: El Tribunal Constitucional declaró infundadas las demandas, pero dejó expedito el derecho de prospección y exploración y diferenció esas actividades de una eventual explotación sujeta a evaluación y autorizaciones.
+      sourceIds: [quilish-tc-00300-2002-aa-2003, quilish-tc-nota-2003]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: quilish-hecho-conflicto
+      kind: fact
+      text: La autorización ambiental de julio de 2004 fue seguida por movilizaciones sociales, una decisión que dejó sin eficacia la autorización y su posterior revocatoria a pedido de Minera Yanacocha.
+      sourceIds: [quilish-sinia-indicadores-cajamarca, quilish-oefa-tfa-002-2021, quilish-rm-467-2004-mem-dm]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: quilish-hecho-posicion-empresa
+      kind: fact
+      text: Newmont informó que la oposición local llevó a Yanacocha a dejar el permiso de perforación de Cerro Quilish y reclasificar el depósito fuera de reservas probadas y probables.
+      sourceIds: [quilish-newmont-10k-2009]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: quilish-interpretacion
+      kind: interpretation
+      text: Quilish muestra que una autorización sectorial puede ser jurídicamente existente y, al mismo tiempo, carecer de legitimidad territorial suficiente; la revocatoria cerró ese acto específico, no todas las controversias entre Cajamarca y Yanacocha.
+      sourceIds: [quilish-rm-467-2004-mem-dm, quilish-sinia-indicadores-cajamarca, metodologia-observatorio]
+      verificationStatus: partial
+  cutoffDate: 2026-07-27
+  updatedAt: 2026-07-27
+  reviewStatus: documentary
+  reviewNotes: Lectura académica e informativa de un conflicto social minero histórico; no presenta la ordenanza como veto general, no confunde exploración con explotación y no incorpora Cerro Quilish al corte mensual vigente de la Defensoría.
+- id: yanacocha-maxima-acuna
+  slug: yanacocha-maxima-acuna
+  name: Máxima Acuña–Yanacocha
+  summary: Caso hito de Cajamarca sobre disputa territorial en Tragadero Grande, proceso penal por usurpación, protección de personas defensoras, privacidad, litigios civiles declarados y conexión social con el proyecto Conga.
+  period: { start: 1994, end: null }
+  status: latent
+  territoryIds: [tragadero-grande-cajamarca]
+  actorIds: [familia-chaupe-acuna, empresa-yanacocha, organizaciones-defensa-acuna, autoridades-justicia-proteccion]
+  issueIds: [concesion-superficie, competencias-estado, dialogo-acuerdos, proteccion-privacidad]
+  legalInstrumentIds: []
+  minerals: [oro, cobre]
+  timeline:
+    - id: acuna-documentos-1994
+      kind: evidence
+      date: 1994-01-16
+      datePrecision: day
+      title: Documentos de posesión y compraventa invocados por la familia
+      summary: La casación registra que la familia invocó un certificado de posesión y un documento de compraventa de 1994; el expediente penal no los convirtió en una adjudicación civil definitiva.
+      sourceIds: [acuna-pj-casacion-458-2015]
+    - id: acuna-hechos-2011
+      kind: event
+      date: 2011-08-08
+      datePrecision: day
+      title: Hechos que originaron el proceso penal
+      summary: El proceso penal situó en agosto de 2011 los hechos imputados en Tragadero Grande y la controversia sobre ingreso, permanencia y actos de violencia alegados.
+      sourceIds: [acuna-pj-casacion-458-2015]
+    - id: acuna-cidh-2014
+      kind: decision
+      date: 2014-05-05
+      datePrecision: day
+      title: Medidas cautelares interamericanas
+      summary: La CIDH otorgó la Medida Cautelar 452-11 a líderes y lideresas de comunidades y rondas de Cajamarca, incluyendo integrantes de la familia Chaupe.
+      sourceIds: [acuna-cidh-mc-452-11]
+    - id: acuna-condena-2014
+      kind: decision
+      date: 2014-08-05
+      datePrecision: day
+      title: Condena penal de primera instancia
+      summary: El Juzgado Penal Unipersonal de Celendín condenó a cuatro acusados por usurpación agravada, decisión posteriormente revocada.
+      sourceIds: [acuna-pj-casacion-458-2015]
+    - id: acuna-absolucion-2014
+      kind: decision
+      date: 2014-12-17
+      datePrecision: day
+      title: Absolución en segunda instancia
+      summary: La Sala Penal de Apelaciones de Cajamarca revocó la condena y absolvió a las personas acusadas.
+      sourceIds: [acuna-pj-casacion-458-2015]
+    - id: acuna-defensoria-2015
+      kind: evidence
+      date: 2015-02-06
+      datePrecision: day
+      title: Solicitud de garantías para la familia
+      summary: La Defensoría pidió al Ministerio del Interior garantizar la vida e integridad de Máxima Acuña y su familia ante intervenciones y actos denunciados.
+      sourceIds: [acuna-defensoria-2015]
+    - id: acuna-casacion-2017
+      kind: decision
+      date: 2017-05-03
+      datePrecision: day
+      title: Corte Suprema confirma la absolución penal
+      summary: La Sala Penal Permanente declaró infundado el recurso de Yanacocha y confirmó la absolución; precisó que la posesión debía determinarse en la vía civil.
+      sourceIds: [acuna-pj-casacion-458-2015, acuna-pj-nota-2017]
+    - id: acuna-tc-2020
+      kind: decision
+      date: 2020-07-30
+      datePrecision: day
+      title: Protección constitucional de la vida privada
+      summary: El Tribunal Constitucional declaró fundada en parte la demanda por vulneración de la vida privada mediante cámara de videovigilancia y dron, sin resolver propiedad o posesión.
+      sourceIds: [acuna-tc-03882-04038-2016]
+    - id: acuna-scotus-2021
+      kind: decision
+      date: 2021-11-08
+      datePrecision: day
+      title: Denegación de certiorari en Estados Unidos
+      summary: La Corte Suprema estadounidense denegó revisar el cierre procesal de la demanda contra Newmont; la orden no resolvió el fondo de las alegaciones.
+      sourceIds: [acuna-scotus-21-33]
+  claims:
+    - id: acuna-hecho-absolucion
+      kind: fact
+      text: La Corte Suprema confirmó la absolución penal de Máxima Acuña y familiares por usurpación agravada.
+      sourceIds: [acuna-pj-casacion-458-2015, acuna-pj-nota-2017]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: acuna-hecho-limite-civil
+      kind: fact
+      text: La absolución penal no adjudicó propiedad ni posesión civil; la casación remitió esa determinación a la vía civil.
+      sourceIds: [acuna-pj-casacion-458-2015, acuna-tc-03882-04038-2016]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: acuna-hecho-privacidad
+      kind: fact
+      text: El Tribunal Constitucional declaró vulnerado el derecho a la vida privada por el uso de cámara de videovigilancia y dron.
+      sourceIds: [acuna-tc-03882-04038-2016]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: acuna-hecho-posicion-empresa
+      kind: fact
+      text: Yanacocha comunicó que respetaba la decisión penal, mantendría la defensa de sus derechos en procesos civiles y buscaría diálogo de buena fe.
+      sourceIds: [acuna-newmont-2017]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: acuna-hecho-scotus
+      kind: fact
+      text: La Corte Suprema de Estados Unidos denegó certiorari en 2021 sin emitir una decisión sobre el fondo de las alegaciones.
+      sourceIds: [acuna-scotus-21-33]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: acuna-interpretacion
+      kind: interpretation
+      text: El caso adquirió reconocimiento como defensa territorial vinculada con Conga, pero esa conexión social no prueba propiedad civil ni una relación causal única con el estado del proyecto.
+      sourceIds: [acuna-goldman-2016, acuna-pj-casacion-458-2015, metodologia-observatorio]
+      verificationStatus: partial
+  cutoffDate: 2026-07-27
+  updatedAt: 2026-07-27
+  reviewStatus: documentary
+  reviewNotes: Lectura académica e informativa de un conflicto social minero; no integra automáticamente el corte mensual de 61 casos, no adjudica propiedad o posesión y distingue decisiones penales, civiles, constitucionales e interamericanas.
+- id: toromocho-morococha
+  slug: toromocho-morococha
+  name: Toromocho–Morococha
+  summary: Caso hito de Junín sobre habilitación minera, traslado urbano, seguridad física del área de reasentamiento, vivienda, compensaciones, acuerdos, población no reasentada y continuidad institucional del conflicto.
+  period: { start: 2008, end: null }
+  status: active
+  territoryIds: [morococha-toromocho-junin]
+  actorIds: [poblacion-morococha, minera-chinalco, municipalidad-morococha, autoridades-reasentamiento]
+  issueIds: [reasentamiento-compensacion, concesion-superficie, certificacion-ambiental, competencias-estado, dialogo-acuerdos, beneficios-territoriales]
+  legalInstrumentIds: [ley-27446]
+  minerals: [cobre, molibdeno]
+  timeline:
+    - id: morococha-conflicto-2008
+      kind: evidence
+      date: 2008-02-01
+      datePrecision: month
+      title: Inicio registrado del conflicto Morococha–Chinalco
+      summary: El Reporte 268 de la Defensoría mantiene como fecha de inicio febrero de 2008 para el conflicto socioambiental Morococha–Chinalco.
+      sourceIds: [defensoria-conflictos-268]
+    - id: morococha-eia-2010
+      kind: decision
+      date: 2010-01-01
+      datePrecision: year
+      title: Aprobación ambiental del proyecto Toromocho
+      summary: El MINEM publica el EIA del proyecto de explotación Toromocho y la RD 411-2010-MEM/AAM que lo aprobó.
+      sourceIds: [morococha-minem-eia-2010]
+    - id: morococha-riesgo-solicitud-2012
+      kind: event
+      date: 2012-03-29
+      datePrecision: day
+      title: Municipalidad solicita evaluación de riesgo de Carhuacoto
+      summary: El alcalde de Morococha pidió a CENEPRED estimar el riesgo del área propuesta para el reasentamiento ante observaciones sobre licuación, inundación y sismo.
+      sourceIds: [morococha-cenepred-028-2013]
+    - id: morococha-obras-2012
+      kind: evidence
+      date: 2012-08-28
+      datePrecision: day
+      title: Visita técnica registra avance de Nueva Morococha
+      summary: CENEPRED registró infraestructura preventiva, viviendas y un avance físico aproximado de 90 por ciento en la nueva ciudad; el dato no acredita aceptación social.
+      sourceIds: [morococha-cenepred-028-2013]
+    - id: morococha-eia-reasentamiento-2012
+      kind: evidence
+      date: 2012-09-05
+      datePrecision: day
+      title: Chinalco remite el EIA del reasentamiento
+      summary: El informe CENEPRED registra que Chinalco remitió el EIA del proyecto de reasentamiento de la ciudad de Morococha para la evaluación técnica.
+      sourceIds: [morococha-cenepred-028-2013]
+    - id: morococha-cenepred-2013
+      kind: decision
+      date: 2013-03-01
+      datePrecision: month
+      title: Conclusión técnica sobre seguridad física del reasentamiento
+      summary: CENEPRED e INGEMMET consideraron poco probables los peligros evaluados y favorables las condiciones físicas bajo las medidas preventivas revisadas.
+      sourceIds: [morococha-cenepred-028-2013]
+    - id: morococha-acuerdos-2018
+      kind: agreement
+      date: 2018-06-05
+      datePrecision: day
+      title: Acuerdos sobre predios, proyectos y reinicio del diálogo
+      summary: El MINEM informó acuerdos sobre terreno para proyectos productivos, plan de desarrollo sostenible, valorización de infraestructura, adquisición de predios y reinicio de mesas.
+      sourceIds: [morococha-minem-acuerdos-2018]
+    - id: morococha-mesa-2020
+      kind: decision
+      date: 2020-02-26
+      datePrecision: day
+      title: PCM conforma la Mesa de Diálogo de Morococha
+      summary: La PCM creó el grupo de trabajo para suscribir un convenio marco y culminar el proceso de reasentamiento poblacional.
+      sourceIds: [morococha-pcm-rm-068-2020]
+    - id: morococha-mesa-2025
+      kind: evidence
+      date: 2025-03-27
+      datePrecision: day
+      title: Seguimiento del Plan de Acción de reasentamiento
+      summary: El MINAM registró una sesión de la mesa en la que Chinalco presentó el estado de implementación del Plan de Acción del Reasentamiento del EIA; la PCM amplió la vigencia del espacio.
+      sourceIds: [morococha-minam-ogasa-2025, morococha-pcm-rm-064-2025]
+    - id: morococha-desalojo-reportado-2025
+      kind: publication
+      date: 2025-09-29
+      datePrecision: day
+      title: Sociedad civil reporta desalojo de familias no reasentadas
+      summary: CooperAcción reportó que el 19 de septiembre se ejecutó una orden judicial de desalojo con presencia policial; el expediente judicial completo no está incorporado.
+      sourceIds: [morococha-cooperaccion-2025]
+    - id: morococha-estado-268
+      kind: evidence
+      date: 2026-07-16
+      datePrecision: day
+      title: Reporte 268 mantiene el conflicto activo
+      summary: La Defensoría registra Morococha–Chinalco como conflicto socioambiental activo, con inicio en febrero de 2008 y sin hechos nuevos reportados durante junio de 2026.
+      sourceIds: [defensoria-conflictos-268]
+  claims:
+    - id: morococha-hecho-activo
+      kind: fact
+      text: El Reporte 268 mantiene Morococha–Chinalco como conflicto socioambiental activo al corte público de junio de 2026.
+      sourceIds: [defensoria-conflictos-268]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: morococha-hecho-eia
+      kind: fact
+      text: El proyecto de explotación Toromocho cuenta con un EIA aprobado por la RD 411-2010-MEM/AAM.
+      sourceIds: [morococha-minem-eia-2010]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: morococha-hecho-riesgo
+      kind: fact
+      text: CENEPRED e INGEMMET concluyeron que Carhuacoto reunía condiciones físicas de seguridad bajo las medidas preventivas evaluadas.
+      sourceIds: [morococha-cenepred-028-2013]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: morococha-hecho-acuerdos
+      kind: fact
+      text: El MINEM documentó acuerdos en 2018 sobre predios, proyectos productivos, desarrollo sostenible, infraestructura y reinicio de mesas, sin acreditar en esa nota su cumplimiento integral.
+      sourceIds: [morococha-minem-acuerdos-2018]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: morococha-hecho-mesa
+      kind: fact
+      text: La PCM conformó una mesa para suscribir un convenio marco y culminar el reasentamiento, cuya vigencia fue ampliada en 2025.
+      sourceIds: [morococha-pcm-rm-068-2020, morococha-pcm-rm-064-2025]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: morococha-hecho-posicion-empresa
+      kind: fact
+      text: Chinalco presenta Nueva Morococha como una ciudad planificada bajo estándares internacionales y afirma mejoras de calidad de vida e indicadores sociales.
+      sourceIds: [morococha-chinalco-nueva]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: morococha-interpretacion
+      kind: interpretation
+      text: La existencia de infraestructura, evaluación técnica y acuerdos no demuestra por sí sola consentimiento, reparación suficiente ni cierre del conflicto; el seguimiento institucional y las posiciones territoriales deben evaluarse separadamente.
+      sourceIds: [morococha-cenepred-028-2013, morococha-minem-acuerdos-2018, defensoria-conflictos-268, morococha-cooperaccion-2025, metodologia-observatorio]
+      verificationStatus: partial
+  cutoffDate: 2026-07-27
+  updatedAt: 2026-07-27
+  reviewStatus: documentary
+  reviewNotes: Lectura académica e informativa de un conflicto social minero activo; diferencia seguridad física, infraestructura, experiencia social, acuerdos y cumplimiento, y presenta el desalojo de 2025 como reporte contextual mientras falta el expediente judicial completo.
+- id: choropampa
+  slug: choropampa
+  name: Choropampa–derrame de mercurio
+  summary: Caso hito histórico de Cajamarca sobre derrame de mercurio vinculado con transporte minero, exposición poblacional, respuesta de emergencia, fiscalización, compensaciones, litigios y seguimiento de compromisos.
+  period: { start: 2000, end: 2008 }
+  status: historical
+  territoryIds: [choropampa-cajamarca]
+  actorIds: [poblacion-choropampa, empresa-yanacocha, ransa-comercial, autoridades-choropampa]
+  issueIds: [salud-ambiental, fiscalizacion-ambiental, competencias-estado, dialogo-acuerdos, transporte-emergencias-reparacion]
+  legalInstrumentIds: []
+  minerals: [oro, mercurio]
+  timeline:
+    - id: choropampa-derrame-2000
+      kind: event
+      date: 2000-06-02
+      datePrecision: day
+      title: Derrame de mercurio entre San Juan, Choropampa y Magdalena
+      summary: Un camión de RANSA que transportaba mercurio de Minera Yanacocha derramó el metal en la ruta; la Defensoría estimó unos 27 km y la investigación CAO unos 40 km, diferencia que el expediente conserva.
+      sourceIds: [choropampa-defensoria-62, choropampa-cao-investigacion-2000, choropampa-newmont-10k-2002]
+    - id: choropampa-respuesta-inicial-2000
+      kind: event
+      date: 2000-06-03
+      datePrecision: day
+      title: Identificación y respuesta inicial al derrame
+      summary: El derrame fue confirmado al día siguiente, después de que personas de las localidades recogieran y manipularan mercurio; la investigación independiente documentó fallas de aviso, preparación y recuperación inicial.
+      sourceIds: [choropampa-cao-investigacion-2000, choropampa-defensoria-62]
+    - id: choropampa-atencion-salud-2000
+      kind: evidence
+      date: 2000-06-09
+      datePrecision: day
+      title: Atención sanitaria y monitoreo de exposición
+      summary: Comenzó la atención de personas por posible intoxicación y el monitoreo de viviendas y orina; las cifras agregadas describen atención y exposición, pero no establecen diagnósticos causales individuales para toda persona atendida.
+      sourceIds: [choropampa-cao-investigacion-2000, choropampa-defensoria-62]
+    - id: choropampa-sancion-2000
+      kind: decision
+      date: 2000-06-16
+      datePrecision: day
+      title: Dirección General de Minería impone multa de 600 UIT
+      summary: La Resolución Directoral 103-2000-EM/DGM sancionó a Minera Yanacocha con 600 UIT y dispuso cumplir recomendaciones de fiscalización por daños ambientales y a la salud documentados por la autoridad.
+      sourceIds: [choropampa-defensoria-62]
+    - id: choropampa-investigacion-cao-2000
+      kind: evidence
+      date: 2000-07-01
+      datePrecision: month
+      title: Comisión independiente reconstruye causas y respuesta
+      summary: La comisión convocada para CAO examinó transporte, envasado, cronología, comunicación, limpieza y atención, e identificó deficiencias en procedimientos de residuos y emergencia.
+      sourceIds: [choropampa-cao-investigacion-2000]
+    - id: choropampa-convenio-comunidad-2000
+      kind: agreement
+      date: 2000-08-14
+      datePrecision: day
+      title: Convenio entre Yanacocha y la municipalidad delegada de Choropampa
+      summary: El Informe Defensorial incorpora el convenio de transacción con la municipalidad delegada; documentos empresariales posteriores reportan obras públicas, sin que ello pruebe reparación integral ni conformidad de toda la población.
+      sourceIds: [choropampa-defensoria-62, choropampa-newmont-10k-2002]
+    - id: choropampa-evaluacion-salud-cao-2001
+      kind: agreement
+      date: 2001-01-01
+      datePrecision: year
+      title: Partes acuerdan una evaluación independiente de salud
+      summary: Tras la queja del Frente de Defensa, CAO facilitó un proceso de evaluación independiente de salud y seguimiento de recomendaciones; el caso de mediación cerró en 2003 sin que se realizara el estudio sanitario más amplio previsto.
+      sourceIds: [choropampa-cao-caso]
+    - id: choropampa-informe-defensorial-2001
+      kind: publication
+      date: 2001-12-01
+      datePrecision: month
+      title: Defensoría publica el Informe 62
+      summary: La Defensoría sistematizó hechos, respuesta estatal, derechos, responsabilidades y recomendaciones, y señaló debilidades de fiscalización y coordinación institucional.
+      sourceIds: [choropampa-defensoria-62]
+    - id: choropampa-pleno-casatorio-2008
+      kind: decision
+      date: 2008-01-22
+      datePrecision: day
+      title: Corte Suprema resuelve el Primer Pleno Casatorio Civil
+      summary: La Corte Suprema fijó por mayoría el efecto procesal de determinadas transacciones extrajudiciales en un litigio derivado del derrame; la decisión no acredita reparación integral de todas las personas afectadas.
+      sourceIds: [choropampa-pj-pleno-2008]
+    - id: choropampa-revision-newmont-2009
+      kind: publication
+      date: 2009-03-01
+      datePrecision: month
+      title: Revisión corporativa registra cambios y desconfianza persistente
+      summary: Una revisión encargada por Newmont atribuyó al incidente mejoras en transporte y protocolos de emergencia, y registró que residentes entrevistados mantenían preocupación sanitaria y desconfianza.
+      sourceIds: [choropampa-newmont-relaciones-2009]
+  claims:
+    - id: choropampa-hecho-derrame
+      kind: fact
+      text: El 2 de junio de 2000 se derramaron aproximadamente 151 kg de mercurio transportado para Minera Yanacocha en la ruta entre San Juan, Choropampa y Magdalena; las fuentes difieren sobre la longitud afectada.
+      sourceIds: [choropampa-defensoria-62, choropampa-cao-investigacion-2000, choropampa-newmont-10k-2002]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: choropampa-hecho-respuesta
+      kind: fact
+      text: La investigación independiente y la Defensoría documentaron deficiencias de prevención, comunicación, coordinación y respuesta durante la emergencia.
+      sourceIds: [choropampa-cao-investigacion-2000, choropampa-defensoria-62]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: choropampa-hecho-salud-limite
+      kind: fact
+      text: Las fuentes documentan atención, síntomas, hospitalizaciones y mediciones agregadas, pero esos registros no permiten atribuir causalidad médica individual a toda persona atendida ni proyectar diagnósticos actuales.
+      sourceIds: [choropampa-cao-investigacion-2000, choropampa-defensoria-62]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: choropampa-hecho-sancion
+      kind: fact
+      text: La Dirección General de Minería impuso a Minera Yanacocha una multa de 600 UIT mediante la Resolución Directoral 103-2000-EM/DGM.
+      sourceIds: [choropampa-defensoria-62]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: choropampa-hecho-acuerdos
+      kind: fact
+      text: Existieron transacciones individuales y un convenio con la municipalidad delegada, además de obras reportadas por la empresa; su existencia no demuestra reparación integral ni satisfacción colectiva.
+      sourceIds: [choropampa-defensoria-62, choropampa-newmont-10k-2002, choropampa-pj-pleno-2008]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: choropampa-hecho-posicion-empresa
+      kind: fact
+      text: Newmont reportó remediación, pagos, obras y cambios en transporte y protocolos, mientras su propia revisión registró preocupación y desconfianza persistentes entre residentes entrevistados.
+      sourceIds: [choropampa-newmont-10k-2002, choropampa-newmont-relaciones-2009]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: choropampa-interpretacion
+      kind: interpretation
+      text: Choropampa muestra que sanción, atención, remediación y acuerdos pueden coexistir con controversias duraderas sobre salud, confianza y reparación; ninguno de esos planos debe usarse solo para declarar el caso plenamente cerrado.
+      sourceIds: [choropampa-defensoria-62, choropampa-cao-caso, choropampa-pj-pleno-2008, choropampa-newmont-relaciones-2009, metodologia-observatorio]
+      verificationStatus: partial
+  cutoffDate: 2026-07-27
+  updatedAt: 2026-07-27
+  reviewStatus: documentary
+  reviewNotes: Lectura académica e informativa de un conflicto social minero histórico; no incorpora Choropampa al corte mensual vigente, no diagnostica personas ni presenta sanciones, transacciones u obras como reparación integral.
+- id: fondo-social-michiquillay
+  slug: fondo-social-michiquillay
+  name: Fondo Social Michiquillay
+  summary: Caso hito de Cajamarca sobre un conflicto socioambiental minero y un experimento institucional de gestión social mediante transferencias, representación comunal, priorización de proyectos, auditoría, acuerdos y reclamos de cumplimiento.
+  period: { start: 2007, end: null }
+  status: latent
+  territoryIds: [michiquillay-encanada-cajamarca]
+  actorIds: [comunidades-michiquillay-encanada, asociacion-fondo-social-michiquillay, empresas-michiquillay, autoridades-michiquillay]
+  issueIds: [gobernanza-fondos-sociales, beneficios-territoriales, dialogo-acuerdos, competencias-estado, concesion-superficie]
+  legalInstrumentIds: []
+  minerals: [cobre, molibdeno, oro, plata]
+  timeline:
+    - id: michiquillay-adjudicacion-2007
+      kind: decision
+      date: 2007-04-30
+      datePrecision: day
+      title: Anglo American obtiene la buena pro de Michiquillay
+      summary: La historia institucional del Fondo sitúa en esta fecha la adjudicación del proyecto a Anglo American Michiquillay, inicio del primer ciclo privado reconstruido por el expediente.
+      sourceIds: [michiquillay-fsm-sobre]
+    - id: michiquillay-acuerdos-sociales-2008
+      kind: agreement
+      date: 2008-05-23
+      datePrecision: day
+      title: Acuerdos sociales con La Encañada y Michiquillay
+      summary: Anglo American suscribió acuerdos sociales con La Encañada el 23 de mayo y con Michiquillay el 3 de junio de 2008; el expediente todavía no incorpora las actas y obligaciones completas.
+      sourceIds: [michiquillay-fsm-sobre]
+    - id: michiquillay-fondo-2009
+      kind: agreement
+      date: 2009-06-05
+      datePrecision: day
+      title: Transferencia de recursos y constitución del Fondo Social
+      summary: Una adenda dispuso transferir al Fondo el 50 por ciento de determinados pagos del precio ofertado y durante 2009 se constituyó la asociación encargada de gestionar programas y proyectos locales.
+      sourceIds: [michiquillay-fsm-sobre, michiquillay-minem-memoria-2018]
+    - id: michiquillay-dialogo-2010
+      kind: agreement
+      date: 2010-03-09
+      datePrecision: day
+      title: Diálogo reanudado y seis grupos de trabajo
+      summary: La Defensoría registró reuniones de diálogo y acuerdos para constituir e implementar el Fondo, establecer un procedimiento de comunicación y organizar grupos sobre empleo, ambiente, fondo social, exploración, reasentamiento y otros asuntos.
+      sourceIds: [michiquillay-defensoria-73]
+    - id: michiquillay-demanda-fondo-2011
+      kind: evidence
+      date: 2011-08-01
+      datePrecision: month
+      title: Reclamo comunal por cumplimiento y ejecución del Fondo
+      summary: La Defensoría mantuvo el caso como conflicto socioambiental y describió la demanda de la comunidad de Michiquillay para que se cumplieran y ejecutaran los compromisos del Fondo Social.
+      sourceIds: [michiquillay-defensoria-90]
+    - id: michiquillay-retiro-anglo-2014
+      kind: event
+      date: 2014-12-04
+      datePrecision: day
+      title: Anglo American se retira del proyecto
+      summary: La historia institucional del Fondo registra la resolución del contrato y la salida de Anglo American, cambio que no extinguió la asociación ni los recursos ya vinculados con ella.
+      sourceIds: [michiquillay-fsm-sobre]
+    - id: michiquillay-proinversion-2015
+      kind: decision
+      date: 2015-03-11
+      datePrecision: day
+      title: PROINVERSIÓN asume como asociado transitorio
+      summary: PROINVERSIÓN se incorporó temporalmente a la Asociación Fondo Social Michiquillay mientras se definía un nuevo inversionista para el proyecto.
+      sourceIds: [michiquillay-fsm-sobre, michiquillay-minem-memoria-2018]
+    - id: michiquillay-adjudicacion-southern-2018
+      kind: decision
+      date: 2018-02-20
+      datePrecision: day
+      title: Southern Perú obtiene la nueva buena pro
+      summary: PROINVERSIÓN adjudicó a Southern Perú el proyecto Michiquillay; el contrato de transferencia fue suscrito el 12 de junio de 2018.
+      sourceIds: [michiquillay-fsm-sobre, michiquillay-minem-contrato-2018]
+    - id: michiquillay-transferencia-fondo-2018
+      kind: evidence
+      date: 2018-11-08
+      datePrecision: day
+      title: Pago inicial trasladado al Fondo Social
+      summary: PROINVERSIÓN informó que el pago inicial de 12.5 millones de dólares efectuado por Southern había sido trasladado al Fondo; el comunicado no acredita por sí solo su ejecución posterior por proyecto.
+      sourceIds: [michiquillay-proinversion-2018]
+    - id: michiquillay-diagnostico-oefa-2019
+      kind: evidence
+      date: 2019-11-29
+      datePrecision: day
+      title: OEFA documenta organización y brechas territoriales
+      summary: Un diagnóstico social registró divisiones organizativas, limitaciones de agua, saneamiento, salud y educación, así como intervenciones atribuidas al Fondo, sin evaluar integralmente su desempeño.
+      sourceIds: [michiquillay-oefa-diagnostico-2019]
+    - id: michiquillay-acuerdos-southern-2021
+      kind: agreement
+      date: 2021-01-01
+      datePrecision: year
+      title: Southern reporta acuerdos sociales con las comunidades
+      summary: Southern declaró ante la SEC que en 2021 suscribió acuerdos sociales con Michiquillay y La Encañada; el expediente no contiene los textos completos ni una matriz independiente de cumplimiento.
+      sourceIds: [michiquillay-sec-10q-2026]
+    - id: michiquillay-demanda-escuela-2025
+      kind: event
+      date: 2025-06-10
+      datePrecision: day
+      title: Movilización por la institución educativa de Michiquillay
+      summary: La Defensoría registró una concentración en Cajamarca para demandar que la empresa y el Fondo construyeran la institución educativa 82154; la acción no equivale por sí sola a clasificación vigente del caso.
+      sourceIds: [michiquillay-defensoria-256]
+    - id: michiquillay-estado-proyecto-2026
+      kind: evidence
+      date: 2026-03-31
+      datePrecision: day
+      title: Proyecto en estudios y compromisos sociales reportados
+      summary: Southern informó que continuaban los estudios y reportó líneas de apoyo en agricultura, educación, agua, residuos y salud, con producción esperada para 2032; son declaraciones corporativas sujetas a contraste.
+      sourceIds: [michiquillay-sec-10q-2026]
+  claims:
+    - id: michiquillay-hecho-conflicto
+      kind: fact
+      text: La Defensoría registró a Michiquillay como conflicto socioambiental por pasivos, acuerdos y ejecución del Fondo Social, con diálogo y reclamos de cumplimiento documentados entre 2010 y 2011.
+      sourceIds: [michiquillay-defensoria-73, michiquillay-defensoria-90]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: michiquillay-hecho-fondo
+      kind: fact
+      text: En 2009 se constituyó la Asociación Fondo Social Michiquillay y una adenda vinculó al Fondo el 50 por ciento de determinados pagos del precio ofertado por el proyecto.
+      sourceIds: [michiquillay-fsm-sobre, michiquillay-minem-memoria-2018]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: michiquillay-hecho-transicion
+      kind: fact
+      text: La gobernanza del Fondo atravesó la salida de Anglo American, la incorporación transitoria de PROINVERSIÓN y el ingreso de Southern Perú como nuevo asociado en 2018.
+      sourceIds: [michiquillay-fsm-sobre, michiquillay-minem-memoria-2018]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: michiquillay-hecho-transferencia
+      kind: fact
+      text: PROINVERSIÓN informó en noviembre de 2018 que el pago inicial de 12.5 millones de dólares de Southern había sido trasladado al Fondo Social Michiquillay.
+      sourceIds: [michiquillay-proinversion-2018]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: michiquillay-hecho-transparencia
+      kind: fact
+      text: El portal del Fondo publica informes de gestión, auditoría, control interno y estados financieros, pero su disponibilidad no demuestra por sí sola calidad, impacto o aceptación de cada intervención.
+      sourceIds: [michiquillay-fsm-informes]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: michiquillay-hecho-territorio
+      kind: fact
+      text: El diagnóstico social de OEFA documentó organización comunal, brechas de servicios y acciones atribuidas al Fondo en Michiquillay al corte de 2019.
+      sourceIds: [michiquillay-oefa-diagnostico-2019]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: michiquillay-hecho-estado
+      kind: fact
+      text: La movilización de junio de 2025 acredita una demanda colectiva vinculada con empresa y Fondo, pero no permite afirmar que Michiquillay figure entre los 61 conflictos sociales mineros del Reporte 268.
+      sourceIds: [michiquillay-defensoria-256, defensoria-conflictos-268]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: michiquillay-interpretacion
+      kind: interpretation
+      text: Michiquillay muestra que un mecanismo creado para distribuir beneficios puede convertirse en una arena de conflicto sobre representación, prioridades, información, ejecución y confianza; su existencia no prueba consenso ni desarrollo logrado.
+      sourceIds: [michiquillay-defensoria-73, michiquillay-defensoria-90, michiquillay-oefa-diagnostico-2019, michiquillay-pucp-2021, metodologia-observatorio]
+      verificationStatus: partial
+  cutoffDate: 2026-07-27
+  updatedAt: 2026-07-27
+  reviewStatus: documentary
+  reviewNotes: Lectura académica e informativa de un conflicto social minero histórico con contestación reciente; el estado latente es una clasificación editorial y no atribuye inclusión en el registro vigente del Reporte 268 ni valida integralmente gestión, impacto o cumplimiento.
+- id: rio-blanco-majaz
+  slug: rio-blanco-majaz
+  name: Río Blanco–Majaz
+  summary: Conflicto socioambiental minero activo en Piura sobre autorización para usar tierras comunales, exploración, páramos y bosques de montaña, consulta vecinal, protesta, fiscalización, rehabilitación y legitimidad territorial.
+  period: { start: 2004, end: null }
+  status: active
+  territoryIds: [rio-blanco-piura]
+  actorIds: [comunidades-yanta-segunda-cajas, rondas-frontera-norte-rio-blanco, rio-blanco-copper, autoridades-rio-blanco]
+  issueIds: [concesion-superficie, consulta-participacion, certificacion-ambiental, agua-cuencas, fiscalizacion-ambiental, dialogo-acuerdos, competencias-estado]
+  legalInstrumentIds: []
+  minerals: [cobre, molibdeno]
+  timeline:
+    - id: rio-blanco-actas-2002
+      kind: agreement
+      date: 2002-07-09
+      datePrecision: day
+      title: Directivas suscriben documentos de autorización superficial
+      summary: Representantes de Yanta y Segunda y Cajas suscribieron documentos con Minera Majaz; la Defensoría concluyó después que no acreditaban aprobación de dos tercios de las respectivas asambleas generales.
+      sourceIds: [rio-blanco-defensoria-informe-2006]
+    - id: rio-blanco-ea-2003
+      kind: decision
+      date: 2003-11-28
+      datePrecision: day
+      title: MINEM aprueba la Evaluación Ambiental de exploración
+      summary: La RD 478-2003-EM/DGAA aprobó el instrumento de exploración presentado por Minera Majaz; una corrección posterior modificó la referencia distrital del proyecto.
+      sourceIds: [rio-blanco-minem-ea-2003, rio-blanco-defensoria-informe-2006]
+    - id: rio-blanco-conflicto-2004
+      kind: event
+      date: 2004-04-01
+      datePrecision: month
+      title: Comienza el conflicto registrado por la Defensoría
+      summary: Los reportes defensoriales sitúan en abril de 2004 el inicio del conflicto por el rechazo de las comunidades a la exploración y por la controversia sobre territorio, ambiente y autorización.
+      sourceIds: [rio-blanco-defensoria-reporte-36, defensoria-conflictos-268]
+    - id: rio-blanco-enfrentamiento-2005
+      kind: event
+      date: 2005-08-01
+      datePrecision: day
+      title: Enfrentamiento durante la movilización hacia el campamento
+      summary: La Defensoría registró un enfrentamiento con una persona fallecida, cinco heridas y treinta y dos detenidas, seguido por la conformación de una comisión de diálogo; el expediente no asigna aquí responsabilidad penal individual.
+      sourceIds: [rio-blanco-defensoria-reporte-36]
+    - id: rio-blanco-informe-defensoria-2006
+      kind: decision
+      date: 2006-11-14
+      datePrecision: day
+      title: Defensoría cuestiona la acreditación de autorización comunal
+      summary: El Informe de Adjuntía concluyó que los documentos de 2002 no fueron aprobados por dos tercios de las asambleas y recomendó verificar el acuerdo previo sobre tierras superficiales antes de autorizar exploración.
+      sourceIds: [rio-blanco-defensoria-informe-2006]
+    - id: rio-blanco-consulta-2007
+      kind: event
+      date: 2007-09-16
+      datePrecision: day
+      title: Consulta vecinal expresa rechazo al proyecto
+      summary: La consulta organizada en distritos de Ayabaca y Huancabamba expresó rechazo a la actividad minera asociada con Majaz/Río Blanco; fue una consulta vecinal y no se equipara automáticamente con consulta previa ni veto jurídico.
+      sourceIds: [rio-blanco-defensoria-reporte-139, rio-blanco-iep-2009]
+    - id: rio-blanco-sancion-2008
+      kind: decision
+      date: 2008-02-07
+      datePrecision: day
+      title: OSINERGMIN sanciona y ordena rehabilitación
+      summary: La Resolución 444-2008-1-OS/GFM impuso una multa de 100 UIT por incumplimientos de exploración y dispuso presentar y ejecutar medidas de rehabilitación de los componentes intervenidos.
+      sourceIds: [rio-blanco-osinergmin-444-2008]
+    - id: rio-blanco-desistimiento-2009
+      kind: decision
+      date: 2009-01-01
+      datePrecision: year
+      title: MINEM acepta desistimiento del EIA-sd 2008-2010
+      summary: La autoridad aceptó la solicitud empresarial de desistimiento del procedimiento de evaluación ambiental del nuevo programa de exploración; la decisión no cerró el conflicto ni extinguió el proyecto.
+      sourceIds: [rio-blanco-minem-desistimiento-2009]
+    - id: rio-blanco-rehabilitacion-2016
+      kind: decision
+      date: 2016-01-01
+      datePrecision: year
+      title: MINEM aprueba modificación del plan de rehabilitación
+      summary: La RD 274-2016-MEM/DGAAM aprobó una modificación de la actualización del plan de rehabilitación y mantuvo obligaciones sujetas a especificaciones y compromisos del expediente.
+      sourceIds: [rio-blanco-minem-rehabilitacion-2016]
+    - id: rio-blanco-rehabilitacion-2020
+      kind: decision
+      date: 2020-01-01
+      datePrecision: year
+      title: Segunda modificación del plan de rehabilitación
+      summary: La RD 057-2020-MINEM/DGAAM aprobó una segunda modificación del instrumento; su existencia demuestra seguimiento administrativo, no culminación ambiental integral.
+      sourceIds: [rio-blanco-minem-rehabilitacion-2020]
+    - id: rio-blanco-reactivacion-2024
+      kind: event
+      date: 2024-08-19
+      datePrecision: day
+      title: Defensoría registra reactivación y ausencia de diálogo
+      summary: Una notificación pública reunió demandas de comunidades y rondas y la Defensoría sostuvo una reunión territorial; el reporte clasificó el caso como reactivado, activo y sin diálogo.
+      sourceIds: [rio-blanco-defensoria-reporte-246, rio-blanco-red-muqui-2024]
+  claims:
+    - id: rio-blanco-hecho-estado
+      kind: fact
+      text: El Reporte 268 mantiene Río Blanco como conflicto socioambiental activo, iniciado en abril de 2004, dentro de la selección de conflictos sociales mineros del observatorio.
+      sourceIds: [defensoria-conflictos-268]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: rio-blanco-hecho-autorizacion
+      kind: fact
+      text: La Defensoría concluyó que los documentos suscritos en 2002 por directivas comunales no acreditaban la aprobación de dos tercios de las asambleas generales exigida para disponer de tierras comunales.
+      sourceIds: [rio-blanco-defensoria-informe-2006]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: rio-blanco-hecho-consulta
+      kind: fact
+      text: El 16 de septiembre de 2007 una consulta vecinal expresó rechazo al proyecto; el observatorio registra su significado político y territorial sin atribuirle automáticamente efectos de consulta previa o veto jurídico.
+      sourceIds: [rio-blanco-defensoria-reporte-139, rio-blanco-iep-2009]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: rio-blanco-hecho-violencia
+      kind: fact
+      text: La Defensoría documentó que el enfrentamiento del 1 de agosto de 2005 dejó una persona fallecida, cinco heridas y treinta y dos detenidas, sin que este expediente atribuya responsabilidad penal individual.
+      sourceIds: [rio-blanco-defensoria-reporte-36]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: rio-blanco-hecho-fiscalizacion
+      kind: fact
+      text: OSINERGMIN sancionó incumplimientos de exploración con 100 UIT y ordenó rehabilitación; decisiones posteriores del MINEM modificaron el plan, sin acreditar por sí solas culminación material integral.
+      sourceIds: [rio-blanco-osinergmin-444-2008, rio-blanco-minem-rehabilitacion-2016, rio-blanco-minem-rehabilitacion-2020]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: rio-blanco-hecho-reactivacion
+      kind: fact
+      text: En agosto de 2024 la Defensoría registró la reactivación del conflicto, ausencia de diálogo y un pliego territorial presentado por comunidades y rondas.
+      sourceIds: [rio-blanco-defensoria-reporte-246]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: rio-blanco-hecho-posicion-empresa
+      kind: fact
+      text: Río Blanco Copper presenta actualmente el proyecto en prefactibilidad y sostiene que su rediseño excluye páramos y evitará afectaciones ambientales; son afirmaciones corporativas atribuidas y sujetas a contraste.
+      sourceIds: [rio-blanco-empresa-proyecto-2026]
+      verificationStatus: verified
+      verifiedAt: 2026-07-27
+    - id: rio-blanco-interpretacion
+      kind: interpretation
+      text: Río Blanco muestra que autorización ambiental, acuerdo sobre superficie, participación local, legitimidad territorial y rehabilitación son planos distintos; un documento en uno de ellos no resuelve automáticamente los demás.
+      sourceIds: [rio-blanco-defensoria-informe-2006, rio-blanco-osinergmin-444-2008, rio-blanco-defensoria-reporte-246, rio-blanco-iep-2009, metodologia-observatorio]
+      verificationStatus: partial
+  cutoffDate: 2026-07-27
+  updatedAt: 2026-07-27
+  reviewStatus: documentary
+  reviewNotes: Lectura académica e informativa de un conflicto social minero activo; no convierte posiciones comunales o empresariales en hechos propios, no equipara consulta vecinal con consulta previa y no emite conclusiones legales sobre responsabilidades.

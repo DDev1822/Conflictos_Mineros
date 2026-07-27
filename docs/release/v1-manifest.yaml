@@ -1,29 +1,8 @@
 version: v1
-visibility: public-learning
-updatedAt: 2026-07-01
-signoffs:
-  methodology:
-    status: pending
-    reviewedAt: null
-    reviewedBy: null
-    evidence: docs/data-methodology.md
-  licenses:
-    status: pending
-    reviewedAt: null
-    reviewedBy: null
-    evidence: README.md#licencias
-  editorial:
-    status: pending
-    reviewedAt: null
-    reviewedBy: null
-    evidence: docs/audits/2026-06-20-product-review/audit.md
-  documentary:
-    status: pending
-    reviewedAt: null
-    reviewedBy: null
-    evidence: content/data
-  accessibility:
-    status: pending
-    reviewedAt: null
-    reviewedBy: null
-    evidence: design-qa.md
+visibility: public-academic
+purpose: academic-informational
+updatedAt: 2026-07-27
+disclaimer: >-
+  Observatorio académico e informativo. Organiza fuentes públicas y análisis
+  documentales; no sustituye asesoría profesional, peritajes ni decisiones de
+  autoridad, y no determina responsabilidades o causalidad.

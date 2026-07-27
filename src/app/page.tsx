@@ -5,7 +5,6 @@ import {
   BookOpenText,
   ClockCounterClockwise,
   CirclesThreePlus,
-  Coins,
   Database,
   FileText,
   Gavel,
@@ -13,7 +12,8 @@ import {
   WarningCircle,
 } from "@phosphor-icons/react/dist/ssr";
 import { loadObservatoryData } from "@/lib/content";
-import { loadReleaseState } from "@/lib/release-state";
+import { getLatestPublicMiningCut } from "@/lib/mining-classification";
+import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import type { Source } from "@/lib/schemas";
 
 const sourceTypeLabels: Record<Source["type"], string> = {
@@ -39,51 +39,44 @@ function countSourcesByType(sources: Source[]) {
 
 export default function HomePage() {
   const data = loadObservatoryData();
-  const { manifest, readiness } = loadReleaseState(data);
-  const latestSocialSnapshot = [...data.socialConflictSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
-  const latestMiningSelection = [...data.miningConflictSelections].sort((a, b) => b.totalRegistered - a.totalRegistered)[0];
-  const latestReinfo = [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
-  const readyCasePackets = data.caseResearchPackets.filter((packet) => packet.status === "ready").length;
-  const preparedLegalPackets = data.legalResearchPackets.filter((packet) => packet.status === "prepared").length;
-  const reviewedEvidence = data.evidenceRecords.filter((record) => record.reviewStatus === "reviewed").length;
-  const blockingGaps = data.caseResearchPackets.flatMap((packet) => packet.gaps).filter((gap) => gap.blocksRelease).length;
-  const openContradictions = data.caseResearchPackets.flatMap((packet) => packet.contradictions).filter((item) => item.status === "open").length;
-  const pendingSignoffs = Object.values(manifest.signoffs).filter((signoff) => signoff.status === "pending").length;
+  const { snapshot: latestMiningSnapshot, selection: latestMiningSelection } = getLatestPublicMiningCut(data);
+  if (!latestMiningSnapshot || !latestMiningSelection) throw new Error("No existe un corte público de conflictos sociales mineros");
   const sourceTypeCounts = countSourcesByType(data.sources);
-  const timelineCount = data.cases.reduce((sum, item) => sum + item.timeline.length, 0);
-  const claimCount = data.cases.reduce((sum, item) => sum + item.claims.length, 0);
+  const publicCases = data.cases.filter(isPublishedSocialMiningCase);
+  const timelineCount = publicCases.reduce((sum, item) => sum + item.timeline.length, 0);
+  const claimCount = publicCases.reduce((sum, item) => sum + item.claims.length, 0);
 
   return (
     <div className="home-page">
       <section className="hero">
-        <p className="eyebrow">Observatorio documental · V1 {manifest.visibility}</p>
-        <h1>Conflictos mineros del Perú, leídos desde evidencia trazable.</h1>
+        <p className="eyebrow">Conflictos sociales mineros · evidencia trazable</p>
+        <h1>Conflictos sociales mineros del Perú, explicados desde fuentes contrastables.</h1>
         <p className="hero-copy">
-          Seis expedientes piloto conectan territorio, cronología, actores, fuentes, normas y límites de revisión.
-          La V1 no emite dictámenes ni reemplaza asesoría: muestra hechos documentados, posiciones atribuidas y vacíos visibles.
+          El observatorio reúne {latestMiningSelection.totalRegistered} conflictos sociales mineros y desarrolla {publicCases.length} casos hito
+          sobre agua, territorio, consulta, acuerdos, salud ambiental y control estatal. Hechos, posiciones e interpretaciones se presentan
+          por separado y con fuentes.
         </p>
         <div className="hero-actions">
-          <Link className="button primary" href="/explorar">Entrar al sistema de relaciones <ArrowRight size={18} /></Link>
-          <Link className="button secondary" href="/metodologia">Leer metodología y alcance</Link>
+          <Link className="button primary" href="/conflictos">Explorar conflictos <ArrowRight size={18} /></Link>
+          <Link className="button secondary" href="/metodologia">Ver criterios de evidencia</Link>
         </div>
         <dl className="hero-stats">
-          <div><dt>{data.cases.length}</dt><dd>expedientes piloto</dd></div>
-          <div><dt>{latestMiningSelection.totalRegistered}</dt><dd>conflictos mineros del corte</dd></div>
-          <div><dt>{data.sources.length}</dt><dd>fuentes documentales</dd></div>
-          <div><dt>{reviewedEvidence}/{data.evidenceRecords.length}</dt><dd>locadores revisados</dd></div>
+          <div><dt>{latestMiningSelection.totalRegistered}</dt><dd>conflictos en el Reporte {latestMiningSnapshot.reportNumber}</dd></div>
+          <div><dt>{latestMiningSelection.active}/{latestMiningSelection.latent}</dt><dd>activos / latentes del mismo corte</dd></div>
+          <div><dt>{publicCases.length}</dt><dd>casos hito desarrollados</dd></div>
+          <div><dt>{timelineCount}</dt><dd>hitos en esos {publicCases.length} casos</dd></div>
         </dl>
       </section>
 
-      <section className="home-status" aria-label="Estado de cierre V1">
+      <section className="home-status" aria-label="Problemas de fondo y cortes documentales">
         <article>
           <WarningCircle size={26} />
           <div>
-            <p className="eyebrow">Estado de publicación</p>
-            <h2>{readiness.ready ? "V1 lista para publicación controlada" : "V1 bloqueada para publicación"}</h2>
+            <p className="eyebrow">Qué está en juego</p>
+            <h2>Agua, territorio, acuerdos y control estatal bajo evidencia trazable</h2>
             <p>
-              El observatorio organiza información pública para lectura académica y ciudadana. Conserva {readiness.metrics.transparencyNotices} aviso(s)
-              de transparencia, {pendingSignoffs} signoff(s) pendiente(s), {blockingGaps} vacío(s) documentales visibles y {openContradictions} contradicción(es)
-              abierta(s); no se presentan como errores ocultos ni como conclusiones cerradas.
+              La disputa minera no se reduce a protesta o inversión: combina derechos territoriales, certificación ambiental,
+              cumplimiento de acuerdos, participación y capacidad estatal para fiscalizar.
             </p>
           </div>
         </article>
@@ -91,28 +84,28 @@ export default function HomePage() {
           <Database size={26} />
           <div>
             <p className="eyebrow">Cortes incorporados</p>
-            <h2>{latestSocialSnapshot.totalRegistered} sociales · {latestMiningSelection.totalRegistered} mineros · {latestReinfo.totalRegistered.toLocaleString("es-PE")} REINFO</h2>
+            <h2>{latestMiningSelection.totalRegistered} conflictos sociales mineros</h2>
             <p>
-              Corte social {formatDate(latestSocialSnapshot.cutoffDate)}; REINFO vigente al {formatDate(latestReinfo.cutoffDate)}.
+              Corte minero del Reporte {latestMiningSnapshot.reportNumber}, {formatDate(latestMiningSnapshot.cutoffDate)}.
               Los puntos del mapa son referencias agregadas, no áreas de influencia ni prueba de causalidad.
             </p>
           </div>
         </article>
       </section>
 
-      <section className="home-visual-strip" aria-label="Lectura visual del observatorio">
+      <section className="home-visual-strip" aria-label="Evidencia visual documental">
         <figure>
           <Image
             src="/multimedia/documents/evidencia-documental.webp"
-            alt="Revisión documental sobre mesa de trabajo académica."
+            alt="Mesa de trabajo académica con documentos y fuentes de evidencia."
             width="1280"
             height="720"
             sizes="(max-width: 800px) 100vw, 33vw"
             loading="lazy"
           />
           <figcaption>
-            <span>Archivo y locador</span>
-            <strong>La evidencia se cita por página, sección, tabla o artículo.</strong>
+            <span>Fuente y referencia exacta</span>
+            <strong>La ubicación precisa permite comprobar el dato en el documento original.</strong>
           </figcaption>
         </figure>
         <figure>
@@ -139,37 +132,37 @@ export default function HomePage() {
             loading="lazy"
           />
           <figcaption>
-            <span>Norma y revisión</span>
-            <strong>Las normas se muestran como documentos públicos, con fuente y alcance.</strong>
+            <span>Norma y competencia</span>
+            <strong>El problema normativo aparece cuando autorización, fiscalización y cumplimiento no resuelven el conflicto.</strong>
           </figcaption>
         </figure>
       </section>
 
       <section className="section-shell">
         <div className="section-heading">
-          <p className="eyebrow">Rutas principales</p>
-          <h2>Entrar por problema, caso, territorio, tiempo o norma</h2>
+          <p className="eyebrow">Problemas principales</p>
+          <h2>Agua, territorio, acuerdos, normas y evidencia</h2>
         </div>
         <div className="entry-grid">
           <Link href="/explorar">
             <CirclesThreePlus size={29} />
             <h3>Sistema de relaciones</h3>
-            <p>Dos problemas raíz —conflicto social minero y minería ilegal/informal— conectados con evidencia, REINFO, fiscalización y casos.</p>
+            <p>Conflictos sociales mineros conectados con casos, actores, acuerdos, evidencia ambiental y fuentes documentales.</p>
           </Link>
           <Link href="/conflictos">
             <BookOpenText size={29} />
-            <h3>Expedientes</h3>
-            <p>{readyCasePackets}/{data.caseResearchPackets.length} paquetes listos con estado al corte, fuentes, locadores, contradicciones y preguntas abiertas.</p>
+            <h3>Casos hito</h3>
+            <p>Casos hito desarrollados cruzan territorio, actores, obligaciones, contradicciones y fuentes directas.</p>
           </Link>
           <Link href="/cronologia">
             <ClockCounterClockwise size={29} />
             <h3>Cronología</h3>
-            <p>{timelineCount} hitos filtrables por caso, tipo de evento, fuente y locador; publicaciones no rellenan cronologías artificialmente.</p>
+            <p>{timelineCount} hitos ordenan decisiones, acuerdos, evidencias y publicaciones sin convertir una nota pública en hecho sustantivo.</p>
           </Link>
           <Link href="/mapa">
             <MapTrifold size={29} />
             <h3>Territorio</h3>
-            <p>Mapa con conflicto social, selección minera, minería ilegal/informal, REINFO, formal, exploración y concesiones como capas separadas.</p>
+            <p>Mapa de conflictos sociales mineros y casos documentados, con distribución regional al corte.</p>
           </Link>
         </div>
       </section>
@@ -180,7 +173,7 @@ export default function HomePage() {
           <h2>Fuentes diversas, pesos distintos</h2>
           <p>
             La diversidad de perspectivas no significa equivalencia probatoria. Una fuente comunitaria, empresarial, estatal o académica puede sostener posiciones distintas;
-            el observatorio conserva el tipo de fuente, el nivel de evidencia y el locador exacto.
+            cada registro conserva tipo de fuente, nivel de evidencia y ubicación exacta dentro del documento.
           </p>
         </div>
         <div className="home-source-grid">
@@ -195,22 +188,20 @@ export default function HomePage() {
 
       <section className="principles-band">
         <div><span>01</span><h3>Hechos</h3><p>{claimCount} afirmaciones separadas por hecho, interpretación o propuesta.</p></div>
-        <div><span>02</span><h3>Locadores</h3><p>Página, sección, tabla o artículo para sostener, matizar o contradecir.</p></div>
-        <div><span>03</span><h3>Normativa</h3><p>{preparedLegalPackets}/{data.legalResearchPackets.length} paquetes normativos con texto oficial, fuentes y preguntas de alcance.</p></div>
-        <div><span>04</span><h3>Corrección abierta</h3><p>La V1 publica información trazable y conserva avisos de mejora sin convertirlos en candados.</p></div>
+        <div><span>02</span><h3>Referencias exactas</h3><p>Folio, sección, tabla o artículo para comprobar qué sostiene, matiza o contradice una fuente.</p></div>
+        <div><span>03</span><h3>Normativa</h3><p>{data.instruments.length} instrumentos conectan competencias, autorizaciones, fiscalización y cumplimiento.</p></div>
+        <div><span>04</span><h3>Corrección documentada</h3><p>Todo ajuste identifica el dato, la fuente, su ubicación precisa y la razón del cambio.</p></div>
       </section>
 
       <section className="home-next">
         <FileText size={28} />
         <div>
-          <p className="eyebrow">Lectura recomendada</p>
-          <h2>Empieza por metodología si vas a citar; por relaciones si vas a explorar.</h2>
+          <p className="eyebrow">Cruces críticos</p>
+          <h2>Para entender el conflicto, cruza casos, cronologías, compromisos, normas y territorio.</h2>
           <div>
+            <Link href="/compromisos">Compromisos <ArrowRight /></Link>
             <Link href="/metodologia">Metodología <ArrowRight /></Link>
             <Link href="/normativa">Normativa <Gavel size={15} /></Link>
-            <Link href="/oro-ilegal">Oro sin trazabilidad <Coins size={15} /></Link>
-            <Link href="/madre-de-dios">Madre de Dios <ArrowRight /></Link>
-            <Link href="/reinfo">REINFO / MAPE <ArrowRight /></Link>
           </div>
         </div>
       </section>

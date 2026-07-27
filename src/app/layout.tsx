@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@fontsource-variable/source-sans-3";
 import "@fontsource-variable/source-serif-4";
 import "./globals.css";
+import { ContactBand } from "@/components/contact-band";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <a className="skip-link" href="#contenido">Saltar al contenido</a>
         <SiteHeader />
         <main id="contenido">{children}</main>
+        <ContactBand />
         <SiteFooter />
       </body>
     </html>

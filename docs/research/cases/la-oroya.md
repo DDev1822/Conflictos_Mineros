@@ -1,8 +1,8 @@
 # Memo de caso hito: La Oroya / Doe Run
 
-Estado: paquete documental iniciado; no es expediente público completo.
+Estado: séptimo expediente canónico; paquete profundo listo para lectura académica.
 
-Fecha de estructuración: 2026-06-29.
+Fecha de actualización: 2026-07-27.
 
 ## Lectura de caso
 
@@ -21,15 +21,17 @@ Regla editorial: la sentencia de la Corte IDH declara responsabilidad internacio
 | 1997 | event | Doe Run Perú adquiere el CMLO y asume la mayor parte de obligaciones del PAMA. | Corte IDH, pp. 27-28, párrs. 67 y 69. | Distinguir titularidad, obligaciones transferidas y obligaciones de Centromin. |
 | 2004 | evidence | La Corte registra porcentajes de avance de proyectos PAMA; la planta de ácido sulfúrico tenía avance muy bajo frente al monto programado. | Corte IDH, p. 29, párr. 70. | Base para matriz PAMA; no sustituye expediente administrativo MINEM. |
 | 2005-12-20 | event | Doe Run solicita prórroga excepcional del PAMA para plantas de ácido sulfúrico. | Corte IDH, p. 29, párr. 71. | Identificar argumento técnico-económico y origen de prórrogas. |
-| 2006-05-12 | decision | Tribunal Constitucional ordena medidas de salud, calidad del aire, alerta y vigilancia. | Corte IDH, p. 16, párr. 36; revisar sentencia TC primaria. | Hito judicial interno pendiente de fuente directa primaria. |
+| 2006-05-12 | decision | Tribunal Constitucional ordena medidas de salud, calidad del aire, alerta y vigilancia. | TC, expediente 02002-2006-PC/TC, p. 26, puntos 1-5. | Hito judicial interno revisado desde fuente primaria. |
 | 2006-05-29 | decision | MINEM aprueba parcialmente la prórroga y fija octubre de 2009 como plazo de culminación. | Corte IDH, p. 30, párr. 71. | Hito clave para analizar prórrogas y cumplimiento. |
 | 2009-06 | event | Doe Run paraliza operaciones por problemas financieros y entra a reestructuración de pasivos. | Corte IDH, p. 30, párr. 72. | Separar crisis financiera, empleo y obligaciones ambientales. |
-| 2009-09-26 | decision | Ley 29410 concede nueva prórroga y exige garantías. | Corte IDH, p. 30, párr. 73. | Requiere texto legal primario y discusión de constitucionalidad/razonabilidad. |
+| 2009-09-26 | decision | Ley 29410 concede nueva prórroga y exige garantías. | Ley 29410, p. 1, arts. 1-4. | Texto primario integrado; su existencia no acredita ejecución. |
 | 2010 | evidence | El PAMA vence sin culminar la planta de ácido sulfúrico y la modificación del circuito de cobre. | Corte IDH, p. 31, párr. 74. | Núcleo de cumplimiento material pendiente de matriz administrativa. |
 | 2022-01-15 | decision | Junta de Acreedores acuerda transferir el CMLO a trabajadores como dación en pago. | Corte IDH, p. 31, párr. 75. | Separar Doe Run, extrabajadores y nuevo titular. |
 | 2023-10 | event | Corte registra inicio de operaciones por Metalurgia Business Perú S.A. | Corte IDH, p. 31, párr. 75. | Estado material reciente; requiere contraste con MINEM/OEFA. |
 | 2023-11-27 | decision | Corte IDH emite sentencia de fondo, reparaciones y costas. | Corte IDH, pp. 141-143, puntos resolutivos. | Hito interamericano central. |
+| 2024-04-04 | decision | MINEM aprueba la segunda actualización del plan de cierre del CMLO. | RD 100-2024-MEM-DGAAM, sumilla oficial. | Aprobación documental; no equivale a ejecución. |
 | 2025-02-03 | evidence | Corte IDH declara cumplimiento parcial de publicaciones y mantiene pendientes otras reparaciones. | Corte IDH, supervisión 03/02/2025, pp. 4-6. | Estado de cumplimiento; no cierre del caso. |
+| 2026-01-21 | decision | TC menciona cumplimiento parcial de órdenes previas; dos votos se apartan de esos fundamentos. | TC, expediente 01686-2023-PC/TC, fundamentos 15-16 y votos concurrentes. | Conservar decisión y desacuerdo interno sin usarla como auditoría integral. |
 
 ## Matriz PAMA preliminar
 
@@ -91,16 +93,23 @@ Fuente: Corte IDH, sentencia 27/11/2023, pp. 142-143, puntos resolutivos 12-26; 
 |---|---|---|---|
 | la-oroya-corteidh-sentencia-2023 | Corte IDH, Caso Habitantes de La Oroya Vs. Perú, sentencia de 27/11/2023. | https://www.corteidh.or.cr/docs/casos/articulos/seriec_511_esp.pdf | pp. 16, 27-32, 40-41, 120-125, 141-143. |
 | la-oroya-corteidh-supervision-2025 | Corte IDH, Supervisión de cumplimiento de sentencia, resolución de 03/02/2025. | https://www.corteidh.or.cr/docs/supervisiones/habitantes_laoroya_03_02_25.pdf | pp. 1-6. |
+| la-oroya-tc-2006 | Tribunal Constitucional, expediente 02002-2006-PC/TC. | https://www.tc.gob.pe/jurisprudencia/2006/02002-2006-AC.pdf | p. 26, puntos resolutivos 1-5. |
+| la-oroya-ley-29410 | Ley 29410. | https://spij.minjus.gob.pe/Normas/textos/260909T.pdf | p. 1, arts. 1-4. |
+| la-oroya-oefa-aire-2022 | OEFA, evaluación de calidad del aire enero-octubre 2022. | https://repositorio.oefa.gob.pe/items/b6320820-c1a1-4dfe-91d6-c3146586728d/full | Resumen, periodo y condición de paralización. |
+| la-oroya-minem-reinicio-2023 | MINEM, reinicio de operaciones del CMLO. | https://www.gob.pe/institucion/minem/noticias/852216-complejo-metalurgico-de-la-oroya-reinicia-operaciones-en-la-provincia-de-yauli-junin | Nota oficial del 18/10/2023. |
+| la-oroya-minem-cierre-2024 | MINEM, RD 100-2024-MEM-DGAAM. | https://www.gob.pe/institucion/minem/normas-legales/5637576-100-2024-mem-dgaam | Sumilla y resolución oficial. |
+| la-oroya-tc-2026 | Tribunal Constitucional, expediente 01686-2023-PC/TC. | https://www.tc.gob.pe/jurisprudencia/2026/01686-2023-AC.html | Fundamentos 15-16, decisión y votos concurrentes. |
+| la-oroya-mbp-comunicado-2025 | Metalurgia Business Perú, comunicado 002-2025. | https://metalurgiabusinessperu.com/wp-content/uploads/2025/03/2-COMU-OFICIAL-26.3.25.pdf | Posición sobre alcance operacional, monitoreo y responsabilidad declarada. |
+| la-oroya-aida-hitos-2024 | AIDA, cinco hitos de la sentencia. | https://aida-americas.org/es/blog/5-hitos-de-la-sentencia-del-caso-habitantes-de-la-oroya-vs-peru | Posición de representantes de víctimas sobre alcance del fallo. |
 
-## Fuentes primarias pendientes
+## Seguimiento documental pendiente
 
-- Sentencia del Tribunal Constitucional de 12/05/2006 en acción de cumplimiento sobre La Oroya.
 - Resolución de aprobación del PAMA del 13/01/1997.
 - Resolución Ministerial 257-2006-MEM/DM o equivalente sobre prórroga.
-- Ley 29410 y Decreto Supremo 075-2009-EM.
-- Plan de Cierre del CMLO y resoluciones de paralización/levantamiento 2020-2023.
-- Informes OEFA, MINAM, MINSA y Activos Mineros sobre aire, suelo, salud y remediación.
-- Documentos de Metalurgia Business Perú S.A. sobre titularidad y operación.
+- Decreto Supremo 075-2009-EM y seguimiento semestral de las garantías y obras.
+- Texto completo del plan de cierre 2024 y evidencia de ejecución por obligación.
+- Series OEFA, MINAM y MINSA comparables posteriores al reinicio operacional.
+- Matriz actualizada de cumplimiento por cada reparación de la Corte IDH.
 
 ## Preguntas de alcance documental
 
@@ -111,12 +120,13 @@ Fuente: Corte IDH, sentencia 27/11/2023, pp. 142-143, puntos resolutivos 12-26; 
 5. ¿Cómo debe leerse la reactivación del CMLO bajo nuevo titular frente a reparaciones pendientes y estándares ambientales ordenados?
 6. ¿Qué parte de la sentencia TC 2006 permanece relevante tras la sentencia Corte IDH y la supervisión de cumplimiento?
 
-## Decisión editorial recomendada
+## Decisión editorial aplicada
 
-La Oroya debe ascender primero a “paquete profundo candidato”, no todavía a expediente público completo. Para ascender necesita:
+La Oroya asciende como séptimo expediente canónico con profundidad `deep`. La publicación conserva como límites no bloqueantes:
 
-- cronología con documentos administrativos primarios;
 - matriz PAMA por obligación, titular, plazo, modificación, cumplimiento y fuente;
 - matriz de reparaciones Corte IDH con estado de cumplimiento;
-- posiciones diferenciadas de víctimas, Estado, empresa/titulares, trabajadores y sociedad civil;
-- matriz de alcance de responsabilidad y lenguaje público con fuentes directas.
+- datos ambientales y sanitarios posteriores al reinicio;
+- contraste continuo de posiciones de víctimas, Estado, empresas, trabajadores y sociedad civil.
+
+No se integra La Oroya al corte mensual de 61 conflictos sociales mineros de la Defensoría. Su condición `active` describe seguimiento documental abierto de operación, cierre y reparaciones.

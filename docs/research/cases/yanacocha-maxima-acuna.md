@@ -1,6 +1,6 @@
 # Memo de caso hito: Yanacocha: Máxima Acuña y comuneros
 
-Estado: paquete documental iniciado; no es expediente público completo.
+Estado: integrado como noveno expediente canónico profundo; conserva límites civiles, registrales y catastrales explícitos.
 
 Fecha de estructuración: 2026-06-29.
 
@@ -156,4 +156,4 @@ No queda documentado todavía, con fuente primaria completa dentro del paquete:
 
 ## Regla de publicación
 
-Este paquete puede alimentar una ficha hito y la lectura transversal Cajamarca, pero no debe ascender a expediente completo hasta cerrar los expedientes civiles, locadores registrales/catastrales e implementación de medidas cautelares, o dejar esos vacíos explícitos en la interfaz.
+Este paquete alimenta una ficha hito y la lectura transversal Cajamarca. Los expedientes civiles, locadores registrales/catastrales e implementación de medidas cautelares permanecen declarados como límites probatorios en la interfaz, sin impedir su publicación académica.

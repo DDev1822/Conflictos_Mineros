@@ -1,10 +1,10 @@
 # Metodología de datos y trazabilidad
 
-> Última revisión documental: 20 de junio de 2026. Signoff metodológico para publicación: pendiente. Esta fecha registra la revisión del texto y sus reglas; no sustituye la consulta directa de fuentes oficiales ni la aprobación de licencias.
+> Última revisión documental: 27 de julio de 2026. Documento metodológico de un observatorio académico e informativo, abierto a correcciones trazables. Esta fecha registra la revisión del texto y sus reglas; no sustituye la consulta directa de fuentes oficiales.
 
 ## Propósito
 
-El observatorio organiza evidencia pública para estudiar conflictos mineros del Perú. No sustituye una investigación de campo, una pericia técnica, una decisión administrativa, una sentencia ni asesoría profesional. Su función es hacer explícitas las relaciones entre casos, territorios, actores, normas, controversias, hechos y alternativas de política pública.
+El observatorio organiza evidencia pública para estudiar conflictos mineros del Perú. No sustituye una investigación de campo, una pericia técnica, una decisión administrativa o una sentencia, y no constituye asesoría jurídica, médica, ambiental o técnica. Su función es hacer explícitas las relaciones entre casos, territorios, actores, normas, controversias, hechos y alternativas de política pública.
 
 La fecha de corte de cada expediente indica hasta cuándo se revisó su contenido. Un expediente puede conservar fuentes anteriores y posteriores a sus hitos, pero no debe presentar como actual una conclusión que no haya sido comprobada a la fecha de corte.
 
@@ -13,6 +13,7 @@ La fecha de corte de cada expediente indica hasta cuándo se revisó su contenid
 - Un `ConflictCase` representa un conflicto o proceso territorial documentado, no una declaración sobre la responsabilidad de sus actores.
 - Un `TimelineEvent` registra un hito con la máxima precisión temporal que permite la fuente.
 - Un `Claim` contiene una sola afirmación clasificable como hecho, interpretación o propuesta.
+- Un `CommitmentComparisonEntry` enlaza un compromiso con un expediente y un hito canónico; separa base documental, etapa de seguimiento, evidencia de ejecución y límite probatorio.
 - Un `Source` describe un documento o conjunto documental identificable.
 - Un `LegalInstrument` registra una norma y su historial documental; el observatorio la presenta como documento público trazable, no como texto oficial consolidado ni dictamen sobre aplicabilidad.
 - Un `Territory` aporta un punto de referencia para navegación. No representa por sí solo el área de influencia, una concesión, una comunidad ni un límite administrativo.
@@ -55,17 +56,32 @@ Una cita general no basta para cerrar un hecho. Cada `EvidenceRecord` enlaza una
 
 Los hitos se clasifican como `event`, `decision`, `agreement`, `evidence` o `publication`. Las publicaciones académicas aportan contexto y contraste, pero no cuentan por sí solas para el mínimo sustantivo de una cronología.
 
-Cada paquete de caso registra tres o más perspectivas pertinentes, al menos una fuente directa de un actor involucrado, preguntas de alcance y vacíos explícitos. `ready` significa que la estructura documental está lista para lectura y que los vacíos quedaron declarados; no significa que esos vacíos estén cerrados ni que exista consenso sobre el caso. Los paquetes normativos `prepared` identifican texto oficial, reglamentos, modificatorias y preguntas de alcance; tampoco determinan vigencia consolidada ni aplicabilidad a casos concretos.
+Cada paquete de caso registra tres o más perspectivas pertinentes, al menos una fuente directa de un actor involucrado, preguntas de alcance y límites explícitos. `ready` significa que la estructura documental está lista para lectura y que los límites quedaron declarados; no significa cierre del conflicto, consenso ni certificación profesional. Los paquetes normativos `prepared` identifican texto oficial, reglamentos, modificatorias y preguntas de alcance; tampoco determinan vigencia consolidada ni aplicabilidad a casos concretos.
 
-`npm run research:scorecard` calcula cobertura directa, mínimos sustantivos, perspectivas, paquetes normativos, conflictos no registrados y fuentes con derechos desconocidos. El comando falla ante rupturas estructurales, falta de evidencia directa revisada, derechos desconocidos en uso o contradicciones sin contraste suficiente. Los vacíos declarados se reportan como avisos de transparencia y deben permanecer visibles en la publicación `public-learning`.
+`npm run research:scorecard` calcula cobertura directa, mínimos sustantivos, perspectivas, paquetes normativos, conflictos no registrados y fuentes con derechos desconocidos. El comando falla ante rupturas estructurales, falta de evidencia directa revisada, derechos desconocidos en uso, contradicciones sin contraste suficiente o vacíos marcados como bloqueantes. Los límites no bloqueantes permanecen descritos en paquetes y memos, pero no frenan la publicación académica `public-academic`.
+
+## Comparación transversal de compromisos
+
+La comparación parte únicamente de hitos ya incorporados en los trece expedientes trazados de conflictos sociales mineros. No incorpora compromisos generales de responsabilidad social, inversión empresarial o política pública que no estén conectados con esos expedientes.
+
+Cada entrada diferencia:
+
+- `condition-documented`: existe una condición contractual o secuencia futura documentada;
+- `agreement-documented`: existe un acuerdo, convenio, plan o registro público atribuible;
+- `follow-up-documented`: existe actividad posterior de comité, acta, evaluación o seguimiento;
+- `result-documented`: una fuente permite acreditar un resultado puntual, sin extenderlo a todo el compromiso.
+
+La evidencia de ejecución se clasifica como `not-located`, `partial` o `documented`. `not-located` describe el contenido del expediente al corte y no equivale a incumplimiento. `partial` indica que existe evidencia posterior relacionada, pero no suficiente para afirmar ejecución integral por obligación. `documented` solo puede usarse cuando el resultado concreto está directamente respaldado y no autoriza inferencias sobre calidad, sostenibilidad, consenso o cierre del conflicto.
+
+Los expedientes sin un compromiso comparable se declaran expresamente. Una decisión administrativa, un EIA, una protesta o una posición actoral no se recodifican como acuerdo para completar la matriz.
 
 ## Cartografía
 
 Las coordenadas se almacenan con `coordinatePrecision` y una fuente cartográfica. En la V1 son puntos regionales o de localidad para ubicar casos y facilitar la navegación.
 
-La capa nacional de conflictividad social usa el último reporte mensual de la Defensoría del Pueblo incorporado y revisado en Git. Los conteos se agregan por región y se representan mediante un punto de referencia regional; no son coordenadas de cada conflicto. El mapa debe mostrar siempre el periodo del reporte y separar esta capa general de los expedientes mineros piloto.
+La capa pública usa exclusivamente los conflictos socioambientales que el último reporte mensual incorporado de la Defensoría del Pueblo vincula con minería. Los conteos se agregan por región y se representan mediante un punto de referencia regional; no son coordenadas de cada conflicto. El mapa muestra siempre el periodo del reporte y mantiene separados los casos hito trazados.
 
-La vista inicial filtra el corte de abril de 2026 a los 64 conflictos socioambientales que el reporte relaciona con la actividad minera: 57 activos y 7 latentes, según los cuadros 15 y 17. La selección editorial conserva los identificadores del registro general y reconcilia con esos totales publicados. El usuario puede cambiar explícitamente a los 190 conflictos sociales para comparar el contexto nacional completo.
+La vista cartográfica pública incorpora el corte de junio de 2026 del Reporte 268: 61 conflictos socioambientales relacionados con minería, 50 activos y 11 latentes, según los cuadros 15 y 17. La selección revisada conserva identificadores estables y reconcilia con esos totales publicados. El registro social general no forma parte de la publicación.
 
 El mapa no muestra, salvo indicación expresa y fuente específica:
 
@@ -95,15 +111,15 @@ La capa “Concesiones mineras” consulta el servicio oficial `SERV_CATASTRO_MI
 
 Una concesión minera no acredita actividad sobre el terreno, propiedad del suelo superficial, aprobación ambiental, autorización de exploración, inicio de explotación ni responsabilidad por un conflicto. Los anillos departamentales no sustituyen los polígonos catastrales de GEOCATMIN y solo permiten una comparación nacional de concentración registral.
 
-### Registro navegable del reporte 266
+### Registro navegable minero del Reporte 268
 
-El corte de abril de 2026 incorpora un registro de 190 casos vinculado a los puntos regionales: 159 activos y 31 latentes. Cada entrada conserva estado, tipo, ámbito, página fuente y, cuando el reporte lo informa, periodo de inicio y ubicación. Los puntos regionales abren estas listas; los dos casos nacionales y los nueve multirregionales se consultan desde accesos separados para no duplicarlos sobre el mapa.
+El corte de junio de 2026 incorpora únicamente los 61 conflictos sociales mineros vinculados a los puntos regionales: 50 activos y 11 latentes. Cada entrada conserva estado, tipo, ámbito, página fuente y, cuando el reporte lo informa, periodo de inicio y ubicación. No se publican los demás conflictos sociales del reporte.
 
-El reporte presenta dos formatos. Las tablas de las páginas 72 a 75 incluyen una denominación breve; esas 129 entradas usan `titleMethod: report-denomination`. Las fichas activas de las páginas 37 a 71 no tienen un campo uniforme de denominación: sus 61 títulos son una síntesis editorial tomada de la primera oración del campo `Caso`, conservan la descripción extraída y se identifican como `titleMethod: editorial-summary`.
+El reporte presenta fichas con hechos del mes y tablas de conflictos activos o latentes. El proceso extrae el universo del documento solo como insumo temporal, aplica una selección revisada de los casos mineros y escribe en los datos canónicos exclusivamente esos 61 casos. Las entradas conservan el texto descriptivo y distinguen si el título procede de la denominación del reporte o de una síntesis editorial identificada.
 
-La reconstrucción detectó una inconsistencia interna: “Cinco cuencas - Lote 8 y 192” aparece en la tabla de activos sin hechos y también en las fichas con hechos del mes. Contarla dos veces produce 191 casos y 24 en Loreto, en contradicción con los totales oficiales de 190 y 23. El registro conserva la ficha detallada una sola vez y excluye la fila repetida. Con esa regla, los conteos por estado y por cada ámbito territorial reconcilian con el cuadro agregado.
+La reconstrucción detectó una duplicación visible en la página 92: “CC Mariscal Castilla - Minera Chaska II” aparece dos veces. El registro conserva una sola ocurrencia. Con esa regla y la revisión explícita de pertenencia minera, el corte publicado reconcilia en 61 casos, 50 activos y 11 latentes.
 
-El valor de inicio `10/20205` visible en una tabla se normaliza como `2020-10`, tratándolo como error tipográfico evidente. El mapa oficial enlazado por la Defensoría correspondía a enero de 2026 al momento de esta revisión; se usó solo como contraste auxiliar y no para atribuir estado actual. Los tipos agregados del reporte contienen otras discrepancias aritméticas internas, por lo que la interfaz permite filtrar la clasificación caso por caso, pero no presenta esos subtotales como una reconciliación oficial cerrada.
+El corte social general del Reporte 266 se conserva únicamente como archivo interno de trazabilidad histórica; no alimenta vistas, métricas ni mensajes públicos.
 
 La ausencia de un elemento en el mapa no implica su inexistencia. Tampoco debe inferirse extensión, proximidad jurídica ni responsabilidad a partir de un punto de referencia.
 
@@ -113,7 +129,7 @@ Una ficha normativa puede registrar número, autoridad, relaciones, modificacion
 
 El control automático detecta relaciones rotas y datos incompletos, pero no determina vigencia, jerarquía, interpretación ni aplicabilidad.
 
-Una revisión marcada como `verified` requiere responsable, fecha, alcance consignado en notas y referencia de evidencia. Los archivos preparatorios del repositorio no convierten por sí solos una norma en conclusión pública cerrada.
+El estado `source-reviewed` indica que se comprobó la fuente oficial, su locador y los metadatos documentales mínimos. No certifica vigencia consolidada, interpretación profesional o aplicabilidad a un caso concreto.
 
 ## Controles de calidad
 
@@ -133,7 +149,7 @@ La integración continua ejecuta:
 2. Formular afirmaciones atómicas y vincular la evidencia pertinente.
 3. Registrar precisión temporal, fecha de corte y limitaciones.
 4. Ejecutar validación y auditoría.
-5. Solicitar revisión académica, editorial, técnica o comunitaria según corresponda.
+5. Incorporar, cuando aporte valor, comentarios académicos, editoriales, técnicos o comunitarios como contribuciones trazables, no como condición profesional de publicación.
 6. Integrar el cambio mediante pull request, conservando la historia de revisión en Git.
 
 Las correcciones deben preservar el registro del cambio. Git conserva metadatos, locadores y síntesis; las copias autorizadas se mantienen en un archivo privado con inventario y checksum. No se publica ni se archiva en Git un documento externo sin derechos claros.

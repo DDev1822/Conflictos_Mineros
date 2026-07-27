@@ -2776,5 +2776,918 @@
     "sourcePage": 75,
     "hasMonthlyEvents": false,
     "startPeriod": "2026-01"
+  },
+  {
+    "id": "rcs-268-004",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "El 03 de enero de 2026, aproximadamente 70 agricultores provenientes de diversos caseríos del distrito de Cáceres del Perú– Jimbe bloquearon la carretera de…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "ancash"
+    ],
+    "sourcePage": 49,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2026-01",
+    "summary": "El 03 de enero de 2026, aproximadamente 70 agricultores provenientes de diversos caseríos del distrito de Cáceres del Perú– Jimbe bloquearon la carretera de ingreso al caserío de Colcap, utilizando una cadena de fierro. Ante esta situación, personal policial intentó restablecer el tránsito en aplicación del Decreto Legislativo N.° 1186; sin embargo, los manifestantes reaccionaron arrojando ladrillos y piedras contra los efectivos policiales. Frente a ello, el personal policial se replegó en dirección al centro poblado de Jimbe, no siendo posible el retiro de los manifestantes. Los pobladores demandan el cese de la presunta contaminación ambiental atribuida a las empresas mineras Bahema Trade S.A.C. y Pacífico Dorado, señalando afectaciones a las fuentes de agua utilizadas para la agricultura y el consumo humano, así como la generación de polvareda que estaría impactando negativamente en la salud de las personas, los cultivos y los animales.",
+    "location": "Distrito de Cáceres del Perú, provincia del Santa, departamento de Áncash."
+  },
+  {
+    "id": "rcs-268-005",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "La comunidad campesina de Aquia demanda la instalación de una mesa de diálogo con la participación de representantes del Estado y la Compañía Minera…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "ancash"
+    ],
+    "sourcePage": 50,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2021-10",
+    "summary": "La comunidad campesina de Aquia demanda la instalación de una mesa de diálogo con la participación de representantes del Estado y la Compañía Minera Antamina, para el tratamiento de sus demandas relacionadas a los permisos de uso de su territorio para la instalación de un mineroducto y otras instalaciones por parte de la Compañía Minera Antamina y los posibles impactos ambientales que estos generarían en su comunidad.",
+    "location": "Distrito de Aquia, provincia de Bolognesi, departamento de Áncash."
+  },
+  {
+    "id": "rcs-268-006",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Los comités de usuarios de agua de Atupa y Antahurán reclaman a la empresa minera Barrick Misquichilca S.A. una compensación económica por la afectación al…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "ancash"
+    ],
+    "sourcePage": 50,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2012-03",
+    "summary": "Los comités de usuarios de agua de Atupa y Antahurán reclaman a la empresa minera Barrick Misquichilca S.A. una compensación económica por la afectación al manantial Yarcok. Anteriormente, solicitaban la devolución del manantial motivo por el cual se establecieron espacios de diálogo mediados por el Estado y posteriormente de forma bilateral.",
+    "location": "Caseríos Atupa y Antahurán, distrito de Jangas, provincia de Huaraz, región Áncash."
+  },
+  {
+    "id": "rcs-268-008",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "La comunidad campesina de Chuicuni señala que la empresa Minera Las Bambas no estaría cumpliendo los compromisos asumidos y solicita formar parte del área…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "apurimac"
+    ],
+    "sourcePage": 51,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2022-06",
+    "summary": "La comunidad campesina de Chuicuni señala que la empresa Minera Las Bambas no estaría cumpliendo los compromisos asumidos y solicita formar parte del área de influencia directa de Las Bambas.",
+    "location": "Distrito de Challhuahuacho, provincia de Cotabambas, departamento de Apurímac. (*)"
+  },
+  {
+    "id": "rcs-268-009",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "La comunidad campesina de Huancuire señala que la empresa Minera Las Bambas no estaría cumpliendo los compromisos asumidos en el convenio marco acordado…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "apurimac"
+    ],
+    "sourcePage": 51,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2021-06",
+    "summary": "La comunidad campesina de Huancuire señala que la empresa Minera Las Bambas no estaría cumpliendo los compromisos asumidos en el convenio marco acordado entre las partes, y que se estaría realizando actividades en terrenos que tienen procesos judiciales pendientes de resolver. Asimismo, solicitan que se atienda la presunta contaminación ambiental de los recursos hídricos de la zona, y el reinicio de la consulta previa.",
+    "location": "Distrito de Coyllurqui, provincia de Cotabambas, departamento de Apurímac."
+  },
+  {
+    "id": "rcs-268-010",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "La comunidad campesina de Fuerabamba cuestiona la reclasificación como Ruta Nacional de la carretera que cruza el Fundo Yavi Yavi (RM 372-2018 MTC/01.02)…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "apurimac"
+    ],
+    "sourcePage": 52,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2018-12",
+    "summary": "La comunidad campesina de Fuerabamba cuestiona la reclasificación como Ruta Nacional de la carretera que cruza el Fundo Yavi Yavi (RM 372-2018 MTC/01.02) realizada en mayo del 2018 porque afectaría su propiedad y señala que la empresa MMG Las Bambas construyó el tramo de la mencionada carretera sin contar con el permiso de la comunidad tal como lo exige la Ley 26505. Con el acta firmada el 6 de abril en Lima, la empresa y la comunidad llegaron a un acuerdo económico mutuamente satisfactorio sobre el fundo Yavi Yavi. Sin embargo, este punto así como el del empleo de los comuneros y la revisión de los acuerdos del \"Compendio de acuerdos entre el Comité Central de negociación de la comunidad de Fuerabamba y los representantes del Proyecto Mineros Las Bambas operado por Xstrata Copper\", siguen siendo materia de negociación.\" La comunidad campesina de Fuerabamba sostiene que tendría una ocupación ancestral del sector denominado Tamboccasa, mientras que la empresa Minera Las Bambas y la familia Cruz Portocarrero no reconocen algún derecho al respecto, teniendo en consideración los informes técnicos de la Subgerencia de Saneamiento Físico Legal de la Propiedad Rural (FORPRAP) del Gobierno Regional de Apurímac.",
+    "location": "Distrito de Challhuahuacho, provincia de Cotabambas, departamento de Apurímac. (*) (**)"
+  },
+  {
+    "id": "rcs-268-012",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "El Comité de Lucha por los derechos de la población de Huanta, Comité de Regantes de los distritos de Huanta y Luricocha Comité transitorio del Frente de…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "ayacucho"
+    ],
+    "sourcePage": 54,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2023-09",
+    "summary": "El Comité de Lucha por los derechos de la población de Huanta, Comité de Regantes de los distritos de Huanta y Luricocha Comité transitorio del Frente de Defensa y Desarrollo de la provincia de Huanta, Comité de Regantes realizaron medidas de protestas en el distrito de Huanta en rechazo a las actividades mineras formales e informales (derechos mineros Golden Fox y San Vicente de Putca) que se desarrollan en las zonas cercanas a la cuenca hidrográfica Razuhuillca y al distrito de Chaca y además, demandaron la protección de las cabeceras de cuenca. Por otra parte, las comunidades campesinas de Uchuraccay y Chaca de la provincia de Huanta están de acuerdo con la actividad minera en la zona.",
+    "location": "Distritos de Chaca y Huanta, provincia de Huanta, departamento de Ayacucho."
+  },
+  {
+    "id": "rcs-268-015",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "El Frente Único de Intereses de la provincia de Chumbivilcas, autoridades locales y otras organizaciones sociales de la provincia exigen la firma de un…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "cusco"
+    ],
+    "sourcePage": 56,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2025-10",
+    "summary": "El Frente Único de Intereses de la provincia de Chumbivilcas, autoridades locales y otras organizaciones sociales de la provincia exigen la firma de un convenio marco provincial a la empresa minera Hudbay Perú, la nulidad de la tercera modificación al Estudio de Impacto Ambiental de la unidad minera Constancia y fiscalización ambiental participativa.",
+    "location": "Provincia de Chumbivilcas, departamento de Cusco."
+  },
+  {
+    "id": "rcs-268-016",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "El 25 de marzo de 2024 se llevó a cabo una reunión entre el alcalde distrital de Velille, Frente Único de los intereses del distrito de Velille (FUDIV),…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "cusco"
+    ],
+    "sourcePage": 56,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2024-03",
+    "summary": "El 25 de marzo de 2024 se llevó a cabo una reunión entre el alcalde distrital de Velille, Frente Único de los intereses del distrito de Velille (FUDIV), Federación de Campesinos, algunas organizaciones sociales del distrito de Velille y la empresa minera Las Bambas, con el objeto de contribuir al desarrollo territorial de Velille, los cuales no pudieron establecer acuerdos en base a las demandas planteadas por los representantes de Velille y las propuestas alcanzadas por la empresa minera.",
+    "location": "Distrito de Velille, provincia de Chumbivilcas, departamento de Cusco."
+  },
+  {
+    "id": "rcs-268-017",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Las comunidades campesinas de Cruzpampa (Ccapacmarca), Cancahuani (Ccapacmarca), Lacca Lacca Yanque Parcobamba (Colquemarca), Huininquiri (Santo Tomás),…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "cusco"
+    ],
+    "sourcePage": 57,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2021-07",
+    "summary": "Las comunidades campesinas de Cruzpampa (Ccapacmarca), Cancahuani (Ccapacmarca), Lacca Lacca Yanque Parcobamba (Colquemarca), Huininquiri (Santo Tomás), Ahuichanta Huisuray (Colquemarca), Idiopa Ñaupa Hapo Urinsaya (Colquemarca), Tincurca Laccaya (Chamaca), Tuntuma (Velille), Hatun Ccollana (Velille), Huaylla Huaylla (Livitaca), Sayhua (Ccapacmarca), Tahuay (Ccapacmarca), Ccapacmarca (Ccapacmarca) y Huascabamba (Ccapacmarca) iniciaron medidas de protesta en el corredor minero contra el Estado y la empresa Minera Las Bambas, con una plataforma de lucha en la que no reconocen la Resolución Ministerial 372-2018-MTC mientras no haya saneamiento legal de sus terrenos comunales. Asimismo, exigen la compensación e indemnización por daños y perjuicios ambientales, el pago de derechos de servidumbre minera, incluir como área de influencia directa ambiental y social a las comunidades del corredor y no criminalizar sus protestas.",
+    "location": "Distritos de Ccapacmarca, Colquemarca, Santo Tomás, Velille, Livitaca y Chamaca, provincia de Chumbivilcas, departamento de Cusco."
+  },
+  {
+    "id": "rcs-268-018",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Las comunidades campesinas de Huano Huano, Cala Cala, Huisa, Paco Pata, Tintaya Marquiri, Alto Huancané, Huancané Bajo, Alto Huarca, Huarca, Anta Ccollana,…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "cusco"
+    ],
+    "sourcePage": 57,
+    "hasMonthlyEvents": true,
+    "summary": "Las comunidades campesinas de Huano Huano, Cala Cala, Huisa, Paco Pata, Tintaya Marquiri, Alto Huancané, Huancané Bajo, Alto Huarca, Huarca, Anta Ccollana, Huisa Ccollana, Huisa Ccollana y Huini Coroccohuayco exigen consulta previa para el proyecto Antapaccay Expansión Tintaya – Integración Coroccohuayco, compensación por impactos ambientales, sociales y en territorios de las comunidades, así como el cumplimiento de acuerdos por parte de la empresa Antapaccay.",
+    "location": "Distrito de Espinar, Provincia de Espinar, departamento de Cusco. (*)"
+  },
+  {
+    "id": "rcs-268-019",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "El alcalde provincial, los alcaldes distritales y dirigentes de organizaciones sociales de la provincia de Chumbivilcas demandan al Estado y a la empresa…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "cusco"
+    ],
+    "sourcePage": 58,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2019-03",
+    "summary": "El alcalde provincial, los alcaldes distritales y dirigentes de organizaciones sociales de la provincia de Chumbivilcas demandan al Estado y a la empresa Minera Las Bambas la modificación el estudio de impacto ambiental del proyecto minero Las Bambas debido a los impactos ambientales y sociales que ocasiona el transporte de mineral por el corredor vial sur, que cruza la provincia de Chumbivilcas. Asimismo, solicitan la constitución de un fondo social, financiado por el Estado y la empresa, que atienda las necesidades básica de la provincia, un shock de inversiones por tres años para la proyectos de la Mesa Técnica para el Desarrollo de Chumbivilcas (que tiene un comité de seguimiento desde el 2017) que tiene proyectos que no se ejecutan o expedientes técnicos sin financiamiento, y el pago a las comunidades campesinas por el corredor vial sur que cruza su propiedad para el asfaltado de dicha carretera.",
+    "location": "Provincia de Chumbivilcas, departamento de Cusco. (*)"
+  },
+  {
+    "id": "rcs-268-020",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Pobladores de la provincia de Espinar exigen al Estado y a la compañía minera Antapaccay S.A. el cumplimiento de los acuerdos asumidos en la mesa de diálogo…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "cusco"
+    ],
+    "sourcePage": 59,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2005-05",
+    "summary": "Pobladores de la provincia de Espinar exigen al Estado y a la compañía minera Antapaccay S.A. el cumplimiento de los acuerdos asumidos en la mesa de diálogo que concluyó en julio de 2013, los cuales estarían recogidos en un plan de acción ambiental y sanitaria, y en un programa de inversión. En abril de 2019 el gobierno nacional, autoridades y dirigentes sociales de la provincia de Espinar acordaron el reinició el diálogo denominado “Mesa de Diálogo para el Desarrollo Sostenible de la provincia de Espinar”, conformado por cuatro ejes de trabajo: i) Inversión y desarrollo sostenible, ii) Salud, Ambiente, Saneamiento y Residuos Sólidos, iii) Convenio Marco y, iv) Consulta Previa y Corredor Minero.",
+    "location": "Provincia de Espinar, departamento de Cusco."
+  },
+  {
+    "id": "rcs-268-021",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "La población del caserío de Independencia manifiesta que la compañía Minera Raura S.A. realizó operaciones de exploración, explotación y transformación de…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "huanuco"
+    ],
+    "sourcePage": 60,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2024-01",
+    "summary": "La población del caserío de Independencia manifiesta que la compañía Minera Raura S.A. realizó operaciones de exploración, explotación y transformación de minerales en su territorio sin haber dialogado con la población. Además, exigen a la empresa resarcir el daño presuntamente causado por la contaminación ambiental.",
+    "location": "Distrito de San Miguel de Cauri, provincia de Lauricocha, departamento de Huánuco."
+  },
+  {
+    "id": "rcs-268-022",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "La población del distrito de Llata exige a la compañía minera Antamina y a las entidades estatales, el cumplimiento de compromisos sociales arribados en la…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "huanuco"
+    ],
+    "sourcePage": 60,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2023-09",
+    "summary": "La población del distrito de Llata exige a la compañía minera Antamina y a las entidades estatales, el cumplimiento de compromisos sociales arribados en la Mesa de Diálogo para el Desarrollo en Llata sostenida en 2014.",
+    "location": "Distrito de Llata, provincia de Huamalíes, departamento de Huánuco"
+  },
+  {
+    "id": "rcs-268-027",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "La comunidad campesina de Pariahuanca y anexos denuncian a la empresa minera Oro Negro por presunta contaminación ambiental de la cuenca Yuracyacu por la…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "junin"
+    ],
+    "sourcePage": 62,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2025-12",
+    "summary": "La comunidad campesina de Pariahuanca y anexos denuncian a la empresa minera Oro Negro por presunta contaminación ambiental de la cuenca Yuracyacu por la actividad minera desarrollada en la zona.",
+    "location": "Distrito de Pariahuanca, provincia de Huancayo, departamento de Junín."
+  },
+  {
+    "id": "rcs-268-035",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "La comunidad campesina de Quichas bloqueó parcialmente la vía demandando el cumplimiento de acuerdo a la Cía minera Raura S.A. Además, denunció una presunta…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "lima-provincias"
+    ],
+    "sourcePage": 66,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2025-03",
+    "summary": "La comunidad campesina de Quichas bloqueó parcialmente la vía demandando el cumplimiento de acuerdo a la Cía minera Raura S.A. Además, denunció una presunta contaminación ambiental. Después de varios días de la medida de fuerza se instaló una mesa de diálogo presidida por el Minem",
+    "location": "Distrito de Oyón, provincia de Oyón, departamento de Lima."
+  },
+  {
+    "id": "rcs-268-037",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "La Federación de Comunidades Nativas del Bajo Tigre (FECONABAT) exige al Estado atención urgente a la problemática de minería ilegal en el río Tigre.",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "loreto"
+    ],
+    "sourcePage": 69,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2025-08",
+    "summary": "La Federación de Comunidades Nativas del Bajo Tigre (FECONABAT) exige al Estado atención urgente a la problemática de minería ilegal en el río Tigre. Además, exigen a diversas entidades del estado garantizar servicios básicos ante reinicio de operaciones en el Lote 192.",
+    "location": "Distrito de Tigre, provincia de Loreto, departamento de Loreto."
+  },
+  {
+    "id": "rcs-268-044",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "La “Asociación de Comunidades Campesinas Originarias Afectadas por el Proyecto Minero “San Gabriel” demanda la paralización del referido proyecto minero,…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "moquegua"
+    ],
+    "sourcePage": 74,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2022-06",
+    "summary": "La “Asociación de Comunidades Campesinas Originarias Afectadas por el Proyecto Minero “San Gabriel” demanda la paralización del referido proyecto minero, mientras que la “Asociación de Pobladores Originarios de Camélidos Sudamericanos de Quilcata y sus Cabañas” demanda la instalación de una mesa de diálogo con las 42 comunidades campesinas de los distritos de la provincia General Sánchez Cerro. Las demandas propuestas por la Asociación de Pobladores Originarios se refieren a; la renegociación de tierras comunales, convenio marco con la empresa minera, porcentaje de utilidades para el desarrollo social, económico y laboral, valorizaciones, compensación, afectaciones y otros derechos considerados para las 42 comunidades campesinas de la provincia. Por su parte, el distrito de Yunga solicita ser considerado como parte del área de influencia directa del proyecto minero San Gabriel, ante la posible afectación por los impactos ambientales del proyecto.",
+    "location": "Distrito de Ichuña, provincia de General Sánchez Cerro, departamento de Moquegua."
+  },
+  {
+    "id": "rcs-268-045",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Agricultores del sector Tumilaca iniciaron el 12 de agosto de 2019 un paro contra la empresa Quellaveco con el bloqueo de la carretera Binacional en el…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "moquegua"
+    ],
+    "sourcePage": 74,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2019-07",
+    "summary": "Agricultores del sector Tumilaca iniciaron el 12 de agosto de 2019 un paro contra la empresa Quellaveco con el bloqueo de la carretera Binacional en el sector Tumilaca por temor a la contaminación del agua, que afectaría las actividades agrícolas que se realizan en la zona. Frente a ello se conformó el Grupo de Trabajo de Tumilaca que preside el MINEM, con lo cual se levantó la medida de fuerza. Cabe señalar que en mayo de 2019 se instaló el “Comité de Monitoreo, Seguimiento y Verificación de los acuerdos de la Mesa de Diálogo para analizar la problemática minera del departamento de Moquegua”, respecto a los 26 acuerdos resultado de la mesa de diálogo de Moquegua sobre el proyecto minero Quellaveco realizado entre los años 2011 y 2012.",
+    "location": "Distrito de Torata, provincia de Mariscal Nieto, región Moquegua."
+  },
+  {
+    "id": "rcs-268-046",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Pobladores y autoridades de la provincia General Sánchez Cerro exigen se realice el cierre inmediato de la mina Tucari de la empresa minera Aruntani por la…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "moquegua"
+    ],
+    "sourcePage": 75,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2017-06",
+    "summary": "Pobladores y autoridades de la provincia General Sánchez Cerro exigen se realice el cierre inmediato de la mina Tucari de la empresa minera Aruntani por la contaminación del río Coralaque y sus afluentes, se ejecuten las resoluciones de OEFA respecto a la unidad Tucari, y el reinicio del proyecto de asfaltado de la carretera Moquegua- Omate - Arequipa.",
+    "location": "Provincia de Sánchez Cerro, región Moquegua."
+  },
+  {
+    "id": "rcs-268-052",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Pobladores del distrito de Ajoyani demandan el cumplimiento de acuerdos sostenidos entre la representación del distrito de Ajoyani y la empresa MINSUR,…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "puno"
+    ],
+    "sourcePage": 80,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2025-12",
+    "summary": "Pobladores del distrito de Ajoyani demandan el cumplimiento de acuerdos sostenidos entre la representación del distrito de Ajoyani y la empresa MINSUR, producto del Convenio Marco para el Desarrollo Sostenible. En febrero del 2022 la empresa minera Minsur y autoridades del distrito de Ajoyani firmaron el Convenio Marco para el Desarrollo Sostenible. En virtud del acuerdo se identificaron ocho áreas priorizadas: salud, educación, agropecuario, economía, ambiental, infraestructura, riesgos y desastres e institucional.",
+    "location": "Provincia Carabaya, distrito Ajoyani,"
+  },
+  {
+    "id": "rcs-268-053",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Pobladores de la comunidad campesina de Ajoyani demandan a la empresa minera MINSUR, ser incorporados como parte del área de influencia directa y acceder a…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "puno"
+    ],
+    "sourcePage": 81,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2025-11",
+    "summary": "Pobladores de la comunidad campesina de Ajoyani demandan a la empresa minera MINSUR, ser incorporados como parte del área de influencia directa y acceder a proyectos en favor de la comunidad",
+    "location": "Provincia Carabaya, distrito Ajoyani, comunidad campesina de Ajoyani"
+  },
+  {
+    "id": "rcs-268-054",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Trabajadores mineros y organizaciones sociales del Centro Poblado de La Rinconada exigen a la Corporación Minera Ananea S.A. (CMASA) el reinicio de las…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "puno"
+    ],
+    "sourcePage": 81,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2025-11",
+    "summary": "Trabajadores mineros y organizaciones sociales del Centro Poblado de La Rinconada exigen a la Corporación Minera Ananea S.A. (CMASA) el reinicio de las operaciones mineras Ana María I, II, III, IV suspendidas desde el 03 de octubre.",
+    "location": "Provincia San Antonio de Putina, distrito Ananea, Centros poblados de La Rinconada y Cerro Lunar de Oro."
+  },
+  {
+    "id": "rcs-268-055",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Los representantes de la Asociación de Sectores y Barrios de la Cuenca Antauta (ASBAC) demandan a la empresa Minsur el cumplimiento de los acuerdos asumidos…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "puno"
+    ],
+    "sourcePage": 81,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2025-09",
+    "summary": "Los representantes de la Asociación de Sectores y Barrios de la Cuenca Antauta (ASBAC) demandan a la empresa Minsur el cumplimiento de los acuerdos asumidos en el marco de la Mesa por el Desarrollo de la Cuenca Antauta, instalada en el año 2016 con participación de la empresa minera. Dicha Mesa fue conformada luego de las protestas registradas entre los años 2013, 2014 y 2015, cuando la población de la cuenca Antauta expresó su rechazo a la presunta contaminación del río atribuida a las operaciones de la referida empresa.",
+    "location": "Distrito de Antauta, provincia de Melgar, departamento de Puno."
+  },
+  {
+    "id": "rcs-268-056",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Autoridades, criadores alpaqueros, frente de defensa de recursos hídricos de la cuenca del río Suches, comités de usuarios de agua y pobladores del distrito…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "puno"
+    ],
+    "sourcePage": 82,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2022-08",
+    "summary": "Autoridades, criadores alpaqueros, frente de defensa de recursos hídricos de la cuenca del río Suches, comités de usuarios de agua y pobladores del distrito de Cojata, provincia de Huancané exigen al Estado la reactivación de la Comisión Técnica Binacional Perú-Bolivia de la cuenca Suches, la cancelación de las concesiones mineras ubicadas en la cabecera de cuenca Suches y ejecución Proyectos de inversión pública para la remediación ambiental del río Suches; frente a la contaminación ocasionada por mineros informales e ilegales que afecta al ambiente, la cuenca Suches y a los criadores alpaqueros de dicha localidad.",
+    "location": "Distrito de Cojata, provincia de Huancané, departamento de Puno. (*)"
+  },
+  {
+    "id": "rcs-268-059",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Autoridades y dirigentes de los Coata, Huata, Capachica y Caracoto exigen al gobierno nacional instalar una comisión multisectorial de atención de salud,…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "puno"
+    ],
+    "sourcePage": 84,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2014-10",
+    "summary": "Autoridades y dirigentes de los Coata, Huata, Capachica y Caracoto exigen al gobierno nacional instalar una comisión multisectorial de atención de salud, atendiendo a los resultados emitidos por el Centro Nacional de Salud Ocupacional y Protección del Ambiente para la Salud (Censopas) en julio de 2020 en base a las muestras remitidas por la Dirección Regional de Salud de Puno para determinación de arsénico y mercurio. Asimismo, pobladores de los distritos de Coata, Huata y Capachica, exigen al alcalde de la Municipalidad Provincial de San Román y a la empresa SEDA Juliaca, no continuar con el vertimiento de aguas residuales de la ciudad al río Torococha, ya que son descargadas directamente al río Coata contaminando así el agua que consumen los pobladores",
+    "location": "Distritos de Coata, Huata, Capachica de la provincia de Puno, y distrito de Caracoto de la provincia de San Román, departamento de Puno."
+  },
+  {
+    "id": "rcs-268-060",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Los pobladores del distrito de Ocuviri, provincia de Lampa, acusan a la empresa minera Aruntani de afectar el río Chacapalca y exigen la presencia de…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "puno"
+    ],
+    "sourcePage": 84,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2013-07",
+    "summary": "Los pobladores del distrito de Ocuviri, provincia de Lampa, acusan a la empresa minera Aruntani de afectar el río Chacapalca y exigen la presencia de autoridades competentes.",
+    "location": "Distrito de Ocuviri, provincia de Lampa, departamento de Puno."
+  },
+  {
+    "id": "rcs-268-061",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Pobladores de los distritos de Llalli, Cupi, Umachiri y Ayaviri de la provincia de Melgar expresan su preocupación por la presunta contaminación de la…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "puno"
+    ],
+    "sourcePage": 85,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2007-06",
+    "summary": "Pobladores de los distritos de Llalli, Cupi, Umachiri y Ayaviri de la provincia de Melgar expresan su preocupación por la presunta contaminación de la microcuenca Llallimayo por la actividad minera que se desarrolla en el distrito de Ocuviri, provincia de Lampa.",
+    "location": "Distrito de Llalli, provincia de Melgar, departamento de Puno."
+  },
+  {
+    "id": "rcs-268-062",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Pobladores de los distritos de Potoni, San Antón y Asillo de la provincia de Azángaro, de la provincia de Huancané y el Distrito de Crucero de la provincia…",
+    "titleMethod": "editorial-summary",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "puno"
+    ],
+    "sourcePage": 85,
+    "hasMonthlyEvents": true,
+    "startPeriod": "2006-09",
+    "summary": "Pobladores de los distritos de Potoni, San Antón y Asillo de la provincia de Azángaro, de la provincia de Huancané y el Distrito de Crucero de la provincia de Carabaya iniciaron el 25 de mayo un paro preventivo de 48 horas exigiendo la construcción de la presa Huacchani, declaratoria de emergencia en la cuenca Ramis y el cese de actividades mineras informales, por contaminación de la cuenca del río Ramis.",
+    "location": "Distritos de Potoni, San Antón y Asillo de la provincia de Azángaro; distrito de Crucero de la provincia de Carabaya; provincia de Huancané, departamento de Puno."
+  },
+  {
+    "id": "rcs-268-071",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Tapayrihua y Aymaraes - Southern",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "apurimac"
+    ],
+    "sourcePage": 91,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2025-03"
+  },
+  {
+    "id": "rcs-268-072",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "CC Carmen Alto - Minera Las Bambas",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "apurimac"
+    ],
+    "sourcePage": 91,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2022-07"
+  },
+  {
+    "id": "rcs-268-073",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "CC Chila - Las Bambas",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "apurimac"
+    ],
+    "sourcePage": 91,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2022-06"
+  },
+  {
+    "id": "rcs-268-074",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Mara - corredor minero",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "apurimac"
+    ],
+    "sourcePage": 91,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2019-08"
+  },
+  {
+    "id": "rcs-268-077",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Tía María - Islay",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "arequipa"
+    ],
+    "sourcePage": 91,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2013-10"
+  },
+  {
+    "id": "rcs-268-079",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "10 CC Pallpata - Antapaccay",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "cusco"
+    ],
+    "sourcePage": 91,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2019-12"
+  },
+  {
+    "id": "rcs-268-085",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "CC Tumilaca - Southern Perú Copper Corporation",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "moquegua"
+    ],
+    "sourcePage": 91,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2022-02"
+  },
+  {
+    "id": "rcs-268-093",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "CC Mariscal Castilla - Minera Chaska II",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "junin"
+    ],
+    "sourcePage": 92,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2026-01"
+  },
+  {
+    "id": "rcs-268-095",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Morococha - Chinalco",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "junin"
+    ],
+    "sourcePage": 92,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2008-02"
+  },
+  {
+    "id": "rcs-268-099",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Comunidad Campesina de Acsunche – Empresa Minera Korimallco Minerals S.A.C.",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "apurimac"
+    ],
+    "sourcePage": 92,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2026-02"
+  },
+  {
+    "id": "rcs-268-100",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Chetilla - Colpayoc",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "cajamarca"
+    ],
+    "sourcePage": 92,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2024-03"
+  },
+  {
+    "id": "rcs-268-101",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Caserío de Tambillo – Minera Olga Victoria",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "la-libertad"
+    ],
+    "sourcePage": 92,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2026-01"
+  },
+  {
+    "id": "rcs-268-102",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Rondas Campesinas de La Libertad - Río Moche y Carboneras",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "la-libertad"
+    ],
+    "sourcePage": 92,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2021-11"
+  },
+  {
+    "id": "rcs-268-103",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Tambogrande - Proyecto El Algarrobo",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "piura"
+    ],
+    "sourcePage": 92,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2024-09"
+  },
+  {
+    "id": "rcs-268-106",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Río Blanco (ex Majaz)",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "piura"
+    ],
+    "sourcePage": 92,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2004-04"
+  },
+  {
+    "id": "rcs-268-112",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Contaminación del río Tumbes por relaves mineros",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "tumbes"
+    ],
+    "sourcePage": 92,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2025-07"
+  },
+  {
+    "id": "rcs-268-117",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Wampis - Minería ilegal",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "amazonas"
+    ],
+    "sourcePage": 92,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2017-07"
+  },
+  {
+    "id": "rcs-268-119",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "CONACCUNAY – minería ilegal",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "loreto"
+    ],
+    "sourcePage": 92,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2025-10"
+  },
+  {
+    "id": "rcs-268-143",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Huarmey - contaminación metales pesados",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "ancash"
+    ],
+    "sourcePage": 93,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2024-09"
+  },
+  {
+    "id": "rcs-268-146",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Cuenca Llallimayo -Ciemsa",
+    "titleMethod": "report-denomination",
+    "status": "active",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "puno"
+    ],
+    "sourcePage": 93,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2024-05"
+  },
+  {
+    "id": "rcs-268-153",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Cotabambas - Minera Las Bambas (Antes Xstrata)",
+    "titleMethod": "report-denomination",
+    "status": "latent",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "apurimac"
+    ],
+    "sourcePage": 93,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2011-05"
+  },
+  {
+    "id": "rcs-268-155",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Comunidades Coporaque - Las Bambas",
+    "titleMethod": "report-denomination",
+    "status": "latent",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "cusco"
+    ],
+    "sourcePage": 93,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2022-10"
+  },
+  {
+    "id": "rcs-268-161",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Ronda Los Alisos - Compañía Minera La Poderosa",
+    "titleMethod": "report-denomination",
+    "status": "latent",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "la-libertad"
+    ],
+    "sourcePage": 93,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2023-07"
+  },
+  {
+    "id": "rcs-268-162",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "CC Oyón - OCIMIN S.A.C.",
+    "titleMethod": "report-denomination",
+    "status": "latent",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "lima-provincias"
+    ],
+    "sourcePage": 93,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2025-12"
+  },
+  {
+    "id": "rcs-268-163",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Caserío de Pomamayo – Cía minera Raura",
+    "titleMethod": "report-denomination",
+    "status": "latent",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "lima-provincias"
+    ],
+    "sourcePage": 93,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2025-12"
+  },
+  {
+    "id": "rcs-268-167",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Cenepa - Minería informal e ilegal (antes Afrodita)",
+    "titleMethod": "report-denomination",
+    "status": "latent",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "amazonas"
+    ],
+    "sourcePage": 94,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2008-12"
+  },
+  {
+    "id": "rcs-268-179",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "CC de Huaraucaca - Sociedad Minera El Brocal S.A.",
+    "titleMethod": "report-denomination",
+    "status": "latent",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "pasco"
+    ],
+    "sourcePage": 94,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2024-05"
+  },
+  {
+    "id": "rcs-268-180",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Contaminación en Simón Bolívar",
+    "titleMethod": "report-denomination",
+    "status": "latent",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "pasco"
+    ],
+    "sourcePage": 94,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2015-08"
+  },
+  {
+    "id": "rcs-268-182",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "CC Huaripampa - Antamina",
+    "titleMethod": "report-denomination",
+    "status": "latent",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "ancash"
+    ],
+    "sourcePage": 94,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2025-08"
+  },
+  {
+    "id": "rcs-268-183",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "Contaminación ríos La Plata y Tablachaca",
+    "titleMethod": "report-denomination",
+    "status": "latent",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "ancash"
+    ],
+    "sourcePage": 94,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2024-09"
+  },
+  {
+    "id": "rcs-268-192",
+    "snapshotId": "defensoria-2026-06-mining",
+    "title": "CC Santa Cruz de Pichiu - Antamina",
+    "titleMethod": "report-denomination",
+    "status": "latent",
+    "conflictType": "Socioambiental",
+    "regionIds": [
+      "ancash"
+    ],
+    "sourcePage": 94,
+    "hasMonthlyEvents": false,
+    "startPeriod": "2025-04"
   }
 ]

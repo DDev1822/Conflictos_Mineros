@@ -12,7 +12,7 @@
   priority: P1
   status: resolved
   evidence: content/data/cases.yaml
-  note: Los seis expedientes contienen al menos tres hitos trazables.
+  note: Los doce casos publicados contienen al menos tres hitos con fuentes enlazadas.
 - id: regional-dialog
   priority: P1
   status: resolved
@@ -27,4 +27,4 @@
   priority: P1
   status: resolved
   evidence: src/components/map-explorer.tsx
-  note: Los seis marcadores exponen caso, territorio y acción.
+  note: Los doce casos publicados aparecen en marcadores identificables, agrupados por territorio cuando comparten ubicación.

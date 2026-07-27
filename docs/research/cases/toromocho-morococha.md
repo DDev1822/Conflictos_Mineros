@@ -1,8 +1,8 @@
 # Memo de caso hito: Toromocho / Morococha
 
-Estado: paquete documental iniciado; no es expediente público completo.
+Estado: integrado como décimo expediente canónico profundo; conserva límites documentales explícitos sobre instrumentos sociales, cumplimiento y expediente judicial.
 
-Fecha de estructuración: 2026-06-29.
+Fecha de actualización: 2026-07-27.
 
 ## Lectura de caso
 
@@ -16,7 +16,7 @@ Regla editorial: no presentar Nueva Morococha como “solución” cerrada ni An
 
 | fecha | tipo | hito | fuente / locador | uso editorial |
 |---|---|---|---|---|
-| 2008-02 | evidence | Defensoría registra el caso Morococha - Chinalco como conflicto socioambiental con fecha de inicio febrero de 2008. | Defensoría del Pueblo, Reporte 267, mayo 2026, p. 71, líneas 5311-5317 del PDF abierto. | Punto de entrada del conflicto en monitoreo defensorial; no sustituye expediente histórico completo. |
+| 2008-02 | evidence | Defensoría registra el caso Morococha - Chinalco como conflicto socioambiental con fecha de inicio febrero de 2008. | Defensoría del Pueblo, Reporte 268, junio 2026, p. 92. | Punto de entrada del conflicto en monitoreo defensorial; no sustituye expediente histórico completo. |
 | 2010 | decision | MINEM aprueba el EIA del Proyecto de Explotación Toromocho mediante RD 411-2010-MEM-AAM, ubicado en Morococha y Yauli. | MINEM/gob.pe, publicación del EIA Toromocho, líneas 15-21 y 30-37. | Hito administrativo ambiental; falta revisar el EIA y compromisos sociales completos. |
 | 2012-03-29 | event | Alcalde de Morococha solicita a CENEPRED estimación de riesgo para la zona de Carhuacoto, área propuesta de reasentamiento. | CENEPRED, Informe Técnico 028-SGI, pp. 4-5. | Muestra que el reasentamiento tuvo controversia técnica sobre seguridad del nuevo lugar. |
 | 2012-08-28 | evidence | CENEPRED realiza visita técnica a la zona de reasentamiento; registra construcción de infraestructura, prevención ante inundaciones, viviendas y avance aproximado de 90 %. | CENEPRED 028-SGI, p. 14. | Hito técnico-estatal sobre avance físico; no equivale a aceptación social. |
@@ -28,7 +28,7 @@ Regla editorial: no presentar Nueva Morococha como “solución” cerrada ni An
 | 2025-03-27 | decision | PCM amplía la vigencia de la Mesa de Diálogo para el Proceso de Reasentamiento Poblacional de Morococha hasta 2026. | El Peruano, RM 064-2025-PCM; Andina, 27/03/2025. | Confirma que el reasentamiento seguía institucionalmente abierto. |
 | 2025-09-19 | event | Fuentes periodísticas y de sociedad civil reportan desalojo de las últimas familias de Antigua Morococha por orden judicial y con intervención policial. | Dialogue Earth, 17/10/2025, líneas 174-200; Infobae/Servindi como contraste. | Registrar como actualización contextual; falta resolución judicial primaria, acta de lanzamiento e informe policial. |
 | 2026-02 | event | Fuentes de sociedad civil reportan suspensión o falta de concreción de mesa sobre reasentamiento y convenio marco. | Servindi, 26/02/2026; InfoAndes, 27/02/2026. | Contexto post-desalojo; requiere fuente estatal/acta oficial. |
-| 2026-05 | evidence | Defensoría mantiene Morococha - Chinalco como conflicto socioambiental activo, sin hechos registrados durante el mes. | Defensoría del Pueblo, Reporte 267, mayo 2026, pp. 70-71. | Estado al corte: activo, no resuelto; no hubo hechos del mes según Defensoría. |
+| 2026-07 | evidence | Defensoría mantiene Morococha - Chinalco como conflicto socioambiental activo, sin hechos registrados durante junio. | Defensoría del Pueblo, Reporte 268, p. 92. | Estado al corte: activo, no resuelto; no hubo hechos del mes según Defensoría. |
 
 ## Matriz de reasentamiento, riesgo y conflicto
 
@@ -41,7 +41,7 @@ Regla editorial: no presentar Nueva Morococha como “solución” cerrada ni An
 | Acuerdos 2018 | MINEM reporta acuerdos sobre proyectos productivos, PDS, valorización de infraestructura, adquisición de predios y reinicio de mesas. | MINEM, nota 05/06/2018, líneas 21-27. | Permite construir matriz de compromisos. | La nota no prueba cumplimiento; falta acta y seguimiento. |
 | Diálogo institucional | PCM extiende mesa de reasentamiento hasta 2026. | RM 064-2025-PCM / El Peruano; Andina. | Muestra que el proceso no estaba cerrado institucionalmente. | Falta expediente completo de la mesa, actas y cumplimiento. |
 | Población no reasentada | MINEM reconoce en 2018 población que permanecía en antigua Morococha y acuerda adquisición armónica de predios. | MINEM, línea 25. | Núcleo del conflicto: permanencia, predios y condiciones. | No asumir consentimiento ni negativa homogénea de toda población. |
-| Estado defensorial 2026 | Defensoría mantiene el caso activo en mayo de 2026, aunque sin hechos del mes. | Reporte 267, p. 71. | Estado al corte: activo/no resuelto. | “Sin hechos del mes” no significa solución. |
+| Estado defensorial 2026 | Defensoría mantiene el caso activo en junio de 2026, aunque sin hechos del mes. | Reporte 268, p. 92. | Estado al corte: activo/no resuelto. | “Sin hechos del mes” no significa solución. |
 | Desalojo 2025 | Periodismo y sociedad civil reportan expulsión de últimas familias. | Dialogue Earth 2025; Infobae; Servindi. | Actualización crítica para estado actual. | No publicar como hito verificado final sin resolución judicial/acta primaria. |
 
 ## Posiciones y planos de lectura
@@ -55,7 +55,7 @@ Regla editorial: no presentar Nueva Morococha como “solución” cerrada ni An
 | Municipalidad / autoridades locales | Canalizan cuestionamientos técnicos, pedidos de evaluación y demandas sobre reasentamiento, infraestructura y canon. | CENEPRED 028-SGI; MINEM 2018. | Falta expediente municipal, acuerdos locales y cambios de gestión. |
 | Población reasentada | Beneficiaria de vivienda/servicios según empresa y Estado; su experiencia debe documentarse con fuentes directas. | Chinalco; CENEPRED; fuentes periodísticas/academia. | No asumir satisfacción o perjuicio uniforme. |
 | Población no reasentada / expropietarios | Mantiene reclamos sobre compensación, servicios, arraigo, inclusión en mesa y condiciones de eventual reasentamiento. | MINEM 2018; Dialogue Earth; Servindi; InfoAndes. | Faltan documentos judiciales, actas y testimonios directos archivados. |
-| Defensoría del Pueblo | Monitorea Morococha-Chinalco como conflicto socioambiental activo. | Reporte 267, mayo 2026. | Reporte mensual no sustituye expediente de mediación. |
+| Defensoría del Pueblo | Monitorea Morococha-Chinalco como conflicto socioambiental activo. | Reporte 268, junio 2026. | Reporte mensual no sustituye expediente de mediación. |
 
 ## Matriz de afirmaciones: hechos, interpretaciones y propuestas
 
@@ -81,7 +81,7 @@ Regla editorial: no presentar Nueva Morococha como “solución” cerrada ni An
 
 ## Estado documentado al corte
 
-Al 2026-06-29, el paquete permite sostener con evidencia directa que:
+Al 2026-07-27, el paquete permite sostener con evidencia directa que:
 
 - Toromocho cuenta con EIA aprobado por MINEM mediante RD 411-2010-MEM-AAM.
 - El proyecto implicó reubicación de la ciudad de Morococha hacia Carhuacoto/Nueva Morococha.
@@ -89,7 +89,7 @@ Al 2026-06-29, el paquete permite sostener con evidencia directa que:
 - Chinalco presenta Nueva Morococha como ciudad moderna y planificada bajo estándares internacionales.
 - MINEM reportó en 2018 acuerdos con población, autoridades y Chinalco, incluyendo predios, proyectos productivos, PDS, valorización de infraestructura y reinicio de mesas.
 - La PCM mantuvo/amplió la mesa de diálogo del proceso de reasentamiento hasta 2026.
-- Defensoría registra Morococha-Chinalco como conflicto socioambiental activo en mayo de 2026.
+- Defensoría registra Morococha-Chinalco como conflicto socioambiental activo en junio de 2026.
 
 No queda documentado todavía, con fuente primaria completa dentro del paquete:
 
@@ -125,6 +125,7 @@ No queda documentado todavía, con fuente primaria completa dentro del paquete:
 | morococha-minem-acuerdos-2018 | primaria estatal | MINEM, acuerdos entre población de Morococha y Chinalco, 05/06/2018 | https://www.gob.pe/institucion/minem/noticias/3914-energia-y-minas-logra-acuerdos-entre-la-poblacion-de-morococha-y-la-empresa-minera-chinalco | link-only | Acuerdos y mesas. |
 | morococha-pcm-rm-064-2025 | primaria normativa | PCM, RM 064-2025-PCM, ampliación de mesa de diálogo | https://busquedas.elperuano.pe/dispositivo/NL/2384519-1 | link-only | Continuidad institucional de mesa. |
 | morococha-defensoria-267-2026 | primaria defensorial | Defensoría del Pueblo, Reporte de Conflictos Sociales 267, mayo 2026 | https://www.defensoria.gob.pe/wp-content/uploads/2026/06/Reporte-de-Conflictos-Sociales-n-267-VF.pdf | link-only | Estado actual del conflicto. |
+| defensoria-conflictos-268 | primaria defensorial | Defensoría del Pueblo, Reporte de Conflictos Sociales 268, junio 2026 | https://www.defensoria.gob.pe/wp-content/uploads/2026/07/Reporte-de-Conflictos-Sociales-n-268.pdf | link-only | Estado activo al corte público vigente. |
 | morococha-dialogue-earth-2025 | periodismo / sociedad civil | Dialogue Earth, The final days of a Peruvian village displaced by a giant copper mine, 17/10/2025 | https://dialogue.earth/en/business/the-final-days-of-a-peruvian-village-displaced-by-a-giant-copper-mine/ | reusable con condiciones / link-only para observatorio | Actualización contextual sobre desalojo y testimonios. |
 
 ## Preguntas de alcance documental
@@ -153,4 +154,4 @@ No queda documentado todavía, con fuente primaria completa dentro del paquete:
 
 ## Regla de publicación
 
-Este paquete puede alimentar una ficha hito y una lectura sobre reasentamiento minero, pero no debe ascender a expediente completo ni a caso legalmente verificado hasta cerrar los instrumentos sociales del EIA/MEIA, actas de mesa, matriz de cumplimiento, fuentes directas de población afectada y expediente judicial de desalojos.
+Este paquete alimenta una ficha hito y la lectura sobre reasentamiento minero. Los instrumentos sociales del EIA/MEIA, actas de mesa, matriz de cumplimiento, fuentes directas de población afectada y expediente judicial del desalojo permanecen declarados como límites probatorios, sin impedir la publicación académica.

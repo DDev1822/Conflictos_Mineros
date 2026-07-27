@@ -1,8 +1,8 @@
-# V1 publication runbook
+# Runbook de publicación académica
 
-Estado objetivo: publicar la V1 como observatorio académico `public-learning`.
+Estado objetivo: publicar el observatorio como recurso `public-academic`, informativo, trazable y corregible.
 
-Este runbook no aprueba signoffs, no reemplaza revisión especializada y no convierte la V1 en `public-reviewed`. Define el camino operativo mínimo para pasar de una rama validada a una publicación controlada, corregible y trazable.
+Este runbook controla integridad técnica y documental. La publicación conserva un alcance académico e informativo y no sustituye asesoría profesional, peritajes ni decisiones de autoridad.
 
 ## 1. Condiciones para merge
 
@@ -22,28 +22,32 @@ Si una de estas condiciones falla, no se mergea.
 
 ## 2. Condiciones para despliegue manual
 
-El despliegue a GitHub Pages debe ejecutarse manualmente con `workflow_dispatch` después del merge aprobado. El workflow `Deploy to GitHub Pages` debe correr desde la rama que contiene el estado a publicar y volver a ejecutar `npm run release:check` antes de subir el artefacto.
+El despliegue a GitHub Pages debe ejecutarse manualmente con `workflow_dispatch` después del merge aprobado por DD. El workflow `Deploy to GitHub Pages` debe correr desde la rama que contiene el estado a publicar y volver a ejecutar `npm run release:check` antes de subir el artefacto.
 
 No se despliega si:
 
-- `release_ready` no es `true`.
+- `academic_publication_ready` no es `true`.
 - Existe un riesgo P0/P1 abierto en `docs/release/v1-risks.yaml`.
-- La página `/metodologia` no expone el estado `public-learning`.
-- El Sistema de Relaciones no inicia con los dos problemas raíz.
-- Madre de Dios mezcla evidencia observada con proyección lineal.
+- El disclaimer académico no aparece en la interfaz.
+- La página `/metodologia` no expone el alcance `public-academic`.
+- El Sistema de Relaciones expone ejes ajenos a los conflictos sociales mineros.
+- Las rutas `/madre-de-dios`, `/oro-ilegal` o `/reinfo` dejan de responder 404.
 - Aparecen dependencias nuevas no aprobadas.
-- Se intenta presentar la V1 como `public-reviewed` sin signoffs aprobados.
+- Existen datos o afirmaciones publicadas sin trazabilidad mínima.
 
 ## 3. Verificación posterior al despliegue
 
 Después de desplegar, revisar manualmente:
 
-- Home: muestra `Observatorio documental · V1 public-learning`.
-- `/metodologia`: muestra estado V1, cinco signoffs pendientes y avisos de transparencia.
-- `/explorar`: inicia con `Conflicto social minero` y `Minería ilegal e informal`; las conexiones aparecen por interacción.
-- `/mapa`: abre en 64 conflictos socioambientales mineros y permite cambiar explícitamente a 190 sociales.
-- `/madre-de-dios`: distingue deforestación observada, proyección lineal y fuentes MAAP.
-- `/conflictos`: usa “vacíos visibles”, no “vacíos bloqueantes”.
+- Home: presenta el observatorio como académico e informativo y enfocado en conflictos sociales mineros.
+- Pie global: declara que el contenido no sustituye asesoría profesional ni decisiones de autoridad.
+- `/metodologia`: muestra alcance académico, evidencia apta para contraste y límites documentales declarados.
+- `/explorar`: inicia con `Conflicto social minero`; las conexiones públicas se limitan a casos, territorio, actores, evidencia y mecanismos vinculados.
+- `/mapa`: abre en los 61 conflictos sociales mineros del Reporte 268; no ofrece el registro social general.
+- `/conflictos`: muestra los 12 casos publicados, sus fuentes y límites de interpretación sin atribuir responsabilidades.
+- `/compromisos`: compara documentos, seguimiento y resultados sin presentar acuerdos como cumplimiento integral.
+- `/normativa`: presenta fuentes oficiales y preguntas de aplicación sin afirmar vigencia consolidada.
+- `/madre-de-dios`, `/oro-ilegal` y `/reinfo`: responden 404 y emiten `noindex`.
 
 Registrar en el PR o en una nota de release:
 
@@ -52,28 +56,22 @@ Registrar en el PR o en una nota de release:
 - Commit publicado.
 - Fecha y responsable de la revisión manual.
 
-## 4. Pendientes que no bloquean `public-learning`
+## 4. Límites que no bloquean la publicación académica
 
-Estos pendientes deben permanecer visibles, pero no bloquean una publicación académica corregible:
+Los vacíos de investigación, las contradicciones atribuidas y las preguntas abiertas deben permanecer visibles. No bloquean una publicación académica cuando:
 
-- Signoff metodológico pendiente.
-- Signoff de licencias pendiente.
-- Signoff editorial pendiente.
-- Signoff documental pendiente.
-- Signoff de accesibilidad pendiente.
-- Tres vacíos de investigación declarados como avisos de transparencia.
+- están declarados en el paquete de caso o normativo;
+- no sustentan una afirmación presentada como hecho verificado;
+- conservan fuente, referencia precisa y fecha de consulta cuando corresponda;
+- pueden corregirse mediante un cambio trazable.
 
-Si alguno de estos puntos se quiere marcar como aprobado, debe actualizarse `docs/release/v1-manifest.yaml` con estado, fecha, responsable y evidencia. No se deben aprobar por inferencia.
+Sí bloquean la publicación las relaciones rotas, los datos inconsistentes, las afirmaciones sin fuente, los derechos desconocidos en uso y las contradicciones sustantivas sin contraste suficiente.
 
-## 5. Criterio para `public-reviewed`
+## 5. Mantenimiento académico
 
-La V1 solo puede pasar a `public-reviewed` cuando:
+Los aportes comunitarios, académicos, documentales, territoriales o editoriales son bienvenidos como contribuciones documentadas, pero no son requisitos de publicación.
 
-- Los cinco signoffs del manifiesto estén en `approved`.
-- Cada signoff tenga `reviewedAt`, `reviewedBy` y `evidence`.
-- La revisión jurídica/documental especializada no sea atribuida a una persona ficticia.
-- `npm run release:check` pase después del cambio de visibilidad.
-- La interfaz deje de describir pendientes como pendientes únicamente si el manifiesto ya los aprobó.
+Toda corrección debe distinguir hechos, interpretación y propuestas; preservar el historial en Git; y evitar presentar inferencias como hechos confirmados.
 
 ## 6. Reversión
 

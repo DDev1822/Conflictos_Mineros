@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { MapLoader } from "@/components/map-loader";
 import { loadObservatoryData } from "@/lib/content";
+import { getLatestPublicMiningCut } from "@/lib/mining-classification";
+import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import type { MiningConflictSelection, SocialConflictCase, SocialConflictSnapshot } from "@/lib/schemas";
 
 export const metadata: Metadata = { title: "Mapa territorial" };
@@ -32,16 +34,13 @@ function buildMiningSnapshot(base: SocialConflictSnapshot, selection: MiningConf
 
 export default function MapPage() {
   const data = loadObservatoryData();
-  const snapshot = [...data.socialConflictSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
+  const { snapshot, selection: miningSelection, cases: miningSocialConflictCases } = getLatestPublicMiningCut(data);
+  if (!snapshot || !miningSelection) throw new Error("No existe un corte público de conflictos sociales mineros");
   const reinfoSnapshot = [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
   const formalMiningSnapshot = [...data.formalMiningTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
   const explorationSnapshot = [...data.explorationTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
   const miningConcessionSnapshot = [...data.miningConcessionTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
-  const socialConflictCases = data.socialConflictCases.filter((item) => item.snapshotId === snapshot.id);
-  const miningSelection = data.miningConflictSelections.find((item) => item.snapshotId === snapshot.id);
-  if (!miningSelection) throw new Error(`No existe una selección de conflictos mineros para ${snapshot.id}`);
-  const miningCaseIds = new Set(miningSelection.caseIds);
-  const miningSocialConflictCases = socialConflictCases.filter((item) => miningCaseIds.has(item.id));
   const miningSocialConflictSnapshot = buildMiningSnapshot(snapshot, miningSelection, miningSocialConflictCases);
-  return <MapLoader cases={data.cases} territories={data.territories} socialConflictSnapshot={snapshot} socialConflictCases={socialConflictCases} miningSocialConflictSnapshot={miningSocialConflictSnapshot} miningSocialConflictCases={miningSocialConflictCases} reinfoSnapshot={reinfoSnapshot} formalMiningSnapshot={formalMiningSnapshot} explorationSnapshot={explorationSnapshot} miningConcessionSnapshot={miningConcessionSnapshot} />;
+  const publicCases = data.cases.filter(isPublishedSocialMiningCase);
+  return <MapLoader cases={publicCases} territories={data.territories} socialConflictSnapshot={miningSocialConflictSnapshot} socialConflictCases={miningSocialConflictCases} miningSocialConflictSnapshot={miningSocialConflictSnapshot} miningSocialConflictCases={miningSocialConflictCases} reinfoSnapshot={reinfoSnapshot} formalMiningSnapshot={formalMiningSnapshot} explorationSnapshot={explorationSnapshot} miningConcessionSnapshot={miningConcessionSnapshot} />;
 }

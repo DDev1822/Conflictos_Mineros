@@ -40,3 +40,52 @@
   coordinates: [-12.868, -70.75]
   coordinatePrecision: regional
   coordinateSourceId: ingemmet-geocatmin
+- id: la-oroya-junin
+  name: La Oroya
+  region: Junín
+  provinces: [Yauli]
+  coordinates: [-11.52, -75.9]
+  coordinatePrecision: locality
+  coordinateSourceId: ingemmet-geocatmin
+- id: cerro-quilish-cajamarca
+  name: Cerro Quilish y microcuencas relacionadas
+  region: Cajamarca
+  provinces: [Cajamarca]
+  coordinates: [-7.1617, -78.5128]
+  coordinatePrecision: regional
+  coordinateSourceId: ingemmet-geocatmin
+- id: tragadero-grande-cajamarca
+  name: Sorochuco y referencia regional de Tragadero Grande
+  region: Cajamarca
+  provinces: [Celendín]
+  coordinates: [-6.9109, -78.2563]
+  coordinatePrecision: regional
+  coordinateSourceId: gore-cajamarca-sorochuco-reference
+- id: morococha-toromocho-junin
+  name: Antigua y Nueva Morococha, con referencia en Carhuacoto
+  region: Junín
+  provinces: [Yauli]
+  coordinates: [-11.58, -76.0617]
+  coordinatePrecision: regional
+  coordinateSourceId: morococha-cenepred-028-2013
+- id: choropampa-cajamarca
+  name: San Sebastián de Choropampa, Magdalena y San Juan
+  region: Cajamarca
+  provinces: [Cajamarca]
+  coordinates: [-7.17, -78.63]
+  coordinatePrecision: regional
+  coordinateSourceId: choropampa-defensoria-62
+- id: michiquillay-encanada-cajamarca
+  name: Comunidad Campesina Michiquillay y distrito de La Encañada
+  region: Cajamarca
+  provinces: [Cajamarca]
+  coordinates: [-7.05, -78.33]
+  coordinatePrecision: regional
+  coordinateSourceId: michiquillay-oefa-diagnostico-2019
+- id: rio-blanco-piura
+  name: Área del proyecto Río Blanco y comunidades de Yanta y Segunda y Cajas
+  region: Piura
+  provinces: [Ayabaca, Huancabamba]
+  coordinates: [-4.8778, -79.3525]
+  coordinatePrecision: project-area
+  coordinateSourceId: rio-blanco-iep-2009

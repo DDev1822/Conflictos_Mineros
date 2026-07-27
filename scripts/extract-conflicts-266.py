@@ -70,7 +70,10 @@ def canonical(value: str) -> str:
 
 def canonical_type(value: str) -> str:
     key = canonical(value)
+    if not key:
+        return ""
     key = key.replace("asunto de gobierno", "asuntos de gobierno")
+    key = key.replace("asuntos del gobierno", "asuntos de gobierno")
     for item in TYPES:
         if canonical(item) in key or key in canonical(item):
             return item

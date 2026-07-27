@@ -10,17 +10,17 @@ function cloneData() {
 describe("gates de investigación documental V1", () => {
   it("calcula cobertura, hitos, perspectivas y ocho paquetes normativos", () => {
     const result = evaluateResearchReadiness(cloneData());
-    expect(result.metrics.casesMeetingMilestoneTarget).toBe(6);
-    expect(result.metrics.caseResearchReady).toBe(6);
+    expect(result.metrics.casesMeetingMilestoneTarget).toBe(13);
+    expect(result.metrics.caseResearchReady).toBe(13);
     expect(result.metrics.normativePacketReady).toBe(8);
-    expect(result.metrics.perspectiveCoverage).toBe(6);
+    expect(result.metrics.perspectiveCoverage).toBe(13);
     expect(result.metrics.unresolvedHiddenConflicts).toBe(0);
     expect(result.metrics.contextualOnlyClaims).toBe(0);
     expect(result.metrics.directEvidenceCoverage).toBe(1);
     expect(result.metrics.directEvidenceCovered).toBe(result.metrics.directEvidenceRequired);
     expect(result.ready).toBe(true);
-    expect(result.metrics.declaredGaps).toBe(3);
-    expect(result.notices).toContain("Vacío tambogrande/tambogrande-expediente-completo: visible en publicación");
+    expect(result.metrics.declaredGaps).toBe(0);
+    expect(result.notices).toEqual([]);
   });
 
   it("falla deliberadamente al retirar un locador de evidencia directa", () => {
@@ -42,24 +42,20 @@ describe("gates de investigación documental V1", () => {
     expect(result.issues).toContain("Caso conga: cobertura de perspectivas insuficiente");
   });
 
-  it("impide marcar una norma como revisada sin evidencia atribuida", () => {
+  it("exige un estado documental neutral para cada instrumento", () => {
     const instrument = cloneData().instruments[0];
     const result = legalInstrumentSchema.safeParse({
       ...instrument,
-      legalReviewStatus: "verified",
-      verifiedAt: "2026-06-20",
-      legalReviewedBy: "Responsable documental",
+      documentaryStatus: undefined,
     });
     expect(result.success).toBe(false);
   });
 
-  it("impide marcar un expediente como revisado sin evidencia atribuida", () => {
+  it("exige que cada expediente declare sus límites de lectura", () => {
     const item = cloneData().cases[0];
     const result = conflictCaseSchema.safeParse({
       ...item,
-      reviewStatus: "legal-verified",
-      legalReviewedAt: "2026-06-20",
-      legalReviewedBy: "Responsable documental",
+      reviewNotes: "",
     });
     expect(result.success).toBe(false);
   });

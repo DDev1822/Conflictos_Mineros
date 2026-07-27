@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { datasetSchema, type ObservatoryData } from "./schemas";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "data");
-const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "evidenceRecords", "caseResearchPackets", "legalResearchPackets", "cajamarcaSystemMatrix", "institutionalMechanisms", "alternatives", "socialConflictSnapshots", "socialConflictCases", "miningConflictSelections", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots", "explorationTerritorialSnapshots", "miningConcessionTerritorialSnapshots", "madreDiosDevastation"] as const;
+const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "evidenceRecords", "caseResearchPackets", "commitmentComparison", "legalResearchPackets", "cajamarcaSystemMatrix", "institutionalMechanisms", "alternatives", "socialConflictSnapshots", "socialConflictCases", "miningConflictSelections", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots", "explorationTerritorialSnapshots", "miningConcessionTerritorialSnapshots", "madreDiosDevastation"] as const;
 
 function readYaml<T>(name: string): T {
   const file = path.join(CONTENT_ROOT, `${name}.yaml`);
@@ -72,6 +72,16 @@ function assertReferences(data: ObservatoryData) {
     if (!caseIds.has(packet.caseId)) throw new Error(`Paquete ${packet.id} referencia caso inexistente: ${packet.caseId}`);
     check([...packet.sourceIds, ...packet.directActorSourceIds, ...packet.actorPositions.flatMap((position) => position.sourceIds), ...packet.contradictions.flatMap((item) => item.sourceIds)], "sources", `Paquete ${packet.id}`);
   });
+  const timelineEventById = new Map(data.cases.flatMap((item) => item.timeline.map((event) => [event.id, { caseId: item.id, event }] as const)));
+  data.commitmentComparison.entries.forEach((entry) => {
+    if (!caseIds.has(entry.caseId)) throw new Error(`Compromiso ${entry.id} referencia caso inexistente: ${entry.caseId}`);
+    const timelineEntity = timelineEventById.get(entry.timelineEventId);
+    if (!timelineEntity) throw new Error(`Compromiso ${entry.id} referencia hito inexistente: ${entry.timelineEventId}`);
+    if (timelineEntity.caseId !== entry.caseId) throw new Error(`Compromiso ${entry.id} mezcla caso e hito de expedientes distintos`);
+    check(entry.sourceIds, "sources", `Compromiso ${entry.id}`);
+  });
+  const excludedCommitmentCases = data.commitmentComparison.excludedCaseIds.filter((caseId) => !caseIds.has(caseId));
+  if (excludedCommitmentCases.length) throw new Error(`Comparación de compromisos excluye casos inexistentes: ${excludedCommitmentCases.join(", ")}`);
   data.legalResearchPackets.forEach((packet) => {
     if (!ids.instruments.has(packet.instrumentId)) throw new Error(`Paquete ${packet.id} referencia norma inexistente: ${packet.instrumentId}`);
     check([packet.primaryTextSourceId, ...packet.regulationSourceIds, ...packet.amendmentSourceIds], "sources", `Paquete ${packet.id}`);
@@ -144,6 +154,7 @@ export function loadObservatoryData(): ObservatoryData {
   });
   assertUnique(parsed.cajamarcaSystemMatrix.entries.map((entry) => entry.id), "hitos de matriz Cajamarca");
   assertUnique(parsed.institutionalMechanisms.entries.map((entry) => entry.mechanismId), "mecanismos institucionales");
+  assertUnique(parsed.commitmentComparison.entries.map((entry) => entry.id), "compromisos comparados");
   parsed.socialConflictSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));
   parsed.miningConflictSelections.forEach((selection) => assertUnique(selection.caseIds, `casos de ${selection.id}`));
   parsed.reinfoTerritorialSnapshots.forEach((snapshot) => assertUnique(snapshot.regions.map((region) => region.id), `regiones de ${snapshot.id}`));

@@ -16,19 +16,12 @@ type CaseCatalogProps = {
 };
 
 const reviewLabels: Record<ConflictCase["reviewStatus"], string> = {
-  documentary: "revisión documental",
-  "legal-pending": "contraste documental",
-  "legal-verified": "contraste documentado",
+  documentary: "contraste documental",
 };
 
 const researchStatusLabels: Record<CaseResearchPacket["status"], string> = {
-  ready: "paquete listo",
-  incomplete: "incompleto",
-};
-
-const depthLabels: Record<CaseResearchPacket["depth"], string> = {
-  standard: "estándar",
-  deep: "profundo",
+  ready: "documentación organizada",
+  incomplete: "documentación en revisión",
 };
 
 function formatDate(value?: string) {
@@ -42,6 +35,14 @@ function uniqueIds(values: string[]) {
 
 function caseEntityIds(item: ConflictCase) {
   return new Set([item.id, ...item.timeline.map((event) => event.id), ...item.claims.map((claim) => claim.id)]);
+}
+
+function publicStatusSummary(value: string) {
+  return value
+    .replaceAll("El expediente conserva", "La documentación disponible reúne")
+    .replaceAll("el expediente integra", "la documentación reúne")
+    .replaceAll("queda integrado como", "se presenta como")
+    .replaceAll("con locadores", "con referencias exactas");
 }
 
 export function CaseCatalog({ cases, issues, territories, researchPackets, sources, evidenceRecords }: CaseCatalogProps) {
@@ -94,10 +95,10 @@ export function CaseCatalog({ cases, issues, territories, researchPackets, sourc
       </div>
       <div className="case-table">
         <div className="case-table-head">
-          <span>Expediente y estado al corte</span>
+          <span>Caso y problema central</span>
           <span>Territorio</span>
           <span>Evidencia</span>
-          <span>Revisión</span>
+          <span>Contraste</span>
           <span>Estado</span>
         </div>
         {filtered.map((item) => {
@@ -113,14 +114,14 @@ export function CaseCatalog({ cases, issues, territories, researchPackets, sourc
           const locators = evidenceRecords.filter((record) => entities.has(record.entityId));
           const reviewedLocators = locators.filter((record) => record.reviewStatus === "reviewed").length;
           const verifiedClaims = item.claims.filter((claim) => claim.verificationStatus === "verified").length;
-          const blockingGaps = packet?.gaps.filter((gap) => gap.blocksRelease).length ?? 0;
+          const scopeLimitCount = packet?.gaps.length ?? 0;
           const openContradictions = packet?.contradictions.filter((entry) => entry.status === "open").length ?? 0;
 
           return (
             <Link href={`/conflictos/${item.slug}`} key={item.id} className="case-table-row">
               <span className="case-main-cell">
                 <strong>{item.name}</strong>
-                <small>{packet?.currentStatusSummary ?? item.summary}</small>
+                <small>{packet ? publicStatusSummary(packet.currentStatusSummary) : item.summary}</small>
                 <em>{caseIssues.slice(0, 3).map((entry) => entry.name).join(" · ")}</em>
               </span>
               <span>
@@ -130,13 +131,13 @@ export function CaseCatalog({ cases, issues, territories, researchPackets, sourc
               </span>
               <span>
                 {knownSources} fuentes
-                <small>{reviewedLocators}/{locators.length} locadores revisados</small>
+                <small>{reviewedLocators}/{locators.length} referencias revisadas</small>
                 <small>{item.timeline.length} hitos · {verifiedClaims}/{item.claims.length} afirmaciones verificadas</small>
               </span>
               <span>
-                {packet ? researchStatusLabels[packet.status] : "sin paquete"}
-                <small>{packet ? `${depthLabels[packet.depth]} · meta ${packet.substantiveMilestoneTarget} hitos` : reviewLabels[item.reviewStatus]}</small>
-                <small>{openContradictions} contradicción(es) · {blockingGaps} vacío(s) visible(s)</small>
+                {packet ? researchStatusLabels[packet.status] : "documentación no sistematizada"}
+                <small>{packet ? `seguimiento al ${formatDate(packet.cutoffDate)}` : reviewLabels[item.reviewStatus]}</small>
+                <small>{openContradictions} contradicción(es) · {scopeLimitCount} límite(s) de alcance</small>
               </span>
               <span className="case-status-cell">
                 <StatusPill status={item.status} />
@@ -146,7 +147,7 @@ export function CaseCatalog({ cases, issues, territories, researchPackets, sourc
             </Link>
           );
         })}
-        {!filtered.length && <p className="empty-state">No hay expedientes que coincidan con los filtros activos.</p>}
+        {!filtered.length && <p className="empty-state">Ajusta los filtros para recuperar casos del catálogo.</p>}
       </div>
     </>
   );

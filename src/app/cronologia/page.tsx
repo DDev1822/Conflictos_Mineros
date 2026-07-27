@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { TimelineExplorer } from "@/components/timeline-explorer";
 import { loadObservatoryData } from "@/lib/content";
+import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import type { TimelineEvent } from "@/lib/schemas";
 
 export const metadata: Metadata = { title: "Cronología documentada" };
@@ -24,11 +25,12 @@ function uniqueIds(values: string[]) {
 
 export default function TimelinePage() {
   const data = loadObservatoryData();
-  const events = data.cases.flatMap((item) => item.timeline.map((event) => ({ ...event, caseId: item.id })));
+  const publicCases = data.cases.filter(isPublishedSocialMiningCase);
+  const publicData = { ...data, cases: publicCases };
+  const events = publicCases.flatMap((item) => item.timeline.map((event) => ({ ...event, caseId: item.id })));
   const sourceIds = uniqueIds(events.flatMap((event) => event.sourceIds));
   const eventIds = new Set(events.map((event) => event.id));
   const locators = data.evidenceRecords.filter((record) => record.entityType === "timeline" && eventIds.has(record.entityId));
-  const reviewedLocators = locators.filter((record) => record.reviewStatus === "reviewed").length;
   const kindCounts = events.reduce<Record<TimelineEvent["kind"], number>>((acc, event) => {
     acc[event.kind] += 1;
     return acc;
@@ -39,11 +41,11 @@ export default function TimelinePage() {
   return (
     <div className="content-page">
       <header className="page-intro">
-        <p className="eyebrow">Lectura por hitos</p>
+        <p className="eyebrow">Hitos documentados</p>
         <h1>Cronología documentada</h1>
         <p>
-          Herramienta para leer cada hito por caso, tipo de evento, fuente y locador de evidencia.
-          No ordena una narrativa única: permite contrastar decisiones, acuerdos, evidencias y publicaciones entre expedientes.
+          Cada hito conserva caso, tipo de evento, fuente y referencia precisa cuando está disponible.
+          Las decisiones, acuerdos, evidencias y publicaciones se comparan entre casos sin forzar una narrativa única.
         </p>
       </header>
 
@@ -59,23 +61,23 @@ export default function TimelinePage() {
           <small>Vinculadas directamente a hitos.</small>
         </article>
         <article>
-          <strong>{reviewedLocators}/{locators.length}</strong>
-          <span>Locadores</span>
-          <small>Registros de evidencia revisados.</small>
+          <strong>{locators.length}</strong>
+          <span>Referencias precisas</span>
+          <small>Páginas, secciones o artículos vinculados con los hitos.</small>
         </article>
         <article>
           <strong>{Object.entries(kindCounts).map(([kind, count]) => `${count} ${timelineKindLabels[kind as TimelineEvent["kind"]]}`).join(" · ")}</strong>
           <span>Tipos de hito</span>
-          <small>Clasificación editorial para no rellenar cronologías con publicaciones.</small>
+          <small>Eventos, decisiones, acuerdos, evidencia y publicaciones se mantienen diferenciados.</small>
         </article>
       </section>
 
       <div className="catalog-note">
         <strong>Regla de lectura:</strong>
-        <span>una publicación solo cuenta como hito si el registro la clasifica como tal; decisiones, acuerdos y evidencia técnica se mantienen separados.</span>
+        <span>un comunicado o publicación no reemplaza una decisión, acuerdo o evidencia técnica; solo cuenta como hito cuando documenta un cambio en el caso.</span>
       </div>
 
-      <TimelineExplorer data={data} />
+      <TimelineExplorer data={publicData} />
     </div>
   );
 }

@@ -67,29 +67,14 @@ export const legalInstrumentSchema = z.object({
   authority: z.string().min(2),
   publishedAt: isoDate,
   effectiveFrom: isoDate.optional(),
-  status: z.enum(["in-force", "modified", "repealed", "pending-review"]),
-  legalReviewStatus: z.enum(["verified", "pending"]),
-  verifiedAt: isoDate.optional(),
-  legalReviewedBy: z.string().min(3).optional(),
-  legalReviewMemo: z.string().min(3).optional(),
+  status: z.literal("documented"),
+  documentaryStatus: z.literal("source-reviewed"),
   relevantArticles: z.array(z.string()).default([]),
   issueIds: z.array(id).min(1),
   sourceIds: z.array(id).min(1),
   relatedInstrumentIds: z.array(id),
   lastCheckedAt: isoDate,
   verificationNotes: z.string().min(15),
-}).superRefine((instrument, ctx) => {
-  if (instrument.legalReviewStatus === "verified") {
-    if (!instrument.verifiedAt) {
-      ctx.addIssue({ code: "custom", path: ["verifiedAt"], message: "Una revisión documental verificada requiere fecha" });
-    }
-    if (!instrument.legalReviewedBy) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewedBy"], message: "Una revisión documental verificada requiere responsable" });
-    }
-    if (!instrument.legalReviewMemo) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewMemo"], message: "Una revisión documental verificada requiere referencia de evidencia" });
-    }
-  }
 });
 
 export const timelineEventSchema = z.object({
@@ -118,23 +103,8 @@ export const conflictCaseSchema = z.object({
   claims: z.array(claimSchema).min(1),
   cutoffDate: isoDate,
   updatedAt: isoDate,
-  reviewStatus: z.enum(["documentary", "legal-pending", "legal-verified"]),
-  legalReviewedAt: isoDate.optional(),
-  legalReviewedBy: z.string().min(3).optional(),
-  legalReviewMemo: z.string().min(3).optional(),
-  legalReviewNotes: z.string().min(15),
-}).superRefine((item, ctx) => {
-  if (item.reviewStatus === "legal-verified") {
-    if (!item.legalReviewedAt) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewedAt"], message: "Un expediente verificado requiere fecha de revisión documental" });
-    }
-    if (!item.legalReviewedBy) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewedBy"], message: "Un expediente verificado requiere responsable de revisión" });
-    }
-    if (!item.legalReviewMemo) {
-      ctx.addIssue({ code: "custom", path: ["legalReviewMemo"], message: "Un expediente verificado requiere referencia de evidencia" });
-    }
-  }
+  reviewStatus: z.literal("documentary"),
+  reviewNotes: z.string().min(15),
 });
 
 export const evidenceRecordSchema = z.object({
@@ -182,6 +152,41 @@ export const caseResearchPacketSchema = z.object({
   scopeQuestions: z.array(z.string().min(20)).min(2),
   gaps: z.array(researchGapSchema),
   status: z.enum(["ready", "incomplete"]),
+});
+
+export const commitmentComparisonEntrySchema = z.object({
+  id,
+  caseId: id,
+  timelineEventId: id,
+  theme: z.enum([
+    "water",
+    "environmental-monitoring",
+    "social-investment",
+    "employment-capacity",
+    "dialogue-governance",
+    "mobility",
+    "formalization",
+  ]),
+  title: z.string().min(8),
+  commitment: z.string().min(30),
+  responsibleActors: z.array(z.string().min(3)).min(1),
+  territorialScope: z.string().min(5),
+  documentBasis: z.enum(["contract-condition", "agreement", "convention", "work-plan", "public-record"]),
+  documentaryStage: z.enum(["condition-documented", "agreement-documented", "follow-up-documented", "result-documented"]),
+  implementationEvidence: z.enum(["not-located", "partial", "documented"]),
+  evidenceSummary: z.string().min(25),
+  limit: z.string().min(25),
+  sourceIds: z.array(id).min(1),
+  checkedAt: isoDate,
+});
+
+export const commitmentComparisonSchema = z.object({
+  id: z.literal("mining-social-conflict-commitments"),
+  cutoffDate: isoDate,
+  scope: z.string().min(40),
+  methodology: z.string().min(40),
+  excludedCaseIds: z.array(id),
+  entries: z.array(commitmentComparisonEntrySchema).min(1),
 });
 
 export const legalResearchPacketSchema = z.object({
@@ -305,7 +310,7 @@ export const socialConflictCaseSchema = z.object({
   ]),
   regionIds: z.array(id).min(1),
   startPeriod: z.string().regex(/^\d{4}-\d{2}$/).optional(),
-  sourcePage: z.number().int().min(37).max(75),
+  sourcePage: z.number().int().min(37).max(120),
   hasMonthlyEvents: z.boolean(),
   summary: z.string().min(20).optional(),
   location: z.string().min(5).optional(),
@@ -318,6 +323,7 @@ export const socialConflictCaseSchema = z.object({
 export const socialConflictSnapshotSchema = z.object({
   id,
   title: z.string().min(10),
+  scope: z.enum(["all-social-internal", "mining-public"]),
   reportNumber: z.number().int().positive(),
   reportingPeriod: z.string().regex(/^\d{4}-\d{2}$/),
   cutoffDate: isoDate,
@@ -544,6 +550,7 @@ export const datasetSchema = z.object({
   cases: z.array(conflictCaseSchema),
   evidenceRecords: z.array(evidenceRecordSchema),
   caseResearchPackets: z.array(caseResearchPacketSchema),
+  commitmentComparison: commitmentComparisonSchema,
   legalResearchPackets: z.array(legalResearchPacketSchema),
   cajamarcaSystemMatrix: cajamarcaSystemMatrixSchema,
   institutionalMechanisms: institutionalMechanismsMatrixSchema,
@@ -568,6 +575,8 @@ export type Territory = z.infer<typeof territorySchema>;
 export type TimelineEvent = z.infer<typeof timelineEventSchema>;
 export type EvidenceRecord = z.infer<typeof evidenceRecordSchema>;
 export type CaseResearchPacket = z.infer<typeof caseResearchPacketSchema>;
+export type CommitmentComparison = z.infer<typeof commitmentComparisonSchema>;
+export type CommitmentComparisonEntry = z.infer<typeof commitmentComparisonEntrySchema>;
 export type LegalResearchPacket = z.infer<typeof legalResearchPacketSchema>;
 export type CajamarcaSystemMatrix = z.infer<typeof cajamarcaSystemMatrixSchema>;
 export type CajamarcaSystemEntry = z.infer<typeof cajamarcaSystemEntrySchema>;
