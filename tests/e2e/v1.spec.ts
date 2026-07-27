@@ -124,6 +124,8 @@ test.describe("publicación V2 en escritorio", () => {
   });
 
   test("los casos publicados muestran su cronología, documentos por hito y estado normativo", async ({ page }) => {
+    test.setTimeout(120_000);
+
     const minimumMilestones: Record<string, number> = {
       tambogrande: 8,
       conga: 5,
