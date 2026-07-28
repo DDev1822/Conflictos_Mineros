@@ -605,10 +605,21 @@ function edge(id: string, source: GraphFocus, target: GraphFocus, label: string,
     label,
     animated,
     className: `relation-edge relation-${tone}`,
-    markerEnd: { type: MarkerType.ArrowClosed, color: colors[tone] },
-    style: { stroke: colors[tone], strokeWidth: animated ? 2.1 : 1.45 },
-    labelStyle: { fill: "#f5efe5", fontSize: 11, fontFamily: "Source Serif 4 Variable, Georgia, serif" },
-    labelBgStyle: { fill: "#061d2b", fillOpacity: 0.94 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: colors[tone], width: 18, height: 18 },
+    style: {
+      stroke: colors[tone],
+      strokeWidth: animated ? 3.2 : 2.4,
+      filter: `drop-shadow(0 0 2px ${colors[tone]}66)`,
+    },
+    labelStyle: {
+      fill: "#f8f4eb",
+      fontSize: 12,
+      fontWeight: 700,
+      fontFamily: "Source Serif 4 Variable, Georgia, serif",
+    },
+    labelBgStyle: { fill: "#061d2b", fillOpacity: 0.98, stroke: "#315160", strokeWidth: 0.8 },
+    labelBgPadding: [6, 4],
+    labelBgBorderRadius: 4,
   };
 }
 

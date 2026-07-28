@@ -118,6 +118,34 @@ test.describe("publicación V2 en escritorio", () => {
 
       return crowdedPairs;
     })).toEqual([]);
+
+    const graphLegibility = await graph.evaluate((pane) => {
+      const rootBadgesOutside = Array.from(pane.querySelectorAll(".root-node .graph-label b")).filter((badge) => {
+        const badgeRect = badge.getBoundingClientRect();
+        const nodeRect = badge.closest(".root-node")?.getBoundingClientRect();
+        return !nodeRect
+          || badgeRect.left < nodeRect.left
+          || badgeRect.right > nodeRect.right
+          || badgeRect.top < nodeRect.top
+          || badgeRect.bottom > nodeRect.bottom;
+      }).length;
+      const thinEdges = Array.from(pane.querySelectorAll(".react-flow__edge-path")).filter((path) => (
+        Number.parseFloat(getComputedStyle(path).strokeWidth) < 2.4
+      )).length;
+      const edgeLabels = Array.from(pane.querySelectorAll(".react-flow__edge-text"));
+      const edgeBackgrounds = Array.from(pane.querySelectorAll(".react-flow__edge-textbg"));
+      const unprotectedLabels = edgeLabels.length !== edgeBackgrounds.length
+        ? edgeLabels.length
+        : edgeBackgrounds.filter((background) => {
+          const style = getComputedStyle(background);
+          return Number.parseFloat(style.fillOpacity) < 0.95
+            || style.stroke === "none"
+            || Number.parseFloat(style.strokeWidth) < 0.8;
+        }).length;
+
+      return { rootBadgesOutside, thinEdges, unprotectedLabels };
+    });
+    expect(graphLegibility).toEqual({ rootBadgesOutside: 0, thinEdges: 0, unprotectedLabels: 0 });
   });
 
   test("la cronología permite saltar por año desde el índice lateral", async ({ page }) => {

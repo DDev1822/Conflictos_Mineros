@@ -87,3 +87,31 @@ El observatorio adopta el alcance `public-academic`: los bloqueos P0/P1 operativ
 3. La iteración final desplazó la fila comparativa, limitó el zoom inicial expandido a 0,7 y redujo el ancho de la nota en escritorios de hasta 1280 px. La comparación completa fue suficiente; no se requirió una ampliación adicional porque las 12 tarjetas y sus separaciones son legibles.
 
 final result: passed
+
+## Actualización de legibilidad de conexiones del 28 de julio de 2026
+
+- Verdad visual recibida: `C:\Users\DeeDee\AppData\Local\Temp\codex-clipboard-08441f5b-b2d8-4a98-a889-7ec836c52147.png`.
+- Implementación capturada: `C:\Users\DeeDee\.codex\visualizations\2026\07\27\019fa2c4-5891-7c21-be52-0294834e34ae\relations-after-qa-aligned-1920.png`.
+- Comparación conjunta normalizada: `C:\Users\DeeDee\.codex\visualizations\2026\07\27\019fa2c4-5891-7c21-be52-0294834e34ae\relations-qa-comparison-final.png`.
+- Viewport de implementación: 1920 × 911 CSS px, `devicePixelRatio: 1`.
+- Región comparada: lienzo de Relaciones de 1195 × 723 px en ambos lados.
+- Estado: 12 nodos visibles y foco activo en REINFO.
+- Normalización: se retiró el cromo del navegador y se recortó exclusivamente el lienzo del grafo en origen e implementación.
+
+### Findings
+
+- No quedan hallazgos P0, P1 o P2 en la ubicación de “Raíz”, protección de etiquetas o visibilidad de líneas.
+- Las tres etiquetas “Raíz” conservan 14,7 px de separación respecto del borde superior y derecho de su nodo.
+- Las nueve conexiones visibles renderizan entre 2,4 y 3,2 px, con terminación redondeada, flecha y halo de contraste.
+- Las nueve etiquetas de conexión tienen nueve fondos opacos correspondientes, borde visible y separación interna.
+- Tipografía, colores, iconos, contenido y posiciones de los nodos se conservaron; no se agregaron activos de imagen.
+- Interacciones comprobadas: revelado progresivo de minería ilegal e informal, REINFO y conflicto social minero; selección final de REINFO.
+- Errores de consola: 0.
+
+### Comparison history
+
+1. La captura de origen mostraba las tres insignias “Raíz” fuera del borde derecho, trazos secundarios demasiado finos y texto de relación atravesado visualmente por las líneas.
+2. La implementación ubicó las insignias dentro de cada nodo, elevó el grosor de las conexiones sin alterar su color semántico y añadió fondos individuales a las etiquetas.
+3. La comparación final de 1195 × 723 px confirmó que no quedan textos recortados, líneas imperceptibles ni etiquetas sin protección. No fue necesario un recorte adicional: el lienzo completo permite comprobar las tres superficies señaladas.
+
+final result: passed
