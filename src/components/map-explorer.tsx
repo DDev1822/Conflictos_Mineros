@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowSquareOut, MagnifyingGlass, X } from "@phosphor-icons/react";
-import { CircleMarker, MapContainer, Marker, Popup, TileLayer, Tooltip, useMap } from "react-leaflet";
+import { CircleMarker, MapContainer, Marker, Popup, TileLayer, Tooltip, useMap, ZoomControl } from "react-leaflet";
 import L from "leaflet";
 import "leaflet.heat";
 import "leaflet/dist/leaflet.css";
@@ -65,7 +65,7 @@ function FitMap({ showNationalLayers, territories }: { showNationalLayers: boole
 function MapViewTracker({ regions, resetToken, onChange }: {
   regions: SocialConflictSnapshot["regions"];
   resetToken: number;
-  onChange: (label: string, isNational: boolean) => void;
+  onChange: (label: string, isNational: boolean, zoom: number) => void;
 }) {
   const map = useMap();
 
@@ -83,7 +83,7 @@ function MapViewTracker({ regions, resetToken, onChange }: {
             : visibleRegions.length > 3
               ? `${visibleRegions.length} regiones visibles`
               : "Vista ampliada";
-      onChange(label, isNational);
+      onChange(label, isNational, map.getZoom());
     };
 
     reportView();
@@ -270,6 +270,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
   const [selectedScope, setSelectedScope] = useState<string | null>(readMapRegion);
   const [mapViewLabel, setMapViewLabel] = useState("Perú");
   const [mapAtNationalView, setMapAtNationalView] = useState(true);
+  const [mapZoom, setMapZoom] = useState(5);
   const [mapResetToken, setMapResetToken] = useState(0);
   const [registryTheme, setRegistryTheme] = useState<RegistryTheme>("heat");
   const [caseQuery, setCaseQuery] = useState("");
@@ -279,7 +280,10 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
   const searchInputRef = useRef<HTMLInputElement>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
 
-  const visibleCases = cases.filter((item) => status === "all" || item.status === status);
+  const visibleCases = useMemo(
+    () => cases.filter((item) => status === "all" || item.status === status),
+    [cases, status],
+  );
   const visibleTerritories = useMemo(
     () => territories.filter((item) => visibleCases.some((entry) => entry.territoryIds.includes(item.id))),
     [territories, visibleCases],
@@ -367,9 +371,10 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
     () => new Set(["nacional", "multiregional", ...activeHeatSnapshot.regions.map((region) => region.id)]),
     [activeHeatSnapshot.regions],
   );
-  const handleMapViewChange = useCallback((label: string, isNational: boolean) => {
+  const handleMapViewChange = useCallback((label: string, isNational: boolean, zoom: number) => {
     setMapViewLabel(label);
     setMapAtNationalView(isNational);
+    setMapZoom(zoom);
   }, []);
 
   useEffect(() => {
@@ -659,13 +664,15 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
         <div className="map-stage-context" aria-label="Resumen visible del mapa actual">
           <span>Vista actual</span>
           <strong>{mapViewLabel}</strong>
+          <span className="sr-only" role="status" aria-live="polite">Nivel de zoom: {mapZoom}</span>
           <small>{mapStageTitle} · {mapStageSubtitle}</small>
           {!mapAtNationalView && <button type="button" onClick={() => setMapResetToken((value) => value + 1)}>Volver a todo el Perú</button>}
           <div aria-label={`Capas visibles: ${activeLayerLabels.length ? activeLayerLabels.join(", ") : "ninguna"}`}>
           {(activeLayerLabels.length ? activeLayerLabels : ["Capas desactivadas"]).map((label) => <span key={label}>{label}</span>)}
           </div>
         </div>
-        <MapContainer center={[-9.19, -75.02]} zoom={5} scrollWheelZoom>
+        <MapContainer center={[-9.19, -75.02]} zoom={5} zoomControl={false} scrollWheelZoom doubleClickZoom touchZoom keyboard>
+          <ZoomControl position="bottomleft" zoomInTitle="Acercar" zoomOutTitle="Alejar" />
           <TileLayer attribution="&copy; OpenStreetMap contributors" url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <FitMap showNationalLayers={showHeat || showIllegalMining || showInformalMining || showReinfo || showFormalMining || showExploration || showConcessions} territories={visibleTerritories} />
           <MapViewTracker regions={activeHeatSnapshot.regions} resetToken={mapResetToken} onChange={handleMapViewChange} />
