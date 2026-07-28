@@ -16,7 +16,9 @@ El procedimiento operativo de merge, despliegue manual y verificación posterior
 ## V1
 
 - Doce casos hito publicados: Tambogrande, Conga, Tía María, Las Bambas, Espinar, La Oroya, Cerro Quilish, Máxima Acuña–Yanacocha, Toromocho–Morococha, Choropampa, Fondo Social Michiquillay y Río Blanco–Majaz.
-- Sistema de relaciones con ejes separados para conflictos sociales mineros y REINFO, catálogo de casos, mapa territorial, cronología y comparación de compromisos.
+- Sistema de relaciones con tres ejes separados: conflictos sociales mineros, minería ilegal e informal, y REINFO.
+- Páginas públicas sobre trazabilidad del oro y minería aurífera en Madre de Dios, con fuentes y límites de interpretación.
+- Mapa territorial con capas independientes de conflictos sociales mineros, minería ilegal, minería informal, REINFO, plantas de beneficio, exploración y concesiones. El registro social general no minero queda fuera del alcance público.
 - Página y capa REINFO basadas en un corte agregado oficial; el registro no se contabiliza como conflicto ni acredita formalización concluida.
 - Contenido estructurado en YAML, narrativas en MDX y validación con Zod.
 - Afirmaciones clasificadas como hechos, interpretaciones o propuestas.

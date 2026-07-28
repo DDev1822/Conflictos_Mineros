@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import {
   ArrowRight,
   Bank,
@@ -72,7 +70,7 @@ const riskNodes = [
   {
     title: "Concentrados y ensayos",
     text: "La investigación cita a la OCDE sobre vulnerabilidades en concentrados: valor, ley mineral, ensayos y posible subdeclaración en comercio marítimo.",
-    status: "Locador OCDE requerido antes de afirmar caso peruano concreto",
+    status: "Referencia OCDE necesaria antes de afirmar un caso peruano concreto",
   },
 ];
 
@@ -80,7 +78,7 @@ const metrics = [
   {
     value: "475,83-3.260,09 TM",
     label: "rango acumulado 2003-2023",
-    source: "FCDS citado en investigación recibida",
+    source: "FCDS, según la referencia secundaria disponible",
     caveat: "Rango de estimación; no equivale a volumen probado caso por caso.",
   },
   {
@@ -161,19 +159,19 @@ type SourcePacket = {
 const sourcePackets: SourcePacket[] = [
   {
     title: "Control, Legislación y Minería Ilegal de Oro en el Perú",
-    kind: "investigación recibida · archivo interno",
+    kind: "documento de análisis",
     locator: "pp. 1-15",
     use: "Marco inicial para cadena, normativa, exportación, REINFO, brechas y preguntas probatorias.",
   },
   {
     title: "Radiografía del oro ilegal: mercado de la impunidad",
-    kind: "insumo visual recibido · archivo interno",
+    kind: "referencia visual y narrativa",
     locator: "secciones I-V",
-    use: "Propuesta visual y narrativa fuerte; sus afirmaciones deben pasar por matriz de evidencia.",
+    use: "Propuesta visual y narrativa fuerte; sus afirmaciones deben pasar por contraste documental.",
   },
   {
     title: "Radiografía del oro ilegal: cadena del oro en el Perú",
-    kind: "insumo visual recibido · archivo interno",
+    kind: "referencia visual y narrativa",
     locator: "secciones I-V",
     use: "Base para explicar producción, transporte, acopio, exportación y mercados.",
   },
@@ -209,7 +207,6 @@ const scopeQuestions = [
 ];
 
 export default function OroIlegalPage() {
-  if (!isPublishedSocialMiningCase({ id: "madre-de-dios" })) notFound();
   return (
     <div className="gold-page">
       <section className="gold-hero">
@@ -344,7 +341,7 @@ export default function OroIlegalPage() {
         <figure className="gold-gap-card">
           <figcaption>
             <strong>Exportación total vs. producción declarada</strong>
-            <span>Toneladas métricas · serie extraída de la investigación recibida · contraste primario requerido</span>
+            <span>Toneladas métricas · serie tomada de una fuente secundaria · contraste primario requerido</span>
           </figcaption>
           <svg
             className="gold-gap-chart"
@@ -420,7 +417,7 @@ export default function OroIlegalPage() {
             Los datos regionales ubican presión territorial, no puntos exactos de extracción o acopio. La diferencia
             entre agregado regional, operativo estatal y expediente individual sigue siendo central.
           </p>
-          <Link href="/conflictos/madre-de-dios">Abrir expediente Madre de Dios <ArrowRight size={16} /></Link>
+          <Link href="/madre-de-dios">Abrir análisis de Madre de Dios <ArrowRight size={16} /></Link>
         </div>
       </section>
 

@@ -21,5 +21,3 @@ jobs:
       - run: npm run release:check
         env:
           NEXT_TELEMETRY_DISABLED: 1
-      - name: Validate Pages public scope
-        run: node scripts/prune-pages-output.mjs

@@ -97,16 +97,19 @@ type FocusDetail = {
 
 const publicGraphFocuses = new Set<GraphFocus>([
   "conflicto-social-minero",
+  "mineria-ilegal-informal",
   "reinfo",
   "solapamiento-territorial",
   "casos-hito",
   "actores-acuerdos",
+  "fiscalizacion",
   "evidencia-ambiental",
   "matriz-documental",
   "cajamarca-system",
   "institutional-mechanisms",
+  "trazabilidad-oro",
 ]);
-const rootGraphFocuses: GraphFocus[] = ["conflicto-social-minero", "reinfo"];
+const rootGraphFocuses: GraphFocus[] = ["conflicto-social-minero", "mineria-ilegal-informal", "reinfo"];
 const allCaseIds = [
   "tambogrande",
   "conga",
@@ -131,8 +134,8 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "social",
     role: "root",
     icon: MapPin,
-    position: { x: 92, y: 124 },
-    width: 320,
+    position: { x: 42, y: 124 },
+    width: 280,
     height: 142,
   },
   {
@@ -143,8 +146,8 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "illegal",
     role: "root",
     icon: WarningCircle,
-    position: { x: 592, y: 124 },
-    width: 320,
+    position: { x: 362, y: 124 },
+    width: 280,
     height: 142,
   },
   {
@@ -191,8 +194,8 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "instrument",
     role: "root",
     icon: ShieldCheck,
-    position: { x: 592, y: 124 },
-    width: 320,
+    position: { x: 682, y: 124 },
+    width: 280,
     height: 142,
   },
   {
@@ -275,7 +278,7 @@ const focusRelations: Record<GraphFocus, GraphFocus[]> = {
   "solapamiento-territorial": ["conflicto-social-minero", "mineria-ilegal-informal", "evidencia-ambiental", "matriz-documental", "cajamarca-system", "institutional-mechanisms"],
   "casos-hito": ["conflicto-social-minero", "actores-acuerdos", "evidencia-ambiental", "matriz-documental", "cajamarca-system"],
   "actores-acuerdos": ["conflicto-social-minero", "casos-hito", "reinfo", "matriz-documental", "institutional-mechanisms"],
-  reinfo: ["actores-acuerdos", "matriz-documental", "institutional-mechanisms"],
+  reinfo: ["mineria-ilegal-informal", "actores-acuerdos", "fiscalizacion", "trazabilidad-oro", "matriz-documental", "institutional-mechanisms"],
   fiscalizacion: ["mineria-ilegal-informal", "reinfo", "trazabilidad-oro", "evidencia-ambiental", "matriz-documental", "institutional-mechanisms"],
   "evidencia-ambiental": ["conflicto-social-minero", "solapamiento-territorial", "fiscalizacion", "matriz-documental", "cajamarca-system", "institutional-mechanisms"],
   "matriz-documental": ["conflicto-social-minero", "mineria-ilegal-informal", "solapamiento-territorial", "reinfo", "evidencia-ambiental", "cajamarca-system", "institutional-mechanisms"],
@@ -313,12 +316,12 @@ const focusDetails: Record<GraphFocus, FocusDetail> = {
     disputeItems: ["informalidad e ilegalidad no son equivalentes", "inscripción REINFO no acredita formalización concluida", "Madre de Dios es caso profundo, no plantilla nacional"],
     nextStep: "Contrastar REINFO/MAPE con fiscalización, trazabilidad y fuentes territoriales antes de formular una conclusión pública.",
     sourceIds: ["minem-reinfo", "minem-reinfo-vigente-corte-2026-06-18", "minem-rd-0004-2025-reinfo-exclusiones", "minem-comunicado-reinfo-2025"],
-    caseIds: ["madre-de-dios"],
     issueIds: ["formalizacion-mape", "competencias-estado"],
     actorIds: ["mineros-mape", "minem", "gobiernos-subnacionales"],
     routeLinks: [
       { label: "Abrir REINFO / MAPE", href: "/reinfo", description: "Registro y proceso de formalización." },
-      { label: "Ver Madre de Dios", href: "/conflictos/madre-de-dios", description: "Caso profundo para diferenciar REINFO, ilegalidad y trazabilidad." },
+      { label: "Ver Madre de Dios", href: "/madre-de-dios", description: "Análisis territorial para diferenciar deforestación minera, REINFO, ilegalidad y trazabilidad." },
+      { label: "Ver cadena del oro", href: "/oro-ilegal", description: "Extracción, acopio, procesamiento, comercialización y controles." },
       { label: "Ver nudo normativo", href: "/normativa#formalizacion-mape", description: "Formalización de la MAPE y REINFO." },
     ],
   },
@@ -402,7 +405,7 @@ const focusDetails: Record<GraphFocus, FocusDetail> = {
     issueIds: ["fiscalizacion-ambiental", "competencias-estado"],
     routeLinks: [
       { label: "Ver nudo de fiscalización", href: "/normativa#fiscalizacion-ambiental", description: "Fiscalización ambiental y cumplimiento." },
-      { label: "Ver Madre de Dios", href: "/conflictos/madre-de-dios", description: "Operativos, REINFO y control territorial." },
+      { label: "Ver Madre de Dios", href: "/madre-de-dios", description: "Operativos, REINFO y control territorial." },
     ],
   },
   "evidencia-ambiental": {
@@ -484,10 +487,10 @@ const focusDetails: Record<GraphFocus, FocusDetail> = {
     disputeItems: ["no prueba por sí sola actividad ilegal", "no reemplaza expediente judicial", "no generaliza fuera del corte documentado"],
     nextStep: "Leer Madre de Dios y abrir fuentes directas de control/comercialización.",
     sourceIds: ["madre-dios-trazabilidad-minem-2023", "sunat-oro-sin-origen-2025", "minem-recpo-oro-2026", "mpfn-oro-reinfo-recpo-2026"],
-    caseIds: ["madre-de-dios"],
     issueIds: ["formalizacion-mape", "fiscalizacion-ambiental"],
     routeLinks: [
-      { label: "Ver Madre de Dios", href: "/conflictos/madre-de-dios", description: "Caso profundo de oro, REINFO y trazabilidad." },
+      { label: "Ver Madre de Dios", href: "/madre-de-dios", description: "Análisis territorial de oro, REINFO y deforestación minera." },
+      { label: "Abrir cadena del oro", href: "/oro-ilegal", description: "Trazabilidad, comercialización y controles de origen." },
       { label: "Ver REINFO / MAPE", href: "/reinfo", description: "Contexto del registro y formalización." },
     ],
   },
@@ -873,9 +876,19 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
   const sourceById = useMemo(() => new Map(data.sources.map((source) => [source.id, source])), [data.sources]);
   const caseById = useMemo(() => new Map(data.cases.map((item) => [item.id, item])), [data.cases]);
   const publicCases = useMemo(() => data.cases.filter(isPublishedSocialMiningCase), [data.cases]);
-  const publicIssueIds = useMemo(() => new Set([...publicCases.flatMap((item) => item.issueIds), "formalizacion-mape"]), [publicCases]);
+  const publicIssueIds = useMemo(() => new Set([
+    ...publicCases.flatMap((item) => item.issueIds),
+    "formalizacion-mape",
+    "competencias-estado",
+    "fiscalizacion-ambiental",
+  ]), [publicCases]);
   const publicIssues = useMemo(() => data.issues.filter((item) => publicIssueIds.has(item.id)), [data.issues, publicIssueIds]);
-  const publicActorIds = useMemo(() => new Set(publicCases.flatMap((item) => item.actorIds)), [publicCases]);
+  const publicActorIds = useMemo(() => new Set([
+    ...publicCases.flatMap((item) => item.actorIds),
+    "mineros-mape",
+    "minem",
+    "gobiernos-subnacionales",
+  ]), [publicCases]);
   const publicActors = useMemo(() => data.actors.filter((item) => publicActorIds.has(item.id)), [data.actors, publicActorIds]);
   const publicInstruments = useMemo(() => data.instruments.filter((item) => item.issueIds.some((id) => publicIssueIds.has(id))), [data.instruments, publicIssueIds]);
   const publicAlternatives = useMemo(() => data.alternatives.filter((item) => item.issueIds.some((id) => publicIssueIds.has(id))), [data.alternatives, publicIssueIds]);
@@ -946,6 +959,15 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
       count: publicCases.length,
     },
     {
+      id: "mineria-ilegal-informal",
+      label: "Minería ilegal e informal",
+      subtitle: `${miningMentionStats.illegal} casos mencionan minería ilegal · ${miningMentionStats.informal} mencionan minería informal · categorías separadas`,
+      type: "route",
+      focus: "mineria-ilegal-informal" as GraphFocus,
+      href: "/oro-ilegal",
+      count: miningMentionStats.illegal + miningMentionStats.informal - miningMentionStats.overlap,
+    },
+    {
       id: "reinfo",
       label: "REINFO",
       subtitle: `${latestReinfoSnapshot?.totalRegistered.toLocaleString("es-PE") ?? "s/d"} inscripciones vigentes · registro separado de los conflictos`,
@@ -953,6 +975,24 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
       focus: "reinfo" as GraphFocus,
       href: "/reinfo",
       count: latestReinfoSnapshot?.totalRegistered ?? 0,
+    },
+    {
+      id: "madre-de-dios",
+      label: "Madre de Dios: minería aurífera",
+      subtitle: "Deforestación minera, Tambopata, formalización y límites de la evidencia territorial",
+      type: "route",
+      focus: "mineria-ilegal-informal" as GraphFocus,
+      href: "/madre-de-dios",
+      count: data.madreDiosDevastation.sourceIds.length,
+    },
+    {
+      id: "trazabilidad-oro",
+      label: "Trazabilidad del oro",
+      subtitle: "Origen, acopio, procesamiento, comercialización y controles estatales",
+      type: "route",
+      focus: "trazabilidad-oro" as GraphFocus,
+      href: "/oro-ilegal",
+      count: focusDetails["trazabilidad-oro"].sourceIds.length,
     },
     {
       id: "solapamiento-territorial",
@@ -1059,11 +1099,11 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     const matchesIssue = issue === "all" || item.id.includes(issue) || data.cases.find((entry) => entry.id === item.id)?.issueIds.includes(issue);
     return matchesText && matchesType && matchesIssue;
   }).sort((a, b) => {
-    const priority = ["conflicto-social-minero", "reinfo", "solapamiento-territorial", "matriz-documental", "cajamarca-system", "institutional-mechanisms"];
+    const priority = ["conflicto-social-minero", "mineria-ilegal-informal", "reinfo", "madre-de-dios", "trazabilidad-oro", "solapamiento-territorial", "matriz-documental", "cajamarca-system", "institutional-mechanisms"];
     const aRank = priority.indexOf(a.id);
     const bRank = priority.indexOf(b.id);
     return (aRank === -1 ? 999 : aRank) - (bRank === -1 ? 999 : bRank);
-  }), [data, entityType, issue, latestMiningSelection, latestReinfoSnapshot, publicActors, publicAlternatives, publicCases, publicInstruments, publicIssues, query]);
+  }), [data, entityType, issue, latestMiningSelection, latestReinfoSnapshot, miningMentionStats, publicActors, publicAlternatives, publicCases, publicInstruments, publicIssues, query]);
 
   const reset = () => {
     setQuery("");
@@ -1171,7 +1211,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           </div>
           <div className="graph-principle">
             <TreeStructure size={16} aria-hidden />
-            <span>Conflictos sociales mineros y REINFO son ejes distintos. Las líneas indican relación documental; no prueban causalidad ni equivalencia administrativa.</span>
+            <span>Conflictos sociales mineros, minería ilegal e informal y REINFO son ejes distintos. Las líneas indican relación documental; no prueban causalidad ni equivalencia administrativa.</span>
           </div>
           <ReactFlow key={`${visibleGraphNodes.length}-${visibleGraphEdges.length}`} nodes={visibleGraphNodes} edges={visibleGraphEdges} fitView fitViewOptions={{ padding: 0.05, maxZoom: isRootOnlyGraph ? 1 : 0.8 }} minZoom={0.45} maxZoom={1.2} nodesDraggable={false} onNodeClick={(_, node) => revealFocus(node.id as GraphFocus)} proOptions={{ hideAttribution: true }}>
             <Background color="#1b536b" gap={30} size={1} />
@@ -1259,7 +1299,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           </div>
         </aside>
       </div>
-      {citationOpen && <div className="dialog-backdrop" role="presentation" onMouseDown={() => setCitationOpen(false)}><section className="citation-dialog" role="dialog" aria-modal="true" aria-labelledby="citation-title" onMouseDown={(event) => event.stopPropagation()}><button className="dialog-close" onClick={() => setCitationOpen(false)} aria-label="Cerrar"><X /></button><p className="eyebrow">Cita sugerida</p><h2 id="citation-title">Sistema de relaciones: conflictos sociales mineros y REINFO</h2><blockquote>Observatorio de Conflictos Mineros del Perú (2026). “Sistema de relaciones: conflictos sociales mineros y REINFO”. Fecha de consulta: {new Date().toLocaleDateString("es-PE")}.</blockquote><p>Incluye siempre la fecha de corte porque los estados, acuerdos y registros documentales pueden cambiar.</p></section></div>}
+      {citationOpen && <div className="dialog-backdrop" role="presentation" onMouseDown={() => setCitationOpen(false)}><section className="citation-dialog" role="dialog" aria-modal="true" aria-labelledby="citation-title" onMouseDown={(event) => event.stopPropagation()}><button className="dialog-close" onClick={() => setCitationOpen(false)} aria-label="Cerrar"><X /></button><p className="eyebrow">Cita sugerida</p><h2 id="citation-title">Sistema de relaciones mineras</h2><blockquote>Observatorio de Conflictos Mineros del Perú (2026). “Sistema de relaciones: conflictos sociales mineros, minería ilegal e informal y REINFO”. Fecha de consulta: {new Date().toLocaleDateString("es-PE")}.</blockquote><p>Incluye siempre la fecha de corte porque los estados, acuerdos y registros documentales pueden cambiar.</p></section></div>}
     </div>
   );
 }

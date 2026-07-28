@@ -260,12 +260,12 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
   const [status, setStatus] = useState(() => readMapParam("status", ["all", "active", "latent", "historical"] as const, "all"));
   const [showHeat, setShowHeat] = useState(() => readMapBoolean("heat", true));
   const [showCases, setShowCases] = useState(() => readMapBoolean("cases", true));
-  const showIllegalMining = false;
-  const showInformalMining = false;
+  const [showIllegalMining, setShowIllegalMining] = useState(() => readMapBoolean("illegal", false));
+  const [showInformalMining, setShowInformalMining] = useState(() => readMapBoolean("informal", false));
   const [showReinfo, setShowReinfo] = useState(() => readMapBoolean("reinfo", false));
-  const showFormalMining = false;
-  const showExploration = false;
-  const showConcessions = false;
+  const [showFormalMining, setShowFormalMining] = useState(() => readMapBoolean("formal", false));
+  const [showExploration, setShowExploration] = useState(() => readMapBoolean("exploration", false));
+  const [showConcessions, setShowConcessions] = useState(() => readMapBoolean("concessions", false));
   const [heatMetric, setHeatMetric] = useState<HeatMetric>(() => readMapParam("metric", ["total", "active", "latent"] as const, "total"));
   const [selectedScope, setSelectedScope] = useState<string | null>(readMapRegion);
   const [mapViewLabel, setMapViewLabel] = useState("Perú");
@@ -382,10 +382,15 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
     if (heatMetric === "total") url.searchParams.delete("metric"); else url.searchParams.set("metric", heatMetric);
     if (showHeat) url.searchParams.delete("heat"); else url.searchParams.set("heat", "0");
     if (showCases) url.searchParams.delete("cases"); else url.searchParams.set("cases", "0");
+    if (showIllegalMining) url.searchParams.set("illegal", "1"); else url.searchParams.delete("illegal");
+    if (showInformalMining) url.searchParams.set("informal", "1"); else url.searchParams.delete("informal");
     if (showReinfo) url.searchParams.set("reinfo", "1"); else url.searchParams.delete("reinfo");
+    if (showFormalMining) url.searchParams.set("formal", "1"); else url.searchParams.delete("formal");
+    if (showExploration) url.searchParams.set("exploration", "1"); else url.searchParams.delete("exploration");
+    if (showConcessions) url.searchParams.set("concessions", "1"); else url.searchParams.delete("concessions");
     if (selectedScope) url.searchParams.set("region", selectedScope); else url.searchParams.delete("region");
     window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
-  }, [heatMetric, selectedScope, showCases, showHeat, showReinfo, status]);
+  }, [heatMetric, selectedScope, showCases, showConcessions, showExploration, showFormalMining, showHeat, showIllegalMining, showInformalMining, showReinfo, status]);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -462,6 +467,22 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
           </label>
         </fieldset>
 
+        <details className="map-layer-details">
+          <summary><span>Minería ilegal e informal</span><small>{Number(showIllegalMining) + Number(showInformalMining)} activas</small></summary>
+          <fieldset className="map-layers map-layer-group">
+            <legend className="sr-only">Capas de minería ilegal e informal</legend>
+            <label className="map-layer-toggle" data-layer-toggle="illegal-mining">
+              <input type="checkbox" checked={showIllegalMining} onChange={(event) => setShowIllegalMining(event.target.checked)} />
+              <span><strong>Minería ilegal</strong><small>Menciones explícitas en conflictos sociales mineros; no equivalen a una calificación individual</small></span>
+            </label>
+            <label className="map-layer-toggle" data-layer-toggle="informal-mining">
+              <input type="checkbox" checked={showInformalMining} onChange={(event) => setShowInformalMining(event.target.checked)} />
+              <span><strong>Minería informal</strong><small>Menciones explícitas separadas de minería ilegal</small></span>
+            </label>
+            <Link className="map-jump-link" href="/oro-ilegal">Abrir cadena y trazabilidad del oro</Link>
+          </fieldset>
+        </details>
+
         <fieldset className="map-layers map-layer-group">
           <legend>Registro administrativo separado</legend>
           <label className="map-layer-toggle" data-layer-toggle="reinfo">
@@ -470,6 +491,25 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
           </label>
           <Link className="map-jump-link" href="/reinfo">Abrir página REINFO / MAPE</Link>
         </fieldset>
+
+        <details className="map-layer-details">
+          <summary><span>Minería formal, exploración y concesiones</span><small>{Number(showFormalMining) + Number(showExploration) + Number(showConcessions)} activas</small></summary>
+          <fieldset className="map-layers map-layer-group">
+            <legend className="sr-only">Capas de plantas de beneficio vigentes, exploración y concesiones</legend>
+            <label className="map-layer-toggle" data-layer-toggle="formal-mining">
+              <input type="checkbox" checked={showFormalMining} onChange={(event) => setShowFormalMining(event.target.checked)} />
+              <span><strong>Plantas de beneficio vigentes</strong><small>Indicador parcial de infraestructura formal registrada por MINEM</small></span>
+            </label>
+            <label className="map-layer-toggle" data-layer-toggle="exploration">
+              <input type="checkbox" checked={showExploration} onChange={(event) => setShowExploration(event.target.checked)} />
+              <span><strong>Exploración minera</strong><small>Expedientes activos; explorar no equivale a explotar</small></span>
+            </label>
+            <label className="map-layer-toggle" data-layer-toggle="concessions">
+              <input type="checkbox" checked={showConcessions} onChange={(event) => setShowConcessions(event.target.checked)} />
+              <span><strong>Concesiones mineras</strong><small>Derechos titulados; no acreditan actividad ni permisos operativos</small></span>
+            </label>
+          </fieldset>
+        </details>
 
         {showHeat && <>
           <label className="map-select-label">Intensidad
