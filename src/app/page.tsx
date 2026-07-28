@@ -5,6 +5,7 @@ import {
   BookOpenText,
   ClockCounterClockwise,
   CirclesThreePlus,
+  Coins,
   Database,
   FileText,
   Gavel,
@@ -41,6 +42,7 @@ export default function HomePage() {
   const data = loadObservatoryData();
   const { snapshot: latestMiningSnapshot, selection: latestMiningSelection } = getLatestPublicMiningCut(data);
   if (!latestMiningSnapshot || !latestMiningSelection) throw new Error("No existe un corte público de conflictos sociales mineros");
+  const latestReinfo = [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
   const sourceTypeCounts = countSourcesByType(data.sources);
   const publicCases = data.cases.filter(isPublishedSocialMiningCase);
   const timelineCount = publicCases.reduce((sum, item) => sum + item.timeline.length, 0);
@@ -84,9 +86,9 @@ export default function HomePage() {
           <Database size={26} />
           <div>
             <p className="eyebrow">Cortes incorporados</p>
-            <h2>{latestMiningSelection.totalRegistered} conflictos sociales mineros</h2>
+            <h2>{latestMiningSelection.totalRegistered} conflictos sociales mineros · {latestReinfo.totalRegistered.toLocaleString("es-PE")} REINFO</h2>
             <p>
-              Corte minero del Reporte {latestMiningSnapshot.reportNumber}, {formatDate(latestMiningSnapshot.cutoffDate)}.
+              Corte minero del Reporte {latestMiningSnapshot.reportNumber}, {formatDate(latestMiningSnapshot.cutoffDate)}; REINFO vigente al {formatDate(latestReinfo.cutoffDate)}.
               Los puntos del mapa son referencias agregadas, no áreas de influencia ni prueba de causalidad.
             </p>
           </div>
@@ -141,13 +143,13 @@ export default function HomePage() {
       <section className="section-shell">
         <div className="section-heading">
           <p className="eyebrow">Problemas principales</p>
-          <h2>Agua, territorio, acuerdos, normas y evidencia</h2>
+          <h2>Conflictos, formalización, minería ilegal, territorio y evidencia</h2>
         </div>
         <div className="entry-grid">
           <Link href="/explorar">
             <CirclesThreePlus size={29} />
             <h3>Sistema de relaciones</h3>
-            <p>Conflictos sociales mineros conectados con casos, actores, acuerdos, evidencia ambiental y fuentes documentales.</p>
+            <p>Tres ejes separados —conflictos sociales mineros, minería ilegal e informal y REINFO— conectan casos, actores, controles y fuentes.</p>
           </Link>
           <Link href="/conflictos">
             <BookOpenText size={29} />
@@ -162,7 +164,7 @@ export default function HomePage() {
           <Link href="/mapa">
             <MapTrifold size={29} />
             <h3>Territorio</h3>
-            <p>Mapa de conflictos sociales mineros y casos documentados, con distribución regional al corte.</p>
+            <p>Mapa con conflictos sociales mineros, minería ilegal e informal, REINFO, plantas de beneficio, exploración y concesiones como capas separadas.</p>
           </Link>
         </div>
       </section>
@@ -202,6 +204,9 @@ export default function HomePage() {
             <Link href="/compromisos">Compromisos <ArrowRight /></Link>
             <Link href="/metodologia">Metodología <ArrowRight /></Link>
             <Link href="/normativa">Normativa <Gavel size={15} /></Link>
+            <Link href="/oro-ilegal">Oro sin trazabilidad <Coins size={15} /></Link>
+            <Link href="/madre-de-dios">Madre de Dios <ArrowRight /></Link>
+            <Link href="/reinfo">REINFO / MAPE <ArrowRight /></Link>
           </div>
         </div>
       </section>

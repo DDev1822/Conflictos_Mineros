@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const caseSlugs = ["tambogrande", "conga", "tia-maria", "las-bambas", "espinar", "la-oroya", "cerro-quilish", "yanacocha-maxima-acuna", "toromocho-morococha", "choropampa", "fondo-social-michiquillay", "rio-blanco-majaz"];
-const editorialPaths = ["/", "/conflictos", "/conflictos/rio-blanco-majaz", "/metodologia", "/normativa", "/reinfo"];
+const editorialPaths = ["/", "/conflictos", "/conflictos/rio-blanco-majaz", "/metodologia", "/normativa", "/reinfo", "/oro-ilegal", "/madre-de-dios"];
 
 test.describe("publicación V2 en escritorio", () => {
   test.use({ viewport: { width: 1280, height: 720 } });
@@ -9,8 +9,9 @@ test.describe("publicación V2 en escritorio", () => {
   test("mantiene la navegación académica enfocada sin overflow horizontal", async ({ page }) => {
     await page.goto("/");
     const nav = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(nav.getByRole("link")).toHaveCount(7);
-    await expect(nav).not.toContainText(/Oro ilegal|Madre de Dios/);
+    await expect(nav.getByRole("link")).toHaveCount(9);
+    await expect(nav.getByRole("link", { name: "Minería ilegal y trazabilidad del oro" })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "Minería aurífera en Madre de Dios" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "REINFO y formalización MAPE" })).toBeVisible();
     for (const link of await nav.getByRole("link").all()) await expect(link).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -28,31 +29,35 @@ test.describe("publicación V2 en escritorio", () => {
   test("el sistema de relaciones revela conexiones por capas progresivas", async ({ page }) => {
     await page.goto("/explorar");
     const graph = page.getByLabel("Relaciones de conocimiento");
-    const graphNode = (label: string) => graph.locator(".knowledge-node").filter({ hasText: label });
+    const graphNode = (id: string) => graph.locator(`.knowledge-node[data-id="${id}"]`);
 
     await expect(page.getByRole("combobox", { name: "Tema" })).toContainText("Formalización de la MAPE y REINFO");
     await expect(page.locator("main")).not.toContainText(/Expediente territorial|Locadores|Fuente canónica|Objetivo de búsqueda|Nivel probatorio/);
 
-    await expect(graph.locator(".knowledge-node")).toHaveCount(2);
-    await expect(graphNode("Conflicto social minero")).toBeVisible();
-    await expect(graphNode("REINFO")).toBeVisible();
-    await expect(graphNode("Minería ilegal e informal")).toHaveCount(0);
-    await expect(graphNode("Casos hito")).toHaveCount(0);
-    await expect(page.getByText("Conflictos sociales mineros y REINFO son ejes distintos.")).toBeVisible();
+    await expect(graph.locator(".knowledge-node")).toHaveCount(3);
+    await expect(graphNode("conflicto-social-minero")).toBeVisible();
+    await expect(graphNode("reinfo")).toBeVisible();
+    await expect(graphNode("mineria-ilegal-informal")).toBeVisible();
+    await expect(graphNode("casos-hito")).toHaveCount(0);
+    await expect(page.getByText("Conflictos sociales mineros, minería ilegal e informal y REINFO son ejes distintos.")).toBeVisible();
 
-    await graphNode("REINFO").click();
-    await expect(graph.locator(".knowledge-node")).toHaveCount(5);
+    await graphNode("mineria-ilegal-informal").click();
+    expect(await graph.locator(".knowledge-node").count()).toBeGreaterThan(3);
+    await expect(graphNode("fiscalizacion")).toBeVisible();
+    await expect(graphNode("trazabilidad-oro")).toBeVisible();
+    await expect(page.locator(".focus-card").getByRole("heading", { name: "Minería ilegal e informal" })).toBeVisible();
+
+    await graphNode("reinfo").click();
     await expect(page.locator(".focus-card").getByRole("heading", { name: "REINFO" })).toBeVisible();
-    await expect(graphNode("Conflicto social minero")).toBeVisible();
-    await expect(graphNode("Casos hito")).toHaveCount(0);
+    await expect(graphNode("conflicto-social-minero")).toBeVisible();
+    await expect(graphNode("casos-hito")).toHaveCount(0);
 
-    await graphNode("Conflicto social minero").click();
-    await expect(graph.locator(".knowledge-node")).toHaveCount(9);
-    await expect(graphNode("Casos hito")).toBeVisible();
-    await expect(graphNode("Sustento documental")).toBeVisible();
-    await expect(graphNode("Conflictos en Cajamarca")).toBeVisible();
-    await expect(graphNode("REINFO")).toBeVisible();
-    await expect(graphNode("Trazabilidad del oro")).toHaveCount(0);
+    await graphNode("conflicto-social-minero").click();
+    await expect(graphNode("casos-hito")).toBeVisible();
+    await expect(graphNode("matriz-documental")).toBeVisible();
+    await expect(graphNode("cajamarca-system")).toBeVisible();
+    await expect(graphNode("reinfo")).toBeVisible();
+    await expect(graphNode("trazabilidad-oro")).toBeVisible();
   });
 
   test("la cronología permite saltar por año desde el índice lateral", async ({ page }) => {
@@ -81,7 +86,7 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(status).toContainText("Alcance académico");
     await expect(status).toContainText("límites documentales declarados");
     await expect(status).not.toContainText("V1");
-    await expect(status).not.toContainText(/P0|P1|matriz|locador/i);
+    await expect(status).not.toContainText(/\bP[01]\b|matriz|locador/i);
     await expect(status).not.toContainText("Vacío");
   });
 
@@ -92,14 +97,27 @@ test.describe("publicación V2 en escritorio", () => {
 
       const main = page.locator("main");
       await expect(main).toBeVisible();
-      await expect(main).not.toContainText(/locador|matriz|expediente canónico|repositorio|P0|P1/i);
+      await expect(main).not.toContainText(/locador|matriz|expediente canónico|repositorio|\bP[01]\b/i);
     });
   }
 
-  test("el mapa separa REINFO del corte de conflictos sociales mineros", async ({ page }) => {
+  test("el mapa conserva todas las capas mineras y excluye solo el registro social no minero", async ({ page }) => {
     await page.goto("/mapa");
-    await expect(page.getByRole("checkbox", { name: /Minería ilegal|Minería informal|Plantas de beneficio|Exploración minera|Concesiones mineras/ })).toHaveCount(0);
+    await expect(page.getByText("Todos sociales", { exact: true })).toHaveCount(0);
     await expect(page.getByText("Distribución regional de conflictos sociales vinculados con minería, con estado al corte y casos documentados para consulta.")).toBeVisible();
+
+    const illegalGroup = page.locator("details.map-layer-details").filter({ hasText: "Minería ilegal e informal" });
+    await illegalGroup.locator("summary").click();
+    const illegal = page.getByRole("checkbox", { name: /Minería ilegal Menciones explícitas/ });
+    const informal = page.getByRole("checkbox", { name: /Minería informal Menciones explícitas/ });
+    await expect(illegal).not.toBeChecked();
+    await expect(informal).not.toBeChecked();
+    await illegal.check();
+    await informal.check();
+    await expect(page).toHaveURL(/illegal=1/);
+    await expect(page).toHaveURL(/informal=1/);
+    await expect(page.locator('[data-layer="illegal-mining"]')).toContainText("casos con mención explícita");
+    await expect(page.locator('[data-layer="informal-mining"]')).toContainText("casos con mención explícita");
 
     const reinfo = page.getByRole("checkbox", { name: /Inscripciones REINFO/ });
     await expect(reinfo).not.toBeChecked();
@@ -108,6 +126,21 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(page.locator('[data-layer="reinfo"]')).toContainText("REINFO vigente");
     await expect(page.locator(".map-marker-reinfo").first()).toBeVisible();
     await expect(page.getByText("REINFO se muestra como registro administrativo agregado y no se suma al conteo de conflictos.")).toBeVisible();
+
+    const territorialGroup = page.locator("details.map-layer-details").filter({ hasText: "Minería formal, exploración y concesiones" });
+    await territorialGroup.locator("summary").click();
+    const formal = page.getByRole("checkbox", { name: /Plantas de beneficio vigentes/ });
+    const exploration = page.getByRole("checkbox", { name: /Exploración minera/ });
+    const concessions = page.getByRole("checkbox", { name: /Concesiones mineras/ });
+    await formal.check();
+    await exploration.check();
+    await concessions.check();
+    await expect(page).toHaveURL(/formal=1/);
+    await expect(page).toHaveURL(/exploration=1/);
+    await expect(page).toHaveURL(/concessions=1/);
+    await expect(page.locator('[data-layer="formal-mining"]')).toBeVisible();
+    await expect(page.locator('[data-layer="exploration"]')).toBeVisible();
+    await expect(page.locator('[data-layer="concessions"]')).toBeVisible();
   });
 
   test("Puno abre como diálogo, recibe foco, cierra con Escape y devuelve el foco", async ({ page }) => {
@@ -217,12 +250,16 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(page.locator('meta[name="robots"][content="noindex"]')).toHaveCount(0);
   });
 
-  test("las rutas fuera del alcance público responden 404", async ({ page }) => {
-    for (const path of ["/madre-de-dios", "/oro-ilegal"]) {
-      const response = await page.goto(path);
-      expect(response?.status()).toBe(404);
-      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
-    }
+  test("las páginas de minería ilegal y Madre de Dios son públicas e indexables", async ({ page }) => {
+    const goldResponse = await page.goto("/oro-ilegal");
+    expect(goldResponse?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "Oro sin trazabilidad", exact: true })).toBeVisible();
+    await expect(page.locator('meta[name="robots"][content="noindex"]')).toHaveCount(0);
+
+    const madreResponse = await page.goto("/madre-de-dios");
+    expect(madreResponse?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: /La devastación no es una metáfora/ })).toBeVisible();
+    await expect(page.locator('meta[name="robots"][content="noindex"]')).toHaveCount(0);
   });
 });
 
@@ -235,7 +272,7 @@ test.describe("publicación V2 móvil", () => {
     await menuButton.click();
     await expect(page.getByRole("button", { name: "Cerrar navegación" })).toBeVisible();
     const nav = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(nav.getByRole("link")).toHaveCount(7);
+    await expect(nav.getByRole("link")).toHaveCount(9);
     for (const link of await nav.getByRole("link").all()) await expect(link).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     expect(await page.locator(".map-layout > aside").evaluate((element) => getComputedStyle(element).overflowY)).not.toBe("auto");

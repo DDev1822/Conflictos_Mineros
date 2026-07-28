@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpenText, ClockCounterClockwise, Info, List, MapTrifold, Mountains, Scales, X } from "@phosphor-icons/react";
+import { BookOpenText, ClockCounterClockwise, Coins, Info, List, MapTrifold, Mountains, Scales, X } from "@phosphor-icons/react";
 import { useState } from "react";
 
 const navigation = [
@@ -10,6 +10,8 @@ const navigation = [
   { href: "/explorar", label: "Relaciones", accessibleLabel: "Sistema de relaciones", icon: Scales },
   { href: "/cronologia", label: "Cronología", icon: ClockCounterClockwise },
   { href: "/conflictos", label: "Casos", icon: List },
+  { href: "/oro-ilegal", label: "Oro ilegal", accessibleLabel: "Minería ilegal y trazabilidad del oro", icon: Coins },
+  { href: "/madre-de-dios", label: "Madre de Dios", accessibleLabel: "Minería aurífera en Madre de Dios", icon: MapTrifold },
   { href: "/reinfo", label: "REINFO", accessibleLabel: "REINFO y formalización MAPE", icon: Info },
   { href: "/normativa", label: "Normas", icon: BookOpenText },
   { href: "/metodologia", label: "Metodología", icon: BookOpenText },

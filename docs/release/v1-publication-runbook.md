@@ -30,8 +30,8 @@ No se despliega si:
 - Existe un riesgo P0/P1 abierto en `docs/release/v1-risks.yaml`.
 - El disclaimer académico no aparece en la interfaz.
 - La página `/metodologia` no expone el alcance `public-academic`.
-- El Sistema de Relaciones incorpora conflictos sociales no mineros o presenta REINFO como si fuera un conflicto social.
-- Las rutas `/madre-de-dios` u `/oro-ilegal` dejan de responder 404.
+- El Sistema de Relaciones incorpora conflictos sociales no mineros, oculta el eje de minería ilegal e informal o presenta REINFO como si fuera un conflicto social.
+- Las rutas `/madre-de-dios` u `/oro-ilegal` no responden 200 o pierden sus fuentes y límites de interpretación.
 - La ruta `/reinfo` no responde 200, pierde su corte o deja de diferenciar inscripción vigente de formalización concluida.
 - Aparecen dependencias nuevas no aprobadas.
 - Existen datos o afirmaciones publicadas sin trazabilidad mínima.
@@ -43,13 +43,14 @@ Después de desplegar, revisar manualmente:
 - Home: presenta el observatorio como académico e informativo y enfocado en conflictos sociales mineros.
 - Pie global: declara que el contenido no sustituye asesoría profesional ni decisiones de autoridad.
 - `/metodologia`: muestra alcance académico, evidencia apta para contraste y límites documentales declarados.
-- `/explorar`: presenta `Conflicto social minero` y `REINFO` como raíces distintas; no suma el registro administrativo al conteo de conflictos.
-- `/mapa`: abre en los 61 conflictos sociales mineros del Reporte 268, no ofrece el registro social general y permite activar REINFO como capa administrativa separada.
+- `/explorar`: presenta `Conflicto social minero`, `Minería ilegal e informal` y `REINFO` como raíces distintas; no suma el registro administrativo al conteo de conflictos.
+- `/mapa`: abre en los 61 conflictos sociales mineros del Reporte 268, no ofrece el registro social general y permite activar por separado minería ilegal, minería informal, REINFO, plantas de beneficio, exploración y concesiones.
 - `/conflictos`: muestra los 12 casos publicados, sus fuentes y límites de interpretación sin atribuir responsabilidades.
 - `/compromisos`: compara documentos, seguimiento y resultados sin presentar acuerdos como cumplimiento integral.
 - `/normativa`: presenta fuentes oficiales y preguntas de aplicación sin afirmar vigencia consolidada.
 - `/reinfo`: responde 200, es indexable y muestra corte, fuente oficial, distribución regional agregada y límites de interpretación.
-- `/madre-de-dios` y `/oro-ilegal`: responden 404 y emiten `noindex`.
+- `/madre-de-dios`: responde 200, es indexable y diferencia medición documentada, ritmo observado, proyección y límites territoriales.
+- `/oro-ilegal`: responde 200, es indexable y explica la cadena de trazabilidad sin convertir estimaciones o brechas en imputaciones.
 
 Registrar en el PR o en una nota de release:
 

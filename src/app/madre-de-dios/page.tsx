@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import { ArrowRight, BookOpenText, Database, FileText, MapTrifold, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import { DeforestationCounter } from "@/components/deforestation-counter";
 import { loadObservatoryData } from "@/lib/content";
@@ -19,7 +17,6 @@ function sourceLabel(sourceId: string) {
 }
 
 export default function MadreDeDiosPage() {
-  if (!isPublishedSocialMiningCase({ id: "madre-de-dios" })) notFound();
   const data = loadObservatoryData();
   const devastation = data.madreDiosDevastation;
   const sourceById = new Map(data.sources.map((source) => [source.id, source]));
@@ -54,7 +51,7 @@ export default function MadreDeDiosPage() {
       <section className="madre-disclaimer">
         <WarningCircle size={24} />
         <p>
-          El análisis civil y académico no sentencia ni acusa. Las fuentes y locadores permiten distinguir hectáreas medidas,
+          El análisis civil y académico no sentencia ni acusa. Las fuentes y referencias precisas permiten distinguir hectáreas medidas,
           ritmo observado, proyección lineal, impacto territorial y responsabilidades que aún requieren expediente específico.
         </p>
       </section>
@@ -132,7 +129,7 @@ export default function MadreDeDiosPage() {
 
       <section className="madre-sources">
         <div>
-          <p className="eyebrow">Fuentes y locadores</p>
+          <p className="eyebrow">Fuentes y referencias precisas</p>
           <h2>La indignación tiene que estar amarrada a evidencia.</h2>
         </div>
         <div>
@@ -157,7 +154,7 @@ export default function MadreDeDiosPage() {
       <section className="madre-next">
         <Link href="/reinfo">Leer REINFO / MAPE <ArrowRight size={16} /></Link>
         <Link href="/mapa">Abrir mapa territorial <ArrowRight size={16} /></Link>
-        <Link href="/conflictos/madre-de-dios">Ver expediente Madre de Dios <ArrowRight size={16} /></Link>
+        <Link href="/oro-ilegal">Ver cadena y trazabilidad del oro <ArrowRight size={16} /></Link>
       </section>
     </div>
   );
