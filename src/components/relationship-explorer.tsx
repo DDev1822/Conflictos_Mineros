@@ -125,6 +125,14 @@ const allCaseIds = [
   "choropampa",
 ];
 
+const graphRowY = {
+  roots: 124,
+  bridge: 318,
+  relations: 478,
+  evidence: 642,
+  comparisons: 802,
+} as const;
+
 const graphNodes: GraphNodeDefinition[] = [
   {
     id: "conflicto-social-minero",
@@ -134,7 +142,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "social",
     role: "root",
     icon: MapPin,
-    position: { x: 42, y: 124 },
+    position: { x: 42, y: graphRowY.roots },
     width: 280,
     height: 142,
   },
@@ -146,7 +154,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "illegal",
     role: "root",
     icon: WarningCircle,
-    position: { x: 362, y: 124 },
+    position: { x: 362, y: graphRowY.roots },
     width: 280,
     height: 142,
   },
@@ -158,7 +166,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "bridge",
     role: "bridge",
     icon: Network,
-    position: { x: 382, y: 292 },
+    position: { x: 382, y: graphRowY.bridge },
     width: 250,
     height: 92,
   },
@@ -170,7 +178,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "social",
     role: "node",
     icon: Article,
-    position: { x: 78, y: 414 },
+    position: { x: 78, y: graphRowY.relations },
     width: 190,
     height: 98,
   },
@@ -182,7 +190,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "social",
     role: "node",
     icon: UsersThree,
-    position: { x: 300, y: 414 },
+    position: { x: 300, y: graphRowY.relations },
     width: 200,
     height: 98,
   },
@@ -194,7 +202,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "instrument",
     role: "root",
     icon: ShieldCheck,
-    position: { x: 682, y: 124 },
+    position: { x: 682, y: graphRowY.roots },
     width: 280,
     height: 142,
   },
@@ -206,7 +214,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "control",
     role: "node",
     icon: Gavel,
-    position: { x: 744, y: 414 },
+    position: { x: 744, y: graphRowY.relations },
     width: 188,
     height: 98,
   },
@@ -218,7 +226,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "evidence",
     role: "node",
     icon: BookOpenText,
-    position: { x: 84, y: 532 },
+    position: { x: 84, y: graphRowY.evidence },
     width: 220,
     height: 100,
   },
@@ -230,7 +238,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "bridge",
     role: "node",
     icon: TreeStructure,
-    position: { x: 340, y: 532 },
+    position: { x: 340, y: graphRowY.evidence },
     width: 240,
     height: 100,
   },
@@ -242,7 +250,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "bridge",
     role: "node",
     icon: TreeStructure,
-    position: { x: 182, y: 650 },
+    position: { x: 400, y: graphRowY.comparisons },
     width: 320,
     height: 104,
   },
@@ -254,7 +262,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "control",
     role: "node",
     icon: Gavel,
-    position: { x: 536, y: 650 },
+    position: { x: 754, y: graphRowY.comparisons },
     width: 340,
     height: 104,
   },
@@ -266,7 +274,7 @@ const graphNodes: GraphNodeDefinition[] = [
     tone: "illegal",
     role: "node",
     icon: Briefcase,
-    position: { x: 616, y: 532 },
+    position: { x: 616, y: graphRowY.evidence },
     width: 230,
     height: 100,
   },
@@ -1213,7 +1221,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
             <TreeStructure size={16} aria-hidden />
             <span>Conflictos sociales mineros, minería ilegal e informal y REINFO son ejes distintos. Las líneas indican relación documental; no prueban causalidad ni equivalencia administrativa.</span>
           </div>
-          <ReactFlow key={`${visibleGraphNodes.length}-${visibleGraphEdges.length}`} nodes={visibleGraphNodes} edges={visibleGraphEdges} fitView fitViewOptions={{ padding: 0.05, maxZoom: isRootOnlyGraph ? 1 : 0.8 }} minZoom={0.45} maxZoom={1.2} nodesDraggable={false} onNodeClick={(_, node) => revealFocus(node.id as GraphFocus)} proOptions={{ hideAttribution: true }}>
+          <ReactFlow key={`${visibleGraphNodes.length}-${visibleGraphEdges.length}`} nodes={visibleGraphNodes} edges={visibleGraphEdges} fitView fitViewOptions={{ padding: 0.05, maxZoom: isRootOnlyGraph ? 1 : 0.7 }} minZoom={0.45} maxZoom={1.2} nodesDraggable={false} onNodeClick={(_, node) => revealFocus(node.id as GraphFocus)} proOptions={{ hideAttribution: true }}>
             <Background color="#1b536b" gap={30} size={1} />
             <Controls showInteractive={false} />
           </ReactFlow>

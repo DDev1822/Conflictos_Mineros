@@ -1224,6 +1224,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
   .site-nav { flex: 1 1 auto; min-width: 0; margin-left: 4px; overflow: visible; }
   .site-nav a { gap: 4px; padding: 0 6px; font-size: .74rem; }
   .site-nav a svg { width: 14px; height: 14px; }
+  .graph-principle { max-width: 200px; font-size: .64rem; }
 }
 
 @media (max-width: 800px) {
