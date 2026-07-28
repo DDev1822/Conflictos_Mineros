@@ -26,6 +26,22 @@ test.describe("publicación V2 en escritorio", () => {
     expect(await page.locator(".map-layout > aside").evaluate((element) => getComputedStyle(element).overflowY)).not.toBe("auto");
   });
 
+  test("el zoom manual permanece activo y ofrece controles visibles", async ({ page }) => {
+    await page.goto("/mapa");
+    const map = page.getByRole("region", { name: "Mapa interactivo de conflictos sociales mineros y casos documentados" });
+    const zoomStatus = map.getByRole("status");
+    const zoomIn = map.getByRole("button", { name: "Acercar" });
+
+    await expect(zoomIn).toBeVisible();
+    await expect(map.getByRole("button", { name: "Alejar" })).toBeVisible();
+    const initialZoom = Number((await zoomStatus.textContent())?.match(/\d+/)?.[0]);
+
+    await zoomIn.click();
+    await expect(zoomStatus).toHaveText(`Nivel de zoom: ${initialZoom + 1}`);
+    await page.waitForTimeout(400);
+    await expect(zoomStatus).toHaveText(`Nivel de zoom: ${initialZoom + 1}`);
+  });
+
   test("el sistema de relaciones revela conexiones por capas progresivas", async ({ page }) => {
     await page.goto("/explorar");
     const graph = page.getByLabel("Relaciones de conocimiento");
