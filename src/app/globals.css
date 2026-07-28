@@ -273,7 +273,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
 .graph-pane .react-flow { position: absolute; z-index: 3 !important; inset: 76px 0 0; width: 100%; height: auto; }
 .graph-pane.is-root-only .react-flow { inset: 82px 0 158px; }
 .graph-pane .react-flow__background { opacity: .42; }
-.graph-pane .react-flow__edge-path { stroke-linecap: round; }
+.graph-pane .react-flow__edge-path { stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .graph-pane .react-flow__edge.animated .react-flow__edge-path { stroke-dasharray: 6 7; }
 .graph-pane .react-flow__edge-text { font: 11px var(--serif); fill: #dce8ea; }
 .graph-pane .react-flow__edge-textbg { fill: var(--ink); }
@@ -299,6 +299,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
 .node-tone-evidence { background: #233a48 !important; }
 .node-tone-proposal { background: #2a3d49 !important; }
 .graph-label { width: 100%; min-height: inherit; position: relative; display: grid; grid-template-columns: 24px minmax(0, 1fr) 10px; gap: 8px; align-items: center; padding: 12px 12px 12px 14px; font-family: var(--serif); }
+.root-node .graph-label { grid-template-columns: 24px minmax(0, 1fr); padding-right: 54px; }
 .graph-label svg { color: #e2c590; }
 .graph-label span, .graph-label small, .graph-label em { display: block; min-width: 0; }
 .graph-label em { margin-bottom: 3px; color: #d99a5a; font: 800 .56rem var(--sans); letter-spacing: .1em; text-transform: uppercase; }
@@ -306,7 +307,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
 .root-node .graph-label strong, .central-node .graph-label strong { font-size: 1.32rem; }
 .actor-node .graph-label strong { font-size: 1rem; }
 .graph-label small { color: #bfcdd0; font-size: .64rem; line-height: 1.22; margin-top: 4px; }
-.graph-label b { align-self: start; padding: 4px 8px; border: 1px solid currentColor; border-radius: 999px; color: #d6a45f; font: 800 .56rem var(--sans); letter-spacing: .08em; text-transform: uppercase; }
+.graph-label b { position: absolute; top: 10px; right: 10px; padding: 4px 8px; border: 1px solid currentColor; border-radius: 999px; color: #e2b66f; background: rgba(6,29,43,.86); font: 800 .56rem var(--sans); letter-spacing: .08em; text-transform: uppercase; }
 .focus-card { margin: 16px 18px 2px; padding: 16px; border: 1px solid #d8d0c4; background: #fffaf1; }
 .focus-card p { margin: 0 0 7px; color: var(--copper-dark); font-size: .66rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .focus-card h2 { margin: 0 0 8px; font-size: 1.85rem; }
