@@ -61,3 +61,29 @@ Las capturas fueron regeneradas después de incorporar 69 fuentes, seis paquetes
 ## Actualización de publicación del 27 de julio de 2026
 
 El observatorio adopta el alcance `public-academic`: los bloqueos P0/P1 operativos permanecen resueltos y el gate académico pasa sin avisos de publicación. El disclaimer explicita el propósito informativo y excluye asesoría jurídica, médica, ambiental o técnica; los límites probatorios permanecen como información académica, no como requisitos de aprobación.
+
+## Actualización de espaciado del 27 de julio de 2026
+
+- Verdad visual recibida: `%TEMP%\codex-clipboard-03b36d5e-daea-4d66-88ed-7168408b09ad.png`.
+- Implementación capturada: `%TEMP%\confmin-relationship-spacing-implementation.png`.
+- Comparación conjunta: `%TEMP%\confmin-relationship-spacing-comparison.png`.
+- Viewport: 1900 × 913 CSS px, densidad 1; lienzo comparado de 1175 × 725 px.
+- Estado: 12 tarjetas visibles y foco en “Actores y actas”.
+- Normalización: se retiraron 20 px de la captura de origen correspondientes a la barra de tareas del sistema operativo.
+
+### Findings
+
+- No quedan hallazgos P0, P1 o P2 en este ajuste.
+- Separación mínima renderizada: 15,78 px.
+- Cero tarjetas solapadas, fuera del lienzo o cubiertas por la nota metodológica.
+- A 1280 px, la nota metodológica conserva 10,22 px de separación horizontal respecto de la fila comparativa.
+- Colores, tipografía, contenido, jerarquía y relaciones conservados.
+- No hay activos de imagen en el lienzo y no se detectaron errores de consola.
+
+### Comparison history
+
+1. El origen presentaba cruces visuales entre las filas centrales e inferiores.
+2. La primera iteración introdujo una retícula vertical explícita, pero la nota metodológica rozaba la fila comparativa.
+3. La iteración final desplazó la fila comparativa, limitó el zoom inicial expandido a 0,7 y redujo el ancho de la nota en escritorios de hasta 1280 px. La comparación completa fue suficiente; no se requirió una ampliación adicional porque las 12 tarjetas y sus separaciones son legibles.
+
+final result: passed

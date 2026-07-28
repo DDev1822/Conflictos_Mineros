@@ -58,6 +58,50 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(graphNode("cajamarca-system")).toBeVisible();
     await expect(graphNode("reinfo")).toBeVisible();
     await expect(graphNode("trazabilidad-oro")).toBeVisible();
+    await expect(graph.locator(".knowledge-node")).toHaveCount(12);
+
+    await expect.poll(async () => graph.locator(".knowledge-node").evaluateAll((nodes) => {
+      const paneRect = nodes[0]?.closest(".graph-pane")?.getBoundingClientRect();
+      const principleRect = nodes[0]?.closest(".graph-pane")?.querySelector(".graph-principle")?.getBoundingClientRect();
+      const rectangles = nodes.map((node) => {
+        const rect = node.getBoundingClientRect();
+        return {
+          id: node.getAttribute("data-id") ?? "sin-id",
+          left: rect.left,
+          right: rect.right,
+          top: rect.top,
+          bottom: rect.bottom,
+        };
+      });
+      const crowdedPairs: string[] = [];
+
+      for (let index = 0; index < rectangles.length; index += 1) {
+        for (let comparison = index + 1; comparison < rectangles.length; comparison += 1) {
+          const current = rectangles[index];
+          const next = rectangles[comparison];
+          const horizontalGap = Math.max(current.left, next.left) - Math.min(current.right, next.right);
+          const verticalGap = Math.max(current.top, next.top) - Math.min(current.bottom, next.bottom);
+
+          if (horizontalGap < 8 && verticalGap < 8) crowdedPairs.push(`${current.id} / ${next.id}`);
+        }
+      }
+
+      if (paneRect) {
+        rectangles.forEach((rect) => {
+          if (rect.bottom > paneRect.bottom || rect.top < paneRect.top) crowdedPairs.push(`${rect.id} / borde del lienzo`);
+        });
+      }
+
+      if (principleRect) {
+        rectangles.forEach((rect) => {
+          const horizontalOverlap = Math.min(rect.right, principleRect.right) - Math.max(rect.left, principleRect.left);
+          const verticalOverlap = Math.min(rect.bottom, principleRect.bottom) - Math.max(rect.top, principleRect.top);
+          if (horizontalOverlap > 0 && verticalOverlap > 0) crowdedPairs.push(`${rect.id} / nota metodológica`);
+        });
+      }
+
+      return crowdedPairs;
+    })).toEqual([]);
   });
 
   test("la cronología permite saltar por año desde el índice lateral", async ({ page }) => {
