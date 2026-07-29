@@ -521,6 +521,23 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
 .case-status-grid strong { color: var(--copper-dark); font: 540 2rem/.95 var(--serif); }
 .case-status-grid span { margin-top: 6px; color: var(--ink); font-size: .68rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
 .case-status-grid small { margin-top: 5px; color: var(--muted); line-height: 1.35; }
+.case-academic-readings { padding: 30px; border: 1px solid #bac9cc; background: #edf4f3; }
+.case-academic-readings > header { display: flex; justify-content: space-between; gap: 32px; align-items: flex-end; margin-bottom: 24px; }
+.case-academic-readings > header > div { max-width: 670px; }
+.case-academic-readings > header h2 { margin-bottom: 10px; }
+.case-academic-readings > header p:not(.eyebrow) { color: #4f6369; font: 1rem/1.55 var(--serif); }
+.case-academic-readings > header > a { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px; padding: 9px 0; border-bottom: 1px solid #256679; color: #256679; font-size: .76rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.case-academic-readings > header > a:hover, .case-academic-readings > header > a:focus-visible { color: var(--copper-dark); border-bottom-color: var(--copper-dark); }
+.case-academic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid #bac9cc; border-left: 1px solid #bac9cc; }
+.case-academic-card { min-width: 0; display: flex; flex-direction: column; padding: 22px; border-right: 1px solid #bac9cc; border-bottom: 1px solid #bac9cc; background: #fffdf8; }
+.case-academic-card > div { display: flex; flex-wrap: wrap; gap: 6px; }
+.case-academic-card > div span { padding: 4px 7px; border: 1px solid #c9d3d3; color: #49636a; background: #f3f7f5; font-size: .66rem; font-weight: 820; letter-spacing: .05em; text-transform: uppercase; }
+.case-academic-card h3 { margin: 16px 0 8px; font-size: 1.45rem; line-height: 1.12; overflow-wrap: anywhere; }
+.case-academic-card > p { color: #59696d; font: .9rem/1.5 var(--serif); }
+.case-academic-card .case-academic-byline { margin-top: 8px; color: var(--ink); font-weight: 700; }
+.case-academic-card .case-academic-institution { margin-top: 4px; color: #647579; font: .72rem/1.4 var(--sans); }
+.case-academic-card > a { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; margin-top: auto; padding-top: 22px; color: var(--copper-dark); font-size: .74rem; font-weight: 800; text-transform: uppercase; }
+.case-academic-card > a:hover { text-decoration: underline; }
 .prose { max-width: 760px; min-width: 0; font: 1.08rem/1.75 var(--serif); overflow-wrap: anywhere; }
 .prose h2 { margin-top: 0; font-size: 2.4rem; }
 .prose h3 { margin-top: 28px; }
@@ -1244,6 +1261,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
   .case-status-grid { grid-template-columns: repeat(2, 1fr); }
   .case-status-grid article:nth-child(2) { border-right: 0; }
   .case-status-grid article:nth-child(-n + 2) { border-bottom: 1px solid #d9d1c4; padding-bottom: 14px; }
+  .case-academic-readings > header { align-items: flex-start; flex-direction: column; gap: 10px; }
   .reinfo-stats { grid-template-columns: repeat(2, 1fr); }
   .reinfo-stats article:nth-child(2) { border-right: 0; }
   .reinfo-stats article:nth-child(-n + 2) { border-bottom: 1px solid var(--line); }
@@ -1444,6 +1462,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
   .case-status-grid { grid-template-columns: 1fr; }
   .case-status-grid article, .case-status-grid article + article { padding-left: 0; border-right: 0; border-bottom: 1px solid #d9d1c4; padding-bottom: 14px; }
   .case-status-grid article:last-child { border-bottom: 0; padding-bottom: 0; }
+  .case-academic-readings { padding: 22px; }
+  .case-academic-grid { grid-template-columns: 1fr; }
   .claim-list > div { grid-template-columns: 1fr; }
   .issue-index article, .instrument-table article { grid-template-columns: 1fr; }
   .map-layout { display: block; min-height: 0; }.map-layout > aside { padding: 30px 26px; }.map-layout > section { position: relative; top: auto; height: auto; }.map-layout > section, .leaflet-container { min-height: max(640px, calc(100svh - 72px)); }.leaflet-container { height: max(640px, calc(100svh - 72px)); }

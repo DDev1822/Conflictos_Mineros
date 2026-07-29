@@ -311,6 +311,16 @@ test.describe("publicación V2 en escritorio", () => {
       const milestoneCount = await milestones.count();
       expect(milestoneCount).toBeGreaterThanOrEqual(minimumMilestones[slug]);
 
+      const academicSection = page.locator(".case-academic-readings");
+      await expect(academicSection).toBeVisible();
+      const academicCards = academicSection.locator(".case-academic-card");
+      expect(await academicCards.count()).toBeGreaterThanOrEqual(2);
+      const invalidAcademicLinks = await academicCards.locator("a").evaluateAll((links) => links.filter((link) => {
+        const href = link.getAttribute("href");
+        return !href || link.getAttribute("target") !== "_blank" || link.getAttribute("rel") !== "noreferrer";
+      }).length);
+      expect(invalidAcademicLinks).toBe(0);
+
       for (let index = 0; index < milestoneCount; index += 1) {
         const milestone = milestones.nth(index);
         const documentLinks = milestone.locator(".timeline-card-sources a");
