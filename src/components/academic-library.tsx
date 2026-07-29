@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowSquareOut, Funnel, MagnifyingGlass } from "@phosphor-icons/react";
+import { ArrowCounterClockwise, ArrowSquareOut, Funnel, MagnifyingGlass } from "@phosphor-icons/react";
 import type { AcademicResearchItem } from "@/lib/schemas";
 
 type AcademicLibraryProps = {
@@ -33,12 +33,20 @@ export function AcademicLibrary({ items, cases }: AcademicLibraryProps) {
   const [degree, setDegree] = useState("all");
   const [axis, setAxis] = useState("all");
   const [university, setUniversity] = useState("all");
+  const [caseSlug, setCaseSlug] = useState("all");
+  const [access, setAccess] = useState("all");
 
   const universities = useMemo(
     () => Array.from(new Set(items.map((item) => item.university))).sort((a, b) => a.localeCompare(b, "es")),
     [items],
   );
   const caseNames = useMemo(() => new Map(cases.map((item) => [item.slug, item.name])), [cases]);
+  const availableCases = useMemo(() => {
+    const representedCases = new Set(items.flatMap((item) => item.caseSlugs));
+    return cases
+      .filter((item) => representedCases.has(item.slug))
+      .sort((a, b) => a.name.localeCompare(b.name, "es"));
+  }, [cases, items]);
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase("es");
     return items.filter((item) => {
@@ -54,9 +62,26 @@ export function AcademicLibrary({ items, cases }: AcademicLibraryProps) {
       return (degree === "all" || item.degreeLevel === degree)
         && (axis === "all" || item.axis === axis)
         && (university === "all" || item.university === university)
+        && (caseSlug === "all" || item.caseSlugs.includes(caseSlug))
+        && (access === "all" || item.accessStatus === access)
         && (!normalizedQuery || haystack.includes(normalizedQuery));
     });
-  }, [axis, caseNames, degree, items, query, university]);
+  }, [access, axis, caseNames, caseSlug, degree, items, query, university]);
+  const hasActiveFilters = Boolean(query.trim())
+    || degree !== "all"
+    || axis !== "all"
+    || university !== "all"
+    || caseSlug !== "all"
+    || access !== "all";
+
+  const resetFilters = () => {
+    setQuery("");
+    setDegree("all");
+    setAxis("all");
+    setUniversity("all");
+    setCaseSlug("all");
+    setAccess("all");
+  };
 
   return (
     <>
@@ -88,9 +113,28 @@ export function AcademicLibrary({ items, cases }: AcademicLibraryProps) {
             {universities.map((item) => <option value={item} key={item}>{item}</option>)}
           </select>
         </label>
+        <label>Caso
+          <select value={caseSlug} onChange={(event) => setCaseSlug(event.target.value)}>
+            <option value="all">Todos</option>
+            {availableCases.map((item) => <option value={item.slug} key={item.slug}>{item.name}</option>)}
+          </select>
+        </label>
+        <label>Disponibilidad
+          <select value={access} onChange={(event) => setAccess(event.target.value)}>
+            <option value="all">Todas</option>
+            {Object.entries(accessLabels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}
+          </select>
+        </label>
       </div>
 
-      <p className="library-result-count" role="status">{filtered.length} de {items.length} investigaciones</p>
+      <div className="library-results-bar">
+        <p className="library-result-count" role="status">{filtered.length} de {items.length} investigaciones</p>
+        {hasActiveFilters && (
+          <button type="button" onClick={resetFilters}>
+            <ArrowCounterClockwise aria-hidden /> Restablecer filtros
+          </button>
+        )}
+      </div>
 
       <div className="library-grid">
         {filtered.map((item) => (

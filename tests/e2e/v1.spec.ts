@@ -372,6 +372,16 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(page.getByRole("status")).toHaveText("3 de 33 investigaciones");
 
     await page.getByLabel("Grado").selectOption("all");
+    await page.getByLabel("Caso").selectOption("rio-blanco-majaz");
+    await expect(page.locator(".library-card")).toHaveCount(2);
+    await expect(page.getByRole("status")).toHaveText("2 de 33 investigaciones");
+    await page.getByLabel("Disponibilidad").selectOption("restricted");
+    await expect(page.locator(".library-card")).toHaveCount(1);
+    await expect(page.locator(".library-card")).toContainText("Gobierno corporativo y responsabilidad social");
+    await page.getByRole("button", { name: "Restablecer filtros" }).click();
+    await expect(page.locator(".library-card")).toHaveCount(33);
+    await expect(page.getByRole("button", { name: "Restablecer filtros" })).toHaveCount(0);
+
     await page.getByPlaceholder("Buscar por tema, caso, región, autor o universidad").fill("Morococha");
     const morocochaCards = page.locator(".library-card");
     await expect(morocochaCards).toHaveCount(3);
