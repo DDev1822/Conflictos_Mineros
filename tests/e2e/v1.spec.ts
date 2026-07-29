@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const caseSlugs = ["tambogrande", "conga", "tia-maria", "las-bambas", "espinar", "la-oroya", "cerro-quilish", "yanacocha-maxima-acuna", "toromocho-morococha", "choropampa", "fondo-social-michiquillay", "rio-blanco-majaz"];
-const editorialPaths = ["/", "/conflictos", "/conflictos/rio-blanco-majaz", "/metodologia", "/normativa", "/reinfo", "/oro-ilegal", "/madre-de-dios"];
+const editorialPaths = ["/", "/conflictos", "/conflictos/rio-blanco-majaz", "/metodologia", "/normativa", "/biblioteca", "/reinfo", "/oro-ilegal", "/madre-de-dios"];
 
 test.describe("publicación V2 en escritorio", () => {
   test.use({ viewport: { width: 1280, height: 720 } });
@@ -9,10 +9,11 @@ test.describe("publicación V2 en escritorio", () => {
   test("mantiene la navegación académica enfocada sin overflow horizontal", async ({ page }) => {
     await page.goto("/");
     const nav = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(nav.getByRole("link")).toHaveCount(9);
+    await expect(nav.getByRole("link")).toHaveCount(10);
     await expect(nav.getByRole("link", { name: "Minería ilegal y trazabilidad del oro" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "Minería aurífera en Madre de Dios" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "REINFO y formalización MAPE" })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "Biblioteca académica" })).toBeVisible();
     for (const link of await nav.getByRole("link").all()) await expect(link).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   });
@@ -359,6 +360,25 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(page.locator('meta[name="robots"][content="noindex"]')).toHaveCount(0);
   });
 
+  test("la biblioteca académica filtra tesis y conserva el enlace a la ficha original", async ({ page }) => {
+    const response = await page.goto("/biblioteca");
+    expect(response?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "Investigaciones para leer los conflictos mineros con más profundidad." })).toBeVisible();
+    await expect(page.locator(".library-card")).toHaveCount(20);
+    await expect(page.getByRole("status")).toHaveText("20 de 20 investigaciones");
+
+    await page.getByLabel("Grado").selectOption("doctorado");
+    await expect(page.locator(".library-card")).toHaveCount(3);
+    await expect(page.getByRole("status")).toHaveText("3 de 20 investigaciones");
+
+    await page.getByLabel("Grado").selectOption("all");
+    await page.getByPlaceholder("Buscar por tema, caso, región, autor o universidad").fill("Morococha");
+    await expect(page.locator(".library-card")).toHaveCount(1);
+    await expect(page.locator(".library-card")).toContainText("Toromocho-Morococha");
+    await expect(page.locator(".library-card").getByRole("link", { name: "Toromocho–Morococha" })).toBeVisible();
+    await expect(page.locator(".library-card").getByRole("link", { name: "Abrir ficha en ALICIA" })).toHaveAttribute("target", "_blank");
+  });
+
   test("las páginas de minería ilegal y Madre de Dios son públicas e indexables", async ({ page }) => {
     const goldResponse = await page.goto("/oro-ilegal");
     expect(goldResponse?.status()).toBe(200);
@@ -381,10 +401,11 @@ test.describe("publicación V2 móvil", () => {
     await menuButton.click();
     await expect(page.getByRole("button", { name: "Cerrar navegación" })).toBeVisible();
     const nav = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(nav.getByRole("link")).toHaveCount(9);
+    await expect(nav.getByRole("link")).toHaveCount(10);
     for (const link of await nav.getByRole("link").all()) await expect(link).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     expect(await page.locator(".map-layout > aside").evaluate((element) => getComputedStyle(element).overflowY)).not.toBe("auto");
+    await page.getByRole("button", { name: "Cerrar navegación" }).click();
     const mapJump = page.getByRole("link", { name: "Ver mapa" });
     await expect(mapJump).toBeVisible();
     await mapJump.click();

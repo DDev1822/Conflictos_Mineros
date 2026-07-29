@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpenText, ClockCounterClockwise, Coins, Info, List, MapTrifold, Mountains, Scales, X } from "@phosphor-icons/react";
+import { BookOpenText, ClockCounterClockwise, Coins, GraduationCap, Info, List, MapTrifold, Mountains, Scales, X } from "@phosphor-icons/react";
 import { useState } from "react";
 
 const navigation = [
@@ -14,6 +14,7 @@ const navigation = [
   { href: "/madre-de-dios", label: "Madre de Dios", accessibleLabel: "Minería aurífera en Madre de Dios", icon: MapTrifold },
   { href: "/reinfo", label: "REINFO", accessibleLabel: "REINFO y formalización MAPE", icon: Info },
   { href: "/normativa", label: "Normas", icon: BookOpenText },
+  { href: "/biblioteca", label: "Biblioteca", accessibleLabel: "Biblioteca académica", icon: GraduationCap },
   { href: "/metodologia", label: "Metodología", icon: BookOpenText },
 ];
 

@@ -205,6 +205,7 @@ export default function HomePage() {
             <Link href="/compromisos">Compromisos <ArrowRight /></Link>
             <Link href="/metodologia">Metodología <ArrowRight /></Link>
             <Link href="/normativa">Normativa <Gavel size={15} /></Link>
+            <Link href="/biblioteca">Biblioteca académica <BookOpenText size={15} /></Link>
             <Link href="/oro-ilegal">Oro sin trazabilidad <Coins size={15} /></Link>
             <Link href="/madre-de-dios">Madre de Dios <ArrowRight /></Link>
             <Link href="/reinfo">REINFO / MAPE <ArrowRight /></Link>

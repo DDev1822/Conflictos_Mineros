@@ -238,4 +238,20 @@ describe("contenido académico", () => {
     }
     expect(devastation.caveat).toContain("no afirma nueva deforestación observada después del corte");
   });
+
+  it("mantiene la biblioteca académica separada por grado y eje temático", () => {
+    const data = loadObservatoryData();
+    const items = data.academicResearch;
+    const caseSlugs = new Set(data.cases.map((item) => item.slug));
+
+    expect(items).toHaveLength(20);
+    expect(new Set(items.map((item) => item.id)).size).toBe(items.length);
+    expect(new Set(items.map((item) => item.degreeLevel))).toEqual(new Set(["pregrado", "maestria", "doctorado"]));
+    expect(items.filter((item) => item.axis === "conflictos-sociales-mineros")).toHaveLength(18);
+    expect(items.filter((item) => item.axis === "mineria-ilegal-e-informal")).toHaveLength(1);
+    expect(items.filter((item) => item.axis === "reinfo-y-formalizacion")).toHaveLength(1);
+    expect(items.every((item) => item.recordUrl.startsWith("https://alicia.concytec.gob.pe/"))).toBe(true);
+    expect(items.every((item) => item.editorialSummary.length >= 80)).toBe(true);
+    expect(items.flatMap((item) => item.caseSlugs).every((slug) => caseSlugs.has(slug))).toBe(true);
+  });
 });
