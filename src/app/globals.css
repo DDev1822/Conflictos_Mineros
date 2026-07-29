@@ -91,7 +91,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(9,40,58,.96) 0%, rgba(9,40,58,.85) 42%, rgba(9,40,58,.45) 100%),
-    url("/multimedia/backgrounds/portada-juridico-minera.webp") center / cover no-repeat,
+    var(--asset-portada-juridico-minera) center / cover no-repeat,
     var(--ink);
 }
 .hero::after {
@@ -943,7 +943,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
   color: #f9f5ea;
   background:
     linear-gradient(90deg, rgba(8,30,45,.97) 0%, rgba(8,30,45,.86) 45%, rgba(8,30,45,.42) 100%),
-    url("/multimedia/backgrounds/oro-ilegal-hero.webp") center / cover no-repeat,
+    var(--asset-oro-ilegal-hero) center / cover no-repeat,
     var(--ink);
 }
 .gold-hero > * { min-width: 0; }
@@ -995,7 +995,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
   color: #f8f5ed;
   background:
     linear-gradient(90deg, rgba(8,30,45,.97), rgba(8,30,45,.9)),
-    url("/multimedia/backgrounds/textura-mineral-territorial.webp") center / cover no-repeat;
+    var(--asset-textura-mineral-territorial) center / cover no-repeat;
 }
 .gold-risk-panel h2 { font-size: clamp(2.4rem, 4.6vw, 4rem); }
 .gold-risk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
@@ -1126,7 +1126,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
   color: #f9f5ea;
   background:
     linear-gradient(110deg, rgba(4,37,31,.98), rgba(9,40,58,.92)),
-    url("/multimedia/backgrounds/textura-mineral-territorial.webp") center / cover no-repeat;
+    var(--asset-textura-mineral-territorial) center / cover no-repeat;
 }
 .madre-counter-section .eyebrow { color: #f0b36f; }
 .madre-counter-section h2 { max-width: 780px; font-size: clamp(2.55rem, 5vw, 4.8rem); letter-spacing: -.045em; }

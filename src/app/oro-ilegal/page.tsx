@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { publicAsset } from "@/lib/public-assets";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -258,7 +259,7 @@ export default function OroIlegalPage() {
       <section className="gold-visual-intro">
         <figure>
           <Image
-            src="/multimedia/reinfo/trazabilidad-oro.webp"
+            src={publicAsset("/multimedia/reinfo/trazabilidad-oro.webp")}
             alt="Fragmentos de oro sobre malla húmeda como referencia visual de trazabilidad material."
             width="1600"
             height="900"
@@ -403,7 +404,7 @@ export default function OroIlegalPage() {
 
       <section className="gold-map-strip">
         <Image
-          src="/multimedia/maps/oro-ilegal-territorio.webp"
+          src={publicAsset("/multimedia/maps/oro-ilegal-territorio.webp")}
           alt="Paisaje territorial intervenido con agua y operación minera como referencia visual de riesgo territorial."
           width="1600"
           height="900"

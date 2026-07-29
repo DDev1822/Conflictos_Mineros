@@ -9,6 +9,7 @@ export default function nextConfig(phase: string): NextConfig {
   return {
     output: "export",
     basePath,
+    env: { NEXT_PUBLIC_BASE_PATH: basePath },
     trailingSlash: true,
     images: { unoptimized: true },
     distDir: phase === PHASE_DEVELOPMENT_SERVER ? "tmp/next-dev" : ".next",
