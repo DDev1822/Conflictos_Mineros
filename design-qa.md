@@ -88,6 +88,48 @@ El observatorio adopta el alcance `public-academic`: los bloqueos P0/P1 operativ
 
 final result: passed
 
+## Integración de identidad DrillStone del 29 de julio de 2026
+
+- Verdad visual recibida:
+  - `C:\Users\DeeDee\Downloads\L1.png` — símbolo DrillStone, 4000 × 4000 px, RGBA, contenido visible en `(1416, 1404)–(2563, 2593)`.
+  - `C:\Users\DeeDee\Downloads\L3.png` — firma DrillStone, 4000 × 4000 px, RGBA, contenido visible en `(1147, 1807)–(3271, 2263)`.
+  - `C:\Users\DeeDee\Downloads\L2.png` — DrillStone RoadLab, archivado en Notion y excluido del producto por decisión de alcance.
+- Implementaciones capturadas:
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\drillstone-header-1440x120-final.png`.
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\drillstone-footer-1440x900-final.png`.
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\drillstone-header-mobile-390x110.png`.
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\drillstone-footer-mobile-390x844-final.png`.
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\drillstone-header-tablet-900x110.png`.
+- Comparaciones conjuntas normalizadas:
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\drillstone-header-comparison.png`.
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\drillstone-footer-comparison.png`.
+- Viewports: 1440 × 900, 900 × 800 y 390 × 844 CSS px; `devicePixelRatio: 1`.
+- Estados: portada en posición inicial; pie visible después de recorrer la portada.
+- Normalización: los originales se recortaron solo para la comparación visual usando su canal alfa; los PNG publicados permanecen byte a byte iguales a L1 y L3. Las capturas de implementación se recortaron a la cabecera y el pie correspondientes.
+
+### Findings
+
+- No quedan hallazgos P0, P1 o P2.
+- Tipografía: la marca no altera familias, pesos, jerarquía ni envoltura del nombre del observatorio.
+- Espaciado y ritmo: el símbolo ocupa 31 × 31 px en escritorio y móvil, 24 × 24 px en tableta; la firma ocupa 110 × 26 px en escritorio y 128 × 30 px en móvil. No hay overflow horizontal a 900 ni 390 px.
+- Color y tokens: una placa marfil separa los trazos oscuros de DrillStone del fondo tinta y conserva el cobre y el verde originales sin recolorear el activo.
+- Calidad y fidelidad: L1 y L3 conservan transparencia, proporción y píxeles originales. No se recrearon con SVG, CSS, texto ni sustitutos. L2/RoadLab no aparece en el DOM ni en los activos públicos.
+- Copia: el observatorio conserva su nombre y su disclaimer académico; no se añadió una atribución que implique patrocinio, autoría o respaldo no documentado.
+- Interacciones comprobadas: navegación superior, menú responsive y recorrido hasta el pie.
+- Errores de consola: 0.
+
+### Comparison history
+
+1. La primera inserción usó el símbolo directamente sobre fondo tinta; el contorno azul oscuro se perdía y solo destacaban los segmentos naranjas.
+2. La iteración final incorporó una placa marfil, redujo ligeramente la escala interna del símbolo y aplicó el mismo tratamiento a la firma del pie.
+3. Las comparaciones conjuntas confirman que el dibujo, las proporciones y los colores del original son reconocibles; escritorio, tableta y móvil permanecen sin solapamientos ni desborde.
+
+### Follow-up polish
+
+- [P3] Si DrillStone entrega exportaciones oficiales ya recortadas o vectoriales, podrán reducirse los 4000 × 4000 px de los PNG sin alterar la identidad. La versión actual prioriza fidelidad byte a byte a los archivos recibidos.
+
+final result: passed
+
 ## Actualización de legibilidad de conexiones del 28 de julio de 2026
 
 - Verdad visual recibida: `C:\Users\DeeDee\AppData\Local\Temp\codex-clipboard-08441f5b-b2d8-4a98-a889-7ec836c52147.png`.
@@ -152,5 +194,11 @@ final result: passed
 1. Las capturas de producción mostraban textos alternativos y superficies vacías porque las referencias apuntaban a `/multimedia/...`, fuera del subdirectorio público de GitHub Pages.
 2. La implementación centralizó la resolución de activos y antepuso `/Conflictos_Mineros` únicamente en el build de GitHub Pages, conservando las rutas locales sin prefijo.
 3. Las comparaciones conjuntas confirman la recuperación de la portada fotográfica, la introducción probatoria de Oro ilegal y la imagen territorial de Madre de Dios. El build estático contiene cero referencias multimedia sin prefijo.
+
+final result: passed
+
+## Cierre QA — identidad DrillStone
+
+La integración detallada en “Integración de identidad DrillStone del 29 de julio de 2026” es la revisión visual más reciente. Las comparaciones de cabecera y pie, los viewports 1440, 900 y 390 px, la carga de L1/L3, la exclusión de RoadLab, el control de overflow y la consola sin errores permanecen conformes. No quedan hallazgos P0, P1 o P2.
 
 final result: passed

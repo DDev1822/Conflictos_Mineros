@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpenText, ClockCounterClockwise, Coins, GraduationCap, Info, List, MapTrifold, Mountains, Scales, X } from "@phosphor-icons/react";
+import { BookOpenText, ClockCounterClockwise, Coins, GraduationCap, Info, List, MapTrifold, Scales, X } from "@phosphor-icons/react";
 import { useState } from "react";
+import { publicAsset } from "@/lib/public-assets";
 
 const navigation = [
   { href: "/mapa", label: "Mapa", icon: MapTrifold },
@@ -24,7 +26,16 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label="Ir al inicio">
-        <Mountains aria-hidden size={31} weight="thin" />
+        <span className="brand-mark" aria-hidden="true">
+          <Image
+            className="brand-mark-image"
+            src={publicAsset("/brand/drillstone/drillstone-mark.png")}
+            alt=""
+            width={4000}
+            height={4000}
+            priority
+          />
+        </span>
         <span><strong>Observatorio</strong><small>de Conflictos Mineros del Perú</small></span>
       </Link>
       <button className="menu-toggle" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={open ? "Cerrar navegación" : "Abrir navegación"}>
