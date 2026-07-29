@@ -117,7 +117,7 @@ export function AcademicLibrary({ items, cases }: AcademicLibraryProps) {
               </div>
             )}
             <a className="library-record-link" href={item.recordUrl} target="_blank" rel="noreferrer">
-              Abrir ficha en ALICIA <ArrowSquareOut aria-hidden />
+              Abrir ficha académica <ArrowSquareOut aria-hidden />
             </a>
           </article>
         ))}

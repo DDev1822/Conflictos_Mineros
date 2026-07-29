@@ -244,13 +244,16 @@ describe("contenido académico", () => {
     const items = data.academicResearch;
     const caseSlugs = new Set(data.cases.map((item) => item.slug));
 
-    expect(items).toHaveLength(27);
+    expect(items).toHaveLength(33);
     expect(new Set(items.map((item) => item.id)).size).toBe(items.length);
     expect(new Set(items.map((item) => item.degreeLevel))).toEqual(new Set(["pregrado", "maestria", "doctorado"]));
-    expect(items.filter((item) => item.axis === "conflictos-sociales-mineros")).toHaveLength(25);
+    expect(items.filter((item) => item.axis === "conflictos-sociales-mineros")).toHaveLength(31);
     expect(items.filter((item) => item.axis === "mineria-ilegal-e-informal")).toHaveLength(1);
     expect(items.filter((item) => item.axis === "reinfo-y-formalizacion")).toHaveLength(1);
-    expect(items.every((item) => item.recordUrl.startsWith("https://alicia.concytec.gob.pe/"))).toBe(true);
+    expect(items.every((item) => {
+      const host = new URL(item.recordUrl).hostname;
+      return ["alicia.concytec.gob.pe", "tesis.pucp.edu.pe", "biblioteca-repositorio.clacso.edu.ar"].includes(host);
+    })).toBe(true);
     expect(items.every((item) => item.editorialSummary.length >= 80)).toBe(true);
     expect(items.flatMap((item) => item.caseSlugs).every((slug) => caseSlugs.has(slug))).toBe(true);
     const coveredCases = new Set(items.flatMap((item) => item.caseSlugs));

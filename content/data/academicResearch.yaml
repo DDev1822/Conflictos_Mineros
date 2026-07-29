@@ -452,3 +452,105 @@
   topics: [conflicto social, concesiones mineras, derechos]
   editorialSummary: Examina el origen, desarrollo y consecuencias atribuidas al conflicto entre Máxima Acuña y Yanacocha-Newmont mediante revisión documental y una entrevista a un familiar de la protagonista. Sus afirmaciones se presentan como resultados de la tesis, no como hechos verificados por el observatorio.
   cataloguedAt: 2026-07-29
+
+- id: mejia-cambio-escala-quilish-2021
+  title: Cambio de escala en la contienda anti-minera peruana. Construcción de teoría a partir del conflicto por la exploración del cerro Quilish en Cajamarca
+  authors: [José Manuel Mejía Villena]
+  year: 2021
+  university: Facultad Latinoamericana de Ciencias Sociales - Ecuador
+  degreeLevel: maestria
+  repository: FLACSO-Andes
+  recordUrl: https://biblioteca-repositorio.clacso.edu.ar/handle/CLACSO/134039
+  resourceUrl: https://hdl.handle.net/10469/17341
+  accessStatus: open
+  axis: conflictos-sociales-mineros
+  regions: [Cajamarca]
+  caseSlugs: [cerro-quilish]
+  topics: [movilización social, cambio de escala, contienda extractiva]
+  editorialSummary: Estudia la movilización contra la exploración del Cerro Quilish y la forma en que una contienda local amplió actores, redes y escalas políticas. La tesis permite profundizar la secuencia social del caso sin convertir su marco teórico en una explicación única del conflicto.
+  cataloguedAt: 2026-07-29
+
+- id: espinoza-conflicto-reasentamiento-morococha-2019
+  title: Conflicto social por el reasentamiento poblacional de Morococha del Proyecto Minero Toromocho 2019
+  authors: [Delsi Nancy Espinoza Valentín]
+  year: 2019
+  university: Universidad Nacional del Centro del Perú
+  degreeLevel: maestria
+  repository: UNCP-Institucional
+  recordUrl: https://alicia.concytec.gob.pe/vufind/Record/UNCP_5340c7d6c3ad9d9214b9b8db93f0c485
+  resourceUrl: http://hdl.handle.net/20.500.12894/5525
+  accessStatus: open
+  axis: conflictos-sociales-mineros
+  regions: [Junín]
+  caseSlugs: [toromocho-morococha]
+  topics: [reasentamiento, conflicto social, antropología jurídica]
+  editorialSummary: Analiza desde la antropología jurídica el conflicto vinculado con el reasentamiento de Morococha y describe causas, consecuencias y estrategias de respuesta identificadas por la autora. Sus estimaciones y valoraciones se atribuyen expresamente a la investigación.
+  cataloguedAt: 2026-07-29
+
+- id: donayre-politicas-lugar-morococha-2016
+  title: "Políticas de lugar en Morococha: el contexto del reasentamiento por el proyecto minero Toromocho"
+  authors: [Fabio Emmanuel Donayre Miranda]
+  year: 2016
+  university: Pontificia Universidad Católica del Perú
+  degreeLevel: pregrado
+  repository: PUCP-Tesis
+  recordUrl: https://alicia.concytec.gob.pe/vufind/Record/PUCP_de3ee4ebc7978124c6db1c00073a34ad
+  resourceUrl: http://hdl.handle.net/20.500.12404/9179
+  accessStatus: open
+  axis: conflictos-sociales-mineros
+  regions: [Junín]
+  caseSlugs: [toromocho-morococha]
+  topics: [sentido de lugar, reasentamiento, memoria territorial]
+  editorialSummary: Examina cómo la población construye sentido de lugar entre la antigua y la nueva Morococha mediante narrativas, prácticas cotidianas y memoria. Aporta una lectura cultural del reasentamiento distinta del análisis institucional o de cumplimiento de compromisos.
+  cataloguedAt: 2026-07-29
+
+- id: atencia-lecca-dano-ambiental-choropampa-2024
+  title: La responsabilidad civil ambiental y el daño ambiental en la localidad de Choropampa - Cajamarca 2019
+  authors: [Elvita Atencia Cecilio, Lourdes Betzabeth Lecca Cruzado]
+  year: 2024
+  university: Universidad Peruana Los Andes
+  degreeLevel: pregrado
+  repository: UPLA-Institucional
+  recordUrl: https://alicia.concytec.gob.pe/vufind/index.php/Record/UPLA_9ae689b8beda393471cdea512a360ee2/Details
+  resourceUrl: https://hdl.handle.net/20.500.12848/8949
+  accessStatus: open
+  axis: conflictos-sociales-mineros
+  regions: [Cajamarca]
+  caseSlugs: [choropampa]
+  topics: [daño ambiental, responsabilidad civil, ambiente sano]
+  editorialSummary: Estudia la relación entre responsabilidad civil ambiental y daño ecológico en Choropampa mediante un diseño descriptivo correlacional. Se incorpora como interpretación académica del caso y no como certificación de responsabilidad jurídica ni de vigencia normativa.
+  cataloguedAt: 2026-07-29
+
+- id: huang-gobierno-corporativo-rio-blanco-2020
+  title: Gobierno corporativo y responsabilidad social en la empresa Río Blanco Copper S.A.
+  authors: [Huang Yu Ching]
+  year: 2020
+  university: Pontificia Universidad Católica del Perú
+  degreeLevel: maestria
+  repository: PUCP-Tesis
+  recordUrl: https://tesis.pucp.edu.pe/items/26395abf-f740-4ca1-b62c-f88306bf3faf
+  resourceUrl: http://hdl.handle.net/20.500.12404/16975
+  accessStatus: restricted
+  axis: conflictos-sociales-mineros
+  regions: [Piura]
+  caseSlugs: [rio-blanco-majaz]
+  topics: [gobierno corporativo, responsabilidad social, legitimidad social]
+  editorialSummary: Analiza las políticas de gobierno corporativo y responsabilidad social del titular de Río Blanco entre 2007 y 2019 mediante herramientas teóricas y entrevistas. Sus conclusiones sobre estrategia y legitimidad corresponden a la autora y no a una verificación empresarial del observatorio.
+  cataloguedAt: 2026-07-29
+
+- id: puente-tratamiento-informativo-maxima-acuna-2025
+  title: "Tratamiento de la información periodística de Perú y España: caso de la ambientalista Máxima Acuña y el megaproyecto Conga"
+  authors: [Lizeth Gladys Puente Naccha]
+  year: 2025
+  university: Universidad de San Martín de Porres
+  degreeLevel: pregrado
+  repository: USMP-Institucional
+  recordUrl: https://alicia.concytec.gob.pe/vufind/Record/USMP_2ead8006eda53da49a5764933b485ed0/Details
+  resourceUrl: https://hdl.handle.net/20.500.12727/17886
+  accessStatus: metadata-only
+  axis: conflictos-sociales-mineros
+  regions: [Cajamarca]
+  caseSlugs: [yanacocha-maxima-acuna]
+  topics: [tratamiento informativo, análisis del discurso, medios de comunicación]
+  editorialSummary: Analiza 54 notas de medios peruanos y españoles publicadas entre 2014 y 2019 para estudiar encuadres, fuentes y visibilidad de actores en torno a Máxima Acuña. Describe representaciones periodísticas y no confirma por sí misma los hechos relatados por esos medios.
+  cataloguedAt: 2026-07-29
