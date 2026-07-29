@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowSquareOut, CalendarBlank, MapPin, Scales } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeft, ArrowSquareOut, BookOpenText, CalendarBlank, MapPin, Scales } from "@phosphor-icons/react/dist/ssr";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getCaseBySlug, loadNarrative, loadObservatoryData } from "@/lib/content";
 import { isPublishedSocialMiningCase } from "@/lib/public-scope";
@@ -62,6 +62,12 @@ const evidenceRelationLabels: Record<EvidenceRecord["relation"], string> = {
   qualifies: "matiza",
   contradicts: "contradice",
 };
+
+const degreeLabels = {
+  pregrado: "Título / pregrado",
+  maestria: "Maestría",
+  doctorado: "Doctorado",
+} as const;
 
 const actorTypeLabels = {
   state: "Estado",
@@ -144,6 +150,9 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const directActorSources = packet?.directActorSourceIds.length ?? 0;
   const openContradictions = packet?.contradictions.filter((entry) => entry.status === "open").length ?? 0;
   const scopeLimitCount = packet?.gaps.length ?? 0;
+  const academicReadings = data.academicResearch
+    .filter((entry) => entry.caseSlugs.includes(slug))
+    .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title, "es"));
 
   return (
     <article className="dossier-page">
@@ -180,6 +189,39 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
                 <article><strong>{evidenceRecords.length}</strong><span>Referencias exactas</span><small>{evidenceRecords.filter((record) => record.reviewStatus === "reviewed").length} revisadas.</small></article>
                 <article><strong>{openContradictions}</strong><span>Contradicciones</span><small>Abiertas y atribuidas.</small></article>
                 <article><strong>{scopeLimitCount}</strong><span>Límite probatorio</span><small>Seguimiento académico que delimita el alcance del corte actual.</small></article>
+              </div>
+            </section>
+          )}
+
+          {academicReadings.length > 0 && (
+            <section className="case-academic-readings" aria-labelledby="case-academic-title">
+              <header>
+                <div>
+                  <p className="eyebrow">Biblioteca académica</p>
+                  <h2 id="case-academic-title">{academicReadings.length} investigaciones relacionadas</h2>
+                  <p>
+                    Estas tesis aportan interpretación, métodos y contexto sobre el caso. Sus conclusiones pertenecen a cada
+                    investigación y no sustituyen la evidencia primaria ni acreditan por sí solas hechos actuales.
+                  </p>
+                </div>
+                <Link href="/biblioteca"><BookOpenText aria-hidden /> Explorar la biblioteca</Link>
+              </header>
+              <div className="case-academic-grid">
+                {academicReadings.map((reading) => (
+                  <article className="case-academic-card" key={reading.id}>
+                    <div>
+                      <span>{degreeLabels[reading.degreeLevel]}</span>
+                      <span>{reading.year}</span>
+                    </div>
+                    <h3>{reading.title}</h3>
+                    <p className="case-academic-byline">{reading.authors.join(" · ")}</p>
+                    <p className="case-academic-institution">{reading.university}</p>
+                    <p>{reading.editorialSummary}</p>
+                    <a href={reading.recordUrl} target="_blank" rel="noreferrer">
+                      Abrir ficha académica <ArrowSquareOut aria-hidden />
+                    </a>
+                  </article>
+                ))}
               </div>
             </section>
           )}

@@ -258,5 +258,8 @@ describe("contenido académico", () => {
     expect(items.flatMap((item) => item.caseSlugs).every((slug) => caseSlugs.has(slug))).toBe(true);
     const coveredCases = new Set(items.flatMap((item) => item.caseSlugs));
     expect([...caseSlugs].filter((slug) => slug !== "madre-de-dios" && !coveredCases.has(slug))).toEqual([]);
+    for (const slug of [...caseSlugs].filter((item) => item !== "madre-de-dios")) {
+      expect(items.filter((item) => item.caseSlugs.includes(slug)).length).toBeGreaterThanOrEqual(2);
+    }
   });
 });
