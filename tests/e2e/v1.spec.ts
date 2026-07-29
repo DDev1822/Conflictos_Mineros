@@ -364,12 +364,12 @@ test.describe("publicación V2 en escritorio", () => {
     const response = await page.goto("/biblioteca");
     expect(response?.status()).toBe(200);
     await expect(page.getByRole("heading", { name: "Investigaciones para leer los conflictos mineros con más profundidad." })).toBeVisible();
-    await expect(page.locator(".library-card")).toHaveCount(20);
-    await expect(page.getByRole("status")).toHaveText("20 de 20 investigaciones");
+    await expect(page.locator(".library-card")).toHaveCount(27);
+    await expect(page.getByRole("status")).toHaveText("27 de 27 investigaciones");
 
     await page.getByLabel("Grado").selectOption("doctorado");
     await expect(page.locator(".library-card")).toHaveCount(3);
-    await expect(page.getByRole("status")).toHaveText("3 de 20 investigaciones");
+    await expect(page.getByRole("status")).toHaveText("3 de 27 investigaciones");
 
     await page.getByLabel("Grado").selectOption("all");
     await page.getByPlaceholder("Buscar por tema, caso, región, autor o universidad").fill("Morococha");
@@ -377,6 +377,10 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(page.locator(".library-card")).toContainText("Toromocho-Morococha");
     await expect(page.locator(".library-card").getByRole("link", { name: "Toromocho–Morococha" })).toBeVisible();
     await expect(page.locator(".library-card").getByRole("link", { name: "Abrir ficha en ALICIA" })).toHaveAttribute("target", "_blank");
+
+    await page.getByPlaceholder("Buscar por tema, caso, región, autor o universidad").fill("Quilish");
+    await expect(page.locator(".library-card")).toHaveCount(1);
+    await expect(page.locator(".library-card").getByRole("link", { name: "Cerro Quilish–Yanacocha" })).toBeVisible();
   });
 
   test("las páginas de minería ilegal y Madre de Dios son públicas e indexables", async ({ page }) => {

@@ -333,3 +333,122 @@
   topics: [minería ilegal, fiscalización ambiental, capacidad estatal]
   editorialSummary: Analiza la relación entre fiscalización estatal, persistencia de minería ilegal y vulneración ambiental en Madre de Dios entre 2018 y 2023. Se cataloga como eje complementario y no como conflicto social minero.
   cataloguedAt: 2026-07-29
+
+- id: carrasco-custodio-comunicacion-tambogrande-2023
+  title: Análisis del proceso comunicacional en el conflicto social frente a la actividad minera en el distrito de Tambogrande - 2022
+  authors: [Ana Cecilia Carrasco Corrales, David Aarón Custodio Dioses]
+  year: 2023
+  university: Universidad Privada Antenor Orrego
+  degreeLevel: pregrado
+  repository: UPAO-Tesis
+  recordUrl: https://alicia.concytec.gob.pe/vufind/index.php/Record/UPAO_65fe91130caf2757ffb6939dabf07c17
+  resourceUrl: https://hdl.handle.net/20.500.12759/10138
+  accessStatus: open
+  axis: conflictos-sociales-mineros
+  regions: [Piura]
+  caseSlugs: [tambogrande]
+  topics: [comunicación, diálogo, consulta vecinal]
+  editorialSummary: Examina el proceso comunicacional del conflicto de Tambogrande mediante entrevistas y análisis comparativo cualitativo. Identifica actores, mensajes, medios y barreras de diálogo a partir de la memoria local de la consulta vecinal y otros episodios posteriores.
+  cataloguedAt: 2026-07-29
+
+- id: ccoa-movimientos-tambogrande-quilish-2023
+  title: "Significantes vacíos y operación hegemónica en la subjetivación política de los movimientos anti-mineros en el Perú: Una aproximación desde la teoría política del discurso (TDP)"
+  authors: [Eduard Arnaldo Ccoa Jordan]
+  year: 2023
+  university: Universidad Nacional de San Agustín
+  degreeLevel: maestria
+  repository: UNSA-Institucional
+  recordUrl: https://alicia.concytec.gob.pe/vufind/index.php/Record/UNSA_3f67533c87aa4c889d96aa3a78c12f50
+  resourceUrl: https://hdl.handle.net/20.500.12773/16828
+  accessStatus: open
+  axis: conflictos-sociales-mineros
+  regions: [Piura, Cajamarca]
+  caseSlugs: [tambogrande, cerro-quilish]
+  topics: [movimientos sociales, subjetivación política, discurso]
+  editorialSummary: Compara Tambogrande y Cerro Quilish desde la teoría política del discurso. Analiza cómo los movimientos articularon demandas, frentes de defensa y fronteras políticas frente a la actividad minera, con énfasis en los procesos de construcción de identidad colectiva.
+  cataloguedAt: 2026-07-29
+
+- id: soldevilla-acuerdos-espinar-2025
+  title: "Garantía del conflicto: Estado performativo y el incumplimiento de acuerdos en el caso Tintaya/Antapaccay en Espinar"
+  authors: [Valeria Alessandra Soldevilla Montoya]
+  year: 2025
+  university: Pontificia Universidad Católica del Perú
+  degreeLevel: pregrado
+  repository: PUCP-Tesis
+  recordUrl: https://alicia.concytec.gob.pe/vufind/Record/PUCP_8ac51a78c540d6b44f1da44b753c9645/Details
+  resourceUrl: http://hdl.handle.net/20.500.12404/31562
+  accessStatus: open
+  axis: conflictos-sociales-mineros
+  regions: [Cusco]
+  caseSlugs: [espinar]
+  topics: [acuerdos, mesas de diálogo, capacidad estatal]
+  editorialSummary: Estudia el periodo posterior a la Mesa de Diálogo de Espinar de 2012-2013 mediante seguimiento de procesos y veinte entrevistas semiestructuradas. Discute coordinación estatal, redes de gobernanza e intención política en el cumplimiento de compromisos.
+  cataloguedAt: 2026-07-29
+
+- id: alata-monitoreos-espinar-2023
+  title: "Monitoreos hídricos comunitarios y desigualdades de conocimiento en contextos de minería a gran escala: el caso del proyecto minero Tintaya-Antapaccay"
+  authors: [Eyner Alata Quispe]
+  year: 2023
+  university: Pontificia Universidad Católica del Perú
+  degreeLevel: maestria
+  repository: PUCP-Institucional
+  recordUrl: https://alicia.concytec.gob.pe/vufind/index.php/Record/RPUC_5e3fb1e46f7ad50d65a56b0ed83d20f5
+  resourceUrl: http://hdl.handle.net/20.500.12404/26364
+  accessStatus: open
+  axis: conflictos-sociales-mineros
+  regions: [Cusco]
+  caseSlugs: [espinar]
+  topics: [monitoreo hídrico, conocimiento, participación ciudadana]
+  editorialSummary: Compara monitoreos participativos dirigidos por instituciones y empresa con monitoreos comunitarios impulsados por organizaciones de Espinar. Analiza cómo se distribuyen el conocimiento técnico, la capacidad de decisión y los niveles de participación.
+  cataloguedAt: 2026-07-29
+
+- id: renteria-responsabilidad-choropampa-2021
+  title: Responsabilidad civil por daño ambiental. A propósito del derrame de mercurio en Choropampa
+  authors: [Grecia Virginia Renteria Sanz]
+  year: 2021
+  university: Universidad de Piura
+  degreeLevel: pregrado
+  repository: UDEP-Institucional
+  recordUrl: https://alicia.concytec.gob.pe/vufind/index.php/Record/UDEP_35edbb4915e16335cd3a189abddf057b
+  resourceUrl: https://hdl.handle.net/11042/5139
+  accessStatus: open
+  axis: conflictos-sociales-mineros
+  regions: [Cajamarca]
+  caseSlugs: [choropampa]
+  topics: [daño ambiental, responsabilidad civil, reparación]
+  editorialSummary: Revisa la responsabilidad civil por daño ambiental a partir del derrame de mercurio de Choropampa. Contrasta el marco aplicable cuando ocurrieron los hechos con el desarrollo normativo disponible hasta 2021, sin convertir el estudio en una validación jurídica vigente.
+  cataloguedAt: 2026-07-29
+
+- id: espinoza-relaciones-rio-blanco-2018
+  title: El rol de las relaciones públicas en la administración de la controversia pública. Análisis Caso Proyecto Río Blanco
+  authors: [Lyanné Jasmine Espinoza Meza]
+  year: 2018
+  university: Universidad de Piura
+  degreeLevel: pregrado
+  repository: UDEP-Institucional
+  recordUrl: https://alicia.concytec.gob.pe/vufind/Record/UDEP_2a88880230f7e81314658fcce6f227aa/Details
+  resourceUrl: https://hdl.handle.net/11042/3445
+  accessStatus: open
+  axis: conflictos-sociales-mineros
+  regions: [Piura]
+  caseSlugs: [rio-blanco-majaz]
+  topics: [controversia pública, relaciones públicas, comunicación]
+  editorialSummary: Analiza la gestión comunicacional de la controversia vinculada con el proyecto Río Blanco mediante un modelo de relaciones públicas. Organiza el caso en fases de investigación, planificación, acción, comunicación y evaluación de resultados.
+  cataloguedAt: 2026-07-29
+
+- id: lucas-maxima-acuna-2020
+  title: "La minería y los conflictos sociales en Cajamarca: un análisis del caso Máxima Acuña vs Yanacocha - Newmont"
+  authors: [Jager Lucas Silvestre]
+  year: 2020
+  university: Universidad Privada del Norte
+  degreeLevel: pregrado
+  repository: UPN-Institucional
+  recordUrl: https://alicia.concytec.gob.pe/vufind/index.php/Record/UUPN_d8cdd1ade66a05c6ff40a8d75b351ab8
+  resourceUrl: https://hdl.handle.net/11537/25424
+  accessStatus: open
+  axis: conflictos-sociales-mineros
+  regions: [Cajamarca]
+  caseSlugs: [yanacocha-maxima-acuna]
+  topics: [conflicto social, concesiones mineras, derechos]
+  editorialSummary: Examina el origen, desarrollo y consecuencias atribuidas al conflicto entre Máxima Acuña y Yanacocha-Newmont mediante revisión documental y una entrevista a un familiar de la protagonista. Sus afirmaciones se presentan como resultados de la tesis, no como hechos verificados por el observatorio.
+  cataloguedAt: 2026-07-29
