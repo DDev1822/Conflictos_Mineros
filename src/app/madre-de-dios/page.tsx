@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpenText, Database, FileText, MapTrifold, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import { DeforestationCounter } from "@/components/deforestation-counter";
 import { loadObservatoryData } from "@/lib/content";
+import { publicAsset } from "@/lib/public-assets";
 
 export const metadata: Metadata = {
   title: "Madre de Dios: devastación aurífera",
@@ -38,7 +39,7 @@ export default function MadreDeDiosPage() {
         </div>
         <figure>
           <Image
-            src="/multimedia/maps/oro-ilegal-territorio.webp"
+            src={publicAsset("/multimedia/maps/oro-ilegal-territorio.webp")}
             alt="Textura territorial amazónica usada para representar la expansión de minería aurífera y deforestación."
             width={980}
             height={720}

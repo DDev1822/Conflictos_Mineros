@@ -17,6 +17,27 @@ test.describe("publicación V2 en escritorio", () => {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   });
 
+  test("carga la capa visual editorial sin imágenes rotas", async ({ page }) => {
+    const brokenMultimediaResponses: string[] = [];
+    page.on("response", (response) => {
+      if (response.url().includes("/multimedia/") && response.status() >= 400) brokenMultimediaResponses.push(response.url());
+    });
+
+    for (const path of ["/", "/oro-ilegal", "/madre-de-dios"]) {
+      await page.goto(path);
+      await page.waitForLoadState("networkidle");
+
+      const images = page.locator('img[src*="/multimedia/"]');
+      expect(await images.count()).toBeGreaterThan(0);
+      for (const image of await images.all()) await image.scrollIntoViewIfNeeded();
+      await expect.poll(async () => images.evaluateAll((elements) => elements.every((image) => (
+        image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0
+      )))).toBe(true);
+    }
+
+    expect(brokenMultimediaResponses).toEqual([]);
+  });
+
   test("abre el mapa con enfoque minero sin alternar al registro social completo", async ({ page }) => {
     await page.goto("/mapa");
     await expect(page.getByLabel("Resumen del corte documental").getByText("61", { exact: true })).toBeVisible();

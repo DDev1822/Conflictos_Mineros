@@ -16,6 +16,7 @@ import { loadObservatoryData } from "@/lib/content";
 import { getLatestPublicMiningCut } from "@/lib/mining-classification";
 import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import type { Source } from "@/lib/schemas";
+import { publicAsset } from "@/lib/public-assets";
 
 const sourceTypeLabels: Record<Source["type"], string> = {
   official: "estatales",
@@ -98,7 +99,7 @@ export default function HomePage() {
       <section className="home-visual-strip" aria-label="Evidencia visual documental">
         <figure>
           <Image
-            src="/multimedia/documents/evidencia-documental.webp"
+            src={publicAsset("/multimedia/documents/evidencia-documental.webp")}
             alt="Mesa de trabajo académica con documentos y fuentes de evidencia."
             width="1280"
             height="720"
@@ -112,7 +113,7 @@ export default function HomePage() {
         </figure>
         <figure>
           <Image
-            src="/multimedia/maps/territorio-minero.webp"
+            src={publicAsset("/multimedia/maps/territorio-minero.webp")}
             alt="Vista aérea de una operación minera usada como referencia territorial."
             width="1280"
             height="720"
@@ -126,7 +127,7 @@ export default function HomePage() {
         </figure>
         <figure>
           <Image
-            src="/multimedia/normativa/archivo-normativo.webp"
+            src={publicAsset("/multimedia/normativa/archivo-normativo.webp")}
             alt="Detalle de texto legislativo como referencia visual normativa."
             width="1280"
             height="720"

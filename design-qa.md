@@ -115,3 +115,42 @@ final result: passed
 3. La comparación final de 1195 × 723 px confirmó que no quedan textos recortados, líneas imperceptibles ni etiquetas sin protección. No fue necesario un recorte adicional: el lienzo completo permite comprobar las tres superficies señaladas.
 
 final result: passed
+
+## Recuperación de la capa visual del 29 de julio de 2026
+
+- Verdades visuales recibidas:
+  - `C:\Users\DeeDee\AppData\Local\Temp\codex-clipboard-71a7bc61-a3df-4318-855e-1a91ebc4ce08.png`.
+  - `C:\Users\DeeDee\AppData\Local\Temp\codex-clipboard-c78fa502-57ea-430a-969f-44f8d59399e1.png`.
+  - `C:\Users\DeeDee\AppData\Local\Temp\codex-clipboard-df35bcd2-b22d-4cf8-952e-53883cf1b6c6.png`.
+  - `C:\Users\DeeDee\AppData\Local\Temp\codex-clipboard-0172ab0d-f733-498c-a380-231512b01269.png`.
+- Implementaciones capturadas:
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\visual-layer-home-fixed.png`.
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\visual-layer-gold-intro-fixed-aligned.png`.
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\visual-layer-madre-fixed.png`.
+- Comparaciones conjuntas:
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\visual-layer-home-comparison.png`.
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\visual-layer-gold-comparison.png`.
+  - `C:\Users\DeeDee\.codex\visualizations\2026\07\29\019fac2b-044d-76f1-8dbb-aac3789a2768\visual-layer-madre-comparison.png`.
+- Viewport de implementación: 1920 × 911 CSS px, densidad 1.
+- Dimensiones de origen: 1920 × 1032 px con 121 px de cromo del navegador; región normalizada a 1920 × 911 px.
+- Dimensiones de implementación: 1920 × 911 px; comparaciones reducidas a dos paneles de 960 × 456 px.
+- Estados: portada inicial; Oro ilegal desplazado hasta la introducción probatoria; cabecera inicial de Madre de Dios.
+
+### Findings
+
+- No quedan hallazgos P0, P1 o P2 en la carga, el recorte o la integración de la capa visual.
+- Tipografía y copia permanecen sin cambios; la reparación recupera imágenes y fondos sin alterar la jerarquía editorial.
+- El espaciado, la grilla, los colores y los overlays conservan la composición previa.
+- Calidad de activos: los archivos WebP originales se renderizan en sus dimensiones naturales de 1280 × 720 o 1600 × 900, sin sustitutos ni marcadores de posición.
+- Las tres imágenes de la portada cargan con `naturalWidth: 1280`; las imágenes de Oro ilegal y Madre de Dios cargan con `naturalWidth: 1600`.
+- Los fondos de portada, Oro ilegal y textura territorial resuelven a recursos multimedia reales.
+- Interacciones comprobadas: navegación directa entre las tres rutas y carga diferida de la imagen territorial al entrar en viewport.
+- Errores de consola: 0.
+
+### Comparison history
+
+1. Las capturas de producción mostraban textos alternativos y superficies vacías porque las referencias apuntaban a `/multimedia/...`, fuera del subdirectorio público de GitHub Pages.
+2. La implementación centralizó la resolución de activos y antepuso `/Conflictos_Mineros` únicamente en el build de GitHub Pages, conservando las rutas locales sin prefijo.
+3. Las comparaciones conjuntas confirman la recuperación de la portada fotográfica, la introducción probatoria de Oro ilegal y la imagen territorial de Madre de Dios. El build estático contiene cero referencias multimedia sin prefijo.
+
+final result: passed
