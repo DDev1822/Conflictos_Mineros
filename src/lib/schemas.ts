@@ -541,6 +541,25 @@ export const madreDiosDevastationSchema = z.object({
   });
 });
 
+export const academicResearchItemSchema = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  title: z.string().min(10),
+  authors: z.array(z.string().min(3)).min(1),
+  year: z.number().int().min(1900).max(2100),
+  university: z.string().min(5),
+  degreeLevel: z.enum(["pregrado", "maestria", "doctorado"]),
+  repository: z.string().min(3),
+  recordUrl: z.url(),
+  resourceUrl: z.url().optional(),
+  accessStatus: z.enum(["open", "metadata-only", "restricted"]),
+  axis: z.enum(["conflictos-sociales-mineros", "mineria-ilegal-e-informal", "reinfo-y-formalizacion"]),
+  regions: z.array(z.string().min(2)).min(1),
+  caseSlugs: z.array(z.string().min(2)),
+  topics: z.array(z.string().min(3)).min(1),
+  editorialSummary: z.string().min(80),
+  cataloguedAt: z.iso.date(),
+});
+
 export const datasetSchema = z.object({
   sources: z.array(sourceSchema),
   actors: z.array(actorSchema),
@@ -563,6 +582,7 @@ export const datasetSchema = z.object({
   explorationTerritorialSnapshots: z.array(explorationTerritorialSnapshotSchema).min(1),
   miningConcessionTerritorialSnapshots: z.array(miningConcessionTerritorialSnapshotSchema).min(1),
   madreDiosDevastation: madreDiosDevastationSchema,
+  academicResearch: z.array(academicResearchItemSchema).min(1),
 });
 
 export type ObservatoryData = z.infer<typeof datasetSchema>;
@@ -583,6 +603,7 @@ export type CajamarcaSystemEntry = z.infer<typeof cajamarcaSystemEntrySchema>;
 export type InstitutionalMechanismsMatrix = z.infer<typeof institutionalMechanismsMatrixSchema>;
 export type InstitutionalMechanismEntry = z.infer<typeof institutionalMechanismEntrySchema>;
 export type NormativeIssue = z.infer<typeof normativeIssueSchema>;
+export type AcademicResearchItem = z.infer<typeof academicResearchItemSchema>;
 export type PolicyAlternative = z.infer<typeof policyAlternativeSchema>;
 export type SocialConflictRegion = z.infer<typeof socialConflictRegionSchema>;
 export type SocialConflictSnapshot = z.infer<typeof socialConflictSnapshotSchema>;

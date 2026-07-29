@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { datasetSchema, type ObservatoryData } from "./schemas";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "data");
-const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "evidenceRecords", "caseResearchPackets", "commitmentComparison", "legalResearchPackets", "cajamarcaSystemMatrix", "institutionalMechanisms", "alternatives", "socialConflictSnapshots", "socialConflictCases", "miningConflictSelections", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots", "explorationTerritorialSnapshots", "miningConcessionTerritorialSnapshots", "madreDiosDevastation"] as const;
+const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "evidenceRecords", "caseResearchPackets", "commitmentComparison", "legalResearchPackets", "cajamarcaSystemMatrix", "institutionalMechanisms", "alternatives", "socialConflictSnapshots", "socialConflictCases", "miningConflictSelections", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots", "explorationTerritorialSnapshots", "miningConcessionTerritorialSnapshots", "madreDiosDevastation", "academicResearch"] as const;
 
 function readYaml<T>(name: string): T {
   const file = path.join(CONTENT_ROOT, `${name}.yaml`);
@@ -62,6 +62,7 @@ function assertReferences(data: ObservatoryData) {
     check([snapshot.sourceId], "sources", `Corte territorial ${snapshot.id}`);
   });
   const caseIds = new Set(data.cases.map((item) => item.id));
+  const caseSlugs = new Set(data.cases.map((item) => item.slug));
   const caseEntityIds = new Set(data.cases.flatMap((item) => [item.id, ...item.timeline.map((event) => event.id), ...item.claims.map((claim) => claim.id)]));
   data.evidenceRecords.forEach((record) => {
     check([record.sourceId], "sources", `Evidencia ${record.id}`);
@@ -110,6 +111,10 @@ function assertReferences(data: ObservatoryData) {
   });
   data.miningConcessionTerritorialSnapshots.forEach((snapshot) => {
     check([snapshot.sourceId], "sources", `Corte territorial de concesiones ${snapshot.id}`);
+  });
+  data.academicResearch.forEach((item) => {
+    const missingCaseSlugs = item.caseSlugs.filter((slug) => !caseSlugs.has(slug));
+    if (missingCaseSlugs.length) throw new Error(`Investigación ${item.id} referencia casos inexistentes: ${missingCaseSlugs.join(", ")}`);
   });
   check([...data.madreDiosDevastation.sourceIds, data.madreDiosDevastation.documentedTotal.sourceId, data.madreDiosDevastation.recentRate.sourceId], "sources", `Devastación Madre de Dios ${data.madreDiosDevastation.id}`);
   const snapshotById = new Map(data.socialConflictSnapshots.map((snapshot) => [snapshot.id, snapshot]));
