@@ -37,7 +37,7 @@ export default function AcademicLibraryPage() {
 
       <section className="library-stats" aria-label="Cobertura de la biblioteca">
         <article><strong>{items.length}</strong><span>Investigaciones</span><small>Con ficha y enlace al registro académico.</small></article>
-        <article><strong>{universityCount}</strong><span>Universidades</span><small>Archivos universitarios reunidos por ALICIA.</small></article>
+        <article><strong>{universityCount}</strong><span>Universidades</span><small>Registros de ALICIA y archivos académicos.</small></article>
         <article><strong>{caseCount}</strong><span>Casos conectados</span><small>Las relaciones no sustituyen la evidencia primaria.</small></article>
         <article><strong>3</strong><span>Niveles de grado</span><small>{Object.values(degreeLabels).join(" · ")}.</small></article>
       </section>
@@ -70,7 +70,8 @@ export default function AcademicLibraryPage() {
           <p className="eyebrow">Criterio de inclusión</p>
           <h2>Qué entra y qué queda fuera</h2>
           <p>
-            Se incluyen tesis universitarias con metadatos identificables, relación directa con minería en el Perú y ficha verificable en ALICIA.
+            Se incluyen tesis universitarias con metadatos identificables, relación directa con minería en el Perú y ficha verificable en ALICIA
+            o en el archivo académico institucional de la universidad.
             Se priorizan estudios sobre los casos desarrollados por el observatorio. No se reproducen resúmenes completos ni se convierten
             conclusiones académicas en afirmaciones propias.
           </p>
