@@ -39,6 +39,26 @@ test.describe("publicación V2 en escritorio", () => {
     expect(brokenMultimediaResponses).toEqual([]);
   });
 
+  test("integra la firma DrillStone sin publicar la variante RoadLab", async ({ page }) => {
+    const brokenBrandResponses: string[] = [];
+    page.on("response", (response) => {
+      if (response.url().includes("/brand/drillstone/") && response.status() >= 400) brokenBrandResponses.push(response.url());
+    });
+
+    await page.goto("/");
+    await page.waitForLoadState("networkidle");
+
+    const mark = page.locator('.brand img[src*="drillstone-mark.png"]');
+    const wordmark = page.locator('.site-footer img[src*="drillstone-wordmark.png"]');
+    await expect(mark).toBeVisible();
+    await wordmark.scrollIntoViewIfNeeded();
+    await expect(wordmark).toBeVisible();
+    await expect.poll(async () => mark.evaluate((image) => image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0)).toBe(true);
+    await expect.poll(async () => wordmark.evaluate((image) => image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0)).toBe(true);
+    expect(await page.locator('img[src*="roadlab" i]').count()).toBe(0);
+    expect(brokenBrandResponses).toEqual([]);
+  });
+
   test("abre el mapa con enfoque minero sin alternar al registro social completo", async ({ page }) => {
     await page.goto("/mapa");
     await expect(page.getByLabel("Resumen del corte documental").getByText("61", { exact: true })).toBeVisible();
