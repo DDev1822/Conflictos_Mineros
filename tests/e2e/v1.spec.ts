@@ -421,6 +421,25 @@ test.describe("publicación V2 en escritorio", () => {
   });
 });
 
+test.describe("publicación V2 en tableta", () => {
+  test.use({ viewport: { width: 900, height: 900 } });
+
+  test("la ficha de caso cambia a una columna y el menú evita overflow horizontal", async ({ page }) => {
+    await page.goto("/conflictos/rio-blanco-majaz");
+
+    const menuButton = page.getByRole("button", { name: "Abrir navegación" });
+    const navigation = page.getByRole("navigation", { name: "Navegación principal" });
+    await expect(menuButton).toBeVisible();
+    await expect(navigation).toBeHidden();
+    await expect(page.locator(".case-academic-card")).toHaveCount(2);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+
+    await menuButton.click();
+    await expect(navigation).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  });
+});
+
 test.describe("publicación V2 móvil", () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
