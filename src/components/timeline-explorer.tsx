@@ -21,7 +21,7 @@ const timelineKindLabels: Record<TimelineKind, string> = {
   event: "Evento",
   decision: "Decisión",
   agreement: "Acuerdo",
-  evidence: "Evidencia",
+  evidence: "Resultado",
   publication: "Publicación",
 };
 
@@ -192,7 +192,7 @@ export function TimelineExplorer({ data }: { data: ObservatoryData }) {
                       <h2>{event.title}</h2>
                       <p>{event.summary}</p>
                       <div className="timeline-card-evidence">
-                        <span>{event.sources.length} fuente(s): {sourceInstitutions.join(", ") || "fuente en contraste"}</span>
+                        <span>{event.sources.length} enlace(s): {sourceInstitutions.join(", ") || "información relacionada"}</span>
                         <span>{event.locators.length} referencia(s) exacta(s)</span>
                       </div>
                       <div className="timeline-card-sources">

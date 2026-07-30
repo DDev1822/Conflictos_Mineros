@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowRight, ChatCircleText, MagnifyingGlass, UsersThree } from "@phosphor-icons/react/dist/ssr";
 
 const githubIssueUrl = "https://github.com/DDev1822/Conflictos_Mineros/issues/new";
@@ -7,30 +6,30 @@ export function ContactBand() {
   return (
     <section className="contact-band" aria-labelledby="contact-band-heading">
       <div className="contact-band-intro">
-        <p className="eyebrow">Contacto y colaboración</p>
-        <h2 id="contact-band-heading">¿Quieres aportar evidencia, señalar algo o sumarte al equipo?</h2>
+        <p className="eyebrow">Participa en el observatorio</p>
+        <h2 id="contact-band-heading">¿Tienes datos, conoces un caso o quieres colaborar?</h2>
         <p>
-          El observatorio mejora con fuentes trazables, correcciones precisas y revisión colectiva. Cada aporte debe separar
-          hecho, interpretación y propuesta, idealmente con fuente, ubicación exacta y fecha de consulta.
+          Buscamos aportes de comunidades, investigadores, periodistas, organizaciones, instituciones y especialistas para
+          ampliar los datos territoriales, corregir errores y desarrollar nuevos análisis.
         </p>
       </div>
       <div className="contact-band-actions">
         <article>
           <MagnifyingGlass size={24} />
-          <h3>Aportar una fuente</h3>
-          <p>Envía documento, enlace, página o sección exacta y qué afirmación sostiene, matiza o contradice.</p>
-          <Link href="/metodologia#correcciones">Ver reglas de corrección <ArrowRight size={16} /></Link>
+          <h3>Compartir datos</h3>
+          <p>Envía bases, mapas, reportes, estudios o información territorial que ayude a completar un caso o tema.</p>
+          <a href={`${githubIssueUrl}?title=Aporte%20de%20datos%3A%20&labels=documentacion`}>Proponer un aporte <ArrowRight size={16} /></a>
         </article>
         <article>
           <ChatCircleText size={24} />
           <h3>Señalar un error</h3>
-          <p>Indica página, texto observado, fuente de contraste y cambio sugerido.</p>
-          <a href={`${githubIssueUrl}?title=Correccion%20documental%3A%20&labels=documentacion`}>Enviar corrección <ArrowRight size={16} /></a>
+          <p>Indica la página, el dato que debe corregirse y la referencia pública que permita revisarlo.</p>
+          <a href={`${githubIssueUrl}?title=Correccion%3A%20&labels=documentacion`}>Enviar corrección <ArrowRight size={16} /></a>
         </article>
         <article>
           <UsersThree size={24} />
           <h3>Sumarse al equipo</h3>
-          <p>Hay espacio para revisión documental, datos, cartografía, diseño y lectura territorial.</p>
+          <p>Hay espacio para investigación, datos, cartografía, diseño, desarrollo y lectura territorial.</p>
           <a href={`${githubIssueUrl}?title=Colaboracion%3A%20&labels=colaboracion`}>Proponer colaboración <ArrowRight size={16} /></a>
         </article>
       </div>

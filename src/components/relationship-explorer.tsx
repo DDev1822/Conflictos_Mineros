@@ -137,7 +137,7 @@ const graphNodes: GraphNodeDefinition[] = [
   {
     id: "conflicto-social-minero",
     title: "Conflicto social minero",
-    subtitle: "Territorio, agua, acuerdos y cumplimiento documentado",
+    subtitle: "Territorio, agua, acuerdos y capacidad estatal",
     layer: "Problema público",
     tone: "social",
     role: "root",
@@ -149,7 +149,7 @@ const graphNodes: GraphNodeDefinition[] = [
   {
     id: "mineria-ilegal-informal",
     title: "Minería ilegal e informal",
-    subtitle: "Ilegalidad, informalidad, MAPE, fiscalización y trazabilidad",
+    subtitle: "Ilegalidad, informalidad, MAPE y fiscalización",
     layer: "Problema público",
     tone: "illegal",
     role: "root",
@@ -161,7 +161,7 @@ const graphNodes: GraphNodeDefinition[] = [
   {
     id: "solapamiento-territorial",
     title: "Solapamiento territorial",
-    subtitle: "Cruza evidencia, gobernanza y presión institucional",
+    subtitle: "Cruza territorio, gobernanza y presión institucional",
     layer: "Puente analítico",
     tone: "bridge",
     role: "bridge",
@@ -173,7 +173,7 @@ const graphNodes: GraphNodeDefinition[] = [
   {
     id: "casos-hito",
     title: "Casos hito",
-    subtitle: "Cronologías, actores y fuentes por caso",
+    subtitle: "Historias, actores y problemas por caso",
     layer: "Casos",
     tone: "social",
     role: "node",
@@ -184,7 +184,7 @@ const graphNodes: GraphNodeDefinition[] = [
   },
   {
     id: "actores-acuerdos",
-    title: "Actores y actas",
+    title: "Actores y acuerdos",
     subtitle: "Comunidades, Estado, empresa y acuerdos",
     layer: "Relación",
     tone: "social",
@@ -198,7 +198,7 @@ const graphNodes: GraphNodeDefinition[] = [
     id: "reinfo",
     title: "REINFO",
     subtitle: "Registro administrativo agregado; no es conflicto social",
-    layer: "Eje documental",
+    layer: "Formalización",
     tone: "instrument",
     role: "root",
     icon: ShieldCheck,
@@ -209,7 +209,7 @@ const graphNodes: GraphNodeDefinition[] = [
   {
     id: "fiscalizacion",
     title: "Fiscalización",
-    subtitle: "Supervisión y control documental",
+    subtitle: "Supervisión, operativos y sanciones",
     layer: "Control",
     tone: "control",
     role: "node",
@@ -222,7 +222,7 @@ const graphNodes: GraphNodeDefinition[] = [
     id: "evidencia-ambiental",
     title: "Monitoreo ambiental",
     subtitle: "Dato técnico sin causalidad inferida",
-    layer: "Evidencia",
+    layer: "Ambiente",
     tone: "evidence",
     role: "node",
     icon: BookOpenText,
@@ -232,9 +232,9 @@ const graphNodes: GraphNodeDefinition[] = [
   },
   {
     id: "matriz-documental",
-    title: "Sustento documental",
-    subtitle: "Fuentes directas y referencias precisas",
-    layer: "Evidencia",
+    title: "Construcción de datos",
+    subtitle: "Unidades, cálculos y actualizaciones",
+    layer: "Método",
     tone: "bridge",
     role: "node",
     icon: TreeStructure,
@@ -268,8 +268,8 @@ const graphNodes: GraphNodeDefinition[] = [
   },
   {
     id: "trazabilidad-oro",
-    title: "Trazabilidad del oro",
-    subtitle: "Origen y controles de cadena",
+    title: "Cadena del oro",
+    subtitle: "Extracción, transporte y mercado",
     layer: "Cadena",
     tone: "illegal",
     role: "node",
@@ -297,210 +297,130 @@ const focusRelations: Record<GraphFocus, GraphFocus[]> = {
 
 const focusDetails: Record<GraphFocus, FocusDetail> = {
   "conflicto-social-minero": {
-    kicker: "Relaciones del conflicto",
-    title: "Conflicto social minero",
-    summary: "Relaciona los conflictos sociales mineros con territorio, agua, acuerdos, actores y fuentes. El punto de partida cuantitativo es el corte de la Defensoría del Pueblo.",
-    evidenceTitle: "Información disponible",
-    evidenceItems: ["corte nacional de conflictos sociales mineros", "casos desarrollados con cronología y fuentes", "temas de agua, participación, beneficios y acuerdos"],
-    disputeTitle: "Límites de interpretación",
-    disputeItems: ["conflicto social no equivale a protesta aislada", "causalidad ambiental solo si una fuente técnica la formula", "desacuerdos y estados abiertos permanecen atribuidos"],
-    nextStep: "Abrir cada caso y su cronología antes de formular interpretaciones; los hitos enlazan la fuente y su ubicación exacta cuando está disponible.",
-    sourceIds: ["defensoria-conflictos", "defensoria-acuerdos-187", "defensoria-conflictos-hidricos"],
-    caseIds: allCaseIds,
+    kicker: "Conflictos y territorio", title: "Conflicto social minero",
+    summary: "Conecta agua, tierra, participación, acuerdos y capacidad estatal en el corte nacional de la Defensoría del Pueblo.",
+    evidenceTitle: "Componentes", evidenceItems: ["casos hito con secuencia histórica", "contrastes territoriales entre regiones", "agua, participación, beneficios y acuerdos"],
+    disputeTitle: "Puntos de presión", disputeItems: ["escalamiento de protestas", "decisiones ambientales discutidas", "acuerdos con resultados desiguales"],
+    nextStep: "Abre un caso para ver su historia, actores, hallazgos y enlaces.",
+    sourceIds: ["defensoria-conflictos", "defensoria-acuerdos-187", "defensoria-conflictos-hidricos"], caseIds: allCaseIds,
     issueIds: ["agua-cuencas", "dialogo-acuerdos", "beneficios-territoriales", "consulta-participacion"],
     routeLinks: [
-      { label: "Ver catálogo de casos", href: "/conflictos", description: "Casos sociales mineros con cronología y fuentes." },
-      { label: "Ver cronología comparada", href: "/cronologia", description: "Hitos documentados por caso." },
-      { label: "Ver mapa territorial", href: "/mapa", description: "Capa espacial de conflictos y registros territoriales." },
+      { label: "Ver casos", href: "/conflictos", description: "Historias, actores y problemas centrales." },
+      { label: "Ver cronología", href: "/cronologia", description: "Hitos comparados entre casos." },
+      { label: "Ver mapa", href: "/mapa", description: "Distribución territorial y capas mineras." },
     ],
   },
   "mineria-ilegal-informal": {
-    kicker: "Ventana B",
-    title: "Minería ilegal e informal",
-    summary: "Separa menciones de minería ilegal, minería informal, MAPE, REINFO, fiscalización y trazabilidad; el solapamiento textual no se convierte en determinación individual.",
-    evidenceTitle: "Cortes conectados",
-    evidenceItems: ["menciones explícitas de minería ilegal e informal en el corte social minero", "REINFO vigente como registro administrativo", "controles de origen y comercialización del oro"],
-    disputeTitle: "Límites probatorios",
-    disputeItems: ["informalidad e ilegalidad no son equivalentes", "inscripción REINFO no acredita formalización concluida", "Madre de Dios es caso profundo, no plantilla nacional"],
-    nextStep: "Contrastar REINFO/MAPE con fiscalización, trazabilidad y fuentes territoriales antes de formular una conclusión pública.",
-    sourceIds: ["minem-reinfo", "minem-reinfo-vigente-corte-2026-06-18", "minem-rd-0004-2025-reinfo-exclusiones", "minem-comunicado-reinfo-2025"],
-    issueIds: ["formalizacion-mape", "competencias-estado"],
-    actorIds: ["mineros-mape", "minem", "gobiernos-subnacionales"],
+    kicker: "Economía y territorio", title: "Minería ilegal e informal",
+    summary: "Separa minería ilegal, actividad informal, MAPE y REINFO para mostrar sus relaciones con extracción, transporte, procesamiento y control estatal.",
+    evidenceTitle: "Componentes", evidenceItems: ["frentes aluviales y filonianos", "REINFO y proceso de formalización", "rutas, plantas y comercialización"],
+    disputeTitle: "Puntos críticos", disputeItems: ["violencia organizada en Pataz", "deforestación y mercurio en Madre de Dios", "baja salida hacia la formalidad"],
+    nextStep: "Compara REINFO, Pataz, Madre de Dios y la cadena económica del oro.",
+    sourceIds: ["minem-reinfo", "minem-reinfo-vigente-corte-2026-06-18", "pcm-operativos-mineria-ilegal-2026"],
+    issueIds: ["formalizacion-mape", "competencias-estado"], actorIds: ["mineros-mape", "minem", "gobiernos-subnacionales"],
     routeLinks: [
-      { label: "Abrir REINFO / MAPE", href: "/reinfo", description: "Registro y proceso de formalización." },
-      { label: "Ver Madre de Dios", href: "/madre-de-dios", description: "Análisis territorial para diferenciar deforestación minera, REINFO, ilegalidad y trazabilidad." },
-      { label: "Ver cadena del oro", href: "/oro-ilegal", description: "Extracción, acopio, procesamiento, comercialización y controles." },
-      { label: "Ver nudo normativo", href: "/normativa#formalizacion-mape", description: "Formalización de la MAPE y REINFO." },
+      { label: "Abrir REINFO", href: "/reinfo", description: "Resultados y distribución regional." },
+      { label: "Ver Madre de Dios", href: "/madre-de-dios", description: "Bosque, mercurio, salud y Tambopata." },
+      { label: "Ver Pataz", href: "/pataz", description: "Violencia, socavones, camiones y plantas." },
+      { label: "Ver cadena del oro", href: "/oro-ilegal", description: "Extracción, transporte, procesamiento y mercado." },
     ],
   },
   "solapamiento-territorial": {
-    kicker: "Puente analítico",
-    title: "Solapamiento territorial",
-    summary: "Relaciona territorio, información ambiental, gobernanza y capacidad estatal. La proximidad o coincidencia territorial no demuestra por sí sola una relación causal.",
-    evidenceTitle: "Cruces documentados",
-    evidenceItems: ["mapa y registro regional", "fuentes ambientales y de agua", "competencias estatales concurrentes"],
-    disputeTitle: "Límites de interpretación",
-    disputeItems: ["el cruce territorial no fusiona categorías administrativas", "la evidencia técnica requiere alcance, fecha y entidad", "los conflictos pueden permanecer abiertos"],
-    nextStep: "Usar el mapa para observar la distribución territorial y luego abrir el caso o la fuente correspondiente.",
-    sourceIds: ["ana-agua", "oefa-fiscalizacion", "defensoria-conflictos"],
-    caseIds: ["espinar", "las-bambas"],
+    kicker: "Cruce territorial", title: "Solapamiento territorial",
+    summary: "Compara dónde coinciden conflictos, operaciones, REINFO, plantas, exploración y concesiones para identificar presión institucional.",
+    evidenceTitle: "Capas", evidenceItems: ["conflictos por región", "agua y ambiente", "competencias concurrentes"],
+    disputeTitle: "Lecturas útiles", disputeItems: ["concentración regional", "presión sobre cuencas", "superposición de autoridades"],
+    nextStep: "Usa el mapa para comparar capas y abre la página temática correspondiente.",
+    sourceIds: ["ana-agua", "oefa-fiscalizacion", "defensoria-conflictos"], caseIds: ["espinar", "las-bambas"],
     issueIds: ["competencias-estado", "agua-cuencas", "fiscalizacion-ambiental"],
-    routeLinks: [
-      { label: "Ver mapa completo", href: "/mapa", description: "Distribución regional de conflictos sociales mineros y casos documentados." },
-      { label: "Ver metodología", href: "/metodologia#principios", description: "Separación entre hecho, interpretación y propuesta." },
-    ],
+    routeLinks: [{ label: "Ver mapa completo", href: "/mapa", description: "Capas territoriales activables." }],
   },
   "casos-hito": {
-    kicker: "Casos documentados",
-    title: "Casos hito",
-    summary: "Cada caso presenta su cronología, actores, afirmaciones documentadas, fuentes y estado a la fecha de corte.",
-    evidenceTitle: "Casos enlazados",
-    evidenceItems: ["casos sociales mineros desarrollados", "cronología documentada por caso", "afirmaciones diferenciadas entre hechos e interpretación"],
-    disputeTitle: "Criterios de lectura",
-    disputeItems: ["los hitos relevantes remiten a fuentes directas", "la página o sección exacta permite contrastar la información", "el estado al corte evita generalizaciones posteriores"],
-    nextStep: "Abrir cada caso y revisar primero su cronología documentada.",
-    sourceIds: ["metodologia-observatorio", "defensoria-conflictos"],
-    caseIds: allCaseIds,
-    routeLinks: [
-      { label: "Ver todos los casos", href: "/conflictos", description: "Catálogo de conflictos sociales mineros desarrollados." },
-      { label: "Ver cronología", href: "/cronologia", description: "Hitos comparados entre casos." },
-    ],
+    kicker: "Historias clave", title: "Casos hito",
+    summary: "Reúne conflictos que cambiaron las reglas, la política o la relación territorial de la minería peruana.",
+    evidenceTitle: "Contenido", evidenceItems: ["secuencia del conflicto", "actores y problemas centrales", "estudios académicos relacionados"],
+    disputeTitle: "Patrones", disputeItems: ["agua y confianza", "salud y reparación", "reasentamiento y acuerdos"],
+    nextStep: "Filtra los casos por estado, territorio o tema.",
+    sourceIds: ["defensoria-conflictos"], caseIds: allCaseIds,
+    routeLinks: [{ label: "Ver todos los casos", href: "/conflictos", description: "Catálogo temático e interactivo." }, { label: "Ver cronología", href: "/cronologia", description: "Cambios a través del tiempo." }],
   },
   "actores-acuerdos": {
-    kicker: "Relación",
-    title: "Actores y actas",
-    summary: "Relaciona comunidades, entidades del Estado, empresas, organizaciones, actas y acuerdos por caso. Los comunicados expresan la posición de quien los emite y no demuestran por sí solos el cumplimiento.",
-    evidenceTitle: "Actores y documentos",
-    evidenceItems: ["actores vinculados con cada caso", "actas, acuerdos y compromisos", "posiciones directas de las partes involucradas"],
-    disputeTitle: "Contradicciones abiertas",
-    disputeItems: ["no homogeneizar comunidades", "no tomar comunicado corporativo como verificación", "no ocultar contradicciones abiertas"],
-    nextStep: "Abrir los casos y contrastar actores con fuentes directas disponibles.",
-    sourceIds: ["defensoria-acuerdos-187", "las-bambas-actas-2025"],
-    caseIds: ["las-bambas", "espinar"],
+    kicker: "Gobernanza", title: "Actores y acuerdos",
+    summary: "Relaciona comunidades, Estado, empresas y organizaciones con compromisos sobre agua, inversión, empleo, transporte y diálogo.",
+    evidenceTitle: "Quién participa", evidenceItems: ["comunidades y organizaciones", "entidades públicas", "empresas y operadores"],
+    disputeTitle: "Dónde se atasca", disputeItems: ["responsable difuso", "plazos móviles", "resultados parciales"],
+    nextStep: "Compara compromisos por responsable, territorio y situación.",
+    sourceIds: ["defensoria-acuerdos-187", "las-bambas-actas-2025"], caseIds: ["las-bambas", "espinar"],
     actorIds: ["comunidades-cotabambas", "comunidades-espinar", "minem"],
-    routeLinks: [
-      { label: "Ver Las Bambas", href: "/conflictos/las-bambas", description: "Actas, acuerdos y corredor minero." },
-      { label: "Ver Espinar", href: "/conflictos/espinar", description: "Salud ambiental, acuerdos y actores." },
-    ],
+    routeLinks: [{ label: "Comparar compromisos", href: "/compromisos", description: "Responsables, situación y resultados." }, { label: "Ver Las Bambas", href: "/conflictos/las-bambas", description: "Corredor, comunidades y acuerdos." }],
   },
   reinfo: {
-    kicker: "Eje documental independiente",
-    title: "REINFO",
-    summary: "Registro administrativo del proceso de formalización MAPE. Se presenta separado de los conflictos sociales mineros y no acredita formalización concluida por sí solo.",
-    evidenceTitle: "Corte registral",
-    evidenceItems: ["registro vigente y fecha de corte", "exclusiones y comunicados aplicables", "diferencia entre inscripción y formalización concluida"],
-    disputeTitle: "Límite documental",
-    disputeItems: ["no equivale automáticamente a formalidad", "no borra categorías de ilegalidad o informalidad", "requiere fuente y alcance para afirmaciones públicas"],
-    nextStep: "Abrir REINFO/MAPE y consultar la fuente oficial del registro con fecha de corte.",
-    sourceIds: ["minem-reinfo", "minem-reinfo-vigente-corte-2026-06-18", "minem-rd-0004-2025-reinfo-exclusiones", "minem-comunicado-reinfo-2025"],
+    kicker: "Formalización minera", title: "REINFO",
+    summary: "Muestra cuántas inscripciones siguen vigentes, dónde se concentran y cuántas personas culminaron la formalización.",
+    evidenceTitle: "Indicadores", evidenceItems: ["inscripciones vigentes por departamento", "exclusiones de 2025", "formalizaciones acumuladas"],
+    disputeTitle: "Problemas centrales", disputeItems: ["2,4% de formalización acumulada informada", "prórrogas sucesivas", "ubicación real pendiente de sinceramiento"],
+    nextStep: "Explora los departamentos y compara la permanencia registral con los resultados.",
+    sourceIds: ["minem-reinfo", "minem-reinfo-vigente-corte-2026-06-18", "pcm-reinfo-formalizacion-2025", "bcrp-memoria-2025-reinfo"],
     issueIds: ["formalizacion-mape"],
-    routeLinks: [
-      { label: "Abrir REINFO / MAPE", href: "/reinfo", description: "Registro administrativo y formalización." },
-      { label: "Ver norma vinculada", href: "/normativa#formalizacion-mape", description: "Nudo normativo de formalización." },
-    ],
+    routeLinks: [{ label: "Abrir REINFO", href: "/reinfo", description: "Cifras, explorador regional e historia reciente." }],
   },
   fiscalizacion: {
-    kicker: "Control",
-    title: "Fiscalización",
-    summary: "Conecta informes técnicos, competencia estatal, control ambiental y operativos contra minería ilegal; un hallazgo o operativo no cierra responsabilidad ni conflicto territorial.",
-    evidenceTitle: "Documentos de control",
-    evidenceItems: ["informes técnicos", "operativos y actuaciones de control", "competencia de la autoridad que emite el documento"],
-    disputeTitle: "Precaución",
-    disputeItems: ["hallazgo no equivale a responsabilidad final", "medición no equivale a causalidad cerrada", "operativo no resuelve conflicto territorial"],
-    nextStep: "Abrir nudos de fiscalización y verificar fuente, fecha, alcance y entidad emisora.",
-    sourceIds: ["oefa-fiscalizacion", "sernanp-operativo-tambopata-2025", "pcm-operativos-mineria-ilegal-2025", "pcm-estrategia-mineria-ilegal-2025"],
-    caseIds: ["madre-de-dios", "espinar"],
-    issueIds: ["fiscalizacion-ambiental", "competencias-estado"],
-    routeLinks: [
-      { label: "Ver nudo de fiscalización", href: "/normativa#fiscalizacion-ambiental", description: "Fiscalización ambiental y cumplimiento." },
-      { label: "Ver Madre de Dios", href: "/madre-de-dios", description: "Operativos, REINFO y control territorial." },
-    ],
+    kicker: "Capacidad estatal", title: "Fiscalización",
+    summary: "Conecta supervisión ambiental, control de insumos, operativos y sanciones con los resultados observados en territorio.",
+    evidenceTitle: "Áreas de control", evidenceItems: ["ambiente y salud", "combustible y explosivos", "transporte y comercialización"],
+    disputeTitle: "Fallas visibles", disputeItems: ["autoridades fragmentadas", "respuesta posterior al escalamiento", "seguimiento insuficiente"],
+    nextStep: "Compara operativos con resultados sostenidos sobre bosque, violencia y rutas.",
+    sourceIds: ["oefa-fiscalizacion", "sernanp-tambopata-balance-2025", "pcm-operativos-mineria-ilegal-2026"],
+    caseIds: ["madre-de-dios", "espinar"], issueIds: ["fiscalizacion-ambiental", "competencias-estado"],
+    routeLinks: [{ label: "Ver normas", href: "/normativa#fiscalizacion-ambiental", description: "Competencias y fallas de aplicación." }, { label: "Ver Madre de Dios", href: "/madre-de-dios", description: "Mercurio, operativos y Tambopata." }],
   },
   "evidencia-ambiental": {
-    kicker: "Evidencia",
-    title: "Monitoreo ambiental",
-    summary: "Reúne información técnica vinculada con Espinar, Conga y controversias sobre agua o fiscalización. Cada lectura conserva alcance, entidad emisora y fecha.",
-    evidenceTitle: "Fuentes técnicas",
-    evidenceItems: ["monitoreos e informes", "fuentes de agua y ambiente", "alcance territorial y temporal"],
-    disputeTitle: "Límites de interpretación",
-    disputeItems: ["no inferir causalidad no respaldada", "no omitir contradicciones", "no mezclar evidencia técnica con conclusión política"],
-    nextStep: "Abrir los casos de Espinar y Conga o los nudos de agua/fiscalización para leer el alcance de cada fuente.",
+    kicker: "Ambiente y salud", title: "Monitoreo ambiental",
+    summary: "Relaciona mediciones de agua, aire, metales y bosque con decisiones de fiscalización y respuesta sanitaria.",
+    evidenceTitle: "Qué se mide", evidenceItems: ["calidad de agua y aire", "metales y exposición", "deforestación y cambio territorial"],
+    disputeTitle: "Problemas operativos", disputeItems: ["series discontinuas", "métodos no comparables", "respuesta tardía"],
+    nextStep: "Abre Espinar, La Oroya, Conga o Madre de Dios según el indicador.",
     sourceIds: ["oefa-fiscalizacion", "ana-agua", "espinar-sociospatial-2025", "conga-millones-2016"],
-    caseIds: ["espinar", "conga"],
-    issueIds: ["fiscalizacion-ambiental", "agua-cuencas", "certificacion-ambiental"],
-    routeLinks: [
-      { label: "Ver Espinar", href: "/conflictos/espinar", description: "Salud ambiental, monitoreo y controversia." },
-      { label: "Ver Conga", href: "/conflictos/conga", description: "Agua, EIA y estado documentado." },
-      { label: "Ver nudo de agua", href: "/normativa#agua-cuencas", description: "Agua, cuencas y prioridades de uso." },
-    ],
+    caseIds: ["espinar", "conga"], issueIds: ["fiscalizacion-ambiental", "agua-cuencas", "certificacion-ambiental"],
+    routeLinks: [{ label: "Ver Espinar", href: "/conflictos/espinar", description: "Salud, monitoreo y medidas correctivas." }, { label: "Ver Madre de Dios", href: "/madre-de-dios", description: "Mercurio y pérdida de bosque." }],
   },
   "matriz-documental": {
-    kicker: "Sustento documental",
-    title: "Cómo se sustenta la información",
-    summary: "Las afirmaciones y los hitos enlazan fuentes directas y, cuando es posible, la página, sección, tabla o artículo donde aparece la información.",
-    evidenceTitle: "Referencias utilizadas",
-    evidenceItems: ["fuente directa", "página, sección, tabla o artículo", "indicación de si la fuente sustenta, matiza o contradice una afirmación"],
-    disputeTitle: "Criterios de lectura",
-    disputeItems: ["la referencia precisa facilita el contraste", "las afirmaciones relevantes requieren respaldo directo", "el uso de cada fuente respeta sus condiciones de acceso y cita"],
-    nextStep: "Consultar la metodología para conocer cómo se seleccionan, contrastan y presentan las fuentes.",
-    sourceIds: ["metodologia-observatorio"],
-    issueIds: ["competencias-estado"],
-    routeLinks: [
-      { label: "Ver metodología", href: "/metodologia#fuentes", description: "Criterios de evidencia, fuentes y comprobación." },
-      { label: "Ver límites probatorios", href: "/metodologia#revision", description: "Límites académicos, evidencia y contraste." },
-      { label: "Ver normativa", href: "/normativa", description: "Instrumentos conectados y preguntas de aplicación." },
-    ],
+    kicker: "Construcción de datos", title: "Cómo se construyen los indicadores",
+    summary: "Explica las unidades, clasificaciones, cálculos y fechas de actualización del observatorio.",
+    evidenceTitle: "Unidades", evidenceItems: ["casos e inscripciones", "plantas y expedientes", "derechos mineros y hectáreas"],
+    disputeTitle: "Cálculos", disputeItems: ["participación regional", "ritmo de deforestación", "proyección lineal"],
+    nextStep: "Consulta cómo se calcula cada indicador y qué representa cada capa.",
+    sourceIds: ["metodologia-observatorio"], issueIds: ["competencias-estado"],
+    routeLinks: [{ label: "Ver metodología", href: "/metodologia", description: "Universos, clasificaciones y cálculos." }, { label: "Ver mapa", href: "/mapa", description: "Capas activables por unidad." }],
   },
   "cajamarca-system": {
-    kicker: "Lectura territorial",
-    title: "Conflictos mineros en Cajamarca",
-    summary: "Lee Quilish, Conga, Máxima Acuña y Michiquillay como una red territorial: cada hito conserva documento, controversia, límite probatorio y pregunta de fondo.",
-    evidenceTitle: "Hitos estructurados",
-    evidenceItems: ["hitos de Cajamarca con referencias precisas", "fuentes incorporadas a cada caso", "relaciones entre agua, potestad local, propiedad, beneficios y estado del proyecto"],
-    disputeTitle: "Límites de interpretación",
-    disputeItems: ["no fusiona Quilish, Conga, Acuña y Michiquillay como un solo caso", "no convierte absolución penal en propiedad civil", "no trata fondo social o pago contractual como impacto territorial verificado"],
-    nextStep: "Abrir cada caso y contrastar sus fuentes sin tratar los conflictos de Cajamarca como una única historia o causalidad regional.",
-    sourceIds: [],
-    caseIds: ["conga"],
-    issueIds: ["agua-cuencas", "beneficios-territoriales", "competencias-estado"],
-    routeLinks: [
-      { label: "Ver casos de Cajamarca", href: "/conflictos", description: "Entrada comparada desde los casos documentados." },
-      { label: "Ver Conga", href: "/conflictos/conga", description: "Caso vinculado con la lectura territorial de Cajamarca." },
-    ],
+    kicker: "Lectura territorial", title: "Conflictos mineros en Cajamarca",
+    summary: "Relaciona Choropampa, Quilish, Conga, Máxima Acuña y Michiquillay a través de agua, salud, tierra, autoridad local y beneficios.",
+    evidenceTitle: "Secuencia regional", evidenceItems: ["emergencia por mercurio", "defensa de cuencas", "disputas prediales y beneficios"],
+    disputeTitle: "Problemas compartidos", disputeItems: ["confianza institucional", "agua y territorio", "continuidad de compromisos"],
+    nextStep: "Abre cada caso para comparar cómo cambia el problema entre periodos y actores.",
+    sourceIds: [], caseIds: ["conga"], issueIds: ["agua-cuencas", "beneficios-territoriales", "competencias-estado"],
+    routeLinks: [{ label: "Ver casos de Cajamarca", href: "/conflictos", description: "Conflictos regionales diferenciados." }, { label: "Ver Conga", href: "/conflictos/conga", description: "Agua, crisis y suspensión material." }],
   },
   "institutional-mechanisms": {
-    kicker: "Comparación transversal",
-    title: "Mecanismos institucionales",
-    summary: "Ordena EIA, PAMA, sentencias, actas, fondos sociales, medidas de protección, reasentamiento y registros como mecanismos documentales comparables.",
-    evidenceTitle: "Mecanismos y documentos",
-    evidenceItems: ["familias institucionales con documentos primarios", "obligación o decisión separada de cumplimiento", "límite probatorio y pregunta de fondo por mecanismo"],
-    disputeTitle: "Límites de interpretación",
-    disputeItems: ["un instrumento aprobado no prueba legitimidad social", "un acuerdo firmado no prueba cumplimiento", "un registro documental no prueba por sí solo resultados en campo"],
-    nextStep: "Comparar obligaciones, seguimiento y resultados documentados sin asumir que la existencia de un instrumento demuestra su cumplimiento.",
-    sourceIds: [],
-    caseIds: ["conga", "tia-maria", "las-bambas", "espinar", "la-oroya", "toromocho-morococha"],
+    kicker: "Respuesta pública", title: "Mecanismos institucionales",
+    summary: "Compara evaluación ambiental, PAMA, mesas, fondos sociales, reasentamiento, sentencias y medidas de protección por el problema que intentan resolver.",
+    evidenceTitle: "Mecanismos", evidenceItems: ["control ambiental", "diálogo y acuerdos", "protección, reparación y reasentamiento"],
+    disputeTitle: "Resultados", disputeItems: ["obligaciones abiertas", "ejecución parcial", "cambios de operador o autoridad"],
+    nextStep: "Compara qué mecanismo produjo resultados y cuál prolongó la disputa.",
+    sourceIds: [], caseIds: ["conga", "tia-maria", "las-bambas", "espinar", "la-oroya", "toromocho-morococha"],
     issueIds: ["dialogo-acuerdos", "fiscalizacion-ambiental", "beneficios-territoriales"],
-    routeLinks: [
-      { label: "Ver conflictos", href: "/conflictos", description: "Comparación por caso y mecanismo." },
-      { label: "Ver normativa", href: "/normativa", description: "Instrumentos normativos, fuentes y preguntas de aplicación." },
-    ],
+    routeLinks: [{ label: "Ver conflictos", href: "/conflictos", description: "Casos y mecanismos aplicados." }, { label: "Ver normas", href: "/normativa", description: "Reglas y fallas de implementación." }],
   },
   "trazabilidad-oro": {
-    kicker: "Cadena",
-    title: "Trazabilidad del oro",
-    summary: "Conecta origen declarado, comercialización, controles estatales y fiscalización en Madre de Dios; no sustituye expediente administrativo, fiscal o judicial.",
-    evidenceTitle: "Controles de cadena",
-    evidenceItems: ["origen y comercialización", "controles estatales", "alertas o posiciones de actores"],
-    disputeTitle: "Límite",
-    disputeItems: ["no prueba por sí sola actividad ilegal", "no reemplaza expediente judicial", "no generaliza fuera del corte documentado"],
-    nextStep: "Leer Madre de Dios y abrir fuentes directas de control/comercialización.",
-    sourceIds: ["madre-dios-trazabilidad-minem-2023", "sunat-oro-sin-origen-2025", "minem-recpo-oro-2026", "mpfn-oro-reinfo-recpo-2026"],
+    kicker: "Cadena económica", title: "Cadena del oro",
+    summary: "Conecta extracción, transporte, procesamiento, compra y exportación con los controles estatales de cada tramo.",
+    evidenceTitle: "Eslabones", evidenceItems: ["frente minero", "rutas y plantas", "compradores y exportación"],
+    disputeTitle: "Puntos críticos", disputeItems: ["camiones no registrados", "plantas y acopio", "alertas aduaneras y financieras"],
+    nextStep: "Compara la cadena nacional con Pataz y Madre de Dios.",
+    sourceIds: ["sunat-oro-sin-origen-2025", "minem-recpo-oro-2026", "mpfn-oro-puno-india-2026", "pcm-operativos-mineria-ilegal-2026"],
     issueIds: ["formalizacion-mape", "fiscalizacion-ambiental"],
-    routeLinks: [
-      { label: "Ver Madre de Dios", href: "/madre-de-dios", description: "Análisis territorial de oro, REINFO y deforestación minera." },
-      { label: "Abrir cadena del oro", href: "/oro-ilegal", description: "Trazabilidad, comercialización y controles de origen." },
-      { label: "Ver REINFO / MAPE", href: "/reinfo", description: "Contexto del registro y formalización." },
-    ],
+    routeLinks: [{ label: "Ver cadena del oro", href: "/oro-ilegal", description: "Extracción, transporte, procesamiento y mercado." }, { label: "Ver Pataz", href: "/pataz", description: "Violencia y minería subterránea." }, { label: "Ver Madre de Dios", href: "/madre-de-dios", description: "Bosque, mercurio y minería aluvial." }],
   },
 };
 
@@ -762,35 +682,32 @@ function matrixStats(references: MatrixReference[]) {
 function buildDataSummary(
   focus: GraphFocus,
   data: ObservatoryData,
-  latestSocialSnapshot: ObservatoryData["socialConflictSnapshots"][number] | undefined,
   latestMiningSelection: ObservatoryData["miningConflictSelections"][number] | undefined,
   latestReinfoSnapshot: ObservatoryData["reinfoTerritorialSnapshots"][number] | undefined,
   miningMentionStats: { illegal: number; informal: number; overlap: number },
 ) {
   const socialMiningCases = data.cases.filter(isPublishedSocialMiningCase);
-  const miningSource = latestSocialSnapshot ? `reporte ${latestSocialSnapshot.reportNumber} de la Defensoría del Pueblo, corte ${formatDate(latestSocialSnapshot.cutoffDate)}` : "corte minero no disponible";
-  const miningCut = latestMiningSelection ? `${formatNumber(latestMiningSelection.totalRegistered)} conflictos sociales mineros` : "corte minero no disponible";
   const reinfoCut = latestReinfoSnapshot ? `${formatNumber(latestReinfoSnapshot.totalRegistered)} inscripciones REINFO vigentes al ${formatDate(latestReinfoSnapshot.cutoffDate)}` : "corte REINFO no disponible";
 
   switch (focus) {
     case "conflicto-social-minero":
-      return `${miningCut} del ${miningSource}; ${socialMiningCases.length} casos desarrollados con cronología y fuentes.`;
+      return `${socialMiningCases.length} casos desarrollados reúnen ${socialMiningCases.reduce((sum, item) => sum + item.timeline.length, 0)} hitos en ${new Set(socialMiningCases.flatMap((item) => data.territories.filter((territory) => item.territoryIds.includes(territory.id)).map((territory) => territory.region))).size} regiones analizadas.`;
     case "mineria-ilegal-informal":
       return `${reinfoCut}. En el corte social minero: ${miningMentionStats.illegal} casos mencionan minería ilegal, ${miningMentionStats.informal} minería informal y ${miningMentionStats.overlap} ambas categorías.`;
     case "solapamiento-territorial":
       return `Cruce entre ${formatNumber(latestMiningSelection?.totalRegistered)} conflictos sociales mineros y fuentes técnicas de agua, ambiente y fiscalización.`;
     case "casos-hito":
-      return `${socialMiningCases.reduce((sum, item) => sum + item.timeline.length, 0)} hitos y ${socialMiningCases.reduce((sum, item) => sum + item.claims.length, 0)} afirmaciones documentadas en ${socialMiningCases.length} casos sociales mineros.`;
+      return `${socialMiningCases.reduce((sum, item) => sum + item.timeline.length, 0)} hitos y ${socialMiningCases.reduce((sum, item) => sum + item.claims.length, 0)} hallazgos en ${socialMiningCases.length} casos sociales mineros.`;
     case "actores-acuerdos":
       return `Comunidades, entidades públicas, empresas y organizaciones vinculadas con Las Bambas y Espinar para leer actas, posiciones y seguimiento sin asumir consenso.`;
     case "reinfo":
-      return `${reinfoCut}; fuente oficial MINEM enlazada. El contraste distingue inscripción, permanencia registral, exclusión y formalización concluida.`;
+      return `${reinfoCut}; compara inscripción, permanencia, exclusión y formalización concluida.`;
     case "fiscalizacion":
-      return `Fuentes OEFA, SERNANP y PCM conectadas; ${data.evidenceRecords.filter((record) => ["oefa-fiscalizacion", "sernanp-operativo-tambopata-2025", "pcm-operativos-mineria-ilegal-2025", "pcm-estrategia-mineria-ilegal-2025"].includes(record.sourceId)).length} registros de evidencia sostienen este foco.`;
+      return `OEFA, SERNANP y PCM conectan monitoreo, operativos, sanciones y control territorial.`;
     case "evidencia-ambiental":
-      return `Conecta Espinar y Conga con fuentes de agua, ambiente y monitoreo; las referencias precisas permiten distinguir lo documentado de las interpretaciones.`;
+      return `Conecta Espinar y Conga con agua, ambiente, salud y monitoreo.`;
     case "matriz-documental":
-      return `${data.evidenceRecords.length} referencias documentales, ${data.cajamarcaSystemMatrix.entries.length} hitos de Cajamarca y ${data.institutionalMechanisms.entries.length} mecanismos institucionales relacionados.`;
+      return `Explica unidades, clasificaciones y cálculos usados en el mapa y las páginas temáticas.`;
     case "cajamarca-system": {
       const stats = matrixStats(getMatrixReferences(focus, data));
       return `${data.cajamarcaSystemMatrix.entries.length} hitos territoriales y ${stats.canonical} referencias incorporadas al corte ${formatDate(data.cajamarcaSystemMatrix.cutoffDate)}.`;
@@ -801,7 +718,7 @@ function buildDataSummary(
       return `${data.institutionalMechanisms.entries.length} mecanismos en ${families} familias y ${stats.canonical} referencias incorporadas al corte ${formatDate(data.institutionalMechanisms.cutoffDate)}.`;
     }
     case "trazabilidad-oro":
-      return `Madre de Dios concentra la cadena: MINEM, SUNAT, MPFN y controles estatales de origen/comercialización del oro, sin sustituir expedientes judiciales.`;
+      return `Extracción, transporte, procesamiento, compra y exportación conectan Pataz, Madre de Dios y los controles nacionales.`;
   }
 }
 
@@ -811,8 +728,6 @@ function buildFocusMetrics(
   activeCases: ConflictCase[],
   activeIssues: NormativeIssue[],
   activeEvidenceRecords: EvidenceRecord[],
-  latestSocialSnapshot: ObservatoryData["socialConflictSnapshots"][number] | undefined,
-  latestMiningSelection: ObservatoryData["miningConflictSelections"][number] | undefined,
   latestReinfoSnapshot: ObservatoryData["reinfoTerritorialSnapshots"][number] | undefined,
   miningMentionStats: { illegal: number; informal: number; overlap: number },
   data: ObservatoryData,
@@ -824,10 +739,15 @@ function buildFocusMetrics(
   ];
 
   if (focus === "conflicto-social-minero") {
+    const timelineCount = activeCases.reduce((sum, item) => sum + item.timeline.length, 0);
+    const findingCount = activeCases.reduce((sum, item) => sum + item.claims.length, 0);
+    const regionCount = new Set(activeCases.flatMap((item) =>
+      data.territories.filter((territory) => item.territoryIds.includes(territory.id)).map((territory) => territory.region),
+    )).size;
     return [
-      { label: "Corte minero", value: formatNumber(latestMiningSelection?.totalRegistered), note: `reporte ${latestSocialSnapshot?.reportNumber ?? "s/n"} · ${formatDate(latestSocialSnapshot?.cutoffDate)}` },
-      { label: "Estado", value: `${formatNumber(latestMiningSelection?.active)}/${formatNumber(latestMiningSelection?.latent)}`, note: "activos / latentes" },
-      { label: "Casos desarrollados", value: formatNumber(activeCases.length), note: "con cronología y fuentes" },
+      { label: "Hitos históricos", value: formatNumber(timelineCount), note: "decisiones, crisis y cambios comparables" },
+      { label: "Hallazgos", value: formatNumber(findingCount), note: "problemas, respuestas y resultados" },
+      { label: "Regiones analizadas", value: formatNumber(regionCount), note: "territorios de los casos desarrollados" },
       ...base,
     ];
   }
@@ -938,8 +858,8 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
   const activeIssues = (activeDetail.issueIds ?? []).map((id) => issueById.get(id)).filter((item): item is NormativeIssue => Boolean(item));
   const activeActors = (activeDetail.actorIds ?? []).map((id) => actorById.get(id)).filter((item): item is Actor => Boolean(item));
   const activeEvidenceRecords = data.evidenceRecords.filter((record) => activeSourceIds.includes(record.sourceId));
-  const activeDataSummary = buildDataSummary(focus, data, latestSocialSnapshot, latestMiningSelection, latestReinfoSnapshot, miningMentionStats);
-  const activeMetrics = buildFocusMetrics(focus, activeSources, activeCases, activeIssues, activeEvidenceRecords, latestSocialSnapshot, latestMiningSelection, latestReinfoSnapshot, miningMentionStats, data);
+  const activeDataSummary = buildDataSummary(focus, data, latestMiningSelection, latestReinfoSnapshot, miningMentionStats);
+  const activeMetrics = buildFocusMetrics(focus, activeSources, activeCases, activeIssues, activeEvidenceRecords, latestReinfoSnapshot, miningMentionStats, data);
   const activeEvidenceCopy = activeEvidenceRecords.length
     ? `${activeEvidenceRecords.length} referencia(s) con página, sección o descripción precisa dentro de la fuente.`
     : `${activeSources.length} fuente(s) directa(s) enlazada(s) con este tema.`;
@@ -971,7 +891,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     {
       id: "conflicto-social-minero",
       label: "Conflicto social minero",
-      subtitle: `${latestMiningSelection?.totalRegistered ?? 0} conflictos sociales mineros · casos con cronología y fuentes`,
+      subtitle: `${publicCases.length} casos desarrollados · ${publicCases.reduce((sum, item) => sum + item.timeline.length, 0)} hitos comparables`,
       type: "route",
       focus: "conflicto-social-minero" as GraphFocus,
       href: "/conflictos",
@@ -998,7 +918,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     {
       id: "madre-de-dios",
       label: "Madre de Dios: minería aurífera",
-      subtitle: "Deforestación minera, Tambopata, formalización y límites de la evidencia territorial",
+      subtitle: "Deforestación, mercurio, Tambopata y formalización",
       type: "route",
       focus: "mineria-ilegal-informal" as GraphFocus,
       href: "/madre-de-dios",
@@ -1006,7 +926,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     },
     {
       id: "trazabilidad-oro",
-      label: "Trazabilidad del oro",
+      label: "Cadena del oro",
       subtitle: "Origen, acopio, procesamiento, comercialización y controles estatales",
       type: "route",
       focus: "trazabilidad-oro" as GraphFocus,
@@ -1016,7 +936,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     {
       id: "solapamiento-territorial",
       label: "Puentes y solapamientos",
-      subtitle: "Territorio, ambiente, gobernanza y evidencia",
+      subtitle: "Territorio, ambiente y gobernanza",
       type: "route",
       focus: "solapamiento-territorial" as GraphFocus,
       href: "/mapa",
@@ -1024,8 +944,8 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     },
     {
       id: "matriz-documental",
-      label: "Sustento documental",
-      subtitle: "Fuentes directas, referencias precisas y criterios de lectura",
+      label: "Construcción de datos",
+      subtitle: "Unidades, clasificaciones, cálculos y actualizaciones",
       type: "route",
       focus: "matriz-documental" as GraphFocus,
       href: "/metodologia#fuentes",
@@ -1043,7 +963,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     {
       id: "institutional-mechanisms",
       label: "Mecanismos institucionales",
-      subtitle: `${data.institutionalMechanisms.entries.length} mecanismos · obligaciones, seguimiento y alcance documental`,
+      subtitle: `${data.institutionalMechanisms.entries.length} mecanismos · obligaciones, seguimiento y resultados`,
       type: "matrix",
       focus: "institutional-mechanisms" as GraphFocus,
       href: "/conflictos",
@@ -1122,7 +1042,7 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
     const aRank = priority.indexOf(a.id);
     const bRank = priority.indexOf(b.id);
     return (aRank === -1 ? 999 : aRank) - (bRank === -1 ? 999 : bRank);
-  }), [data, entityType, issue, latestMiningSelection, latestReinfoSnapshot, miningMentionStats, publicActors, publicAlternatives, publicCases, publicInstruments, publicIssues, query]);
+  }), [data, entityType, issue, latestReinfoSnapshot, miningMentionStats, publicActors, publicAlternatives, publicCases, publicInstruments, publicIssues, query]);
 
   const reset = () => {
     setQuery("");
@@ -1219,18 +1139,18 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           <div className="graph-title">
             <p>{activeDetail.kicker}</p>
             <h1>{activeDetail.title}</h1>
-            <span><i className="dot warning" /> precaución de lectura <i className="dot official" /> vínculo a fuente</span>
+            <span><i className="dot warning" /> punto crítico <i className="dot official" /> enlace directo</span>
           </div>
           <div className="graph-layers" aria-label="Leyenda de capas del sistema">
             <span><i data-tone="social" /> conflicto</span>
             <span><i data-tone="bridge" /> puente</span>
             <span><i data-tone="instrument" /> instrumento</span>
             <span><i data-tone="control" /> control</span>
-            <span><i data-tone="evidence" /> evidencia</span>
+            <span><i data-tone="evidence" /> ambiente</span>
           </div>
           <div className="graph-principle">
             <TreeStructure size={16} aria-hidden />
-            <span>Conflictos sociales mineros, minería ilegal e informal y REINFO son ejes distintos. Las líneas indican relación documental; no prueban causalidad ni equivalencia administrativa.</span>
+            <span>Las líneas conectan problemas, territorios, actores y controles; selecciona un nodo para explorar sus datos.</span>
           </div>
           <ReactFlow key={`${visibleGraphNodes.length}-${visibleGraphEdges.length}`} nodes={visibleGraphNodes} edges={visibleGraphEdges} fitView fitViewOptions={{ padding: 0.05, maxZoom: isRootOnlyGraph ? 1 : 0.7 }} minZoom={0.45} maxZoom={1.2} nodesDraggable={false} onNodeClick={(_, node) => revealFocus(node.id as GraphFocus)} proOptions={{ hideAttribution: true }}>
             <Background color="#1b536b" gap={30} size={1} />
@@ -1270,14 +1190,14 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           {activeEvidenceRecords.length > 0 && (
             <section className="locator-group">
               <div className="link-group-title">
-                <p>Referencias precisas</p>
-                <span>{activeEvidenceRecords.length} referencia(s)</span>
+                <p>Datos relacionados</p>
+                <span>{activeEvidenceRecords.length} registro(s)</span>
               </div>
               {activeEvidenceRecords.slice(0, 4).map((record) => (
                 <article key={record.id}>
                   <strong>{relationLabels[record.relation]} · {record.locator}</strong>
                   <span>{record.summary}</span>
-                  <small>Consulta documental: {formatDate(record.checkedAt)}</small>
+                  <small>Actualizado: {formatDate(record.checkedAt)}</small>
                 </article>
               ))}
             </section>
@@ -1285,14 +1205,14 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
           {activeMatrixDocuments.length > 0 && (
             <section className="locator-group">
               <div className="link-group-title">
-                <p>Fuentes de las comparaciones</p>
-                <span>{activeMatrixDocuments.length} referencia(s)</span>
+                <p>Enlaces de las comparaciones</p>
+                <span>{activeMatrixDocuments.length} enlace(s)</span>
               </div>
               {activeMatrixDocuments.slice(0, 6).map((record) => (
                 <article key={`${record.owner}-${record.sourceId}-${record.locator}`}>
-                  <strong>Referencia directa · {record.locator}</strong>
+                  <strong>{record.locator}</strong>
                   <span>{record.label}</span>
-                  <small>{sourceById.get(record.sourceId)?.institution ?? "Fuente documental"}</small>
+                  <small>{sourceById.get(record.sourceId)?.institution ?? "Institución"}</small>
                 </article>
               ))}
             </section>
@@ -1312,13 +1232,13 @@ export function RelationshipExplorer({ data }: { data: ObservatoryData }) {
             )) : <p className="empty-state">El filtro de tipo de fuente no devuelve fuentes para este foco. Retira el filtro o abre otro nodo.</p>}
           </section>
           <div className="evidence-level">
-            <span>Cómo leer esta relación</span>
+            <span>Qué explorar ahora</span>
             <strong><BookOpenText size={16} aria-hidden /><i /> Lectura académica</strong>
             <p>{activeDetail.nextStep}</p>
           </div>
         </aside>
       </div>
-      {citationOpen && <div className="dialog-backdrop" role="presentation" onMouseDown={() => setCitationOpen(false)}><section className="citation-dialog" role="dialog" aria-modal="true" aria-labelledby="citation-title" onMouseDown={(event) => event.stopPropagation()}><button className="dialog-close" onClick={() => setCitationOpen(false)} aria-label="Cerrar"><X /></button><p className="eyebrow">Cita sugerida</p><h2 id="citation-title">Sistema de relaciones mineras</h2><blockquote>Observatorio de Conflictos Mineros del Perú (2026). “Sistema de relaciones: conflictos sociales mineros, minería ilegal e informal y REINFO”. Fecha de consulta: {new Date().toLocaleDateString("es-PE")}.</blockquote><p>Incluye siempre la fecha de corte porque los estados, acuerdos y registros documentales pueden cambiar.</p></section></div>}
+      {citationOpen && <div className="dialog-backdrop" role="presentation" onMouseDown={() => setCitationOpen(false)}><section className="citation-dialog" role="dialog" aria-modal="true" aria-labelledby="citation-title" onMouseDown={(event) => event.stopPropagation()}><button className="dialog-close" onClick={() => setCitationOpen(false)} aria-label="Cerrar"><X /></button><p className="eyebrow">Cita sugerida</p><h2 id="citation-title">Sistema de relaciones mineras</h2><blockquote>Observatorio de Conflictos Mineros del Perú (2026). “Sistema de relaciones: conflictos sociales mineros, minería ilegal e informal y REINFO”. Fecha de consulta: {new Date().toLocaleDateString("es-PE")}.</blockquote></section></div>}
     </div>
   );
 }

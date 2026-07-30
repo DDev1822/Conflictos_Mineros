@@ -1,215 +1,155 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   BookOpenText,
-  ClockCounterClockwise,
   CirclesThreePlus,
   Coins,
-  Database,
   FileText,
-  Gavel,
+  GraduationCap,
   MapTrifold,
-  WarningCircle,
+  ShieldWarning,
+  TreeEvergreen,
 } from "@phosphor-icons/react/dist/ssr";
+import { CriticalSignals } from "@/components/critical-signals";
 import { loadObservatoryData } from "@/lib/content";
 import { getLatestPublicMiningCut } from "@/lib/mining-classification";
 import { isPublishedSocialMiningCase } from "@/lib/public-scope";
-import type { Source } from "@/lib/schemas";
 import { publicAsset } from "@/lib/public-assets";
 
-const sourceTypeLabels: Record<Source["type"], string> = {
-  official: "estatales",
-  academic: "académicas",
-  community: "comunitarias",
-  company: "empresariales",
-  ngo: "sociedad civil",
-  press: "periodísticas",
-};
-
-function formatDate(value?: string) {
-  if (!value) return "s/f";
-  return new Intl.DateTimeFormat("es-PE", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
-}
-
-function countSourcesByType(sources: Source[]) {
-  return sources.reduce<Record<Source["type"], number>>((acc, source) => {
-    acc[source.type] = (acc[source.type] ?? 0) + 1;
-    return acc;
-  }, {} as Record<Source["type"], number>);
-}
+const numberFormatter = new Intl.NumberFormat("es-PE");
+const FIFA_PITCH_DIMENSIONS_URL = "https://publications.fifa.com/de/football-stadiums-guidelines/technical-guideline/stadium-guidelines/pitch-dimensions-and-surrounding-areas/";
+const FIFA_REFERENCE_PITCH_HECTARES = (105 * 68) / 10_000;
 
 export default function HomePage() {
   const data = loadObservatoryData();
-  const { snapshot: latestMiningSnapshot, selection: latestMiningSelection } = getLatestPublicMiningCut(data);
-  if (!latestMiningSnapshot || !latestMiningSelection) throw new Error("No existe un corte público de conflictos sociales mineros");
+  const { snapshot, selection } = getLatestPublicMiningCut(data);
+  if (!snapshot || !selection) throw new Error("No existe un corte público de conflictos sociales mineros");
   const latestReinfo = [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
-  const sourceTypeCounts = countSourcesByType(data.sources);
   const publicCases = data.cases.filter(isPublishedSocialMiningCase);
-  const timelineCount = publicCases.reduce((sum, item) => sum + item.timeline.length, 0);
-  const claimCount = publicCases.reduce((sum, item) => sum + item.claims.length, 0);
+  const frontSignals = data.criticalSignals.filter((signal) =>
+    ["pataz-secuestro-asesinato-2025", "madre-dios-deforestacion-2026", "reinfo-formalizacion-2-4-2025"].includes(signal.id),
+  );
+  const conflictSource = data.sources.find((source) => source.id === snapshot.sourceId);
+  const reinfoSource = data.sources.find((source) => source.id === "minem-reinfo-vigente-corte-2026-06-18");
+  const reinfoPerformanceSource = data.sources.find((source) => source.id === "pcm-reinfo-formalizacion-2025");
+  const forestSource = data.sources.find((source) => source.id === data.madreDiosDevastation.documentedTotal.sourceId);
+  const recentForestSource = data.sources.find((source) => source.id === data.madreDiosDevastation.recentRate.sourceId);
+  const footballPitchEquivalent = Math.round(
+    data.madreDiosDevastation.documentedTotal.hectares / FIFA_REFERENCE_PITCH_HECTARES / 100,
+  ) * 100;
 
   return (
     <div className="home-page">
       <section className="hero">
-        <p className="eyebrow">Conflictos sociales mineros · evidencia trazable</p>
-        <h1>Conflictos sociales mineros del Perú, explicados desde fuentes contrastables.</h1>
+        <p className="eyebrow">Observatorio de Conflictos Mineros del Perú</p>
+        <h1>Conflictos mineros del Perú: análisis académico, territorial y relacional.</h1>
         <p className="hero-copy">
-          El observatorio reúne {latestMiningSelection.totalRegistered} conflictos sociales mineros y desarrolla {publicCases.length} casos hito
-          sobre agua, territorio, consulta, acuerdos, salud ambiental y control estatal. Hechos, posiciones e interpretaciones se presentan
-          por separado y con fuentes.
+          El observatorio examina conflictos sociales mineros, formalización, minería ilegal, violencia, ambiente y
+          capacidad estatal mediante series nacionales, casos desarrollados, investigación académica y relaciones territoriales.
         </p>
         <div className="hero-actions">
-          <Link className="button primary" href="/conflictos">Explorar conflictos <ArrowRight size={18} /></Link>
-          <Link className="button secondary" href="/metodologia">Ver criterios de evidencia</Link>
+          <Link className="button primary" href="/explorar">Explorar relaciones <ArrowRight size={18} /></Link>
+          <Link className="button secondary" href="/mapa">Abrir mapa nacional</Link>
         </div>
-        <dl className="hero-stats">
-          <div><dt>{latestMiningSelection.totalRegistered}</dt><dd>conflictos en el Reporte {latestMiningSnapshot.reportNumber}</dd></div>
-          <div><dt>{latestMiningSelection.active}/{latestMiningSelection.latent}</dt><dd>activos / latentes del mismo corte</dd></div>
-          <div><dt>{publicCases.length}</dt><dd>casos hito desarrollados</dd></div>
-          <div><dt>{timelineCount}</dt><dd>hitos en esos {publicCases.length} casos</dd></div>
-        </dl>
+        <section className="hero-stats" aria-label="Indicadores principales del observatorio">
+          <article className="hero-stat-block" data-topic="conflictos">
+            <p>Conflictos sociales mineros</p>
+            <div className="hero-stat-values">
+              <div><strong>{selection.totalRegistered}</strong><span>casos registrados</span></div>
+              <div><strong>{selection.active}/{selection.latent}</strong><span>activos / latentes</span></div>
+            </div>
+            {conflictSource && <a href={conflictSource.url} target="_blank" rel="noreferrer">Defensoría del Pueblo · Reporte {snapshot.reportNumber}</a>}
+          </article>
+          <article className="hero-stat-block" data-topic="reinfo">
+            <p>REINFO y formalización</p>
+            <div className="hero-stat-values">
+              <div><strong>{numberFormatter.format(latestReinfo.totalRegistered)}</strong><span>inscripciones vigentes</span></div>
+              <div><strong>2,4%</strong><span>formalización acumulada informada sobre más de 84.000 inscripciones</span></div>
+            </div>
+            <div className="hero-stat-links">
+              {reinfoSource && <a href={reinfoSource.url} target="_blank" rel="noreferrer">MINEM · corte vigente</a>}
+              {reinfoPerformanceSource && <a href={reinfoPerformanceSource.url} target="_blank" rel="noreferrer">PCM · resultado acumulado</a>}
+            </div>
+          </article>
+          <article className="hero-stat-block" data-topic="madre-de-dios">
+            <p>Madre de Dios</p>
+            <div className="hero-stat-values">
+              <div>
+                <strong>{numberFormatter.format(data.madreDiosDevastation.documentedTotal.hectares)} ha</strong>
+                <span>pérdida regional acumulada</span>
+                <a
+                  className="hero-stat-equivalence"
+                  href={FIFA_PITCH_DIMENSIONS_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`≈ ${numberFormatter.format(footballPitchEquivalent)} canchas de fútbol; consultar dimensión de referencia de FIFA`}
+                >
+                  <small>≈ {numberFormatter.format(footballPitchEquivalent)} canchas de fútbol</small>
+                </a>
+              </div>
+              <div><strong>{data.madreDiosDevastation.recentRate.hectaresPerDay.toFixed(2).replace(".", ",")} ha/día</strong><span>ritmo medio observado en el periodo reciente</span></div>
+            </div>
+            <div className="hero-stat-links">
+              {forestSource && <a href={forestSource.url} target="_blank" rel="noreferrer">MAAP · pérdida acumulada</a>}
+              {recentForestSource && <a href={recentForestSource.url} target="_blank" rel="noreferrer">MAAP · avance en Tambopata</a>}
+            </div>
+          </article>
+        </section>
         <p className="hero-media-note">Ilustración referencial generada con IA; no representa un caso específico.</p>
       </section>
 
-      <section className="home-status" aria-label="Problemas de fondo y cortes documentales">
-        <article>
-          <WarningCircle size={26} />
-          <div>
-            <p className="eyebrow">Qué está en juego</p>
-            <h2>Agua, territorio, acuerdos y control estatal bajo evidencia trazable</h2>
-            <p>
-              La disputa minera no se reduce a protesta o inversión: combina derechos territoriales, certificación ambiental,
-              cumplimiento de acuerdos, participación y capacidad estatal para fiscalizar.
-            </p>
-          </div>
-        </article>
-        <article>
-          <Database size={26} />
-          <div>
-            <p className="eyebrow">Cortes incorporados</p>
-            <h2>{latestMiningSelection.totalRegistered} conflictos sociales mineros · {latestReinfo.totalRegistered.toLocaleString("es-PE")} REINFO</h2>
-            <p>
-              Corte minero del Reporte {latestMiningSnapshot.reportNumber}, {formatDate(latestMiningSnapshot.cutoffDate)}; REINFO vigente al {formatDate(latestReinfo.cutoffDate)}.
-              Los puntos del mapa son referencias agregadas, no áreas de influencia ni prueba de causalidad.
-            </p>
-          </div>
-        </article>
+      <section className="home-critical">
+        <div className="section-heading">
+          <p className="eyebrow">Tres puntos críticos del panorama minero nacional</p>
+          <h2>Violencia organizada, pérdida amazónica y una formalización que casi no culmina.</h2>
+        </div>
+        <CriticalSignals signals={frontSignals} sources={data.sources} compact />
       </section>
 
-      <section className="home-visual-strip" aria-label="Evidencia visual documental">
+      <section className="home-visual-strip" aria-label="Territorios bajo presión minera">
         <figure>
-          <Image
-            src={publicAsset("/multimedia/documents/evidencia-documental.webp")}
-            alt="Mesa de trabajo académica con documentos y fuentes de evidencia."
-            width="1280"
-            height="720"
-            sizes="(max-width: 800px) 100vw, 33vw"
-            loading="lazy"
-          />
-          <figcaption>
-            <span>Fuente y referencia exacta</span>
-            <strong>La ubicación precisa permite comprobar el dato en el documento original.</strong>
-          </figcaption>
+          <Image src={publicAsset("/multimedia/maps/territorio-minero.webp")} alt="Vista aérea de una operación minera y su entorno territorial." width="1280" height="720" sizes="(max-width: 800px) 100vw, 33vw" />
+          <figcaption><span>Conflictos sociales</span><strong>Agua, tierra, participación y acuerdos explican gran parte de las disputas persistentes.</strong></figcaption>
         </figure>
         <figure>
-          <Image
-            src={publicAsset("/multimedia/maps/territorio-minero.webp")}
-            alt="Vista aérea de una operación minera usada como referencia territorial."
-            width="1280"
-            height="720"
-            sizes="(max-width: 800px) 100vw, 33vw"
-            loading="lazy"
-          />
-          <figcaption>
-            <span>Territorio y escala</span>
-            <strong>Los cortes agregados no sustituyen ubicación precisa ni causalidad.</strong>
-          </figcaption>
+          <Image src={publicAsset("/multimedia/maps/oro-ilegal-territorio.webp")} alt="Paisaje amazónico intervenido por minería aurífera." width="1280" height="720" sizes="(max-width: 800px) 100vw, 33vw" />
+          <figcaption><span>Madre de Dios</span><strong>El avance aurífero afecta bosque, ríos, salud y áreas naturales protegidas.</strong></figcaption>
         </figure>
         <figure>
-          <Image
-            src={publicAsset("/multimedia/normativa/archivo-normativo.webp")}
-            alt="Detalle de texto legislativo como referencia visual normativa."
-            width="1280"
-            height="720"
-            sizes="(max-width: 800px) 100vw, 33vw"
-            loading="lazy"
-          />
-          <figcaption>
-            <span>Norma y competencia</span>
-            <strong>El problema normativo aparece cuando autorización, fiscalización y cumplimiento no resuelven el conflicto.</strong>
-          </figcaption>
+          <Image src={publicAsset("/multimedia/reinfo/trazabilidad-oro.webp")} alt="Oro aluvial durante su procesamiento." width="1280" height="720" sizes="(max-width: 800px) 100vw, 33vw" />
+          <figcaption><span>Cadena del oro</span><strong>Extracción, transporte, procesamiento y compra forman un mismo sistema económico.</strong></figcaption>
         </figure>
       </section>
 
       <section className="section-shell">
         <div className="section-heading">
-          <p className="eyebrow">Problemas principales</p>
-          <h2>Conflictos, formalización, minería ilegal, territorio y evidencia</h2>
+          <p className="eyebrow">Entradas principales</p>
+          <h2>Cada problema tiene datos, actores y escalas distintas.</h2>
         </div>
         <div className="entry-grid">
-          <Link href="/explorar">
-            <CirclesThreePlus size={29} />
-            <h3>Sistema de relaciones</h3>
-            <p>Tres ejes separados —conflictos sociales mineros, minería ilegal e informal y REINFO— conectan casos, actores, controles y fuentes.</p>
-          </Link>
-          <Link href="/conflictos">
-            <BookOpenText size={29} />
-            <h3>Casos hito</h3>
-            <p>Casos hito desarrollados cruzan territorio, actores, obligaciones, contradicciones y fuentes directas.</p>
-          </Link>
-          <Link href="/cronologia">
-            <ClockCounterClockwise size={29} />
-            <h3>Cronología</h3>
-            <p>{timelineCount} hitos ordenan decisiones, acuerdos, evidencias y publicaciones sin convertir una nota pública en hecho sustantivo.</p>
-          </Link>
-          <Link href="/mapa">
-            <MapTrifold size={29} />
-            <h3>Territorio</h3>
-            <p>Mapa con conflictos sociales mineros, minería ilegal e informal, REINFO, plantas de beneficio, exploración y concesiones como capas separadas.</p>
-          </Link>
+          <Link href="/explorar"><CirclesThreePlus size={29} /><h3>Sistema de relaciones</h3><p>Conecta casos, territorios, normas, actores, REINFO y controles estatales.</p></Link>
+          <Link href="/conflictos"><BookOpenText size={29} /><h3>Casos hito</h3><p>{publicCases.length} historias desarrolladas sobre disputas que cambiaron la minería peruana.</p></Link>
+          <Link href="/mapa"><MapTrifold size={29} /><h3>Mapa nacional</h3><p>Compara conflictos, minería ilegal e informal, REINFO, plantas, exploración y concesiones.</p></Link>
+          <Link href="/reinfo"><FileText size={29} /><h3>REINFO</h3><p>Compara inscripciones vigentes, concentración regional, exclusiones y resultados de formalización.</p></Link>
+          <Link href="/pataz"><ShieldWarning size={29} /><h3>Pataz</h3><p>Violencia, socavones, explosivos, camiones, plantas de procesamiento y respuesta estatal.</p></Link>
+          <Link href="/madre-de-dios"><TreeEvergreen size={29} /><h3>Madre de Dios</h3><p>Deforestación, mercurio, salud, Tambopata y control ambiental.</p></Link>
+          <Link href="/oro-ilegal"><Coins size={29} /><h3>Oro ilegal</h3><p>Cómo el mineral pasa de la extracción al transporte, procesamiento y mercado.</p></Link>
+          <Link href="/biblioteca"><GraduationCap size={29} /><h3>Biblioteca académica</h3><p>Investigaciones peruanas organizadas por caso, región, tema, universidad y grado.</p></Link>
         </div>
-      </section>
-
-      <section className="home-evidence">
-        <div>
-          <p className="eyebrow">Cobertura de evidencia</p>
-          <h2>Fuentes diversas, pesos distintos</h2>
-          <p>
-            La diversidad de perspectivas no significa equivalencia probatoria. Una fuente comunitaria, empresarial, estatal o académica puede sostener posiciones distintas;
-            cada registro conserva tipo de fuente, nivel de evidencia y ubicación exacta dentro del documento.
-          </p>
-        </div>
-        <div className="home-source-grid">
-          {Object.entries(sourceTypeLabels).map(([type, label]) => (
-            <article key={type}>
-              <strong>{sourceTypeCounts[type as Source["type"]] ?? 0}</strong>
-              <span>{label}</span>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="principles-band">
-        <div><span>01</span><h3>Hechos</h3><p>{claimCount} afirmaciones separadas por hecho, interpretación o propuesta.</p></div>
-        <div><span>02</span><h3>Referencias exactas</h3><p>Folio, sección, tabla o artículo para comprobar qué sostiene, matiza o contradice una fuente.</p></div>
-        <div><span>03</span><h3>Normativa</h3><p>{data.instruments.length} instrumentos conectan competencias, autorizaciones, fiscalización y cumplimiento.</p></div>
-        <div><span>04</span><h3>Corrección documentada</h3><p>Todo ajuste identifica el dato, la fuente, su ubicación precisa y la razón del cambio.</p></div>
       </section>
 
       <section className="home-next">
-        <FileText size={28} />
+        <BookOpenText size={28} />
         <div>
-          <p className="eyebrow">Cruces críticos</p>
-          <h2>Para entender el conflicto, cruza casos, cronologías, compromisos, normas y territorio.</h2>
+          <p className="eyebrow">Profundizar</p>
+          <h2>Compara la secuencia de los hechos, los compromisos asumidos y las reglas aplicables.</h2>
           <div>
+            <Link href="/cronologia">Cronología <ArrowRight /></Link>
             <Link href="/compromisos">Compromisos <ArrowRight /></Link>
-            <Link href="/metodologia">Metodología <ArrowRight /></Link>
-            <Link href="/normativa">Normativa <Gavel size={15} /></Link>
-            <Link href="/biblioteca">Biblioteca académica <BookOpenText size={15} /></Link>
-            <Link href="/oro-ilegal">Oro sin trazabilidad <Coins size={15} /></Link>
-            <Link href="/madre-de-dios">Madre de Dios <ArrowRight /></Link>
-            <Link href="/reinfo">REINFO / MAPE <ArrowRight /></Link>
+            <Link href="/normativa">Normas <ArrowRight /></Link>
+            <Link href="/biblioteca">Biblioteca <ArrowRight /></Link>
+            <Link href="/reinfo">REINFO <ArrowRight /></Link>
           </div>
         </div>
       </section>

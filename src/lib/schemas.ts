@@ -560,6 +560,20 @@ export const academicResearchItemSchema = z.object({
   cataloguedAt: z.iso.date(),
 });
 
+export const criticalSignalSchema = z.object({
+  id,
+  topic: z.enum(["reinfo", "pataz", "madre-de-dios", "oro-ilegal", "conflictos"]),
+  date: isoDate,
+  title: z.string().min(10),
+  summary: z.string().min(50),
+  analysis: z.string().min(50),
+  metrics: z.array(z.object({
+    value: z.string().min(1),
+    label: z.string().min(5),
+  })).default([]),
+  sourceIds: z.array(id).min(1),
+});
+
 export const datasetSchema = z.object({
   sources: z.array(sourceSchema),
   actors: z.array(actorSchema),
@@ -583,6 +597,7 @@ export const datasetSchema = z.object({
   miningConcessionTerritorialSnapshots: z.array(miningConcessionTerritorialSnapshotSchema).min(1),
   madreDiosDevastation: madreDiosDevastationSchema,
   academicResearch: z.array(academicResearchItemSchema).min(1),
+  criticalSignals: z.array(criticalSignalSchema).min(1),
 });
 
 export type ObservatoryData = z.infer<typeof datasetSchema>;
@@ -614,3 +629,4 @@ export type FormalMiningTerritorialSnapshot = z.infer<typeof formalMiningTerrito
 export type ExplorationTerritorialSnapshot = z.infer<typeof explorationTerritorialSnapshotSchema>;
 export type MiningConcessionTerritorialSnapshot = z.infer<typeof miningConcessionTerritorialSnapshotSchema>;
 export type MadreDiosDevastation = z.infer<typeof madreDiosDevastationSchema>;
+export type CriticalSignal = z.infer<typeof criticalSignalSchema>;

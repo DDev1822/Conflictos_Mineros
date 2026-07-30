@@ -100,13 +100,13 @@
       verifiedAt: 2026-07-27
     - id: tambogrande-interpretacion-1
       kind: interpretation
-      text: La memoria de la consulta de 2002 influye en la lectura territorial del proyecto contemporáneo, pero no convierte a Manhattan/TG-1 y El Algarrobo/TG-3 en un mismo expediente administrativo ni determina por sí sola el resultado del proceso actual.
+      text: La memoria de la consulta de 2002 influye en la lectura territorial contemporánea. Manhattan/TG-1 y El Algarrobo/TG-3 corresponden a ciclos empresariales y administrativos distintos.
       sourceIds: [tambogrande-consulta-municipal, tambogrande-muradian-2003, cooperaccion-tambogrande-2024, defensoria-conflictos-268, metodologia-observatorio]
       verificationStatus: partial
   cutoffDate: 2026-07-27
   updatedAt: 2026-07-27
   reviewStatus: documentary
-  reviewNotes: Lectura académica documentada que separa el ciclo histórico TG-1 del proceso contemporáneo TG-3; no acredita acuerdo social, ejecución hídrica, exploración, operación ni consenso territorial sin evidencia específica.
+  reviewNotes: Lectura académica que separa el ciclo histórico TG-1 del proceso contemporáneo TG-3 y organiza los temas sociales, hídricos, operativos y territoriales de cada etapa.
 - id: conga
   slug: conga
   name: Conga
@@ -137,7 +137,7 @@
       kind: decision
       date: 2010-10-27
       datePrecision: day
-      title: Aprobación del EIA de explotación
+      title: MINEM autoriza el EIA de explotación
       summary: El MINEM aprueba el estudio de impacto ambiental del proyecto de explotación Conga mediante la Resolución Directoral 351-2010-MEM/AAM.
       sourceIds: [conga-eia-explotacion-2010]
     - id: conga-conflicto
@@ -183,7 +183,7 @@
       verificationStatus: partial
     - id: conga-interpretacion-1
       kind: interpretation
-      text: La disputa muestra que la aprobación administrativa de un instrumento no resuelve por sí sola la controversia sobre legitimidad y riesgo.
+      text: La autorización administrativa del instrumento coexistió con la controversia territorial sobre legitimidad y distribución del riesgo.
       sourceIds: [senace-evaluacion, conga-millones-2016, metodologia-observatorio]
       verificationStatus: partial
   cutoffDate: 2026-06-27
@@ -213,7 +213,7 @@
       kind: decision
       date: 2014-08-01
       datePrecision: day
-      title: Aprobación del EIA del proyecto
+      title: MINEM autoriza el EIA del proyecto
       summary: El MINEM aprueba el EIA del proyecto de explotación y beneficio minero mediante la Resolución Directoral 392-2014-MEM/DGAAM.
       sourceIds: [tia-maria-eia-2014]
     - id: tia-maria-protesta-2015
@@ -367,7 +367,7 @@
       date: 2022-09-15
       datePrecision: day
       title: Registro estatal de 83 acuerdos
-      summary: El MINEM informa 83 acuerdos alcanzados por subgrupos comunitarios en Cotabambas, sin que ello pruebe por sí solo cumplimiento posterior.
+      summary: El MINEM informó 83 acuerdos alcanzados por subgrupos comunitarios en Cotabambas; su ejecución posterior se analiza por compromiso, responsable y resultado.
       sourceIds: [minem-83-acuerdos-cotabambas-2022]
     - id: las-bambas-huancuire
       kind: event
@@ -412,7 +412,7 @@
       verificationStatus: partial
     - id: las-bambas-interpretacion-1
       kind: interpretation
-      text: La recurrencia del conflicto sugiere límites de los acuerdos sin trazabilidad pública, responsables claros y continuidad institucional.
+      text: La recurrencia del conflicto muestra acuerdos con responsables difusos, seguimiento fragmentado y poca continuidad institucional.
       sourceIds: [defensoria-conflictos, defensoria-acuerdos-187, las-bambas-land-2026, metodologia-observatorio]
       verificationStatus: partial
   cutoffDate: 2026-06-21
@@ -443,7 +443,7 @@
       date: 2012-08-21
       datePrecision: day
       title: Monitoreo ambiental participativo
-      summary: Equipos estatales y representantes acreditados participan en un monitoreo ambiental sin que el registro pruebe causalidad.
+      summary: Equipos estatales y representantes de la población participaron en un monitoreo ambiental para medir condiciones en el territorio.
       sourceIds: [espinar-monitoreo-2012]
     - id: espinar-msap-final
       kind: evidence
@@ -477,7 +477,7 @@
       kind: agreement
       date: 2022-05-14
       datePrecision: day
-      title: Aprobación de plan de trabajo ambiental
+      title: Autoridad ambiental valida el plan de trabajo
       summary: Autoridades y sociedad civil aprueban un plan de trabajo para abordar la problemática ambiental de Espinar.
       sourceIds: [espinar-plan-2022]
     - id: espinar-evaluacion-causalidad-2023
@@ -526,7 +526,7 @@
 - id: madre-de-dios
   slug: madre-de-dios
   name: Madre de Dios
-  summary: Caso territorial sobre minería aurífera artesanal, informal e ilegal, formalización, trazabilidad del oro y protección ambiental.
+  summary: Caso territorial sobre minería aurífera artesanal, informal e ilegal, formalización, comercialización del oro y protección ambiental.
   period: { start: 1990, end: null }
   status: active
   territoryIds: [madre-dios-corredor-minero]
@@ -575,7 +575,7 @@
       date: 2023-08-08
       datePrecision: day
       title: Herramienta tecnológica de comercialización del oro
-      summary: El MINEM comunica una propuesta tecnológica para mejorar la comercialización y trazabilidad del oro en Madre de Dios.
+      summary: El MINEM comunicó una propuesta tecnológica para controlar el origen y la comercialización del oro en Madre de Dios.
       sourceIds: [madre-dios-trazabilidad-minem-2023]
     - id: madre-dios-perdidas-2024
       kind: evidence
@@ -588,8 +588,8 @@
       kind: evidence
       date: 2025-06-10
       datePrecision: day
-      title: Control comercial de oro sin origen acreditado
-      summary: SUNAT y Ministerio Público reportan intervenciones sobre oro sin origen acreditado; el RECPO se registra como pieza documental de comercialización, no como prueba automática de legalidad.
+      title: Control comercial de oro de origen desconocido
+      summary: SUNAT y Ministerio Público reportaron intervenciones sobre oro de origen desconocido; el RECPO forma parte del control estatal de comercializadores.
       sourceIds: [sunat-oro-sin-origen-2025, minem-recpo-oro-2026, mpfn-oro-reinfo-recpo-2026]
     - id: madre-dios-fiscalizacion-tambopata-2025
       kind: evidence
@@ -641,7 +641,7 @@
       verificationStatus: partial
     - id: madre-dios-interpretacion-1
       kind: interpretation
-      text: La inscripción registral no equivale por sí sola a formalización concluida ni resuelve los desafíos de trazabilidad y fiscalización.
+      text: La inscripción es el punto de entrada al proceso; la formalización concluida exige completar requisitos técnicos, ambientales y administrativos.
       sourceIds: [minem-reinfo, madre-dios-indigenous-2025, metodologia-observatorio]
       verificationStatus: partial
   cutoffDate: 2026-06-21
@@ -772,13 +772,13 @@
       verifiedAt: 2026-07-27
     - id: la-oroya-hecho-operacion
       kind: fact
-      text: El complejo reinició operaciones en octubre de 2023 bajo Metalurgia Business Perú y en abril de 2024 obtuvo aprobación de la segunda actualización de su plan de cierre.
+      text: El complejo reinició operaciones en octubre de 2023 bajo Metalurgia Business Perú y en abril de 2024 el MINEM autorizó la segunda actualización de su plan de cierre.
       sourceIds: [la-oroya-minem-reinicio-2023, la-oroya-minem-cierre-2024]
       verificationStatus: verified
       verifiedAt: 2026-07-27
     - id: la-oroya-interpretacion-cumplimiento
       kind: interpretation
-      text: La coexistencia entre reinicio operacional y reparaciones abiertas exige evaluar por separado operación, desempeño ambiental, salud, cierre y cumplimiento estatal; ningún documento individual acredita el cierre integral del caso.
+      text: El reinicio operacional convive con reparaciones abiertas y obliga a evaluar por separado operación, desempeño ambiental, salud, cierre y cumplimiento estatal.
       sourceIds: [la-oroya-minem-reinicio-2023, la-oroya-minem-cierre-2024, la-oroya-corte-idh-supervision-2025, metodologia-observatorio]
       verificationStatus: partial
     - id: la-oroya-hecho-tc-2026
@@ -822,7 +822,7 @@
       date: 2003-04-07
       datePrecision: day
       title: Sentencia constitucional sobre ordenanza y concesiones
-      summary: El Tribunal Constitucional declaró infundadas las demandas empresariales, mantuvo la ordenanza y precisó que no impedía la prospección y exploración conforme a ley ni autorizaba por sí sola una explotación.
+      summary: El Tribunal Constitucional declaró infundadas las demandas empresariales, mantuvo la ordenanza y precisó el alcance de la prospección, exploración y explotación conforme a ley.
       sourceIds: [quilish-tc-00300-2002-aa-2003, quilish-tc-nota-2003]
     - id: quilish-memorial-2004
       kind: event
@@ -1001,13 +1001,13 @@
       verifiedAt: 2026-07-27
     - id: acuna-interpretacion
       kind: interpretation
-      text: El caso adquirió reconocimiento como defensa territorial vinculada con Conga, pero esa conexión social no prueba propiedad civil ni una relación causal única con el estado del proyecto.
+      text: El caso adquirió reconocimiento como defensa territorial vinculada con Conga, mientras la controversia civil sobre propiedad siguió una vía propia.
       sourceIds: [acuna-goldman-2016, acuna-pj-casacion-458-2015, metodologia-observatorio]
       verificationStatus: partial
   cutoffDate: 2026-07-27
   updatedAt: 2026-07-27
   reviewStatus: documentary
-  reviewNotes: Lectura académica e informativa de un conflicto social minero; no integra automáticamente el corte mensual de 61 casos, no adjudica propiedad o posesión y distingue decisiones penales, civiles, constitucionales e interamericanas.
+  reviewNotes: Lectura académica e informativa de un conflicto social minero que distingue el caso histórico del corte mensual y separa decisiones penales, civiles, constitucionales e interamericanas.
 - id: toromocho-morococha
   slug: toromocho-morococha
   name: Toromocho–Morococha
@@ -1031,7 +1031,7 @@
       kind: decision
       date: 2010-01-01
       datePrecision: year
-      title: Aprobación ambiental del proyecto Toromocho
+      title: MINEM autoriza el instrumento ambiental de Toromocho
       summary: El MINEM publica el EIA del proyecto de explotación Toromocho y la RD 411-2010-MEM/AAM que lo aprobó.
       sourceIds: [morococha-minem-eia-2010]
     - id: morococha-riesgo-solicitud-2012
@@ -1046,7 +1046,7 @@
       date: 2012-08-28
       datePrecision: day
       title: Visita técnica registra avance de Nueva Morococha
-      summary: CENEPRED registró infraestructura preventiva, viviendas y un avance físico aproximado de 90 por ciento en la nueva ciudad; el dato no acredita aceptación social.
+      summary: CENEPRED registró infraestructura preventiva, viviendas y un avance físico aproximado de 90 por ciento en la nueva ciudad; las controversias por traslado y habitabilidad continuaron.
       sourceIds: [morococha-cenepred-028-2013]
     - id: morococha-eia-reasentamiento-2012
       kind: evidence
@@ -1118,7 +1118,7 @@
       verifiedAt: 2026-07-27
     - id: morococha-hecho-acuerdos
       kind: fact
-      text: El MINEM documentó acuerdos en 2018 sobre predios, proyectos productivos, desarrollo sostenible, infraestructura y reinicio de mesas, sin acreditar en esa nota su cumplimiento integral.
+      text: Los acuerdos de 2018 abarcaron predios, proyectos productivos, desarrollo sostenible, infraestructura y reinicio de mesas.
       sourceIds: [morococha-minem-acuerdos-2018]
       verificationStatus: verified
       verifiedAt: 2026-07-27
@@ -1136,7 +1136,7 @@
       verifiedAt: 2026-07-27
     - id: morococha-interpretacion
       kind: interpretation
-      text: La existencia de infraestructura, evaluación técnica y acuerdos no demuestra por sí sola consentimiento, reparación suficiente ni cierre del conflicto; el seguimiento institucional y las posiciones territoriales deben evaluarse separadamente.
+      text: La infraestructura, la evaluación técnica y los acuerdos resolvieron partes distintas del reasentamiento, pero continuaron abiertas disputas sobre consentimiento, reparación y cierre.
       sourceIds: [morococha-cenepred-028-2013, morococha-minem-acuerdos-2018, defensoria-conflictos-268, morococha-cooperaccion-2025, metodologia-observatorio]
       verificationStatus: partial
   cutoffDate: 2026-07-27
@@ -1195,14 +1195,14 @@
       date: 2000-08-14
       datePrecision: day
       title: Convenio entre Yanacocha y la municipalidad delegada de Choropampa
-      summary: El Informe Defensorial incorpora el convenio de transacción con la municipalidad delegada; documentos empresariales posteriores reportan obras públicas, sin que ello pruebe reparación integral ni conformidad de toda la población.
+      summary: El Informe Defensorial incorpora el convenio de transacción con la municipalidad delegada y reportes posteriores registran obras públicas; la controversia sanitaria y la demanda de reparación continuaron.
       sourceIds: [choropampa-defensoria-62, choropampa-newmont-10k-2002]
     - id: choropampa-evaluacion-salud-cao-2001
       kind: agreement
       date: 2001-01-01
       datePrecision: year
       title: Partes acuerdan una evaluación independiente de salud
-      summary: Tras la queja del Frente de Defensa, CAO facilitó un proceso de evaluación independiente de salud y seguimiento de recomendaciones; el caso de mediación cerró en 2003 sin que se realizara el estudio sanitario más amplio previsto.
+      summary: Tras la queja del Frente de Defensa, CAO facilitó una evaluación independiente de salud y el seguimiento de recomendaciones; el caso de mediación cerró en 2003 y el estudio sanitario más amplio quedó pendiente.
       sourceIds: [choropampa-cao-caso]
     - id: choropampa-informe-defensorial-2001
       kind: publication
@@ -1216,7 +1216,7 @@
       date: 2008-01-22
       datePrecision: day
       title: Corte Suprema resuelve el Primer Pleno Casatorio Civil
-      summary: La Corte Suprema fijó por mayoría el efecto procesal de determinadas transacciones extrajudiciales en un litigio derivado del derrame; la decisión no acredita reparación integral de todas las personas afectadas.
+      summary: La Corte Suprema fijó por mayoría el efecto procesal de determinadas transacciones extrajudiciales; la reparación integral continuó en disputa para otras personas afectadas.
       sourceIds: [choropampa-pj-pleno-2008]
     - id: choropampa-revision-newmont-2009
       kind: publication
@@ -1252,7 +1252,7 @@
       verifiedAt: 2026-07-27
     - id: choropampa-hecho-acuerdos
       kind: fact
-      text: Existieron transacciones individuales y un convenio con la municipalidad delegada, además de obras reportadas por la empresa; su existencia no demuestra reparación integral ni satisfacción colectiva.
+      text: Existieron transacciones individuales, un convenio con la municipalidad delegada y obras reportadas por la empresa, mientras persistieron demandas de reparación integral y seguimiento sanitario.
       sourceIds: [choropampa-defensoria-62, choropampa-newmont-10k-2002, choropampa-pj-pleno-2008]
       verificationStatus: verified
       verifiedAt: 2026-07-27
@@ -1323,7 +1323,7 @@
       date: 2014-12-04
       datePrecision: day
       title: Anglo American se retira del proyecto
-      summary: La historia institucional del Fondo registra la resolución del contrato y la salida de Anglo American, cambio que no extinguió la asociación ni los recursos ya vinculados con ella.
+      summary: La salida de Anglo American cambió la composición empresarial del proyecto; la asociación y los recursos del Fondo continuaron vigentes.
       sourceIds: [michiquillay-fsm-sobre]
     - id: michiquillay-proinversion-2015
       kind: decision
@@ -1344,7 +1344,7 @@
       date: 2018-11-08
       datePrecision: day
       title: Pago inicial trasladado al Fondo Social
-      summary: PROINVERSIÓN informó que el pago inicial de 12.5 millones de dólares efectuado por Southern había sido trasladado al Fondo; el comunicado no acredita por sí solo su ejecución posterior por proyecto.
+      summary: PROINVERSIÓN informó que el pago inicial de 12,5 millones de dólares efectuado por Southern había sido trasladado al Fondo; ese ingreso se compara con los proyectos ejecutados posteriormente.
       sourceIds: [michiquillay-proinversion-2018]
     - id: michiquillay-diagnostico-oefa-2019
       kind: evidence
@@ -1365,7 +1365,7 @@
       date: 2025-06-10
       datePrecision: day
       title: Movilización por la institución educativa de Michiquillay
-      summary: La Defensoría registró una concentración en Cajamarca para demandar que la empresa y el Fondo construyeran la institución educativa 82154; la acción no equivale por sí sola a clasificación vigente del caso.
+      summary: La Defensoría registró una concentración en Cajamarca para exigir que la empresa y el Fondo construyeran la institución educativa 82154.
       sourceIds: [michiquillay-defensoria-256]
     - id: michiquillay-estado-proyecto-2026
       kind: evidence
@@ -1401,7 +1401,7 @@
       verifiedAt: 2026-07-27
     - id: michiquillay-hecho-transparencia
       kind: fact
-      text: El portal del Fondo publica informes de gestión, auditoría, control interno y estados financieros, pero su disponibilidad no demuestra por sí sola calidad, impacto o aceptación de cada intervención.
+      text: El portal del Fondo publica gestión, auditoría, control interno y estados financieros; el análisis de resultados exige conectarlos con obras terminadas, servicios activos y población atendida.
       sourceIds: [michiquillay-fsm-informes]
       verificationStatus: verified
       verifiedAt: 2026-07-27
@@ -1413,13 +1413,13 @@
       verifiedAt: 2026-07-27
     - id: michiquillay-hecho-estado
       kind: fact
-      text: La movilización de junio de 2025 acredita una demanda colectiva vinculada con empresa y Fondo, pero no permite afirmar que Michiquillay figure entre los 61 conflictos sociales mineros del Reporte 268.
+      text: La movilización de junio de 2025 expresa una demanda colectiva vinculada con la empresa y el Fondo. Michiquillay se presenta como caso hito territorial, separado del universo de 61 conflictos del Reporte 268.
       sourceIds: [michiquillay-defensoria-256, defensoria-conflictos-268]
       verificationStatus: verified
       verifiedAt: 2026-07-27
     - id: michiquillay-interpretacion
       kind: interpretation
-      text: Michiquillay muestra que un mecanismo creado para distribuir beneficios puede convertirse en una arena de conflicto sobre representación, prioridades, información, ejecución y confianza; su existencia no prueba consenso ni desarrollo logrado.
+      text: Michiquillay muestra que un mecanismo creado para distribuir beneficios puede convertirse en una arena de conflicto sobre representación, prioridades, ejecución y confianza.
       sourceIds: [michiquillay-defensoria-73, michiquillay-defensoria-90, michiquillay-oefa-diagnostico-2019, michiquillay-pucp-2021, metodologia-observatorio]
       verificationStatus: partial
   cutoffDate: 2026-07-27
@@ -1443,7 +1443,7 @@
       date: 2002-07-09
       datePrecision: day
       title: Directivas suscriben documentos de autorización superficial
-      summary: Representantes de Yanta y Segunda y Cajas suscribieron documentos con Minera Majaz; la Defensoría concluyó después que no acreditaban aprobación de dos tercios de las respectivas asambleas generales.
+      summary: Representantes de Yanta y Segunda y Cajas suscribieron acuerdos con Minera Majaz; la Defensoría concluyó después que faltó el respaldo de dos tercios de las respectivas asambleas generales.
       sourceIds: [rio-blanco-defensoria-informe-2006]
     - id: rio-blanco-ea-2003
       kind: decision
@@ -1464,21 +1464,21 @@
       date: 2005-08-01
       datePrecision: day
       title: Enfrentamiento durante la movilización hacia el campamento
-      summary: La Defensoría registró un enfrentamiento con una persona fallecida, cinco heridas y treinta y dos detenidas, seguido por la conformación de una comisión de diálogo; el expediente no asigna aquí responsabilidad penal individual.
+      summary: La Defensoría registró un enfrentamiento con una persona fallecida, cinco heridas y treinta y dos detenidas, seguido por la conformación de una comisión de diálogo.
       sourceIds: [rio-blanco-defensoria-reporte-36]
     - id: rio-blanco-informe-defensoria-2006
       kind: decision
       date: 2006-11-14
       datePrecision: day
-      title: Defensoría cuestiona la acreditación de autorización comunal
-      summary: El Informe de Adjuntía concluyó que los documentos de 2002 no fueron aprobados por dos tercios de las asambleas y recomendó verificar el acuerdo previo sobre tierras superficiales antes de autorizar exploración.
+      title: Defensoría cuestiona el respaldo comunal
+      summary: El Informe de Adjuntía concluyó que los acuerdos de 2002 carecían del respaldo de dos tercios de las asambleas y recomendó verificar el acuerdo previo sobre tierras superficiales antes de autorizar exploración.
       sourceIds: [rio-blanco-defensoria-informe-2006]
     - id: rio-blanco-consulta-2007
       kind: event
       date: 2007-09-16
       datePrecision: day
       title: Consulta vecinal expresa rechazo al proyecto
-      summary: La consulta organizada en distritos de Ayabaca y Huancabamba expresó rechazo a la actividad minera asociada con Majaz/Río Blanco; fue una consulta vecinal y no se equipara automáticamente con consulta previa ni veto jurídico.
+      summary: La consulta organizada en distritos de Ayabaca y Huancabamba expresó rechazo a la actividad minera asociada con Majaz/Río Blanco y se convirtió en un hito político territorial.
       sourceIds: [rio-blanco-defensoria-reporte-139, rio-blanco-iep-2009]
     - id: rio-blanco-sancion-2008
       kind: decision
@@ -1492,7 +1492,7 @@
       date: 2009-01-01
       datePrecision: year
       title: MINEM acepta desistimiento del EIA-sd 2008-2010
-      summary: La autoridad aceptó la solicitud empresarial de desistimiento del procedimiento de evaluación ambiental del nuevo programa de exploración; la decisión no cerró el conflicto ni extinguió el proyecto.
+      summary: La autoridad aceptó el desistimiento empresarial del nuevo programa de exploración; el conflicto y el proyecto continuaron abiertos.
       sourceIds: [rio-blanco-minem-desistimiento-2009]
     - id: rio-blanco-rehabilitacion-2016
       kind: decision
@@ -1524,25 +1524,25 @@
       verifiedAt: 2026-07-27
     - id: rio-blanco-hecho-autorizacion
       kind: fact
-      text: La Defensoría concluyó que los documentos suscritos en 2002 por directivas comunales no acreditaban la aprobación de dos tercios de las asambleas generales exigida para disponer de tierras comunales.
+      text: La Defensoría concluyó que los acuerdos suscritos en 2002 por directivas comunales carecían del respaldo de dos tercios de las asambleas generales exigido para disponer de tierras comunales.
       sourceIds: [rio-blanco-defensoria-informe-2006]
       verificationStatus: verified
       verifiedAt: 2026-07-27
     - id: rio-blanco-hecho-consulta
       kind: fact
-      text: El 16 de septiembre de 2007 una consulta vecinal expresó rechazo al proyecto; el observatorio registra su significado político y territorial sin atribuirle automáticamente efectos de consulta previa o veto jurídico.
+      text: El 16 de septiembre de 2007 una consulta vecinal expresó rechazo al proyecto y se convirtió en un hito político y territorial para Ayabaca y Huancabamba.
       sourceIds: [rio-blanco-defensoria-reporte-139, rio-blanco-iep-2009]
       verificationStatus: verified
       verifiedAt: 2026-07-27
     - id: rio-blanco-hecho-violencia
       kind: fact
-      text: La Defensoría documentó que el enfrentamiento del 1 de agosto de 2005 dejó una persona fallecida, cinco heridas y treinta y dos detenidas, sin que este expediente atribuya responsabilidad penal individual.
+      text: La Defensoría documentó que el enfrentamiento del 1 de agosto de 2005 dejó una persona fallecida, cinco heridas y treinta y dos detenidas.
       sourceIds: [rio-blanco-defensoria-reporte-36]
       verificationStatus: verified
       verifiedAt: 2026-07-27
     - id: rio-blanco-hecho-fiscalizacion
       kind: fact
-      text: OSINERGMIN sancionó incumplimientos de exploración con 100 UIT y ordenó rehabilitación; decisiones posteriores del MINEM modificaron el plan, sin acreditar por sí solas culminación material integral.
+      text: OSINERGMIN sancionó incumplimientos de exploración con 100 UIT y ordenó rehabilitación; el seguimiento administrativo del plan continuó con modificaciones en 2016 y 2020.
       sourceIds: [rio-blanco-osinergmin-444-2008, rio-blanco-minem-rehabilitacion-2016, rio-blanco-minem-rehabilitacion-2020]
       verificationStatus: verified
       verifiedAt: 2026-07-27
@@ -1560,10 +1560,10 @@
       verifiedAt: 2026-07-27
     - id: rio-blanco-interpretacion
       kind: interpretation
-      text: Río Blanco muestra que autorización ambiental, acuerdo sobre superficie, participación local, legitimidad territorial y rehabilitación son planos distintos; un documento en uno de ellos no resuelve automáticamente los demás.
+      text: Río Blanco conecta autorización ambiental, acuerdo sobre superficie, participación local, legitimidad territorial y rehabilitación como dimensiones distintas de un mismo conflicto.
       sourceIds: [rio-blanco-defensoria-informe-2006, rio-blanco-osinergmin-444-2008, rio-blanco-defensoria-reporte-246, rio-blanco-iep-2009, metodologia-observatorio]
       verificationStatus: partial
   cutoffDate: 2026-07-27
   updatedAt: 2026-07-27
   reviewStatus: documentary
-  reviewNotes: Lectura académica e informativa de un conflicto social minero activo; no convierte posiciones comunales o empresariales en hechos propios, no equipara consulta vecinal con consulta previa y no emite conclusiones legales sobre responsabilidades.
+  reviewNotes: Lectura académica e informativa de un conflicto social minero activo que atribuye las posiciones comunales y empresariales y distingue consulta vecinal, consulta previa y decisiones sobre responsabilidades.

@@ -334,6 +334,74 @@
   editorialSummary: Analiza la relación entre fiscalización estatal, persistencia de minería ilegal y vulneración ambiental en Madre de Dios entre 2018 y 2023. Se cataloga como eje complementario y no como conflicto social minero.
   cataloguedAt: 2026-07-29
 
+- id: supo-salud-publica-madre-dios-2024
+  title: El impacto de la minería ilegal aurífera en la salud pública en Madre de Dios, 2024
+  authors: [Brony Xiomara Supo Mendoza]
+  year: 2024
+  university: Universidad Tecnológica del Perú
+  degreeLevel: pregrado
+  repository: UTP-Institucional
+  recordUrl: https://alicia.concytec.gob.pe/vufind/Record/UTPD_c96710421f355256e9b625f810096a82
+  resourceUrl: https://hdl.handle.net/20.500.12867/12184
+  accessStatus: open
+  axis: mineria-ilegal-e-informal
+  regions: [Madre de Dios]
+  caseSlugs: []
+  topics: [salud pública, mercurio, enfermedades vectoriales]
+  editorialSummary: Estudio cualitativo con entrevistas a profesionales de salud y derecho sobre exposición a mercurio, enfermedades respiratorias, renales y neurológicas, dengue, malaria y capacidad de respuesta sanitaria en Madre de Dios.
+  cataloguedAt: 2026-07-30
+
+- id: falla-plan-mercurio-rios-madre-dios-2024
+  title: ¿Pudo el Plan Mercurio/Restauración contrarrestar el deterioro de los ríos en Madre de Dios, Perú?
+  authors: [Valeria Falla Valdez]
+  year: 2024
+  university: Pontificia Universidad Católica del Perú
+  degreeLevel: pregrado
+  repository: PUCP-Tesis
+  recordUrl: https://alicia.concytec.gob.pe/vufind/Record/PUCP_2673a71caa297cda2daeba38ddc38e87/Description
+  resourceUrl: http://hdl.handle.net/20.500.12404/29750
+  accessStatus: restricted
+  axis: mineria-ilegal-e-informal
+  regions: [Madre de Dios]
+  caseSlugs: []
+  topics: [calidad del agua, Plan Mercurio, política pública]
+  editorialSummary: Evalúa el Plan Mercurio y Restauración mediante análisis de calidad del agua y percepción de impactos; identifica la necesidad de monitorear caudal, sedimentos, metales pesados y afectaciones integradas sobre salud y ambiente.
+  cataloguedAt: 2026-07-30
+
+- id: aguirre-mercurio-huepetuhe-2021
+  title: Contaminación ambiental por mercurio y salud fisiológica y psicológica del poblador de Huepetuhe, Madre de Dios
+  authors: [Viviana Patricia Aguirre Zender]
+  year: 2021
+  university: Universidad Nacional Federico Villarreal
+  degreeLevel: doctorado
+  repository: UNFV-Institucional
+  recordUrl: https://alicia.concytec.gob.pe/vufind/Record/RUNF_b7522a3a98f1f324a1e85a6de3146bd3/Description
+  resourceUrl: https://hdl.handle.net/20.500.13084/5683
+  accessStatus: open
+  axis: mineria-ilegal-e-informal
+  regions: [Madre de Dios]
+  caseSlugs: []
+  topics: [Huepetuhe, mercurio, salud fisiológica, salud psicológica]
+  editorialSummary: Investigación doctoral descriptiva y correlacional sobre la relación entre contaminación por mercurio, consumo de pescado y salud fisiológica y psicológica de población residente en Huepetuhe.
+  cataloguedAt: 2026-07-30
+
+- id: garcia-monitoreo-mercurio-pozas-2024
+  title: Protocolo para el monitoreo de mercurio en la red trófica acuática de pozas mineras abandonadas en la Amazonía peruana
+  authors: [María Paz García Veramatus]
+  year: 2024
+  university: Universidad de Ingeniería y Tecnología
+  degreeLevel: pregrado
+  repository: UTEC-Institucional
+  recordUrl: https://alicia.concytec.gob.pe/vufind/index.php/Record/UTEC_d26676f5809dcfe77413e8dc1780c57c
+  resourceUrl: https://hdl.handle.net/20.500.12815/382
+  accessStatus: open
+  axis: mineria-ilegal-e-informal
+  regions: [Madre de Dios]
+  caseSlugs: []
+  topics: [mercurio, pozas mineras, red trófica, monitoreo ambiental]
+  editorialSummary: Propone criterios para medir mercurio en niveles inferiores de la red trófica acuática de pozas mineras abandonadas, ampliando el análisis más allá de peces y de la exposición humana inmediata.
+  cataloguedAt: 2026-07-30
+
 - id: carrasco-custodio-comunicacion-tambogrande-2023
   title: Análisis del proceso comunicacional en el conflicto social frente a la actividad minera en el distrito de Tambogrande - 2022
   authors: [Ana Cecilia Carrasco Corrales, David Aarón Custodio Dioses]

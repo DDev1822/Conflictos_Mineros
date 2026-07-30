@@ -3,185 +3,212 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowSquareOut,
-  CheckCircle,
-  Gavel,
-  Hourglass,
-  Prohibit,
-  WarningCircle,
+  ClockCounterClockwise,
+  MapPin,
+  TrendDown,
+  UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
+import { CriticalSignals } from "@/components/critical-signals";
+import { ReinfoRegionalExplorer } from "@/components/reinfo-regional-explorer";
 import { loadObservatoryData } from "@/lib/content";
-import { getLatestPublicMiningCut, mentionsMiningCategory } from "@/lib/mining-classification";
-import type { Source } from "@/lib/schemas";
 
 export const metadata: Metadata = {
-  title: "REINFO y formalización MAPE",
-  description: "Consulta académica del corte agregado del REINFO, sus fuentes y sus límites de interpretación.",
+  title: "REINFO: cifras y resultados de la formalización minera",
+  description: "Evolución, resultados, distribución territorial y puntos críticos del REINFO y del proceso de formalización MAPE.",
 };
 
-const reinfoSourceIds = [
-  "minem-reinfo",
-  "minem-reinfo-vigente-corte-2026-06-18",
-  "minem-rd-0004-2025-reinfo-exclusiones",
-  "minem-comunicado-reinfo-2025",
-  "dl-1105-formalizacion",
-];
+const numberFormatter = new Intl.NumberFormat("es-PE");
+const percentFormatter = new Intl.NumberFormat("es-PE", {
+  style: "percent",
+  maximumFractionDigits: 1,
+});
 
-function formatDate(value?: string) {
-  if (!value) return "s/f";
-  return new Intl.DateTimeFormat("es-PE", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
-}
+const dateFormatter = new Intl.DateTimeFormat("es-PE", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+  timeZone: "UTC",
+});
 
-function formatNumber(value?: number) {
-  return (value ?? 0).toLocaleString("es-PE");
-}
-
-function SourceCard({ source }: { source: Source }) {
-  return (
-    <a href={source.url} target="_blank" rel="noreferrer">
-      <strong>{source.institution}</strong>
-      <span>{source.title}</span>
-      <small>{formatDate(source.date)} · {source.evidenceLevel} · {source.rightsStatus}</small>
-      <ArrowSquareOut size={15} aria-hidden />
-    </a>
-  );
+function formatDate(value: string) {
+  return dateFormatter.format(new Date(`${value}T00:00:00Z`));
 }
 
 export default function ReinfoPage() {
   const data = loadObservatoryData();
-  const { cases: publicMiningCases } = getLatestPublicMiningCut(data);
-  const alternative = data.alternatives.find((item) => item.id === "expediente-unico-trazable");
-  const latestReinfo = [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
-  const madreDeDiosCount = latestReinfo?.regions.find((region) => region.id === "madre-de-dios")?.count;
-  const formalizationIssue = data.issues.find((item) => item.id === "formalizacion-mape");
-  const formalizationInstruments = data.instruments.filter((item) => item.issueIds.includes("formalizacion-mape"));
-  const reinfoSources = reinfoSourceIds
-    .map((id) => data.sources.find((source) => source.id === id))
-    .filter((source): source is Source => Boolean(source));
-  const reinfoEvidenceRecords = data.evidenceRecords.filter((record) => reinfoSourceIds.includes(record.sourceId));
-  const illegalMentions = publicMiningCases.filter((item) => mentionsMiningCategory(item, "ilegal"));
-  const informalMentions = publicMiningCases.filter((item) => mentionsMiningCategory(item, "informal"));
-  const overlappingMentions = publicMiningCases.filter((item) => mentionsMiningCategory(item, "ilegal") && mentionsMiningCategory(item, "informal"));
+  const latest = [...data.reinfoTerritorialSnapshots].sort((a, b) => b.cutoffDate.localeCompare(a.cutoffDate))[0];
+  const regions = [...latest.regions].filter((region) => region.count > 0).sort((a, b) => b.count - a.count);
+  const topFive = regions.slice(0, 5);
+  const topFiveTotal = topFive.reduce((sum, region) => sum + region.count, 0);
+  const madreDeDios = regions.find((region) => region.id === "madre-de-dios");
+  const reinfoSignals = data.criticalSignals
+    .filter((signal) => signal.topic === "reinfo")
+    .sort((a, b) => a.date.localeCompare(b.date));
+  const sourceById = new Map(data.sources.map((source) => [source.id, source]));
+  const registrySource = sourceById.get("minem-reinfo");
+  const exclusionSource = sourceById.get("minem-rd-0004-2025-reinfo-exclusiones");
+  const extensionSource = sourceById.get("minem-ley-32537-reinfo-2026");
+  const performanceSource = sourceById.get("pcm-reinfo-formalizacion-2025");
 
   return (
-    <div className="reinfo-page">
-      <section className="reinfo-hero">
+    <div className="reinfo-page reinfo-data-page">
+      <section className="reinfo-data-hero">
         <div>
-          <p className="eyebrow">Formalización MAPE · registro y origen</p>
-          <h1>REINFO / MAPE</h1>
+          <p className="eyebrow">Formalización de pequeña minería y minería artesanal</p>
+          <h1>REINFO: un régimen transitorio que sigue abierto después de más de una década.</h1>
           <p>
-            Corte MINEM: {formatNumber(latestReinfo?.totalRegistered)} inscripciones vigentes al {formatDate(latestReinfo?.cutoffDate)}.
-            El registro acredita permanencia administrativa en un proceso; no prueba por sí solo formalización concluida,
-            origen lícito del mineral ni ausencia de infracciones.
+            El corte oficial reunido por el observatorio registra {numberFormatter.format(latest.totalRegistered)} inscripciones
+            vigentes al {formatDate(latest.cutoffDate)}. La pregunta central ya no es cuántos ingresaron, sino cuántos culminan
+            la formalización, cuánto tiempo permanecen y dónde se concentra el proceso.
           </p>
-          <div className="review-banner">
-            <WarningCircle />
-            <span><strong>Fuente oficial MINEM</strong> · consulta registrada {formatDate(latestReinfo?.accessedAt)} · corte nacional y regional</span>
+          <div className="reinfo-data-actions">
+            <a className="button primary" href="#regiones">Explorar departamentos <ArrowRight size={17} /></a>
+            {registrySource && (
+              <a className="button secondary" href={registrySource.url} target="_blank" rel="noreferrer">
+                Consultar REINFO <ArrowSquareOut size={15} />
+              </a>
+            )}
           </div>
         </div>
-        <Gavel size={116} weight="thin" aria-hidden />
-      </section>
-
-      <section className="reinfo-stats" aria-label="Indicadores REINFO y minería ilegal e informal">
-        <article>
-          <strong>{formatNumber(latestReinfo?.totalRegistered)}</strong>
-          <span>REINFO vigente</span>
-          <small>Agregado nacional del corte territorial.</small>
-        </article>
-        <article>
-          <strong>{formatNumber(madreDeDiosCount)}</strong>
-          <span>Madre de Dios</span>
-          <small>Inscripciones vigentes en el caso profundo.</small>
-        </article>
-        <article>
-          <strong>{formatNumber(illegalMentions.length)}</strong>
-          <span>Minería ilegal</span>
-          <small>Menciones explícitas en el corte social minero.</small>
-        </article>
-        <article>
-          <strong>{formatNumber(informalMentions.length)}</strong>
-          <span>Minería informal</span>
-          <small>{formatNumber(overlappingMentions.length)} también mencionan ilegal.</small>
-        </article>
-      </section>
-
-      <section className="category-grid">
-        <article>
-          <CheckCircle />
-          <h2>Minería formal</h2>
-          <p>No se infiere desde REINFO. Requiere autorizaciones, obligaciones y verificación aplicable al caso o unidad evaluada.</p>
-        </article>
-        <article>
-          <Hourglass />
-          <h2>En formalización</h2>
-          <p>El REINFO registra permanencia en un proceso. La inscripción no equivale al resultado final ni a cumplimiento completo.</p>
-        </article>
-        <article>
-          <WarningCircle />
-          <h2>Minería informal</h2>
-          <p>{formatNumber(informalMentions.length)} casos del corte social minero la mencionan explícitamente; se mantiene separada de minería ilegal.</p>
-        </article>
-        <article>
-          <Prohibit />
-          <h2>Minería ilegal</h2>
-          <p>{formatNumber(illegalMentions.length)} casos del corte social minero la mencionan explícitamente; no sustituye calificación judicial o administrativa individual.</p>
-        </article>
-      </section>
-
-      <section className="reinfo-system">
-        <div>
-          <p className="eyebrow">Registro, norma y territorio</p>
-          <h2>Registro, norma y trazabilidad conectados</h2>
-          <ul>
-            <li>Fuente oficial REINFO/MINEM enlazada y corte territorial archivado con {formatNumber(latestReinfo?.regions.length)} agregados regionales.</li>
-            <li>Madre de Dios registra {formatNumber(madreDeDiosCount)} inscripciones vigentes en el agregado regional; la cifra no identifica ubicaciones ni acredita actividad.</li>
-            <li>{formatNumber(formalizationInstruments.length)} instrumento(s) normativo(s) conectados al nudo {formalizationIssue?.name ?? "Formalización MAPE"}.</li>
-            <li>{formatNumber(reinfoEvidenceRecords.length)} registro(s) de evidencia enlazan fuente, entidad respaldada, referencia precisa y fecha de comprobación.</li>
-            <li>Las menciones de minería ilegal e informal vienen del corte social minero y no delimitan zonas de actividad ni responsabilidad individual.</li>
-          </ul>
-        </div>
         <aside>
-          <p>Eje documental separado</p>
-          <h3>REINFO no es un conflicto social</h3>
-          <p>Es un registro administrativo que puede relacionarse con debates de formalización, sin convertirse por ello en caso, actividad verificada o conclusión jurídica individual.</p>
-          <Link href="/mapa?heat=0&cases=0&reinfo=1">Ver distribución regional <ArrowRight /></Link>
-          <Link href="/normativa#formalizacion-mape">Ver nudo normativo <ArrowRight /></Link>
-          <Link href="/explorar">Comparar ejes en Relaciones <ArrowRight /></Link>
+          <ClockCounterClockwise size={48} weight="thin" aria-hidden />
+          <strong>Hasta el 31 de diciembre de 2026</strong>
+          <span>
+            La Ley 32537 volvió a ampliar el proceso e incorporó censo nacional, sinceramiento de ubicación y nuevas
+            obligaciones laborales y administrativas.
+          </span>
+          {extensionSource && <a href={extensionSource.url} target="_blank" rel="noreferrer">Abrir la ampliación de 2026 <ArrowRight size={15} /></a>}
         </aside>
       </section>
 
-      <section className="reinfo-evidence">
-        <div>
-          <p className="eyebrow">Fuentes enlazadas</p>
-          <h2>Textos y registros del régimen REINFO / MAPE</h2>
+      <section className="reinfo-data-stats" aria-label="Indicadores principales del REINFO">
+        {registrySource && (
+          <a href={registrySource.url} target="_blank" rel="noreferrer">
+            <strong>{numberFormatter.format(latest.totalRegistered)}</strong>
+            <span>inscripciones vigentes</span>
+            <small>Corte departamental del {formatDate(latest.cutoffDate)}</small>
+          </a>
+        )}
+        <a href="#regiones">
+          <strong>{percentFormatter.format(topFiveTotal / latest.totalRegistered)}</strong>
+          <span>concentrado en cinco departamentos</span>
+          <small>{topFive.map((region) => region.name).join(", ")}</small>
+        </a>
+        {exclusionSource && (
+          <a href={exclusionSource.url} target="_blank" rel="noreferrer">
+            <strong>50.565</strong>
+            <span>registros excluidos en 2025</span>
+            <small>Inscripciones suspendidas por más de un año</small>
+          </a>
+        )}
+        {performanceSource && (
+          <a href={performanceSource.url} target="_blank" rel="noreferrer">
+            <strong>2,4%</strong>
+            <span>formalización acumulada informada</span>
+            <small>Declaración de la PCM sobre más de 84.000 inscripciones</small>
+          </a>
+        )}
+      </section>
+
+      <section className="reinfo-explainer">
+        <div className="section-heading">
+          <p className="eyebrow">Qué representa cada estado</p>
+          <h2>Inscribirse, permanecer y formalizarse son momentos distintos.</h2>
         </div>
-        <div className="reinfo-source-list">
-          {reinfoSources.map((source) => <SourceCard key={source.id} source={source} />)}
+        <div className="reinfo-explainer-grid">
+          <article>
+            <span>01</span>
+            <h3>Inscripción</h3>
+            <p>Incorpora a una persona natural o jurídica al proceso y vincula actividad, derecho minero y ubicación declarada.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Vigencia</h3>
+            <p>Permite continuar dentro del proceso mientras se cumplen requisitos ambientales, técnicos, tributarios y contractuales.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Suspensión o exclusión</h3>
+            <p>La falta de requisitos o el tiempo prolongado en suspensión puede cerrar la permanencia en el proceso.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Formalización concluida</h3>
+            <p>Es la salida esperada del régimen transitorio y exige completar las condiciones aplicables a la operación.</p>
+          </article>
         </div>
       </section>
 
-      <section className="reinfo-locators">
-        <p className="eyebrow">Referencias precisas</p>
-        <h2>Dónde se sostiene cada afirmación sobre REINFO</h2>
+      <div id="regiones">
+        <ReinfoRegionalExplorer regions={latest.regions} total={latest.totalRegistered} />
+      </div>
+
+      <section className="reinfo-concentration">
         <div>
-          {reinfoEvidenceRecords.slice(0, 6).map((record) => (
-            <article key={record.id}>
-              <strong>{record.locator}</strong>
-              <span>{record.summary}</span>
-              <small>{record.relation} · {record.reviewStatus} · comprobado {formatDate(record.checkedAt)}</small>
-            </article>
+          <MapPin size={31} aria-hidden />
+          <p className="eyebrow">Concentración territorial</p>
+          <h2>Cinco departamentos reúnen {numberFormatter.format(topFiveTotal)} inscripciones vigentes.</h2>
+        </div>
+        <ol>
+          {topFive.map((region, index) => (
+            <li key={region.id}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{region.name}</strong>
+              <em>{numberFormatter.format(region.count)}</em>
+              <small>{percentFormatter.format(region.count / latest.totalRegistered)} del total</small>
+            </li>
           ))}
+        </ol>
+        {madreDeDios && (
+          <p>
+            Madre de Dios ocupa el tercer lugar con {numberFormatter.format(madreDeDios.count)} inscripciones. Esa escala
+            conecta formalización, expansión aurífera, mercurio y presión sobre áreas naturales.
+            <Link href="/madre-de-dios"> Abrir análisis regional <ArrowRight size={14} /></Link>
+          </p>
+        )}
+      </section>
+
+      <section className="reinfo-history">
+        <div className="section-heading">
+          <p className="eyebrow">Cambios decisivos · 2025-2026</p>
+          <h2>Depuración, bajo resultado y una nueva ampliación.</h2>
+        </div>
+        <CriticalSignals signals={reinfoSignals} sources={data.sources} />
+      </section>
+
+      <section className="reinfo-critical-points">
+        <div className="section-heading">
+          <p className="eyebrow">Puntos críticos</p>
+          <h2>El tamaño del registro oculta cuatro problemas de política pública.</h2>
+        </div>
+        <div>
+          <article>
+            <TrendDown size={27} aria-hidden />
+            <h3>Salida demasiado lenta</h3>
+            <p>El balance oficial de 2,4% muestra que la permanencia en el proceso creció mucho más rápido que la formalización concluida.</p>
+          </article>
+          <article>
+            <ClockCounterClockwise size={27} aria-hidden />
+            <h3>Prórrogas sucesivas</h3>
+            <p>Cada ampliación desplaza el cierre del régimen y obliga a redefinir quién continúa, bajo qué requisitos y durante cuánto tiempo.</p>
+          </article>
+          <article>
+            <MapPin size={27} aria-hidden />
+            <h3>Ubicación declarada incompleta</h3>
+            <p>La Ley 32537 exige sincerar la ubicación real de las operaciones, una condición básica para fiscalización ambiental y laboral.</p>
+          </article>
+          <article>
+            <UsersThree size={27} aria-hidden />
+            <h3>Responsabilidades fragmentadas</h3>
+            <p>MINEM conduce el proceso, pero gobiernos regionales, autoridades ambientales y fiscalizadores intervienen en requisitos distintos.</p>
+          </article>
         </div>
       </section>
 
-      <section className="source-note">
-        <h2>Regla probatoria</h2>
-        <p>
-          La condición de una persona, actividad o territorio no se infiere desde prensa, apariencia territorial o una sola base.
-          Toda clasificación debe citar fuente, fecha, criterio y alcance. Una inscripción no prueba formalidad concluida,
-          una suspensión no prueba delito y una mención territorial no reemplaza expedientes oficiales ni determinaciones individuales.
-        </p>
-        {alternative && <p><strong>Alternativa conectada:</strong> {alternative.title}. {alternative.mechanism}</p>}
-        {reinfoSources[0] && <a href={reinfoSources[0].url} target="_blank" rel="noreferrer">Consultar registro oficial <ArrowRight /></a>}
+      <section className="reinfo-next">
+        <Link href="/mapa?heat=0&cases=0&reinfo=1">Ver distribución en el mapa <ArrowRight size={15} /></Link>
+        <Link href="/pataz">REINFO y violencia en Pataz <ArrowRight size={15} /></Link>
+        <Link href="/normativa#formalizacion-mape">Reglas del proceso MAPE <ArrowRight size={15} /></Link>
       </section>
     </div>
   );

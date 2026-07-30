@@ -244,11 +244,11 @@ describe("contenido académico", () => {
     const items = data.academicResearch;
     const caseSlugs = new Set(data.cases.map((item) => item.slug));
 
-    expect(items).toHaveLength(33);
+    expect(items).toHaveLength(37);
     expect(new Set(items.map((item) => item.id)).size).toBe(items.length);
     expect(new Set(items.map((item) => item.degreeLevel))).toEqual(new Set(["pregrado", "maestria", "doctorado"]));
     expect(items.filter((item) => item.axis === "conflictos-sociales-mineros")).toHaveLength(31);
-    expect(items.filter((item) => item.axis === "mineria-ilegal-e-informal")).toHaveLength(1);
+    expect(items.filter((item) => item.axis === "mineria-ilegal-e-informal")).toHaveLength(5);
     expect(items.filter((item) => item.axis === "reinfo-y-formalizacion")).toHaveLength(1);
     expect(items.every((item) => {
       const host = new URL(item.recordUrl).hostname;

@@ -6,7 +6,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { getCaseBySlug, loadNarrative, loadObservatoryData } from "@/lib/content";
 import { isPublishedSocialMiningCase } from "@/lib/public-scope";
 import { StatusPill } from "@/components/status-pill";
-import type { CaseResearchPacket, Claim, ConflictCase, EvidenceRecord, Source, TimelineEvent } from "@/lib/schemas";
+import type { Claim, Source, TimelineEvent } from "@/lib/schemas";
 
 export function generateStaticParams() {
   return loadObservatoryData().cases.filter(isPublishedSocialMiningCase).map((item) => ({ slug: item.slug }));
@@ -18,56 +18,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return { title: item?.name ?? "Caso" };
 }
 
-const caseReviewLabels: Record<ConflictCase["reviewStatus"], string> = {
-  documentary: "Contraste documental",
-};
-
 const claimLabels: Record<Claim["kind"], string> = {
-  fact: "Hecho",
-  interpretation: "Interpretación",
-  proposal: "Propuesta",
-};
-
-const verificationLabels: Record<Claim["verificationStatus"], string> = {
-  verified: "verificada",
-  partial: "parcial",
-  pending: "en contraste",
-};
-
-const evidenceLevelLabels: Record<Source["evidenceLevel"], string> = {
-  primary: "primaria",
-  secondary: "secundaria",
-  contextual: "contextual",
+  fact: "Dato",
+  interpretation: "Lectura",
+  proposal: "Alternativa",
 };
 
 const timelineKindLabels: Record<TimelineEvent["kind"], string> = {
-  event: "evento",
+  event: "hecho",
   decision: "decisión",
   agreement: "acuerdo",
-  evidence: "evidencia",
-  publication: "publicación",
+  evidence: "resultado",
+  publication: "informe",
 };
-
-const sourceTypeLabels: Record<Source["type"], string> = {
-  official: "Oficial",
-  academic: "Academia",
-  community: "Comunidad",
-  company: "Empresa",
-  ngo: "Sociedad civil",
-  press: "Prensa",
-};
-
-const evidenceRelationLabels: Record<EvidenceRecord["relation"], string> = {
-  supports: "sostiene",
-  qualifies: "matiza",
-  contradicts: "contradice",
-};
-
-const degreeLabels = {
-  pregrado: "Título / pregrado",
-  maestria: "Maestría",
-  doctorado: "Doctorado",
-} as const;
 
 const actorTypeLabels = {
   state: "Estado",
@@ -78,59 +41,15 @@ const actorTypeLabels = {
   collective: "Colectivo",
 };
 
+const degreeLabels = {
+  pregrado: "Pregrado",
+  maestria: "Maestría",
+  doctorado: "Doctorado",
+} as const;
+
 function formatDate(value?: string) {
   if (!value) return "s/f";
   return new Intl.DateTimeFormat("es-PE", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
-}
-
-function uniqueIds(values: string[]) {
-  return Array.from(new Set(values));
-}
-
-function reviewLabel(item: ConflictCase) {
-  return caseReviewLabels[item.reviewStatus];
-}
-
-function publicReviewNote(note: string) {
-  return note
-    .replaceAll("responsabilidades legales no verificadas", "responsabilidades no documentadas por la fuente");
-}
-
-function publicStatusSummary(value: string) {
-  return value
-    .replaceAll("El expediente conserva", "La documentación disponible reúne")
-    .replaceAll("el expediente integra", "la documentación reúne")
-    .replaceAll("queda integrado como", "se presenta como")
-    .replaceAll("con locadores", "con referencias exactas");
-}
-
-function sourceMeta(source: Source) {
-  return `${source.institution} · fuente ${evidenceLevelLabels[source.evidenceLevel]} · ${formatDate(source.date)}`;
-}
-
-function linkedSources(item: ConflictCase, packet: CaseResearchPacket | undefined, sources: Source[]) {
-  const sourceIds = uniqueIds([
-    ...(packet?.sourceIds ?? []),
-    ...item.claims.flatMap((claim) => claim.sourceIds),
-    ...item.timeline.flatMap((event) => event.sourceIds),
-  ]);
-
-  return sourceIds
-    .map((sourceId) => sources.find((source) => source.id === sourceId))
-    .filter((source): source is Source => Boolean(source));
-}
-
-function linkedEvidenceRecords(item: ConflictCase, packet: CaseResearchPacket | undefined, records: EvidenceRecord[]) {
-  const entityIds = new Set([item.id, ...item.timeline.map((event) => event.id), ...item.claims.map((claim) => claim.id)]);
-  const packetSourceIds = new Set(packet?.sourceIds ?? []);
-  const seen = new Set<string>();
-
-  return records.filter((record) => {
-    const matches = entityIds.has(record.entityId) || packetSourceIds.has(record.sourceId);
-    if (!matches || seen.has(record.id)) return false;
-    seen.add(record.id);
-    return true;
-  });
 }
 
 export default async function CasePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -143,13 +62,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const territories = data.territories.filter((entry) => item.territoryIds.includes(entry.id));
   const actors = data.actors.filter((entry) => item.actorIds.includes(entry.id));
   const issues = data.issues.filter((entry) => item.issueIds.includes(entry.id));
-  const sources = linkedSources(item, packet, data.sources);
   const sourceById = new Map(data.sources.map((source) => [source.id, source]));
-  const evidenceRecords = linkedEvidenceRecords(item, packet, data.evidenceRecords);
-  const verifiedClaims = item.claims.filter((claim) => claim.verificationStatus === "verified").length;
-  const directActorSources = packet?.directActorSourceIds.length ?? 0;
-  const openContradictions = packet?.contradictions.filter((entry) => entry.status === "open").length ?? 0;
-  const scopeLimitCount = packet?.gaps.length ?? 0;
   const academicReadings = data.academicResearch
     .filter((entry) => entry.caseSlugs.includes(slug))
     .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title, "es"));
@@ -159,128 +72,54 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       <div className="dossier-hero">
         <Link className="back-link" href="/conflictos"><ArrowLeft />Todos los casos</Link>
         <div className="dossier-title">
-          <div>
-            <p className="eyebrow">Caso social minero</p>
-            <h1>{item.name}</h1>
-            <p>{item.summary}</p>
-          </div>
+          <div><p className="eyebrow">Caso social minero</p><h1>{item.name}</h1><p>{item.summary}</p></div>
           <StatusPill status={item.status} />
         </div>
         <dl className="dossier-meta">
           <div><MapPin /><dt>Territorio</dt><dd>{territories.map((entry) => entry.name).join(", ")}</dd></div>
-          <div><CalendarBlank /><dt>Corte documental</dt><dd>{formatDate(packet?.cutoffDate ?? item.cutoffDate)}</dd></div>
-          <div><Scales /><dt>Contraste</dt><dd>{reviewLabel(item)}</dd></div>
+          <div><CalendarBlank /><dt>Periodo analizado</dt><dd>hasta {formatDate(packet?.cutoffDate ?? item.cutoffDate)}</dd></div>
+          <div><Scales /><dt>Temas centrales</dt><dd>{issues.map((issue) => issue.name).join(" · ")}</dd></div>
         </dl>
       </div>
 
       <div className="dossier-layout">
         <div className="dossier-main">
-          <section className="prose">
-            <MDXRemote source={loadNarrative(slug)} />
-          </section>
+          <section className="prose"><MDXRemote source={loadNarrative(slug)} /></section>
 
           {packet && (
             <section className="case-status-summary">
-              <p className="eyebrow">Estado documentado al corte</p>
-              <h2>Situación documentada del caso</h2>
-              <p>{publicStatusSummary(packet.currentStatusSummary)}</p>
+              <p className="eyebrow">Situación actual</p>
+              <h2>Qué cambió y qué permanece abierto</h2>
+              <p>{packet.currentStatusSummary}</p>
               <div className="case-status-grid">
-                <article><strong>{sources.length}</strong><span>Fuentes</span><small>{directActorSources} actorales directas.</small></article>
-                <article><strong>{evidenceRecords.length}</strong><span>Referencias exactas</span><small>{evidenceRecords.filter((record) => record.reviewStatus === "reviewed").length} revisadas.</small></article>
-                <article><strong>{openContradictions}</strong><span>Contradicciones</span><small>Abiertas y atribuidas.</small></article>
-                <article><strong>{scopeLimitCount}</strong><span>Límite probatorio</span><small>Seguimiento académico que delimita el alcance del corte actual.</small></article>
-              </div>
-            </section>
-          )}
-
-          {academicReadings.length > 0 && (
-            <section className="case-academic-readings" aria-labelledby="case-academic-title">
-              <header>
-                <div>
-                  <p className="eyebrow">Biblioteca académica</p>
-                  <h2 id="case-academic-title">{academicReadings.length} investigaciones relacionadas</h2>
-                  <p>
-                    Estas tesis aportan interpretación, métodos y contexto sobre el caso. Sus conclusiones pertenecen a cada
-                    investigación y no sustituyen la evidencia primaria ni acreditan por sí solas hechos actuales.
-                  </p>
-                </div>
-                <Link href="/biblioteca"><BookOpenText aria-hidden /> Explorar la biblioteca</Link>
-              </header>
-              <div className="case-academic-grid">
-                {academicReadings.map((reading) => (
-                  <article className="case-academic-card" key={reading.id}>
-                    <div>
-                      <span>{degreeLabels[reading.degreeLevel]}</span>
-                      <span>{reading.year}</span>
-                    </div>
-                    <h3>{reading.title}</h3>
-                    <p className="case-academic-byline">{reading.authors.join(" · ")}</p>
-                    <p className="case-academic-institution">{reading.university}</p>
-                    <p>{reading.editorialSummary}</p>
-                    <a href={reading.recordUrl} target="_blank" rel="noreferrer">
-                      Abrir ficha académica <ArrowSquareOut aria-hidden />
-                    </a>
-                  </article>
-                ))}
+                <article><strong>{item.timeline.length}</strong><span>hitos</span><small>Decisiones, acuerdos y cambios del caso.</small></article>
+                <article><strong>{actors.length}</strong><span>actores</span><small>Estado, comunidades, empresas y organizaciones.</small></article>
+                <article><strong>{issues.length}</strong><span>problemas centrales</span><small>Agua, territorio, salud, acuerdos o control público.</small></article>
+                <article><strong>{academicReadings.length}</strong><span>investigaciones</span><small>Lecturas universitarias vinculadas.</small></article>
               </div>
             </section>
           )}
 
           <section>
-            <p className="eyebrow">Cronología documentada</p>
-            <h2>Hitos del caso</h2>
+            <p className="eyebrow">Secuencia del conflicto</p>
+            <h2>Hitos que modificaron el caso</h2>
             <ol className="vertical-timeline">
               {item.timeline.map((event) => {
-                const eventSources = event.sourceIds
-                  .map((sourceId) => sourceById.get(sourceId))
-                  .filter((source): source is Source => Boolean(source));
-                const directLocators = data.evidenceRecords.filter(
-                  (record) => record.entityType === "timeline" && record.entityId === event.id,
-                );
-                const eventLocators = directLocators.length
-                  ? directLocators
-                  : data.evidenceRecords.filter((record) => event.sourceIds.includes(record.sourceId)).slice(0, 2);
-
+                const eventSources = event.sourceIds.map((sourceId) => sourceById.get(sourceId)).filter((source): source is Source => Boolean(source) && source?.id !== "metodologia-observatorio");
                 return (
                   <li key={event.id} id={event.id}>
                     <time dateTime={event.date}>{formatDate(event.date)}</time>
                     <div>
-                      <span className="timeline-kind">{timelineKindLabels[event.kind]} · {event.sourceIds.length} fuente(s)</span>
+                      <span className="timeline-kind">{timelineKindLabels[event.kind]}</span>
                       <h3>{event.title}</h3>
                       <p>{event.summary}</p>
-
-                      <div className="timeline-card-evidence" aria-label={`Trazabilidad documental de ${event.title}`}>
-                        <span>{eventSources.length} documento(s) disponible(s)</span>
-                        <span>{eventLocators.length} referencia(s) precisa(s)</span>
-                      </div>
-
-                      <div className="timeline-card-sources" aria-label={`Documentos vinculados al hito ${event.title}`}>
+                      <div className="timeline-card-sources" aria-label={`Enlaces relacionados con ${event.title}`}>
                         {eventSources.map((source) => (
-                          <a
-                            key={source.id}
-                            href={source.url}
-                            target="_blank"
-                            rel="noreferrer"
-                            title={source.title}
-                            aria-label={`Abrir documento: ${source.title}. ${source.institution}`}
-                          >
-                            <strong>{source.title}</strong>
-                            <small>{source.institution} · {sourceTypeLabels[source.type]} · {formatDate(source.date)}</small>
-                            <ArrowSquareOut size={13} aria-hidden />
+                          <a key={source.id} href={source.url} target="_blank" rel="noreferrer">
+                            <strong>{source.institution}</strong><small>{source.title}</small><ArrowSquareOut size={13} aria-hidden />
                           </a>
                         ))}
                       </div>
-
-                      {eventLocators.length > 0 && (
-                        <div className="timeline-locators" aria-label={`Referencias precisas de ${event.title}`}>
-                          {eventLocators.map((record) => (
-                            <section key={record.id}>
-                              <strong>{evidenceRelationLabels[record.relation]} · {record.locator}</strong>
-                              <small>{record.summary}</small>
-                            </section>
-                          ))}
-                        </div>
-                      )}
                     </div>
                   </li>
                 );
@@ -289,62 +128,50 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           </section>
 
           <section>
-            <p className="eyebrow">Trazabilidad</p>
-            <h2>Afirmaciones centrales</h2>
+            <p className="eyebrow">Hallazgos centrales</p>
+            <h2>Datos, lecturas y alternativas</h2>
             <div className="claim-list">
               {item.claims.map((claim) => (
                 <div key={claim.id}>
                   <span className={`claim-kind ${claim.kind}`}>{claimLabels[claim.kind]}</span>
                   <p>{claim.text}</p>
-                  <small>{claim.sourceIds.length} fuente(s) · verificación {verificationLabels[claim.verificationStatus]}{claim.verifiedAt ? ` · ${formatDate(claim.verifiedAt)}` : ""}</small>
+                  <div className="claim-source-links">
+                    {claim.sourceIds.map((sourceId) => {
+                      const source = sourceById.get(sourceId);
+                      return source && source.id !== "metodologia-observatorio" ? <a key={source.id} href={source.url} target="_blank" rel="noreferrer">{source.institution} <ArrowSquareOut size={12} /></a> : null;
+                    })}
+                  </div>
                 </div>
               ))}
             </div>
           </section>
+
+          {academicReadings.length > 0 && (
+            <section className="case-academic-readings" aria-labelledby="case-academic-title">
+              <header>
+                <div><p className="eyebrow">Investigación académica</p><h2 id="case-academic-title">{academicReadings.length} estudios relacionados</h2><p>Perspectivas sobre impactos, instituciones, actores y evolución del conflicto.</p></div>
+                <Link href="/biblioteca"><BookOpenText aria-hidden /> Explorar biblioteca</Link>
+              </header>
+              <div className="case-academic-grid">
+                {academicReadings.map((reading) => (
+                  <article className="case-academic-card" key={reading.id}>
+                    <div><span>{degreeLabels[reading.degreeLevel]}</span><span>{reading.year}</span></div>
+                    <h3>{reading.title}</h3>
+                    <p className="case-academic-byline">{reading.authors.join(" · ")}</p>
+                    <p className="case-academic-institution">{reading.university}</p>
+                    <p>{reading.editorialSummary}</p>
+                    <a href={reading.recordUrl} target="_blank" rel="noreferrer">Abrir estudio <ArrowSquareOut aria-hidden /></a>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
 
         <aside className="dossier-aside">
-          <section>
-            <h2>Nudos relacionados</h2>
-            {issues.map((issue) => <Link href={`/normativa#${issue.id}`} key={issue.id}>{issue.name}</Link>)}
-          </section>
-          <section>
-            <h2>Actores identificados</h2>
-            {actors.map((actor) => <div key={actor.id}><strong>{actor.name}</strong><small>{actorTypeLabels[actor.type]}</small></div>)}
-          </section>
-          <section>
-            <h2>Fuentes documentales</h2>
-            <div className="source-stack">
-              {sources.slice(0, 8).map((source) => (
-                <a href={source.url} key={source.id} target="_blank" rel="noreferrer">
-                  <span><strong>{source.institution}</strong><small>{source.title}</small><em>{sourceMeta(source)}</em></span>
-                  <ArrowSquareOut />
-                </a>
-              ))}
-            </div>
-          </section>
-          <section>
-            <h2>Ubicación en las fuentes</h2>
-            <div className="locator-stack">
-              {evidenceRecords.slice(0, 6).map((record) => (
-                <article key={record.id}>
-                  <strong>{evidenceRelationLabels[record.relation]} · {record.locator}</strong>
-                  <small>{record.summary}</small>
-                </article>
-              ))}
-            </div>
-          </section>
-          {packet && (
-            <section>
-              <h2>Preguntas probatorias</h2>
-              <ul className="question-list">
-                {packet.scopeQuestions.slice(0, 4).map((question) => <li key={question}>{question}</li>)}
-              </ul>
-            </section>
-          )}
-          <p className="review-note">
-            Actualizado: {formatDate(item.updatedAt)}. {caseReviewLabels[item.reviewStatus]}. {verifiedClaims}/{item.claims.length} afirmaciones verificadas. {publicReviewNote(item.reviewNotes)}
-          </p>
+          <section><h2>Temas críticos</h2>{issues.map((issue) => <Link href={`/normativa#${issue.id}`} key={issue.id}>{issue.name}</Link>)}</section>
+          <section><h2>Actores</h2>{actors.map((actor) => <div key={actor.id}><strong>{actor.name}</strong><small>{actorTypeLabels[actor.type]}</small></div>)}</section>
+          <p className="review-note">Última actualización del caso: {formatDate(item.updatedAt)}.</p>
         </aside>
       </div>
     </article>

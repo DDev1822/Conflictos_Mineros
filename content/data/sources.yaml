@@ -1779,6 +1779,132 @@
   rightsStatus: link-only
   verificationStatus: verified
   notes: Reporte satelital MAAP con análisis de muy alta resolución; documenta 500 hectáreas deforestadas por minería ilegal en el norte de la Reserva Nacional Tambopata entre el segundo semestre de 2025 y febrero de 2026.
+- id: pcm-reinfo-formalizacion-2025
+  title: Ejecutivo señala que de los más de 84.000 REINFO inscritos solo el 2,4% se ha formalizado
+  institution: Presidencia del Consejo de Ministros
+  date: 2025-07-12
+  datePrecision: day
+  url: https://www.gob.pe/institucion/pcm/noticias/1207906-ejecutivo-senala-que-de-los-mas-de-84-000-reinfo-inscritos-solo-el-2-4-se-ha-formalizado
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-30
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Declaración oficial del Alto Comisionado con porcentaje acumulado, universo histórico y resultados nacionales de interdicción a junio de 2025.
+- id: minem-ley-32537-reinfo-2026
+  title: Ley 32537 amplía el proceso de formalización minera integral hasta diciembre de 2026
+  institution: Ministerio de Energía y Minas
+  date: 2025-12-27
+  datePrecision: day
+  url: https://www.gob.pe/institucion/minem/noticias/1321455-poder-ejecutivo-promulgo-la-ley-n-32537-que-amplia-vigencia-del-proceso-de-formalizacion-minera-integral-hasta-diciembre-del-2026
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-30
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resume la ampliación hasta el 31 de diciembre de 2026, el censo MAPE y el reporte obligatorio de ubicación real de las operaciones.
+- id: bcrp-memoria-2025-reinfo
+  title: Memoria 2025 — La formalización minera en cifras
+  institution: Banco Central de Reserva del Perú
+  date: 2026-05-01
+  datePrecision: month
+  url: https://www.bcrp.gob.pe/docs/Publicaciones/Memoria/2025/memoria-bcrp-2025-1.pdf
+  type: official
+  perspective: state
+  evidenceLevel: secondary
+  accessedAt: 2026-07-30
+  license: Publicación institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: La Memoria reproduce cifras MINEM al 20 de abril de 2026 y una serie anual de formalizaciones entre 2014 y 2025.
+- id: rpp-pataz-secuestro-2025
+  title: Secuestro de trece trabajadores en Pataz pese al estado de emergencia
+  institution: RPP Noticias
+  date: 2025-05-02
+  datePrecision: day
+  url: https://rpp.pe/economia/economia/minera-poderosa-secuestran-a-13-trabajadores-mineros-pese-al-estado-de-emergencia-en-pataz-la-libertad-mineria-ilegal-noticia-1632256
+  type: press
+  perspective: journalistic
+  evidenceLevel: contextual
+  accessedAt: 2026-07-30
+  license: Condiciones del medio
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Cobertura contemporánea del secuestro, la disputa por el control de una zona de explotación y el operativo policial previo.
+- id: mininter-pataz-capturas-2025
+  title: Captura de ocho presuntos implicados en el asesinato de trece trabajadores en Pataz
+  institution: Ministerio del Interior
+  date: 2025-05-29
+  datePrecision: day
+  url: https://www.gob.pe/institucion/mininter/noticias/1177728-pataz-pnp-captura-a-los-sicarios-de-cuchillo-implicados-en-asesinato-de-13-personas-en-socavon-minero
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-30
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Nota oficial sobre el socavón Galindo, las trece víctimas y la captura de ocho personas investigadas por los hechos.
+- id: elcomercio-pataz-radiografia-2025
+  title: Pataz, violencia por el oro y fallas del control estatal
+  institution: El Comercio
+  date: 2025-05-15
+  datePrecision: day
+  url: https://elcomercio.pe/peru/la-libertad/todo-sobre-pataz-donde-la-violencia-por-la-mineria-ilegal-del-oro-no-tiene-control-que-ocurre-en-la-zona-y-cuales-son-las-fallass-del-estado-la-libertad-crimen-organizado-noticia/
+  type: press
+  perspective: journalistic
+  evidenceLevel: secondary
+  accessedAt: 2026-07-30
+  license: Condiciones del medio
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Investigación periodística sobre homicidios, explosivos, plantas, transporte de mineral y capacidad del puesto policial de Chagualito.
+- id: mindef-pataz-balance-2026
+  title: Balance de un año de acciones del Comando Unificado Pataz
+  institution: Ministerio de Defensa
+  date: 2026-05-21
+  datePrecision: day
+  url: https://www.gob.pe/institucion/mindef/noticias/1395185-pataz-mineria-ilegal-pierde-mas-de-s-249-millones-en-un-ano-de-acciones-sostenidas-de-las-fuerzas-armadas
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-30
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reporta 2.520 patrullajes, 67 acciones militares y afectación económica de bienes e infraestructura desde mayo de 2025.
+- id: contraloria-madre-dios-mercurio-2025
+  title: Falta de fiscalización del uso de mercurio en la pequeña minería de Madre de Dios
+  institution: Contraloría General de la República
+  date: 2025-06-10
+  datePrecision: day
+  url: https://www.gob.pe/institucion/contraloria/noticias/1185275-contraloria-alerta-falta-de-fiscalizacion-a-pequena-mineria-y-mineria-artesanal-en-madre-de-dios
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-30
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resume la Auditoría de Cumplimiento 009-2025-2-5346-AC sobre 119 operaciones, 65 instrumentos ambientales y siete servidores.
+- id: sernanp-tambopata-balance-2025
+  title: Patrullajes y operativos contra minería ilegal en la Reserva Nacional Tambopata
+  institution: Servicio Nacional de Áreas Naturales Protegidas por el Estado
+  date: 2025-07-25
+  datePrecision: day
+  url: https://www.gob.pe/institucion/sernanp/noticias/1214815-ministerio-del-ambiente-y-sernanp-reafirman-acciones-sostenidas-contra-la-mineria-ilegal-en-la-reserva-nacional-tambopata
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-30
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Reporta 99 patrullajes, 25 operativos, 45 campamentos y más de 50 motores y otros equipos destruidos durante 2024.
 - id: manhattan-annual-report-2002
   title: Manhattan Minerals Corp. — Annual Report 2002
   institution: Manhattan Minerals Corp. / U.S. Securities and Exchange Commission
@@ -2773,3 +2899,45 @@
   rightsStatus: link-only
   verificationStatus: verified
   notes: Estudio académico de legalidad, derechos de propiedad, participación y futuro agrícola o minero de la sierra de Piura; sus conclusiones son análisis situado.
+- id: pcm-operativos-mineria-ilegal-2026
+  title: Gobierno incauta y destruye bienes usados por la minería ilegal por más de S/ 1 200 millones a nivel nacional
+  institution: Presidencia del Consejo de Ministros
+  date: 2026-06-21
+  datePrecision: day
+  url: https://www.gob.pe/institucion/pcm/noticias/1409449-gobierno-incauta-y-destruye-bienes-usados-por-la-mineria-ilegal-por-mas-de-s-1-200-millones-a-nivel-nacional
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-29
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Balance oficial de operativos entre enero y mayo de 2026; los montos corresponden a valorización estatal de bienes incautados o destruidos.
+- id: presidencia-dl-1695-mineria-ilegal-2026
+  title: Gobierno fortalece medidas para combatir el delito de minería ilegal
+  institution: Presidencia de la República
+  date: 2026-01-20
+  datePrecision: day
+  url: https://www.gob.pe/institucion/presidencia/noticias/1337593-gobierno-fortalece-medidas-para-combatir-delito-de-mineria-ilegal
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-29
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Resumen oficial del Decreto Legislativo 1695 y de las fases incorporadas al delito y al tráfico ilícito de recursos minerales.
+- id: mpfn-oro-puno-india-2026
+  title: Fiscalía incauta más de cinco kilos de oro provenientes de la minería ilegal que iban a ser exportados a la India
+  institution: Ministerio Público - Fiscalía de la Nación
+  date: 2026-03-31
+  datePrecision: day
+  url: https://www.gob.pe/institucion/mpfn/noticias/1373072-fiscalia-incauta-mas-de-cinco-kilos-de-oro-provenientes-de-la-mineria-ilegal-que-iban-a-ser-exportados-a-la-india
+  type: official
+  perspective: state
+  evidenceLevel: primary
+  accessedAt: 2026-07-29
+  license: Portal institucional
+  rightsStatus: link-only
+  verificationStatus: verified
+  notes: Caso fiscal en investigación sobre una barra de 5,23 kg con destino a India y alertas de SUNAT por inconsistencias de exportación.

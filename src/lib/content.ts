@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { datasetSchema, type ObservatoryData } from "./schemas";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "data");
-const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "evidenceRecords", "caseResearchPackets", "commitmentComparison", "legalResearchPackets", "cajamarcaSystemMatrix", "institutionalMechanisms", "alternatives", "socialConflictSnapshots", "socialConflictCases", "miningConflictSelections", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots", "explorationTerritorialSnapshots", "miningConcessionTerritorialSnapshots", "madreDiosDevastation", "academicResearch"] as const;
+const files = ["sources", "actors", "territories", "issues", "instruments", "cases", "evidenceRecords", "caseResearchPackets", "commitmentComparison", "legalResearchPackets", "cajamarcaSystemMatrix", "institutionalMechanisms", "alternatives", "socialConflictSnapshots", "socialConflictCases", "miningConflictSelections", "reinfoTerritorialSnapshots", "formalMiningTerritorialSnapshots", "explorationTerritorialSnapshots", "miningConcessionTerritorialSnapshots", "madreDiosDevastation", "academicResearch", "criticalSignals"] as const;
 
 function readYaml<T>(name: string): T {
   const file = path.join(CONTENT_ROOT, `${name}.yaml`);
@@ -115,6 +115,9 @@ function assertReferences(data: ObservatoryData) {
   data.academicResearch.forEach((item) => {
     const missingCaseSlugs = item.caseSlugs.filter((slug) => !caseSlugs.has(slug));
     if (missingCaseSlugs.length) throw new Error(`Investigación ${item.id} referencia casos inexistentes: ${missingCaseSlugs.join(", ")}`);
+  });
+  data.criticalSignals.forEach((signal) => {
+    check(signal.sourceIds, "sources", `Señal crítica ${signal.id}`);
   });
   check([...data.madreDiosDevastation.sourceIds, data.madreDiosDevastation.documentedTotal.sourceId, data.madreDiosDevastation.recentRate.sourceId], "sources", `Devastación Madre de Dios ${data.madreDiosDevastation.id}`);
   const snapshotById = new Map(data.socialConflictSnapshots.map((snapshot) => [snapshot.id, snapshot]));

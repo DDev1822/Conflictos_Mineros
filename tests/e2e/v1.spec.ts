@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const caseSlugs = ["tambogrande", "conga", "tia-maria", "las-bambas", "espinar", "la-oroya", "cerro-quilish", "yanacocha-maxima-acuna", "toromocho-morococha", "choropampa", "fondo-social-michiquillay", "rio-blanco-majaz"];
-const editorialPaths = ["/", "/conflictos", "/conflictos/rio-blanco-majaz", "/metodologia", "/normativa", "/biblioteca", "/reinfo", "/oro-ilegal", "/madre-de-dios"];
+const editorialPaths = ["/", "/conflictos", "/conflictos/rio-blanco-majaz", "/metodologia", "/normativa", "/biblioteca", "/reinfo", "/oro-ilegal", "/pataz", "/madre-de-dios"];
 
 test.describe("publicación V2 en escritorio", () => {
   test.use({ viewport: { width: 1280, height: 720 } });
@@ -9,8 +9,9 @@ test.describe("publicación V2 en escritorio", () => {
   test("mantiene la navegación académica enfocada sin overflow horizontal", async ({ page }) => {
     await page.goto("/");
     const nav = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(nav.getByRole("link")).toHaveCount(10);
-    await expect(nav.getByRole("link", { name: "Minería ilegal y trazabilidad del oro" })).toBeVisible();
+    await expect(nav.getByRole("link")).toHaveCount(9);
+    await expect(nav.getByRole("link", { name: "Minería ilegal y cadena del oro" })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "Violencia y minería ilegal en Pataz" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "Minería aurífera en Madre de Dios" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "REINFO y formalización MAPE" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "Biblioteca académica" })).toBeVisible();
@@ -55,17 +56,74 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(wordmark).toBeVisible();
     await expect.poll(async () => mark.evaluate((image) => image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0)).toBe(true);
     await expect.poll(async () => wordmark.evaluate((image) => image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0)).toBe(true);
+    const footer = await page.locator(".site-footer").boundingBox();
+    const wordmarkBox = await page.locator(".site-footer-wordmark").boundingBox();
+    expect(footer).not.toBeNull();
+    expect(wordmarkBox).not.toBeNull();
+    expect(Math.abs(((footer?.x ?? 0) + (footer?.width ?? 0) / 2) - ((wordmarkBox?.x ?? 0) + (wordmarkBox?.width ?? 0) / 2))).toBeLessThanOrEqual(2);
     expect(await page.locator('img[src*="roadlab" i]').count()).toBe(0);
     expect(brokenBrandResponses).toEqual([]);
   });
 
+  test("organiza la portada en tres bloques de indicadores con sus fuentes", async ({ page }) => {
+    await page.goto("/");
+    const indicators = page.getByRole("region", { name: "Indicadores principales del observatorio" });
+    await expect(indicators.locator(".hero-stat-block")).toHaveCount(3);
+    await expect(indicators.locator('[data-topic="conflictos"]')).toContainText("61");
+    await expect(indicators.locator('[data-topic="conflictos"]')).toContainText("50/11");
+    await expect(indicators.locator('[data-topic="reinfo"]')).toContainText("24,669");
+    await expect(indicators.locator('[data-topic="reinfo"]')).toContainText("2,4%");
+    await expect(indicators.locator('[data-topic="madre-de-dios"]')).toContainText("135,939 ha");
+    await expect(indicators.locator('[data-topic="madre-de-dios"]')).toContainText("≈ 190,400 canchas de fútbol");
+    await expect(indicators.locator('[data-topic="madre-de-dios"]')).toContainText("2,06 ha/día");
+    await expect(indicators.getByRole("link")).toHaveCount(6);
+    await expect(indicators.getByRole("link", { name: /consultar dimensión de referencia de FIFA/ })).toHaveAttribute("href", /publications\.fifa\.com/);
+    await expect(indicators.locator('[data-topic="madre-de-dios"] .hero-stat-links a')).toHaveCount(2);
+    await expect(indicators.getByText("FIFA · cancha de 105 × 68 m", { exact: true })).toHaveCount(0);
+    await expect(page.locator('.entry-grid a[href="/reinfo/"]')).toHaveCount(1);
+    await expect(page.locator(".entry-grid > a")).toHaveCount(8);
+  });
+
+  test("mantiene visible la invitación a participar y sus tres vías de colaboración", async ({ page }) => {
+    await page.goto("/");
+    const participation = page.getByRole("region", { name: "¿Tienes datos, conoces un caso o quieres colaborar?" });
+    await expect(participation).toBeVisible();
+    await expect(participation.getByRole("heading", { name: "Compartir datos" })).toBeVisible();
+    await expect(participation.getByRole("heading", { name: "Señalar un error" })).toBeVisible();
+    await expect(participation.getByRole("heading", { name: "Sumarse al equipo" })).toBeVisible();
+    await expect(participation.getByRole("link")).toHaveCount(3);
+    await expect(participation.locator('a[href*="/issues/new"]')).toHaveCount(3);
+  });
+
   test("abre el mapa con enfoque minero sin alternar al registro social completo", async ({ page }) => {
     await page.goto("/mapa");
-    await expect(page.getByLabel("Resumen del corte documental").getByText("61", { exact: true })).toBeVisible();
+    const summary = page.getByLabel("Resumen del mapa");
+    await expect(summary.getByText("17", { exact: true })).toBeVisible();
+    await expect(summary).toContainText("Mayor concentración: Puno · 10 casos");
+    await expect(page.locator(".map-stage-context small")).toContainText("Distribución regional del corte minero");
     await expect(page.getByRole("heading", { name: "Conflictos sociales mineros en el Perú" })).toBeVisible();
     await expect(page.getByText("Todos sociales", { exact: true })).toHaveCount(0);
     await expect(page.getByText("Ver mapa interactivo", { exact: true })).toHaveCount(0);
     expect(await page.locator(".map-layout > aside").evaluate((element) => getComputedStyle(element).overflowY)).not.toBe("auto");
+  });
+
+  test("evita repetir el corte nacional como tarjeta en relaciones y casos", async ({ page }) => {
+    await page.goto("/explorar");
+    const focusMetrics = page.getByRole("region", { name: "Métricas del foco activo" });
+    await expect(focusMetrics).toContainText("129");
+    await expect(focusMetrics).toContainText("59");
+    await expect(focusMetrics).toContainText("6");
+    await expect(focusMetrics.getByText("Corte minero", { exact: true })).toHaveCount(0);
+    await expect(focusMetrics.getByText("Estado", { exact: true })).toHaveCount(0);
+
+    await page.goto("/conflictos");
+    const caseStats = page.getByRole("region", { name: "Panorama de conflictos" });
+    await expect(caseStats).toContainText("12");
+    await expect(caseStats).toContainText("129");
+    await expect(caseStats).toContainText("59");
+    await expect(caseStats).toContainText("6");
+    await expect(caseStats.getByText("61", { exact: true })).toHaveCount(0);
+    await expect(caseStats).toContainText("hallazgos comparables");
   });
 
   test("el zoom manual permanece activo y ofrece controles visibles", async ({ page }) => {
@@ -97,7 +155,7 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(graphNode("reinfo")).toBeVisible();
     await expect(graphNode("mineria-ilegal-informal")).toBeVisible();
     await expect(graphNode("casos-hito")).toHaveCount(0);
-    await expect(page.getByText("Conflictos sociales mineros, minería ilegal e informal y REINFO son ejes distintos.")).toBeVisible();
+    await expect(page.getByText("Las líneas conectan problemas, territorios, actores y controles; selecciona un nodo para explorar sus datos.")).toBeVisible();
 
     await graphNode("mineria-ilegal-informal").click();
     expect(await graph.locator(".knowledge-node").count()).toBeGreaterThan(3);
@@ -204,20 +262,17 @@ test.describe("publicación V2 en escritorio", () => {
     await expect(page.locator("#timeline-year-2026")).toBeVisible();
   });
 
-  test("metodología expone alcance y evidencia sin lenguaje de publicación interna", async ({ page }) => {
+  test("metodología explica universos, clasificaciones y cálculos", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByText("Conflictos sociales mineros · evidencia trazable")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Conflictos mineros del Perú: análisis académico, territorial y relacional." })).toBeVisible();
 
     await page.goto("/metodologia");
-    const status = page.locator("#publicacion");
-    await expect(status.getByRole("heading", { name: "Cómo se comprueba una afirmación" })).toBeVisible();
-    await expect(status).toContainText("Cada afirmación sensible se presenta con fuente");
-    await expect(status).toContainText("Evidencia disponible para contraste documental");
-    await expect(status).toContainText("Alcance académico");
-    await expect(status).toContainText("límites documentales declarados");
-    await expect(status).not.toContainText("V1");
-    await expect(status).not.toContainText(/\bP[01]\b|matriz|locador/i);
-    await expect(status).not.toContainText("Vacío");
+    await expect(page.getByRole("heading", { name: "Qué cuenta cada dato, cómo se calcula y cuándo se actualiza." })).toBeVisible();
+    await expect(page.locator("#universos")).toContainText("Los universos no se suman entre sí");
+    await expect(page.locator("#clasificacion")).toContainText("Formal / informal / ilegal");
+    await expect(page.locator("#calculos")).toContainText("inscripciones del departamento ÷ inscripciones nacionales × 100");
+    await expect(page.locator("#actualizacion")).toContainText("Frecuencia de actualización");
+    await expect(page.locator("main")).not.toContainText(/\bP[01]\b|matriz|locador|trazabilidad|aprobación/i);
   });
 
   for (const path of editorialPaths) {
@@ -227,7 +282,7 @@ test.describe("publicación V2 en escritorio", () => {
 
       const main = page.locator("main");
       await expect(main).toBeVisible();
-      await expect(main).not.toContainText(/locador|matriz|expediente canónico|repositorio|\bP[01]\b/i);
+      await expect(main).not.toContainText(/locador|matriz|expediente canónico|\bP[01]\b|trazabilidad|aprobación|no prueba|no demuestra|límite probatorio/i);
     });
   }
 
@@ -307,7 +362,7 @@ test.describe("publicación V2 en escritorio", () => {
     }
   });
 
-  test("los casos publicados muestran su cronología, documentos por hito y estado normativo", async ({ page }) => {
+  test("los casos publicados muestran hechos, temas críticos, cronología y enlaces directos", async ({ page }) => {
     test.setTimeout(120_000);
 
     const minimumMilestones: Record<string, number> = {
@@ -327,6 +382,9 @@ test.describe("publicación V2 en escritorio", () => {
 
     for (const slug of caseSlugs) {
       await page.goto(`/conflictos/${slug}`);
+      await expect(page.getByRole("heading", { name: "Hitos que modificaron el caso" })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Temas críticos" })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Datos, lecturas y alternativas" })).toBeVisible();
       const milestones = page.locator(".vertical-timeline > li");
       const milestoneCount = await milestones.count();
       expect(milestoneCount).toBeGreaterThanOrEqual(minimumMilestones[slug]);
@@ -353,40 +411,47 @@ test.describe("publicación V2 en escritorio", () => {
       }
     }
     await page.goto("/conflictos");
-    await expect(page.getByText("Preguntas de contraste").first()).toBeVisible();
-    await expect(page.getByText(/Vacíos visibles|Vacíos bloqueantes/)).toHaveCount(0);
+    await expect(page.getByRole("heading", { name: "Los casos cambian, pero varias fallas se repiten." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Filtra por estado, territorio o problema central." })).toBeVisible();
     await page.goto("/conflictos/tambogrande");
-    await expect(page.getByText("Límite probatorio").first()).toBeVisible();
     await expect(page.getByRole("heading", { name: "Dos ciclos distintos" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Ciclo histórico: TG-1 / Manhattan Minerals" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Ciclo contemporáneo: El Algarrobo-TG-3 / Buenaventura" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Lo que las fuentes todavía no demuestran" })).toBeVisible();
-    await expect(page.getByText(/Vacíos visibles|Vacíos bloqueantes/)).toHaveCount(0);
+    await expect(page.locator("main")).not.toContainText(/trazabilidad|aprobación|no prueba|no demuestra|límite probatorio/i);
 
     await page.goto("/normativa");
     await expect(page.locator(".instrument-table article")).toHaveCount(8);
-    await expect(page.locator('.review-chip[data-status="source-reviewed"]')).toHaveCount(8);
-    await expect(page.locator(".review-chip").first()).toContainText("Fuente oficial y pregunta de aplicación");
+    await expect(page.getByRole("heading", { name: "Las normas cambian; los problemas de aplicación permanecen." })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Abrir texto oficial/ }).first()).toHaveAttribute("target", "_blank");
   });
 
-  test("compara compromisos sin presentar acuerdos como cumplimiento integral", async ({ page }) => {
+  test("compara responsables, territorios y resultados de los compromisos", async ({ page }) => {
     await page.goto("/compromisos");
-    await expect(page.getByRole("heading", { name: "Compromisos: documento, seguimiento y evidencia no son lo mismo." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Quién se comprometió, con qué territorio y qué ocurrió después." })).toBeVisible();
     await expect(page.locator(".commitment-table tbody tr")).toHaveCount(12);
-    await expect(page.getByText("Condición documentada", { exact: true })).toHaveCount(2);
-    await expect(page.getByText("Seguimiento documentado", { exact: true })).toHaveCount(5);
-    await expect(page.getByText("Resultado puntual documentado", { exact: true })).toBeVisible();
-    await expect(page.getByText("Ejecución no localizada", { exact: true })).toHaveCount(5);
-    await expect(page.getByRole("heading", { name: "La ausencia de una fila también es información." })).toBeVisible();
-    await expect(page.getByText(/Conga, Tía María, La Oroya–Doe Run y Máxima Acuña–Yanacocha no presentan todavía/)).toBeVisible();
+    await expect(page.getByText("Avance parcial", { exact: true })).toHaveCount(7);
+    await expect(page.getByText("Sin resultado público posterior", { exact: true })).toHaveCount(5);
+    await expect(page.getByText("Resultado reportado", { exact: true })).toHaveCount(0);
+    await expect(page.getByRole("heading", { name: "Cuatro fallas se repiten entre casos." })).toBeVisible();
     await expect(page.getByText(/\bcumplido\b/i)).toHaveCount(0);
   });
 
-  test("REINFO es una página pública y diferenciada de los conflictos", async ({ page }) => {
+  test("REINFO expone magnitud, concentración territorial y resultados", async ({ page }) => {
     const response = await page.goto("/reinfo");
     expect(response?.status()).toBe(200);
-    await expect(page.getByRole("heading", { name: "REINFO / MAPE", exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "REINFO no es un conflicto social" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "REINFO: un régimen transitorio que sigue abierto después de más de una década." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Inscribirse, permanecer y formalizarse son momentos distintos." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Cinco departamentos reúnen/ })).toBeVisible();
+    await expect(page.locator(".reinfo-data-stats").getByText("inscripciones vigentes", { exact: true })).toBeVisible();
+    await expect(page.locator('meta[name="robots"][content="noindex"]')).toHaveCount(0);
+  });
+
+  test("Pataz expone la escalada de violencia y enlaza los datos oficiales", async ({ page }) => {
+    const response = await page.goto("/pataz");
+    expect(response?.status()).toBe(200);
+    await expect(page.getByRole("heading", { name: "El oro se convirtió en una disputa armada por territorio, mineral y rutas de salida." })).toBeVisible();
+    await expect(page.getByText("13", { exact: true }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: "Abrir información del Ministerio del Interior" })).toHaveAttribute("target", "_blank");
     await expect(page.locator('meta[name="robots"][content="noindex"]')).toHaveCount(0);
   });
 
@@ -394,22 +459,22 @@ test.describe("publicación V2 en escritorio", () => {
     const response = await page.goto("/biblioteca");
     expect(response?.status()).toBe(200);
     await expect(page.getByRole("heading", { name: "Investigaciones para leer los conflictos mineros con más profundidad." })).toBeVisible();
-    await expect(page.locator(".library-card")).toHaveCount(33);
-    await expect(page.getByRole("status")).toHaveText("33 de 33 investigaciones");
+    await expect(page.locator(".library-card")).toHaveCount(37);
+    await expect(page.getByRole("status")).toHaveText("37 de 37 investigaciones");
 
     await page.getByLabel("Grado").selectOption("doctorado");
-    await expect(page.locator(".library-card")).toHaveCount(3);
-    await expect(page.getByRole("status")).toHaveText("3 de 33 investigaciones");
+    await expect(page.locator(".library-card")).toHaveCount(4);
+    await expect(page.getByRole("status")).toHaveText("4 de 37 investigaciones");
 
     await page.getByLabel("Grado").selectOption("all");
-    await page.getByLabel("Caso").selectOption("rio-blanco-majaz");
+    await page.getByRole("combobox", { name: "Caso", exact: true }).selectOption("rio-blanco-majaz");
     await expect(page.locator(".library-card")).toHaveCount(2);
-    await expect(page.getByRole("status")).toHaveText("2 de 33 investigaciones");
+    await expect(page.getByRole("status")).toHaveText("2 de 37 investigaciones");
     await page.getByLabel("Disponibilidad").selectOption("restricted");
     await expect(page.locator(".library-card")).toHaveCount(1);
     await expect(page.locator(".library-card")).toContainText("Gobierno corporativo y responsabilidad social");
     await page.getByRole("button", { name: "Restablecer filtros" }).click();
-    await expect(page.locator(".library-card")).toHaveCount(33);
+    await expect(page.locator(".library-card")).toHaveCount(37);
     await expect(page.getByRole("button", { name: "Restablecer filtros" })).toHaveCount(0);
 
     await page.getByPlaceholder("Buscar por tema, caso, región, autor o universidad").fill("Morococha");
@@ -431,12 +496,12 @@ test.describe("publicación V2 en escritorio", () => {
   test("las páginas de minería ilegal y Madre de Dios son públicas e indexables", async ({ page }) => {
     const goldResponse = await page.goto("/oro-ilegal");
     expect(goldResponse?.status()).toBe(200);
-    await expect(page.getByRole("heading", { name: "Oro sin trazabilidad", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "El oro ilegal funciona como una cadena, no como un punto aislado." })).toBeVisible();
     await expect(page.locator('meta[name="robots"][content="noindex"]')).toHaveCount(0);
 
     const madreResponse = await page.goto("/madre-de-dios");
     expect(madreResponse?.status()).toBe(200);
-    await expect(page.getByRole("heading", { name: /La devastación no es una metáfora/ })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "La minería aurífera ya transformó más de 135 mil hectáreas de bosque." })).toBeVisible();
     await expect(page.locator('meta[name="robots"][content="noindex"]')).toHaveCount(0);
   });
 });
@@ -469,7 +534,7 @@ test.describe("publicación V2 móvil", () => {
     await menuButton.click();
     await expect(page.getByRole("button", { name: "Cerrar navegación" })).toBeVisible();
     const nav = page.getByRole("navigation", { name: "Navegación principal" });
-    await expect(nav.getByRole("link")).toHaveCount(10);
+    await expect(nav.getByRole("link")).toHaveCount(9);
     for (const link of await nav.getByRole("link").all()) await expect(link).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     expect(await page.locator(".map-layout > aside").evaluate((element) => getComputedStyle(element).overflowY)).not.toBe("auto");
@@ -482,7 +547,7 @@ test.describe("publicación V2 móvil", () => {
 
   test("la portada muestra la acción principal en el primer pliegue", async ({ page }) => {
     await page.goto("/");
-    const primaryAction = page.getByRole("link", { name: "Explorar conflictos" });
+    const primaryAction = page.getByRole("link", { name: "Explorar relaciones" });
     await expect(primaryAction).toBeVisible();
     const box = await primaryAction.boundingBox();
     expect(box).not.toBeNull();
@@ -499,7 +564,7 @@ test.describe("publicación V2 móvil", () => {
   test("la comparación de compromisos se convierte en tarjetas sin overflow", async ({ page }) => {
     await page.goto("/compromisos");
     await expect(page.locator(".commitment-table tbody tr")).toHaveCount(12);
-    await expect(page.locator(".commitment-table td").first()).toHaveAttribute("data-label", "Caso e hito");
+    await expect(page.locator(".commitment-table td").first()).toHaveAttribute("data-label", "Caso");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   });
 });

@@ -1,6 +1,6 @@
 - id: formalizacion-mape
   name: Formalización de la MAPE y REINFO
-  summary: Superposición entre régimen transitorio, incentivos de formalización, trazabilidad y capacidad estatal de fiscalización.
+  summary: Superposición entre régimen transitorio, incentivos de formalización, control del origen mineral y capacidad estatal de fiscalización.
   status: active-debate
   sourceIds: [minem-reinfo, minem-normas]
 - id: concesion-superficie
@@ -20,7 +20,7 @@
   sourceIds: [senace-evaluacion, conga-millones-2016]
 - id: fiscalizacion-ambiental
   name: Fiscalización ambiental y cumplimiento
-  summary: Capacidad institucional para supervisar obligaciones, producir evidencia confiable y aplicar medidas correctivas oportunas.
+  summary: Capacidad institucional para supervisar obligaciones, medir impactos y aplicar medidas correctivas oportunas.
   status: implementation-gap
   sourceIds: [oefa-fiscalizacion, espinar-sociospatial-2025]
 - id: agua-cuencas

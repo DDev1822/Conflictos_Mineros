@@ -1,161 +1,115 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BookOpenText, Database, FileText, MapTrifold, WarningCircle } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, BookOpenText, Drop, ShieldWarning, TreeEvergreen } from "@phosphor-icons/react/dist/ssr";
+import { CriticalSignals } from "@/components/critical-signals";
 import { DeforestationCounter } from "@/components/deforestation-counter";
 import { loadObservatoryData } from "@/lib/content";
 import { publicAsset } from "@/lib/public-assets";
 
 export const metadata: Metadata = {
-  title: "Madre de Dios: devastación aurífera",
-  description: "Deforestación minera, oro ilegal, Tambopata y proyección del avance si el ritmo continúa.",
+  title: "Madre de Dios: oro, mercurio y pérdida de bosque",
+  description: "Deforestación minera, mercurio, salud, Tambopata y capacidad estatal en Madre de Dios.",
 };
 
 const formatter = new Intl.NumberFormat("es-PE");
-
-function sourceLabel(sourceId: string) {
-  return sourceId === "maap-233-gold-mining-peru-amazon" ? "MAAP #233" : "MAAP #241";
-}
 
 export default function MadreDeDiosPage() {
   const data = loadObservatoryData();
   const devastation = data.madreDiosDevastation;
   const sourceById = new Map(data.sources.map((source) => [source.id, source]));
+  const signals = data.criticalSignals.filter((signal) => signal.topic === "madre-de-dios");
+  const localResearch = data.academicResearch
+    .filter((item) => item.regions.includes("Madre de Dios"))
+    .sort((a, b) => b.year - a.year);
+  const totalSource = sourceById.get(devastation.documentedTotal.sourceId);
+  const recentSource = sourceById.get(devastation.recentRate.sourceId);
 
   return (
     <div className="madre-page">
       <section className="madre-hero">
         <div>
-          <p className="eyebrow">Madre de Dios · oro, bosque y ríos</p>
-          <h1>La devastación no es una metáfora: se mide en hectáreas.</h1>
+          <p className="eyebrow">Madre de Dios · oro, bosque, ríos y salud</p>
+          <h1>La minería aurífera ya transformó más de 135 mil hectáreas de bosque.</h1>
           <p>
-            Madre de Dios concentra deforestación minera documentada, expansión reciente de minería ilegal en Tambopata
-            y una proyección lineal del avance si el ritmo observado continúa.
+            El daño combina pérdida de cobertura amazónica, expansión dentro de Tambopata, uso de mercurio,
+            exposición humana y una fiscalización regional que llegó tarde o no llegó.
           </p>
           <div className="madre-actions">
-            <a className="button primary" href="#contador">Ver contador <ArrowRight size={18} /></a>
-            <Link className="button secondary" href="/oro-ilegal">Conectar con oro ilegal</Link>
+            <a className="button primary" href="#contador">Ver ritmo de pérdida <ArrowRight size={18} /></a>
+            <a className="button secondary" href="#mercurio">Mercurio y salud</a>
           </div>
         </div>
         <figure>
-          <Image
-            src={publicAsset("/multimedia/maps/oro-ilegal-territorio.webp")}
-            alt="Textura territorial amazónica usada para representar la expansión de minería aurífera y deforestación."
-            width={980}
-            height={720}
-            priority
-          />
-          <figcaption>Referencia visual amazónica. Los datos cuantitativos provienen de MAAP/ACCA.</figcaption>
+          <Image src={publicAsset("/multimedia/maps/oro-ilegal-territorio.webp")} alt="Paisaje amazónico intervenido por minería aurífera." width={980} height={720} priority />
+          <figcaption>Madre de Dios concentra uno de los mayores frentes de minería aurífera amazónica.</figcaption>
         </figure>
       </section>
 
-      <section className="madre-disclaimer">
-        <WarningCircle size={24} />
-        <p>
-          El análisis civil y académico no sentencia ni acusa. Las fuentes y referencias precisas permiten distinguir hectáreas medidas,
-          ritmo observado, proyección lineal, impacto territorial y responsabilidades que aún requieren expediente específico.
-        </p>
-      </section>
-
-      <section className="madre-stat-grid" aria-label="Magnitud documentada">
-        <article>
-          <span>Acumulado regional</span>
-          <strong>{formatter.format(devastation.documentedTotal.hectares)} ha</strong>
-          <small>{devastation.documentedTotal.label}</small>
-        </article>
-        <article>
-          <span>Reserva Nacional Tambopata</span>
-          <strong>{formatter.format(devastation.recentRate.observedHectares)} ha</strong>
-          <small>Deforestadas por minería ilegal en el periodo reciente analizado por MAAP.</small>
-        </article>
-        <article>
-          <span>Ritmo reciente</span>
-          <strong>{devastation.recentRate.hectaresPerDay.toFixed(2)} ha/día</strong>
-          <small>{devastation.recentRate.scope}</small>
-        </article>
+      <section className="madre-stat-grid" aria-label="Magnitud del problema">
+        <a href={totalSource?.url} target="_blank" rel="noreferrer"><span>Pérdida regional acumulada</span><strong>{formatter.format(devastation.documentedTotal.hectares)} ha</strong><small>{devastation.documentedTotal.label}</small></a>
+        <a href={recentSource?.url} target="_blank" rel="noreferrer"><span>Reserva Nacional Tambopata</span><strong>{formatter.format(devastation.recentRate.observedHectares)} ha</strong><small>Deforestadas entre julio de 2025 y febrero de 2026.</small></a>
+        <a href={recentSource?.url} target="_blank" rel="noreferrer"><span>Ritmo reciente</span><strong>{devastation.recentRate.hectaresPerDay.toFixed(2)} ha/día</strong><small>{devastation.recentRate.scope}</small></a>
       </section>
 
       <section id="contador" className="madre-counter-section">
         <div>
-          <p className="eyebrow">Reloj de inacción</p>
-          <h2>Si el ritmo reciente continúa, el bosque desaparece mientras miramos.</h2>
+          <p className="eyebrow">Ritmo observado en Tambopata</p>
+          <h2>Cada día perdido amplía un frente minero dentro del área protegida.</h2>
           <p>
-            El contador parte de las {formatter.format(devastation.recentRate.observedHectares)} hectáreas documentadas por MAAP
-            en Tambopata y proyecta el avance con una tasa constante de {devastation.recentRate.hectaresPerHour.toFixed(4)} ha/hora.
+            El contador parte de {formatter.format(devastation.recentRate.observedHectares)} hectáreas detectadas por MAAP
+            y extiende el ritmo medio del periodo para hacer visible la velocidad del avance.
           </p>
-          <small>{devastation.caveat}</small>
+          {recentSource && <a href={recentSource.url} target="_blank" rel="noreferrer">Abrir análisis MAAP <ArrowRight size={14} /></a>}
         </div>
         <DeforestationCounter rate={devastation.recentRate} />
       </section>
 
       <section className="madre-projections">
-        <p className="eyebrow">Futuro a este ritmo</p>
-        <h2>Proyección lineal de hectáreas adicionales</h2>
+        <p className="eyebrow">Si el ritmo reciente continúa</p>
+        <h2>Hectáreas adicionales bajo una proyección lineal</h2>
         <div>
           {devastation.projectionYears.map((item) => (
-            <article key={item.years}>
-              <strong>{formatter.format(item.projectedHectares)} ha</strong>
-              <span>en {item.years} año{item.years > 1 ? "s" : ""}</span>
-            </article>
+            <article key={item.years}><strong>{formatter.format(item.projectedHectares)} ha</strong><span>en {item.years} año{item.years > 1 ? "s" : ""}</span></article>
+          ))}
+        </div>
+        <p>La proyección no es un pronóstico: mantiene constante la tasa observada para dimensionar el costo de no frenar el avance.</p>
+      </section>
+
+      <section id="mercurio" className="madre-reading-grid">
+        <article><Drop size={28} /><h2>Mercurio</h2><p>Contraloría encontró 119 operaciones artesanales sin fiscalización efectiva de la reducción progresiva de mercurio entre 2021 y 2023.</p></article>
+        <article><ShieldWarning size={28} /><h2>Falla regional</h2><p>Sesenta y cinco operaciones recibieron instrumentos ambientales sin cronogramas de implementación; siete servidores fueron señalados por presunta responsabilidad penal.</p></article>
+        <article><TreeEvergreen size={28} /><h2>Tambopata</h2><p>SERNANP reportó 99 patrullajes y 25 operativos en 2024, pero MAAP detectó después un nuevo frente de 500 hectáreas en Yarinal.</p></article>
+      </section>
+
+      <section className="madre-signal-section">
+        <div className="section-heading"><p className="eyebrow">Puntos críticos · 2025-2026</p><h2>Fiscalización insuficiente, vigilancia activa y expansión persistente.</h2></div>
+        <CriticalSignals signals={signals} sources={data.sources} />
+      </section>
+
+      <section className="madre-research">
+        <div className="section-heading">
+          <p className="eyebrow">Investigación producida en el Perú</p>
+          <h2>Salud pública, ríos, mercurio y monitoreo desde universidades peruanas.</h2>
+          <p>La producción nacional existe, pero permanece dispersa entre repositorios y rara vez se convierte en seguimiento público continuo.</p>
+        </div>
+        <div className="madre-research-grid">
+          {localResearch.map((item) => (
+            <a href={item.recordUrl} key={item.id} target="_blank" rel="noreferrer">
+              <BookOpenText size={23} />
+              <span>{item.year} · {item.university}</span>
+              <h3>{item.title}</h3>
+              <p>{item.editorialSummary}</p>
+              <small>{item.authors.join(", ")}</small>
+            </a>
           ))}
         </div>
       </section>
 
-      <section className="madre-reading-grid">
-        <article>
-          <MapTrifold size={28} />
-          <h2>Qué conecta</h2>
-          <p>
-            Madre de Dios no es solo un caso regional: conecta REINFO, minería ilegal, trazabilidad del oro, áreas naturales,
-            comunidades nativas, mercurio, control estatal y mercado internacional.
-          </p>
-        </article>
-        <article>
-          <Database size={28} />
-          <h2>Qué mide</h2>
-          <p>
-            La evidencia disponible mide deforestación minera y ritmo reciente. No mide todo daño ecológico, contaminación por mercurio,
-            violencia territorial ni economías criminales; esos ejes deben sumarse con fuentes específicas.
-          </p>
-        </article>
-        <article>
-          <BookOpenText size={28} />
-          <h2>Qué falta medir</h2>
-          <p>
-            La deforestación visible debe cruzarse con mercurio, salud, violencia territorial, rutas de compra y controles
-            estatales para no reducir el daño amazónico a una sola métrica.
-          </p>
-        </article>
-      </section>
-
-      <section className="madre-sources">
-        <div>
-          <p className="eyebrow">Fuentes y referencias precisas</p>
-          <h2>La indignación tiene que estar amarrada a evidencia.</h2>
-        </div>
-        <div>
-          {devastation.sourceIds.map((sourceId) => {
-            const source = sourceById.get(sourceId);
-            if (!source) return null;
-            const locator = sourceId === devastation.documentedTotal.sourceId ? devastation.documentedTotal.locator : devastation.recentRate.locator;
-            return (
-              <a href={source.url} key={source.id} target="_blank" rel="noreferrer">
-                <FileText size={22} />
-                <span>
-                  <strong>{sourceLabel(source.id)}</strong>
-                  <small>{source.title}</small>
-                  <em>{locator}</em>
-                </span>
-              </a>
-            );
-          })}
-        </div>
-      </section>
-
       <section className="madre-next">
-        <Link href="/reinfo">Leer REINFO / MAPE <ArrowRight size={16} /></Link>
-        <Link href="/mapa">Abrir mapa territorial <ArrowRight size={16} /></Link>
-        <Link href="/oro-ilegal">Ver cadena y trazabilidad del oro <ArrowRight size={16} /></Link>
+        <Link href="/oro-ilegal">Cadena del oro <ArrowRight size={16} /></Link>
+        <Link href="/reinfo">REINFO y formalización <ArrowRight size={16} /></Link>
+        <Link href="/mapa">Mapa territorial <ArrowRight size={16} /></Link>
       </section>
     </div>
   );

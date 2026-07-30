@@ -38,17 +38,17 @@ export default function AcademicLibraryPage() {
       <section className="library-stats" aria-label="Cobertura de la biblioteca">
         <article><strong>{items.length}</strong><span>Investigaciones</span><small>Con ficha y enlace al registro académico.</small></article>
         <article><strong>{universityCount}</strong><span>Universidades</span><small>Registros de ALICIA y archivos académicos.</small></article>
-        <article><strong>{caseCount}</strong><span>Casos conectados</span><small>Las relaciones no sustituyen la evidencia primaria.</small></article>
+        <article><strong>{caseCount}</strong><span>Casos conectados</span><small>Estudios asociados con las fichas del observatorio.</small></article>
         <article><strong>3</strong><span>Niveles de grado</span><small>{Object.values(degreeLabels).join(" · ")}.</small></article>
       </section>
 
       <section className="library-reading-note">
         <WarningCircle size={26} aria-hidden />
         <div>
-          <h2>Cómo leer esta biblioteca</h2>
+          <h2>Qué aporta la investigación académica</h2>
           <p>
-            Las síntesis son editoriales y describen el objeto de estudio declarado por cada investigación. Una tesis aporta interpretación,
-            método y contexto; no prueba por sí sola un hecho actual, una responsabilidad jurídica ni la vigencia de una cifra.
+            Las tesis permiten profundizar en métodos, historia, actores y efectos territoriales que rara vez aparecen juntos
+            en los reportes institucionales. Cada ficha enlaza al repositorio universitario correspondiente.
           </p>
         </div>
       </section>
@@ -68,12 +68,11 @@ export default function AcademicLibraryPage() {
         <GraduationCap size={32} aria-hidden />
         <div>
           <p className="eyebrow">Criterio de inclusión</p>
-          <h2>Qué entra y qué queda fuera</h2>
+          <h2>Selección del corpus</h2>
           <p>
             Se incluyen tesis universitarias con metadatos identificables, relación directa con minería en el Perú y ficha verificable en ALICIA
-            o en el archivo académico institucional de la universidad.
-            Se priorizan estudios sobre los casos desarrollados por el observatorio. No se reproducen resúmenes completos ni se convierten
-            conclusiones académicas en afirmaciones propias.
+            o en el archivo académico institucional de la universidad. Se priorizan estudios sobre los casos desarrollados por el observatorio
+            y problemas con impacto territorial directo.
           </p>
         </div>
       </section>

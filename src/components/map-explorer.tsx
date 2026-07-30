@@ -141,7 +141,7 @@ function DevelopedCaseMarkers({ cases, territories, regions }: {
           <div className="map-popup-card" data-layer="tracked-case">
             <p>{group.cases.length === 1 ? "Caso documentado" : "Casos desarrollados"}</p>
             <strong>{group.cases.length === 1 ? group.territory.name : group.region}</strong>
-            <small>{group.cases.length === 1 ? group.cases[0].name : `${group.cases.length} fichas con cronología y fuentes · punto regional de referencia`}</small>
+            <small>{group.cases.length === 1 ? group.cases[0].name : `${group.cases.length} casos hito · punto regional de referencia`}</small>
             <div className="map-popup-case-links">
               {group.cases.map((item) => <Link className="map-popup-link" href={`/conflictos/${item.slug}`} key={item.id}>{item.name}</Link>)}
             </div>
@@ -290,8 +290,8 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
   );
   const activeHeatSnapshot = miningSocialConflictSnapshot;
   const activeHeatCases = miningSocialConflictCases;
-  const plottedTotal = activeHeatSnapshot.regions.reduce((sum, region) => sum + region.total, 0);
   const heatMaximum = Math.max(...activeHeatSnapshot.regions.map((region) => region[heatMetric]), 1);
+  const peakHeatRegion = [...activeHeatSnapshot.regions].sort((a, b) => b.total - a.total)[0];
   const heatRanges = heatScale(heatMaximum);
   const illegalMiningCases = useMemo(() => socialConflictCases.filter((item) => mentionsMiningCategory(item, "ilegal")), [socialConflictCases]);
   const informalMiningCases = useMemo(() => socialConflictCases.filter((item) => mentionsMiningCategory(item, "informal")), [socialConflictCases]);
@@ -342,7 +342,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
   const scopeLatentCount = scopeCases.filter((item) => item.status === "latent").length;
   const registryKicker = registryTheme === "illegal-mining" ? "Sustento: minería ilegal" : registryTheme === "informal-mining" ? "Sustento: minería informal" : "Conflictos sociales mineros del corte";
   const registryDescription = registryTheme === "illegal-mining"
-    ? "Casos del reporte que mencionan explícitamente minería ilegal; no equivale a delimitación territorial ni calificación judicial."
+    ? "Casos del reporte que mencionan explícitamente minería ilegal, mostrados como referencias departamentales."
     : registryTheme === "informal-mining"
       ? "Casos del reporte que mencionan explícitamente minería informal; se mantiene separada de minería ilegal."
       : "Selección de conflictos socioambientales vinculados con minería en el corte oficial.";
@@ -358,12 +358,12 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
     showConcessions ? "Concesiones" : null,
   ].filter((label): label is string => Boolean(label));
   const mapStageTitle = showHeat
-    ? `${activeHeatSnapshot.totalRegistered} conflictos sociales mineros`
+    ? "Distribución regional del corte minero"
     : showReinfo
       ? `${reinfoSnapshot.totalRegistered.toLocaleString("es-PE")} inscripciones REINFO vigentes`
       : "Capas territoriales";
   const mapStageSubtitle = showHeat
-    ? `${metricLabel(heatMetric)} por región · ${plottedTotal} representados como puntos de referencia`
+    ? `${activeHeatSnapshot.regions.length} regiones con registro · ${metricLabel(heatMetric).toLowerCase()} por región`
     : showReinfo
       ? `Registro administrativo agregado por departamento · corte ${fullDateLabel(reinfoSnapshot.cutoffDate)}`
       : "Mapa base con capas seleccionadas";
@@ -451,13 +451,13 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
         <h1>Conflictos sociales mineros en el Perú</h1>
         <p>Distribución regional de conflictos sociales vinculados con minería, con estado al corte y casos documentados para consulta.</p>
 
-        <div className="map-snapshot" aria-label="Resumen del corte documental">
-          <strong>{activeHeatSnapshot.totalRegistered}</strong>
-          <span>conflictos sociales mineros</span>
-          <small>{activeHeatSnapshot.active} activos · {activeHeatSnapshot.latent} latentes</small>
+        <div className="map-snapshot" aria-label="Resumen del mapa">
+          <strong>{activeHeatSnapshot.regions.length}</strong>
+          <span>regiones con registros</span>
+          {peakHeatRegion && <small>Mayor concentración: {peakHeatRegion.name} · {peakHeatRegion.total} casos</small>}
           <small>Corte: {formatMonthYear(socialConflictSnapshot.cutoffDate)} · Reporte n.º {socialConflictSnapshot.reportNumber}</small>
         </div>
-        <p className="map-scope-note">El reporte oficial registra {activeHeatSnapshot.totalRegistered} casos; el observatorio desarrolla {cases.length} fichas con cronología y fuentes.</p>
+        <p className="map-scope-note">{cases.length} casos hito permiten pasar de la concentración regional a la historia territorial de cada disputa.</p>
         <a className="map-jump-link" href="#map-stage">Ver mapa</a>
 
         <fieldset className="map-layers map-layer-group">
@@ -468,7 +468,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
           </label>
           <label className="map-layer-toggle">
             <input type="checkbox" checked={showCases} onChange={(event) => setShowCases(event.target.checked)} />
-            <span><strong>Casos desarrollados</strong><small>{cases.length} fichas con cronología y fuentes</small></span>
+            <span><strong>Casos desarrollados</strong><small>{cases.length} historias territoriales</small></span>
           </label>
         </fieldset>
 
@@ -478,13 +478,13 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <legend className="sr-only">Capas de minería ilegal e informal</legend>
             <label className="map-layer-toggle" data-layer-toggle="illegal-mining">
               <input type="checkbox" checked={showIllegalMining} onChange={(event) => setShowIllegalMining(event.target.checked)} />
-              <span><strong>Minería ilegal</strong><small>Menciones explícitas en conflictos sociales mineros; no equivalen a una calificación individual</small></span>
+              <span><strong>Minería ilegal</strong><small>Menciones explícitas en conflictos sociales mineros, agregadas por departamento</small></span>
             </label>
             <label className="map-layer-toggle" data-layer-toggle="informal-mining">
               <input type="checkbox" checked={showInformalMining} onChange={(event) => setShowInformalMining(event.target.checked)} />
               <span><strong>Minería informal</strong><small>Menciones explícitas separadas de minería ilegal</small></span>
             </label>
-            <Link className="map-jump-link" href="/oro-ilegal">Abrir cadena y trazabilidad del oro</Link>
+            <Link className="map-jump-link" href="/oro-ilegal">Abrir cadena del oro</Link>
           </fieldset>
         </details>
 
@@ -507,11 +507,11 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             </label>
             <label className="map-layer-toggle" data-layer-toggle="exploration">
               <input type="checkbox" checked={showExploration} onChange={(event) => setShowExploration(event.target.checked)} />
-              <span><strong>Exploración minera</strong><small>Expedientes activos; explorar no equivale a explotar</small></span>
+              <span><strong>Exploración minera</strong><small>Expedientes activos para inicio de actividades de exploración</small></span>
             </label>
             <label className="map-layer-toggle" data-layer-toggle="concessions">
               <input type="checkbox" checked={showConcessions} onChange={(event) => setShowConcessions(event.target.checked)} />
-              <span><strong>Concesiones mineras</strong><small>Derechos titulados; no acreditan actividad ni permisos operativos</small></span>
+              <span><strong>Concesiones mineras</strong><small>Derechos titulados agregados por departamento</small></span>
             </label>
           </fieldset>
         </details>
@@ -553,7 +553,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <div className="map-layer-key" aria-label="Símbolo de minería ilegal en el mapa">
               <span><i data-symbol="illegal" aria-hidden="true" />Punto rojo sólido</span>
             </div>
-            <small>No delimita zonas de actividad ni determina por sí sola una situación jurídica. {overlappingMiningCases.length} casos también mencionan minería informal.</small>
+            <small>Se muestra como referencia departamental. {overlappingMiningCases.length} casos también mencionan minería informal.</small>
             {illegalMiningMultiregional > 0 && <button type="button" onClick={(event) => openRegistry("multiregional", "illegal-mining", event.currentTarget)}>Ver casos multirregionales</button>}
           </div>
         )}
@@ -566,7 +566,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
             <div className="map-layer-key" aria-label="Símbolo de minería informal en el mapa">
               <span><i data-symbol="informal" aria-hidden="true" />Anillo ámbar punteado</span>
             </div>
-            <small>No delimita zonas de actividad ni determina por sí sola una situación jurídica. {overlappingMiningCases.length} casos también mencionan minería ilegal.</small>
+            <small>Se muestra como referencia departamental. {overlappingMiningCases.length} casos también mencionan minería ilegal.</small>
             {informalMiningMultiregional > 0 && <button type="button" onClick={(event) => openRegistry("multiregional", "informal-mining", event.currentTarget)}>Ver caso multirregional</button>}
           </div>
         )}
@@ -582,7 +582,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
               <span><i data-size="medium" aria-hidden="true" />500–1.999</span>
               <span><i data-size="large" aria-hidden="true" />2.000 o más</span>
             </div>
-            <small>El punto es una referencia departamental. Estar inscrito no equivale a formalidad concluida.</small>
+            <small>El punto representa inscripciones vigentes agregadas por departamento.</small>
             <a href={REINFO_URL} target="_blank" rel="noreferrer">Consultar registro oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
           </div>
         )}
@@ -614,7 +614,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
               <span><i data-size="medium" aria-hidden="true" />10–24</span>
               <span><i data-size="large" aria-hidden="true" />25 o más</span>
             </div>
-            <small>Explorar no equivale a explotar ni producir. Los anillos son referencias departamentales, no áreas de intervención.</small>
+            <small>Los anillos representan expedientes de exploración agregados por departamento.</small>
             <a href={EXPLORATION_URL} target="_blank" rel="noreferrer">Consultar directorio oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
           </div>
         )}
@@ -630,7 +630,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
               <span><i data-size="medium" aria-hidden="true" />1.000–2.999</span>
               <span><i data-size="large" aria-hidden="true" />3.000 o más</span>
             </div>
-            <small>Una concesión no acredita actividad, propiedad superficial ni permisos operativos. {miningConcessionSnapshot.unmappedRights} derechos de ámbito marítimo quedan fuera del mapa; los derechos multidepartamentales se cuentan en cada departamento.</small>
+            <small>{miningConcessionSnapshot.unmappedRights} derechos de ámbito marítimo quedan fuera del mapa; los derechos multidepartamentales se cuentan en cada departamento.</small>
             <a href={CONCESSION_URL} target="_blank" rel="noreferrer">Consultar GEOCATMIN oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
           </div>
         )}
@@ -653,7 +653,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
         )}
 
         <small className="map-disclaimer">
-          {plottedTotal} conflictos sociales mineros se representan mediante puntos regionales de referencia. Los {activeHeatSnapshot.national.total + activeHeatSnapshot.multiregional.total} casos nacionales o multirregionales no se asignan a un punto para evitar doble conteo. La intensidad no representa impacto, violencia ni causalidad.
+          Los registros se representan mediante puntos regionales de referencia. Los casos nacionales o multirregionales no se asignan a un punto para evitar doble conteo. La intensidad no representa impacto, violencia ni causalidad.
           {showReinfo && " REINFO se muestra como registro administrativo agregado y no se suma al conteo de conflictos."}
         </small>
         <a className="map-source" href={REPORT_URL} target="_blank" rel="noreferrer">Consultar reporte oficial <ArrowSquareOut size={14} aria-hidden="true" /></a>
@@ -714,7 +714,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
                   <p>Catastro minero titulado</p>
                   <strong>{region.name}</strong>
                   <dl><div><dt>Presencias</dt><dd>{region.count.toLocaleString("es-PE")}</dd></div></dl>
-                  <small>Referencia departamental. Una concesión no prueba actividad, propiedad superficial ni permisos operativos.</small>
+                  <small>Conteo departamental de derechos titulados; actividad, superficie y permisos se gestionan en capas distintas.</small>
                   <a className="map-popup-link" href={CONCESSION_URL} target="_blank" rel="noreferrer">Consultar GEOCATMIN oficial <ArrowSquareOut size={13} aria-hidden="true" /></a>
                 </div>
               </Popup>
@@ -736,7 +736,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
                     <div><dt>Expedientes</dt><dd>{region.count}</dd></div>
                     <div><dt>Área informada</dt><dd>{region.areaHectares.toLocaleString("es-PE", { maximumFractionDigits: 0 })} ha</dd></div>
                   </dl>
-                  <small>Referencia departamental; explorar no equivale a explotar ni producir.</small>
+                  <small>Expedientes de exploración agregados por departamento.</small>
                   <a className="map-popup-link" href={EXPLORATION_URL} target="_blank" rel="noreferrer">Consultar directorio oficial <ArrowSquareOut size={13} aria-hidden="true" /></a>
                 </div>
               </Popup>
@@ -756,8 +756,8 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
                   <p>Menciones de minería informal</p>
                   <strong>{region.name}</strong>
                   <dl><div><dt>Casos</dt><dd>{region.count}</dd></div></dl>
-                  <small>Menciones explícitas del reporte. No delimita zonas de actividad ni determina por sí sola una situación jurídica.</small>
-                  <button className="map-popup-action" type="button" onClick={(event) => openRegistry(region.id, "informal-mining", event.currentTarget)}>Ver sustento documental</button>
+                  <small>Menciones explícitas del reporte agregadas por departamento.</small>
+                  <button className="map-popup-action" type="button" onClick={(event) => openRegistry(region.id, "informal-mining", event.currentTarget)}>Ver información regional</button>
                 </div>
               </Popup>
             </CircleMarker>
@@ -776,8 +776,8 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
                   <p>Menciones de minería ilegal</p>
                   <strong>{region.name}</strong>
                   <dl><div><dt>Casos</dt><dd>{region.count}</dd></div></dl>
-                  <small>Menciones explícitas del reporte. No delimita zonas de actividad ni determina por sí sola una situación jurídica.</small>
-                  <button className="map-popup-action" type="button" onClick={(event) => openRegistry(region.id, "illegal-mining", event.currentTarget)}>Ver sustento documental</button>
+                  <small>Menciones explícitas del reporte agregadas por departamento.</small>
+                  <button className="map-popup-action" type="button" onClick={(event) => openRegistry(region.id, "illegal-mining", event.currentTarget)}>Ver información regional</button>
                 </div>
               </Popup>
             </CircleMarker>
@@ -795,7 +795,7 @@ export function MapExplorer({ cases, territories, socialConflictSnapshot, social
                   <p>REINFO vigente</p>
                   <strong>{region.name}</strong>
                   <dl><div><dt>Inscripciones</dt><dd>{region.count.toLocaleString("es-PE")}</dd></div></dl>
-                  <small>Referencia departamental; no es una ubicación de actividad. Estar inscrito no equivale a formalidad concluida.</small>
+                  <small>Inscripciones vigentes agregadas por departamento.</small>
                   <a className="map-popup-link" href={REINFO_URL} target="_blank" rel="noreferrer">Consultar REINFO oficial <ArrowSquareOut size={13} aria-hidden="true" /></a>
                 </div>
               </Popup>

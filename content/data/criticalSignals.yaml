@@ -1,0 +1,148 @@
+- id: reinfo-depuracion-2025
+  topic: reinfo
+  date: 2025-07-04
+  title: La depuración redujo el universo del proceso
+  summary: El MINEM informó que 31.560 inscripciones continuarían en el proceso y que 50.565 registros suspendidos por más de un año quedaban excluidos.
+  analysis: La depuración de 2025 cambió la escala del REINFO y mostró cuánto había crecido el grupo suspendido frente al universo que continuó en formalización.
+  metrics:
+    - { value: "31.560", label: "continuaron en el proceso" }
+    - { value: "50.565", label: "fueron excluidos" }
+  sourceIds: [minem-rd-0004-2025-reinfo-exclusiones, minem-comunicado-reinfo-2025]
+
+- id: reinfo-formalizacion-2-4-2025
+  topic: reinfo
+  date: 2025-07-12
+  title: El Ejecutivo reconoció un avance de formalización de apenas 2,4%
+  summary: La Presidencia del Consejo de Ministros señaló que, de más de 84.000 inscripciones acumuladas en el REINFO, solo 2,4% había culminado la formalización.
+  analysis: "El porcentaje revela el problema central del régimen transitorio: el registro creció durante años mientras la salida hacia la formalidad avanzó a una velocidad muy inferior."
+  metrics:
+    - { value: "2,4%", label: "formalización acumulada informada" }
+    - { value: "+84.000", label: "inscripciones acumuladas" }
+  sourceIds: [pcm-reinfo-formalizacion-2025]
+
+- id: reinfo-extension-2026
+  topic: reinfo
+  date: 2025-12-27
+  title: El proceso fue ampliado nuevamente hasta diciembre de 2026
+  summary: La Ley 32537 extendió el proceso hasta el 31 de diciembre de 2026 o hasta la entrada en vigor de la Ley MAPE y su reglamento.
+  analysis: La ampliación incorporó un censo nacional, el reporte obligatorio de la ubicación real de las operaciones y la transferencia de expedientes regionales al MINEM.
+  metrics:
+    - { value: "31 dic. 2026", label: "nuevo límite del proceso" }
+    - { value: "120 días", label: "plazo para informar ubicación real" }
+  sourceIds: [minem-ley-32537-reinfo-2026]
+
+- id: reinfo-balance-bcrp-2026
+  topic: reinfo
+  date: 2026-04-20
+  title: El balance del BCRP muestra un proceso largo y de baja salida anual
+  summary: La Memoria 2025 del BCRP registró 31.610 inscripciones al 20 de abril de 2026 y una serie de 2.295 formalizaciones entre 2014 y 2025.
+  analysis: La serie anual citada por el BCRP permite observar la caída desde 728 formalizaciones en 2017 hasta cinco en 2025 y evaluar el resultado más allá del tamaño del registro.
+  metrics:
+    - { value: "31.610", label: "inscripciones al 20 abr. 2026" }
+    - { value: "2.295", label: "formalizaciones 2014-2025" }
+    - { value: "5", label: "formalizaciones durante 2025" }
+  sourceIds: [bcrp-memoria-2025-reinfo]
+
+- id: pataz-secuestro-asesinato-2025
+  topic: pataz
+  date: 2025-05-04
+  title: Trece trabajadores fueron secuestrados y asesinados en un socavón
+  summary: Los trabajadores de seguridad de la empresa R&R habían sido secuestrados en abril y fueron encontrados muertos dentro del socavón Galindo, en Pataz.
+  analysis: El crimen hizo visible que la disputa por zonas de extracción ya no podía tratarse únicamente como un problema minero o administrativo, sino como violencia organizada por el control del oro.
+  metrics:
+    - { value: "13", label: "trabajadores asesinados" }
+    - { value: "39", label: "muertes vinculadas denunciadas por Poderosa desde 2022" }
+  sourceIds: [rpp-pataz-secuestro-2025, mininter-pataz-capturas-2025, elcomercio-pataz-radiografia-2025]
+
+- id: pataz-control-fragil-2025
+  topic: pataz
+  date: 2025-05-15
+  title: El control del transporte de mineral operaba con recursos mínimos
+  summary: Una investigación de El Comercio encontró un puesto policial con dos agentes por turno para revisar cientos de camiones y al menos 3.800 vehículos sin registro en diez meses.
+  analysis: La extracción clandestina depende de transporte, procesamiento, explosivos y compra de mineral; controlar solo bocaminas deja abiertos los eslabones que convierten roca extraída en oro comercializable.
+  metrics:
+    - { value: "2", label: "policías por turno en Chagualito" }
+    - { value: "3.800", label: "camiones sin registro en diez meses" }
+    - { value: "+450", label: "socavones abastecidos según la investigación" }
+  sourceIds: [elcomercio-pataz-radiografia-2025]
+
+- id: pataz-respuesta-estatal-2026
+  topic: pataz
+  date: 2026-05-21
+  title: Un año de despliegue estatal acumuló 2.520 patrullajes
+  summary: El Ministerio de Defensa informó 67 acciones militares, 2.520 patrullajes integrados y una afectación económica calculada en S/249,8 millones desde mayo de 2025.
+  analysis: Las cifras permiten medir la intensidad de la respuesta posterior a la masacre; deben leerse junto con resultados sostenidos sobre homicidios, transporte de mineral y control de explosivos.
+  metrics:
+    - { value: "2.520", label: "patrullajes integrados" }
+    - { value: "67", label: "acciones militares" }
+    - { value: "S/249,8 M", label: "bienes e infraestructura afectados" }
+  sourceIds: [mindef-pataz-balance-2026]
+
+- id: madre-dios-fiscalizacion-mercurio-2025
+  topic: madre-de-dios
+  date: 2025-06-10
+  title: Contraloría identificó una falla concreta en la fiscalización del mercurio
+  summary: La auditoría encontró que la autoridad regional no fiscalizó la reducción progresiva del uso de mercurio en 119 operaciones mineras artesanales entre 2021 y 2023.
+  analysis: "El hallazgo conecta salud, ambiente y capacidad estatal: 65 operaciones recibieron instrumentos de gestión ambiental sin cronogramas de implementación y se señaló responsabilidad penal en siete servidores."
+  metrics:
+    - { value: "119", label: "operaciones sin fiscalización efectiva" }
+    - { value: "65", label: "operaciones con instrumentos incompletos" }
+    - { value: "7", label: "servidores con responsabilidad señalada" }
+  sourceIds: [contraloria-madre-dios-mercurio-2025]
+
+- id: madre-dios-tambopata-control-2025
+  topic: madre-de-dios
+  date: 2025-07-25
+  title: Tambopata combinó vigilancia permanente y operativos interinstitucionales
+  summary: SERNANP reportó 99 patrullajes especiales y 25 operativos durante 2024, con destrucción de 45 campamentos y más de 50 motores y otros equipos.
+  analysis: El despliegue muestra capacidad operativa dentro del área protegida, pero la expansión detectada después en Yarinal revela la velocidad con la que la actividad cambia de ubicación.
+  metrics:
+    - { value: "99", label: "patrullajes especiales en 2024" }
+    - { value: "25", label: "operativos interinstitucionales" }
+    - { value: "45", label: "campamentos destruidos" }
+  sourceIds: [sernanp-tambopata-balance-2025]
+
+- id: madre-dios-deforestacion-2026
+  topic: madre-de-dios
+  date: 2026-05-10
+  title: La minería ilegal avanzó dentro de la Reserva Nacional Tambopata
+  summary: MAAP documentó 500 hectáreas de pérdida de bosque por minería ilegal en el norte de la reserva entre julio de 2025 y febrero de 2026.
+  analysis: La expansión en un área natural protegida conecta deforestación, acceso fluvial, seguridad de guardaparques y capacidad de respuesta frente a frentes mineros móviles.
+  metrics:
+    - { value: "500 ha", label: "deforestación observada en ocho meses" }
+    - { value: "2,06 ha/día", label: "ritmo medio del periodo" }
+  sourceIds: [maap-241-tambopata-2026]
+
+- id: oro-operativos-nacionales-2026
+  topic: oro-ilegal
+  date: 2026-06-21
+  title: La interdicción nacional superó S/1.200 millones en cinco meses
+  summary: La PCM informó 710 operativos en 24 regiones entre enero y mayo de 2026 y valorizó en S/1.206 millones los bienes incautados o destruidos.
+  analysis: Madre de Dios concentró 63,2% del monto, mientras otras regiones mostraron que la minería ilegal combina frentes aluviales y filonianos con necesidades de control distintas.
+  metrics:
+    - { value: "710", label: "operativos en cinco meses" }
+    - { value: "S/1.206 M", label: "bienes incautados o destruidos" }
+    - { value: "24", label: "regiones intervenidas" }
+  sourceIds: [pcm-operativos-mineria-ilegal-2026]
+
+- id: oro-cadena-penal-2026
+  topic: oro-ilegal
+  date: 2026-01-20
+  title: El marco penal incorporó beneficio, transporte, acopio y exportación
+  summary: El Decreto Legislativo 1695 amplió el delito de minería ilegal y el tráfico ilícito de recursos minerales a fases que van más allá de la extracción.
+  analysis: La modificación reconoce que la economía ilegal necesita procesar, mover, almacenar y vender el mineral; perseguir únicamente el punto de extracción deja intacta parte de la red.
+  metrics:
+    - { value: "5-8 años", label: "pena prevista para minería ilegal" }
+    - { value: "6-9 años", label: "pena para tráfico ilícito de mineral" }
+  sourceIds: [presidencia-dl-1695-mineria-ilegal-2026]
+
+- id: oro-exportacion-india-2026
+  topic: oro-ilegal
+  date: 2026-03-31
+  title: Una alerta aduanera detuvo una barra que iba a ser exportada a India
+  summary: La Fiscalía incautó 5,23 kilos de oro valorizados en USD694.727 y abrió investigación a dos personas y una empresa por lavado de activos.
+  analysis: El caso muestra la función de las inconsistencias aduaneras y financieras para detectar oro que ya alcanzó el circuito formal de exportación.
+  metrics:
+    - { value: "5,23 kg", label: "peso de la barra incautada" }
+    - { value: "USD694.727", label: "valor informado por Fiscalía" }
+  sourceIds: [mpfn-oro-puno-india-2026]
