@@ -69,6 +69,7 @@ export default function HomePage() {
           <div><dt>{publicCases.length}</dt><dd>casos hito desarrollados</dd></div>
           <div><dt>{timelineCount}</dt><dd>hitos en esos {publicCases.length} casos</dd></div>
         </dl>
+        <p className="hero-media-note">Ilustración referencial generada con IA; no representa un caso específico.</p>
       </section>
 
       <section className="home-status" aria-label="Problemas de fondo y cortes documentales">

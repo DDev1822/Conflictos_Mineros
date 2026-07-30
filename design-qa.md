@@ -202,3 +202,40 @@ final result: passed
 La integración detallada en “Integración de identidad DrillStone del 29 de julio de 2026” es la revisión visual más reciente. Las comparaciones de cabecera y pie, los viewports 1440, 900 y 390 px, la carga de L1/L3, la exclusión de RoadLab, el control de overflow y la consola sin errores permanecen conformes. No quedan hallazgos P0, P1 o P2.
 
 final result: passed
+
+## Actualización de portada del 29 de julio de 2026
+
+- Fuente visual: `C:/Users/DeeDee/AppData/Local/Temp/codex-clipboard-8e13c946-54d3-4f9c-9681-60cd61f4a3c4.png`
+- Implementación: `http://127.0.0.1:3110/`
+- Captura escritorio: `C:/Users/DeeDee/AppData/Local/Temp/portada-dialogo-desktop.png`
+- Captura móvil: `C:/Users/DeeDee/AppData/Local/Temp/portada-dialogo-mobile.png`
+- Viewports: 1920 × 1080 y 390 × 844 CSS px, densidad 1×.
+- Estado: portada cargada, navegación cerrada y sin interacción activa.
+
+### Comparación visual
+
+La fuente mostraba una composición jurídica y una toma aérea genérica. La implementación conserva la estructura, tipografía, espaciado, colores y contenido de la portada, pero sustituye el fondo por una sola escena centrada en diálogo territorial entre comunidad, empresa y autoridades. El degradado mantiene el contraste del titular y deja visibles los actores en el lado derecho.
+
+No fue necesario un recorte focal adicional: el titular, los botones, las métricas, la imagen y la nota editorial se leen con claridad en la comparación completa. En móvil, el recorte mantiene contexto minero y presencia humana sin desbordamiento horizontal.
+
+### Superficies de fidelidad
+
+- Tipografía: familias, jerarquía, pesos, interlineado y quiebres conservados; sin truncamientos.
+- Espaciado y ritmo: estructura original sin desplazamientos; métricas y acciones permanecen alineadas.
+- Color: paleta y tokens existentes conservados; degradado reforzado solo para legibilidad sobre la nueva imagen.
+- Imagen: derivado WebP 1920 × 1080, 232 KB, sin estiramiento ni pixelación visible.
+- Contenido: sin cambios editoriales; se añadió la aclaración de que la imagen es referencial y generada con IA.
+
+### Hallazgos
+
+No quedan hallazgos P0, P1 o P2. Sin desbordamiento horizontal ni errores o advertencias en consola.
+
+### Historial de comparación
+
+- Primera comparación: la nueva imagen mejora la correspondencia temática y no introdujo diferencias P0/P1/P2, por lo que no fue necesaria una iteración correctiva.
+
+### Pruebas de interacción
+
+Los dos llamados principales permanecen presentes y accesibles; la validación DOM confirmó los enlaces a conflictos y metodología.
+
+final result: passed

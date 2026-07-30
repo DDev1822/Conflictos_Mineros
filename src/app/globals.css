@@ -94,8 +94,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
   color: #f9f5ea;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(9,40,58,.96) 0%, rgba(9,40,58,.85) 42%, rgba(9,40,58,.45) 100%),
-    var(--asset-portada-juridico-minera) center / cover no-repeat,
+    linear-gradient(90deg, rgba(9,40,58,.97) 0%, rgba(9,40,58,.91) 42%, rgba(9,40,58,.48) 72%, rgba(9,40,58,.3) 100%),
+    var(--asset-portada-dialogo-territorial) center 42% / cover no-repeat,
     var(--ink);
 }
 .hero::after {
@@ -118,6 +118,18 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
 .hero-stats div { padding: 19px 20px 0 0; }
 .hero-stats dt { font: 500 2.2rem var(--serif); color: #ef9a62; }
 .hero-stats dd { margin: 0; color: #b8c5ca; }
+.hero-media-note {
+  position: absolute;
+  right: max(5vw, 32px);
+  bottom: 48px;
+  width: min(310px, 24vw);
+  margin: 0;
+  color: rgba(248,245,237,.78);
+  font-size: .72rem;
+  line-height: 1.35;
+  text-align: right;
+  text-wrap: balance;
+}
 .home-status { display: grid; grid-template-columns: repeat(2, 1fr); background: #0d3549; color: #f8f5ed; border-top: 1px solid #315064; border-bottom: 1px solid #315064; }
 .home-status article { display: grid; grid-template-columns: 34px 1fr; gap: 14px; padding: 30px max(5vw, 32px); border-right: 1px solid #456071; }
 .home-status article:last-child { border-right: 0; }
@@ -1354,6 +1366,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 520; line-height: 1.05; }
   .hero h1 { margin-bottom: 14px; font-size: clamp(2.45rem, 12.2vw, 3rem); line-height: .96; }
   .hero-copy { font-size: 1.02rem; line-height: 1.42; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); margin-top: 36px; }
+  .hero-media-note { position: static; width: auto; margin-top: 24px; text-align: left; }
   .hero::after { display: none; }
   .hero-actions { flex-direction: column; align-items: stretch; margin-top: 22px; }
   .home-status, .home-evidence { grid-template-columns: 1fr; }
