@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const assetStyles = {
-    "--asset-portada-juridico-minera": `url("${publicAsset("/multimedia/backgrounds/portada-juridico-minera.webp")}")`,
+    "--asset-portada-dialogo-territorial": `url("${publicAsset("/multimedia/backgrounds/portada-dialogo-territorial.webp")}")`,
     "--asset-oro-ilegal-hero": `url("${publicAsset("/multimedia/backgrounds/oro-ilegal-hero.webp")}")`,
     "--asset-textura-mineral-territorial": `url("${publicAsset("/multimedia/backgrounds/textura-mineral-territorial.webp")}")`,
   } as CSSProperties;
