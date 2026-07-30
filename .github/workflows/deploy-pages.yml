@@ -1,6 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
+  push:
+    branches:
+      - codex/observatorio-v1
   workflow_dispatch:
 
 permissions:
@@ -34,8 +37,8 @@ jobs:
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
 
-      - name: Validate V1 release gates
-        run: npm run release:check
+      - name: Validate classroom publication
+        run: npm run typecheck && npm run lint && npm test && npm run validate:content && npm run audit:content && npm run check:links && npm run test:e2e && npm run build
         env:
           NEXT_TELEMETRY_DISABLED: 1
 
